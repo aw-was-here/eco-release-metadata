@@ -32,7 +32,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
 
-Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
+Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn\'t impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
 
 
 ---
@@ -51,7 +51,7 @@ Expose jute-generated allocate\_XXX functions in libzookeeper.
 
 ---
 
-* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers**
+* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn\'t take leaving servers as joining servers**
 
 trunk: http://svn.apache.org/viewvc?view=revision&revision=1679444
 branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
@@ -59,7 +59,7 @@ branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
 
 ---
 
-* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn't build on Solaris**
+* [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | *Critical* | **C client lib doesn\'t build on Solaris**
 
 Support for building C client lib on Illumos (and presumably OpenSolaris).  Configure with "CPPFLAGS=-D\_POSIX\_PTHREAD\_SEMANTICS LDFLAGS="-lnsl -lsocket" ./configure"
 
@@ -74,14 +74,14 @@ This patch is for the branch-3.4 branch ONLY.
 
 ---
 
-* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can't issue a CREATE command containing spaces in the data**
+* [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | *Minor* | **zkCli.sh can\'t issue a CREATE command containing spaces in the data**
 
 Allows spaces to be used for parameters in zkCli as long as they are in single or double quotes.  ie: create /node1 "This will now work"
 
 
 ---
 
-* [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | *Major* | **ContainerManager doesn't close the Timer it creates when stop() is called**
+* [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | *Major* | **ContainerManager doesn\'t close the Timer it creates when stop() is called**
 
 Thanks, Jordan.
 
@@ -107,7 +107,14 @@ Plumb ZooKeeperServer object into auth plugins.
 
 * [ZOOKEEPER-2573](https://issues.apache.org/jira/browse/ZOOKEEPER-2573) | *Major* | **Modify Info.REVISION to adapt git repo**
 
-After the migration of ZooKeeper's version control system from 'svn repo' to 'apache git repo' the revision info becomes git's SHA-1 hash value.
+After the migration of ZooKeeper\'s version control system from \'svn repo\' to \'apache git repo\' the revision info becomes git\'s SHA-1 hash value.
+
+
+---
+
+* [ZOOKEEPER-2722](https://issues.apache.org/jira/browse/ZOOKEEPER-2722) | *Major* | **Flaky Test: org.apache.zookeeper.test.ReadOnlyModeTest.testSessionEstablishment**
+
+1
 
 
 

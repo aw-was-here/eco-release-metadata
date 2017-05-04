@@ -43,7 +43,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-15761](https://issues.apache.org/jira/browse/SPARK-15761) | pyspark shell should load if PYSPARK\_DRIVER\_PYTHON is ipython an Python3 |  Minor | PySpark | Manoj Kumar | Manoj Kumar |
 | [SPARK-16796](https://issues.apache.org/jira/browse/SPARK-16796) | Visible passwords on Spark environment page |  Trivial | Web UI | Artur Sukhenko | Artur Sukhenko |
-| [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don't block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-17316](https://issues.apache.org/jira/browse/SPARK-17316) | Don\'t block StandaloneSchedulerBackend.executorRemoved |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-17378](https://issues.apache.org/jira/browse/SPARK-17378) | Upgrade snappy-java to 1.1.2.6 |  Trivial | Build | Adam Roberts | Adam Roberts |
 | [SPARK-17485](https://issues.apache.org/jira/browse/SPARK-17485) | Failed remote cached block reads can lead to whole job failure |  Critical | Block Manager | Josh Rosen | Josh Rosen |
 | [SPARK-17649](https://issues.apache.org/jira/browse/SPARK-17649) | Log how many Spark events got dropped in LiveListenerBus |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
@@ -77,7 +77,7 @@
 | [SPARK-17356](https://issues.apache.org/jira/browse/SPARK-17356) | A large Metadata filed in Alias can cause OOM when calling TreeNode.toJSON |  Major | SQL | Sean Zhong | Sean Zhong |
 | [SPARK-11301](https://issues.apache.org/jira/browse/SPARK-11301) | filter on partitioned column is case sensitive even the context is case insensitive |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-17245](https://issues.apache.org/jira/browse/SPARK-17245) | NPE thrown by ClientWrapper.conf |  Major | SQL | Yin Huai | Yin Huai |
-| [SPARK-17531](https://issues.apache.org/jira/browse/SPARK-17531) | Don't initialize Hive Listeners for the Execution Client |  Major | SQL | Burak Yavuz | Burak Yavuz |
+| [SPARK-17531](https://issues.apache.org/jira/browse/SPARK-17531) | Don\'t initialize Hive Listeners for the Execution Client |  Major | SQL | Burak Yavuz | Burak Yavuz |
 | [SPARK-17465](https://issues.apache.org/jira/browse/SPARK-17465) | Inappropriate memory management in \`org.apache.spark.storage.MemoryStore\` may lead to memory leak |  Major | Spark Core | Xing Shi | Xing Shi |
 | [SPARK-17547](https://issues.apache.org/jira/browse/SPARK-17547) | Temporary shuffle data files may be leaked following exception in write |  Major | Shuffle | Josh Rosen | Josh Rosen |
 | [SPARK-17617](https://issues.apache.org/jira/browse/SPARK-17617) | Remainder(%) expression.eval returns incorrect result |  Major | SQL | Sean Zhong | Sean Zhong |
@@ -87,7 +87,7 @@
 | [SPARK-17696](https://issues.apache.org/jira/browse/SPARK-17696) | Race in CoarseGrainedExecutorBackend shutdown can lead to wrong exit status |  Minor | Spark Core, YARN | Marcelo Vanzin | Charles Allen |
 | [SPARK-17721](https://issues.apache.org/jira/browse/SPARK-17721) | Erroneous computation in multiplication of transposed SparseMatrix with SparseVector |  Critical | ML, MLlib | Bjarne Fruergaard | Bjarne Fruergaard |
 | [SPARK-17884](https://issues.apache.org/jira/browse/SPARK-17884) | In the cast expression, casting from empty string to interval type throws NullPointerException |  Major | SQL | Priyanka Garg | Priyanka Garg |
-| [SPARK-17678](https://issues.apache.org/jira/browse/SPARK-17678) | Spark 1.6 Scala-2.11 repl doesn't honor "spark.replClassServer.port" |  Major | Spark Shell | Saisai Shao | Saisai Shao |
+| [SPARK-17678](https://issues.apache.org/jira/browse/SPARK-17678) | Spark 1.6 Scala-2.11 repl doesn\'t honor "spark.replClassServer.port" |  Major | Spark Shell | Saisai Shao | Saisai Shao |
 
 
 ### TESTS:

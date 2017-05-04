@@ -46,9 +46,9 @@
 | [MAPREDUCE-3343](https://issues.apache.org/jira/browse/MAPREDUCE-3343) | TaskTracker Out of Memory because of distributed cache |  Major | mrv1 | Ahmed Radwan | yunjiong zhao |
 | [HADOOP-7960](https://issues.apache.org/jira/browse/HADOOP-7960) | Port HADOOP-5203 to branch-1, build version comparison is too restrictive |  Major | . | Giridharan Kesavan | Matt Foley |
 | [HADOOP-7964](https://issues.apache.org/jira/browse/HADOOP-7964) | Deadlock in class init. |  Blocker | security, util | Kihwal Lee | Daryn Sharp |
-| [HADOOP-7988](https://issues.apache.org/jira/browse/HADOOP-7988) | Upper case in hostname part of the principals doesn't work with kerberos. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
+| [HADOOP-7988](https://issues.apache.org/jira/browse/HADOOP-7988) | Upper case in hostname part of the principals doesn\'t work with kerberos. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
 | [HADOOP-8010](https://issues.apache.org/jira/browse/HADOOP-8010) | hadoop-config.sh spews error message when HADOOP\_HOME\_WARN\_SUPPRESS is set to true and HADOOP\_HOME is present |  Minor | scripts | Roman Shaposhnik | Roman Shaposhnik |
 | [HDFS-2379](https://issues.apache.org/jira/browse/HDFS-2379) | 0.20: Allow block reports to proceed without holding FSDataset lock |  Critical | datanode | Todd Lipcon | Todd Lipcon |
-| [HADOOP-8052](https://issues.apache.org/jira/browse/HADOOP-8052) | Hadoop Metrics2 should emit Float.MAX\_VALUE (instead of Double.MAX\_VALUE) to avoid making Ganglia's gmetad core |  Major | metrics | Varun Kapoor | Varun Kapoor |
+| [HADOOP-8052](https://issues.apache.org/jira/browse/HADOOP-8052) | Hadoop Metrics2 should emit Float.MAX\_VALUE (instead of Double.MAX\_VALUE) to avoid making Ganglia\'s gmetad core |  Major | metrics | Varun Kapoor | Varun Kapoor |
 
 

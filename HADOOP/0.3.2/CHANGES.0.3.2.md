@@ -33,7 +33,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-279](https://issues.apache.org/jira/browse/HADOOP-279) | running without the hadoop script causes warnings about log4j not being configured correctly |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-279](https://issues.apache.org/jira/browse/HADOOP-279) | running without the hadoop script causes warnings about log4j not being configured correctly |  Major | . | Owen O\'Malley | Owen O\'Malley |
 | [HADOOP-269](https://issues.apache.org/jira/browse/HADOOP-269) | add FAQ to Wiki |  Major | documentation | Doug Cutting | Doug Cutting |
 
 
@@ -45,11 +45,11 @@
 | [HADOOP-240](https://issues.apache.org/jira/browse/HADOOP-240) | namenode should not log failed mkdirs at warning level |  Minor | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-285](https://issues.apache.org/jira/browse/HADOOP-285) | Data nodes cannot re-join the cluster once connection is lost |  Blocker | . | Konstantin Shvachko | Hairong Kuang |
 | [HADOOP-277](https://issues.apache.org/jira/browse/HADOOP-277) | Race condition in Configuration.getLocalPath() |  Major | . | p sutter | Sameer Paranjpye |
-| [HADOOP-282](https://issues.apache.org/jira/browse/HADOOP-282) | the datanode crashes if it starts before the namenode |  Critical | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-282](https://issues.apache.org/jira/browse/HADOOP-282) | the datanode crashes if it starts before the namenode |  Critical | . | Owen O\'Malley | Owen O\'Malley |
 | [HADOOP-289](https://issues.apache.org/jira/browse/HADOOP-289) | Datanodes need to catch SocketTimeoutException and UnregisteredDatanodeException |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
-| [HADOOP-292](https://issues.apache.org/jira/browse/HADOOP-292) | hadoop dfs commands should not output superfluous data to stdout |  Minor | . | Yoram Arnon | Owen O'Malley |
-| [HADOOP-294](https://issues.apache.org/jira/browse/HADOOP-294) | dfs client error retries aren't happening (already being created and not replicated yet) |  Major | . | Owen O'Malley | Owen O'Malley |
-| [HADOOP-242](https://issues.apache.org/jira/browse/HADOOP-242) | job fails because of "No valid local directories in property: " exception |  Major | . | Yoram Arnon | Owen O'Malley |
-| [HADOOP-284](https://issues.apache.org/jira/browse/HADOOP-284) | dfs timeout on open |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-292](https://issues.apache.org/jira/browse/HADOOP-292) | hadoop dfs commands should not output superfluous data to stdout |  Minor | . | Yoram Arnon | Owen O\'Malley |
+| [HADOOP-294](https://issues.apache.org/jira/browse/HADOOP-294) | dfs client error retries aren\'t happening (already being created and not replicated yet) |  Major | . | Owen O\'Malley | Owen O\'Malley |
+| [HADOOP-242](https://issues.apache.org/jira/browse/HADOOP-242) | job fails because of "No valid local directories in property: " exception |  Major | . | Yoram Arnon | Owen O\'Malley |
+| [HADOOP-284](https://issues.apache.org/jira/browse/HADOOP-284) | dfs timeout on open |  Major | . | Owen O\'Malley | Owen O\'Malley |
 
 

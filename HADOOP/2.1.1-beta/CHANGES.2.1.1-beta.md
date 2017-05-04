@@ -204,7 +204,7 @@
 | [MAPREDUCE-5466](https://issues.apache.org/jira/browse/MAPREDUCE-5466) | Historyserver does not refresh the result of restarted jobs after RM restart |  Blocker | . | Yesha Vora | Jian He |
 | [MAPREDUCE-5476](https://issues.apache.org/jira/browse/MAPREDUCE-5476) | Job can fail when RM restarts after staging dir is cleaned but before MR successfully unregister with RM |  Blocker | . | Jian He | Jian He |
 | [HDFS-4947](https://issues.apache.org/jira/browse/HDFS-4947) | Add NFS server export table to control export by hostname or IP range |  Major | nfs | Brandon Li | Jing Zhao |
-| [YARN-1085](https://issues.apache.org/jira/browse/YARN-1085) | Yarn and MRv2 should do HTTP client authentication in kerberos setup. |  Blocker | nodemanager, resourcemanager | Jaimin D Jetly | Omkar Vinit Joshi |
+| [YARN-1085](https://issues.apache.org/jira/browse/YARN-1085) | Yarn and MRv2 should do HTTP client authentication in kerberos setup. |  Blocker | nodemanager, resourcemanager | Jaimin Jetly | Omkar Vinit Joshi |
 | [HDFS-5078](https://issues.apache.org/jira/browse/HDFS-5078) | Support file append in NFSv3 gateway to enable data streaming to HDFS |  Major | nfs | Brandon Li | Brandon Li |
 | [MAPREDUCE-5441](https://issues.apache.org/jira/browse/MAPREDUCE-5441) | JobClient exit whenever RM issue Reboot command to 1st attempt App Master. |  Major | applicationmaster, client | Rohith Sharma K S | Jian He |
 | [YARN-771](https://issues.apache.org/jira/browse/YARN-771) | AMRMClient  support for resource blacklisting |  Major | . | Bikas Saha | Junping Du |

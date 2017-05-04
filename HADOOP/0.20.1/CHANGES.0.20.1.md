@@ -33,7 +33,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-5714](https://issues.apache.org/jira/browse/HADOOP-5714) | Metric to show number of fs.exists (or number of getFileInfo) calls |  Minor | metrics | Koji Noguchi | Jakob Homan |
-| [HADOOP-3315](https://issues.apache.org/jira/browse/HADOOP-3315) | New binary file format |  Major | io | Owen O'Malley | Hong Tang |
+| [HADOOP-3315](https://issues.apache.org/jira/browse/HADOOP-3315) | New binary file format |  Major | io | Owen O\'Malley | Hong Tang |
 | [HADOOP-6080](https://issues.apache.org/jira/browse/HADOOP-6080) | Handling of  Trash with quota |  Major | fs | Koji Noguchi | Jakob Homan |
 
 
@@ -66,9 +66,9 @@
 | [HADOOP-5719](https://issues.apache.org/jira/browse/HADOOP-5719) | Jobs failed during job initalization are never removed from Capacity Schedulers waiting list |  Major | . | Sreekanth Ramakrishnan | Sreekanth Ramakrishnan |
 | [HADOOP-5349](https://issues.apache.org/jira/browse/HADOOP-5349) | When the size required for a path is -1, LocalDirAllocator.getLocalPathForWrite fails with a DiskCheckerException when the disk it selects is bad. |  Major | . | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [HADOOP-5636](https://issues.apache.org/jira/browse/HADOOP-5636) | Job is left in Running state after a killJob |  Critical | . | Amareshwari Sriramadasu | Amar Kamat |
-| [HADOOP-5641](https://issues.apache.org/jira/browse/HADOOP-5641) | Possible NPE in CapacityScheduler's MemoryMatcher |  Major | . | Vinod Kumar Vavilapalli | Hemanth Yamijala |
-| [HADOOP-5828](https://issues.apache.org/jira/browse/HADOOP-5828) | Use absolute path for JobTracker's mapred.local.dir in MiniMRCluster |  Major | test | Hemanth Yamijala | Hemanth Yamijala |
-| [HADOOP-5850](https://issues.apache.org/jira/browse/HADOOP-5850) | map/reduce doesn't run jobs with 0 maps |  Critical | . | Owen O'Malley | Vinod Kumar Vavilapalli |
+| [HADOOP-5641](https://issues.apache.org/jira/browse/HADOOP-5641) | Possible NPE in CapacityScheduler\'s MemoryMatcher |  Major | . | Vinod Kumar Vavilapalli | Hemanth Yamijala |
+| [HADOOP-5828](https://issues.apache.org/jira/browse/HADOOP-5828) | Use absolute path for JobTracker\'s mapred.local.dir in MiniMRCluster |  Major | test | Hemanth Yamijala | Hemanth Yamijala |
+| [HADOOP-5850](https://issues.apache.org/jira/browse/HADOOP-5850) | map/reduce doesn\'t run jobs with 0 maps |  Critical | . | Owen O\'Malley | Vinod Kumar Vavilapalli |
 | [HADOOP-4626](https://issues.apache.org/jira/browse/HADOOP-4626) | API link in forrest doc should point to the same version of hadoop. |  Minor | documentation | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-5883](https://issues.apache.org/jira/browse/HADOOP-5883) | TaskMemoryMonitorThread might shoot down tasks even if their processes momentarily exceed the requested memory |  Major | . | Hemanth Yamijala | Hemanth Yamijala |
 | [HADOOP-5539](https://issues.apache.org/jira/browse/HADOOP-5539) | o.a.h.mapred.Merger not maintaining map out compression on intermediate files |  Blocker | . | Billy Pearson | Jothi Padmanabhan |
@@ -94,8 +94,8 @@
 | [HADOOP-6139](https://issues.apache.org/jira/browse/HADOOP-6139) | Incomplete help message is displayed for rm and rmr options. |  Minor | . | Suman Sehgal | Jakob Homan |
 | [HADOOP-6141](https://issues.apache.org/jira/browse/HADOOP-6141) | hadoop 0.20 branch "test-patch" is broken |  Major | build | Hong Tang | Hong Tang |
 | [HADOOP-6145](https://issues.apache.org/jira/browse/HADOOP-6145) | No error message for deleting non-existant file or directory. |  Major | fs | Suman Sehgal | Jakob Homan |
-| [MAPREDUCE-565](https://issues.apache.org/jira/browse/MAPREDUCE-565) | Partitioner does not work with new API |  Blocker | task | Jothi Padmanabhan | Owen O'Malley |
-| [MAPREDUCE-18](https://issues.apache.org/jira/browse/MAPREDUCE-18) | Under load the shuffle sometimes gets incorrect data |  Blocker | . | Owen O'Malley | Ravi Gummadi |
+| [MAPREDUCE-565](https://issues.apache.org/jira/browse/MAPREDUCE-565) | Partitioner does not work with new API |  Blocker | task | Jothi Padmanabhan | Owen O\'Malley |
+| [MAPREDUCE-18](https://issues.apache.org/jira/browse/MAPREDUCE-18) | Under load the shuffle sometimes gets incorrect data |  Blocker | . | Owen O\'Malley | Ravi Gummadi |
 | [MAPREDUCE-735](https://issues.apache.org/jira/browse/MAPREDUCE-735) | ArrayIndexOutOfBoundsException is thrown by KeyFieldBasedPartitioner |  Major | . | Suman Sehgal | Amar Kamat |
 | [MAPREDUCE-383](https://issues.apache.org/jira/browse/MAPREDUCE-383) | pipes combiner does not reset properly after a spill |  Major | . | Christian Kunz | Christian Kunz |
 | [MAPREDUCE-40](https://issues.apache.org/jira/browse/MAPREDUCE-40) | Memory management variables need a backwards compatibility option after HADOOP-5881 |  Blocker | . | Hemanth Yamijala | rahul k singh |
@@ -109,12 +109,12 @@
 | [MAPREDUCE-818](https://issues.apache.org/jira/browse/MAPREDUCE-818) | org.apache.hadoop.mapreduce.Counters.getGroup returns null if the group name doesnt exist. |  Minor | . | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [MAPREDUCE-807](https://issues.apache.org/jira/browse/MAPREDUCE-807) | Stray user files in mapred.system.dir with permissions other than 777 can prevent the jobtracker from starting up. |  Blocker | jobtracker | Amar Kamat | Amar Kamat |
 | [MAPREDUCE-430](https://issues.apache.org/jira/browse/MAPREDUCE-430) | Task stuck in cleanup with OutOfMemoryErrors |  Major | . | Amareshwari Sriramadasu | Amar Kamat |
-| [HADOOP-6215](https://issues.apache.org/jira/browse/HADOOP-6215) | fix GenericOptionParser to deal with -D with '=' in the value |  Major | . | Owen O'Malley | Amar Kamat |
+| [HADOOP-6215](https://issues.apache.org/jira/browse/HADOOP-6215) | fix GenericOptionParser to deal with -D with \'=\' in the value |  Major | . | Owen O\'Malley | Amar Kamat |
 | [MAPREDUCE-421](https://issues.apache.org/jira/browse/MAPREDUCE-421) | mapred pipes might return exit code 0 even when failing |  Major | pipes | Christian Kunz | Christian Kunz |
 | [HDFS-525](https://issues.apache.org/jira/browse/HDFS-525) | ListPathsServlet.java uses static SimpleDateFormat that has threading issues |  Major | namenode | Suresh Srinivas | Suresh Srinivas |
 | [MAPREDUCE-911](https://issues.apache.org/jira/browse/MAPREDUCE-911) | TestTaskFail fail sometimes |  Major | test | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [MAPREDUCE-687](https://issues.apache.org/jira/browse/MAPREDUCE-687) | TestMiniMRMapRedDebugScript fails sometimes |  Major | test | Amar Kamat | Amareshwari Sriramadasu |
-| [MAPREDUCE-924](https://issues.apache.org/jira/browse/MAPREDUCE-924) | TestPipes must not directly invoke 'main' of pipes as an exit from main could cause the testcase to crash. |  Major | pipes | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
+| [MAPREDUCE-924](https://issues.apache.org/jira/browse/MAPREDUCE-924) | TestPipes must not directly invoke \'main\' of pipes as an exit from main could cause the testcase to crash. |  Major | pipes | Amareshwari Sriramadasu | Amareshwari Sriramadasu |
 | [HDFS-1022](https://issues.apache.org/jira/browse/HDFS-1022) | Merge under-10-min tests specs into one file |  Major | test | Erik Steffl | Erik Steffl |
 
 

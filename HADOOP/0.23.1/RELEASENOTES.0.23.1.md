@@ -86,9 +86,9 @@ Reenabled and fixed bugs in the failing ant test TestAuditLogger.
 
 ---
 
-* [MAPREDUCE-3342](https://issues.apache.org/jira/browse/MAPREDUCE-3342) | *Critical* | **JobHistoryServer doesn't show job queue**
+* [MAPREDUCE-3342](https://issues.apache.org/jira/browse/MAPREDUCE-3342) | *Critical* | **JobHistoryServer doesn\'t show job queue**
 
-Fixed JobHistoryServer to also show the job's queue name.
+Fixed JobHistoryServer to also show the job\'s queue name.
 
 
 ---
@@ -130,7 +130,7 @@ Removed the unnecessary job user-name configuration in mapred-site.xml.
 
 * [MAPREDUCE-3392](https://issues.apache.org/jira/browse/MAPREDUCE-3392) | *Blocker* | **Cluster.getDelegationToken() throws NPE if client.getDelegationToken() returns null.**
 
-Fixed Cluster's getDelegationToken's API to return null when there isn't a supported token.
+Fixed Cluster\'s getDelegationToken\'s API to return null when there isn\'t a supported token.
 
 
 ---
@@ -165,7 +165,7 @@ Changed NodeManager to fail fast when LinuxContainerExecutor has wrong configura
 
 * [MAPREDUCE-3355](https://issues.apache.org/jira/browse/MAPREDUCE-3355) | *Blocker* | **AM scheduling hangs frequently with sort job on 350 nodes**
 
-Fixed MR AM's ContainerLauncher to handle node-command timeouts correctly.
+Fixed MR AM\'s ContainerLauncher to handle node-command timeouts correctly.
 
 
 ---
@@ -184,9 +184,9 @@ Here is a patch to enable this behavior
 
 ---
 
-* [MAPREDUCE-3412](https://issues.apache.org/jira/browse/MAPREDUCE-3412) | *Major* | **'ant docs' is broken**
+* [MAPREDUCE-3412](https://issues.apache.org/jira/browse/MAPREDUCE-3412) | *Major* | **\'ant docs\' is broken**
 
-Fixes 'ant docs' by removing stale references to capacity-scheduler docs.
+Fixes \'ant docs\' by removing stale references to capacity-scheduler docs.
 
 
 ---
@@ -212,7 +212,7 @@ Fixed Configuration.getClasses() API to return the default value if the key is n
 
 * [MAPREDUCE-3519](https://issues.apache.org/jira/browse/MAPREDUCE-3519) | *Blocker* | **Deadlock in LocalDirsHandlerService and ShuffleHandler**
 
-Fixed a deadlock in NodeManager LocalDirectories's handling service.
+Fixed a deadlock in NodeManager LocalDirectories\'s handling service.
 
 
 ---
@@ -254,7 +254,7 @@ Fixed JobEndNotifier to not get interrupted before completing all its retries.
 
 * [MAPREDUCE-3487](https://issues.apache.org/jira/browse/MAPREDUCE-3487) | *Critical* | **jobhistory web ui task counters no longer links to singletakecounter page**
 
-Fixed JobHistory web-UI to display links to single task's counters' page.
+Fixed JobHistory web-UI to display links to single task\'s counters\' page.
 
 
 ---
@@ -275,7 +275,7 @@ Added an anonymizer tool to Rumen. Anonymizer takes a Rumen trace file and/or to
 
 * [MAPREDUCE-3387](https://issues.apache.org/jira/browse/MAPREDUCE-3387) | *Critical* | **A tracking URL of N/A before the app master is launched breaks oozie**
 
-Fixed AM's tracking URL to always go through the proxy, even before the job started, so that it works properly with oozie throughout the job execution.
+Fixed AM\'s tracking URL to always go through the proxy, even before the job started, so that it works properly with oozie throughout the job execution.
 
 
 ---
@@ -315,16 +315,16 @@ Modified ContainerLocalizer to send a heartbeat to NM immediately after download
 
 ---
 
-* [MAPREDUCE-3568](https://issues.apache.org/jira/browse/MAPREDUCE-3568) | *Critical* | **Optimize Job's progress calculations in MR AM**
+* [MAPREDUCE-3568](https://issues.apache.org/jira/browse/MAPREDUCE-3568) | *Critical* | **Optimize Job\'s progress calculations in MR AM**
 
-Optimized Job's progress calculations in MR AM.
+Optimized Job\'s progress calculations in MR AM.
 
 
 ---
 
 * [HADOOP-7348](https://issues.apache.org/jira/browse/HADOOP-7348) | *Major* | **Modify the option of FsShell getmerge from [addnl] to [-nl] for consistency**
 
-The 'fs -getmerge' tool now uses a -nl flag to determine if adding a newline at end of each file is required, in favor of the 'addnl' boolean flag that was used earlier.
+The \'fs -getmerge\' tool now uses a -nl flag to determine if adding a newline at end of each file is required, in favor of the \'addnl\' boolean flag that was used earlier.
 
 
 ---
@@ -338,7 +338,7 @@ Fixed failing JUnit tests in Gridmix.
 
 * [HDFS-1314](https://issues.apache.org/jira/browse/HDFS-1314) | *Minor* | **dfs.blocksize accepts only absolute value**
 
-The default blocksize property 'dfs.blocksize' now accepts unit symbols to be used instead of byte length. Values such as "10k", "128m", "1g" are now OK to provide instead of just no. of bytes as was before.
+The default blocksize property \'dfs.blocksize\' now accepts unit symbols to be used instead of byte length. Values such as "10k", "128m", "1g" are now OK to provide instead of just no. of bytes as was before.
 
 
 ---
@@ -371,7 +371,7 @@ Fixed TaskHeartBeatHandler to use a new configuration for the thread loop interv
 
 ---
 
-* [MAPREDUCE-3639](https://issues.apache.org/jira/browse/MAPREDUCE-3639) | *Blocker* | **TokenCache likely broken for FileSystems which don't issue delegation tokens**
+* [MAPREDUCE-3639](https://issues.apache.org/jira/browse/MAPREDUCE-3639) | *Blocker* | **TokenCache likely broken for FileSystems which don\'t issue delegation tokens**
 
 Fixed TokenCache to work with absent FileSystem canonical service-names.
 
@@ -380,7 +380,7 @@ Fixed TokenCache to work with absent FileSystem canonical service-names.
 
 * [MAPREDUCE-3312](https://issues.apache.org/jira/browse/MAPREDUCE-3312) | *Major* | **Make MR AM not send a stopContainer w/o corresponding start container**
 
-Modified MR AM to not send a stop-container request for a container that isn't launched at all.
+Modified MR AM to not send a stop-container request for a container that isn\'t launched at all.
 
 
 ---
@@ -408,7 +408,7 @@ Fixed TaskHeartbeatHandler to not hold a global lock for all task-updates.
 
 * [MAPREDUCE-3512](https://issues.apache.org/jira/browse/MAPREDUCE-3512) | *Blocker* | **Batch jobHistory disk flushes**
 
-Batching JobHistory flushing to DFS so that we don't flush for every event slowing down AM.
+Batching JobHistory flushing to DFS so that we don\'t flush for every event slowing down AM.
 
 
 ---
@@ -470,7 +470,7 @@ Improved FileInputFormat to return better locality for the last split.
 
 * [MAPREDUCE-3714](https://issues.apache.org/jira/browse/MAPREDUCE-3714) | *Blocker* | **Reduce hangs in a corner case**
 
-Fixed EventFetcher and Fetcher threads to shut-down properly so that reducers don't hang in corner cases.
+Fixed EventFetcher and Fetcher threads to shut-down properly so that reducers don\'t hang in corner cases.
 
 
 ---
@@ -519,7 +519,7 @@ Very minor incompatibility in cmd-line output, inevitable due to MRv2 architectu
 
 ---
 
-* [MAPREDUCE-3732](https://issues.apache.org/jira/browse/MAPREDUCE-3732) | *Blocker* | **CS should only use 'activeUsers with pending requests' for computing user-limits**
+* [MAPREDUCE-3732](https://issues.apache.org/jira/browse/MAPREDUCE-3732) | *Blocker* | **CS should only use \'activeUsers with pending requests\' for computing user-limits**
 
 Modified CapacityScheduler to use only users with pending requests for computing user-limits.
 
@@ -605,7 +605,7 @@ Changed active nodes list to not contain unhealthy nodes on the webUI and metric
 
 ---
 
-* [MAPREDUCE-3417](https://issues.apache.org/jira/browse/MAPREDUCE-3417) | *Blocker* | **job access controls not working app master and job history UI's**
+* [MAPREDUCE-3417](https://issues.apache.org/jira/browse/MAPREDUCE-3417) | *Blocker* | **job access controls not working app master and job history UI\'s**
 
 Fixed job-access-controls to work with MR AM and JobHistoryServer web-apps.
 
@@ -663,7 +663,7 @@ Added test to validate that AM can crash multiple times and still can recover su
 
 * [MAPREDUCE-3854](https://issues.apache.org/jira/browse/MAPREDUCE-3854) | *Major* | **Reinstate environment variable tests in TestMiniMRChildTask**
 
-Fixed and reenabled tests related to MR child JVM's environmental variables in TestMiniMRChildTask.
+Fixed and reenabled tests related to MR child JVM\'s environmental variables in TestMiniMRChildTask.
 
 
 ---

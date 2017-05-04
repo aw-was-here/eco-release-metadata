@@ -35,7 +35,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-8769](https://issues.apache.org/jira/browse/HIVE-8769) | Physical optimizer : Incorrect CE results in a shuffle join instead of a Map join (PK/FK pattern not detected) |  Major | Physical Optimizer | Mostafa Mokhtar | Pengcheng Xiong |
-| [HIVE-10812](https://issues.apache.org/jira/browse/HIVE-10812) | Scaling PK/FK's selectivity for stats annotation |  Major | Physical Optimizer, Statistics | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-10812](https://issues.apache.org/jira/browse/HIVE-10812) | Scaling PK/FK\'s selectivity for stats annotation |  Major | Physical Optimizer, Statistics | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10900](https://issues.apache.org/jira/browse/HIVE-10900) | Fix the indeterministic stats for some hive queries |  Minor | Tests | Pengcheng Xiong | Pengcheng Xiong |
 
 
@@ -53,7 +53,7 @@
 | [HIVE-10696](https://issues.apache.org/jira/browse/HIVE-10696) | TestAddResource tests are non-portable |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10719](https://issues.apache.org/jira/browse/HIVE-10719) | Hive metastore failure when alter table rename is attempted. |  Major | Metastore | Vikram Dixit K | Vikram Dixit K |
 | [HIVE-10675](https://issues.apache.org/jira/browse/HIVE-10675) | Provide option to skip Accumulo related Hive tests in itests directory |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
-| [HIVE-10727](https://issues.apache.org/jira/browse/HIVE-10727) | Import throws error message "org.apache.thrift.protocol.TProtocolException: Required field 'filesAdded' is unset!" |  Major | . | Balu Vellanki | Sushanth Sowmyan |
+| [HIVE-10727](https://issues.apache.org/jira/browse/HIVE-10727) | Import throws error message "org.apache.thrift.protocol.TProtocolException: Required field \'filesAdded\' is unset!" |  Major | . | Balu Vellanki | Sushanth Sowmyan |
 | [HIVE-10628](https://issues.apache.org/jira/browse/HIVE-10628) | Incorrect result when vectorized native mapjoin is enabled using null safe operators \<=\> |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-10745](https://issues.apache.org/jira/browse/HIVE-10745) | Better null handling by Vectorizer |  Major | Vectorization | Jagruti Varia | Ashutosh Chauhan |
 | [HIVE-10627](https://issues.apache.org/jira/browse/HIVE-10627) | Queries fail with Failed to breakup Windowing invocations into Groups |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
@@ -67,7 +67,7 @@
 | [HIVE-10677](https://issues.apache.org/jira/browse/HIVE-10677) | hive.exec.parallel=true has problem when it is used for analyze table column stats |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10107](https://issues.apache.org/jira/browse/HIVE-10107) | Union All : Vertex missing stats resulting in OOM and in-efficient plans |  Major | Physical Optimizer | Mostafa Mokhtar | Pengcheng Xiong |
 | [HIVE-10805](https://issues.apache.org/jira/browse/HIVE-10805) | OOM in vectorized reduce |  Blocker | . | Matt McCline | Matt McCline |
-| [HIVE-10801](https://issues.apache.org/jira/browse/HIVE-10801) | 'drop view' fails throwing java.lang.NullPointerException |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
+| [HIVE-10801](https://issues.apache.org/jira/browse/HIVE-10801) | \'drop view\' fails throwing java.lang.NullPointerException |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10813](https://issues.apache.org/jira/browse/HIVE-10813) | Fix current test failures after HIVE-8769 |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10753](https://issues.apache.org/jira/browse/HIVE-10753) | hs2 jdbc url - wrong connection string cause  error on beeline/jdbc/odbc client, misleading message |  Major | Beeline, JDBC | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-10768](https://issues.apache.org/jira/browse/HIVE-10768) | In QTestGenTask.execute() we should not throw an exception right away if we are unable to clean any old files |  Major | Testing Infrastructure | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
@@ -88,7 +88,7 @@
 | [HIVE-10528](https://issues.apache.org/jira/browse/HIVE-10528) | Hiveserver2 in HTTP mode is not applying auth\_to\_local rules |  Major | HiveServer2 | Abdelrahman Shettia | Abdelrahman Shettia |
 | [HIVE-10862](https://issues.apache.org/jira/browse/HIVE-10862) | TestHiveAuthorizerShowFilters tests fail when run in sequence |  Major | Tests | Thejas M Nair | Thejas M Nair |
 | [HIVE-9842](https://issues.apache.org/jira/browse/HIVE-9842) | Enable session/operation timeout by default in HiveServer2 |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
-| [HIVE-10843](https://issues.apache.org/jira/browse/HIVE-10843) | desc database and show tables commands don't pass db to HiveAuthorizer check |  Major | . | Thejas M Nair | Thejas M Nair |
+| [HIVE-10843](https://issues.apache.org/jira/browse/HIVE-10843) | desc database and show tables commands don\'t pass db to HiveAuthorizer check |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10875](https://issues.apache.org/jira/browse/HIVE-10875) | Select query with view in subquery adds underlying table as direct input |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-10877](https://issues.apache.org/jira/browse/HIVE-10877) | TestUtil class name confuses ptest2 |  Major | Tests | Thejas M Nair | Thejas M Nair |
 | [HIVE-10845](https://issues.apache.org/jira/browse/HIVE-10845) | TezJobMonitor uses killedTaskCount instead of killedTaskAttemptCount |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -108,7 +108,7 @@
 | [HIVE-8931](https://issues.apache.org/jira/browse/HIVE-8931) | Test TestAccumuloCliDriver is not completing |  Major | . | Brock Noland | Josh Elser |
 | [HIVE-10958](https://issues.apache.org/jira/browse/HIVE-10958) | Centos: TestMiniTezCliDriver.testCliDriver\_mergejoin fails |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-10857](https://issues.apache.org/jira/browse/HIVE-10857) | Accumulo storage handler fail throwing java.lang.IllegalArgumentException: Cannot determine SASL mechanism for token class: class org.apache.accumulo.core.client.security.tokens.PasswordToken |  Major | . | Takahiko Saito | Josh Elser |
-| [HIVE-10957](https://issues.apache.org/jira/browse/HIVE-10957) | QueryPlan's start time is incorrect in certain cases |  Major | . | Gunther Hagleitner | Wei Zheng |
+| [HIVE-10957](https://issues.apache.org/jira/browse/HIVE-10957) | QueryPlan\'s start time is incorrect in certain cases |  Major | . | Gunther Hagleitner | Wei Zheng |
 | [HIVE-10967](https://issues.apache.org/jira/browse/HIVE-10967) | add mapreduce.job.tags to sql std authorization config whitelist |  Major | Authorization, SQLStandardAuthorization | Thejas M Nair | Thejas M Nair |
 | [HIVE-10966](https://issues.apache.org/jira/browse/HIVE-10966) | direct SQL for stats has a cast exception on some databases |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-10971](https://issues.apache.org/jira/browse/HIVE-10971) | count(\*) with count(distinct) gives wrong results when hive.groupby.skewindata=true |  Major | Logical Optimizer | WangMeng | WangMeng |

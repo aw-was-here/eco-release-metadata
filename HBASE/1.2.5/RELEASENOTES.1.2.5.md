@@ -40,10 +40,17 @@ In HBase 2.0 this is going to be the default. In previous versions it can be con
 
 ---
 
-* [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value's**
+* [HBASE-17112](https://issues.apache.org/jira/browse/HBASE-17112) | *Major* | **Prevent setting timestamp of delta operations the same as previous value\'s**
 
-Before this issue, two concurrent Increments/Appends done in same millisecond or RS's clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.
+Before this issue, two concurrent Increments/Appends done in same millisecond or RS\'s clock going back will result in two results have same TS, which is not friendly to versioning and will get wrong result in slave cluster if the replication is disordered.
 After this issue, the result of Increment/Append will always have an incremental TS. There is no any inconsistent in replication for these operations. But there is a rare case that if there is a Delete in same millisecond, the later result can not be masked by this Delete. This can be fixed after we have new semantics that previous Delete will never mask later Put even its timestamp is higher.
+
+
+---
+
+* [HBASE-17716](https://issues.apache.org/jira/browse/HBASE-17716) | *Minor* | **Formalize Scan Metric names**
+
+HBASE-17716 breaks compatibility of ServerSideScanMetrics by changing public field names, and the issue is fixed through HBASE-17886
 
 
 ---

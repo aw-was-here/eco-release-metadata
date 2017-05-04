@@ -70,7 +70,7 @@ Test case TestHdfsProxy.testHdfsProxyInterface has been temporarily disabled for
 
 * [MAPREDUCE-2846](https://issues.apache.org/jira/browse/MAPREDUCE-2846) | *Blocker* | **a small % of all tasks fail with DefaultTaskController**
 
-Fixed a race condition in writing the log index file that caused tasks to 'fail'.
+Fixed a race condition in writing the log index file that caused tasks to \'fail\'.
 
 
 ---

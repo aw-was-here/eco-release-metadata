@@ -48,12 +48,12 @@
 | [HADOOP-1108](https://issues.apache.org/jira/browse/HADOOP-1108) | Checksumed file system should  retry reading if a different replica is found when handle ChecksumException |  Blocker | . | dhruba borthakur | Hairong Kuang |
 | [HADOOP-1070](https://issues.apache.org/jira/browse/HADOOP-1070) | Number of racks and datanode double temporarily when upgrading from 0.10.1 to 0.11.2 |  Blocker | . | Nigel Daley | Konstantin Shvachko |
 | [HADOOP-1099](https://issues.apache.org/jira/browse/HADOOP-1099) | NullPointerException in JobInProgress.getTaskInProgress |  Major | . | Nigel Daley | Gautam Kowshik |
-| [HADOOP-1115](https://issues.apache.org/jira/browse/HADOOP-1115) | copyToLocal doesn't copy directories |  Blocker | . | Nigel Daley |  |
+| [HADOOP-1115](https://issues.apache.org/jira/browse/HADOOP-1115) | copyToLocal doesn\'t copy directories |  Blocker | . | Nigel Daley |  |
 | [HADOOP-1109](https://issues.apache.org/jira/browse/HADOOP-1109) | Streaming, NPE when reading sequencefile |  Major | . | Koji Noguchi |  |
 | [HADOOP-1117](https://issues.apache.org/jira/browse/HADOOP-1117) | DFS Scalability: When the namenode is restarted it consumes 80% CPU |  Blocker | . | dhruba borthakur | dhruba borthakur |
-| [HADOOP-1089](https://issues.apache.org/jira/browse/HADOOP-1089) | The c++ version of write and read v-int don't agree with the java versions |  Major | record | Owen O'Malley | Milind Bhandarkar |
+| [HADOOP-1089](https://issues.apache.org/jira/browse/HADOOP-1089) | The c++ version of write and read v-int don\'t agree with the java versions |  Major | record | Owen O\'Malley | Milind Bhandarkar |
 | [HADOOP-1128](https://issues.apache.org/jira/browse/HADOOP-1128) | Missing progress information in map tasks |  Major | . | Andrzej Bialecki | Andrzej Bialecki |
-| [HADOOP-1129](https://issues.apache.org/jira/browse/HADOOP-1129) | The DFSClient hides IOExceptions in flush |  Major | . | Owen O'Malley | Hairong Kuang |
+| [HADOOP-1129](https://issues.apache.org/jira/browse/HADOOP-1129) | The DFSClient hides IOExceptions in flush |  Major | . | Owen O\'Malley | Hairong Kuang |
 | [HADOOP-1126](https://issues.apache.org/jira/browse/HADOOP-1126) | Optimize CPU usage when cluster restarts |  Major | . | dhruba borthakur | Hairong Kuang |
 
 

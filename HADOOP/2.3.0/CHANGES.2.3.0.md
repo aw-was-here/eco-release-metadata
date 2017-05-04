@@ -113,7 +113,7 @@
 | [YARN-1303](https://issues.apache.org/jira/browse/YARN-1303) | Allow multiple commands separating with ";" in distributed-shell |  Major | applications/distributed-shell | Tassapol Athiapinya | Xuan Gong |
 | [HDFS-5532](https://issues.apache.org/jira/browse/HDFS-5532) | Enable the webhdfs by default to support new HDFS web UI |  Major | webhdfs | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10111](https://issues.apache.org/jira/browse/HADOOP-10111) | Allow DU to be initialized with an initial value |  Major | . | Kihwal Lee | Kihwal Lee |
-| [YARN-1423](https://issues.apache.org/jira/browse/YARN-1423) | Support queue placement by secondary group in the Fair Scheduler |  Major | scheduler | Sandy Ryza | Ted Malaska |
+| [YARN-1423](https://issues.apache.org/jira/browse/YARN-1423) | Support queue placement by secondary group in the Fair Scheduler |  Major | scheduler | Sandy Ryza | Theodore michael Malaska |
 | [HDFS-5548](https://issues.apache.org/jira/browse/HDFS-5548) | Use ConcurrentHashMap in portmap |  Major | nfs | Haohui Mai | Haohui Mai |
 | [HDFS-5561](https://issues.apache.org/jira/browse/HDFS-5561) | FSNameSystem#getNameJournalStatus() in JMX should return plain text instead of HTML |  Minor | namenode | Fengdong Yu | Haohui Mai |
 | [HDFS-5568](https://issues.apache.org/jira/browse/HDFS-5568) | Support inclusion of snapshot paths in Namenode fsck |  Major | snapshots | Vinayakumar B | Vinayakumar B |

@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-80](https://issues.apache.org/jira/browse/YARN-80) | Support delay scheduling for node locality in MR2's capacity scheduler |  Major | capacityscheduler | Todd Lipcon | Arun C Murthy |
+| [YARN-80](https://issues.apache.org/jira/browse/YARN-80) | Support delay scheduling for node locality in MR2\'s capacity scheduler |  Major | capacityscheduler | Todd Lipcon | Arun C Murthy |
 | [HADOOP-8931](https://issues.apache.org/jira/browse/HADOOP-8931) | Add Java version to startup message |  Trivial | . | Eli Collins | Eli Collins |
 | [MAPREDUCE-4811](https://issues.apache.org/jira/browse/MAPREDUCE-4811) | JobHistoryServer should show when it was started in WebUI About page |  Minor | jobhistoryserver, mrv2 | Ravi Prakash | Ravi Prakash |
 | [MAPREDUCE-4764](https://issues.apache.org/jira/browse/MAPREDUCE-4764) | repair test org.apache.hadoop.mapreduce.security.TestBinaryTokenFile |  Major | . | Ivan A. Veselovsky |  |
@@ -43,10 +43,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-7868](https://issues.apache.org/jira/browse/HADOOP-7868) | Hadoop native fails to compile when default linker option is -Wl,--as-needed |  Major | native | James Page | Trevor Robinson |
-| [HDFS-2757](https://issues.apache.org/jira/browse/HDFS-2757) | Cannot read a local block that's being written to when using the local read short circuit |  Major | . | Jean-Daniel Cryans | Jean-Daniel Cryans |
+| [HDFS-2757](https://issues.apache.org/jira/browse/HDFS-2757) | Cannot read a local block that\'s being written to when using the local read short circuit |  Major | . | Jean-Daniel Cryans | Jean-Daniel Cryans |
 | [HDFS-4186](https://issues.apache.org/jira/browse/HDFS-4186) | logSync() is called with the write lock held while releasing lease |  Critical | namenode | Kihwal Lee | Kihwal Lee |
 | [HADOOP-9072](https://issues.apache.org/jira/browse/HADOOP-9072) | Hadoop-Common-0.23-Build Fails to build in Jenkins |  Major | . | Robert Parker | Robert Parker |
-| [MAPREDUCE-4825](https://issues.apache.org/jira/browse/MAPREDUCE-4825) | JobImpl.finished doesn't expect ERROR as a final job state |  Major | mr-am | Jason Lowe | Jason Lowe |
+| [MAPREDUCE-4825](https://issues.apache.org/jira/browse/MAPREDUCE-4825) | JobImpl.finished doesn\'t expect ERROR as a final job state |  Major | mr-am | Jason Lowe | Jason Lowe |
 | [MAPREDUCE-4817](https://issues.apache.org/jira/browse/MAPREDUCE-4817) | Hardcoded task ping timeout kills tasks localizing large amounts of data |  Critical | applicationmaster, mr-am | Jason Lowe | Thomas Graves |
 | [HDFS-4242](https://issues.apache.org/jira/browse/HDFS-4242) | Map.Entry is incorrectly used in LeaseManager |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-9108](https://issues.apache.org/jira/browse/HADOOP-9108) | Add a method to clear terminateCalled to ExitUtil for test cases |  Major | util | Kihwal Lee | Kihwal Lee |
@@ -81,7 +81,7 @@
 | [MAPREDUCE-4819](https://issues.apache.org/jira/browse/MAPREDUCE-4819) | AM can rerun job after reporting final job status to the client |  Blocker | mr-am | Jason Lowe | Bikas Saha |
 | [MAPREDUCE-4913](https://issues.apache.org/jira/browse/MAPREDUCE-4913) | TestMRAppMaster#testMRAppMasterMissingStaging occasionally exits |  Major | mr-am | Jason Lowe | Jason Lowe |
 | [YARN-170](https://issues.apache.org/jira/browse/YARN-170) | NodeManager stop() gets called twice on shutdown |  Major | nodemanager | Sandy Ryza | Sandy Ryza |
-| [HADOOP-9181](https://issues.apache.org/jira/browse/HADOOP-9181) | Set daemon flag for HttpServer's QueuedThreadPool |  Major | . | Liang Xie | Liang Xie |
+| [HADOOP-9181](https://issues.apache.org/jira/browse/HADOOP-9181) | Set daemon flag for HttpServer\'s QueuedThreadPool |  Major | . | Liang Xie | Liang Xie |
 | [YARN-320](https://issues.apache.org/jira/browse/YARN-320) | RM should always be able to renew its own tokens |  Blocker | resourcemanager | Daryn Sharp | Daryn Sharp |
 | [YARN-325](https://issues.apache.org/jira/browse/YARN-325) | RM CapacityScheduler can deadlock when getQueueInfo() is called and a container is completing |  Blocker | capacityscheduler | Jason Lowe | Arun C Murthy |
 | [MAPREDUCE-4848](https://issues.apache.org/jira/browse/MAPREDUCE-4848) | TaskAttemptContext cast error during AM recovery |  Major | mr-am | Jason Lowe | Jerry Chen |

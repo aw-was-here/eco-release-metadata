@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can't use findSynonyms to get words**
+* [SPARK-12016](https://issues.apache.org/jira/browse/SPARK-12016) | *Major* | **word2vec load model can\'t use findSynonyms to get words**
 
-I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform('a') to get a vector, but I can't use findSynonyms('a', 2) to get some words.
+I use word2vec.fit to train a word2vecModel and then save the model to file system. when I load the model from file system, I found I can use transform(\'a\') to get a vector, but I can\'t use findSynonyms(\'a\', 2) to get some words.
 
 I use the fellow code to test word2vec
 
@@ -35,8 +35,8 @@ from pyspark.mllib.feature import Word2Vec, Word2VecModel
 import os, tempfile
 from shutil import rmtree
 
-if \_\_name\_\_ == '\_\_main\_\_':
-    sc = SparkContext('local', 'test')
+if \_\_name\_\_ == \'\_\_main\_\_\':
+    sc = SparkContext(\'local\', \'test\')
     sentence = "a b " \* 100 + "a c " \* 10
     localDoc = [sentence, sentence]
     doc = sc.parallelize(localDoc).map(lambda line: line.split(" "))
@@ -55,23 +55,23 @@ if \_\_name\_\_ == '\_\_main\_\_':
     except OSError:
         pass
 
-I got "[u'b', u'c']" when the first printf
-then the “True” and " [u'\_\_class\_\_'] "
-I don't know how to get 'b' or 'c' with sameModel.findSynonyms("a", 2)
+I got "[u\'b\', u\'c\']" when the first printf
+then the “True” and " [u\'\_\_class\_\_\'] "
+I don\'t know how to get \'b\' or \'c\' with sameModel.findSynonyms("a", 2)
 
 
 ---
 
 * [SPARK-13195](https://issues.apache.org/jira/browse/SPARK-13195) | *Major* | **PairDStreamFunctions.mapWithState fails in case timeout is set without updating State[S]**
 
-Using the new spark mapWithState API, I've encountered a bug when setting a timeout for mapWithState but no explicit state handling.
+Using the new spark mapWithState API, I\'ve encountered a bug when setting a timeout for mapWithState but no explicit state handling.
 
 h1. Steps to reproduce:
 
 1. Create a method which conforms to the StateSpec signature, make sure to not update any state inside it using \*state.update\*. Simply create a "pass through" method, may even be empty.
 2. Create a StateSpec object with method from step 1, which explicitly sets a timeout using \*StateSpec.timeout\* method.
 3. Create a DStream pipeline that uses mapWithState with the given StateSpec.
-4. Run code using spark-submit. You'll see that the method ends up throwing the following exception:
+4. Run code using spark-submit. You\'ll see that the method ends up throwing the following exception:
 
 {code}
 org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 136.0 failed 4 times, most recent failure: Lost task 0.3 in stage 136.0 (TID 176, \*\*\*\*): java.util.NoSuchElementException: State is not set
@@ -129,7 +129,7 @@ object Program {
 
     ssc.remember(Minutes(1)) // To make sure data is not deleted by the time we query it interactively
 
-    // Don't forget to set checkpoint directory
+    // Don\'t forget to set checkpoint directory
     ssc.checkpoint("")
     ssc.start()
     ssc.awaitTermination()
@@ -192,11 +192,11 @@ dataIterator.foreach { case (key, value) =\>
 }
 {code}
 
-In case the stream has a timeout set, but the state wasn't set at all, the "else-if" will still follow through because the timeout is defined but "wrappedState" is empty and wasn't set.
+In case the stream has a timeout set, but the state wasn\'t set at all, the "else-if" will still follow through because the timeout is defined but "wrappedState" is empty and wasn\'t set.
 
-If it is mandatory to update state for each entry of \*mapWithState\*, then this code should throw a better exception than "NoSuchElementException", which doesn't really saw anything to the developer.
+If it is mandatory to update state for each entry of \*mapWithState\*, then this code should throw a better exception than "NoSuchElementException", which doesn\'t really saw anything to the developer.
 
-I haven't provided a fix myself because I'm not familiar with the spark implementation, but it seems to be there needs to either be an extra check if the state is set, or as previously stated a better exception message.
+I haven\'t provided a fix myself because I\'m not familiar with the spark implementation, but it seems to be there needs to either be an extra check if the state is set, or as previously stated a better exception message.
 
 
 ---
@@ -227,7 +227,7 @@ object DataSetAgg {
     val sqlContext = new SQLContext(spark)
     import sqlContext.implicits.\_
 
-    val peopleds: Dataset[people] = sqlContext.sql("SELECT 'Tim Preece' AS name, 1279869254 AS age").as[people]
+    val peopleds: Dataset[people] = sqlContext.sql("SELECT \'Tim Preece\' AS name, 1279869254 AS age").as[people]
     peopleds.groupBy(\_.age).agg(nameAgg.toColumn).show()
   }
 }
@@ -303,7 +303,7 @@ org.apache.spark.sql.DatasetAggregatorSuite
 
 It looks like the head/master branch of Spark uses quite an old version of Jetty: 8.1.14.v20131031
 
-There have been some announcement of security vulnerabilities, notably in 2015 and there are versions of both 8 and 9 that address those. We recently left a web-ui port open and had the server compromised within days. Albeit, this upgrade shouldn't be the only security improvement made, the current version is clearly vulnerable, as-is.
+There have been some announcement of security vulnerabilities, notably in 2015 and there are versions of both 8 and 9 that address those. We recently left a web-ui port open and had the server compromised within days. Albeit, this upgrade shouldn\'t be the only security improvement made, the current version is clearly vulnerable, as-is.
 
 
 ---
@@ -348,7 +348,7 @@ Error trace:
 
 * [SPARK-13709](https://issues.apache.org/jira/browse/SPARK-13709) | *Major* | **Spark unable to decode Avro when partitioned**
 
-There is a problem decoding Avro data with SparkSQL when partitioned. The schema and encoded data are valid -- I'm able to decode the data with the avro-tools CLI utility. I'm also able to decode the data with non-partitioned SparkSQL tables, Hive, other tools as well... except partitioned SparkSQL schemas.
+There is a problem decoding Avro data with SparkSQL when partitioned. The schema and encoded data are valid -- I\'m able to decode the data with the avro-tools CLI utility. I\'m also able to decode the data with non-partitioned SparkSQL tables, Hive, other tools as well... except partitioned SparkSQL schemas.
 
 For a simple example, I took the example schema and data found in the Oracle documentation here:
 
@@ -400,15 +400,15 @@ For a simple example, I took the example schema and data found in the Oracle doc
 {code}
 
 \*Create\* (no partitions - works)
-If I create with no partitions, I'm able to query the data just fine.
+If I create with no partitions, I\'m able to query the data just fine.
 
 {code:sql}
 CREATE EXTERNAL TABLE IF NOT EXISTS foo
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
-STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
-OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
-LOCATION '/path/to/data/dir'
-TBLPROPERTIES ('avro.schema.url'='/path/to/schema.avsc');
+ROW FORMAT SERDE \'org.apache.hadoop.hive.serde2.avro.AvroSerDe\'
+STORED AS INPUTFORMAT \'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat\'
+OUTPUTFORMAT \'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat\'
+LOCATION \'/path/to/data/dir\'
+TBLPROPERTIES (\'avro.schema.url\'=\'/path/to/schema.avsc\');
 {code}
 
 \*Create\* (partitions -- does NOT work)
@@ -417,18 +417,18 @@ If I create with no partitions, and then manually add a partition, all of my que
 {code:sql}
 CREATE EXTERNAL TABLE IF NOT EXISTS foo
 PARTITIONED BY (ds STRING)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
-STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
-OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
-TBLPROPERTIES ('avro.schema.url'='/path/to/schema.avsc');
+ROW FORMAT SERDE \'org.apache.hadoop.hive.serde2.avro.AvroSerDe\'
+STORED AS INPUTFORMAT \'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat\'
+OUTPUTFORMAT \'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat\'
+TBLPROPERTIES (\'avro.schema.url\'=\'/path/to/schema.avsc\');
 
-ALTER TABLE foo ADD PARTITION (ds='1') LOCATION '/path/to/data/dir';
+ALTER TABLE foo ADD PARTITION (ds=\'1\') LOCATION \'/path/to/data/dir\';
 {code}
 
 The error:
 
 {code}
-spark-sql\> SELECT \* FROM foo WHERE ds = '1';
+spark-sql\> SELECT \* FROM foo WHERE ds = \'1\';
 
 Driver stacktrace:
     at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1431)
@@ -512,7 +512,7 @@ Caused by: org.apache.avro.AvroTypeException: Found avro.FullName, expecting uni
 {code}
 
 \*Additional Info\*
-For what it's worth, I found an issue (DRILL-957) reported in Apache Drill and related fix that look very simliar to this. I'll look that to this issue.
+For what it\'s worth, I found an issue (DRILL-957) reported in Apache Drill and related fix that look very simliar to this. I\'ll look that to this issue.
 
 Originally [posted here\|http://stackoverflow.com/questions/35826850/spark-unable-to-decode-avro-when-partitioned] on StackOverflow as a question, but I felt strongly that this is indeed a bug so I created this issue.
 
@@ -521,7 +521,7 @@ Originally [posted here\|http://stackoverflow.com/questions/35826850/spark-unabl
 
 * [SPARK-18709](https://issues.apache.org/jira/browse/SPARK-18709) | *Major* | **Automatic null conversion bug (instead of throwing error) when creating a Spark Datarame with incompatible types for fields.**
 
-When converting an RDD with a \`float\` type field to a spark dataframe with an \`IntegerType\` / \`LongType\` schema field, spark 1.6.2 and 1.6.3 silently convert the field values to nulls instead of throwing an error like \`LongType can not accept object \_\_\_ in type \<type 'float'\>\`. However, this seems to be fixed in Spark 2.0.2.
+When converting an RDD with a \`float\` type field to a spark dataframe with an \`IntegerType\` / \`LongType\` schema field, spark 1.6.2 and 1.6.3 silently convert the field values to nulls instead of throwing an error like \`LongType can not accept object \_\_\_ in type \<type \'float\'\>\`. However, this seems to be fixed in Spark 2.0.2.
 
 
 The following example should make the problem clear:
@@ -540,7 +540,7 @@ spark\_df.show()
 
 Instead of throwing an error like:
 {code}
-LongType can not accept object 1.0 in type \<type 'float'\>
+LongType can not accept object 1.0 in type \<type \'float\'\>
 {code}
 
 Spark converts all the values in the first column to nulls
@@ -555,7 +555,7 @@ Running \`spark\_df.show()\` gives:
 +----+---+
 {code}
 
-For the purposes of my computation, I'm doing a \`mapPartitions\` on a spark data frame, and for each partition, converting it into a pandas data frame, doing a few computations on this pandas dataframe and the return value will be a list of lists, which is converted to an RDD while being returned from 'mapPartitions' (for all partitions). This RDD is then converted into a spark dataframe similar to the example above, using \`sqlContext.createDataFrame(rdd, schema)\`. The rdd has a column that should be converted to a \`LongType\` in the spark data frame, but since it has missing values, it is a \`float\` type. When spark tries to create the data frame, it converts all the values in that column to nulls instead of throwing an error that there is a type mismatch.
+For the purposes of my computation, I\'m doing a \`mapPartitions\` on a spark data frame, and for each partition, converting it into a pandas data frame, doing a few computations on this pandas dataframe and the return value will be a list of lists, which is converted to an RDD while being returned from \'mapPartitions\' (for all partitions). This RDD is then converted into a spark dataframe similar to the example above, using \`sqlContext.createDataFrame(rdd, schema)\`. The rdd has a column that should be converted to a \`LongType\` in the spark data frame, but since it has missing values, it is a \`float\` type. When spark tries to create the data frame, it converts all the values in that column to nulls instead of throwing an error that there is a type mismatch.
 
 
 ---

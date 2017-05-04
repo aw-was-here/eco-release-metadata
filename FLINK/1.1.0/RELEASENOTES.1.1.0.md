@@ -25,7 +25,7 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 * [FLINK-3608](https://issues.apache.org/jira/browse/FLINK-3608) | *Major* | **ImmutableSettings error in ElasticsearchSink**
 
-I'm trying to use ElasticsearchSink with Flink 0.10.2 and Elasticsearch 2.2.0, and I'm having the following error:
+I\'m trying to use ElasticsearchSink with Flink 0.10.2 and Elasticsearch 2.2.0, and I\'m having the following error:
 
 java.lang.NoClassDefFoundError: org/elasticsearch/common/settings/ImmutableSettings
 	at org.apache.flink.streaming.connectors.elasticsearch.ElasticsearchSink.open(ElasticsearchSink.java:177)

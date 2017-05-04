@@ -35,4 +35,25 @@ In previous versions of HBase, the system intended to set a ZooKeeper ACL on all
 A new option -removeParents is now available that will remove an old parent when two valid daughters for that parent exist and -fixHdfsOverlaps is used. If there is an issue trying to remove the parent from META or sidelining the parent from HDFS we will fallback to do a regular merge. For now this option only works when the overlap group consists only of 3 regions (a parent, daughter A and daughter B)
 
 
+---
+
+* [HBASE-17287](https://issues.apache.org/jira/browse/HBASE-17287) | *Blocker* | **Master becomes a zombie if filesystem object closes**
+
+If filesystem is not available during log split, abort master server.
+
+
+---
+
+* [HBASE-17514](https://issues.apache.org/jira/browse/HBASE-17514) | *Minor* | **Warn when Thrift Server 1 is configured for proxy users but not the HTTP transport**
+
+If users of the Thrift 1 Server enable proxy user support without enabling the prerequisite HTTP transport, we now log a WARN message about the mismatch.
+
+
+---
+
+* [HBASE-17817](https://issues.apache.org/jira/browse/HBASE-17817) | *Major* | **Make Regionservers log which tables it removed coprocessors from when aborting**
+
+Add table name to exception logging when a coprocessor is removed from a table by the region server
+
+
 

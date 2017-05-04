@@ -465,7 +465,7 @@
 | [HADOOP-9231](https://issues.apache.org/jira/browse/HADOOP-9231) | Parametrize staging URL for the uniformity of distributionManagement |  Major | build | Konstantin Boudnik | Konstantin Boudnik |
 | [HDFS-4426](https://issues.apache.org/jira/browse/HDFS-4426) | Secondary namenode shuts down immediately after startup |  Blocker | namenode | Jason Lowe | Arpit Agarwal |
 | [YARN-354](https://issues.apache.org/jira/browse/YARN-354) | WebAppProxyServer exits immediately after startup |  Blocker | . | Liang Xie | Liang Xie |
-| [HDFS-4443](https://issues.apache.org/jira/browse/HDFS-4443) | Remove trailing \'`\' character from HDFS nodelist jsp |  Trivial | namenode | Christian Rohling | Christian Rohling |
+| [HDFS-4443](https://issues.apache.org/jira/browse/HDFS-4443) | Remove trailing \'\`\' character from HDFS nodelist jsp |  Trivial | namenode | Christian Rohling | Christian Rohling |
 | [HDFS-4444](https://issues.apache.org/jira/browse/HDFS-4444) | Add space between total transaction time and number of transactions in FSEditLog#printStatistics |  Trivial | . | Stephen Chu | Stephen Chu |
 | [HADOOP-9255](https://issues.apache.org/jira/browse/HADOOP-9255) | relnotes.py missing last jira |  Critical | scripts | Thomas Graves | Thomas Graves |
 | [YARN-133](https://issues.apache.org/jira/browse/YARN-133) | update web services docs for RM clusterMetrics |  Major | resourcemanager | Thomas Graves | Ravi Prakash |

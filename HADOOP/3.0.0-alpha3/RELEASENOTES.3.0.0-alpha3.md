@@ -80,6 +80,13 @@ The `rollNewVersion` semantics of the KMS has been improved so that after a key'
 
 ---
 
+* [HADOOP-13075](https://issues.apache.org/jira/browse/HADOOP-13075) | *Major* | **Add support for SSE-KMS and SSE-C in s3a filesystem**
+
+The new encryption options SSE-KMS and especially SSE-C must be considered experimental at present. If you are using SSE-C, problems may arise if the bucket mixes encrypted and unencrypted files. For SSE-KMS, there may be extra throttling of IO, especially with the fadvise=random option. You may wish to request an increase in your KMS IOPs limits.
+
+
+---
+
 * [HDFS-11026](https://issues.apache.org/jira/browse/HDFS-11026) | *Major* | **Convert BlockTokenIdentifier to use Protobuf**
 
 Changed the serialized format of BlockTokenIdentifier to protocol buffers. Includes logic to decode both the old Writable format and the new PB format to support existing clients. Client implementations in other languages will require similar functionality.
@@ -133,7 +140,7 @@ The \`hdfs ec\` CLI command has been substantially reworked to make the calling 
 
 * [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
 
-A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the \'id\' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
 
 Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
@@ -149,23 +156,30 @@ The "rs-default" codec has been renamed to simply "rs" for simplicity. Previous 
 
 * [HDFS-11382](https://issues.apache.org/jira/browse/HDFS-11382) | *Major* | **Persist Erasure Coding Policy ID in a new optional field in INodeFile in FSImage**
 
-The FSImage on-disk format for INodeFile is changed to additionally include a field for Erasure Coded files. This optional field 'erasureCodingPolicyID' which is unit32 type is available for all Erasure Coded files and represents the Erasure Coding Policy ID. Previously, the 'replication' field in INodeFile disk format was overloaded  to represent the same Erasure Coding Policy ID.
+The FSImage on-disk format for INodeFile is changed to additionally include a field for Erasure Coded files. This optional field \'erasureCodingPolicyID\' which is unit32 type is available for all Erasure Coded files and represents the Erasure Coding Policy ID. Previously, the \'replication\' field in INodeFile disk format was overloaded  to represent the same Erasure Coding Policy ID.
 
 
 ---
 
 * [HDFS-11428](https://issues.apache.org/jira/browse/HDFS-11428) | *Major* | **Change setErasureCodingPolicy to take a required string EC policy name**
 
-**WARNING: No release note provided for this change.**
+{{HdfsAdmin#setErasureCodingPolicy}} now takes a String {{ecPolicyName}} rather than an ErasureCodingPolicy object. The corresponding RPC\'s wire format has also been modified.
+
+
+---
+
+* [HADOOP-14138](https://issues.apache.org/jira/browse/HADOOP-14138) | *Critical* | **Remove S3A ref from META-INF service discovery, rely on existing core-default entry**
+
+The classpath implementing the s3a filesystem is now defined in core-default.xml. Attempting to instantiate an S3A filesystem instance using a Configuration instance which has not included the default resorts will fail. Applications should not be doing this anyway, as it will lose other critical  configuration options needed by the filesystem.
 
 
 ---
 
 * [HADOOP-6801](https://issues.apache.org/jira/browse/HADOOP-6801) | *Minor* | **io.sort.mb and io.sort.factor were renamed and moved to mapreduce but are still in CommonConfigurationKeysPublic.java and used in SequenceFile.java**
 
-Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile's Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
+Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile\'s Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
 
-This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2's internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
+This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2\'s internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
 
 
 ---
@@ -208,7 +222,7 @@ The fix prevents block recovery failure if replica of last block is being decomm
 
 * [HDFS-11505](https://issues.apache.org/jira/browse/HDFS-11505) | *Major* | **Do not enable any erasure coding policies by default**
 
-By default, none of the built-in erasure coding policies are enabled. Users have to explicitly enable the erasure coding policy via the hdfs configuration 'dfs.namenode.ec.policies.enabled' before setting the policy on any directories.
+By default, none of the built-in erasure coding policies are enabled. Users have to explicitly enable the erasure coding policy via the hdfs configuration \'dfs.namenode.ec.policies.enabled\' before setting the policy on any directories.
 
 
 ---
@@ -238,6 +252,143 @@ See also HADOOP-14238 as related problem.
 * Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
 * Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
 * Old properties are still supported
+
+
+---
+
+* [HADOOP-14267](https://issues.apache.org/jira/browse/HADOOP-14267) | *Major* | **Make DistCpOptions class immutable**
+
+DistCpOptions has been changed to be constructed with a Builder pattern. This potentially affects applications that invoke DistCp with the Java API.
+
+
+---
+
+* [HDFS-11596](https://issues.apache.org/jira/browse/HDFS-11596) | *Critical* | **hadoop-hdfs-client jar is in the wrong directory in release tarball**
+
+The scope of hadoop-hdfs\'s dependency on hadoop-hdfs-client has changed from "compile" to "provided". This may affect users who directly consume hadoop-hdfs, which is a private API. These users need to add a new dependency on hadoop-hdfs-client, or better yet, switch from hadoop-hdfs to hadoop-hdfs-client.
+
+
+---
+
+* [HADOOP-14202](https://issues.apache.org/jira/browse/HADOOP-14202) | *Major* | **fix jsvc/secure user var inconsistencies**
+
+<!-- markdown -->
+
+The secure user variables have been changed to be consistent with the rest of the environment variable changes:
+
+| Old | New |
+|:---- |:---- | 
+| HADOOP\_SECURE\_DN\_USER  | HDFS\_DATANODE\_SECURE\_USER |
+| HADOO\P_PRIVILEGED\_NFS\_USER | HDFS\_NFS3\_SECURE\_USER |
+
+
+---
+
+* [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | *Major* | **Set default ADLS access token provider type to ClientCredential**
+
+Switch the default ADLS access token provider type from Custom to ClientCredential.
+
+
+---
+
+* [YARN-6298](https://issues.apache.org/jira/browse/YARN-6298) | *Blocker* | **Metric preemptCall is not used in new preemption**
+
+Metric preemptCall in FSOpDurations is no longer supported.
+
+
+---
+
+* [HADOOP-14285](https://issues.apache.org/jira/browse/HADOOP-14285) | *Major* | **Update minimum version of Maven from 3.0 to 3.3**
+
+Minimum version of Apache Maven has been updated from 3.0 to 3.3.
+
+
+---
+
+* [HADOOP-14225](https://issues.apache.org/jira/browse/HADOOP-14225) | *Minor* | **Remove xmlenc dependency**
+
+xmlenc dependency has been removed. If you rely on the transitive dependency, you need to set the dependency explicitly in your code after this change.
+
+
+---
+
+* [HADOOP-13665](https://issues.apache.org/jira/browse/HADOOP-13665) | *Blocker* | **Erasure Coding codec should support fallback coder**
+
+Use configuration properties io.erasurecode.codec.{rs-legacy,rs,xor}.rawcoders to control erasure coding codec. These properties support codec fallback in case the previous codec is not loaded.
+
+
+---
+
+* [HADOOP-14248](https://issues.apache.org/jira/browse/HADOOP-14248) | *Major* | **Retire SharedInstanceProfileCredentialsProvider in trunk.**
+
+SharedInstanceProfileCredentialsProvider is removed after this change. Users should use InstanceProfileCredentialsProvider provided by AWS SDK instead, which itself enforces a singleton instance to reduce calls to AWS EC2 Instance Metadata Service.
+
+
+---
+
+* [HDFS-11565](https://issues.apache.org/jira/browse/HDFS-11565) | *Blocker* | **Use compact identifiers for built-in ECPolicies in HdfsFileStatus**
+
+Some of the existing fields in ErasureCodingPolicyProto have changed from required to optional. For system EC policies, these fields are populated from hardcoded values.
+
+
+---
+
+* [HADOOP-11794](https://issues.apache.org/jira/browse/HADOOP-11794) | *Major* | **Enable distcp to copy blocks in parallel**
+
+If  a positive value is passed to command line switch -blocksperchunk, files with more blocks than this value will be split into chunks of \`\<blocksperchunk\>\` blocks to be transferred in parallel, and reassembled on the destination. By default, \`\<blocksperchunk\>\` is 0 and the files will be transmitted in their entirety without splitting. This switch is only applicable when both the source file system supports getBlockLocations and target supports concat.
+
+
+---
+
+* [YARN-3427](https://issues.apache.org/jira/browse/YARN-3427) | *Blocker* | **Remove deprecated methods from ResourceCalculatorProcessTree**
+
+The deprecated ProcessTree methods getCumulativeVmem
+ and getCumulativeRssmem have been removed.
+
+
+---
+
+* [HDFS-11402](https://issues.apache.org/jira/browse/HDFS-11402) | *Major* | **HDFS Snapshots should capture point-in-time copies of OPEN files**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-6708](https://issues.apache.org/jira/browse/HDFS-6708) | *Major* | **StorageType should be encoded in the block token**
+
+StorageTypes are now encoded in the BlockTokenIdentifier to ensure that the intended StorageType for writes is not tampered with on it\'s way through the Client to the Datanode.
+
+
+---
+
+* [HADOOP-10105](https://issues.apache.org/jira/browse/HADOOP-10105) | *Blocker* | **remove httpclient dependency**
+
+Apache Httpclient has been removed as a dependency. This library is End of Life: people using it should move to its {{httpcore}} successor. If you cannot do that, you must add an explicit dependency on {{httpclient}} in your classpath.
+
+
+---
+
+* [HADOOP-13200](https://issues.apache.org/jira/browse/HADOOP-13200) | *Blocker* | **Implement customizable and configurable erasure coders**
+
+CodecRegistry uses ServiceLoader to dynamically load all implementations of RawErasureCoderFactory. In Hadoop 3.0, there are several built-in implementations, and user can also provide self-defined implementations with the corresponding resource files. 
+For each codec, user can configure the order of the implementations with the configuration keys:
+\`io.erasurecode.codec.rs.rawcoders\` for the default RS codec,
+\`io.erasurecode.codec.rs-legacy.rawcoders\` for the legacy RS codec,
+\`io.erasurecode.codec.xor.rawcoders\` for the XOR codec.
+User can also configure self-defined codec with the configuration key like:
+\`io.erasurecode.codec.self-defined.rawcoders\`.
+For each codec, Hadoop will use the implementation according to the order configured. If the former implementation fails, it will fall back to call the latter one. The order is defined by a list of coder names separated by commas. The names for the built-in implementations are:
+\`rs\_native\` and \`rs\_java\` for the default RS codec, of which  the former is a native implementation which leverages Intel ISA-L library, which is the default implementation and the latter is the implementation in pure Java,
+\`rs-legacy\_java\` for the legacy RS codec, which is the default implementation in pure Java,
+\`xor\_native\` and \`xor\_java\` for the XOR codec, of which the former is the Intel ISA-L implementation which is the default one and the latter in pure Java.
+
+
+---
+
+* [YARN-2962](https://issues.apache.org/jira/browse/YARN-2962) | *Critical* | **ZKRMStateStore: Limit the number of znodes under a znode**
+
+**WARNING: No release note provided for this change.**
 
 
 

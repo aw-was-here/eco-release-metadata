@@ -117,7 +117,7 @@ Added FSNamesystem status metrics.
 
 * [HADOOP-3226](https://issues.apache.org/jira/browse/HADOOP-3226) | *Major* | **Run combiner when merging spills from map output**
 
-Changed policy for running combiner. The combiner may be run multiple times as the map's output is sorted and merged. Additionally, it may be run on the reduce side as data is merged. The old semantics are available in Hadoop 0.18 if the user calls: 
+Changed policy for running combiner. The combiner may be run multiple times as the map\'s output is sorted and merged. Additionally, it may be run on the reduce side as data is merged. The old semantics are available in Hadoop 0.18 if the user calls: 
 job.setCombineOnlyOnce(true);
 
 
@@ -153,7 +153,7 @@ Reduced buffer copies as data is written to HDFS. The order of sending data byte
 
 * [HADOOP-2656](https://issues.apache.org/jira/browse/HADOOP-2656) | *Major* | **Support for upgrading existing cluster to facilitate appends to HDFS files**
 
-Associated a generation stamp with each block. On data nodes, the generation stamp is stored as part of the file name of the block's meta-data file.
+Associated a generation stamp with each block. On data nodes, the generation stamp is stored as part of the file name of the block\'s meta-data file.
 
 
 ---
@@ -200,9 +200,9 @@ Improved failure handling of last Data Node in write pipeline.
 
 ---
 
-* [HADOOP-2867](https://issues.apache.org/jira/browse/HADOOP-2867) | *Major* | **Add a task's cwd to it's LD\_LIBRARY\_PATH**
+* [HADOOP-2867](https://issues.apache.org/jira/browse/HADOOP-2867) | *Major* | **Add a task\'s cwd to it\'s LD\_LIBRARY\_PATH**
 
-Added task's cwd to its LD\_LIBRARY\_PATH.
+Added task\'s cwd to its LD\_LIBRARY\_PATH.
 
 
 ---
@@ -223,7 +223,7 @@ Refactored previously public classes MapTaskStatus, ReduceTaskStatus, JobSubmiss
 
 * [HADOOP-3232](https://issues.apache.org/jira/browse/HADOOP-3232) | *Critical* | **Datanodes time out**
 
-Changed 'du' command to run in a seperate thread so that it does not block user.
+Changed \'du\' command to run in a seperate thread so that it does not block user.
 
 
 ---
@@ -270,7 +270,7 @@ Modified HOD client to look for specific messages related to resource limit over
 
 ---
 
-* [HADOOP-3429](https://issues.apache.org/jira/browse/HADOOP-3429) | *Major* | **Increase the buffersize for the streaming parent java process's streams**
+* [HADOOP-3429](https://issues.apache.org/jira/browse/HADOOP-3429) | *Major* | **Increase the buffersize for the streaming parent java process\'s streams**
 
 Increased the size of the buffer used in the communication between the Java task and the Streaming process to 128KB.
 
@@ -418,9 +418,9 @@ Modified HOD to handle master (NameNode or JobTracker) failures on bad nodes by 
 
 ---
 
-* [HADOOP-3135](https://issues.apache.org/jira/browse/HADOOP-3135) | *Critical* | **if the 'mapred.system.dir' in the client jobconf is different from the JobTracker's value job submission fails**
+* [HADOOP-3135](https://issues.apache.org/jira/browse/HADOOP-3135) | *Critical* | **if the \'mapred.system.dir\' in the client jobconf is different from the JobTracker\'s value job submission fails**
 
-Changed job submission protocol to not allow submission if the client's value of mapred.system.dir does not match the job tracker's. Deprecated JobConf.getSystemDir(); use JobClient.getSystemDir().
+Changed job submission protocol to not allow submission if the client\'s value of mapred.system.dir does not match the job tracker\'s. Deprecated JobConf.getSystemDir(); use JobClient.getSystemDir().
 
 
 ---
@@ -490,7 +490,7 @@ Fixed KFS to have read() read and return 1 byte instead of 4.
 
 * [HADOOP-3598](https://issues.apache.org/jira/browse/HADOOP-3598) | *Blocker* | **Map-Reduce framework needlessly creates temporary \_${taskid} directories for Maps**
 
-Changed Map-Reduce framework to no longer create temporary task output directories for staging outputs if staging outputs isn't necessary. ${mapred.out.dir}/\_temporary/\_${taskid}
+Changed Map-Reduce framework to no longer create temporary task output directories for staging outputs if staging outputs isn\'t necessary. ${mapred.out.dir}/\_temporary/\_${taskid}
 
 
 ---
@@ -532,7 +532,7 @@ Simplify generation stamp upgrade by making is a local upgrade on datandodes. De
 
 * [HADOOP-3808](https://issues.apache.org/jira/browse/HADOOP-3808) | *Blocker* | **[HOD] Include job tracker RPC in notes attribute after job submission**
 
-Modified HOD to include the RPC port of the JobTracker in the 'notes' attribute of the resource manager. The RPC port is included as the string 'Mapred RPC Port:\<port number\>'. Tools that depend on the value of the notes attribute must change to parse this new value.
+Modified HOD to include the RPC port of the JobTracker in the \'notes\' attribute of the resource manager. The RPC port is included as the string \'Mapred RPC Port:\<port number\>\'. Tools that depend on the value of the notes attribute must change to parse this new value.
 
 
 ---

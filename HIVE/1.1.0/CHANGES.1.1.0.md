@@ -62,7 +62,7 @@
 | [HIVE-8813](https://issues.apache.org/jira/browse/HIVE-8813) | Allow tests to be excluded based on pattern/regex |  Major | Testing Infrastructure | Jason Dere | Jason Dere |
 | [HIVE-8839](https://issues.apache.org/jira/browse/HIVE-8839) | Support "alter table .. add/replace columns cascade" |  Major | SQL | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-8829](https://issues.apache.org/jira/browse/HIVE-8829) | Upgrade to Thrift 0.9.2 |  Major | . | Vaibhav Gumashta | Prasad Mujumdar |
-| [HIVE-8642](https://issues.apache.org/jira/browse/HIVE-8642) | Hive stack() UDTF Doesn't Support NULL Insert Values |  Minor | SQL, UDF | Nishant Kelkar | Navis |
+| [HIVE-8642](https://issues.apache.org/jira/browse/HIVE-8642) | Hive stack() UDTF Doesn\'t Support NULL Insert Values |  Minor | SQL, UDF | Nishant Kelkar | Navis |
 | [HIVE-8910](https://issues.apache.org/jira/browse/HIVE-8910) | Refactoring of PassThroughOutputFormat |  Minor | Query Processor, StorageHandler | Navis | Navis |
 | [HIVE-4766](https://issues.apache.org/jira/browse/HIVE-4766) | Support HS2 client login timeout when the thrift thread max# is reached |  Major | HiveServer2 | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-8971](https://issues.apache.org/jira/browse/HIVE-8971) | HIVE-8965 exposed some classes which start with Test but are not tests |  Major | . | Brock Noland | Brock Noland |
@@ -74,7 +74,7 @@
 | [HIVE-7896](https://issues.apache.org/jira/browse/HIVE-7896) | orcfiledump should be able to dump data |  Major | File Formats | Alan Gates | Alan Gates |
 | [HIVE-8536](https://issues.apache.org/jira/browse/HIVE-8536) | Enable SkewJoinResolver for spark [Spark Branch] |  Major | Spark | Rui Li | Rui Li |
 | [HIVE-9049](https://issues.apache.org/jira/browse/HIVE-9049) | Metastore should use TCompactProtocol as opposed to TBinaryProtocol |  Minor | . | Prasanth Jayachandran | Prasanth Jayachandran |
-| [HIVE-9062](https://issues.apache.org/jira/browse/HIVE-9062) | Explain plan doesn't print join keys for Tez shuffle join |  Major | Diagnosability, Tez | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-9062](https://issues.apache.org/jira/browse/HIVE-9062) | Explain plan doesn\'t print join keys for Tez shuffle join |  Major | Diagnosability, Tez | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-9037](https://issues.apache.org/jira/browse/HIVE-9037) | Improve explain plan to show joining keys for shuffle join |  Major | Diagnosability | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-8913](https://issues.apache.org/jira/browse/HIVE-8913) | Make SparkMapJoinResolver handle runtime skew join [Spark Branch] |  Major | Spark | Rui Li | Rui Li |
 | [HIVE-8357](https://issues.apache.org/jira/browse/HIVE-8357) | Path type entities should use qualified path rather than string |  Minor | Authorization | Navis | Navis |
@@ -88,11 +88,11 @@
 | [HIVE-5718](https://issues.apache.org/jira/browse/HIVE-5718) | Support direct fetch for lateral views, sub queries, etc. |  Trivial | Query Processor | Navis | Navis |
 | [HIVE-7977](https://issues.apache.org/jira/browse/HIVE-7977) | Avoid creating serde for partitions if possible in FetchTask |  Trivial | Query Processor | Navis | Navis |
 | [HIVE-7685](https://issues.apache.org/jira/browse/HIVE-7685) | Parquet memory manager |  Major | Serializers/Deserializers | Brock Noland | Dong Chen |
-| [HIVE-9140](https://issues.apache.org/jira/browse/HIVE-9140) | Add Calcite's ReduceExpressionRules to Hive |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
+| [HIVE-9140](https://issues.apache.org/jira/browse/HIVE-9140) | Add Calcite\'s ReduceExpressionRules to Hive |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-9189](https://issues.apache.org/jira/browse/HIVE-9189) | Add ProjectRemove rule on CBO path |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-8988](https://issues.apache.org/jira/browse/HIVE-8988) | Support advanced aggregation in Hive to Calcite path |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-9318](https://issues.apache.org/jira/browse/HIVE-9318) | Add UnionMerge rule on cbo path |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
-| [HIVE-4639](https://issues.apache.org/jira/browse/HIVE-4639) | Add has null flag to ORC internal index |  Major | File Formats | Owen O'Malley | Prasanth Jayachandran |
+| [HIVE-4639](https://issues.apache.org/jira/browse/HIVE-4639) | Add has null flag to ORC internal index |  Major | File Formats | Owen O\'Malley | Prasanth Jayachandran |
 | [HIVE-9314](https://issues.apache.org/jira/browse/HIVE-9314) | Writable object inspector should use Writable classes from Hadoop for get |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-9119](https://issues.apache.org/jira/browse/HIVE-9119) | ZooKeeperHiveLockManager does not use zookeeper in the proper way |  Major | Locking | Na Yang | Na Yang |
 | [HIVE-9244](https://issues.apache.org/jira/browse/HIVE-9244) | Upgrade 0.23 hadoop-shims to latest stable hadoop-2.6.0 |  Major | Shims | Gopal V | Gopal V |
@@ -148,7 +148,7 @@
 | [HIVE-8330](https://issues.apache.org/jira/browse/HIVE-8330) | HiveResultSet.findColumn() parameters are case sensitive |  Major | . | Sergio Peña | Sergio Peña |
 | [HIVE-5536](https://issues.apache.org/jira/browse/HIVE-5536) | Incorrect Operation Name is passed to hookcontext |  Major | HiveServer2 | Shreepadma Venugopalan | Brock Noland |
 | [HIVE-8345](https://issues.apache.org/jira/browse/HIVE-8345) | q-test for Avro date support |  Major | Serializers/Deserializers | Mohit Sabharwal | Mohit Sabharwal |
-| [HIVE-5865](https://issues.apache.org/jira/browse/HIVE-5865) | AvroDeserializer incorrectly assumes keys to Maps will always be of type 'org.apache.avro.util.Utf8' |  Major | . | Ben Roling | Ben Roling |
+| [HIVE-5865](https://issues.apache.org/jira/browse/HIVE-5865) | AvroDeserializer incorrectly assumes keys to Maps will always be of type \'org.apache.avro.util.Utf8\' |  Major | . | Ben Roling | Ben Roling |
 | [HIVE-7932](https://issues.apache.org/jira/browse/HIVE-7932) | It may cause NP exception when add accessed columns to ReadEntity |  Major | . | Xiaomeng Huang | Xiaomeng Huang |
 | [HIVE-8425](https://issues.apache.org/jira/browse/HIVE-8425) | enable vectorized\_mapjoin.q,vectorized\_nested\_mapjoin.q [Sparch Branch] |  Major | . | Chinna Rao Lalam | Chinna Rao Lalam |
 | [HIVE-8338](https://issues.apache.org/jira/browse/HIVE-8338) | Add ip and command to semantic analyzer hook context |  Major | Query Processor | Mohit Sabharwal | Mohit Sabharwal |
@@ -169,13 +169,13 @@
 | [HIVE-6165](https://issues.apache.org/jira/browse/HIVE-6165) | Unify HivePreparedStatement from jdbc:hive and jdbc:hive2 |  Minor | HiveServer2, JDBC | Helmut Zechmann |  |
 | [HIVE-8600](https://issues.apache.org/jira/browse/HIVE-8600) | Add option to log explain output for query |  Major | . | Mohit Sabharwal | Mohit Sabharwal |
 | [HIVE-8627](https://issues.apache.org/jira/browse/HIVE-8627) | Compute stats on a table from impala caused the table to be corrupted |  Major | Metastore | Na Yang | Na Yang |
-| [HIVE-8634](https://issues.apache.org/jira/browse/HIVE-8634) | HiveServer2 fair scheduler queue mapping doesn't handle the secondary groups rules correctly |  Major | HiveServer2 | Prasad Mujumdar | Prasad Mujumdar |
-| [HIVE-8610](https://issues.apache.org/jira/browse/HIVE-8610) | Compile time skew join optimization doesn't work with auto map join |  Major | . | Rui Li | Rui Li |
+| [HIVE-8634](https://issues.apache.org/jira/browse/HIVE-8634) | HiveServer2 fair scheduler queue mapping doesn\'t handle the secondary groups rules correctly |  Major | HiveServer2 | Prasad Mujumdar | Prasad Mujumdar |
+| [HIVE-8610](https://issues.apache.org/jira/browse/HIVE-8610) | Compile time skew join optimization doesn\'t work with auto map join |  Major | . | Rui Li | Rui Li |
 | [HIVE-7930](https://issues.apache.org/jira/browse/HIVE-7930) | enable vectorization\_short\_regress.q,  vector\_string\_concat.q [Spark Branch] |  Major | . | Chinna Rao Lalam | Chinna Rao Lalam |
 | [HIVE-8666](https://issues.apache.org/jira/browse/HIVE-8666) | hive.metastore.server.max.threads default is too high |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-8680](https://issues.apache.org/jira/browse/HIVE-8680) | Set Max Message for Binary Thrift endpoints |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-8693](https://issues.apache.org/jira/browse/HIVE-8693) | Separate out fair scheduler dependency from hadoop 0.23 shim |  Major | HiveServer2, Shims | Prasad Mujumdar | Prasad Mujumdar |
-| [HIVE-8720](https://issues.apache.org/jira/browse/HIVE-8720) | Update orc\_merge tests to make it consistent across OS'es |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-8720](https://issues.apache.org/jira/browse/HIVE-8720) | Update orc\_merge tests to make it consistent across OS\'es |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-8728](https://issues.apache.org/jira/browse/HIVE-8728) | Fix ptf.q determinism |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-8736](https://issues.apache.org/jira/browse/HIVE-8736) | add ordering to cbo\_correctness to make result consistent |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-8743](https://issues.apache.org/jira/browse/HIVE-8743) | Disable MapJoin [Spark Branch] |  Minor | Spark | Jimmy Xiang | Jimmy Xiang |
@@ -215,7 +215,7 @@
 | [HIVE-8916](https://issues.apache.org/jira/browse/HIVE-8916) | Handle user@domain username under LDAP authentication |  Major | Authentication | Mohit Sabharwal | Mohit Sabharwal |
 | [HIVE-8825](https://issues.apache.org/jira/browse/HIVE-8825) | SQLCompletor catches Throwable and ignores it |  Major | . | Brock Noland | Ferdinand Xu |
 | [HIVE-8926](https://issues.apache.org/jira/browse/HIVE-8926) | Projections that only swap input columns are identified incorrectly as identity projections |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
-| [HIVE-8909](https://issues.apache.org/jira/browse/HIVE-8909) | Hive doesn't correctly read Parquet nested types |  Major | . | Ryan Blue | Ryan Blue |
+| [HIVE-8909](https://issues.apache.org/jira/browse/HIVE-8909) | Hive doesn\'t correctly read Parquet nested types |  Major | . | Ryan Blue | Ryan Blue |
 | [HIVE-8917](https://issues.apache.org/jira/browse/HIVE-8917) | HIVE-5679 adds two thread safety problems |  Major | . | Brock Noland | Sergey Shelukhin |
 | [HIVE-8944](https://issues.apache.org/jira/browse/HIVE-8944) | TestCompactor fails with IncompatibleClassChangeError |  Major | . | Brock Noland | Alan Gates |
 | [HIVE-6914](https://issues.apache.org/jira/browse/HIVE-6914) | parquet-hive cannot write nested map (map value is map) |  Major | File Formats | Tongjie Chen | Ryan Blue |
@@ -247,7 +247,7 @@
 | [HIVE-9122](https://issues.apache.org/jira/browse/HIVE-9122) | Need to remove additional references to hive-shims-common-secure, hive-shims-0.20 |  Major | Build Infrastructure | Jason Dere | Jason Dere |
 | [HIVE-9130](https://issues.apache.org/jira/browse/HIVE-9130) |  vector\_partition\_diff\_num\_cols result is not updated after CBO upgrade |  Trivial | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-9113](https://issues.apache.org/jira/browse/HIVE-9113) | Explain on query failed with NPE |  Major | Query Processor | Chao Sun | Navis |
-| [HIVE-8848](https://issues.apache.org/jira/browse/HIVE-8848) | data loading from text files or text file processing doesn't handle nulls correctly |  Major | . | Sergey Shelukhin | Navis |
+| [HIVE-8848](https://issues.apache.org/jira/browse/HIVE-8848) | data loading from text files or text file processing doesn\'t handle nulls correctly |  Major | . | Sergey Shelukhin | Navis |
 | [HIVE-9096](https://issues.apache.org/jira/browse/HIVE-9096) | GenericUDF may be left unclosed in PartitionPrune#visitCall() |  Minor | . | Ted Yu |  |
 | [HIVE-9055](https://issues.apache.org/jira/browse/HIVE-9055) | Tez: union all followed by group by followed by another union all gives error |  Major | Tez | Pengcheng Xiong | Vikram Dixit K |
 | [HIVE-9149](https://issues.apache.org/jira/browse/HIVE-9149) | Add unit test to test implicit conversion during dynamic partitioning/distribute by |  Major | Tests | Jason Dere | Jason Dere |
@@ -310,10 +310,10 @@
 | [HIVE-9610](https://issues.apache.org/jira/browse/HIVE-9610) | Continuation of HIVE-9438 - The standalone-jdbc jar missing some classes |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9611](https://issues.apache.org/jira/browse/HIVE-9611) | Allow SPARK\_HOME as well as spark.home to define sparks location |  Minor | Spark | Brock Noland | Brock Noland |
 | [HIVE-9454](https://issues.apache.org/jira/browse/HIVE-9454) | Test failures due to new Calcite version |  Major | . | Brock Noland | Laljo John Pullokkaran |
-| [HIVE-9646](https://issues.apache.org/jira/browse/HIVE-9646) | Beeline doesn't show Spark job progress info [Spark Branch] |  Blocker | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-9646](https://issues.apache.org/jira/browse/HIVE-9646) | Beeline doesn\'t show Spark job progress info [Spark Branch] |  Blocker | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-9651](https://issues.apache.org/jira/browse/HIVE-9651) | FileSinkOperator does not pass in conf to serde.initialize |  Major | . | Brock Noland | Brock Noland |
 | [HIVE-9621](https://issues.apache.org/jira/browse/HIVE-9621) | HiveServer2 http mode - embedded jetty should use SynchronousQueue |  Major | HiveServer2 | Vaibhav Gumashta | Vaibhav Gumashta |
-| [HIVE-9593](https://issues.apache.org/jira/browse/HIVE-9593) | ORC Reader should ignore unknown metadata streams |  Major | File Formats | Gopal V | Owen O'Malley |
+| [HIVE-9593](https://issues.apache.org/jira/browse/HIVE-9593) | ORC Reader should ignore unknown metadata streams |  Major | File Formats | Gopal V | Owen O\'Malley |
 | [HIVE-9437](https://issues.apache.org/jira/browse/HIVE-9437) | Beeline does not add any existing HADOOP\_CLASSPATH |  Blocker | . | Ashish Singh | Brock Noland |
 | [HIVE-9684](https://issues.apache.org/jira/browse/HIVE-9684) | Incorrect disk range computation in ORC because of optional stream kind |  Critical | File Formats | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-9686](https://issues.apache.org/jira/browse/HIVE-9686) | HiveMetastore.logAuditEvent can be used before sasl server is started |  Major | . | Brock Noland | Brock Noland |
@@ -329,7 +329,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-7772](https://issues.apache.org/jira/browse/HIVE-7772) | Add tests for order/sort/distribute/cluster by query [Spark Branch] |  Major | Spark | Rui Li | Rui Li |
 | [HIVE-8207](https://issues.apache.org/jira/browse/HIVE-8207) | Add .q tests for multi-table insertion [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
-| [HIVE-8256](https://issues.apache.org/jira/browse/HIVE-8256) | Add SORT\_QUERY\_RESULTS for test that doesn't guarantee order #2 |  Minor | . | Chao Sun | Chao Sun |
+| [HIVE-8256](https://issues.apache.org/jira/browse/HIVE-8256) | Add SORT\_QUERY\_RESULTS for test that doesn\'t guarantee order #2 |  Minor | . | Chao Sun | Chao Sun |
 | [HIVE-8572](https://issues.apache.org/jira/browse/HIVE-8572) | Enable more vectorization tests [Spark Branch] |  Minor | Spark, Tests | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-8533](https://issues.apache.org/jira/browse/HIVE-8533) | Enable all q-tests for multi-insertion [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-8602](https://issues.apache.org/jira/browse/HIVE-8602) | Add SORT\_QUERY\_RESULTS for skewjoinopt2 |  Major | Tests | Rui Li | Rui Li |
@@ -392,7 +392,7 @@
 | [HIVE-7767](https://issues.apache.org/jira/browse/HIVE-7767) | hive.optimize.union.remove does not work properly [Spark Branch] |  Major | . | Na Yang | Na Yang |
 | [HIVE-7815](https://issues.apache.org/jira/browse/HIVE-7815) | Reduce Side Join with single reducer [Spark Branch] |  Major | Spark | Szehon Ho | Szehon Ho |
 | [HIVE-7702](https://issues.apache.org/jira/browse/HIVE-7702) | Start running .q file tests on spark [Spark Branch] |  Major | Spark | Brock Noland | Chinna Rao Lalam |
-| [HIVE-7839](https://issues.apache.org/jira/browse/HIVE-7839) | Update union\_null results now that it's deterministic [Spark Branch] |  Major | Spark | Brock Noland | Brock Noland |
+| [HIVE-7839](https://issues.apache.org/jira/browse/HIVE-7839) | Update union\_null results now that it\'s deterministic [Spark Branch] |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-7791](https://issues.apache.org/jira/browse/HIVE-7791) | Enable tests on Spark branch (1) [Sparch Branch] |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-7821](https://issues.apache.org/jira/browse/HIVE-7821) | StarterProject: enable groupby4.q [Spark Branch] |  Major | Spark | Brock Noland | Suhas Satish |
 | [HIVE-7861](https://issues.apache.org/jira/browse/HIVE-7861) | Enable reduce-side join tests (1) [Spark Branch] |  Major | Spark | Szehon Ho | Szehon Ho |
@@ -415,7 +415,7 @@
 | [HIVE-8055](https://issues.apache.org/jira/browse/HIVE-8055) | Code cleanup after HIVE-8054 [Spark Branch] |  Major | Spark | Xuefu Zhang | Na Yang |
 | [HIVE-8140](https://issues.apache.org/jira/browse/HIVE-8140) | Remove obsolete code from SparkWork [Spark Branch] |  Major | Spark | Xuefu Zhang | Chao Sun |
 | [HIVE-8141](https://issues.apache.org/jira/browse/HIVE-8141) | Refactor the GraphTran code by moving union handling logic to UnionTran [Spark Branch] |  Major | Spark | Na Yang | Na Yang |
-| [HIVE-7503](https://issues.apache.org/jira/browse/HIVE-7503) | Support Hive's multi-table insert query with Spark [Spark Branch] |  Major | Spark | Xuefu Zhang | Chao Sun |
+| [HIVE-7503](https://issues.apache.org/jira/browse/HIVE-7503) | Support Hive\'s multi-table insert query with Spark [Spark Branch] |  Major | Spark | Xuefu Zhang | Chao Sun |
 | [HIVE-8206](https://issues.apache.org/jira/browse/HIVE-8206) | Merge from trunk to spark 9/20/14 |  Major | Spark | Brock Noland | Brock Noland |
 | [HIVE-7842](https://issues.apache.org/jira/browse/HIVE-7842) | Enable qtest load\_dyn\_part1.q [Spark Branch] |  Major | Spark | Venki Korukanti | Venki Korukanti |
 | [HIVE-8106](https://issues.apache.org/jira/browse/HIVE-8106) | Enable vectorization for spark [spark branch] |  Major | Spark | Chinna Rao Lalam | Chinna Rao Lalam |
@@ -505,7 +505,7 @@
 | [HIVE-8707](https://issues.apache.org/jira/browse/HIVE-8707) | Fix ordering differences due to Java 8 HashMap function |  Major | . | Mohit Sabharwal | Mohit Sabharwal |
 | [HIVE-8905](https://issues.apache.org/jira/browse/HIVE-8905) | Servlet classes signer information does not match [Spark branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
 | [HIVE-8834](https://issues.apache.org/jira/browse/HIVE-8834) | enable job progress monitoring of Remote Spark Context [Spark Branch] |  Major | Spark | Chengxiang Li | Rui Li |
-| [HIVE-8951](https://issues.apache.org/jira/browse/HIVE-8951) | Spark remote context doesn't work with local-cluster [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
+| [HIVE-8951](https://issues.apache.org/jira/browse/HIVE-8951) | Spark remote context doesn\'t work with local-cluster [Spark Branch] |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-8959](https://issues.apache.org/jira/browse/HIVE-8959) | SparkSession is not closed until JVM exit.[Spark Branch] |  Major | Spark | Chengxiang Li | Chengxiang Li |
 | [HIVE-8946](https://issues.apache.org/jira/browse/HIVE-8946) | Enable Map Join [Spark Branch] |  Major | Spark | Chao Sun | Chao Sun |
 | [HIVE-8788](https://issues.apache.org/jira/browse/HIVE-8788) | UT: fix partition test case [Spark Branch] |  Major | Tests | Thomas Friedrich | Chinna Rao Lalam |
@@ -657,7 +657,7 @@
 | [HIVE-9517](https://issues.apache.org/jira/browse/HIVE-9517) | UNION ALL query failed with ArrayIndexOutOfBoundsException [Spark Branch] |  Major | . | Chao Sun | Chao Sun |
 | [HIVE-9170](https://issues.apache.org/jira/browse/HIVE-9170) | UT: udf\_in\_file fails with filenotfoundexception [Spark Branch] |  Minor | Tests | Thomas Friedrich | Chinna Rao Lalam |
 | [HIVE-9574](https://issues.apache.org/jira/browse/HIVE-9574) | Lazy computing in HiveBaseFunctionResultList may hurt performance [Spark Branch] |  Major | Spark | Rui Li | Jimmy Xiang |
-| [HIVE-9425](https://issues.apache.org/jira/browse/HIVE-9425) | Add jar/file doesn't work with yarn-cluster mode [Spark Branch] |  Major | Spark, spark-branch | Xiaomin Zhang | Rui Li |
+| [HIVE-9425](https://issues.apache.org/jira/browse/HIVE-9425) | Add jar/file doesn\'t work with yarn-cluster mode [Spark Branch] |  Major | Spark, spark-branch | Xiaomin Zhang | Rui Li |
 
 
 ### OTHER:

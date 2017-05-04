@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2017-03-28)
+## Release 0.13.0 - Unreleased (as of 2017-05-04)
 
 
 
@@ -42,8 +42,9 @@
 | [MAHOUT-1922](https://issues.apache.org/jira/browse/MAHOUT-1922) | DSPCA Propagates cache hint |  Minor | Math | Trevor Grant | Trevor Grant |
 | [MAHOUT-1923](https://issues.apache.org/jira/browse/MAHOUT-1923) | dqrThin Propagates cache hint |  Minor | Math | Trevor Grant | Trevor Grant |
 | [MAHOUT-1935](https://issues.apache.org/jira/browse/MAHOUT-1935) | Inefficient use of XtX calculation in Ordinary Least Squares |  Minor | . | Trevor Grant | Trevor Grant |
-| [MAHOUT-1934](https://issues.apache.org/jira/browse/MAHOUT-1934) | OpenMP jars aren't being picked up in distributed Spark |  Blocker | . | Trevor Grant | Andrew Palumbo |
+| [MAHOUT-1934](https://issues.apache.org/jira/browse/MAHOUT-1934) | OpenMP jars aren\'t being picked up in distributed Spark |  Blocker | . | Trevor Grant | Andrew Palumbo |
 | [MAHOUT-1925](https://issues.apache.org/jira/browse/MAHOUT-1925) | Cochrane-Orcutt should optionally calculate dwstat |  Major | Algorithms | Trevor Grant | Trevor Grant |
+| [MAHOUT-1975](https://issues.apache.org/jira/browse/MAHOUT-1975) | Pull Request Template |  Minor | . | Trevor Grant | Trevor Grant |
 
 
 ### BUG FIXES:
@@ -67,8 +68,10 @@
 | [MAHOUT-1926](https://issues.apache.org/jira/browse/MAHOUT-1926) | Linear Regression Model can generate p-values outside of [0,1] |  Major | Algorithms | Trevor Grant | Trevor Grant |
 | [MAHOUT-1913](https://issues.apache.org/jira/browse/MAHOUT-1913) | Clean Up of VCL bindings |  Blocker | . | Andrew Palumbo | Andrew Musselman |
 | [MAHOUT-1919](https://issues.apache.org/jira/browse/MAHOUT-1919) | Flink Module breaks the build regularly |  Critical | . | Andrew Palumbo | Andrew Palumbo |
-| [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don't run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
+| [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don\'t run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
 | [MAHOUT-1955](https://issues.apache.org/jira/browse/MAHOUT-1955) | Viennacl jars are not being picked up by the shell startup script |  Blocker | Mahout spark shell | Andrew Palumbo | Andrew Palumbo |
+| [MAHOUT-1957](https://issues.apache.org/jira/browse/MAHOUT-1957) | Ensure that ViennaCL Jars are included in the binary distribution. |  Blocker | build | Andrew Palumbo |  |
+| [MAHOUT-1960](https://issues.apache.org/jira/browse/MAHOUT-1960) | Flipped sign in the SparseSparseDrmTimer.mscala causes Desnse Matrix multiplication |  Blocker | . | Andrew Palumbo | Andrew Palumbo |
 
 
 ### TESTS:
@@ -89,6 +92,7 @@
 | [MAHOUT-1849](https://issues.apache.org/jira/browse/MAHOUT-1849) | Update home page language |  Major | . | Andrew Musselman | Andrew Musselman |
 | [MAHOUT-1906](https://issues.apache.org/jira/browse/MAHOUT-1906) | Ensure customJars are added to the MahoutContext under certain conditions for spark 1.6+ |  Major | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1682](https://issues.apache.org/jira/browse/MAHOUT-1682) | Create a documentation page for SPCA |  Major | Documentation | Andrew Palumbo | Andrew Musselman |
+| [MAHOUT-1943](https://issues.apache.org/jira/browse/MAHOUT-1943) | last minute release details for 0.13.0 |  Major | . | Andrew Palumbo |  |
 | [MAHOUT-1880](https://issues.apache.org/jira/browse/MAHOUT-1880) | Remove H2O Bindings from the release binaries |  Critical | build | Andrew Palumbo | Suneel Marthi |
 | [MAHOUT-1865](https://issues.apache.org/jira/browse/MAHOUT-1865) | Remove Hadoop 1 support. |  Major | . | Andrew Palumbo | Suneel Marthi |
 | [MAHOUT-1901](https://issues.apache.org/jira/browse/MAHOUT-1901) | Remove h20 from the Binary Release Build |  Major | . | Andrew Palumbo | Suneel Marthi |

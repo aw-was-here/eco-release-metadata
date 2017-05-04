@@ -29,11 +29,4 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Users of Apache Yetus Test Patch who wish to run the findbugs check on all changed modules rather than just those that have changed source files can now pass `--findbugs-skip-maven-source-check`.
 
 
----
-
-* [YETUS-498](https://issues.apache.org/jira/browse/YETUS-498) | *Minor* | **shelllcheck needs to have -x support**
-
-Thanks for the review!  I've committed this.
-
-
 

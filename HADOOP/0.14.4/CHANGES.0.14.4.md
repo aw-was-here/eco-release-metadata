@@ -34,6 +34,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-2140](https://issues.apache.org/jira/browse/HADOOP-2140) | C and C++ files are missing Apache license header |  Blocker | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-2140](https://issues.apache.org/jira/browse/HADOOP-2140) | C and C++ files are missing Apache license header |  Blocker | . | Owen O\'Malley | Owen O\'Malley |
 
 

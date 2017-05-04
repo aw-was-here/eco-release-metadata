@@ -18,8 +18,15 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.1 - Unreleased (as of 2017-03-28)
+## Release 0.13.1 - Unreleased (as of 2017-05-04)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [MAHOUT-1975](https://issues.apache.org/jira/browse/MAHOUT-1975) | Pull Request Template |  Minor | . | Trevor Grant | Trevor Grant |
 
 
 ### BUG FIXES:
@@ -27,5 +34,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [MAHOUT-1902](https://issues.apache.org/jira/browse/MAHOUT-1902) | Parse Spark and Mahout variable arguments from the Mahout spark-shell |  Major | Mahout spark shell | Andrew Palumbo |  |
+| [MAHOUT-1971](https://issues.apache.org/jira/browse/MAHOUT-1971) | Aggregate Transpose Bug |  Major | . | Trevor Grant | Trevor Grant |
 
 

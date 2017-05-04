@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-03-28)
+## Release 5.0.0 - Unreleased (as of 2017-05-04)
 
 
 
@@ -29,6 +29,9 @@
 | [OOZIE-2245](https://issues.apache.org/jira/browse/OOZIE-2245) | Service to periodically check database schema |  Major | core | Robert Kanter | Robert Kanter |
 | [OOZIE-2630](https://issues.apache.org/jira/browse/OOZIE-2630) | Oozie Coordinator EL Functions to get first day of the week/month |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 | [OOZIE-2041](https://issues.apache.org/jira/browse/OOZIE-2041) | Add an admin command to run the PurgeXCommand |  Major | core | Robert Kanter | Abhishek Bafna |
+| [OOZIE-2701](https://issues.apache.org/jira/browse/OOZIE-2701) | Oozie to support Multiple HCatalog URIs |  Major | core | Abhishek Bafna | Abhishek Bafna |
+| [OOZIE-2827](https://issues.apache.org/jira/browse/OOZIE-2827) | More directly view of the coordinator’s history from perspective of workflow action. |  Major | . | Alonzo Zhou |  |
+| [OOZIE-2843](https://issues.apache.org/jira/browse/OOZIE-2843) | Enhance logging inside ZKLocksService and MemoryLocksService |  Minor | action, coordinator | Andras Piros | Andras Piros |
 
 
 ### IMPROVEMENTS:
@@ -47,9 +50,14 @@
 | [OOZIE-2771](https://issues.apache.org/jira/browse/OOZIE-2771) | Allow retrieving keystore and truststore passwords from Hadoop Credential Provider |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2786](https://issues.apache.org/jira/browse/OOZIE-2786) | Pass Oozie workflow ID and settings to Spark application configuration |  Critical | action | Xiaobin Zheng | Xiaobin Zheng |
 | [OOZIE-807](https://issues.apache.org/jira/browse/OOZIE-807) | Docs can be explicit about multiple sub-workflow definitions being possible |  Trivial | docs | Harsh J | Harsh J |
-| [OOZIE-2830](https://issues.apache.org/jira/browse/OOZIE-2830) | Use tarLongFileMode with 'gnu' in the assembly plugin's configuration |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2830](https://issues.apache.org/jira/browse/OOZIE-2830) | Use tarLongFileMode with \'gnu\' in the assembly plugin\'s configuration |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2393](https://issues.apache.org/jira/browse/OOZIE-2393) | Allow table drop in hcat prepare |  Minor | core | Muhammad Ehsan ul Haque | Abhishek Bafna |
 | [OOZIE-2838](https://issues.apache.org/jira/browse/OOZIE-2838) | TestClassUtils,TestJsonUtils,TestWritableUtils,TestXmlUtils shall not be an Oozie  XTestCase |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2831](https://issues.apache.org/jira/browse/OOZIE-2831) | Update maven-project-info-reports-plugin to 2.9 |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2845](https://issues.apache.org/jira/browse/OOZIE-2845) | Replace reflection-based code which sets variable in HiveConf |  Major | core | Peter Bacsko | Peter Bacsko |
+| [OOZIE-2844](https://issues.apache.org/jira/browse/OOZIE-2844) | Increase stability of Oozie actions when log4j.properties is missing or not readable |  Major | action | Andras Piros | Andras Piros |
+| [OOZIE-2860](https://issues.apache.org/jira/browse/OOZIE-2860) | Improve Jetty logging |  Major | core | Andras Piros | Andras Piros |
+| [OOZIE-2851](https://issues.apache.org/jira/browse/OOZIE-2851) | spelling mistakes in examples |  Trivial | docs | Artem Ervits | Artem Ervits |
 
 
 ### BUG FIXES:
@@ -84,7 +92,13 @@
 | [OOZIE-2820](https://issues.apache.org/jira/browse/OOZIE-2820) | Fix more spelling errors in exceptions and logging |  Trivial | core | Grant Sohn | Laszlo Zeke |
 | [OOZIE-2835](https://issues.apache.org/jira/browse/OOZIE-2835) | TestIOUtils shall not be an XTestCase |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2817](https://issues.apache.org/jira/browse/OOZIE-2817) | Increase test case stability in pre-commit job |  Major | . | Peter Cseh | Peter Cseh |
-| [OOZIE-2739](https://issues.apache.org/jira/browse/OOZIE-2739) | Remove property expansion pattern from ShellMain's log4j properties content |  Minor | action | Harsh J | Harsh J |
+| [OOZIE-2739](https://issues.apache.org/jira/browse/OOZIE-2739) | Remove property expansion pattern from ShellMain\'s log4j properties content |  Minor | action | Harsh J | Harsh J |
+| [OOZIE-2850](https://issues.apache.org/jira/browse/OOZIE-2850) | Fix default callback notifications |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2457](https://issues.apache.org/jira/browse/OOZIE-2457) | Oozie log parsing regex consume more than 90% cpu |  Blocker | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [OOZIE-2862](https://issues.apache.org/jira/browse/OOZIE-2862) | Coord change command doesn\'t change job to running if job was killed without creating any actions |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2864](https://issues.apache.org/jira/browse/OOZIE-2864) | Maven artifacts for package com.codahale.metrics have inconsistent groupId |  Major | . | Andras Piros | Andras Piros |
+| [OOZIE-2818](https://issues.apache.org/jira/browse/OOZIE-2818) | Can\'t overwrite oozie.action.max.output.data on a per-workflow basis |  Major | . | Peter Cseh | Attila Sasvari |
+| [OOZIE-2870](https://issues.apache.org/jira/browse/OOZIE-2870) | non working examples in oozie documentation coordinator spec |  Major | docs | Clemens Valiente | Andras Piros |
 
 
 ### SUB-TASKS:
@@ -94,6 +108,8 @@
 | [OOZIE-2666](https://issues.apache.org/jira/browse/OOZIE-2666) | Support embedding Jetty into Oozie |  Major | core | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2741](https://issues.apache.org/jira/browse/OOZIE-2741) |  Remove Tomcat |  Major | core | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2519](https://issues.apache.org/jira/browse/OOZIE-2519) | Oozie HA with SSL info is slightly incorrect |  Major | docs | Robert Kanter | Andras Piros |
+| [OOZIE-2753](https://issues.apache.org/jira/browse/OOZIE-2753) | Update Docs for Jetty Tomcat changes |  Major | docs | Robert Kanter | Attila Sasvari |
+| [OOZIE-1283](https://issues.apache.org/jira/browse/OOZIE-1283) | Remove the old ssh documentation |  Minor | docs | Robert Kanter | Jan Hentschel |
 
 
 ### OTHER:

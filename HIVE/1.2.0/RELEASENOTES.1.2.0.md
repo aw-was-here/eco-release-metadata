@@ -66,7 +66,7 @@ This patch broke automatic loading of externally added permanent functions in Hi
 
 Additionally, RELOAD FUNCTION call has been broken by this patch.
 Workaround: 
-The HS2s that don't have the function need to be restarted.
+The HS2s that don\'t have the function need to be restarted.
 
 
 ---
@@ -95,7 +95,7 @@ Prevent GNU style readlink -f from being invoked unnecessarily
 * [HIVE-9788](https://issues.apache.org/jira/browse/HIVE-9788) | *Major* | **Make double quote optional in tsv/csv/dsv output**
 
 beeline --disableQuotingForSV=true --verbose=true -u jdbc:hive2://localhost:10000
-issuing: !connect jdbc:hive2://localhost:10000 '' '' 
+issuing: !connect jdbc:hive2://localhost:10000 \'\' \'\' 
 Connecting to jdbc:hive2://localhost:10000
 Connected to: Apache Hive (version 1.2.0-SNAPSHOT)
 Driver: Hive JDBC (version 1.2.0-SNAPSHOT)

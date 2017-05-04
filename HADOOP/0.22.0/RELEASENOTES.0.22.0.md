@@ -41,7 +41,7 @@ Configuration changes:
 
 ---
 
-* [HADOOP-6344](https://issues.apache.org/jira/browse/HADOOP-6344) | *Major* | **rm and rmr fail to correctly move the user's files to the trash prior to deleting when they are over quota.**
+* [HADOOP-6344](https://issues.apache.org/jira/browse/HADOOP-6344) | *Major* | **rm and rmr fail to correctly move the user\'s files to the trash prior to deleting when they are over quota.**
 
 Trash feature notifies user of over-quota condition rather than silently deleting files/directories; deletion can be compelled with "rm -skiptrash".
 
@@ -138,7 +138,7 @@ Removes JNI calls to get jvm current/max heap usage in ClusterStatus. Any instan
 
 ---
 
-* [MAPREDUCE-1773](https://issues.apache.org/jira/browse/MAPREDUCE-1773) | *Major* | **streaming doesn't support jobclient.output.filter**
+* [MAPREDUCE-1773](https://issues.apache.org/jira/browse/MAPREDUCE-1773) | *Major* | **streaming doesn\'t support jobclient.output.filter**
 
 Improved console messaging for streaming jobs by using the generic JobClient API itself instead of the existing streaming-specific code.
 
@@ -147,7 +147,7 @@ Improved console messaging for streaming jobs by using the generic JobClient API
 
 * [MAPREDUCE-1785](https://issues.apache.org/jira/browse/MAPREDUCE-1785) | *Minor* | **Add streaming config option for not emitting the key**
 
-Added a configuration property "stream.map.input.ignoreKey" to specify whether to ignore key or not while writing input for the mapper. This configuration parameter is valid only if stream.map.input.writer.class is org.apache.hadoop.streaming.io.TextInputWriter.class. For all other InputWriter's, key is always written.
+Added a configuration property "stream.map.input.ignoreKey" to specify whether to ignore key or not while writing input for the mapper. This configuration parameter is valid only if stream.map.input.writer.class is org.apache.hadoop.streaming.io.TextInputWriter.class. For all other InputWriter\'s, key is always written.
 
 
 ---
@@ -357,7 +357,7 @@ Adds -background option to run a streaming job in background.
 
 * [MAPREDUCE-2147](https://issues.apache.org/jira/browse/MAPREDUCE-2147) | *Trivial* | **JobInProgress has some redundant lines in its ctor**
 
-Remove some redundant lines from JobInProgress's constructor which was re-initializing things unnecessarily.
+Remove some redundant lines from JobInProgress\'s constructor which was re-initializing things unnecessarily.
 
 
 ---
@@ -397,14 +397,14 @@ Add a configuration variable dfs.image.transfer.bandwidthPerSec to allow the use
 
 ---
 
-* [HDFS-1035](https://issues.apache.org/jira/browse/HDFS-1035) | *Major* | **Generate Eclipse's .classpath file from Ivy config**
+* [HDFS-1035](https://issues.apache.org/jira/browse/HDFS-1035) | *Major* | **Generate Eclipse\'s .classpath file from Ivy config**
 
 Added support to auto-generate the Eclipse .classpath file from ivy.
 
 
 ---
 
-* [MAPREDUCE-1592](https://issues.apache.org/jira/browse/MAPREDUCE-1592) | *Major* | **Generate Eclipse's .classpath file from Ivy config**
+* [MAPREDUCE-1592](https://issues.apache.org/jira/browse/MAPREDUCE-1592) | *Major* | **Generate Eclipse\'s .classpath file from Ivy config**
 
 Added support to auto-generate the Eclipse .classpath file from ivy.
 
@@ -561,7 +561,7 @@ Updated the help for the touchz command.
 
 * [HADOOP-7229](https://issues.apache.org/jira/browse/HADOOP-7229) | *Major* | **Absolute path to kinit in auto-renewal thread**
 
-When Hadoop's Kerberos integration is enabled, it is now required that either {{kinit}} be on the path for user accounts running the Hadoop client, or that the {{hadoop.kerberos.kinit.command}} configuration option be manually set to the absolute path to {{kinit}}.
+When Hadoop\'s Kerberos integration is enabled, it is now required that either {{kinit}} be on the path for user accounts running the Hadoop client, or that the {{hadoop.kerberos.kinit.command}} configuration option be manually set to the absolute path to {{kinit}}.
 
 
 ---
@@ -587,9 +587,9 @@ Removed contrib related build targets.
 
 ---
 
-* [HADOOP-7192](https://issues.apache.org/jira/browse/HADOOP-7192) | *Trivial* | **fs -stat docs aren't updated to reflect the format features**
+* [HADOOP-7192](https://issues.apache.org/jira/browse/HADOOP-7192) | *Trivial* | **fs -stat docs aren\'t updated to reflect the format features**
 
-Updated the web documentation to reflect the formatting abilities of 'fs -stat'.
+Updated the web documentation to reflect the formatting abilities of \'fs -stat\'.
 
 
 ---
@@ -608,7 +608,7 @@ Configuration option webinterface.private.actions has been renamed to mapreduce.
 
 ---
 
-* [HDFS-1948](https://issues.apache.org/jira/browse/HDFS-1948) | *Major* | **Forward port 'hdfs-1520 lightweight namenode operation to trigger lease reccovery'**
+* [HDFS-1948](https://issues.apache.org/jira/browse/HDFS-1948) | *Major* | **Forward port \'hdfs-1520 lightweight namenode operation to trigger lease reccovery\'**
 
 Adds method to NameNode/ClientProtocol that allows for rude revoke of lease on current lease holder
 

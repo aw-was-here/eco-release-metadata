@@ -77,7 +77,7 @@ This feature emits new metrics:
 
 * [HADOOP-8691](https://issues.apache.org/jira/browse/HADOOP-8691) | *Minor* | **FsShell can print "Found xxx items" unnecessarily often**
 
-The `ls` command only prints "Found foo items" once when listing the directories recursively.
+The \`ls\` command only prints "Found foo items" once when listing the directories recursively.
 
 
 ---

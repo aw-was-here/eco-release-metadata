@@ -47,7 +47,7 @@ If an EOF is detected due to parsing or other errors while there are still unpar
 
 \* On each retry attempt, a log message like the below will be emitted at the WARN level:
     
-      Processing end of WAL file '{}'. At position {}, which is too far away
+      Processing end of WAL file \'{}\'. At position {}, which is too far away
       from reported file length {}. Restarting WAL reading (see HBASE-15983
       for details).
 

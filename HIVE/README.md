@@ -19,6 +19,9 @@
 * Apache Hive v3.0.0
     * [Changes](3.0.0/CHANGES.3.0.0.md)
     * [Release Notes](3.0.0/RELEASENOTES.3.0.0.md)
+* Apache Hive v2.4.0
+    * [Changes](2.4.0/CHANGES.2.4.0.md)
+    * [Release Notes](2.4.0/RELEASENOTES.2.4.0.md)
 * Apache Hive v2.3.0
     * [Changes](2.3.0/CHANGES.2.3.0.md)
     * [Release Notes](2.3.0/RELEASENOTES.2.3.0.md)

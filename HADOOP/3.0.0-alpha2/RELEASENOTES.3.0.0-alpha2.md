@@ -45,7 +45,7 @@ In Apache Hadoop 3.0.0-alpha1, verification required environment variables with 
 
 Developers:
 
-This changes hadoop\_verify\_user to require the program's name as part of the function call.  This is incompatible with Apache Hadoop 3.0.0-alpha1.
+This changes hadoop\_verify\_user to require the program\'s name as part of the function call.  This is incompatible with Apache Hadoop 3.0.0-alpha1.
 
 
 ---
@@ -59,7 +59,7 @@ Introduces a new configuration property, yarn.resourcemanager.amlauncher.log.com
 
 * [HDFS-6962](https://issues.apache.org/jira/browse/HDFS-6962) | *Critical* | **ACL inheritance conflicts with umaskmode**
 
-The original implementation of HDFS ACLs applied the client's umask to the permissions when inheriting a default ACL defined on a parent directory.  This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child.  HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX.  This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml.  Please see the HDFS Permissions Guide for further details.
+The original implementation of HDFS ACLs applied the client\'s umask to the permissions when inheriting a default ACL defined on a parent directory.  This behavior is a deviation from the POSIX ACL specification, which states that the umask has no influence when a default ACL propagates from parent to child.  HDFS now offers the capability to ignore the umask in this case for improved compliance with POSIX.  This change is considered backward-incompatible, so the new behavior is off by default and must be explicitly configured by setting dfs.namenode.posix.acl.inheritance.enabled to true in hdfs-site.xml.  Please see the HDFS Permissions Guide for further details.
 
 
 ---
@@ -81,17 +81,17 @@ Developers:
 
 | Old | New |
 |:---- |:---- |
-| HADOOP\_BALANCER\_OPTS | HDFS\_BALANCER\_OPTS | 
-| HADOOP\_DATANODE\_OPTS | HDFS\_DATANODE\_OPTS | 
-| HADOOP\_DN\_SECURE_EXTRA_OPTS | HDFS\_DATANODE\_SECURE\_EXTRA\_OPTS | 
-| HADOOP\_JOB\_HISTORYSERVER\_OPTS | MAPRED\_HISTORYSERVER\_OPTS | 
-| HADOOP\_JOURNALNODE\_OPTS | HDFS\_JOURNALNODE\_OPTS | 
-| HADOOP\_MOVER\_OPTS | HDFS\_MOVER\_OPTS | 
-| HADOOP\_NAMENODE\_OPTS | HDFS\_NAMENODE\_OPTS | 
-| HADOOP\_NFS3\_OPTS | HDFS\_NFS3\_OPTS | 
+| HADOOP\_BALANCER\_OPTS | HDFS\_BALANCER\_OPTS |
+| HADOOP\_DATANODE\_OPTS | HDFS\_DATANODE\_OPTS |
+| HADOOP\_DN\_SECURE_EXTRA_OPTS | HDFS\_DATANODE\_SECURE\_EXTRA\_OPTS |
+| HADOOP\_JOB\_HISTORYSERVER\_OPTS | MAPRED\_HISTORYSERVER\_OPTS |
+| HADOOP\_JOURNALNODE\_OPTS | HDFS\_JOURNALNODE\_OPTS |
+| HADOOP\_MOVER\_OPTS | HDFS\_MOVER\_OPTS |
+| HADOOP\_NAMENODE\_OPTS | HDFS\_NAMENODE\_OPTS |
+| HADOOP\_NFS3\_OPTS | HDFS\_NFS3\_OPTS |
 | HADOOP\_NFS3\_SECURE\_EXTRA\_OPTS | HDFS\_NFS3\_SECURE\_EXTRA\_OPTS |
-| HADOOP\_PORTMAP\_OPTS | HDFS\_PORTMAP\_OPTS | 
-| HADOOP\_SECONDARYNAMENODE\_OPTS | HDFS\_SECONDARYNAMENODE\_OPTS | 
+| HADOOP\_PORTMAP\_OPTS | HDFS\_PORTMAP\_OPTS |
+| HADOOP\_SECONDARYNAMENODE\_OPTS | HDFS\_SECONDARYNAMENODE\_OPTS |
 | HADOOP\_ZKFC\_OPTS | HDFS\_ZKFC\_OPTS |
 
 
@@ -99,7 +99,7 @@ Developers:
 
 * [HADOOP-13588](https://issues.apache.org/jira/browse/HADOOP-13588) | *Major* | **ConfServlet should respect Accept request header**
 
-Conf HTTP service should set response's content type according to the Accept header in the request.
+Conf HTTP service should set response\'s content type according to the Accept header in the request.
 
 
 ---
@@ -211,7 +211,7 @@ The maximum applications the RM stores in memory and in the state-store by defau
 
 ---
 
-* [HDFS-10883](https://issues.apache.org/jira/browse/HDFS-10883) | *Major* | **\`getTrashRoot\`'s behavior is not consistent in DFS after enabling EZ.**
+* [HDFS-10883](https://issues.apache.org/jira/browse/HDFS-10883) | *Major* | **\`getTrashRoot\`\'s behavior is not consistent in DFS after enabling EZ.**
 
 If root path / is an encryption zone, the old DistributedFileSystem#getTrashRoot(new Path("/")) returns
 /user/$USER/.Trash
@@ -249,7 +249,7 @@ Added permissions to the fs stat command. They are now available as symbolic (%A
 
 ---
 
-* [YARN-5718](https://issues.apache.org/jira/browse/YARN-5718) | *Major* | **TimelineClient (and other places in YARN) shouldn't over-write HDFS client retry settings which could cause unexpected behavior**
+* [YARN-5718](https://issues.apache.org/jira/browse/YARN-5718) | *Major* | **TimelineClient (and other places in YARN) shouldn\'t over-write HDFS client retry settings which could cause unexpected behavior**
 
 **WARNING: No release note provided for this change.**
 
@@ -349,7 +349,7 @@ HDFS audit logs are formatted as individual lines, each of which has a few of ke
 
 * [HADOOP-8500](https://issues.apache.org/jira/browse/HADOOP-8500) | *Minor* | **Fix javadoc jars to not contain entire target directory**
 
-Hadoop's javadoc jars should be significantly smaller, and contain only javadoc.
+Hadoop\'s javadoc jars should be significantly smaller, and contain only javadoc.
 
 As a related cleanup, the dummy hadoop-dist-\* jars are no longer generated as part of the build.
 
@@ -437,7 +437,7 @@ Bump commons-configuration version from 1.6 to 2.1
 
 * [HADOOP-12705](https://issues.apache.org/jira/browse/HADOOP-12705) | *Major* | **Upgrade Jackson 2.2.3 to 2.7.8**
 
-We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We've selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
+We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We\'ve selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
 
 
 ---
@@ -465,7 +465,7 @@ The default sync interval within new SequenceFile writes is now 100KB, up from t
 
 * [HDFS-10994](https://issues.apache.org/jira/browse/HDFS-10994) | *Major* | **Support an XOR policy XOR-2-1-64k in HDFS**
 
-This introduced a new erasure coding policy named XOR-2-1-64k using the simple XOR codec, and it can be used to evaluate HDFS erasure coding feature in a small cluster (only 2 + 1 datanodes needed). The policy isn't recommended to be used in a production cluster.
+This introduced a new erasure coding policy named XOR-2-1-64k using the simple XOR codec, and it can be used to evaluate HDFS erasure coding feature in a small cluster (only 2 + 1 datanodes needed). The policy isn\'t recommended to be used in a production cluster.
 
 
 ---
@@ -590,7 +590,7 @@ Script kms.sh has been deprecated, use `hadoop kms` instead. The new scripts are
 
 ---
 
-* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem's data connection mode and transfer mode configurable**
+* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem\'s data connection mode and transfer mode configurable**
 
 Added two configuration key fs.ftp.data.connection.mode and fs.ftp.transfer.mode, and configure FTP data connection mode and transfer mode accordingly.
 
@@ -618,7 +618,7 @@ This patch removes share/hadoop/{hadoop,hdfs,mapred,yarn}/templates directories 
 
 ---
 
-* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
+* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn\'t work with Jersey 2 on the classpath**
 
 A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
 Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.

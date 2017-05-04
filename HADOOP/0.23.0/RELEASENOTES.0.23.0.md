@@ -191,16 +191,16 @@ Added a new configuration property dfs.block.invalidate.limit for FSNamesystem.b
 
 ---
 
-* [MAPREDUCE-2225](https://issues.apache.org/jira/browse/MAPREDUCE-2225) | *Blocker* | **MultipleOutputs should not require the use of 'Writable'**
+* [MAPREDUCE-2225](https://issues.apache.org/jira/browse/MAPREDUCE-2225) | *Blocker* | **MultipleOutputs should not require the use of \'Writable\'**
 
-MultipleOutputs should not require the use/check of 'Writable' interfaces in key and value classes.
+MultipleOutputs should not require the use/check of \'Writable\' interfaces in key and value classes.
 
 
 ---
 
 * [MAPREDUCE-1811](https://issues.apache.org/jira/browse/MAPREDUCE-1811) | *Minor* | **Job.monitorAndPrintJob() should print status of the job at completion**
 
-Print the resultant status of a Job on completion instead of simply saying 'Complete'.
+Print the resultant status of a Job on completion instead of simply saying \'Complete\'.
 
 
 ---
@@ -276,9 +276,9 @@ Updated the help for the touchz command.
 
 ---
 
-* [HDFS-1120](https://issues.apache.org/jira/browse/HDFS-1120) | *Major* | **Make DataNode's block-to-device placement policy pluggable**
+* [HDFS-1120](https://issues.apache.org/jira/browse/HDFS-1120) | *Major* | **Make DataNode\'s block-to-device placement policy pluggable**
 
-Make the DataNode's block-volume choosing policy pluggable.
+Make the DataNode\'s block-volume choosing policy pluggable.
 
 
 ---
@@ -332,14 +332,14 @@ I have committed this. Thanks to Bharath!
 
 * [MAPREDUCE-1461](https://issues.apache.org/jira/browse/MAPREDUCE-1461) | *Major* | **Feature to instruct rumen-folder utility to skip jobs worth of specific duration**
 
-Added a ''-starts-after' option to Rumen's Folder utility. The time duration specified after the '-starts-after' option is an offset with respect to the submit time of the first job in the input trace. Jobs in the input trace having a submit time (relative to the first job's submit time) lesser than the specified offset will be ignored.
+Added a \'\'-starts-after\' option to Rumen\'s Folder utility. The time duration specified after the \'-starts-after\' option is an offset with respect to the submit time of the first job in the input trace. Jobs in the input trace having a submit time (relative to the first job\'s submit time) lesser than the specified offset will be ignored.
 
 
 ---
 
 * [MAPREDUCE-2153](https://issues.apache.org/jira/browse/MAPREDUCE-2153) | *Major* | **Bring in more job configuration properties in to the trace file**
 
-Adds job configuration parameters to the job trace. The configuration parameters are stored under the 'jobProperties' field as key-value pairs.
+Adds job configuration parameters to the job trace. The configuration parameters are stored under the \'jobProperties\' field as key-value pairs.
 
 
 ---
@@ -383,7 +383,7 @@ Adds -recursive option to TraceBuilder for scanning the input directories recurs
 
 * [MAPREDUCE-2474](https://issues.apache.org/jira/browse/MAPREDUCE-2474) | *Minor* | **Add docs to the new API Partitioner on how to access Job Configuration data**
 
-Improve the Partitioner interface's docs to help fetch Job Configuration objects.
+Improve the Partitioner interface\'s docs to help fetch Job Configuration objects.
 
 
 ---
@@ -397,7 +397,7 @@ New metrics2 framework for Hadoop.
 
 * [HDFS-1826](https://issues.apache.org/jira/browse/HDFS-1826) | *Major* | **NameNode should save image to name directories in parallel during upgrade**
 
-I've committed this. Thanks, Matt!
+I\'ve committed this. Thanks, Matt!
 
 
 ---
@@ -469,7 +469,7 @@ Removed the deprecated fields in DataTransferProtocol.
 
 ---
 
-* [HADOOP-7286](https://issues.apache.org/jira/browse/HADOOP-7286) | *Major* | **Refactor FsShell's du/dus/df**
+* [HADOOP-7286](https://issues.apache.org/jira/browse/HADOOP-7286) | *Major* | **Refactor FsShell\'s du/dus/df**
 
 The "Found X items" header on the output of the "du" command has been removed to more closely match unix. The displayed paths now correspond to the command line arguments instead of always being a fully qualified URI. For example, the output will have relative paths if the command line arguments are relative paths.
 
@@ -497,9 +497,9 @@ Makes Gridmix emulate HDFS based distributed cache files and local file system b
 
 ---
 
-* [MAPREDUCE-2492](https://issues.apache.org/jira/browse/MAPREDUCE-2492) | *Major* | **[MAPREDUCE] The new MapReduce API should make available task's progress to the task**
+* [MAPREDUCE-2492](https://issues.apache.org/jira/browse/MAPREDUCE-2492) | *Major* | **[MAPREDUCE] The new MapReduce API should make available task\'s progress to the task**
 
-Map and Reduce task can access the attempt's overall progress via TaskAttemptContext.
+Map and Reduce task can access the attempt\'s overall progress via TaskAttemptContext.
 
 
 ---
@@ -513,14 +513,14 @@ Use of this new utility method avoids null result from File.listFiles(), and con
 
 * [MAPREDUCE-2137](https://issues.apache.org/jira/browse/MAPREDUCE-2137) | *Major* | **Mapping between Gridmix jobs and the corresponding original MR jobs is needed**
 
-New configuration properties gridmix.job.original-job-id and gridmix.job.original-job-name in the configuration of simulated job are exposed/documented to gridmix user for mapping between original cluster's jobs and simulated jobs.
+New configuration properties gridmix.job.original-job-id and gridmix.job.original-job-name in the configuration of simulated job are exposed/documented to gridmix user for mapping between original cluster\'s jobs and simulated jobs.
 
 
 ---
 
 * [MAPREDUCE-2408](https://issues.apache.org/jira/browse/MAPREDUCE-2408) | *Major* | **Make Gridmix emulate usage of data compression**
 
-Emulates the MapReduce compression feature in Gridmix. By default, compression emulation is turned on. Compression emulation can be disabled by setting 'gridmix.compression-emulation.enable' to 'false'.  Use 'gridmix.compression-emulation.map-input.decompression-ratio', 'gridmix.compression-emulation.map-output.compression-ratio' and 'gridmix.compression-emulation.reduce-output.compression-ratio' to configure the compression ratios at map input, map output and reduce output side respectively. Currently, compression ratios in the range [0.07, 0.68] are supported. Gridmix auto detects whether map-input, map output and reduce output should emulate compression based on original job's compression related configuration parameters.
+Emulates the MapReduce compression feature in Gridmix. By default, compression emulation is turned on. Compression emulation can be disabled by setting \'gridmix.compression-emulation.enable\' to \'false\'.  Use \'gridmix.compression-emulation.map-input.decompression-ratio\', \'gridmix.compression-emulation.map-output.compression-ratio\' and \'gridmix.compression-emulation.reduce-output.compression-ratio\' to configure the compression ratios at map input, map output and reduce output side respectively. Currently, compression ratios in the range [0.07, 0.68] are supported. Gridmix auto detects whether map-input, map output and reduce output should emulate compression based on original job\'s compression related configuration parameters.
 
 
 ---
@@ -567,7 +567,7 @@ Adds system tests for testing the compression emulation feature of Gridmix.
 
 ---
 
-* [HDFS-1636](https://issues.apache.org/jira/browse/HDFS-1636) | *Minor* | **If dfs.name.dir points to an empty dir, namenode format shouldn't require confirmation**
+* [HDFS-1636](https://issues.apache.org/jira/browse/HDFS-1636) | *Minor* | **If dfs.name.dir points to an empty dir, namenode format shouldn\'t require confirmation**
 
 If dfs.name.dir points to an empty dir, namenode -format no longer requires confirmation.
 
@@ -583,7 +583,7 @@ Added header classes for individual DataTransferProtocol op headers.
 
 * [MAPREDUCE-2469](https://issues.apache.org/jira/browse/MAPREDUCE-2469) | *Major* | **Task counters should also report the total heap usage of the task**
 
-Task attempt's total heap usage gets recorded and published via counters as COMMITTED\_HEAP\_BYTES.
+Task attempt\'s total heap usage gets recorded and published via counters as COMMITTED\_HEAP\_BYTES.
 
 
 ---
@@ -621,7 +621,7 @@ mapreduce.reduce.shuffle.catch.exception.message.regex
 
 * [MAPREDUCE-2104](https://issues.apache.org/jira/browse/MAPREDUCE-2104) | *Major* | **Rumen TraceBuilder Does Not Emit CPU/Memory Usage Details in Traces**
 
-Adds cpu, physical memory, virtual memory and heap usages to TraceBuilder's output.
+Adds cpu, physical memory, virtual memory and heap usages to TraceBuilder\'s output.
 
 
 ---
@@ -635,7 +635,7 @@ Removed dependency of testcase on /tmp and made it to use test.build.data direct
 
 * [MAPREDUCE-587](https://issues.apache.org/jira/browse/MAPREDUCE-587) | *Minor* | **Stream test TestStreamingExitStatus fails with Out of Memory**
 
-Fixed the streaming test TestStreamingExitStatus's failure due to an OutOfMemory error by reducing the testcase's io.sort.mb.
+Fixed the streaming test TestStreamingExitStatus\'s failure due to an OutOfMemory error by reducing the testcase\'s io.sort.mb.
 
 
 ---
@@ -654,7 +654,7 @@ MRUnit is now available as a separate Apache project.
 
 ---
 
-* [HADOOP-7374](https://issues.apache.org/jira/browse/HADOOP-7374) | *Major* | **Don't add tools.jar to the classpath when running Hadoop**
+* [HADOOP-7374](https://issues.apache.org/jira/browse/HADOOP-7374) | *Major* | **Don\'t add tools.jar to the classpath when running Hadoop**
 
 The scripts that run Hadoop no longer automatically add tools.jar from the JDK to the classpath (if it is present). If your job depends on tools.jar in the JDK you will need to add this dependency in your job.
 
@@ -684,7 +684,7 @@ Adds system tests to test the High-Ram feature in Gridmix.
 
 * [MAPREDUCE-2107](https://issues.apache.org/jira/browse/MAPREDUCE-2107) | *Major* | **Emulate Memory Usage of Tasks in GridMix3**
 
-Adds total heap usage emulation to Gridmix. Also, Gridmix can configure the simulated task's JVM heap options with max heap options obtained from the original task (via Rumen). Use 'gridmix.task.jvm-options.enable' to disable the task max heap options configuration.
+Adds total heap usage emulation to Gridmix. Also, Gridmix can configure the simulated task\'s JVM heap options with max heap options obtained from the original task (via Rumen). Use \'gridmix.task.jvm-options.enable\' to disable the task max heap options configuration.
 
 
 ---
@@ -712,7 +712,7 @@ Declare methods in DataTransferProtocol interface, and change Sender and Receive
 
 * [HDFS-1321](https://issues.apache.org/jira/browse/HDFS-1321) | *Minor* | **If service port and main port are the same, there is no clear log message explaining the issue.**
 
-Added a check to match the sure RPC and HTTP Port's on the NameNode were not set to the same value, otherwise an IOException is throw with the appropriate message.
+Added a check to match the sure RPC and HTTP Port\'s on the NameNode were not set to the same value, otherwise an IOException is throw with the appropriate message.
 
 
 ---
@@ -773,9 +773,9 @@ The hdfsproxy contrib component is no longer supported.
 
 ---
 
-* [HDFS-1073](https://issues.apache.org/jira/browse/HDFS-1073) | *Major* | **Simpler model for Namenode's fs Image and edit Logs**
+* [HDFS-1073](https://issues.apache.org/jira/browse/HDFS-1073) | *Major* | **Simpler model for Namenode\'s fs Image and edit Logs**
 
-The NameNode's storage layout for its name directories has been reorganized to be more robust. Each edit now has a unique transaction ID, and each file is associated with a transaction ID (for checkpoints) or a range of transaction IDs (for edit logs).
+The NameNode\'s storage layout for its name directories has been reorganized to be more robust. Each edit now has a unique transaction ID, and each file is associated with a transaction ID (for checkpoints) or a range of transaction IDs (for edit logs).
 
 
 ---
@@ -846,7 +846,7 @@ The Scheduler has a pluggable policy plug-in, which is responsible for partition
 The CapacityScheduler supports hierarchical queues to allow for more predictable sharing of cluster resources.
 The ApplicationsManager is responsible for accepting job-submissions, negotiating the first container for executing the application specific ApplicationMaster and provides the service for restarting the ApplicationMaster container on failure.
 
-The NodeManager is the per-machine framework agent who is responsible for launching the applications' containers, monitoring their resource usage (cpu, memory, disk, network) and reporting the same to the Scheduler.
+The NodeManager is the per-machine framework agent who is responsible for launching the applications\' containers, monitoring their resource usage (cpu, memory, disk, network) and reporting the same to the Scheduler.
 
 The per-application ApplicationMaster has the responsibility of negotiating appropriate resource containers from the Scheduler, tracking their status and monitoring for progress.
 
@@ -871,7 +871,7 @@ New config added:
 
 * [MAPREDUCE-2846](https://issues.apache.org/jira/browse/MAPREDUCE-2846) | *Blocker* | **a small % of all tasks fail with DefaultTaskController**
 
-Fixed a race condition in writing the log index file that caused tasks to 'fail'.
+Fixed a race condition in writing the log index file that caused tasks to \'fail\'.
 
 
 ---
@@ -939,7 +939,7 @@ contrib/vaidya/bin/vaidya.sh script fixed to use appropriate jars and classpath
 
 ---
 
-* [MAPREDUCE-3041](https://issues.apache.org/jira/browse/MAPREDUCE-3041) | *Blocker* | **Enhance YARN Client-RM protocol to provide access to information such as cluster's Min/Max Resource capabilities similar to that of AM-RM protocol**
+* [MAPREDUCE-3041](https://issues.apache.org/jira/browse/MAPREDUCE-3041) | *Blocker* | **Enhance YARN Client-RM protocol to provide access to information such as cluster\'s Min/Max Resource capabilities similar to that of AM-RM protocol**
 
 **WARNING: No release note provided for this change.**
 
@@ -1106,7 +1106,7 @@ The proxy server is stateless and should be able to support a VIP or other load 
 
 * [MAPREDUCE-3205](https://issues.apache.org/jira/browse/MAPREDUCE-3205) | *Blocker* | **MR2 memory limits should be pmem, not vmem**
 
-Resource limits are now expressed and enforced in terms of physical memory, rather than virtual memory. The virtual memory limit is set as a configurable multiple of the physical limit. The NodeManager's memory usage is now configured in units of MB rather than GB.
+Resource limits are now expressed and enforced in terms of physical memory, rather than virtual memory. The virtual memory limit is set as a configurable multiple of the physical limit. The NodeManager\'s memory usage is now configured in units of MB rather than GB.
 
 
 ---

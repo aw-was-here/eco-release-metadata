@@ -35,4 +35,39 @@ With this change, we are switching to build master branch with JDK8
 Increased width of metastore text columns for general configuration storage.
 
 
+---
+
+* [HIVE-15434](https://issues.apache.org/jira/browse/HIVE-15434) | *Major* | **Add UDF to allow interrogation of uniontype values**
+
+Added UDF to allow interrogation of uniontype values.
+
+
+---
+
+* [HIVE-15173](https://issues.apache.org/jira/browse/HIVE-15173) | *Major* | **Allow dec as an alias for decimal**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-16049](https://issues.apache.org/jira/browse/HIVE-16049) | *Major* | **upgrade to jetty 9**
+
+Embedded web services now rely on Jetty 9; downstream users who rely on Hive\'s classpath for their Jetty jars will need to update their use for the change.
+
+
+---
+
+* [HIVE-16392](https://issues.apache.org/jira/browse/HIVE-16392) | *Major* | **Remove hive.warehouse.subdir.inherit.perms and all permissions inheritance logic**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-16383](https://issues.apache.org/jira/browse/HIVE-16383) | *Major* | **Switch to HikariCP as default connection pooling**
+
+**WARNING: No release note provided for this change.**
+
+
 

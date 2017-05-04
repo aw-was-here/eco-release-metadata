@@ -18,14 +18,25 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.3.4 - Unreleased (as of 2017-03-28)
+## Release 1.3.4 - Unreleased (as of 2017-05-04)
 
+
+
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-170](https://issues.apache.org/jira/browse/ORC-170) | TypeDescription parent links aren\'t always initialized in TypeDescription.fromString() |  Major | Java | Owen O\'Malley | Owen O\'Malley |
+| [ORC-172](https://issues.apache.org/jira/browse/ORC-172) | Fix C++ build issue with Centos6 |  Major | . | Deepak Majeti | Deepak Majeti |
+| [ORC-148](https://issues.apache.org/jira/browse/ORC-148) | Move ORC PPD failure messages from WARN to DEBUG level |  Blocker | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [ORC-87](https://issues.apache.org/jira/browse/ORC-87) | [C++] Handle missing timezone conversion for timestamp statistics |  Major | C++ | Deepak Majeti | Deepak Majeti |
+| [ORC-181](https://issues.apache.org/jira/browse/ORC-181) | ByteRleDecoder doesn\'t seek correctly |  Major | C++ | Gang Wu | Gang Wu |
 
 
 ### TESTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-157](https://issues.apache.org/jira/browse/ORC-157) | Test failed due to timezone DST |  Trivial | tools | Andrey Morskoy | Owen O'Malley |
+| [ORC-157](https://issues.apache.org/jira/browse/ORC-157) | Test failed due to timezone DST |  Trivial | tools | Andrey Morskoy | Owen O\'Malley |
 
 

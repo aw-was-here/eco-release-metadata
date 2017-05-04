@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-390](https://issues.apache.org/jira/browse/YETUS-390) | qbt needs an "abbreviated email" mode |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn't know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-341](https://issues.apache.org/jira/browse/YETUS-341) | docker cleanup in sentinel mode doesn\'t know about Created |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -64,7 +64,7 @@
 | [YETUS-409](https://issues.apache.org/jira/browse/YETUS-409) | Some fixes and improvements for "Cleanup" section in "Managing a Release" document |  Major | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-403](https://issues.apache.org/jira/browse/YETUS-403) | hadoop personality needs better handling of homebrew |  Major | Test Patch | Allen Wittenauer | Kengo Seki |
 | [YETUS-419](https://issues.apache.org/jira/browse/YETUS-419) | releasedocmaker should retry when the connection fails |  Major | Release Doc Maker | Akira Ajisaka | Akira Ajisaka |
-| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn't appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
+| [YETUS-380](https://issues.apache.org/jira/browse/YETUS-380) | "Release Notes" button doesn\'t appear immediately in some cases |  Trivial | website and documentation | Kengo Seki | Kengo Seki |
 | [YETUS-414](https://issues.apache.org/jira/browse/YETUS-414) | ctest logs are really broken |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-407](https://issues.apache.org/jira/browse/YETUS-407) | DOAP is broken |  Major | website and documentation | Sebb | Kengo Seki |
 | [YETUS-405](https://issues.apache.org/jira/browse/YETUS-405) | Minor typo for python-dateutil package |  Minor | Release Doc Maker, website and documentation | Kengo Seki | Karen Clark |
@@ -84,7 +84,7 @@
 | [YETUS-446](https://issues.apache.org/jira/browse/YETUS-446) | releasedocmaker not handling 0 version in a range correctly? |  Major | Release Doc Maker | Allen Wittenauer | Ajay Yadava |
 | [YETUS-457](https://issues.apache.org/jira/browse/YETUS-457) | RDM does not properly escape entities |  Critical | Release Doc Maker | Andrew Wang | Andrew Wang |
 | [YETUS-447](https://issues.apache.org/jira/browse/YETUS-447) | invalid byte in cut |  Major | Test Patch | Allen Wittenauer | Casey Brotherton |
-| [YETUS-463](https://issues.apache.org/jira/browse/YETUS-463) | Enable yarn-ui profile in Yetus's precommit logic |  Major | Test Patch | Wangda Tan | Wangda Tan |
+| [YETUS-463](https://issues.apache.org/jira/browse/YETUS-463) | Enable yarn-ui profile in Yetus\'s precommit logic |  Major | Test Patch | Wangda Tan | Wangda Tan |
 | [YETUS-467](https://issues.apache.org/jira/browse/YETUS-467) | Update hbase personality after YETUS-322 "flip verify\_ result codes" |  Major | Test Patch | stack | stack |
 | [YETUS-470](https://issues.apache.org/jira/browse/YETUS-470) | user\_plugin directory is not copied over properly. |  Major | Test Patch | Suraj Acharya | Suraj Acharya |
 | [YETUS-469](https://issues.apache.org/jira/browse/YETUS-469) | running docker as root fails. |  Major | Test Patch | Suraj Acharya | Suraj Acharya |

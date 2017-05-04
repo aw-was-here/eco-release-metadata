@@ -40,4 +40,11 @@ The fix prevents block recovery failure if replica of last block is being decomm
 * Old properties are still supported
 
 
+---
+
+* [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | *Major* | **Set default ADLS access token provider type to ClientCredential**
+
+Switch the default ADLS access token provider type from Custom to ClientCredential.
+
+
 

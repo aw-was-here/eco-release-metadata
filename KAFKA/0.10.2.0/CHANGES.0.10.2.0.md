@@ -78,9 +78,9 @@
 | [KAFKA-4404](https://issues.apache.org/jira/browse/KAFKA-4404) | Add knowledge of sign to numeric schema types |  Minor | KafkaConnect | Andy Bryant | Ewen Cheslack-Postava |
 | [KAFKA-4429](https://issues.apache.org/jira/browse/KAFKA-4429) | records-lag should be zero if FetchResponse is empty |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-4261](https://issues.apache.org/jira/browse/KAFKA-4261) | Provide debug option in vagrant-up.sh |  Minor | system tests | Flavio Junqueira | Flavio Junqueira |
-| [KAFKA-4584](https://issues.apache.org/jira/browse/KAFKA-4584) | Fail the 'kafka-configs' command if the config to be removed does not exist |  Minor | . | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-4584](https://issues.apache.org/jira/browse/KAFKA-4584) | Fail the \'kafka-configs\' command if the config to be removed does not exist |  Minor | . | Vahid Hashemian | Vahid Hashemian |
 | [KAFKA-3304](https://issues.apache.org/jira/browse/KAFKA-3304) | KIP-35 - Retrieving protocol version |  Critical | . | Ashish Singh | Ashish Singh |
-| [KAFKA-4402](https://issues.apache.org/jira/browse/KAFKA-4402) | Kafka Producer's DefaultPartitioner is actually not round robin as said in the code comments "If no partition or key is present choose a partition in a round-robin fashion" |  Minor | . | Jun Yao |  |
+| [KAFKA-4402](https://issues.apache.org/jira/browse/KAFKA-4402) | Kafka Producer\'s DefaultPartitioner is actually not round robin as said in the code comments "If no partition or key is present choose a partition in a round-robin fashion" |  Minor | . | Jun Yao |  |
 | [KAFKA-3751](https://issues.apache.org/jira/browse/KAFKA-3751) | Add support for SASL/SCRAM mechanisms |  Major | security | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-3715](https://issues.apache.org/jira/browse/KAFKA-3715) | Higher granularity streams metrics |  Major | streams | Jeff Klukas | aarti gupta |
 | [KAFKA-4426](https://issues.apache.org/jira/browse/KAFKA-4426) | Add consumer.close(timeout, unit) for graceful close with timeout |  Major | consumer | Rajini Sivaram | Rajini Sivaram |
@@ -108,7 +108,7 @@
 | [KAFKA-4193](https://issues.apache.org/jira/browse/KAFKA-4193) | FetcherTest fails intermittently |  Major | . | Ben Stopford | Ben Stopford |
 | [KAFKA-3782](https://issues.apache.org/jira/browse/KAFKA-3782) | Transient failure with kafkatest.tests.connect.connect\_distributed\_test.ConnectDistributedTest.test\_bounce.clean=True |  Minor | KafkaConnect | Liquan Pei | Jason Gustafson |
 | [KAFKA-3590](https://issues.apache.org/jira/browse/KAFKA-3590) | KafkaConsumer fails with "Messages are rejected since there are fewer in-sync replicas than required." when polling |  Major | consumer | Sergey Alaev | Jason Gustafson |
-| [KAFKA-4241](https://issues.apache.org/jira/browse/KAFKA-4241) | StreamsConfig doesn't pass through custom consumer and producer properties to ConsumerConfig and ProducerConfig |  Major | streams | Damian Guy | Damian Guy |
+| [KAFKA-4241](https://issues.apache.org/jira/browse/KAFKA-4241) | StreamsConfig doesn\'t pass through custom consumer and producer properties to ConsumerConfig and ProducerConfig |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-4251](https://issues.apache.org/jira/browse/KAFKA-4251) | Test driver not launching in Vagrant 1.8.6 |  Major | system tests | Xavier Léauté |  |
 | [KAFKA-4176](https://issues.apache.org/jira/browse/KAFKA-4176) | Node stopped receiving heartbeat responses once another node started within the same group |  Major | consumer | Marek Svitok | Guozhang Wang |
 | [KAFKA-4253](https://issues.apache.org/jira/browse/KAFKA-4253) | Fix Kafka Stream thread shutting down process ordering |  Major | streams | Guozhang Wang | Damian Guy |
@@ -153,7 +153,7 @@
 | [KAFKA-3994](https://issues.apache.org/jira/browse/KAFKA-3994) | Deadlock between consumer heartbeat expiration and offset commit. |  Critical | core | Jiangjie Qin | Jason Gustafson |
 | [KAFKA-4472](https://issues.apache.org/jira/browse/KAFKA-4472) | offsetRetentionMs miscalculated in GroupCoordinator |  Major | . | Jason Aliyetti | Kim Christensen |
 | [KAFKA-4488](https://issues.apache.org/jira/browse/KAFKA-4488) | UnsupportedOperationException during initialization of StandbyTask |  Major | streams | Damian Guy | Damian Guy |
-| [KAFKA-4306](https://issues.apache.org/jira/browse/KAFKA-4306) | Connect workers won't shut down if brokers are not available |  Major | KafkaConnect | Gwen Shapira | Konstantine Karantasis |
+| [KAFKA-4306](https://issues.apache.org/jira/browse/KAFKA-4306) | Connect workers won\'t shut down if brokers are not available |  Major | KafkaConnect | Gwen Shapira | Konstantine Karantasis |
 | [KAFKA-4154](https://issues.apache.org/jira/browse/KAFKA-4154) | Kafka Connect fails to shutdown if it has not completed startup |  Major | KafkaConnect | Shikhar Bhushan | Konstantine Karantasis |
 | [KAFKA-4392](https://issues.apache.org/jira/browse/KAFKA-4392) | Failed to lock the state directory due to an unexpected exception |  Major | streams | Ara Ebrahimi | Guozhang Wang |
 | [KAFKA-4286](https://issues.apache.org/jira/browse/KAFKA-4286) | metric reporter may hit NullPointerException during shutdown |  Major | core | Jun Rao | Xavier Léauté |
@@ -174,7 +174,7 @@
 | [KAFKA-4539](https://issues.apache.org/jira/browse/KAFKA-4539) | StreamThread is not correctly creating  StandbyTasks |  Major | streams | Damian Guy | Damian Guy |
 | [KAFKA-4552](https://issues.apache.org/jira/browse/KAFKA-4552) | README.md has org.gradle.project.maxParallelForms instead of maxParallelForks |  Trivial | documentation | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4534](https://issues.apache.org/jira/browse/KAFKA-4534) | StreamPartitionAssignor only ever updates the partitionsByHostState and metadataWithInternalTopics once. |  Major | streams | Damian Guy | Damian Guy |
-| [KAFKA-4553](https://issues.apache.org/jira/browse/KAFKA-4553) | Connect's round robin assignment produces undesirable distribution of connectors/tasks |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-4553](https://issues.apache.org/jira/browse/KAFKA-4553) | Connect\'s round robin assignment produces undesirable distribution of connectors/tasks |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-4166](https://issues.apache.org/jira/browse/KAFKA-4166) | TestMirrorMakerService.test\_bounce transient system test failure |  Major | . | Ismael Juma | Jason Gustafson |
 | [KAFKA-4526](https://issues.apache.org/jira/browse/KAFKA-4526) | Transient failure in ThrottlingTest.test\_throttled\_reassignment |  Major | . | Ewen Cheslack-Postava | Apurva Mehta |
 | [KAFKA-4473](https://issues.apache.org/jira/browse/KAFKA-4473) | RecordCollector should handle retriable exceptions more strictly |  Critical | streams | Thomas Schulz | Damian Guy |
@@ -191,7 +191,7 @@
 | [KAFKA-4434](https://issues.apache.org/jira/browse/KAFKA-4434) | KafkaProducer configuration is logged twice |  Minor | config | Ruben de Gooijer | huxi |
 | [KAFKA-4523](https://issues.apache.org/jira/browse/KAFKA-4523) | Controlled shutdown fails if consumer group restabilizes during shutdown |  Major | . | Steve Niemitz | Steve Niemitz |
 | [KAFKA-4551](https://issues.apache.org/jira/browse/KAFKA-4551) | StreamsSmokeTest.test\_streams intermittent failure |  Blocker | . | Roger Hoover | Damian Guy |
-| [KAFKA-4455](https://issues.apache.org/jira/browse/KAFKA-4455) | CommitFailedException during rebalance doesn't release resources in tasks/processors |  Major | streams | Davor Poldrugo | Ewen Cheslack-Postava |
+| [KAFKA-4455](https://issues.apache.org/jira/browse/KAFKA-4455) | CommitFailedException during rebalance doesn\'t release resources in tasks/processors |  Major | streams | Davor Poldrugo | Ewen Cheslack-Postava |
 | [KAFKA-4481](https://issues.apache.org/jira/browse/KAFKA-4481) | Relax Kafka Streams API type constraints |  Major | streams | Xavier Léauté | Xavier Léauté |
 | [KAFKA-4060](https://issues.apache.org/jira/browse/KAFKA-4060) | Remove ZkClient dependency in Kafka Streams |  Major | streams | Guozhang Wang | Hojjat Jafarpour |
 | [KAFKA-4180](https://issues.apache.org/jira/browse/KAFKA-4180) | Shared authentication with multiple active Kafka producers/consumers |  Major | producer , security | Guillaume Grossetie | Mickael Maison |
@@ -208,12 +208,12 @@
 | [KAFKA-4576](https://issues.apache.org/jira/browse/KAFKA-4576) | Log segments close to max size break on fetch |  Critical | log | Ivan Babrou | huxi |
 | [KAFKA-4687](https://issues.apache.org/jira/browse/KAFKA-4687) | InvalidTopicException is possible for topic colliding with itself when concurrently created |  Major | admin | Andrew Olson | Andrew Olson |
 | [KAFKA-4673](https://issues.apache.org/jira/browse/KAFKA-4673) | Python VerifiableConsumer service has thread-safety bug for event\_handlers |  Major | system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
-| [KAFKA-4229](https://issues.apache.org/jira/browse/KAFKA-4229) | Controller can't start after several zk expired event |  Major | controller | Pengwei | Pengwei |
+| [KAFKA-4229](https://issues.apache.org/jira/browse/KAFKA-4229) | Controller can\'t start after several zk expired event |  Major | controller | Pengwei | Pengwei |
 | [KAFKA-3835](https://issues.apache.org/jira/browse/KAFKA-3835) | Streams is creating two ProducerRecords for each send via RecordCollector |  Minor | streams | Damian Guy | Jeyhun Karimov |
 | [KAFKA-4596](https://issues.apache.org/jira/browse/KAFKA-4596) | KIP-73 rebalance throttling breaks on plans for specific partitions |  Major | . | Tom Crayford | Ben Stopford |
 | [KAFKA-2000](https://issues.apache.org/jira/browse/KAFKA-2000) | Delete consumer offsets from kafka once the topic is deleted |  Major | . | Sriharsha Chintalapani | Manikumar |
 | [KAFKA-4698](https://issues.apache.org/jira/browse/KAFKA-4698) | \`-target:jvm-1.7\` in scalaCompileOptions seems to cause java.lang.VerifyError when loading kafka/client/ClientUtils |  Major | . | Chris Heisterkamp | Ismael Juma |
-| [KAFKA-4597](https://issues.apache.org/jira/browse/KAFKA-4597) | Record metadata returned by producer doesn't consider log append time |  Major | clients, producer | Alex Fechner | Ismael Juma |
+| [KAFKA-4597](https://issues.apache.org/jira/browse/KAFKA-4597) | Record metadata returned by producer doesn\'t consider log append time |  Major | clients, producer | Alex Fechner | Ismael Juma |
 | [KAFKA-4699](https://issues.apache.org/jira/browse/KAFKA-4699) | Transient Failure PlaintextConsumerTest.testInterceptros |  Major | unit tests | Jason Gustafson | Ismael Juma |
 | [KAFKA-4700](https://issues.apache.org/jira/browse/KAFKA-4700) | StreamsKafkaClient drops security configs |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-4704](https://issues.apache.org/jira/browse/KAFKA-4704) | Group coordinator cache loading fails if groupId is used first for consumer groups and then for simple consumer |  Major | . | Jason Gustafson | Jason Gustafson |
@@ -236,7 +236,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4209](https://issues.apache.org/jira/browse/KAFKA-4209) | Reduce time taken to run quota integration tests |  Major | unit tests | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-4575](https://issues.apache.org/jira/browse/KAFKA-4575) | Transient failure in ConnectDistributedTest.test\_pause\_and\_resume\_sink in consuming messages after resuming sink connector |  Major | KafkaConnect, system tests | Shikhar Bhushan | Shikhar Bhushan |
 | [KAFKA-4580](https://issues.apache.org/jira/browse/KAFKA-4580) | Change one SASL system test to use new JAAS config property |  Blocker | system tests | Rajini Sivaram | Rajini Sivaram |
 
 
@@ -254,16 +253,14 @@
 | [KAFKA-2434](https://issues.apache.org/jira/browse/KAFKA-2434) | remove roundrobin identical topic constraint in consumer coordinator (old API) |  Major | . | Andrew Olson | Andrew Olson |
 | [KAFKA-4528](https://issues.apache.org/jira/browse/KAFKA-4528) | Failure in kafka.producer.ProducerTest.testAsyncSendCanCorrectlyFailWithTimeout |  Major | unit tests | Guozhang Wang | Ismael Juma |
 | [KAFKA-4466](https://issues.apache.org/jira/browse/KAFKA-4466) | Add support to ducktape to run only a part of all tests |  Major | system tests | Raghav Kumar Gautam | Ewen Cheslack-Postava |
-| [KAFKA-4583](https://issues.apache.org/jira/browse/KAFKA-4583) | KafkaConsumerTest.testGracefulClose transient failure |  Major | . | Ismael Juma | Rajini Sivaram |
 | [KAFKA-4508](https://issues.apache.org/jira/browse/KAFKA-4508) | Create system tests that run client against older versions of the broker |  Major | clients | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4465](https://issues.apache.org/jira/browse/KAFKA-4465) | Create docker image and scripts for running tests locally |  Major | system tests | Raghav Kumar Gautam | Raghav Kumar Gautam |
 | [KAFKA-4507](https://issues.apache.org/jira/browse/KAFKA-4507) | The client should send older versions of requests to the broker if necessary |  Blocker | clients | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4114](https://issues.apache.org/jira/browse/KAFKA-4114) | Allow for different "auto.offset.reset" strategies for different input streams |  Major | streams | Matthias J. Sax | Bill Bejeck |
 | [KAFKA-4588](https://issues.apache.org/jira/browse/KAFKA-4588) | QueryableStateIntegrationTest.shouldNotMakeStoreAvailableUntilAllStoresAvailable is occasionally failing on jenkins |  Major | streams | Damian Guy | Damian Guy |
-| [KAFKA-3502](https://issues.apache.org/jira/browse/KAFKA-3502) | Build is killed during kafka streams tests due to \`pure virtual method called\` error |  Major | . | Ashish Singh | Guozhang Wang |
 | [KAFKA-4457](https://issues.apache.org/jira/browse/KAFKA-4457) | Add a command to list the broker version information |  Blocker | clients | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-3896](https://issues.apache.org/jira/browse/KAFKA-3896) | Unstable test KStreamRepartitionJoinTest.shouldCorrectlyRepartitionOnJoinOperations |  Major | unit tests | Ashish Singh | Guozhang Wang |
-| [KAFKA-4548](https://issues.apache.org/jira/browse/KAFKA-4548) | Add CompatibilityTest to verify that individual features are supported or not by the broker we're connecting to |  Major | clients, system tests, unit tests | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-4548](https://issues.apache.org/jira/browse/KAFKA-4548) | Add CompatibilityTest to verify that individual features are supported or not by the broker we\'re connecting to |  Major | clients, system tests, unit tests | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4630](https://issues.apache.org/jira/browse/KAFKA-4630) | Implement RecordTooLargeException when communicating with pre-KIP-74 brokers |  Blocker | clients | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4644](https://issues.apache.org/jira/browse/KAFKA-4644) | Improve test coverage of StreamsPartitionAssignor |  Minor | streams | Damian Guy | Damian Guy |
 | [KAFKA-4664](https://issues.apache.org/jira/browse/KAFKA-4664) | Update docs/protocol.html with KIP-97 information |  Minor | documentation | Colin P. McCabe | Colin P. McCabe |

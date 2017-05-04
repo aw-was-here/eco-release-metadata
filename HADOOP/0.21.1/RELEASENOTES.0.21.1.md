@@ -30,21 +30,21 @@ Clears a problem that {{TestJobCleanup}} leaves behind files that cause {{TestJo
 
 ---
 
-* [HADOOP-6971](https://issues.apache.org/jira/browse/HADOOP-6971) | *Major* | **Clover build doesn't generate per-test coverage**
+* [HADOOP-6971](https://issues.apache.org/jira/browse/HADOOP-6971) | *Major* | **Clover build doesn\'t generate per-test coverage**
 
 This fix requires that test coverage is running under Clover 3.0+
 
 
 ---
 
-* [HDFS-1420](https://issues.apache.org/jira/browse/HDFS-1420) | *Major* | **Clover build doesn't generate per-test coverage**
+* [HDFS-1420](https://issues.apache.org/jira/browse/HDFS-1420) | *Major* | **Clover build doesn\'t generate per-test coverage**
 
 This fix requires that test coverage is running under Clover 3.0+
 
 
 ---
 
-* [MAPREDUCE-2090](https://issues.apache.org/jira/browse/MAPREDUCE-2090) | *Major* | **Clover build doesn't generate per-test coverage**
+* [MAPREDUCE-2090](https://issues.apache.org/jira/browse/MAPREDUCE-2090) | *Major* | **Clover build doesn\'t generate per-test coverage**
 
 This fix requires that test coverage is running under Clover 3.0+
 

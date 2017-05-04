@@ -42,7 +42,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-15129](https://issues.apache.org/jira/browse/HBASE-15129) | Set default value for hbase.fs.tmp.dir rather than fully depend on hbase-default.xml |  Major | mapreduce | Yu Li | Yu Li |
-| [HBASE-15211](https://issues.apache.org/jira/browse/HBASE-15211) | Don't run the CatalogJanitor if there are regions in transition |  Major | master | Elliott Clark | Elliott Clark |
+| [HBASE-15211](https://issues.apache.org/jira/browse/HBASE-15211) | Don\'t run the CatalogJanitor if there are regions in transition |  Major | master | Elliott Clark | Elliott Clark |
 | [HBASE-15413](https://issues.apache.org/jira/browse/HBASE-15413) | Procedure-V2: print out ProcedureInfo during trace |  Trivial | proc-v2 | Stephen Yuan Jiang | Stephen Yuan Jiang |
 
 
@@ -91,13 +91,13 @@
 | [HBASE-15153](https://issues.apache.org/jira/browse/HBASE-15153) | Apply checkFamilies addendum on increment to 1.1 and 1.0 |  Major | Performance | stack | stack |
 | [HBASE-15213](https://issues.apache.org/jira/browse/HBASE-15213) | Fix increment performance regression caused by HBASE-8763 on branch-1.0 |  Major | Performance | Junegunn Choi | Junegunn Choi |
 | [HBASE-15157](https://issues.apache.org/jira/browse/HBASE-15157) | Add \*PerformanceTest for Append, CheckAnd\* |  Major | Performance, test | stack | stack |
-| [HBASE-15170](https://issues.apache.org/jira/browse/HBASE-15170) | Backport HBASE-14807 'TestWALLockup is flakey' to branch-1.1 |  Critical | test | Nick Dimiduk | stack |
+| [HBASE-15170](https://issues.apache.org/jira/browse/HBASE-15170) | Backport HBASE-14807 \'TestWALLockup is flakey\' to branch-1.1 |  Critical | test | Nick Dimiduk | stack |
 | [HBASE-15270](https://issues.apache.org/jira/browse/HBASE-15270) | Use appropriate encoding for "filter" field in TaskMonitorTmpl.jamon |  Major | UI | Samir Ahmic | Samir Ahmic |
 | [HBASE-15288](https://issues.apache.org/jira/browse/HBASE-15288) | Flakey TestMasterMetrics.testClusterRequests on branch-1.1 |  Major | test | Heng Chen | Heng Chen |
-| [HBASE-15169](https://issues.apache.org/jira/browse/HBASE-15169) | Backport HBASE-14362 'TestWALProcedureStoreOnHDFS is super duper flaky' to branch-1.1 |  Critical | test | Nick Dimiduk | Heng Chen |
+| [HBASE-15169](https://issues.apache.org/jira/browse/HBASE-15169) | Backport HBASE-14362 \'TestWALProcedureStoreOnHDFS is super duper flaky\' to branch-1.1 |  Critical | test | Nick Dimiduk | Heng Chen |
 | [HBASE-15311](https://issues.apache.org/jira/browse/HBASE-15311) | Prevent NPE in BlockCacheViewTmpl |  Major | UI | Samir Ahmic | Samir Ahmic |
 | [HBASE-15351](https://issues.apache.org/jira/browse/HBASE-15351) | Fix description of hbase.bucketcache.size in hbase-default.xml |  Major | documentation | stack | stack |
-| [HBASE-15365](https://issues.apache.org/jira/browse/HBASE-15365) | Do not write to '/tmp' in TestHBaseConfiguration |  Major | test | Duo Zhang | Duo Zhang |
+| [HBASE-15365](https://issues.apache.org/jira/browse/HBASE-15365) | Do not write to \'/tmp\' in TestHBaseConfiguration |  Major | test | Duo Zhang | Duo Zhang |
 | [HBASE-15224](https://issues.apache.org/jira/browse/HBASE-15224) | Undo  "hbase.increment.fast.but.narrow.consistency" option; it is not necessary since HBASE-15213 |  Major | Performance | stack | stack |
 
 

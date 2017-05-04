@@ -53,9 +53,9 @@
 | [HDFS-1555](https://issues.apache.org/jira/browse/HDFS-1555) | HDFS 20 append: Disallow pipeline recovery if a file is already being lease recovered |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-7343](https://issues.apache.org/jira/browse/HADOOP-7343) | backport HADOOP-7008 and HADOOP-7042 to branch-0.20-security |  Minor | test | Thomas Graves | Thomas Graves |
 | [HADOOP-7432](https://issues.apache.org/jira/browse/HADOOP-7432) | Back-port HADOOP-7110 to 0.20-security |  Major | . | Sherry Chen | Sherry Chen |
-| [HADOOP-7314](https://issues.apache.org/jira/browse/HADOOP-7314) | Add support for throwing UnknownHostException when a host doesn't resolve |  Major | . | Jeffrey Naisbitt | Jeffrey Naisbitt |
+| [HADOOP-7314](https://issues.apache.org/jira/browse/HADOOP-7314) | Add support for throwing UnknownHostException when a host doesn\'t resolve |  Major | . | Jeffrey Naisbitt | Jeffrey Naisbitt |
 | [MAPREDUCE-2494](https://issues.apache.org/jira/browse/MAPREDUCE-2494) | Make the distributed cache delete entires using LRU priority |  Major | distributed-cache | Robert Joseph Evans | Robert Joseph Evans |
-| [MAPREDUCE-2729](https://issues.apache.org/jira/browse/MAPREDUCE-2729) | Reducers are always counted having "pending tasks" even if they can't be scheduled yet because not enough of their mappers have completed |  Major | . | Sherry Chen | Sherry Chen |
+| [MAPREDUCE-2729](https://issues.apache.org/jira/browse/MAPREDUCE-2729) | Reducers are always counted having "pending tasks" even if they can\'t be scheduled yet because not enough of their mappers have completed |  Major | . | Sherry Chen | Sherry Chen |
 | [HADOOP-7472](https://issues.apache.org/jira/browse/HADOOP-7472) | RPC client should deal with the IP address changes |  Minor | ipc | Kihwal Lee | Kihwal Lee |
 | [MAPREDUCE-2981](https://issues.apache.org/jira/browse/MAPREDUCE-2981) | Backport trunk fairscheduler to 0.20-security branch |  Major | contrib/fair-share | Matei Zaharia | Matei Zaharia |
 | [HADOOP-7707](https://issues.apache.org/jira/browse/HADOOP-7707) | improve config generator to allow users to specify proxy user, turn append on or off, turn webhdfs on or off |  Major | conf | Arpit Gupta | Arpit Gupta |
@@ -69,7 +69,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-606](https://issues.apache.org/jira/browse/HDFS-606) | ConcurrentModificationException in invalidateCorruptReplicas() |  Major | namenode | Konstantin Shvachko | Konstantin Shvachko |
 | [HDFS-724](https://issues.apache.org/jira/browse/HDFS-724) | Pipeline close hangs if one of the datanode is not responsive. |  Blocker | datanode, hdfs-client | Tsz Wo Nicholas Sze | Hairong Kuang |
-| [HADOOP-6722](https://issues.apache.org/jira/browse/HADOOP-6722) | NetUtils.connect should check that it hasn't connected a socket to itself |  Major | util | Todd Lipcon | Todd Lipcon |
+| [HADOOP-6722](https://issues.apache.org/jira/browse/HADOOP-6722) | NetUtils.connect should check that it hasn\'t connected a socket to itself |  Major | util | Todd Lipcon | Todd Lipcon |
 | [HDFS-142](https://issues.apache.org/jira/browse/HDFS-142) | In 0.20, move blocks being written into a blocksBeingWritten directory |  Blocker | . | Raghu Angadi | dhruba borthakur |
 | [HDFS-1141](https://issues.apache.org/jira/browse/HDFS-1141) | completeFile does not check lease ownership |  Blocker | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-1207](https://issues.apache.org/jira/browse/HDFS-1207) | 0.20-append: stallReplicationWork should be volatile |  Major | namenode | Todd Lipcon | Todd Lipcon |
@@ -83,14 +83,14 @@
 | [HDFS-1836](https://issues.apache.org/jira/browse/HDFS-1836) | Thousand of CLOSE\_WAIT socket |  Major | hdfs-client | Dennis Cheung | Bharath Mundlapudi |
 | [HADOOP-7400](https://issues.apache.org/jira/browse/HADOOP-7400) | HdfsProxyTests fails when the -Dtest.build.dir and -Dbuild.test is set |  Major | build | Giridharan Kesavan | Giridharan Kesavan |
 | [MAPREDUCE-2650](https://issues.apache.org/jira/browse/MAPREDUCE-2650) | back-port MAPREDUCE-2238 to 0.20-security |  Major | . | Sherry Chen | Sherry Chen |
-| [MAPREDUCE-2324](https://issues.apache.org/jira/browse/MAPREDUCE-2324) | Job should fail if a reduce task can't be scheduled anywhere |  Major | . | Todd Lipcon | Robert Joseph Evans |
+| [MAPREDUCE-2324](https://issues.apache.org/jira/browse/MAPREDUCE-2324) | Job should fail if a reduce task can\'t be scheduled anywhere |  Major | . | Todd Lipcon | Robert Joseph Evans |
 | [MAPREDUCE-2187](https://issues.apache.org/jira/browse/MAPREDUCE-2187) | map tasks timeout during sorting |  Major | . | Gianmarco De Francisci Morales | Anupam Seth |
 | [HDFS-2053](https://issues.apache.org/jira/browse/HDFS-2053) | Bug in INodeDirectory#computeContentSummary warning |  Minor | namenode | Michael Noll | Michael Noll |
 | [HDFS-2117](https://issues.apache.org/jira/browse/HDFS-2117) | DiskChecker#mkdirsWithExistsAndPermissionCheck may return true even when the dir is not created |  Minor | datanode | Eli Collins | Eli Collins |
 | [MAPREDUCE-2705](https://issues.apache.org/jira/browse/MAPREDUCE-2705) | tasks localized and launched serially by TaskLauncher - causing other tasks to be delayed |  Major | tasktracker | Thomas Graves | Thomas Graves |
 | [HDFS-2190](https://issues.apache.org/jira/browse/HDFS-2190) | NN fails to start if it encounters an empty or malformed fstime file |  Major | namenode | Aaron T. Myers | Aaron T. Myers |
 | [MAPREDUCE-2489](https://issues.apache.org/jira/browse/MAPREDUCE-2489) | Jobsplits with random hostnames can make the queue unusable |  Major | jobtracker | Jeffrey Naisbitt | Jeffrey Naisbitt |
-| [HDFS-2259](https://issues.apache.org/jira/browse/HDFS-2259) | DN web-UI doesn't work with paths that contain html |  Minor | datanode | Eli Collins | Eli Collins |
+| [HDFS-2259](https://issues.apache.org/jira/browse/HDFS-2259) | DN web-UI doesn\'t work with paths that contain html |  Minor | datanode | Eli Collins | Eli Collins |
 | [MAPREDUCE-2852](https://issues.apache.org/jira/browse/MAPREDUCE-2852) | Jira for YDH bug 2854624 |  Major | tasktracker | Eli Collins | Kihwal Lee |
 | [HADOOP-7539](https://issues.apache.org/jira/browse/HADOOP-7539) | merge hadoop archive goodness from trunk to .20 |  Major | . | John George | John George |
 | [HADOOP-7596](https://issues.apache.org/jira/browse/HADOOP-7596) | Enable jsvc to work with Hadoop RPM package |  Major | build | Eric Yang | Eric Yang |
@@ -102,16 +102,16 @@
 | [HADOOP-7599](https://issues.apache.org/jira/browse/HADOOP-7599) | Improve hadoop setup conf script to setup secure Hadoop cluster |  Major | scripts | Eric Yang | Eric Yang |
 | [HADOOP-7626](https://issues.apache.org/jira/browse/HADOOP-7626) | Allow overwrite of HADOOP\_CLASSPATH and HADOOP\_OPTS |  Major | scripts | Eric Yang | Eric Yang |
 | [MAPREDUCE-2549](https://issues.apache.org/jira/browse/MAPREDUCE-2549) | Potential resource leaks in HadoopServer.java, RunOnHadoopWizard.java and Environment.java |  Major | contrib/eclipse-plugin, contrib/streaming | Devaraj K | Devaraj K |
-| [HDFS-2328](https://issues.apache.org/jira/browse/HDFS-2328) | hftp throws NPE if security is not enabled on remote cluster |  Critical | . | Daryn Sharp | Owen O'Malley |
+| [HDFS-2328](https://issues.apache.org/jira/browse/HDFS-2328) | hftp throws NPE if security is not enabled on remote cluster |  Critical | . | Daryn Sharp | Owen O\'Malley |
 | [HDFS-1779](https://issues.apache.org/jira/browse/HDFS-1779) | After NameNode restart , Clients can not read partial files even after client invokes Sync. |  Major | datanode, namenode | Uma Maheswara Rao G | Uma Maheswara Rao G |
 | [HDFS-2331](https://issues.apache.org/jira/browse/HDFS-2331) | Hdfs compilation fails |  Major | hdfs-client | Abhijit Suresh Shingate | Abhijit Suresh Shingate |
 | [HDFS-2333](https://issues.apache.org/jira/browse/HDFS-2333) | HDFS-2284 introduced 2 findbugs warnings on trunk |  Major | . | Ivan Kelly | Tsz Wo Nicholas Sze |
-| [HADOOP-7625](https://issues.apache.org/jira/browse/HADOOP-7625) | TestDelegationToken is failing in 205 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [HADOOP-7625](https://issues.apache.org/jira/browse/HADOOP-7625) | TestDelegationToken is failing in 205 |  Major | . | Owen O\'Malley | Owen O\'Malley |
 | [HADOOP-7637](https://issues.apache.org/jira/browse/HADOOP-7637) | Fair scheduler configuration file is not bundled in RPM |  Major | build | Eric Yang | Eric Yang |
 | [HADOOP-7631](https://issues.apache.org/jira/browse/HADOOP-7631) | In mapred-site.xml, stream.tmpdir is mapped to ${mapred.temp.dir} which is undeclared. |  Major | conf | Ramya Sunil | Eric Yang |
 | [HADOOP-7630](https://issues.apache.org/jira/browse/HADOOP-7630) | hadoop-metrics2.properties should have a property \*.period set to a default value foe metrics |  Major | conf | Arpit Gupta | Eric Yang |
 | [HADOOP-7633](https://issues.apache.org/jira/browse/HADOOP-7633) | log4j.properties should be added to the hadoop conf on deploy |  Major | conf | Arpit Gupta | Eric Yang |
-| [HADOOP-7644](https://issues.apache.org/jira/browse/HADOOP-7644) | Fix the delegation token tests to use the new style renewers |  Blocker | security | Owen O'Malley | Owen O'Malley |
+| [HADOOP-7644](https://issues.apache.org/jira/browse/HADOOP-7644) | Fix the delegation token tests to use the new style renewers |  Blocker | security | Owen O\'Malley | Owen O\'Malley |
 | [MAPREDUCE-3076](https://issues.apache.org/jira/browse/MAPREDUCE-3076) | TestSleepJob fails |  Blocker | test | Arun C Murthy | Arun C Murthy |
 | [HADOOP-7645](https://issues.apache.org/jira/browse/HADOOP-7645) | HTTP auth tests requiring Kerberos infrastructure are not disabled on branch-0.20-security |  Blocker | security | Aaron T. Myers | Jitendra Nath Pandey |
 | [HADOOP-7674](https://issues.apache.org/jira/browse/HADOOP-7674) | TestKerberosName fails in 20 branch. |  Major | . | Jitendra Nath Pandey | Jitendra Nath Pandey |
@@ -137,13 +137,13 @@
 | [HADOOP-7711](https://issues.apache.org/jira/browse/HADOOP-7711) | hadoop-env.sh generated from templates has duplicate info |  Major | conf | Arpit Gupta | Arpit Gupta |
 | [HADOOP-7681](https://issues.apache.org/jira/browse/HADOOP-7681) | log4j.properties is missing properties for security audit and hdfs audit should be changed to info |  Minor | conf | Arpit Gupta | Arpit Gupta |
 | [HADOOP-7708](https://issues.apache.org/jira/browse/HADOOP-7708) | config generator does not update the properties file if on exists already |  Critical | conf | Arpit Gupta | Eric Yang |
-| [HDFS-2358](https://issues.apache.org/jira/browse/HDFS-2358) | NPE when the default filesystem's uri has no authority |  Major | namenode | Rajit Saha | Daryn Sharp |
+| [HDFS-2358](https://issues.apache.org/jira/browse/HDFS-2358) | NPE when the default filesystem\'s uri has no authority |  Major | namenode | Rajit Saha | Daryn Sharp |
 | [HDFS-2392](https://issues.apache.org/jira/browse/HDFS-2392) | Dist with hftp is failing again |  Critical | namenode | Rajit Saha | Daryn Sharp |
 | [HDFS-2408](https://issues.apache.org/jira/browse/HDFS-2408) | DFSClient#getNumCurrentReplicas is package private in 205 but public in branch-0.20-append |  Blocker | hdfs-client | stack | stack |
 | [HADOOP-7721](https://issues.apache.org/jira/browse/HADOOP-7721) | dfs.web.authentication.kerberos.principal expects the full hostname and does not replace \_HOST with the hostname |  Major | . | Arpit Gupta | Jitendra Nath Pandey |
 | [HDFS-2405](https://issues.apache.org/jira/browse/HDFS-2405) | hadoop dfs command with webhdfs fails on secure hadoop |  Critical | webhdfs | Arpit Gupta | Jitendra Nath Pandey |
 | [HADOOP-7724](https://issues.apache.org/jira/browse/HADOOP-7724) | hadoop-setup-conf.sh should put proxy user info into the core-site.xml |  Major | . | Giridharan Kesavan | Arpit Gupta |
-| [MAPREDUCE-2764](https://issues.apache.org/jira/browse/MAPREDUCE-2764) | Fix renewal of dfs delegation tokens |  Major | . | Daryn Sharp | Owen O'Malley |
+| [MAPREDUCE-2764](https://issues.apache.org/jira/browse/MAPREDUCE-2764) | Fix renewal of dfs delegation tokens |  Major | . | Daryn Sharp | Owen O\'Malley |
 | [HADOOP-7602](https://issues.apache.org/jira/browse/HADOOP-7602) | wordcount, sort etc on har files fails with NPE |  Major | . | John George | John George |
 | [HADOOP-7649](https://issues.apache.org/jira/browse/HADOOP-7649) | TestMapredGroupMappingServiceRefresh and TestRefreshUserMappings  fail after HADOOP-7625 |  Blocker | security, test | Kihwal Lee | Jitendra Nath Pandey |
 | [HDFS-2411](https://issues.apache.org/jira/browse/HDFS-2411) | with webhdfs enabled in secure mode the auth to local mappings are not being respected. |  Major | webhdfs | Arpit Gupta | Jitendra Nath Pandey |
@@ -175,7 +175,7 @@
 | [HDFS-2356](https://issues.apache.org/jira/browse/HDFS-2356) | webhdfs: support case insensitive query parameter names |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2366](https://issues.apache.org/jira/browse/HDFS-2366) | webhdfs throws a npe when ugi is null from getDelegationToken |  Major | webhdfs | Arpit Gupta | Tsz Wo Nicholas Sze |
 | [HDFS-2348](https://issues.apache.org/jira/browse/HDFS-2348) | Support getContentSummary and getFileChecksum in webhdfs |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HDFS-2395](https://issues.apache.org/jira/browse/HDFS-2395) | webhdfs api's should return a root element in the json response |  Critical | webhdfs | Arpit Gupta | Tsz Wo Nicholas Sze |
+| [HDFS-2395](https://issues.apache.org/jira/browse/HDFS-2395) | webhdfs api\'s should return a root element in the json response |  Critical | webhdfs | Arpit Gupta | Tsz Wo Nicholas Sze |
 | [HDFS-2403](https://issues.apache.org/jira/browse/HDFS-2403) | The renewer in NamenodeWebHdfsMethods.generateDelegationToken(..) is not used |  Major | . | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-2404](https://issues.apache.org/jira/browse/HDFS-2404) | webhdfs liststatus json response is not correct |  Major | webhdfs | Arpit Gupta | Suresh Srinivas |
 | [HDFS-2385](https://issues.apache.org/jira/browse/HDFS-2385) | Support delegation token renewal in webhdfs |  Major | webhdfs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |

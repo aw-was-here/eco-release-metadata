@@ -18,14 +18,14 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 0.23.2 - Unreleased (as of 2016-09-16)
+## Release 0.23.2 - Unreleased (as of 2017-05-04)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-2887](https://issues.apache.org/jira/browse/HDFS-2887) | Define a FSVolume interface |  Major | datanode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
-| [HADOOP-8131](https://issues.apache.org/jira/browse/HADOOP-8131) | FsShell put doesn't correctly handle a non-existent dir |  Critical | . | Daryn Sharp | Daryn Sharp |
+| [HADOOP-8131](https://issues.apache.org/jira/browse/HADOOP-8131) | FsShell put doesn\'t correctly handle a non-existent dir |  Critical | . | Daryn Sharp | Daryn Sharp |
 | [HADOOP-8164](https://issues.apache.org/jira/browse/HADOOP-8164) | Handle paths using back slash as path separator for windows only |  Major | fs | Suresh Srinivas | Daryn Sharp |
 
 
@@ -45,7 +45,7 @@
 | [HDFS-2506](https://issues.apache.org/jira/browse/HDFS-2506) | Umbrella jira for tracking separation of wire protocol datatypes from the implementation types |  Major | datanode, namenode | Suresh Srinivas | Suresh Srinivas |
 | [HADOOP-8071](https://issues.apache.org/jira/browse/HADOOP-8071) | Avoid an extra packet in client code when nagling is disabled |  Minor | ipc | Todd Lipcon | Todd Lipcon |
 | [MAPREDUCE-3864](https://issues.apache.org/jira/browse/MAPREDUCE-3864) | Fix cluster setup docs for correct SNN HTTPS parameters |  Minor | documentation, security | Todd Lipcon | Todd Lipcon |
-| [MAPREDUCE-3849](https://issues.apache.org/jira/browse/MAPREDUCE-3849) | Change TokenCache's reading of the binary token file |  Major | security | Daryn Sharp | Daryn Sharp |
+| [MAPREDUCE-3849](https://issues.apache.org/jira/browse/MAPREDUCE-3849) | Change TokenCache\'s reading of the binary token file |  Major | security | Daryn Sharp | Daryn Sharp |
 | [HDFS-2655](https://issues.apache.org/jira/browse/HDFS-2655) | BlockReaderLocal#skip performs unnecessary IO |  Major | datanode | Eli Collins | Brandon Li |
 | [HDFS-2907](https://issues.apache.org/jira/browse/HDFS-2907) | Make FSDataset in Datanode Pluggable |  Minor | . | Sanjay Radia | Tsz Wo Nicholas Sze |
 | [HDFS-2985](https://issues.apache.org/jira/browse/HDFS-2985) | Improve logging when replicas are marked as corrupt |  Minor | namenode | Todd Lipcon | Todd Lipcon |
@@ -69,7 +69,7 @@
 | [MAPREDUCE-3680](https://issues.apache.org/jira/browse/MAPREDUCE-3680) | FifoScheduler web service rest API can print out invalid JSON |  Major | mrv2 | Thomas Graves |  |
 | [HADOOP-8051](https://issues.apache.org/jira/browse/HADOOP-8051) | HttpFS documentation it is not wired to the generated site |  Major | documentation | Alejandro Abdelnur | Alejandro Abdelnur |
 | [MAPREDUCE-3852](https://issues.apache.org/jira/browse/MAPREDUCE-3852) | test TestLinuxResourceCalculatorPlugin failing |  Blocker | mrv2 | Thomas Graves | Thomas Graves |
-| [HDFS-776](https://issues.apache.org/jira/browse/HDFS-776) | Fix exception handling in Balancer |  Critical | balancer & mover | Owen O'Malley | Uma Maheswara Rao G |
+| [HDFS-776](https://issues.apache.org/jira/browse/HDFS-776) | Fix exception handling in Balancer |  Critical | balancer & mover | Owen O\'Malley | Uma Maheswara Rao G |
 | [HADOOP-6502](https://issues.apache.org/jira/browse/HADOOP-6502) | DistributedFileSystem#listStatus is very slow when listing a directory with a size of 1300 |  Critical | util | Hairong Kuang | Sharad Agarwal |
 | [HDFS-2950](https://issues.apache.org/jira/browse/HDFS-2950) | Secondary NN HTTPS address should be listed as a NAMESERVICE\_SPECIFIC\_KEY |  Minor | namenode | Todd Lipcon | Todd Lipcon |
 | [HDFS-2525](https://issues.apache.org/jira/browse/HDFS-2525) | Race between BlockPoolSliceScanner and append |  Critical | datanode | Todd Lipcon | Brandon Li |
@@ -78,7 +78,7 @@
 | [HADOOP-8082](https://issues.apache.org/jira/browse/HADOOP-8082) | add hadoop-client and hadoop-minicluster to the dependency-management section |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |
 | [HADOOP-8066](https://issues.apache.org/jira/browse/HADOOP-8066) | The full docs build intermittently fails |  Major | build | Aaron T. Myers | Andrew Bayer |
 | [HADOOP-8083](https://issues.apache.org/jira/browse/HADOOP-8083) | javadoc generation for some modules is not done under target/ |  Major | build | Alejandro Abdelnur | Alejandro Abdelnur |
-| [HADOOP-8036](https://issues.apache.org/jira/browse/HADOOP-8036) | TestViewFsTrash assumes the user's home directory is 2 levels deep |  Major | fs, test | Eli Collins | Colin P. McCabe |
+| [HADOOP-8036](https://issues.apache.org/jira/browse/HADOOP-8036) | TestViewFsTrash assumes the user\'s home directory is 2 levels deep |  Major | fs, test | Eli Collins | Colin P. McCabe |
 | [MAPREDUCE-3862](https://issues.apache.org/jira/browse/MAPREDUCE-3862) | Nodemanager can appear to hang on shutdown due to lingering DeletionService threads |  Major | mrv2, nodemanager | Jason Lowe | Jason Lowe |
 | [HDFS-2969](https://issues.apache.org/jira/browse/HDFS-2969) | ExtendedBlock.equals is incorrectly implemented |  Critical | datanode | Todd Lipcon | Todd Lipcon |
 | [HADOOP-8046](https://issues.apache.org/jira/browse/HADOOP-8046) | Revert StaticMapping semantics to the existing ones, add DNS mapping diagnostics in progress |  Minor | . | Steve Loughran | Steve Loughran |
@@ -92,7 +92,7 @@
 | [MAPREDUCE-3878](https://issues.apache.org/jira/browse/MAPREDUCE-3878) | Null user on filtered jobhistory job page |  Critical | mrv2 | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-3583](https://issues.apache.org/jira/browse/MAPREDUCE-3583) | ProcfsBasedProcessTree#constructProcessInfo() may throw NumberFormatException |  Critical | . | Ted Yu | Ted Yu |
 | [MAPREDUCE-3738](https://issues.apache.org/jira/browse/MAPREDUCE-3738) | NM can hang during shutdown if AppLogAggregatorImpl thread dies unexpectedly |  Critical | mrv2, nodemanager | Jason Lowe | Jason Lowe |
-| [HDFS-3008](https://issues.apache.org/jira/browse/HDFS-3008) | Negative caching of local addrs doesn't work |  Major | hdfs-client | Eli Collins | Eli Collins |
+| [HDFS-3008](https://issues.apache.org/jira/browse/HDFS-3008) | Negative caching of local addrs doesn\'t work |  Major | hdfs-client | Eli Collins | Eli Collins |
 | [MAPREDUCE-3866](https://issues.apache.org/jira/browse/MAPREDUCE-3866) | bin/yarn prints the command line unnecessarily |  Minor | mrv2 | Vinod Kumar Vavilapalli | Vinod Kumar Vavilapalli |
 | [MAPREDUCE-3904](https://issues.apache.org/jira/browse/MAPREDUCE-3904) | [NPE] Job history produced with mapreduce.cluster.acls.enabled false can not be viewed with mapreduce.cluster.acls.enabled true |  Major | mrv2 | Jonathan Eagles | Jonathan Eagles |
 | [MAPREDUCE-3918](https://issues.apache.org/jira/browse/MAPREDUCE-3918) | proc\_historyserver no longer in command line arguments for HistoryServer |  Major | mrv2 | Jonathan Eagles | Jonathan Eagles |
@@ -106,7 +106,7 @@
 | [MAPREDUCE-3816](https://issues.apache.org/jira/browse/MAPREDUCE-3816) | capacity scheduler web ui bar graphs for used capacity wrong |  Critical | mrv2 | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-3930](https://issues.apache.org/jira/browse/MAPREDUCE-3930) | The AM page for a Reducer that has not been launched causes an NPE |  Critical | mrv2 | Robert Joseph Evans | Robert Joseph Evans |
 | [MAPREDUCE-3931](https://issues.apache.org/jira/browse/MAPREDUCE-3931) | MR tasks failing due to changing timestamps on Resources to download |  Major | mrv2 | Vinod Kumar Vavilapalli | Siddharth Seth |
-| [MAPREDUCE-3687](https://issues.apache.org/jira/browse/MAPREDUCE-3687) | If AM dies before it returns new tracking URL, proxy redirects to http://N/A/ and doesn't return error code |  Major | mrv2 | David Capwell | Ravi Prakash |
+| [MAPREDUCE-3687](https://issues.apache.org/jira/browse/MAPREDUCE-3687) | If AM dies before it returns new tracking URL, proxy redirects to http://N/A/ and doesn\'t return error code |  Major | mrv2 | David Capwell | Ravi Prakash |
 | [MAPREDUCE-3920](https://issues.apache.org/jira/browse/MAPREDUCE-3920) | Revise yarn default port number selection |  Major | nodemanager, resourcemanager | Dave Thompson | Dave Thompson |
 | [MAPREDUCE-3903](https://issues.apache.org/jira/browse/MAPREDUCE-3903) | no admin override to view jobs on mr app master and job history server |  Critical | mrv2 | Thomas Graves | Thomas Graves |
 | [HDFS-3012](https://issues.apache.org/jira/browse/HDFS-3012) | Exception while renewing delegation token |  Critical | . | Ramya Sunil | Robert Joseph Evans |
@@ -116,7 +116,7 @@
 | [MAPREDUCE-3614](https://issues.apache.org/jira/browse/MAPREDUCE-3614) |  finalState UNDEFINED if AM is killed by hand |  Major | mrv2 | Ravi Prakash | Ravi Prakash |
 | [MAPREDUCE-3929](https://issues.apache.org/jira/browse/MAPREDUCE-3929) | output of mapred -showacl is not clear |  Major | mrv2 | John George | John George |
 | [HADOOP-8123](https://issues.apache.org/jira/browse/HADOOP-8123) | hadoop-project invalid pom warnings prevent transitive dependency resolution |  Critical | build | Jonathan Eagles | Jonathan Eagles |
-| [MAPREDUCE-3960](https://issues.apache.org/jira/browse/MAPREDUCE-3960) | web proxy doesn't forward request to AM with configured hostname/IP |  Critical | mrv2 | Thomas Graves | Thomas Graves |
+| [MAPREDUCE-3960](https://issues.apache.org/jira/browse/MAPREDUCE-3960) | web proxy doesn\'t forward request to AM with configured hostname/IP |  Critical | mrv2 | Thomas Graves | Thomas Graves |
 | [MAPREDUCE-3897](https://issues.apache.org/jira/browse/MAPREDUCE-3897) | capacity scheduler - maxActiveApplicationsPerUser calculation can be wrong |  Critical | mrv2 | Thomas Graves | Eric Payne |
 | [MAPREDUCE-3497](https://issues.apache.org/jira/browse/MAPREDUCE-3497) | missing documentation for yarn cli and subcommands - similar to commands\_manual.html |  Major | documentation, mrv2 | Thomas Graves | Thomas Graves |
 | [HADOOP-8137](https://issues.apache.org/jira/browse/HADOOP-8137) | Site side links for commands manual (MAPREDUCE-3497) |  Major | documentation | Vinod Kumar Vavilapalli | Thomas Graves |
@@ -172,6 +172,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-8032](https://issues.apache.org/jira/browse/HADOOP-8032) | mvn site:stage-deploy should be able to use the scp protocol to stage documents |  Major | build, documentation | Ravi Prakash | Ravi Prakash |
-| [HDFS-2931](https://issues.apache.org/jira/browse/HDFS-2931) | Switch the DataNode's BlockVolumeChoosingPolicy to be a private-audience interface |  Minor | datanode | Harsh J | Harsh J |
+| [HDFS-2931](https://issues.apache.org/jira/browse/HDFS-2931) | Switch the DataNode\'s BlockVolumeChoosingPolicy to be a private-audience interface |  Minor | datanode | Harsh J | Harsh J |
 
 

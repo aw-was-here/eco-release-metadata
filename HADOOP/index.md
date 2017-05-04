@@ -16,9 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-* Apache Hadoop v3.0.0-beta1
-    * [Changes](3.0.0-beta1/CHANGES.3.0.0-beta1.html)
-    * [Release Notes](3.0.0-beta1/RELEASENOTES.3.0.0-beta1.html)
 * Apache Hadoop v3.0.0-alpha3
     * [Changes](3.0.0-alpha3/CHANGES.3.0.0-alpha3.html)
     * [Release Notes](3.0.0-alpha3/RELEASENOTES.3.0.0-alpha3.html)
@@ -31,6 +28,9 @@
 * Apache Hadoop v2.9.0
     * [Changes](2.9.0/CHANGES.2.9.0.html)
     * [Release Notes](2.9.0/RELEASENOTES.2.9.0.html)
+* Apache Hadoop v2.8.2
+    * [Changes](2.8.2/CHANGES.2.8.2.html)
+    * [Release Notes](2.8.2/RELEASENOTES.2.8.2.html)
 * Apache Hadoop v2.8.1
     * [Changes](2.8.1/CHANGES.2.8.1.html)
     * [Release Notes](2.8.1/RELEASENOTES.2.8.1.html)
@@ -220,9 +220,6 @@
 * Apache Hadoop v0.20.205.0
     * [Changes](0.20.205.0/CHANGES.0.20.205.0.html)
     * [Release Notes](0.20.205.0/RELEASENOTES.0.20.205.0.html)
-* Apache Hadoop v0.20.204.1
-    * [Changes](0.20.204.1/CHANGES.0.20.204.1.html)
-    * [Release Notes](0.20.204.1/RELEASENOTES.0.20.204.1.html)
 * Apache Hadoop v0.20.204.0
     * [Changes](0.20.204.0/CHANGES.0.20.204.0.html)
     * [Release Notes](0.20.204.0/RELEASENOTES.0.20.204.0.html)
@@ -325,9 +322,6 @@
 * Apache Hadoop v0.14.0
     * [Changes](0.14.0/CHANGES.0.14.0.html)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.html)
-* Apache Hadoop v0.13.1
-    * [Changes](0.13.1/CHANGES.0.13.1.html)
-    * [Release Notes](0.13.1/RELEASENOTES.0.13.1.html)
 * Apache Hadoop v0.13.0
     * [Changes](0.13.0/CHANGES.0.13.0.html)
     * [Release Notes](0.13.0/RELEASENOTES.0.13.0.html)

@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Increased width of metastore text columns for general configuration storage.
 
 
+---
+
+* [HIVE-15434](https://issues.apache.org/jira/browse/HIVE-15434) | *Major* | **Add UDF to allow interrogation of uniontype values**
+
+Added UDF to allow interrogation of uniontype values.
+
+
 

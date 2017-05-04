@@ -225,7 +225,6 @@
 | [HDFS-6064](https://issues.apache.org/jira/browse/HDFS-6064) | DFSConfigKeys.DFS\_BLOCKREPORT\_INTERVAL\_MSEC\_DEFAULT is not updated with latest block report interval of 6 hrs |  Minor | datanode | Vinayakumar B | Vinayakumar B |
 | [HDFS-6067](https://issues.apache.org/jira/browse/HDFS-6067) | TestPread.testMaxOutHedgedReadPool is flaky |  Major | hdfs-client | Colin P. McCabe | Colin P. McCabe |
 | [HDFS-6065](https://issues.apache.org/jira/browse/HDFS-6065) | HDFS zero-copy reads should return null on EOF when doing ZCR |  Major | hdfs-client | Colin P. McCabe | Colin P. McCabe |
-| [HDFS-6063](https://issues.apache.org/jira/browse/HDFS-6063) | TestAclCLI fails intermittently when running test 24: copyFromLocal |  Minor | test, tools | Colin P. McCabe | Chris Nauroth |
 | [YARN-1774](https://issues.apache.org/jira/browse/YARN-1774) | FS: Submitting to non-leaf queue throws NPE |  Blocker | fairscheduler | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-1783](https://issues.apache.org/jira/browse/YARN-1783) | yarn application does not make any progress even when no other application is running when RM is being restarted in the background |  Critical | . | Arpit Gupta | Jian He |
 | [HDFS-5064](https://issues.apache.org/jira/browse/HDFS-5064) | Standby checkpoints should not block concurrent readers |  Major | ha, namenode | Aaron T. Myers | Aaron T. Myers |
@@ -312,6 +311,7 @@
 | [HDFS-5882](https://issues.apache.org/jira/browse/HDFS-5882) | TestAuditLogs is flaky |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HDFS-5953](https://issues.apache.org/jira/browse/HDFS-5953) | TestBlockReaderFactory fails if libhadoop.so has not been built |  Major | . | Ted Yu | Akira Ajisaka |
 | [HDFS-5936](https://issues.apache.org/jira/browse/HDFS-5936) | MiniDFSCluster does not clean data left behind by SecondaryNameNode. |  Major | namenode, test | Andrew Wang | Binglin Chang |
+| [HDFS-6063](https://issues.apache.org/jira/browse/HDFS-6063) | TestAclCLI fails intermittently when running test 24: copyFromLocal |  Minor | test, tools | Colin P. McCabe | Chris Nauroth |
 | [YARN-1855](https://issues.apache.org/jira/browse/YARN-1855) | TestRMFailover#testRMWebAppRedirect fails in trunk |  Critical | . | Ted Yu | Zhijie Shen |
 | [YARN-1863](https://issues.apache.org/jira/browse/YARN-1863) | TestRMFailover fails with \'AssertionError: null\' |  Blocker | . | Ted Yu | Xuan Gong |
 | [YARN-1854](https://issues.apache.org/jira/browse/YARN-1854) | Race condition in TestRMHA#testStartAndTransitions |  Blocker | . | Mit Desai | Rohith Sharma K S |

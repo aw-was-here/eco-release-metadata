@@ -26,13 +26,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-149](https://issues.apache.org/jira/browse/ORC-149) | Move to Hive's storage api 2.2.1 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-149](https://issues.apache.org/jira/browse/ORC-149) | Move to Hive\'s storage api 2.2.1 |  Major | . | Owen O\'Malley | Owen O\'Malley |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-147](https://issues.apache.org/jira/browse/ORC-147) | Make some minor fixes to make ORC compatible with Hive 2.1 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-147](https://issues.apache.org/jira/browse/ORC-147) | Make some minor fixes to make ORC compatible with Hive 2.1 |  Major | . | Owen O\'Malley | Owen O\'Malley |
 
 

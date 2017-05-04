@@ -89,7 +89,7 @@
 | [HADOOP-10839](https://issues.apache.org/jira/browse/HADOOP-10839) | Add unregisterSource() to MetricsSystem API |  Major | metrics | shanyu zhao | shanyu zhao |
 | [MAPREDUCE-5971](https://issues.apache.org/jira/browse/MAPREDUCE-5971) | Move the default options for distcp -p to DistCpOptionSwitch |  Trivial | distcp | Charles Lamb | Charles Lamb |
 | [HDFS-6690](https://issues.apache.org/jira/browse/HDFS-6690) | Deduplicate xattr names in memory |  Major | namenode | Andrew Wang | Andrew Wang |
-| [HADOOP-10610](https://issues.apache.org/jira/browse/HADOOP-10610) | Upgrade S3n fs.s3.buffer.dir to support multi directories |  Minor | fs/s3 | Ted Malaska | Ted Malaska |
+| [HADOOP-10610](https://issues.apache.org/jira/browse/HADOOP-10610) | Upgrade S3n fs.s3.buffer.dir to support multi directories |  Minor | fs/s3 | Theodore michael Malaska | Theodore michael Malaska |
 | [HDFS-6655](https://issues.apache.org/jira/browse/HDFS-6655) | Add \'header banner\' to \'explorer.html\' also in Namenode UI |  Major | . | Vinayakumar B | Vinayakumar B |
 | [HADOOP-10841](https://issues.apache.org/jira/browse/HADOOP-10841) | EncryptedKeyVersion should have a key name property |  Major | security | Alejandro Abdelnur | Arun Suresh |
 | [HDFS-4120](https://issues.apache.org/jira/browse/HDFS-4120) | Add a new "-skipSharedEditsCheck" option for BootstrapStandby |  Minor | ha, namenode | Liang Xie | Rakesh R |

@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-73](https://issues.apache.org/jira/browse/ORC-73) | The DirectStringTreeReader and BinaryTreeReader don't resize their scratch areas |  Major | Java, Reader | Owen O'Malley | Owen O'Malley |
-| [ORC-78](https://issues.apache.org/jira/browse/ORC-78) | Add missing license headers |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-73](https://issues.apache.org/jira/browse/ORC-73) | The DirectStringTreeReader and BinaryTreeReader don\'t resize their scratch areas |  Major | Java, Reader | Owen O\'Malley | Owen O\'Malley |
+| [ORC-78](https://issues.apache.org/jira/browse/ORC-78) | Add missing license headers |  Major | . | Owen O\'Malley | Owen O\'Malley |
 
 

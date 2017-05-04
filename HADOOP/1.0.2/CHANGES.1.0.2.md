@@ -44,7 +44,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [MAPREDUCE-764](https://issues.apache.org/jira/browse/MAPREDUCE-764) | TypedBytesInput's readRaw() does not preserve custom type codes |  Blocker | contrib/streaming | Klaas Bosteels | Klaas Bosteels |
+| [MAPREDUCE-764](https://issues.apache.org/jira/browse/MAPREDUCE-764) | TypedBytesInput\'s readRaw() does not preserve custom type codes |  Blocker | contrib/streaming | Klaas Bosteels | Klaas Bosteels |
 | [HDFS-2703](https://issues.apache.org/jira/browse/HDFS-2703) | removedStorageDirs is not updated everywhere we remove a storage dir |  Major | namenode | Eli Collins | Eli Collins |
 | [HDFS-2702](https://issues.apache.org/jira/browse/HDFS-2702) | A single failed name dir can cause the NN to exit |  Critical | namenode | Eli Collins | Eli Collins |
 | [MAPREDUCE-3824](https://issues.apache.org/jira/browse/MAPREDUCE-3824) | Distributed caches are not removed properly |  Critical | distributed-cache | Allen Wittenauer | Thomas Graves |

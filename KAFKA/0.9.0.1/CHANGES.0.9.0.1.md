@@ -43,7 +43,7 @@
 | [KAFKA-3051](https://issues.apache.org/jira/browse/KAFKA-3051) | security.protocol documentation is inaccurate |  Major | clients | Jun Rao | Ismael Juma |
 | [KAFKA-3048](https://issues.apache.org/jira/browse/KAFKA-3048) | incorrect property name ssl.want.client.auth |  Major | core | Jun Rao | Ismael Juma |
 | [KAFKA-3010](https://issues.apache.org/jira/browse/KAFKA-3010) | include error code when logging an error when ack = 0 |  Major | core | Jun Rao | Ismael Juma |
-| [KAFKA-3045](https://issues.apache.org/jira/browse/KAFKA-3045) | ZkNodeChangeNotificationListener shouldn't log interrupted exception as error |  Major | core | Jun Rao | Dong Lin |
+| [KAFKA-3045](https://issues.apache.org/jira/browse/KAFKA-3045) | ZkNodeChangeNotificationListener shouldn\'t log interrupted exception as error |  Major | core | Jun Rao | Dong Lin |
 | [KAFKA-2988](https://issues.apache.org/jira/browse/KAFKA-2988) | Change default configuration of the log cleaner |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3012](https://issues.apache.org/jira/browse/KAFKA-3012) | Avoid reserved.broker.max.id collisions on upgrade |  Major | . | Grant Henke | Grant Henke |
 | [KAFKA-3100](https://issues.apache.org/jira/browse/KAFKA-3100) | Broker.createBroker should work if json is version \> 2, but still compatible |  Major | core | Ismael Juma | Ismael Juma |
@@ -85,7 +85,7 @@
 | [KAFKA-3122](https://issues.apache.org/jira/browse/KAFKA-3122) | Memory leak in \`Sender.completeBatch\` on TOPIC\_AUTHORIZATION\_FAILED |  Major | clients | Ismael Juma | Ismael Juma |
 | [KAFKA-3134](https://issues.apache.org/jira/browse/KAFKA-3134) | Missing required configuration "value.deserializer" when initializing a KafkaConsumer with a valid "valueDeserializer" |  Major | . | Yifan Ying |  |
 | [KAFKA-2478](https://issues.apache.org/jira/browse/KAFKA-2478) | KafkaConsumer javadoc example seems wrong |  Major | consumer | Dmitry Stratiychuk | Dmitry Stratiychuk |
-| [KAFKA-3152](https://issues.apache.org/jira/browse/KAFKA-3152) | kafka-acl doesn't allow space in principal name |  Major | core | Jun Rao | Ismael Juma |
+| [KAFKA-3152](https://issues.apache.org/jira/browse/KAFKA-3152) | kafka-acl doesn\'t allow space in principal name |  Major | core | Jun Rao | Ismael Juma |
 | [KAFKA-2143](https://issues.apache.org/jira/browse/KAFKA-2143) | Replicas get ahead of leader and fail |  Major | replication | Evan Huus | Jiangjie Qin |
 | [KAFKA-3075](https://issues.apache.org/jira/browse/KAFKA-3075) | java.util.HashMap cannot be cast to scala.collection.immutable.Map When using  ZookeeperConsumerConnector.commitOffsets |  Major | consumer | Pengwei | Ismael Juma |
 | [KAFKA-2676](https://issues.apache.org/jira/browse/KAFKA-2676) | Incorrect package name in tests (unit and integration prefix) |  Major | core | Jun Rao | chen zhu |
@@ -96,9 +96,9 @@
 | [KAFKA-3198](https://issues.apache.org/jira/browse/KAFKA-3198) | Ticket Renewal Thread exits prematurely due to inverted comparison |  Critical | security | Adam Kunicki | Adam Kunicki |
 | [KAFKA-3179](https://issues.apache.org/jira/browse/KAFKA-3179) | Kafka consumer delivers message whose offset is earlier than sought offset. |  Major | clients | Jiangjie Qin | Jiangjie Qin |
 | [KAFKA-3003](https://issues.apache.org/jira/browse/KAFKA-3003) | The fetch.wait.max.ms is not honored when new log segment rolled for low volume topics. |  Major | core | Jiangjie Qin | Jiangjie Qin |
-| [KAFKA-3157](https://issues.apache.org/jira/browse/KAFKA-3157) | Mirror maker doesn't commit offset with new consumer when there is no more messages |  Major | . | TAO XIAO | TAO XIAO |
+| [KAFKA-3157](https://issues.apache.org/jira/browse/KAFKA-3157) | Mirror maker doesn\'t commit offset with new consumer when there is no more messages |  Major | . | TAO XIAO | TAO XIAO |
 | [KAFKA-2589](https://issues.apache.org/jira/browse/KAFKA-2589) | Documentation bug: the default value for the "rebalance.backoff.ms" property is not specified correctly |  Major | config | Bogdan Dimitriu | Grant Henke |
-| [KAFKA-3216](https://issues.apache.org/jira/browse/KAFKA-3216) | "Modifying topics" section incorrectly says you can't change replication factor. |  Major | . | James Cheng | James Cheng |
+| [KAFKA-3216](https://issues.apache.org/jira/browse/KAFKA-3216) | "Modifying topics" section incorrectly says you can\'t change replication factor. |  Major | . | James Cheng | James Cheng |
 | [KAFKA-3159](https://issues.apache.org/jira/browse/KAFKA-3159) | Kafka consumer 0.9.0.0  client poll is very CPU intensive under certain conditions |  Major | clients | Rajiv Kurian | Jason Gustafson |
 | [KAFKA-3141](https://issues.apache.org/jira/browse/KAFKA-3141) | kafka-acls.sh throws ArrayIndexOutOfBoundsException for an invalid authorizer-property |  Major | . | Ashish Singh | Ashish Singh |
 | [KAFKA-2315](https://issues.apache.org/jira/browse/KAFKA-2315) | Kafka binary distribution may contain incorrect dependencies |  Major | packaging | MÓZES Ádám István | Manikumar |

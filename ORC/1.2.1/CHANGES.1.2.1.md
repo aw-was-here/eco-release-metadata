@@ -34,7 +34,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ORC-101](https://issues.apache.org/jira/browse/ORC-101) | Correct the use of the default charset in the bloomfilter |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-101](https://issues.apache.org/jira/browse/ORC-101) | Correct the use of the default charset in the bloomfilter |  Major | . | Owen O\'Malley | Owen O\'Malley |
 
 
 ### BUG FIXES:
@@ -42,6 +42,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-103](https://issues.apache.org/jira/browse/ORC-103) | Make ORC Reader resilient to 0 length files |  Major | Reader | Prasanth Jayachandran | Prasanth Jayachandran |
-| [ORC-102](https://issues.apache.org/jira/browse/ORC-102) | RLE v1 decoder bug |  Major | RLE | Lei Chang | Owen O'Malley |
+| [ORC-102](https://issues.apache.org/jira/browse/ORC-102) | RLE v1 decoder bug |  Major | RLE | Lei Chang | Owen O\'Malley |
 
 

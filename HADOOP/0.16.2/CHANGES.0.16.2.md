@@ -30,7 +30,7 @@
 | [HADOOP-3011](https://issues.apache.org/jira/browse/HADOOP-3011) | Distcp deleting target directory |  Blocker | util | Koji Noguchi | Chris Douglas |
 | [HADOOP-3033](https://issues.apache.org/jira/browse/HADOOP-3033) | Datanode fails write to DFS file with exception message "Trying to change block file offset" |  Major | . | dhruba borthakur | dhruba borthakur |
 | [HADOOP-2978](https://issues.apache.org/jira/browse/HADOOP-2978) | JobHistory log format for COUNTER is ambigurous |  Major | . | Runping Qi | Runping Qi |
-| [HADOOP-2985](https://issues.apache.org/jira/browse/HADOOP-2985) | LocalJobRunner gets NullPointerException if there is no output directory |  Critical | . | Owen O'Malley | Amareshwari Sriramadasu |
+| [HADOOP-2985](https://issues.apache.org/jira/browse/HADOOP-2985) | LocalJobRunner gets NullPointerException if there is no output directory |  Critical | . | Owen O\'Malley | Amareshwari Sriramadasu |
 | [HADOOP-3003](https://issues.apache.org/jira/browse/HADOOP-3003) | FileSystem cache key should be updated after a FileSystem object is created |  Major | fs | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HADOOP-3042](https://issues.apache.org/jira/browse/HADOOP-3042) | Update the Javadoc in JobConf.getOutputPath to reflect the actual temporary path |  Major | documentation | Devaraj Das | Amareshwari Sriramadasu |
 | [HADOOP-3007](https://issues.apache.org/jira/browse/HADOOP-3007) | DataNode pipelining : failure on mirror results in failure on upstream datanode |  Blocker | . | Raghu Angadi | Raghu Angadi |

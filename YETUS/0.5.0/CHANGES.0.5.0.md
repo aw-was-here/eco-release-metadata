@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.5.0 - Unreleased (as of 2017-03-28)
+## Release 0.5.0 - Unreleased (as of 2017-05-04)
 
 
 
@@ -37,7 +37,7 @@
 | [YETUS-484](https://issues.apache.org/jira/browse/YETUS-484) | Fixing bug when checkstyle runs on multiple modules |  Major | Test Patch | Peter Vary | Peter Vary |
 | [YETUS-460](https://issues.apache.org/jira/browse/YETUS-460) | RDM should handle connection reset by peer |  Major | Release Doc Maker | Allen Wittenauer | Adam Faris |
 | [YETUS-489](https://issues.apache.org/jira/browse/YETUS-489) | checkstyle.sh does not support checkstyle 6.14 or upper |  Major | Test Patch | Akira Ajisaka | Akira Ajisaka |
-| [YETUS-476](https://issues.apache.org/jira/browse/YETUS-476) | Replace docker's time handler with awk |  Major | Test Patch | Allen Wittenauer | Akira Ajisaka |
+| [YETUS-476](https://issues.apache.org/jira/browse/YETUS-476) | Replace docker\'s time handler with awk |  Major | Test Patch | Allen Wittenauer | Akira Ajisaka |
 | [YETUS-498](https://issues.apache.org/jira/browse/YETUS-498) | shelllcheck needs to have -x support |  Minor | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-496](https://issues.apache.org/jira/browse/YETUS-496) | Fix UnboundLocalError in releasedocmaker.py |  Blocker | Release Doc Maker | Allen Wittenauer | Akira Ajisaka |
 

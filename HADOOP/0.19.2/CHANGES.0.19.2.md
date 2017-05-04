@@ -43,7 +43,7 @@
 | [HADOOP-5247](https://issues.apache.org/jira/browse/HADOOP-5247) | NPEs in JobTracker and JobClient when mapred.jobtracker.completeuserjobs.maximum is set to zero. |  Blocker | . | Vinod Kumar Vavilapalli | Amar Kamat |
 | [HADOOP-5285](https://issues.apache.org/jira/browse/HADOOP-5285) | JobTracker hangs for long periods of time |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
 | [HADOOP-5241](https://issues.apache.org/jira/browse/HADOOP-5241) | Reduce tasks get stuck because of over-estimated task size (regression from 0.18) |  Blocker | . | Andy Pavlo | Sharad Agarwal |
-| [HADOOP-5280](https://issues.apache.org/jira/browse/HADOOP-5280) | When expiring a lost launched task, JT doesn't remove the attempt from the taskidToTIPMap. |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
+| [HADOOP-5280](https://issues.apache.org/jira/browse/HADOOP-5280) | When expiring a lost launched task, JT doesn\'t remove the attempt from the taskidToTIPMap. |  Blocker | . | Vinod Kumar Vavilapalli | Devaraj Das |
 | [HADOOP-5154](https://issues.apache.org/jira/browse/HADOOP-5154) | 4-way deadlock in FairShare scheduler |  Blocker | . | Vinod Kumar Vavilapalli | Matei Zaharia |
 | [HADOOP-5146](https://issues.apache.org/jira/browse/HADOOP-5146) | LocalDirAllocator misses files on the local filesystem |  Blocker | . | Arun C Murthy | Devaraj Das |
 | [HADOOP-5326](https://issues.apache.org/jira/browse/HADOOP-5326) | bzip2 codec (CBZip2OutputStream) creates corrupted output file for some inputs |  Major | io | Rodrigo Schmidt | Rodrigo Schmidt |

@@ -37,7 +37,7 @@ Options to sort output of fs -ls comment: -t (mtime), -S (size), -u (atime), -r 
 
 ---
 
-* [HADOOP-11226](https://issues.apache.org/jira/browse/HADOOP-11226) | *Major* | **Add a configuration to set ipc.Client's traffic class with IPTOS\_LOWDELAY\|IPTOS\_RELIABILITY**
+* [HADOOP-11226](https://issues.apache.org/jira/browse/HADOOP-11226) | *Major* | **Add a configuration to set ipc.Client\'s traffic class with IPTOS\_LOWDELAY\|IPTOS\_RELIABILITY**
 
 Use low latency TCP connections for hadoop IPC
 
@@ -60,7 +60,7 @@ FairScheduler does not allow queue names with leading or tailing spaces or empty
 
 * [HDFS-7501](https://issues.apache.org/jira/browse/HDFS-7501) | *Major* | **TransactionsSinceLastCheckpoint can be negative on SBNs**
 
-Fixed a bug where the StandbyNameNode's TransactionsSinceLastCheckpoint metric may slide into a negative number after every subsequent checkpoint.
+Fixed a bug where the StandbyNameNode\'s TransactionsSinceLastCheckpoint metric may slide into a negative number after every subsequent checkpoint.
 
 
 ---
@@ -86,14 +86,14 @@ Add support for aarch64 CRC instructions
 
 ---
 
-* [YARN-3365](https://issues.apache.org/jira/browse/YARN-3365) | *Major* | **Add support for using the 'tc' tool via container-executor**
+* [YARN-3365](https://issues.apache.org/jira/browse/YARN-3365) | *Major* | **Add support for using the \'tc\' tool via container-executor**
 
-Adding support for using the 'tc' tool in batch mode via container-executor. This is a prerequisite for traffic-shaping functionality that is necessary to support outbound bandwidth as a resource in YARN.
+Adding support for using the \'tc\' tool in batch mode via container-executor. This is a prerequisite for traffic-shaping functionality that is necessary to support outbound bandwidth as a resource in YARN.
 
 
 ---
 
-* [YARN-3443](https://issues.apache.org/jira/browse/YARN-3443) | *Major* | **Create a 'ResourceHandler' subsystem to ease addition of support for new resource types on the NM**
+* [YARN-3443](https://issues.apache.org/jira/browse/YARN-3443) | *Major* | **Create a \'ResourceHandler\' subsystem to ease addition of support for new resource types on the NM**
 
 The current cgroups implementation is closely tied to supporting CPU as a resource . This patch separates out CGroups implementation into a reusable class as well as provides a simple ResourceHandler subsystem that will enable us to add support for new resource types on the NM - e.g Network, Disk etc.
 
@@ -107,9 +107,9 @@ NameNode and DataNode now abort during startup if attempting to run in secure mo
 
 ---
 
-* [YARN-3021](https://issues.apache.org/jira/browse/YARN-3021) | *Major* | **YARN's delegation-token handling disallows certain trust setups to operate properly over DistCp**
+* [YARN-3021](https://issues.apache.org/jira/browse/YARN-3021) | *Major* | **YARN\'s delegation-token handling disallows certain trust setups to operate properly over DistCp**
 
-ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token's renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=\<host1\>,\<host2\>,..,\<hostN\>.
+ResourceManager renews delegation tokens for applications. This behavior has been changed to renew tokens only if the token\'s renewer is a non-empty string. MapReduce jobs can instruct ResourceManager to skip renewal of tokens obtained from certain hosts by specifying the hosts with configuration mapreduce.job.hdfs-servers.token-renewal.exclude=\<host1\>,\<host2\>,..,\<hostN\>.
 
 
 ---
@@ -169,23 +169,23 @@ Includes a docker based solution for setting up a build environment with minimal
 
 ---
 
-* [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today's date instead of unreleased**
+* [HADOOP-11813](https://issues.apache.org/jira/browse/HADOOP-11813) | *Minor* | **releasedocmaker.py should use today\'s date instead of unreleased**
 
-Use today instead of 'Unreleased' in releasedocmaker.py when --usetoday is given as an option.
+Use today instead of \'Unreleased\' in releasedocmaker.py when --usetoday is given as an option.
 
 
 ---
 
 * [HDFS-8226](https://issues.apache.org/jira/browse/HDFS-8226) | *Blocker* | **Non-HA rollback compatibility broken**
 
-Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with '-rollback' option using (sbin/start-dfs.sh -rollback).
+Non-HA rollback steps have been changed. Run the rollback command on the namenode (\`bin/hdfs namenode -rollback\`) before starting cluster with \'-rollback\' option using (sbin/start-dfs.sh -rollback).
 
 
 ---
 
 * [HDFS-6888](https://issues.apache.org/jira/browse/HDFS-6888) | *Major* | **Allow selectively audit logging ops**
 
-Specific HDFS ops can be selectively excluded from audit logging via 'dfs.namenode.audit.log.debug.cmdlist' configuration.
+Specific HDFS ops can be selectively excluded from audit logging via \'dfs.namenode.audit.log.debug.cmdlist\' configuration.
 
 
 ---
@@ -204,16 +204,16 @@ The Client#call() methods that are deprecated since 0.23 have been removed.
 
 ---
 
-* [YARN-3684](https://issues.apache.org/jira/browse/YARN-3684) | *Major* | **Change ContainerExecutor's primary lifecycle methods to use a more extensible mechanism for passing information.**
+* [YARN-3684](https://issues.apache.org/jira/browse/YARN-3684) | *Major* | **Change ContainerExecutor\'s primary lifecycle methods to use a more extensible mechanism for passing information.**
 
 Modifying key methods in ContainerExecutor to use context objects instead of an argument list. This is more extensible and less brittle.
 
 
 ---
 
-* [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing '[' bracket JSON for deep queue tree**
+* [YARN-2336](https://issues.apache.org/jira/browse/YARN-2336) | *Major* | **Fair scheduler REST api returns a missing \'[\' bracket JSON for deep queue tree**
 
-Fix FairScheduler's REST api returns a missing '[' blacket JSON for childQueues.
+Fix FairScheduler\'s REST api returns a missing \'[\' blacket JSON for childQueues.
 
 
 ---
@@ -237,7 +237,7 @@ Proxy level retries will not be done on AlreadyBeingCreatedExeption for create()
 
 * [YARN-41](https://issues.apache.org/jira/browse/YARN-41) | *Major* | **The RM should handle the graceful shutdown of the NM.**
 
-The behavior of shutdown a NM could be different (if NM work preserving is not enabled): NM will unregister to RM immediately rather than waiting for timeout to be LOST. A new status of NodeStatus - SHUTDOWN is involved which could affect UI, CLI and ClusterMetrics for node's status.
+The behavior of shutdown a NM could be different (if NM work preserving is not enabled): NM will unregister to RM immediately rather than waiting for timeout to be LOST. A new status of NodeStatus - SHUTDOWN is involved which could affect UI, CLI and ClusterMetrics for node\'s status.
 
 
 ---
@@ -265,7 +265,7 @@ Users may need special attention for this change while upgrading to this version
 
 * [YARN-3823](https://issues.apache.org/jira/browse/YARN-3823) | *Minor* | **Fix mismatch in default values for yarn.scheduler.maximum-allocation-vcores property**
 
-Default value for 'yarn.scheduler.maximum-allocation-vcores' changed from 32 to 4.
+Default value for \'yarn.scheduler.maximum-allocation-vcores\' changed from 32 to 4.
 
 
 ---
@@ -307,7 +307,7 @@ The Maven dependency on aws-sdk has been changed to aws-sdk-s3 and the version b
 
 * [HADOOP-12352](https://issues.apache.org/jira/browse/HADOOP-12352) | *Trivial* | **Delay in checkpointing Trash can leave trash for 2 intervals before deleting**
 
-Fixes an Trash related issue wherein a delay in the periodic checkpointing of one user's directory causes the subsequent user directory checkpoints to carry a newer timestamp, thereby delaying their eventual deletion.
+Fixes an Trash related issue wherein a delay in the periodic checkpointing of one user\'s directory causes the subsequent user directory checkpoints to carry a newer timestamp, thereby delaying their eventual deletion.
 
 
 ---
@@ -331,21 +331,21 @@ The balancer will only run on blockpools included in this list.
 
 * [YARN-4087](https://issues.apache.org/jira/browse/YARN-4087) | *Major* | **Followup fixes after YARN-2019 regarding RM behavior when state-store error occurs**
 
-Set YARN\_FAIL\_FAST to be false by default. If HA is enabled and if there's any state-store error, after the retry operation failed, we always transition RM to standby state.
+Set YARN\_FAIL\_FAST to be false by default. If HA is enabled and if there\'s any state-store error, after the retry operation failed, we always transition RM to standby state.
 
 
 ---
 
 * [HADOOP-12384](https://issues.apache.org/jira/browse/HADOOP-12384) | *Major* | **Add "-direct" flag option for fs copy so that user can choose not to create ".\_COPYING\_" file**
 
-An option '-d' added for all command-line copy commands to skip intermediate '.COPYING' file creation.
+An option \'-d\' added for all command-line copy commands to skip intermediate \'.COPYING\' file creation.
 
 
 ---
 
 * [HDFS-8929](https://issues.apache.org/jira/browse/HDFS-8929) | *Major* | **Add a metric to expose the timestamp of the last journal**
 
-Exposed a metric 'LastJournalTimestamp' for JournalNode
+Exposed a metric \'LastJournalTimestamp\' for JournalNode
 
 
 ---
@@ -369,7 +369,7 @@ HDFS-8829 introduces two new configuration settings: dfs.datanode.transfer.socke
 After this patch, the feature to support NM resource dynamically configuration is completed, so that user can configure NM with new resource without bring NM down or decommissioned.
 Two CLIs are provided to support update resources on individual node or a batch of nodes:
 1. Update resource on single node: yarn rmadmin -updateNodeResource [NodeID] [MemSize] [vCores] 
-2. Update resource on a batch of nodes: yarn rmadmin -refreshNodesResources, that reflect nodes' resource configuration defined in dynamic-resources.xml which is loaded by RM dynamically (like capacity-scheduler.xml or fair-scheduler.xml). 
+2. Update resource on a batch of nodes: yarn rmadmin -refreshNodesResources, that reflect nodes\' resource configuration defined in dynamic-resources.xml which is loaded by RM dynamically (like capacity-scheduler.xml or fair-scheduler.xml). 
 The first version of configuration format is:
 \<configuration\>
   \<property\>
@@ -440,7 +440,7 @@ Introduced two new configuration dfs.webhdfs.netty.low.watermark and dfs.webhdfs
 
 ---
 
-* [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | *Major* | **Logging HDFS operation's caller context into audit logs**
+* [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | *Major* | **Logging HDFS operation\'s caller context into audit logs**
 
 The feature needs to enabled by setting "hadoop.caller.context.enabled" to true. When the feature is used, additional fields are written into namenode audit log records.
 
@@ -479,7 +479,7 @@ Snapshots can be allowed/disallowed on a directory via WebHdfs from users with s
 * [MAPREDUCE-5485](https://issues.apache.org/jira/browse/MAPREDUCE-5485) | *Critical* | **Allow repeating job commit by extending OutputCommitter API**
 
 Previously, the MR job will get failed if AM get restarted for some reason (like node failure, etc.) during its doing commit job no matter if AM attempts reach to the maximum attempts. 
-In this improvement, we add a new API isCommitJobRepeatable() to OutputCommitter interface which to indicate if job's committer can do commitJob again if previous commit work is interrupted by NM/AM failures, etc. The instance of OutputCommitter, which support repeatable job commit (like FileOutputCommitter in algorithm 2), can allow AM to continue the commitJob() after AM restart as a new attempt.
+In this improvement, we add a new API isCommitJobRepeatable() to OutputCommitter interface which to indicate if job\'s committer can do commitJob again if previous commit work is interrupted by NM/AM failures, etc. The instance of OutputCommitter, which support repeatable job commit (like FileOutputCommitter in algorithm 2), can allow AM to continue the commitJob() after AM restart as a new attempt.
 
 
 ---
@@ -593,7 +593,7 @@ The Azure Blob Storage file system (WASB) now includes optional support for use 
 
 * [HDFS-9503](https://issues.apache.org/jira/browse/HDFS-9503) | *Major* | **Replace -namenode option with -fs for NNThroughputBenchmark**
 
-The patch replaces -namenode option with -fs for specifying the remote name node against which the benchmark is running. Before this patch, if '-namenode' was not given, the benchmark would run in standalone mode, ignoring the 'fs.defaultFS' in config file even if it's remote. With this patch, the benchmark, as other tools, will rely on the 'fs.defaultFS' config, which is overridable by -fs command option, to run standalone mode or remote mode.
+The patch replaces -namenode option with -fs for specifying the remote name node against which the benchmark is running. Before this patch, if \'-namenode\' was not given, the benchmark would run in standalone mode, ignoring the \'fs.defaultFS\' in config file even if it\'s remote. With this patch, the benchmark, as other tools, will rely on the \'fs.defaultFS\' config, which is overridable by -fs command option, to run standalone mode or remote mode.
 
 
 ---
@@ -640,7 +640,7 @@ Number of blocks per volume is made available as a metric.
 
 ---
 
-* [HADOOP-12668](https://issues.apache.org/jira/browse/HADOOP-12668) | *Critical* | **Support excluding weak Ciphers in HttpServer2 through ssl-server.conf**
+* [HADOOP-12668](https://issues.apache.org/jira/browse/HADOOP-12668) | *Critical* | **Support excluding weak Ciphers in HttpServer2 through ssl-server.xml**
 
 The Code Changes include following:
 - Modified DFSUtil.java in Apache HDFS project for supplying new parameter ssl.server.exclude.cipher.list
@@ -675,7 +675,7 @@ Dependency on commons-httpclient::commons-httpclient was removed from hadoop-com
 
 * [HDFS-8791](https://issues.apache.org/jira/browse/HDFS-8791) | *Blocker* | **block ID-based DN storage layout can be very slow for datanode on ext4**
 
-HDFS-8791 introduces a new datanode layout format. This layout is identical to the previous block id based layout except it has a smaller 32x32 sub-directory structure in each data storage. On startup, the datanode will automatically upgrade it's storages to this new layout. Currently, datanode layout changes support rolling upgrades, on the other hand downgrading is not supported between datanode layout changes and a rollback would be required.
+HDFS-8791 introduces a new datanode layout format. This layout is identical to the previous block id based layout except it has a smaller 32x32 sub-directory structure in each data storage. On startup, the datanode will automatically upgrade it\'s storages to this new layout. Currently, datanode layout changes support rolling upgrades, on the other hand downgrading is not supported between datanode layout changes and a rollback would be required.
 
 
 ---
@@ -738,7 +738,7 @@ This patch will attempt to allocate all replicas to remote DataNodes, by adding 
 
 * [HDFS-9902](https://issues.apache.org/jira/browse/HDFS-9902) | *Major* | **Support different values of dfs.datanode.du.reserved per storage type**
 
-Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
+Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The \'dfs.datanode.du.reserved\' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property \'dfs.datanode.du.reserved.ram\_disk\'. If specific storage type reservation is not configured then the value specified by \'dfs.datanode.du.reserved\' will be used for all volumes.
 
 
 ---
@@ -787,7 +787,7 @@ Exclude javadocs for proto-generated java classes.
 
 * [HADOOP-13105](https://issues.apache.org/jira/browse/HADOOP-13105) | *Major* | **Support timeouts in LDAP queries in LdapGroupsMapping.**
 
-This patch adds two new config keys for supporting timeouts in LDAP query operations. The property "hadoop.security.group.mapping.ldap.connection.timeout.ms" is the connection timeout (in milliseconds), within which period if the LDAP provider doesn't establish a connection, it will abort the connect attempt. The property "hadoop.security.group.mapping.ldap.read.timeout.ms" is the read timeout (in milliseconds), within which period if the LDAP provider doesn't get a LDAP response, it will abort the read attempt.
+This patch adds two new config keys for supporting timeouts in LDAP query operations. The property "hadoop.security.group.mapping.ldap.connection.timeout.ms" is the connection timeout (in milliseconds), within which period if the LDAP provider doesn\'t establish a connection, it will abort the connect attempt. The property "hadoop.security.group.mapping.ldap.read.timeout.ms" is the read timeout (in milliseconds), within which period if the LDAP provider doesn\'t get a LDAP response, it will abort the read attempt.
 
 
 ---
@@ -871,7 +871,7 @@ DataNode Web UI has been improved with new HTML5 page, showing useful informatio
 
 * [HADOOP-13139](https://issues.apache.org/jira/browse/HADOOP-13139) | *Major* | **Branch-2: S3a to use thread pool that blocks clients**
 
-The configuration option 'fs.s3a.threads.core' is no longer supported. The string is still defined in org.apache.hadoop.fs.s3a.Constants.CORE\_THREADS, however its value is ignored. If it is set, a warning message will be printed when initializing the S3A filesystem
+The configuration option \'fs.s3a.threads.core\' is no longer supported. The string is still defined in org.apache.hadoop.fs.s3a.Constants.CORE\_THREADS, however its value is ignored. If it is set, a warning message will be printed when initializing the S3A filesystem
 
 
 ---
@@ -925,13 +925,6 @@ Introduces a new configuration property, yarn.resourcemanager.amlauncher.log.com
 
 ---
 
-* [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
-
-Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
-
-
----
-
 * [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489) | *Minor* | **Deprecate dfs.encryption.key.provider.uri for HDFS encryption zones**
 
 The configuration dfs.encryption.key.provider.uri is deprecated. To configure key provider in HDFS, please use hadoop.security.key.provider.path.
@@ -967,7 +960,7 @@ Disk usage summaries previously incorrectly counted files twice if they had been
 
 ---
 
-* [HDFS-10883](https://issues.apache.org/jira/browse/HDFS-10883) | *Major* | **\`getTrashRoot\`'s behavior is not consistent in DFS after enabling EZ.**
+* [HDFS-10883](https://issues.apache.org/jira/browse/HDFS-10883) | *Major* | **\`getTrashRoot\`\'s behavior is not consistent in DFS after enabling EZ.**
 
 If root path / is an encryption zone, the old DistributedFileSystem#getTrashRoot(new Path("/")) returns
 /user/$USER/.Trash
@@ -1054,7 +1047,7 @@ The hadoop-azure-datalake file system now supports configuration of the Azure Da
 
 ---
 
-* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn't work with Jersey 2 on the classpath**
+* [YARN-5271](https://issues.apache.org/jira/browse/YARN-5271) | *Major* | **ATS client doesn\'t work with Jersey 2 on the classpath**
 
 A workaround to avoid dependency conflict with Spark2, before a full classpath isolation solution is implemented.
 Skip instantiating a Timeline Service client if encountering NoClassDefFoundError.
@@ -1072,6 +1065,13 @@ To run live unit tests, create src/test/resources/auth-keys.xml with the same pr
 * [YARN-6177](https://issues.apache.org/jira/browse/YARN-6177) | *Major* | **Yarn client should exit with an informative error message if an incompatible Jersey library is used at client**
 
 Let yarn client exit with an informative error message if an incompatible Jersey library is used from client side.
+
+
+---
+
+* [HADOOP-14138](https://issues.apache.org/jira/browse/HADOOP-14138) | *Critical* | **Remove S3A ref from META-INF service discovery, rely on existing core-default entry**
+
+The classpath implementing the s3a filesystem is now defined in core-default.xml. Attempting to instantiate an S3A filesystem instance using a Configuration instance which has not included the default resorts will fail. Applications should not be doing this anyway, as it will lose other critical  configuration options needed by the filesystem.
 
 
 ---
@@ -1096,10 +1096,17 @@ The hadoop-client POM now includes a leaner hdfs-client, stripping out all the t
 
 This should make downstream projects dependent JARs smaller, and avoid version conflict problems with the specific JARs now excluded.
 
-Applications may encounter build problems if they did depend on these JARs, and which didn't explicitly include them. There are two fixes for this
+Applications may encounter build problems if they did depend on these JARs, and which didn\'t explicitly include them. There are two fixes for this
 
 \* explicitly include the JARs, stating which version of them you want.
 \* add a dependency on hadoop-hdfs. For Hadoop 2.8+, this will add the missing dependencies. For builds against older versions of Hadoop, this will be harmless, as hadoop-hdfs and all its dependencies are already pulled in by the hadoop-client POM.
+
+
+---
+
+* [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
+
+Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2017-03-28)
+## Release 0.17.0 - Unreleased (as of 2017-05-04)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,6 +38,7 @@
 | [PIG-4925](https://issues.apache.org/jira/browse/PIG-4925) | Support for passing the bloom filter to the Bloom UDF |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4963](https://issues.apache.org/jira/browse/PIG-4963) | Add a Bloom join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5110](https://issues.apache.org/jira/browse/PIG-5110) | Removing schema alias and :: coming from parent relation |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5214](https://issues.apache.org/jira/browse/PIG-5214) | search any substring in the input string |  Major | internal-udfs | Yuxiang Wang | Yuxiang Wang |
 
 
 ### IMPROVEMENTS:
@@ -57,7 +58,7 @@
 | [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Adam Szita |
 | [PIG-5026](https://issues.apache.org/jira/browse/PIG-5026) | Remove src/META-INF/services/org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-5037](https://issues.apache.org/jira/browse/PIG-5037) | Add api getDisplayString to PigStats |  Major | . | Jeff Zhang | Jeff Zhang |
-| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can't change HDFS user home in e2e tests using Ant |  Minor | . | Nandor Kollar | Nandor Kollar |
+| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can\'t change HDFS user home in e2e tests using Ant |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-5036](https://issues.apache.org/jira/browse/PIG-5036) | Remove biggish from e2e input dataset |  Major | e2e harness | Daniel Dai | Daniel Dai |
 | [PIG-5034](https://issues.apache.org/jira/browse/PIG-5034) | Remove org.apache.hadoop.hive.serde2.objectinspector.primitive package |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PIG-4939](https://issues.apache.org/jira/browse/PIG-4939) | QueryParserUtils.setHdfsServers(QueryParserUtils.java:104) should not be called for non-dfs methods |  Minor | impl | Siddhi Mehta | Adam Szita |
@@ -68,6 +69,10 @@
 | [PIG-5120](https://issues.apache.org/jira/browse/PIG-5120) | Let tez\_local mode run without a jar file |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5126](https://issues.apache.org/jira/browse/PIG-5126) | Add doc about pig in zeppelin |  Major | . | Jeff Zhang | Jeff Zhang |
 | [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175) | Upgrade jruby to 1.7.26 |  Major | . | Daniel Dai | Daniel Dai |
+| [PIG-5210](https://issues.apache.org/jira/browse/PIG-5210) | Option to print MR/Tez plan before launching |  Major | . | Lili Yu | Lili Yu |
+| [PIG-5211](https://issues.apache.org/jira/browse/PIG-5211) | Optimize Nested Limited Sort |  Major | . | Jin Sun | Jin Sun |
+| [PIG-5222](https://issues.apache.org/jira/browse/PIG-5222) | Fix Junit Deprecations |  Major | . | William Watson | William Watson |
+| [PIG-5221](https://issues.apache.org/jira/browse/PIG-5221) | More fs.default.name deprecation warnings |  Major | . | William Watson | William Watson |
 
 
 ### BUG FIXES:
@@ -143,6 +148,11 @@
 | [PIG-5182](https://issues.apache.org/jira/browse/PIG-5182) | ant docs target is broken by PIG-5110 |  Major | documentation | Daniel Dai | Daniel Dai |
 | [PIG-5183](https://issues.apache.org/jira/browse/PIG-5183) | We shall mention NATIVE instead of MAPREDUCE operator in document |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-5198](https://issues.apache.org/jira/browse/PIG-5198) | streaming job stuck with script failure when combined with split |  Minor | impl | Koji Noguchi | Koji Noguchi |
+| [PIG-4677](https://issues.apache.org/jira/browse/PIG-4677) | Display failure information on stop on failure |  Major | . | Mit Desai | Rohini Palaniswamy |
+| [PIG-4640](https://issues.apache.org/jira/browse/PIG-4640) | Compiling Pig with JDK8 or JDK7 Update 85 breaks Ruby UDFs |  Major | . | Edward Winslow | Daniel Dai |
+| [PIG-5209](https://issues.apache.org/jira/browse/PIG-5209) | Cross product on flatten(map) fails with ClassCastException |  Minor | impl | Koji Noguchi | Koji Noguchi |
+| [PIG-5223](https://issues.apache.org/jira/browse/PIG-5223) | TestLimitVariable.testNestedLimitVariable1 and TestSecondarySortMR.testNestedLimitedSort  failing |  Major | . | Koji Noguchi | Jin Sun |
+| [PIG-5226](https://issues.apache.org/jira/browse/PIG-5226) | PreprocessorContext.java can deadlock forever with large stderr |  Minor | . | Jacob Tolar | Jacob Tolar |
 
 
 ### TESTS:
@@ -159,6 +169,8 @@
 | [PIG-5073](https://issues.apache.org/jira/browse/PIG-5073) | Skip e2e Limit\_5 test for Tez |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5087](https://issues.apache.org/jira/browse/PIG-5087) | e2e Native3 failing after PIG-4923 (dropping hadoop 1.x) |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5105](https://issues.apache.org/jira/browse/PIG-5105) | Tez unit tests failing with "Argument list too long" |  Major | . | Koji Noguchi | Rohini Palaniswamy |
+| [PIG-5153](https://issues.apache.org/jira/browse/PIG-5153) | Change of behavior in FLATTEN(map) |  Minor | . | Koji Noguchi | Adam Szita |
+| [PIG-5229](https://issues.apache.org/jira/browse/PIG-5229) | TestPigTest.testSpecificOrderOutput and testSpecificOrderOutputForAlias failing |  Trivial | . | Koji Noguchi | Koji Noguchi |
 
 
 ### SUB-TASKS:

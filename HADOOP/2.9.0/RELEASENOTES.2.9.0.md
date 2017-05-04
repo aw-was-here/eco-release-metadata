@@ -39,7 +39,7 @@ If hadoop.token.files property is defined and configured to one or more comma-de
 
 * [YARN-4762](https://issues.apache.org/jira/browse/YARN-4762) | *Blocker* | **NMs failing on DelegatingLinuxContainerRuntime init with LCE on**
 
-Fixed CgroupHandler's creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
+Fixed CgroupHandler\'s creation and usage to avoid NodeManagers crashing when LinuxContainerExecutor is enabled.
 
 
 ---
@@ -95,14 +95,7 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 * [HADOOP-12782](https://issues.apache.org/jira/browse/HADOOP-12782) | *Major* | **Faster LDAP group name resolution with ActiveDirectory**
 
-If the user object returned by LDAP server has the user's group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
-
-
----
-
-* [HDFS-9016](https://issues.apache.org/jira/browse/HDFS-9016) | *Major* | **Display upgrade domain information in fsck**
-
-New fsck option "-upgradedomains" has been added to display upgrade domains of any block.
+If the user object returned by LDAP server has the user\'s group object DN (supported by Active Directory), Hadoop can reduce LDAP group mapping latency by setting hadoop.security.group.mapping.ldap.search.attr.memberof to memberOf.
 
 
 ---
@@ -130,7 +123,7 @@ WASB has added an optional capability to execute certain FileSystem operations i
 
 * [HADOOP-12747](https://issues.apache.org/jira/browse/HADOOP-12747) | *Major* | **support wildcard in libjars argument**
 
-It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars 'libs/\*'" as a shorthand for all jars in the libs directory.
+It is now possible to specify multiple jar files for the libjars argument using a wildcard. For example, you can specify "-libjars \'libs/\*\'" as a shorthand for all jars in the libs directory.
 
 
 ---
@@ -186,7 +179,7 @@ DockerContainerExecutor is deprecated starting 2.9.0 and removed from 3.0.0. Ple
 
 * [HADOOP-12705](https://issues.apache.org/jira/browse/HADOOP-12705) | *Major* | **Upgrade Jackson 2.2.3 to 2.7.8**
 
-We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We've selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
+We are sorry for causing pain for everyone for whom this Jackson update causes problems, but it was proving impossible to stay on the older version: too much code had moved past it, and by staying back we were limiting what Hadoop could do, and giving everyone who wanted an up to date version of Jackson a different set of problems. We\'ve selected Jackson 2.7.8 as it fixed fix a security issue in XML parsing, yet proved compatible at the API level with the Hadoop codebase --and hopefully everything downstream.
 
 
 ---
@@ -198,7 +191,7 @@ The dependency on the AWS SDK has been bumped to 1.11.45.
 
 ---
 
-* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem's data connection mode and transfer mode configurable**
+* [HADOOP-13953](https://issues.apache.org/jira/browse/HADOOP-13953) | *Major* | **Make FTPFileSystem\'s data connection mode and transfer mode configurable**
 
 Added two configuration key fs.ftp.data.connection.mode and fs.ftp.transfer.mode, and configure FTP data connection mode and transfer mode accordingly.
 
@@ -221,6 +214,13 @@ Add a new configuration - "yarn.app.mapreduce.am.webapp.port-range" to specify p
 
 ---
 
+* [HADOOP-13075](https://issues.apache.org/jira/browse/HADOOP-13075) | *Major* | **Add support for SSE-KMS and SSE-C in s3a filesystem**
+
+The new encryption options SSE-KMS and especially SSE-C must be considered experimental at present. If you are using SSE-C, problems may arise if the bucket mixes encrypted and unencrypted files. For SSE-KMS, there may be extra throttling of IO, especially with the fadvise=random option. You may wish to request an increase in your KMS IOPs limits.
+
+
+---
+
 * [YARN-6177](https://issues.apache.org/jira/browse/YARN-6177) | *Major* | **Yarn client should exit with an informative error message if an incompatible Jersey library is used at client**
 
 Let yarn client exit with an informative error message if an incompatible Jersey library is used from client side.
@@ -230,7 +230,7 @@ Let yarn client exit with an informative error message if an incompatible Jersey
 
 * [HADOOP-13817](https://issues.apache.org/jira/browse/HADOOP-13817) | *Minor* | **Add a finite shell command timeout to ShellBasedUnixGroupsMapping**
 
-A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the 'id' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
+A new introduced configuration key "hadoop.security.groups.shell.command.timeout" allows applying a finite wait timeout over the \'id\' commands launched by the ShellBasedUnixGroupsMapping plugin. Values specified can be in any valid time duration units: https://hadoop.apache.org/docs/current/api/org/apache/hadoop/conf/Configuration.html#getTimeDuration-java.lang.String-long-java.util.concurrent.TimeUnit-
 
 Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
@@ -239,9 +239,9 @@ Value defaults to 0, indicating infinite wait (preserving existing behaviour).
 
 * [HADOOP-6801](https://issues.apache.org/jira/browse/HADOOP-6801) | *Minor* | **io.sort.mb and io.sort.factor were renamed and moved to mapreduce but are still in CommonConfigurationKeysPublic.java and used in SequenceFile.java**
 
-Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile's Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
+Two new configuration keys, seq.io.sort.mb and seq.io.sort.factor have been introduced for the SequenceFile\'s Sorter feature to replace older, deprecated property keys of io.sort.mb and io.sort.factor.
 
-This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2's internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
+This only affects direct users of the org.apache.hadoop.io.SequenceFile.Sorter Java class. For controlling MR2\'s internal sorting instead, use the existing config keys of mapreduce.task.io.sort.mb and mapreduce.task.io.sort.factor.
 
 
 ---
@@ -268,6 +268,34 @@ Move the check for hadoop-site.xml to static initialization of the Configuration
 * Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
 * Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
 * Old properties are still supported
+
+
+---
+
+* [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | *Major* | **Set default ADLS access token provider type to ClientCredential**
+
+Switch the default ADLS access token provider type from Custom to ClientCredential.
+
+
+---
+
+* [HADOOP-14301](https://issues.apache.org/jira/browse/HADOOP-14301) | *Major* | **Deprecate SharedInstanceProfileCredentialsProvider in branch-2.**
+
+SharedInstanceProfileCredentialsProvider has been deprecated. Users should use InstanceProfileCredentialsProvider provided by AWS SDK instead, which itself enforces a singleton instance to reduce calls to AWS EC2 Instance Metadata Service.  SharedInstanceProfileCredentialsProvider will be removed permanently in a future release.
+
+
+---
+
+* [HADOOP-11794](https://issues.apache.org/jira/browse/HADOOP-11794) | *Major* | **Enable distcp to copy blocks in parallel**
+
+If  a positive value is passed to command line switch -blocksperchunk, files with more blocks than this value will be split into chunks of \`\<blocksperchunk\>\` blocks to be transferred in parallel, and reassembled on the destination. By default, \`\<blocksperchunk\>\` is 0 and the files will be transmitted in their entirety without splitting. This switch is only applicable when both the source file system supports getBlockLocations and target supports concat.
+
+
+---
+
+* [YARN-2962](https://issues.apache.org/jira/browse/YARN-2962) | *Critical* | **ZKRMStateStore: Limit the number of znodes under a znode**
+
+**WARNING: No release note provided for this change.**
 
 
 

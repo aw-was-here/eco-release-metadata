@@ -290,7 +290,7 @@ HIVE-11578: Fix NPE in ExplainWork (Rajesh Balamohan, via Gopal V)
 
 * [HIVE-11785](https://issues.apache.org/jira/browse/HIVE-11785) | *Major* | **Support escaping carriage return and new line for LazySimpleSerDe**
 
-This change with HIVE-12820 in addition adds the support of carriage return and new line characters in the fields. Before this change, the user needs to preprocess the text by replacing them with some characters other than carriage return and new line in order for the files to be properly processed. With this change, it will automatically escape them if {{serialization.escape.crlf}} serde property is set to true. One incompatible change is: characters 'r' and 'n' cannot be used as separator or field delimiter.
+This change with HIVE-12820 in addition adds the support of carriage return and new line characters in the fields. Before this change, the user needs to preprocess the text by replacing them with some characters other than carriage return and new line in order for the files to be properly processed. With this change, it will automatically escape them if {{serialization.escape.crlf}} serde property is set to true. One incompatible change is: characters \'r\' and \'n\' cannot be used as separator or field delimiter.
 
 
 ---
@@ -395,7 +395,7 @@ See:  http://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#ge
 
 ---
 
-* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,'$.a') is null in where clause didn\`t work**
+* [HIVE-11825](https://issues.apache.org/jira/browse/HIVE-11825) | *Critical* | **get\_json\_object(col,\'$.a\') is null in where clause didn\`t work**
 
 Enabled to accept quoting of all character backslash qooting mechanism
 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.6 - Unreleased (as of 2017-03-28)
+## Release 0.8.6 - Unreleased (as of 2017-05-04)
 
 
 
@@ -26,9 +26,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3561](https://issues.apache.org/jira/browse/TEZ-3561) | Fix wrong tez tarball name in install.md |  Minor | . | Akira Ajisaka | Akira Ajisaka |
 | [TEZ-3632](https://issues.apache.org/jira/browse/TEZ-3632) | Tez Task attempt listing can hang if log link is null |  Major | UI | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3672](https://issues.apache.org/jira/browse/TEZ-3672) | Remove duplicate Apache license headers |  Trivial | . | Saijin Huang | Saijin Huang |
 | [TEZ-3671](https://issues.apache.org/jira/browse/TEZ-3671) | TestCompositeDataMovementEvent has a misplaced Apache license header |  Minor | . | Saijin Huang | Saijin Huang |
+| [TEZ-3677](https://issues.apache.org/jira/browse/TEZ-3677) | by-laws markdown has an incorrect license header |  Minor | . | Saijin Huang | Saijin Huang |
+| [TEZ-3678](https://issues.apache.org/jira/browse/TEZ-3678) | The command "hadoop dfs" should be replaced by "hadoop fs" in install markdown |  Trivial | . | Saijin Huang | Saijin Huang |
+| [TEZ-3679](https://issues.apache.org/jira/browse/TEZ-3679) | Minor ASF header issues |  Minor | . | Saijin Huang | Saijin Huang |
+| [TEZ-3658](https://issues.apache.org/jira/browse/TEZ-3658) | building tez-ui throws exceptions |  Minor | . | Rajesh Balamohan | Zhiyuan Yang |
 
 
 ### OTHER:

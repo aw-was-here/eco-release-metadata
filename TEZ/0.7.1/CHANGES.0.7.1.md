@@ -123,7 +123,7 @@
 | [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | Preemption sometimes does not respect heartbeats between preemptions |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2097](https://issues.apache.org/jira/browse/TEZ-2097) | TEZ-UI Add dag logs backend support |  Critical | UI | Jeff Zhang | Jonathan Eagles |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
-| [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn\'t gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2716](https://issues.apache.org/jira/browse/TEZ-2716) | DefaultSorter.isRleNeeded not thread safe |  Major | . | Siddharth Seth | Rajesh Balamohan |
 | [TEZ-2853](https://issues.apache.org/jira/browse/TEZ-2853) | Tez UI: task attempt page is coming empty |  Blocker | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2398](https://issues.apache.org/jira/browse/TEZ-2398) | Flaky test: TestFaultTolerance |  Major | . | Rajesh Balamohan | Bikas Saha |
@@ -141,7 +141,7 @@
 | [TEZ-2850](https://issues.apache.org/jira/browse/TEZ-2850) | Tez MergeManager OOM for small Map Outputs |  Major | . | Saikat | Jonathan Eagles |
 | [TEZ-2907](https://issues.apache.org/jira/browse/TEZ-2907) | NPE in IFile.Reader.getLength during final merge operation |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2899](https://issues.apache.org/jira/browse/TEZ-2899) | Tez UI: DAG getting created with huge horizontal gap in between vertices |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
-| [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can't specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2904](https://issues.apache.org/jira/browse/TEZ-2904) | Pig can\'t specify task specific command opts |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2900](https://issues.apache.org/jira/browse/TEZ-2900) | Ignore V\_INPUT\_DATA\_INFORMATION when vertex is in Failed/Killed/Error |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2553](https://issues.apache.org/jira/browse/TEZ-2553) | Tez UI: Tez UI Nits |  Minor | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2909](https://issues.apache.org/jira/browse/TEZ-2909) | Tez UI: Application link in All DAGs table is disable when applicationhistory is unavailable. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
@@ -186,7 +186,7 @@
 | [TEZ-3126](https://issues.apache.org/jira/browse/TEZ-3126) | Log reason for not reducing parallelism |  Minor | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3137](https://issues.apache.org/jira/browse/TEZ-3137) | Tez task failed with illegal state exception in recovery |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-3102](https://issues.apache.org/jira/browse/TEZ-3102) | Fetch failure of a speculated task causes job hang |  Critical | . | Jason Lowe | Jason Lowe |
-| [TEZ-1911](https://issues.apache.org/jira/browse/TEZ-1911) | MergeManager's unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-1911](https://issues.apache.org/jira/browse/TEZ-1911) | MergeManager\'s unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3114](https://issues.apache.org/jira/browse/TEZ-3114) | Shuffle OOM due to EventMetaData flood |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3129](https://issues.apache.org/jira/browse/TEZ-3129) | Tez task and task attempt UI needs application fails with NotFoundException |  Major | UI | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3128](https://issues.apache.org/jira/browse/TEZ-3128) | Avoid stopping containers on the AM shutdown thread |  Major | . | Siddharth Seth | Tsuyoshi Ozawa |
@@ -197,7 +197,7 @@
 | [TEZ-3156](https://issues.apache.org/jira/browse/TEZ-3156) | Tez client keeps trying to talk to RM even if RM does not know about the application |  Major | . | Yesha Vora | Hitesh Shah |
 | [TEZ-2863](https://issues.apache.org/jira/browse/TEZ-2863) | Container, node, and logs not available in UI for tasks that fail to launch |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3105](https://issues.apache.org/jira/browse/TEZ-3105) | TezMxBeanResourceCalculator does not work on IBM JDK 7 or 8 causing Tez failures |  Major | . | Greg Senia | Greg Senia |
-| [TEZ-3166](https://issues.apache.org/jira/browse/TEZ-3166) | Counters aren't fully updated and sent for failed tasks |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3166](https://issues.apache.org/jira/browse/TEZ-3166) | Counters aren\'t fully updated and sent for failed tasks |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3175](https://issues.apache.org/jira/browse/TEZ-3175) | Add tez client submit host |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-2967](https://issues.apache.org/jira/browse/TEZ-2967) | Vertex start time should be that of first task start time in UI |  Major | UI | Rohini Palaniswamy | Jonathan Eagles |
 | [TEZ-3189](https://issues.apache.org/jira/browse/TEZ-3189) | Pre-warm dags should not be counted in submitted dags count by DAGAppMaster |  Trivial | . | Zhiyuan Yang | Zhiyuan Yang |

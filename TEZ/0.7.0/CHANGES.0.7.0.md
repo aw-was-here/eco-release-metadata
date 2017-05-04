@@ -66,7 +66,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-1881](https://issues.apache.org/jira/browse/TEZ-1881) | Setup initial test-patch script for TEZ-1313 |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-1889](https://issues.apache.org/jira/browse/TEZ-1889) | Fix test-patch to provide correct findbugs report |  Critical | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-1844](https://issues.apache.org/jira/browse/TEZ-1844) | Shouldn't invoke system.exit in local mode when AM is failed to start |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-1844](https://issues.apache.org/jira/browse/TEZ-1844) | Shouldn\'t invoke system.exit in local mode when AM is failed to start |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-1912](https://issues.apache.org/jira/browse/TEZ-1912) | Merge exceptions are thrown when enabling tez.runtime.shuffle.memory-to-memory.enable && tez.runtime.shuffle.memory-to-memory.segments |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1913](https://issues.apache.org/jira/browse/TEZ-1913) | Reduce deserialize cost in ValuesIterator |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-1945](https://issues.apache.org/jira/browse/TEZ-1945) | Remove 2 GB memlimit restriction in MergeManager |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -91,7 +91,7 @@
 | [TEZ-2009](https://issues.apache.org/jira/browse/TEZ-2009) | Change license/copyright headers to 2015 |  Blocker | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-1935](https://issues.apache.org/jira/browse/TEZ-1935) | Organization should be removed from http://tez.apache.org/team-list.html |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2133](https://issues.apache.org/jira/browse/TEZ-2133) | Secured Impersonation: Failed to delete tez scratch data dir |  Major | . | Johannes Zillmann | Chang Li |
-| [TEZ-2070](https://issues.apache.org/jira/browse/TEZ-2070) | Controller class of output should be committer rather than initializer in DAG's dot file |  Trivial | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2070](https://issues.apache.org/jira/browse/TEZ-2070) | Controller class of output should be committer rather than initializer in DAG\'s dot file |  Trivial | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2170](https://issues.apache.org/jira/browse/TEZ-2170) | Incorrect its in README.md |  Critical | . | Jakob Homan | Jakob Homan |
 | [TEZ-2171](https://issues.apache.org/jira/browse/TEZ-2171) | Remove unused metrics code |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-2178](https://issues.apache.org/jira/browse/TEZ-2178) | YARN-3122 breaks tez compilation with hadoop 2.7.0 |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -118,14 +118,14 @@
 | [TEZ-2310](https://issues.apache.org/jira/browse/TEZ-2310) | Deadlock caused by StateChangeNotifier sending notifications on thread holding locks |  Major | . | Daniel Dai | Bikas Saha |
 | [TEZ-2328](https://issues.apache.org/jira/browse/TEZ-2328) | Add tez.runtime.sorter.class & rename tez.runtime.sort.threads to tez.runtime.pipelined.sorter.sort.threads |  Major | . | Rajesh Balamohan | Hitesh Shah |
 | [TEZ-2313](https://issues.apache.org/jira/browse/TEZ-2313) | Regression in handling obsolete events in ShuffleScheduler |  Blocker | . | Bikas Saha | Rajesh Balamohan |
-| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn't mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
+| [TEZ-2224](https://issues.apache.org/jira/browse/TEZ-2224) | EventQueue empty doesn\'t mean events are consumed in RecoveryService |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2340](https://issues.apache.org/jira/browse/TEZ-2340) | TestRecoveryParser fails |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2261](https://issues.apache.org/jira/browse/TEZ-2261) | Should add diagnostics in DAGAppMaster when recovery error happens |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2357](https://issues.apache.org/jira/browse/TEZ-2357) | Tez UI: misc.js.orig is committed by accident |  Major | UI | Jeff Zhang | Prakash Ramachandran |
 | [TEZ-2341](https://issues.apache.org/jira/browse/TEZ-2341) | TestMockDAGAppMaster.testBasicCounters fails on windows |  Minor | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2248](https://issues.apache.org/jira/browse/TEZ-2248) | VertexImpl/DAGImpl.checkForCompletion have too many termination cause checks |  Major | . | Bikas Saha | Jeff Zhang |
 | [TEZ-2298](https://issues.apache.org/jira/browse/TEZ-2298) | Ignore sending failure message, when TaskReporter$HeartbeatCallable is shutdown |  Major | . | Rajesh Balamohan | Siddharth Seth |
-| [TEZ-2364](https://issues.apache.org/jira/browse/TEZ-2364) | 'joindatagen' AM picks wrong staging dir |  Major | . | Yesha Vora | Siddharth Seth |
+| [TEZ-2364](https://issues.apache.org/jira/browse/TEZ-2364) | \'joindatagen\' AM picks wrong staging dir |  Major | . | Yesha Vora | Siddharth Seth |
 | [TEZ-2362](https://issues.apache.org/jira/browse/TEZ-2362) | State Change Notifier Thread should be stopped when dag is completed |  Major | . | Jeff Zhang | Bikas Saha |
 | [TEZ-2342](https://issues.apache.org/jira/browse/TEZ-2342) | TestFaultTolerance.testRandomFailingTasks fails due to timeout |  Minor | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2358](https://issues.apache.org/jira/browse/TEZ-2358) | Pipelined Shuffle: MergeManager assumptions about 1 merge per source-task |  Blocker | . | Gopal V | Rajesh Balamohan |
@@ -195,7 +195,7 @@
 | [TEZ-2275](https://issues.apache.org/jira/browse/TEZ-2275) | Tez UI: enable faster loading and caching of data in tables |  Major | UI | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-1482](https://issues.apache.org/jira/browse/TEZ-1482) | Fix memory issues for Local Mode running concurrent tasks |  Major | . | Chen He | Prakash Ramachandran |
 | [TEZ-1969](https://issues.apache.org/jira/browse/TEZ-1969) | Stop the DAGAppMaster when a local mode client is stopped |  Major | . | Siddharth Seth | Prakash Ramachandran |
-| [TEZ-2344](https://issues.apache.org/jira/browse/TEZ-2344) | TEZ-UI: Equip basic-ember-table's cell level loading for all use cases in all DAGs table |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-2344](https://issues.apache.org/jira/browse/TEZ-2344) | TEZ-UI: Equip basic-ember-table\'s cell level loading for all use cases in all DAGs table |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2308](https://issues.apache.org/jira/browse/TEZ-2308) | Add set/get of record counts in task/vertex statistics |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2345](https://issues.apache.org/jira/browse/TEZ-2345) | TEZ-UI: Enable cell level loading in all DAGs table |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-1521](https://issues.apache.org/jira/browse/TEZ-1521) | VertexDataMovementEventsGeneratedEvent may be logged twice in recovery log |  Critical | . | Jeff Zhang | Jeff Zhang |

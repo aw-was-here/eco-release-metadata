@@ -34,7 +34,7 @@ Streaming allows binary (or other non-UTF8) streams.
 
 added new configuration variables to control when TT aborts if it sees a certain number of exceptions:
 
-    // Percent of shuffle exceptions (out of sample size) seen before it's
+    // Percent of shuffle exceptions (out of sample size) seen before it\'s
     // fatal - acceptable values are from 0 to 1.0, 0 disables the check.
     // ie. 0.3 = 30% of the last X number of requests matched the exception,
     // so abort.

@@ -54,7 +54,7 @@
 | [HADOOP-4697](https://issues.apache.org/jira/browse/HADOOP-4697) | KFS::getBlockLocations() fails with files having multiple blocks |  Major | fs | Lohit Vijayarenu | Sriram Rao |
 | [HADOOP-4720](https://issues.apache.org/jira/browse/HADOOP-4720) | docs/api does not contain the hdfs directory after building |  Major | build | Ramya Sunil |  |
 | [HADOOP-4635](https://issues.apache.org/jira/browse/HADOOP-4635) | Memory leak ? |  Blocker | . | Marc-Olivier Fleury | Pete Wyckoff |
-| [HADOOP-4420](https://issues.apache.org/jira/browse/HADOOP-4420) | JobTracker.killJob() doesn't check for the JobID being valid |  Minor | . | Steve Loughran | Aaron Kimball |
+| [HADOOP-4420](https://issues.apache.org/jira/browse/HADOOP-4420) | JobTracker.killJob() doesn\'t check for the JobID being valid |  Minor | . | Steve Loughran | Aaron Kimball |
 | [HADOOP-4632](https://issues.apache.org/jira/browse/HADOOP-4632) | TestJobHistoryVersion should not create directory in current dir. |  Major | . | Amareshwari Sriramadasu | Amar Kamat |
 | [HADOOP-4508](https://issues.apache.org/jira/browse/HADOOP-4508) | FSDataOutputStream.getPos() == 0when appending to existing file and should be file length |  Major | fs | Pete Wyckoff | dhruba borthakur |
 | [HADOOP-4727](https://issues.apache.org/jira/browse/HADOOP-4727) | Groups do not work for fuse-dfs out of the box on 0.19.0 |  Blocker | . | Brian Bockelman | Brian Bockelman |
@@ -63,8 +63,8 @@
 | [HADOOP-4821](https://issues.apache.org/jira/browse/HADOOP-4821) | Usage description in the Quotas guide documentations are incorrect |  Minor | documentation | Boris Shkolnik | Boris Shkolnik |
 | [HADOOP-4797](https://issues.apache.org/jira/browse/HADOOP-4797) | RPC Server can leave a lot of direct buffers |  Blocker | ipc | Raghu Angadi | Raghu Angadi |
 | [HADOOP-4924](https://issues.apache.org/jira/browse/HADOOP-4924) | Race condition in re-init of TaskTracker |  Blocker | . | Devaraj Das | Devaraj Das |
-| [HADOOP-4847](https://issues.apache.org/jira/browse/HADOOP-4847) | OutputCommitter is loaded in the TaskTracker in localizeConfiguration |  Blocker | . | Owen O'Malley | Amareshwari Sriramadasu |
-| [HADOOP-4966](https://issues.apache.org/jira/browse/HADOOP-4966) | Setup tasks are not removed from JobTracker's taskIdToTIPMap even after the job completes |  Major | . | Amar Kamat | Amareshwari Sriramadasu |
+| [HADOOP-4847](https://issues.apache.org/jira/browse/HADOOP-4847) | OutputCommitter is loaded in the TaskTracker in localizeConfiguration |  Blocker | . | Owen O\'Malley | Amareshwari Sriramadasu |
+| [HADOOP-4966](https://issues.apache.org/jira/browse/HADOOP-4966) | Setup tasks are not removed from JobTracker\'s taskIdToTIPMap even after the job completes |  Major | . | Amar Kamat | Amareshwari Sriramadasu |
 | [HADOOP-4992](https://issues.apache.org/jira/browse/HADOOP-4992) | TestCustomOutputCommitter fails on hadoop-0.19 |  Blocker | . | Amar Kamat | Amareshwari Sriramadasu |
 | [HADOOP-4982](https://issues.apache.org/jira/browse/HADOOP-4982) | TestFsck does not run in Eclipse. |  Major | test | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-5008](https://issues.apache.org/jira/browse/HADOOP-5008) | TestReplication#testPendingReplicationRetry leaves an opened fd unclosed |  Major | test | Hairong Kuang | Hairong Kuang |
@@ -74,7 +74,7 @@
 | [HADOOP-4965](https://issues.apache.org/jira/browse/HADOOP-4965) | DFSClient should log instead of printing into std err. |  Major | test | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-4967](https://issues.apache.org/jira/browse/HADOOP-4967) | Inconsistent state in JVM manager |  Major | . | Amareshwari Sriramadasu | Devaraj Das |
 | [HADOOP-5002](https://issues.apache.org/jira/browse/HADOOP-5002) | 2 core tests TestFileOutputFormat and TestHarFileSystem are failing in branch 19 |  Blocker | . | Ravi Gummadi | Amareshwari Sriramadasu |
-| [HADOOP-4983](https://issues.apache.org/jira/browse/HADOOP-4983) | Job counters sometimes go down as tasks run without task failures |  Critical | . | Owen O'Malley | Amareshwari Sriramadasu |
+| [HADOOP-4983](https://issues.apache.org/jira/browse/HADOOP-4983) | Job counters sometimes go down as tasks run without task failures |  Critical | . | Owen O\'Malley | Amareshwari Sriramadasu |
 | [HADOOP-5009](https://issues.apache.org/jira/browse/HADOOP-5009) | DataNode#shutdown sometimes leaves data block scanner verification log unclosed |  Major | . | Hairong Kuang | Hairong Kuang |
 | [HADOOP-4955](https://issues.apache.org/jira/browse/HADOOP-4955) | Make DBOutputFormat us column names from setOutput(...) |  Major | . | Kevin Peterson | Kevin Peterson |
 | [HADOOP-4862](https://issues.apache.org/jira/browse/HADOOP-4862) | A spurious IOException log on DataNode is not completely removed |  Blocker | . | Raghu Angadi | Raghu Angadi |

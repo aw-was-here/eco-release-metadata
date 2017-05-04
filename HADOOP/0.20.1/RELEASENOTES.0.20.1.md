@@ -61,7 +61,7 @@ If the child (streaming) process returns successfully and the MROutputThread thr
 * [HADOOP-5884](https://issues.apache.org/jira/browse/HADOOP-5884) | *Major* | **Capacity scheduler should account high memory jobs as using more capacity of the queue**
 
 Fixes Capacity scheduler to account more capacity of a queue for a high memory job. Done by considering these jobs to
-take more slots proportionally with respect to a slot's default memory size.
+take more slots proportionally with respect to a slot\'s default memory size.
 
 
 ---
@@ -177,14 +177,14 @@ JobTracker was changed to take an identifier as an argument. This helps in testc
 
 * [MAPREDUCE-834](https://issues.apache.org/jira/browse/MAPREDUCE-834) | *Major* | **When TaskTracker config use old memory management values its memory monitoring is diabled.**
 
-The tasktracker's startup code was modified to use deprecated memory management configuration variables, when specified, and enable memory monitoring of tasks.
+The tasktracker\'s startup code was modified to use deprecated memory management configuration variables, when specified, and enable memory monitoring of tasks.
 
 
 ---
 
 * [MAPREDUCE-818](https://issues.apache.org/jira/browse/MAPREDUCE-818) | *Minor* | **org.apache.hadoop.mapreduce.Counters.getGroup returns null if the group name doesnt exist.**
 
-Fixed a bug in the new org.apache.hadoop.mapreduce.Counters.getGroup() method to return an empty group if group name doesn't exist, instead of null, thus making sure that it is in sync with the Javadoc.
+Fixed a bug in the new org.apache.hadoop.mapreduce.Counters.getGroup() method to return an empty group if group name doesn\'t exist, instead of null, thus making sure that it is in sync with the Javadoc.
 
 
 ---
@@ -205,7 +205,7 @@ Removes the dependency of hadoop-mapred from commons-cli2 and uses commons-cli1.
 
 * [HADOOP-6213](https://issues.apache.org/jira/browse/HADOOP-6213) | *Blocker* | **Remove commons dependency on commons-cli2**
 
-GenericOptionsParser in branch 0.20 depends on commons-cli2. This jira removes the dependency of branch 0.20 on commons-cli2 completely. The problem is seen after 'ant binary' where all the library files are copied to '$hadoop-home/lib' which already has commons-cli2.
+GenericOptionsParser in branch 0.20 depends on commons-cli2. This jira removes the dependency of branch 0.20 on commons-cli2 completely. The problem is seen after \'ant binary\' where all the library files are copied to \'$hadoop-home/lib\' which already has commons-cli2.
 
 
 ---

@@ -60,7 +60,7 @@ Command:
  checkAndDelete  CheckAndDelete on each row; clients overlap on keyspace so some concurrent operations
  checkAndMutate  CheckAndMutate on each row; clients overlap on keyspace so some concurrent operations
  checkAndPut     CheckAndPut on each row; clients overlap on keyspace so some concurrent operations
- filterScan      Run scan test using a filter to find a specific row based on it's value (make sure to use --rows=20)
+ filterScan      Run scan test using a filter to find a specific row based on it\'s value (make sure to use --rows=20)
  increment       Increment on each row; clients overlap on keyspace so some concurrent operations
  randomRead      Run random read test
 ....
@@ -105,6 +105,13 @@ Fixes regression where hbase.rpc.timeout configuration was ignored in branch-1.0
 Adds new methods setOperationTimeout, getOperationTimeout, setRpcTimeout, and getRpcTimeout to Table. In branch-1.3+ they are public interfaces and in 1.0-1.2 they are labeled as @InterfaceAudience.Private.
 
 Adds hbase.client.operation.timeout to hbase-default.xml with default of 1200000
+
+
+---
+
+* [HBASE-15720](https://issues.apache.org/jira/browse/HBASE-15720) | *Major* | **Print row locks at the debug dump page**
+
+Adds a section to the debug dump page listing current row locks held.
 
 
 ---
