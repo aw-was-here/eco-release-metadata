@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-05-04)
+## Release 2.1.2 - Unreleased (as of 2017-05-08)
 
 
 
@@ -50,6 +50,16 @@
 | [SPARK-20517](https://issues.apache.org/jira/browse/SPARK-20517) | Download link in history server UI is not correct |  Minor | Spark Core | Saisai Shao | Saisai Shao |
 | [SPARK-20540](https://issues.apache.org/jira/browse/SPARK-20540) | Dynamic allocation constantly requests and kills executors |  Major | Spark Core, YARN | Ryan Blue | Ryan Blue |
 | [SPARK-20558](https://issues.apache.org/jira/browse/SPARK-20558) | clear InheritableThreadLocal variables in SparkContext when stopping it |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
+| [SPARK-20546](https://issues.apache.org/jira/browse/SPARK-20546) | spark-class gets syntax error in posix mode |  Minor | Deploy | Jessie Yu | Jessie Yu |
+| [SPARK-20613](https://issues.apache.org/jira/browse/SPARK-20613) | Double quotes in Windows batch script |  Major | Windows | Jarrett Meyer | Jarrett Meyer |
+| [SPARK-20616](https://issues.apache.org/jira/browse/SPARK-20616) | RuleExecutor logDebug of batch results should show diff to start of batch |  Major | SQL | Juliusz Sompolski | Juliusz Sompolski |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-20603](https://issues.apache.org/jira/browse/SPARK-20603) | Flaky test: o.a.s.sql.kafka010.KafkaSourceSuite deserialization of initial offset with Spark 2.1.0 |  Minor | Tests | Shixiong Zhu | Shixiong Zhu |
 
 
 ### OTHER:

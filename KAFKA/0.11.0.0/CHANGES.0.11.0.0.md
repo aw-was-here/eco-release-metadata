@@ -73,6 +73,9 @@
 | [KAFKA-5091](https://issues.apache.org/jira/browse/KAFKA-5091) | ReassignPartitionsCommand should protect against empty replica list assignment |  Major | tools | Ryan P | huxi |
 | [KAFKA-5118](https://issues.apache.org/jira/browse/KAFKA-5118) | Improve message for Kafka failed startup with non-Kafka data in data.dirs |  Minor | core | Dustin Cote | huxi |
 | [KAFKA-5104](https://issues.apache.org/jira/browse/KAFKA-5104) | DumpLogSegments should not open index files with \`rw\` |  Minor | log | Yeva Byzek | huxi |
+| [KAFKA-5137](https://issues.apache.org/jira/browse/KAFKA-5137) | Controlled shutdown timeout message improvement |  Minor | . | Dustin Cote | Umesh Chaudhary |
+| [KAFKA-5161](https://issues.apache.org/jira/browse/KAFKA-5161) | reassign-partitions to check if broker of ID exists in cluster |  Minor | . | Lawrence Weikum | huxi |
+| [KAFKA-4839](https://issues.apache.org/jira/browse/KAFKA-4839) | throw NoOffsetForPartitionException once for all assigned partitions from poll |  Major | clients | radai rosenblatt | radai rosenblatt |
 
 
 ### BUG FIXES:
@@ -190,6 +193,12 @@
 | [KAFKA-5144](https://issues.apache.org/jira/browse/KAFKA-5144) | MinTimestampTracker uses confusing variable names |  Trivial | streams | Michal Borowiecki | Michal Borowiecki |
 | [KAFKA-5055](https://issues.apache.org/jira/browse/KAFKA-5055) | Kafka Streams skipped-records-rate sensor producing nonzero values even when FailOnInvalidTimestamp is used as extractor |  Major | streams | Nikki Thean | Davor Poldrugo |
 | [KAFKA-4925](https://issues.apache.org/jira/browse/KAFKA-4925) | Add a configurable delay to the initial consumer group rebalance |  Major | core | Damian Guy | Damian Guy |
+| [KAFKA-5170](https://issues.apache.org/jira/browse/KAFKA-5170) | KafkaAdminClientIntegration test should wait until metadata is propagated to all brokers |  Major | admin | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5169](https://issues.apache.org/jira/browse/KAFKA-5169) | KafkaConsumer.close should be idempotent |  Major | clients | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5143](https://issues.apache.org/jira/browse/KAFKA-5143) | Windows platform does not offer kafka-broker-api-versions.bat |  Minor | admin | huxi | huxi |
+| [KAFKA-5172](https://issues.apache.org/jira/browse/KAFKA-5172) | CachingSessionStore doesn't fetchPrevious correctly. |  Major | streams | Kyle Winkelman | Kyle Winkelman |
+| [KAFKA-5174](https://issues.apache.org/jira/browse/KAFKA-5174) | RocksDb might stall in environments with 1 core only |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3353](https://issues.apache.org/jira/browse/KAFKA-3353) | Remove deprecated producer configs. |  Major | . | Ashish Singh | Ismael Juma |
 
 
 ### TESTS:
@@ -241,6 +250,8 @@
 | [KAFKA-4955](https://issues.apache.org/jira/browse/KAFKA-4955) | Add network handler thread utilization to request quota calculation |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-5131](https://issues.apache.org/jira/browse/KAFKA-5131) | WriteTxnMarkers and complete commit/abort on partition immigration |  Major | core | Damian Guy | Damian Guy |
 | [KAFKA-4378](https://issues.apache.org/jira/browse/KAFKA-4378) | Address 2.12 eta-expansion warnings |  Major | core | Bernard Leach | Bernard Leach |
+| [KAFKA-5162](https://issues.apache.org/jira/browse/KAFKA-5162) | Add a reference to AdminClient to docs/api.html |  Major | documentation | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5121](https://issues.apache.org/jira/browse/KAFKA-5121) | Implement transaction index for KIP-98 |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
 
 
 ### OTHER:
@@ -249,5 +260,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4679](https://issues.apache.org/jira/browse/KAFKA-4679) | Remove unstable markers from Connect APIs |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-5045](https://issues.apache.org/jira/browse/KAFKA-5045) | KTable materialization and improved semantics |  Major | streams | Eno Thereska | Eno Thereska |
+| [KAFKA-3763](https://issues.apache.org/jira/browse/KAFKA-3763) | Remove deprecated APIs for 0.11.0.0 |  Major | . | Ismael Juma |  |
 
 

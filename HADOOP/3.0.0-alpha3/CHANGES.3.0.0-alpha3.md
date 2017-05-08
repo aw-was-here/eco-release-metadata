@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.0-alpha3 - Unreleased (as of 2017-05-04)
+## Release 3.0.0-alpha3 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -192,6 +192,9 @@
 | [HADOOP-14352](https://issues.apache.org/jira/browse/HADOOP-14352) | Make some HttpServer2 SSL properties optional |  Minor | kms | John Zhuge | John Zhuge |
 | [HDFS-11722](https://issues.apache.org/jira/browse/HDFS-11722) | Change Datanode file IO profiling sampling to percentage |  Major | hdfs | Hanisha Koneru | Hanisha Koneru |
 | [HDFS-11687](https://issues.apache.org/jira/browse/HDFS-11687) | Add new public encryption APIs required by Hive |  Major | encryption | Andrew Wang | Lei (Eddy) Xu |
+| [HADOOP-14382](https://issues.apache.org/jira/browse/HADOOP-14382) | Remove usages of MoreObjects.toStringHelper |  Minor | metrics | Andrew Wang | Andrew Wang |
+| [HDFS-9807](https://issues.apache.org/jira/browse/HDFS-9807) | Add an optional StorageID to writes |  Major | . | Chris Douglas | Ewan Higgs |
+| [HADOOP-14390](https://issues.apache.org/jira/browse/HADOOP-14390) | Correct spelling of 'succeed' and variants |  Trivial | . | Dongtao Zhang | Dongtao Zhang |
 
 
 ### BUG FIXES:
@@ -456,6 +459,8 @@
 | [HADOOP-14380](https://issues.apache.org/jira/browse/HADOOP-14380) | Make the Guava version Hadoop which builds with configurable |  Major | build | Steve Loughran | Steve Loughran |
 | [HDFS-11448](https://issues.apache.org/jira/browse/HDFS-11448) | JN log segment syncing should support HA upgrade |  Major | hdfs | Hanisha Koneru | Hanisha Koneru |
 | [HADOOP-14207](https://issues.apache.org/jira/browse/HADOOP-14207) | "dfsadmin -refreshCallQueue" fails with DecayRpcScheduler |  Blocker | rpc-server | Surendra Singh Lilhore | Surendra Singh Lilhore |
+| [HADOOP-14298](https://issues.apache.org/jira/browse/HADOOP-14298) | TestHadoopArchiveLogsRunner fails |  Major | test | Akira Ajisaka | Akira Ajisaka |
+| [HDFS-11702](https://issues.apache.org/jira/browse/HDFS-11702) | Remove indefinite caching of key provider uri in DFSClient |  Major | hdfs-client | Rushabh S Shah | Rushabh S Shah |
 
 
 ### TESTS:
@@ -590,6 +595,10 @@
 | [YARN-5331](https://issues.apache.org/jira/browse/YARN-5331) | Extend RLESparseResourceAllocation with period for supporting recurring reservations in YARN ReservationSystem |  Major | resourcemanager | Subru Krishnan | Sangeetha Abdu Jyothi |
 | [YARN-6374](https://issues.apache.org/jira/browse/YARN-6374) | Improve test coverage and add utility classes for common Docker operations |  Major | nodemanager, yarn | Shane Kumpf | Shane Kumpf |
 | [YARN-6375](https://issues.apache.org/jira/browse/YARN-6375) | App level aggregation should not consider metric values reported in the previous aggregation cycle |  Major | timelineserver | Varun Saxena | Varun Saxena |
+| [YARN-6522](https://issues.apache.org/jira/browse/YARN-6522) | Make SLS JSON input file format simple and scalable |  Major | scheduler-load-simulator | Yufei Gu | Yufei Gu |
+| [HDFS-11530](https://issues.apache.org/jira/browse/HDFS-11530) | Use HDFS specific network topology to choose datanode in BlockPlacementPolicyDefault |  Major | namenode | Yiqun Lin | Yiqun Lin |
+| [YARN-6565](https://issues.apache.org/jira/browse/YARN-6565) | Fix memory leak and finish app trigger in AMRMProxy |  Minor | . | Botong Huang | Botong Huang |
+| [HDFS-9342](https://issues.apache.org/jira/browse/HDFS-9342) | Erasure coding: client should update and commit block based on acknowledged size |  Critical | erasure-coding | Zhe Zhang | SammiChen |
 
 
 ### OTHER:

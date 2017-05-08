@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.3.0 - Unreleased (as of 2017-05-04)
+## Release 2.3.0 - Unreleased (as of 2017-05-08)
 
 
 
@@ -34,6 +34,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-14340](https://issues.apache.org/jira/browse/HIVE-14340) | Add a new hook triggers before query compilation and after query execution |  Major | Query Processor | Chao Sun | Chao Sun |
 | [HIVE-16115](https://issues.apache.org/jira/browse/HIVE-16115) | Stop printing progress info from operation logs with beeline progress bar |  Minor | HiveServer2 | anishek | anishek |
 | [HIVE-12274](https://issues.apache.org/jira/browse/HIVE-12274) | Increase width of columns used for general configuration in the metastore. |  Major | Metastore | Elliot West | Naveen Gangam |
 | [HIVE-12299](https://issues.apache.org/jira/browse/HIVE-12299) | Hive Column Data Type definition in schema limited to 4000 characters - too small |  Major | Hive | Lakshmi Ramakrishnan | Naveen Gangam |
@@ -46,6 +47,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-7224](https://issues.apache.org/jira/browse/HIVE-7224) | Set incremental printing to true by default in Beeline |  Major | Beeline, Clients, JDBC | Vaibhav Gumashta | Sahil Takiar |
+| [HIVE-14864](https://issues.apache.org/jira/browse/HIVE-14864) | Distcp is not called from MoveTask when src is a directory |  Major | . | Vihang Karajgaonkar | Sahil Takiar |
+| [HIVE-16080](https://issues.apache.org/jira/browse/HIVE-16080) | Add parquet to possible values for hive.default.fileformat and hive.default.fileformat.managed |  Major | . | Sahil Takiar | Sahil Takiar |
 | [HIVE-14801](https://issues.apache.org/jira/browse/HIVE-14801) | improve TestPartitionNameWhitelistValidation stability |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-16274](https://issues.apache.org/jira/browse/HIVE-16274) | Support tuning of NDV of columns using lower/upper bounds |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-9815](https://issues.apache.org/jira/browse/HIVE-9815) | Metastore column"SERDE\_PARAMS"."PARAM\_VALUE"  limited to 4000 bytes |  Critical | Metastore | Naveen Gangam | Naveen Gangam |
@@ -81,6 +85,7 @@
 | [HIVE-16545](https://issues.apache.org/jira/browse/HIVE-16545) | LLAP: bug in arena size determination logic |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16399](https://issues.apache.org/jira/browse/HIVE-16399) | create an index for tc\_txnid in TXN\_COMPONENTS |  Major | Transactions | Eugene Koifman | Wei Zheng |
 | [HIVE-16465](https://issues.apache.org/jira/browse/HIVE-16465) | NullPointer Exception when enable vectorization for Parquet file format |  Critical | . | Colin Ma | Colin Ma |
+| [HIVE-16577](https://issues.apache.org/jira/browse/HIVE-16577) | Syntax error in the metastore init scripts for mssql |  Blocker | Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
 
 
 ### TESTS:
@@ -96,6 +101,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-14170](https://issues.apache.org/jira/browse/HIVE-14170) | Beeline IncrementalRows should buffer rows and incrementally re-calculate width if TableOutputFormat is used |  Major | Beeline | Sahil Takiar | Sahil Takiar |
 | [HIVE-15556](https://issues.apache.org/jira/browse/HIVE-15556) | Replicate views |  Major | repl | Vaibhav Gumashta | Sankar Hariappan |
 | [HIVE-16186](https://issues.apache.org/jira/browse/HIVE-16186) | REPL DUMP shows last event ID of the database even if we use LIMIT option. |  Major | repl | Sankar Hariappan | Sankar Hariappan |
 | [HIVE-16249](https://issues.apache.org/jira/browse/HIVE-16249) | With column stats, mergejoin.q throws NPE |  Major | . | Pengcheng Xiong | Pengcheng Xiong |

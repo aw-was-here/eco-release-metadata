@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.2 - Unreleased (as of 2017-05-04)
+## Release 1.3.2 - Unreleased (as of 2017-05-08)
 
 
 
@@ -42,6 +42,7 @@
 | [HBASE-17862](https://issues.apache.org/jira/browse/HBASE-17862) | Condition that always returns true |  Trivial | Client | JC | JC |
 | [HBASE-17985](https://issues.apache.org/jira/browse/HBASE-17985) | Inline package manage updates with package installation in Yetus Dockerfile |  Blocker | . | Josh Elser | Josh Elser |
 | [HBASE-17534](https://issues.apache.org/jira/browse/HBASE-17534) | SecureBulkLoadClient squashes DoNotRetryIOExceptions from the server |  Major | Client | Josh Elser | Josh Elser |
+| [HBASE-18000](https://issues.apache.org/jira/browse/HBASE-18000) | Make sure we always return the scanner id with ScanResponse |  Major | regionserver | Lars Hofhansl | Duo Zhang |
 
 
 ### SUB-TASKS:

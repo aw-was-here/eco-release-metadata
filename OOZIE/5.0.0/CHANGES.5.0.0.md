@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-05-04)
+## Release 5.0.0 - Unreleased (as of 2017-05-08)
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-05-04)
+## Release 1.3.0 - Unreleased (as of 2017-05-08)
 
 
 
@@ -65,6 +65,8 @@
 | [FLINK-6377](https://issues.apache.org/jira/browse/FLINK-6377) | Support map types in the Table / SQL API |  Major | Table API & SQL | Haohui Mai | Haohui Mai |
 | [FLINK-4604](https://issues.apache.org/jira/browse/FLINK-4604) | Add support for standard deviation/variance |  Major | Table API & SQL | Timo Walther | Anton Mushin |
 | [FLINK-6177](https://issues.apache.org/jira/browse/FLINK-6177) | Add support for "Distributed Cache" in streaming applications |  Major | DataStream API | Zohar Mizrahi | Zohar Mizrahi |
+| [FLINK-4821](https://issues.apache.org/jira/browse/FLINK-4821) | Implement rescalable non-partitioned state for Kinesis Connector |  Major | Kinesis Connector | Tzu-Li (Gordon) Tai | Wei-Che Wei |
+| [FLINK-6178](https://issues.apache.org/jira/browse/FLINK-6178) | Allow upgrades to state serializers |  Critical | State Backends, Checkpointing, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### IMPROVEMENTS:
@@ -217,6 +219,10 @@
 | [FLINK-6334](https://issues.apache.org/jira/browse/FLINK-6334) | Refactoring UDTF interface |  Blocker | Table API & SQL | Ruidong Li | Ruidong Li |
 | [FLINK-5741](https://issues.apache.org/jira/browse/FLINK-5741) | Add tests for window function wrappers with RichFunctions |  Blocker | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-6274](https://issues.apache.org/jira/browse/FLINK-6274) | Replace usages of org.codehaus.jackson |  Trivial | Build System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-5998](https://issues.apache.org/jira/browse/FLINK-5998) | Un-fat Hadoop from Flink fat jar |  Major | Build System | Robert Metzger | Haohui Mai |
+| [FLINK-5974](https://issues.apache.org/jira/browse/FLINK-5974) | Support Mesos DNS |  Major | Cluster Management, Mesos | Eron Wright | Vijay Srinivasaraghavan |
+| [FLINK-6443](https://issues.apache.org/jira/browse/FLINK-6443) | Add more doc links in concepts sections |  Minor | Documentation | David Anderson | David Anderson |
+| [FLINK-6447](https://issues.apache.org/jira/browse/FLINK-6447) | AWS/EMR docs are out-of-date |  Major | Documentation | David Anderson | David Anderson |
 
 
 ### BUG FIXES:
@@ -444,6 +450,13 @@
 | [FLINK-5933](https://issues.apache.org/jira/browse/FLINK-5933) | Allow Evictor for merging windows |  Major | DataStream API | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-6295](https://issues.apache.org/jira/browse/FLINK-6295) | Update suspended ExecutionGraph to lower latency |  Major | Webfrontend | Tao Wang | Tao Wang |
 | [FLINK-6445](https://issues.apache.org/jira/browse/FLINK-6445) | Fix NullPointerException in CEP pattern without condition |  Blocker | CEP | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-6217](https://issues.apache.org/jira/browse/FLINK-6217) | ContaineredTaskManagerParameters sets off heap memory size incorrectly |  Major | YARN | Haohui Mai | Haohui Mai |
+| [FLINK-6435](https://issues.apache.org/jira/browse/FLINK-6435) | AsyncWaitOperator does not handle exceptions properly |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-6078](https://issues.apache.org/jira/browse/FLINK-6078) | ZooKeeper based high availability services should not close the underlying CuratorFramework |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-6463](https://issues.apache.org/jira/browse/FLINK-6463) | Throw exception when NOT-NEXT is after OPTIONAL |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-6401](https://issues.apache.org/jira/browse/FLINK-6401) | RocksDBPerformanceTest.testRocksDbRangeGetPerformance fails on Travis |  Critical | State Backends, Checkpointing, Tests | Till Rohrmann | Stephan Ewen |
+| [FLINK-6475](https://issues.apache.org/jira/browse/FLINK-6475) | Incremental snapshots in RocksDB hold lock during async file upload |  Critical | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
+| [FLINK-6394](https://issues.apache.org/jira/browse/FLINK-6394) | GroupCombine reuses instances even though object reuse is disabled |  Critical | DataSet API | Jaromir Vanek | Kurt Young |
 
 
 ### TESTS:
@@ -452,6 +465,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-5587](https://issues.apache.org/jira/browse/FLINK-5587) | AsyncWaitOperatorTest timed out on Travis |  Major | DataStream API, Local Runtime | Ufuk Celebi |  |
 | [FLINK-5923](https://issues.apache.org/jira/browse/FLINK-5923) | Test instability in SavepointITCase testTriggerSavepointAndResume |  Major | Tests | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-6471](https://issues.apache.org/jira/browse/FLINK-6471) | RocksDBStateBackendTest#testCancelRunningSnapshot sometimes fails |  Minor | . | Ted Yu | Stefan Richter |
 
 
 ### SUB-TASKS:
@@ -514,6 +528,12 @@
 | [FLINK-6340](https://issues.apache.org/jira/browse/FLINK-6340) | Introduce a TerminationFuture for Execution |  Major | Distributed Coordination | Stephan Ewen | Stephan Ewen |
 | [FLINK-5869](https://issues.apache.org/jira/browse/FLINK-5869) | ExecutionGraph use FailoverCoordinator to manage the failover of execution vertexes |  Major | JobManager | shuai.xu | shuai.xu |
 | [FLINK-6367](https://issues.apache.org/jira/browse/FLINK-6367) | support custom header settings of allow origin |  Major | Webfrontend | shijinkui | shijinkui |
+| [FLINK-5915](https://issues.apache.org/jira/browse/FLINK-5915) | Add support for the aggregate on multi fields |  Major | Table API & SQL | Shaoxuan Wang | Shaoxuan Wang |
+| [FLINK-6136](https://issues.apache.org/jira/browse/FLINK-6136) | Separate EmbeddedNonHaServices and NonHaServices |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-6470](https://issues.apache.org/jira/browse/FLINK-6470) | Add a utility to parse memory sizes with units |  Minor | Core | Stephan Ewen | Stephan Ewen |
+| [FLINK-6190](https://issues.apache.org/jira/browse/FLINK-6190) | Write "Serializer Configurations" metainfo along with state |  Major | State Backends, Checkpointing, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6191](https://issues.apache.org/jira/browse/FLINK-6191) | Make non-primitive, internal built-in serializers reconfigurable |  Major | Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6425](https://issues.apache.org/jira/browse/FLINK-6425) | Integrate serializer reconfiguration into state restore flow to activate serializer upgrades |  Major | State Backends, Checkpointing | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### OTHER:
@@ -525,6 +545,7 @@
 | [FLINK-6186](https://issues.apache.org/jira/browse/FLINK-6186) | Remove unused import |  Trivial | DataStream API, Scala API | CanBin Zheng | CanBin Zheng |
 | [FLINK-6269](https://issues.apache.org/jira/browse/FLINK-6269) | var could be a val |  Trivial | JobManager | CanBin Zheng | CanBin Zheng |
 | [FLINK-4644](https://issues.apache.org/jira/browse/FLINK-4644) | Deprecate "flink.base.dir.path" from ConfigConstants |  Minor | Build System | Maximilian Michels | Stephan Ewen |
+| [FLINK-4545](https://issues.apache.org/jira/browse/FLINK-4545) | Flink automatically manages TM network buffer |  Critical | Network | Zhenzhong Xu | Nico Kruber |
 | [FLINK-5084](https://issues.apache.org/jira/browse/FLINK-5084) | Replace Java Table API integration tests by unit tests |  Minor | Table API & SQL | Fabian Hueske |  |
 | [FLINK-4820](https://issues.apache.org/jira/browse/FLINK-4820) | Slf4j / log4j version upgrade to support dynamic change of log levels --\> Make logging framework exchangeable |  Major | Build System | Zhenzhong Xu | Stephan Ewen |
 | [FLINK-5074](https://issues.apache.org/jira/browse/FLINK-5074) | Implement a RunningJobRegistry based on Zookeeper |  Major | Cluster Management | shuai.xu | shuai.xu |

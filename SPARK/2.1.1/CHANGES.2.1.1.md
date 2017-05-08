@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.1 - Unreleased (as of 2017-05-04)
+## Release 2.1.1 - 2017-05-02
 
 
 

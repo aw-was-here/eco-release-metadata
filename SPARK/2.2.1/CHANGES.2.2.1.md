@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.1 - Unreleased (as of 2017-05-04)
+## Release 2.2.1 - Unreleased (as of 2017-05-08)
 
 
 
@@ -35,6 +35,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-20426](https://issues.apache.org/jira/browse/SPARK-20426) | OneForOneStreamManager occupies too much memory. |  Major | Shuffle | jin xing | jin xing |
+| [SPARK-20621](https://issues.apache.org/jira/browse/SPARK-20621) | Delete deprecated config parameter in 'spark-env.sh' |  Minor | Deploy | coneyliu | coneyliu |
 
 
 ### BUG FIXES:
@@ -51,6 +52,14 @@
 | [SPARK-20537](https://issues.apache.org/jira/browse/SPARK-20537) | OffHeapColumnVector reallocation may not copy existing data |  Major | Spark Core | Kazuaki Ishizaki | Kazuaki Ishizaki |
 | [SPARK-20549](https://issues.apache.org/jira/browse/SPARK-20549) | java.io.CharConversionException: Invalid UTF-32 in JsonToStructs |  Major | SQL | Burak Yavuz | Burak Yavuz |
 | [SPARK-20558](https://issues.apache.org/jira/browse/SPARK-20558) | clear InheritableThreadLocal variables in SparkContext when stopping it |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
+| [SPARK-20546](https://issues.apache.org/jira/browse/SPARK-20546) | spark-class gets syntax error in posix mode |  Minor | Deploy | Jessie Yu | Jessie Yu |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-20596](https://issues.apache.org/jira/browse/SPARK-20596) | Improve ALS recommend all test cases |  Minor | ML, Tests | Nick Pentreath | Nick Pentreath |
 
 
 ### OTHER:

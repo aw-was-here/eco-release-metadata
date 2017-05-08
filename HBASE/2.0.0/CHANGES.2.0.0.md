@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-05-04)
+## Release 2.0.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -113,7 +113,6 @@
 | [HBASE-17584](https://issues.apache.org/jira/browse/HBASE-17584) | Expose ScanMetrics with ResultScanner rather than Scan |  Major | Client, mapreduce, scan | Duo Zhang | Duo Zhang |
 | [HBASE-17595](https://issues.apache.org/jira/browse/HBASE-17595) | Add partial result support for small/limited scan |  Critical | asyncclient, Client, scan | Duo Zhang | Duo Zhang |
 | [HBASE-17956](https://issues.apache.org/jira/browse/HBASE-17956) | Raw scan should ignore TTL |  Major | scan | Duo Zhang | Duo Zhang |
-| [HBASE-15199](https://issues.apache.org/jira/browse/HBASE-15199) | Move jruby jar so only on hbase-shell module classpath; currently globally available |  Critical | dependencies, jruby, shell | stack | Xiang Li |
 
 
 ### IMPORTANT ISSUES:
@@ -932,6 +931,7 @@
 | [HBASE-12870](https://issues.apache.org/jira/browse/HBASE-12870) | "Major compaction triggered" and "Skipping major compaction" messages lack the region information |  Major | Compaction | Hari Krishna Dara | Chinmay Kulkarni |
 | [HBASE-16466](https://issues.apache.org/jira/browse/HBASE-16466) | HBase snapshots support in VerifyReplication tool to reduce load on live HBase cluster with large tables |  Major | hbase | Sukumar Maddineni | Maddineni Sukumar |
 | [HBASE-17990](https://issues.apache.org/jira/browse/HBASE-17990) | Refactor TestFSUtils to use Before |  Trivial | . | Zach York | Zach York |
+| [HBASE-18007](https://issues.apache.org/jira/browse/HBASE-18007) | Clean up rest module code |  Trivial | . | Qilin Cao | Qilin Cao |
 
 
 ### BUG FIXES:
@@ -2665,6 +2665,8 @@
 | [HBASE-17228](https://issues.apache.org/jira/browse/HBASE-17228) | precommit grep -c ERROR may grab non errors |  Minor | build, community, test | Matteo Bertozzi | stack |
 | [HBASE-17991](https://issues.apache.org/jira/browse/HBASE-17991) | Add more details about compaction queue on /dump |  Minor | . | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-17964](https://issues.apache.org/jira/browse/HBASE-17964) | ensure hbase-metrics-api is included in mapreduce job classpaths |  Blocker | mapreduce | Sean Busbey | Sean Busbey |
+| [HBASE-18000](https://issues.apache.org/jira/browse/HBASE-18000) | Make sure we always return the scanner id with ScanResponse |  Major | regionserver | Lars Hofhansl | Duo Zhang |
+| [HBASE-17471](https://issues.apache.org/jira/browse/HBASE-17471) | Region Seqid will be out of order in WAL if using mvccPreAssign |  Critical | wal | Allan Yang | Allan Yang |
 
 
 ### TESTS:
@@ -3508,6 +3510,7 @@
 | [HBASE-17920](https://issues.apache.org/jira/browse/HBASE-17920) | TestFSHDFSUtils always fails against hadoop 3.0.0-alpha2 |  Major | hadoop3 | Jonathan Hsieh | Jonathan Hsieh |
 | [HBASE-17263](https://issues.apache.org/jira/browse/HBASE-17263) |   Netty based rpc server impl |  Major | Performance, rpc | binlijin | binlijin |
 | [HBASE-17867](https://issues.apache.org/jira/browse/HBASE-17867) | Implement async procedure RPC API(list/exec/abort/isFinished) |  Major | Client | Zheng Hu | Zheng Hu |
+| [HBASE-17667](https://issues.apache.org/jira/browse/HBASE-17667) | Implement  async  flush/compact region methods |  Major | Admin, asyncclient, Client | Zheng Hu | Zheng Hu |
 
 
 ### OTHER:

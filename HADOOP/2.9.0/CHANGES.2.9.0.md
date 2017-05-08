@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.0 - Unreleased (as of 2017-05-04)
+## Release 2.9.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -999,6 +999,7 @@
 | [YARN-5331](https://issues.apache.org/jira/browse/YARN-5331) | Extend RLESparseResourceAllocation with period for supporting recurring reservations in YARN ReservationSystem |  Major | resourcemanager | Subru Krishnan | Sangeetha Abdu Jyothi |
 | [HDFS-9922](https://issues.apache.org/jira/browse/HDFS-9922) | Upgrade Domain placement policy status marks a good block in violation when there are decommissioned nodes |  Minor | . | Chris Trezzo | Chris Trezzo |
 | [YARN-6374](https://issues.apache.org/jira/browse/YARN-6374) | Improve test coverage and add utility classes for common Docker operations |  Major | nodemanager, yarn | Shane Kumpf | Shane Kumpf |
+| [YARN-6565](https://issues.apache.org/jira/browse/YARN-6565) | Fix memory leak and finish app trigger in AMRMProxy |  Minor | . | Botong Huang | Botong Huang |
 
 
 ### OTHER:

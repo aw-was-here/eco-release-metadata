@@ -5131,9 +5131,10 @@ Global custom metrics names follow the "source.metricsName" format.
 
 ---
 
-* [HBASE-15199](https://issues.apache.org/jira/browse/HBASE-15199) | *Critical* | **Move jruby jar so only on hbase-shell module classpath; currently globally available**
+* [HBASE-17263](https://issues.apache.org/jira/browse/HBASE-17263) | *Major* | **  Netty based rpc server impl**
 
-The JRuby jar is no longer automatically included in classpaths for HBase server processes nor clients. It is still included in the classpath for the HBase shell and for invocations of org.jruby.Main, which should cover HBase provided support scripts.
+HBASE-17263 introduced a new RPC server with Netty4 implementation, which could improve random read (get) performance. By default, it is off.
+To use this feature, please set “hbase.rpc.server.impl" to “org.apache.hadoop.hbase.ipc.NettyRpcServer”.
 
 
 ---
@@ -5142,6 +5143,13 @@ The JRuby jar is no longer automatically included in classpaths for HBase server
 
 Support for snapshots in VerifyReplication tool i.e. verifyrep can compare source table snapshot against peer table snapshot which reduces load on RS by reading data from HDFS directly using Snapshot scanners. 
 Instead of comparing against live tables whose state changes due to writes and compactions its better to compare HBase  snapshots which are immutable in nature.
+
+
+---
+
+* [HBASE-17471](https://issues.apache.org/jira/browse/HBASE-17471) | *Critical* | **Region Seqid will be out of order in WAL if using mvccPreAssign**
+
+MVCCPreAssign is added by HBASE-16698, but pre-assign mvcc is only used in put/delete path. Other write paths like increment/append still assign mvcc in ringbuffer's consumer thread. If put and increment are used parallel. Then seqid in WAL may not increase monotonically. Disorder in wals will lead to data loss.This patch bring all mvcc/seqid event in wal.append, and synchronize wal append and mvcc acquirement. No disorder in wal will happen. Performance test shows no regression with this patch.
 
 
 

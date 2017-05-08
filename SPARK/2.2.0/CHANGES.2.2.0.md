@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-05-04)
+## Release 2.2.0 - Unreleased (as of 2017-05-08)
 
 
 
@@ -81,6 +81,8 @@
 | [SPARK-20283](https://issues.apache.org/jira/browse/SPARK-20283) | Add preOptimizationBatches |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-18127](https://issues.apache.org/jira/browse/SPARK-18127) | Add hooks and extension points to Spark |  Major | SQL | Srinath | Sameer Agarwal |
 | [SPARK-20300](https://issues.apache.org/jira/browse/SPARK-20300) | Python API for ALSModel.recommendForAllUsers,Items |  Major | ML, PySpark | Joseph K. Bradley | Nick Pentreath |
+| [SPARK-20576](https://issues.apache.org/jira/browse/SPARK-20576) | Support generic hint function in Dataset/DataFrame |  Major | SQL | Reynold Xin | Reynold Xin |
+| [SPARK-18350](https://issues.apache.org/jira/browse/SPARK-18350) | Support session local timezone |  Major | SQL | Reynold Xin | Takuya Ueshin |
 
 
 ### IMPROVEMENTS:
@@ -397,6 +399,7 @@
 | [SPARK-20492](https://issues.apache.org/jira/browse/SPARK-20492) | Do not print empty parentheses for invalid primitive types in parser |  Trivial | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-6227](https://issues.apache.org/jira/browse/SPARK-6227) | PCA and SVD for PySpark |  Major | MLlib, PySpark | Julien Amelot | Manoj Kumar |
 | [SPARK-20523](https://issues.apache.org/jira/browse/SPARK-20523) | Clean up build warnings for 2.2.0 release |  Minor | Build, ML, Spark Core, Structured Streaming | Sean Owen | Sean Owen |
+| [SPARK-19956](https://issues.apache.org/jira/browse/SPARK-19956) | Optimize a location order of blocks with topology information |  Major | Spark Core | coneyliu | coneyliu |
 
 
 ### BUG FIXES:
@@ -807,6 +810,11 @@
 | [SPARK-20567](https://issues.apache.org/jira/browse/SPARK-20567) | Failure to bind when using explode and collect\_set in streaming |  Critical | SQL | Michael Armbrust | Michael Armbrust |
 | [SPARK-19965](https://issues.apache.org/jira/browse/SPARK-19965) | DataFrame batch reader may fail to infer partitions when reading FileStreamSink's output |  Major | Structured Streaming | Shixiong Zhu | Liwei Lin |
 | [SPARK-20543](https://issues.apache.org/jira/browse/SPARK-20543) | R should skip long running or non-essential tests when running on CRAN |  Major | SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-20574](https://issues.apache.org/jira/browse/SPARK-20574) | Allow Bucketizer to handle non-Double column |  Major | ML | Wayne Zhang | Wayne Zhang |
+| [SPARK-20613](https://issues.apache.org/jira/browse/SPARK-20613) | Double quotes in Windows batch script |  Major | Windows | Jarrett Meyer | Jarrett Meyer |
+| [SPARK-20381](https://issues.apache.org/jira/browse/SPARK-20381) | ObjectHashAggregateExec is missing numOutputRows |  Major | SQL | yucai | yucai |
+| [SPARK-20616](https://issues.apache.org/jira/browse/SPARK-20616) | RuleExecutor logDebug of batch results should show diff to start of batch |  Major | SQL | Juliusz Sompolski | Juliusz Sompolski |
+| [SPARK-20626](https://issues.apache.org/jira/browse/SPARK-20626) | Fix SparkR test warning on Windows with timestamp time zone |  Major | SparkR | Felix Cheung | Felix Cheung |
 
 
 ### TESTS:
@@ -835,6 +843,8 @@
 | [SPARK-20301](https://issues.apache.org/jira/browse/SPARK-20301) | Flakiness in StreamingAggregationSuite |  Major | Structured Streaming | Burak Yavuz | Burak Yavuz |
 | [SPARK-20189](https://issues.apache.org/jira/browse/SPARK-20189) | Fix spark kinesis testcases to remove deprecated createStream and use Builders |  Minor | DStreams | Yash Sharma | Yash Sharma |
 | [SPARK-20397](https://issues.apache.org/jira/browse/SPARK-20397) | Flaky Test: test\_streaming.R.Terminated by error |  Minor | SparkR, Structured Streaming, Tests | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-20571](https://issues.apache.org/jira/browse/SPARK-20571) | Flaky SparkR StructuredStreaming tests |  Major | SparkR, Structured Streaming | Burak Yavuz | Felix Cheung |
+| [SPARK-20603](https://issues.apache.org/jira/browse/SPARK-20603) | Flaky test: o.a.s.sql.kafka010.KafkaSourceSuite deserialization of initial offset with Spark 2.1.0 |  Minor | Tests | Shixiong Zhu | Shixiong Zhu |
 
 
 ### SUB-TASKS:
@@ -971,11 +981,13 @@
 | [SPARK-19906](https://issues.apache.org/jira/browse/SPARK-19906) | Add Documentation for Kafka Write paths |  Major | Structured Streaming | Tyson Condie |  |
 | [SPARK-19969](https://issues.apache.org/jira/browse/SPARK-19969) | Doc and examples for Imputer |  Major | ML | Nick Pentreath | yuhao yang |
 | [SPARK-20296](https://issues.apache.org/jira/browse/SPARK-20296) | UnsupportedOperationChecker text on distinct aggregations differs from docs |  Trivial | Structured Streaming | Jason Tokayer | Jason Tokayer |
+| [SPARK-20132](https://issues.apache.org/jira/browse/SPARK-20132) | Add documentation for column string functions |  Minor | PySpark, SQL | Michael Patterson | Michael Patterson |
 | [SPARK-20455](https://issues.apache.org/jira/browse/SPARK-20455) | Missing Test Target in Documentation for "Running Docker-based Integration Test Suites" |  Trivial | Documentation | Armin Braun | Armin Braun |
 | [SPARK-20208](https://issues.apache.org/jira/browse/SPARK-20208) | Document R fpGrowth support in vignettes, programming guide and code example |  Major | Documentation, SparkR | Felix Cheung | Maciej Szymkiewicz |
 | [SPARK-20478](https://issues.apache.org/jira/browse/SPARK-20478) | Document LinearSVC in R programming guide |  Major | SparkR | Felix Cheung | Miao Wang |
 | [SPARK-20477](https://issues.apache.org/jira/browse/SPARK-20477) | Document R bisecting k-means in R programming guide |  Major | SparkR | Felix Cheung | Miao Wang |
 | [SPARK-20192](https://issues.apache.org/jira/browse/SPARK-20192) | SparkR 2.2.0 migration guide, release note |  Major | Documentation, SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-20015](https://issues.apache.org/jira/browse/SPARK-20015) | Document R Structured Streaming (experimental) in R vignettes and R & SS programming guide, R example |  Major | Documentation, SparkR, Structured Streaming | Felix Cheung | Felix Cheung |
 | [SPARK-18695](https://issues.apache.org/jira/browse/SPARK-18695) | Bump master branch version to 2.2.0-SNAPSHOT |  Major | . | Reynold Xin | Reynold Xin |
 | [SPARK-18973](https://issues.apache.org/jira/browse/SPARK-18973) | Remove SortPartitions and RedistributeData |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-14453](https://issues.apache.org/jira/browse/SPARK-14453) | Remove SPARK\_JAVA\_OPTS environment variable |  Minor | Spark Core, YARN | Saisai Shao | Yong Tang |

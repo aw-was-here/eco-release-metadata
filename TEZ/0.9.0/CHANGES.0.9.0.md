@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-05-04)
+## Release 0.9.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -81,6 +81,7 @@
 | [TEZ-3650](https://issues.apache.org/jira/browse/TEZ-3650) | Improve performance of FetchStatsLogger#logIndividualFetchComplete |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-1526](https://issues.apache.org/jira/browse/TEZ-1526) | LoadingCache for TezTaskID slow for large jobs |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3680](https://issues.apache.org/jira/browse/TEZ-3680) | Optimizations to UnorderedPartitionedKVWriter |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3673](https://issues.apache.org/jira/browse/TEZ-3673) | Allocate smaller buffers in UnorderedPartitionedKVWriter |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 
 
 ### BUG FIXES:
@@ -243,9 +244,9 @@
 | [TEZ-3695](https://issues.apache.org/jira/browse/TEZ-3695) | TestTezSharedExecutor fails sporadically |  Major | . | Jason Lowe | Jason Lowe |
 | [TEZ-3699](https://issues.apache.org/jira/browse/TEZ-3699) | For large dataset, pipelined shuffle throws exceptions in consumer side for UnorderedPartitioned edge |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3703](https://issues.apache.org/jira/browse/TEZ-3703) | Use a sha comparison to compare vertex and dag resources, if there is a mismatch |  Major | . | Siddharth Seth | Siddharth Seth |
-| [TEZ-3700](https://issues.apache.org/jira/browse/TEZ-3700) | Consumer attempt should kill itself instead of failing during validation checks with final merge avoidance |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3707](https://issues.apache.org/jira/browse/TEZ-3707) | TezSharedExecutor race condition in awaitTermination vs isTerminated. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3696](https://issues.apache.org/jira/browse/TEZ-3696) | Jobs can hang when both concurrency and speculation are enabled |  Major | . | Eric Badger | Eric Badger |
+| [TEZ-3697](https://issues.apache.org/jira/browse/TEZ-3697) | Adding #output\_record in vertex manager event payload |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### TESTS:

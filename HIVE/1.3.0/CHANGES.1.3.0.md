@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-05-04)
+## Release 1.3.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -746,6 +746,7 @@
 | [HIVE-13362](https://issues.apache.org/jira/browse/HIVE-13362) | Commit binary file required for HIVE-13361 |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-15133](https://issues.apache.org/jira/browse/HIVE-15133) | Branch-1.2: Investigate TestBeelineArgParsing |  Major | Beeline | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-15833](https://issues.apache.org/jira/browse/HIVE-15833) | Add unit tests for org.json usage on branch-1 |  Major | . | Daniel Voros | Daniel Voros |
+| [HIVE-15224](https://issues.apache.org/jira/browse/HIVE-15224) | replace org.json usage in branch-1 with as minor changes as possible |  Major | . | Zoltan Haindrich | Daniel Voros |
 
 
 ### OTHER:

@@ -104,6 +104,7 @@
 | [FLINK-6203](https://issues.apache.org/jira/browse/FLINK-6203) | DataSet Transformations |  Minor | DataSet API, Documentation | 苏拓 | Chesnay Schepler |
 | [FLINK-4848](https://issues.apache.org/jira/browse/FLINK-4848) | keystoreFilePath should be checked against null in SSLUtils#createSSLServerContext |  Minor | Security | Ted Yu | Chesnay Schepler |
 | [FLINK-6308](https://issues.apache.org/jira/browse/FLINK-6308) | Task managers are not attaching to job manager on macos |  Major | Docker | Mateusz Zakarczemny |  |
+| [FLINK-6468](https://issues.apache.org/jira/browse/FLINK-6468) | release 1.2.1 tag in git |  Minor | Build System | Petr Novotnik | Robert Metzger |
 
 
 ### SUB-TASKS:

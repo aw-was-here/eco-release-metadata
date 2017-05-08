@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2017-05-04)
+## Release 3.6.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 

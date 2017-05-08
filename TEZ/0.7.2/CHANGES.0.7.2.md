@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.7.2 - Unreleased (as of 2017-05-04)
+## Release 0.7.2 - Unreleased (as of 2017-05-08)
 
 
 
@@ -90,6 +90,7 @@
 | [TEZ-3559](https://issues.apache.org/jira/browse/TEZ-3559) | TEZ\_LIB\_URIS doesn't work with schemes different than the defaultFS |  Major | . | Eric Badger | Eric Badger |
 | [TEZ-3582](https://issues.apache.org/jira/browse/TEZ-3582) | Exception swallowed in PipelinedSorter causing incorrect results |  Blocker | . | Travis Woodruff | Rajesh Balamohan |
 | [TEZ-3632](https://issues.apache.org/jira/browse/TEZ-3632) | Tez Task attempt listing can hang if log link is null |  Major | UI | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3696](https://issues.apache.org/jira/browse/TEZ-3696) | Jobs can hang when both concurrency and speculation are enabled |  Major | . | Eric Badger | Eric Badger |
 
 
 ### SUB-TASKS:

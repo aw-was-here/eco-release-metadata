@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-05-04)
+## Release 2.2.0 - Unreleased (as of 2017-05-08)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -100,7 +100,6 @@
 | [HIVE-14383](https://issues.apache.org/jira/browse/HIVE-14383) | SparkClientImpl should pass principal and keytab to spark-submit instead of calling kinit explicitely |  Major | Spark | Mubashir Kazia | Chaoyu Tang |
 | [HIVE-14329](https://issues.apache.org/jira/browse/HIVE-14329) | fix flapping qtests - because of output string ordering |  Minor | . | Zoltan Haindrich | Zoltan Haindrich |
 | [HIVE-14323](https://issues.apache.org/jira/browse/HIVE-14323) | Reduce number of FS permissions and redundant FS operations |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
-| [HIVE-14340](https://issues.apache.org/jira/browse/HIVE-14340) | Add a new hook triggers before query compilation and after query execution |  Major | Query Processor | Chao Sun | Chao Sun |
 | [HIVE-14392](https://issues.apache.org/jira/browse/HIVE-14392) | llap daemons should try using YARN local dirs, if available |  Major | . | Siddharth Seth | Siddharth Seth |
 | [HIVE-14368](https://issues.apache.org/jira/browse/HIVE-14368) | ThriftCLIService.GetOperationStatus should include exception's stack trace to the error message. |  Minor | Thrift API | zhihai xu | zhihai xu |
 | [HIVE-14419](https://issues.apache.org/jira/browse/HIVE-14419) | fix test TestCliDriver/testCliDriver#stats\_list\_bucket |  Major | Test | Zoltan Haindrich | Zoltan Haindrich |
@@ -512,7 +511,6 @@
 | [HIVE-14426](https://issues.apache.org/jira/browse/HIVE-14426) | Extensive logging on info level in WebHCat |  Minor | . | Peter Vary | Peter Vary |
 | [HIVE-3173](https://issues.apache.org/jira/browse/HIVE-3173) | implement getTypeInfo database metadata method |  Major | JDBC | N Campbell | Xiu (Joe) Guo |
 | [HIVE-14751](https://issues.apache.org/jira/browse/HIVE-14751) | Add support for date truncation |  Major | Parser | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
-| [HIVE-7224](https://issues.apache.org/jira/browse/HIVE-7224) | Set incremental printing to true by default in Beeline |  Major | Beeline, Clients, JDBC | Vaibhav Gumashta | Sahil Takiar |
 | [HIVE-14029](https://issues.apache.org/jira/browse/HIVE-14029) | Update Spark version to 2.0.0 |  Major | . | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-14843](https://issues.apache.org/jira/browse/HIVE-14843) | HIVE-14751 introduced ambiguity in grammar |  Major | Parser | Pengcheng Xiong | Jesus Camacho Rodriguez |
 | [HIVE-14778](https://issues.apache.org/jira/browse/HIVE-14778) | document threading model of Streaming API |  Major | HCatalog, Transactions | Eugene Koifman | Eugene Koifman |
@@ -906,7 +904,6 @@
 | [HIVE-16170](https://issues.apache.org/jira/browse/HIVE-16170) | Exclude relocation of org.apache.hadoop.security.\* in the JDBC standalone jar |  Major | . | Tao Li | Tao Li |
 | [HIVE-16172](https://issues.apache.org/jira/browse/HIVE-16172) | Switch to a fairness lock to synchronize HS2 thrift client |  Major | . | Tao Li | Tao Li |
 | [HIVE-16167](https://issues.apache.org/jira/browse/HIVE-16167) | Remove transitive dependency on mysql connector jar |  Major | Build Infrastructure, Druid integration | Ashutosh Chauhan | Ashutosh Chauhan |
-| [HIVE-14864](https://issues.apache.org/jira/browse/HIVE-14864) | Distcp is not called from MoveTask when src is a directory |  Major | . | Vihang Karajgaonkar | Sahil Takiar |
 | [HIVE-16161](https://issues.apache.org/jira/browse/HIVE-16161) | Disable "packaging.minimizeJar" for JDBC build |  Critical | . | Tao Li | Tao Li |
 | [HIVE-16175](https://issues.apache.org/jira/browse/HIVE-16175) | Possible race condition in InstanceCache |  Major | Serializers/Deserializers | Chao Sun | Chao Sun |
 | [HIVE-15407](https://issues.apache.org/jira/browse/HIVE-15407) | add distcp to classpath by default, because hive depends on it. |  Major | Beeline, CLI | Fei Hui | Fei Hui |
@@ -920,7 +917,6 @@
 | [HIVE-16163](https://issues.apache.org/jira/browse/HIVE-16163) | Remove unnecessary parentheses in HiveParser |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16190](https://issues.apache.org/jira/browse/HIVE-16190) | Support expression in merge statement |  Major | Parser, Transactions | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16168](https://issues.apache.org/jira/browse/HIVE-16168) | llap log links should use the NM nodeId port instead of web port |  Major | llap | Siddharth Seth | Siddharth Seth |
-| [HIVE-16080](https://issues.apache.org/jira/browse/HIVE-16080) | Add parquet to possible values for hive.default.fileformat and hive.default.fileformat.managed |  Major | . | Sahil Takiar | Sahil Takiar |
 | [HIVE-16215](https://issues.apache.org/jira/browse/HIVE-16215) | counter recording for text cache may not fully work |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16211](https://issues.apache.org/jira/browse/HIVE-16211) | MERGE statement failing with ClassCastException |  Major | HiveServer2 | Deepak Jaiswal | Deepak Jaiswal |
 | [HIVE-16160](https://issues.apache.org/jira/browse/HIVE-16160) | OutOfMemoryError: GC overhead limit exceeded on Hiveserver2 |  Critical | HiveServer2 | Kavan Suresh | Sushanth Sowmyan |
@@ -1065,7 +1061,6 @@
 | [HIVE-14440](https://issues.apache.org/jira/browse/HIVE-14440) | Fix default value of USE\_DEPRECATED\_CLI in cli.cmd |  Minor | CLI | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-14515](https://issues.apache.org/jira/browse/HIVE-14515) | Schema evolution uses slow INSERT INTO .. VALUES |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-14627](https://issues.apache.org/jira/browse/HIVE-14627) | Improvements to MiniMr tests |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
-| [HIVE-14170](https://issues.apache.org/jira/browse/HIVE-14170) | Beeline IncrementalRows should buffer rows and incrementally re-calculate width if TableOutputFormat is used |  Major | Beeline | Sahil Takiar | Sahil Takiar |
 | [HIVE-14670](https://issues.apache.org/jira/browse/HIVE-14670) | org.apache.hadoop.hive.ql.TestMTQueries failure |  Major | . | Hari Sankar Sivarama Subramaniyan | Hari Sankar Sivarama Subramaniyan |
 | [HIVE-14673](https://issues.apache.org/jira/browse/HIVE-14673) | Orc orc\_merge\_diff\_fs.q and orc\_llap.q test improvement |  Major | Tests | Prasanth Jayachandran | Prasanth Jayachandran |
 | [HIVE-14576](https://issues.apache.org/jira/browse/HIVE-14576) | Testing: Fixes to TestHBaseMinimrCliDriver |  Major | . | Vaibhav Gumashta | Hari Sankar Sivarama Subramaniyan |
