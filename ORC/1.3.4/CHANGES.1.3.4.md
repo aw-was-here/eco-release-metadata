@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.3.4 - Unreleased (as of 2017-05-08)
+## Release 1.3.4 - Unreleased (as of 2017-05-12)
 
 
 
@@ -31,6 +31,7 @@
 | [ORC-148](https://issues.apache.org/jira/browse/ORC-148) | Move ORC PPD failure messages from WARN to DEBUG level |  Blocker | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [ORC-87](https://issues.apache.org/jira/browse/ORC-87) | [C++] Handle missing timezone conversion for timestamp statistics |  Major | C++ | Deepak Majeti | Deepak Majeti |
 | [ORC-181](https://issues.apache.org/jira/browse/ORC-181) | ByteRleDecoder doesn't seek correctly |  Major | C++ | Gang Wu | Gang Wu |
+| [ORC-188](https://issues.apache.org/jira/browse/ORC-188) | Fix RAT problems |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:

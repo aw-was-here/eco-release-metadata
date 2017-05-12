@@ -70,4 +70,21 @@ Embedded web services now rely on Jetty 9; downstream users who rely on Hive's c
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HIVE-16269](https://issues.apache.org/jira/browse/HIVE-16269) | *Major* | **enable incremental function dump to be loaded via repl load**
+
+Committed to master.
+
+
+---
+
+* [HIVE-14412](https://issues.apache.org/jira/browse/HIVE-14412) | *Major* | **Add timestamp with time zone**
+
+HIVE-14412 adds 'timestamp with time zone' data type to Hive. The full qualified input format of this type is 'yyyy-MM-dd HH:mm:ss[.SSS...] ZoneId/ZoneOffset', where the time and zone parts are optional. If time part is absent, a default '00:00:00.0' will be used. If zone part is absent, the system time zone will be used. Examples of valid ZoneId and ZoneOffset are: America/Los\_Angeles and GMT+08:00. All timestamp with time zone will be converted and stored as UTC retaining the instant. E.g. '2017-04-14 18:00:00 Asia/Shanghai' will be converted and stored as '2017-04-14 10:00:00.0 Z'.
+'timestamptz' is accepted as a type alias for 'timestamp with time zone'.
+Conversion between date/timestamp and timestamp with time zone is done using the system time zone.
+'time' becomes a reserved key word after HIVE-14412, thus can break user queries where 'time' is used as identifiers. If users want to continue use 'time' as identifiers, they have to escape it with '\`' (backtick).
+
+
 

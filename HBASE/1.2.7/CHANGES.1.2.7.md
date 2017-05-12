@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Falcon Changelog
+# Apache HBase Changelog
 
-## Release 1.0 - Unreleased (as of 2017-05-12)
+## Release 1.2.7 - Unreleased (as of 2017-05-12)
 
 
 
@@ -26,14 +26,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FALCON-2080](https://issues.apache.org/jira/browse/FALCON-2080) | Exceptions in the log |  Major | . | Praveen Adlakha | Praveen Adlakha |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [FALCON-2142](https://issues.apache.org/jira/browse/FALCON-2142) | Close stale pull requests |  Major | . | Ajay Yadava | Ajay Yadava |
-| [FALCON-2144](https://issues.apache.org/jira/browse/FALCON-2144) | Close stale pull requests - part 2 |  Major | . | Ajay Yadava | Ajay Yadava |
+| [HBASE-8758](https://issues.apache.org/jira/browse/HBASE-8758) | Error in RegionCoprocessorHost class preScanner method documentation. |  Minor | Coprocessors, documentation | Roman Nikitchenko |  |
 
 

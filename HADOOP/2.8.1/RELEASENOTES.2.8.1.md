@@ -47,4 +47,11 @@ The fix prevents block recovery failure if replica of last block is being decomm
 Switch the default ADLS access token provider type from Custom to ClientCredential.
 
 
+---
+
+* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
+
+In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
+
+
 

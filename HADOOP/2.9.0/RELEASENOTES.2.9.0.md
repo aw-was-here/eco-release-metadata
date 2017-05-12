@@ -298,4 +298,11 @@ If  a positive value is passed to command line switch -blocksperchunk, files wit
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
+
+In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-05-08)
+## Release 2.0.0 - Unreleased (as of 2017-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -112,7 +112,11 @@
 | [HBASE-17716](https://issues.apache.org/jira/browse/HBASE-17716) | Formalize Scan Metric names |  Minor | metrics | Karan Mehta | Karan Mehta |
 | [HBASE-17584](https://issues.apache.org/jira/browse/HBASE-17584) | Expose ScanMetrics with ResultScanner rather than Scan |  Major | Client, mapreduce, scan | Duo Zhang | Duo Zhang |
 | [HBASE-17595](https://issues.apache.org/jira/browse/HBASE-17595) | Add partial result support for small/limited scan |  Critical | asyncclient, Client, scan | Duo Zhang | Duo Zhang |
+| [HBASE-17914](https://issues.apache.org/jira/browse/HBASE-17914) | Create a new reader instead of cloning a new StoreFile when compaction |  Major | Compaction, regionserver | Duo Zhang | Duo Zhang |
 | [HBASE-17956](https://issues.apache.org/jira/browse/HBASE-17956) | Raw scan should ignore TTL |  Major | scan | Duo Zhang | Duo Zhang |
+| [HBASE-18009](https://issues.apache.org/jira/browse/HBASE-18009) | Move RpcServer.Call to a separated file |  Major | IPC/RPC | Duo Zhang | Duo Zhang |
+| [HBASE-15199](https://issues.apache.org/jira/browse/HBASE-15199) | Move jruby jar so only on hbase-shell module classpath; currently globally available |  Critical | dependencies, jruby, shell | stack | Xiang Li |
+| [HBASE-15296](https://issues.apache.org/jira/browse/HBASE-15296) | Break out writer and reader from StoreFile |  Major | regionserver | Appy | Appy |
 
 
 ### IMPORTANT ISSUES:
@@ -932,6 +936,11 @@
 | [HBASE-16466](https://issues.apache.org/jira/browse/HBASE-16466) | HBase snapshots support in VerifyReplication tool to reduce load on live HBase cluster with large tables |  Major | hbase | Sukumar Maddineni | Maddineni Sukumar |
 | [HBASE-17990](https://issues.apache.org/jira/browse/HBASE-17990) | Refactor TestFSUtils to use Before |  Trivial | . | Zach York | Zach York |
 | [HBASE-18007](https://issues.apache.org/jira/browse/HBASE-18007) | Clean up rest module code |  Trivial | . | Qilin Cao | Qilin Cao |
+| [HBASE-18015](https://issues.apache.org/jira/browse/HBASE-18015) | Storage class aware block placement for procedure v2 WALs |  Minor | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-17924](https://issues.apache.org/jira/browse/HBASE-17924) | Consider sorting the row order when processing multi() ops before taking rowlocks |  Major | . | Andrew Purtell | Allan Yang |
+| [HBASE-14925](https://issues.apache.org/jira/browse/HBASE-14925) | Develop HBase shell command/tool to list table's region info through command line |  Major | shell | Romil Choksi | Karan Mehta |
+| [HBASE-18017](https://issues.apache.org/jira/browse/HBASE-18017) | Reduce frequency of setStoragePolicy failure warnings |  Minor | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-18021](https://issues.apache.org/jira/browse/HBASE-18021) | Add more info in timed out RetriesExhaustedException for read replica client get processing, |  Minor | Client | huaxiang sun | huaxiang sun |
 
 
 ### BUG FIXES:
@@ -2665,8 +2674,12 @@
 | [HBASE-17228](https://issues.apache.org/jira/browse/HBASE-17228) | precommit grep -c ERROR may grab non errors |  Minor | build, community, test | Matteo Bertozzi | stack |
 | [HBASE-17991](https://issues.apache.org/jira/browse/HBASE-17991) | Add more details about compaction queue on /dump |  Minor | . | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-17964](https://issues.apache.org/jira/browse/HBASE-17964) | ensure hbase-metrics-api is included in mapreduce job classpaths |  Blocker | mapreduce | Sean Busbey | Sean Busbey |
-| [HBASE-18000](https://issues.apache.org/jira/browse/HBASE-18000) | Make sure we always return the scanner id with ScanResponse |  Major | regionserver | Lars Hofhansl | Duo Zhang |
 | [HBASE-17471](https://issues.apache.org/jira/browse/HBASE-17471) | Region Seqid will be out of order in WAL if using mvccPreAssign |  Critical | wal | Allan Yang | Allan Yang |
+| [HBASE-8758](https://issues.apache.org/jira/browse/HBASE-8758) | Error in RegionCoprocessorHost class preScanner method documentation. |  Minor | Coprocessors, documentation | Roman Nikitchenko |  |
+| [HBASE-16356](https://issues.apache.org/jira/browse/HBASE-16356) | REST API scanner: row prefix filter and custom filter parameters are mutually exclusive |  Minor | REST | Bjorn Olsen | Ben Watson |
+| [HBASE-18026](https://issues.apache.org/jira/browse/HBASE-18026) | ProtobufUtil seems to do extra array copying |  Minor | . | Vincent Poon | Vincent Poon |
+| [HBASE-18000](https://issues.apache.org/jira/browse/HBASE-18000) | Make sure we always return the scanner id with ScanResponse |  Major | regionserver | Lars Hofhansl | Duo Zhang |
+| [HBASE-17887](https://issues.apache.org/jira/browse/HBASE-17887) | Row-level consistency is broken for read |  Blocker | regionserver | Umesh Agashe | Chia-Ping Tsai |
 
 
 ### TESTS:
@@ -3495,7 +3508,6 @@
 | [HBASE-17897](https://issues.apache.org/jira/browse/HBASE-17897) | StripeStoreFileManager#nonOpenRowCompare use the wrong comparison function |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-17866](https://issues.apache.org/jira/browse/HBASE-17866) | Implement async setQuota/getQuota methods. |  Major | Client | Zheng Hu | Zheng Hu |
 | [HBASE-17925](https://issues.apache.org/jira/browse/HBASE-17925) | mvn assembly:single fails against hadoop3-alpha2 |  Major | hadoop3 | Jonathan Hsieh | Jonathan Hsieh |
-| [HBASE-17914](https://issues.apache.org/jira/browse/HBASE-17914) | Create a new reader instead of cloning a new StoreFile when compaction |  Major | Compaction, regionserver | Duo Zhang | Duo Zhang |
 | [HBASE-16438](https://issues.apache.org/jira/browse/HBASE-16438) | Create a cell type so that chunk id is embedded in it |  Major | regionserver | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-17929](https://issues.apache.org/jira/browse/HBASE-17929) | Add more options for PE tool |  Major | Performance, test | Duo Zhang | Duo Zhang |
 | [HBASE-17915](https://issues.apache.org/jira/browse/HBASE-17915) | Implement async replication admin methods |  Major | Client | Guanghao Zhang | Guanghao Zhang |
@@ -3511,6 +3523,9 @@
 | [HBASE-17263](https://issues.apache.org/jira/browse/HBASE-17263) |   Netty based rpc server impl |  Major | Performance, rpc | binlijin | binlijin |
 | [HBASE-17867](https://issues.apache.org/jira/browse/HBASE-17867) | Implement async procedure RPC API(list/exec/abort/isFinished) |  Major | Client | Zheng Hu | Zheng Hu |
 | [HBASE-17667](https://issues.apache.org/jira/browse/HBASE-17667) | Implement  async  flush/compact region methods |  Major | Admin, asyncclient, Client | Zheng Hu | Zheng Hu |
+| [HBASE-17917](https://issues.apache.org/jira/browse/HBASE-17917) | Use pread by default for all user scan and switch to streaming read if needed |  Major | scan | Duo Zhang | Duo Zhang |
+| [HBASE-17786](https://issues.apache.org/jira/browse/HBASE-17786) | Create LoadBalancer perf-tests (test balancer algorithm decoupled from workload) |  Major | Balancer, proc-v2 | stack | Umesh Agashe |
+| [HBASE-17938](https://issues.apache.org/jira/browse/HBASE-17938) | General fault - tolerance framework for backup/restore operations |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 
 
 ### OTHER:

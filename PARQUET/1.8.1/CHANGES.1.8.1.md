@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.8.1 - Unreleased (as of 2017-05-08)
+## Release 1.8.1 - Unreleased (as of 2017-05-12)
 
 
 

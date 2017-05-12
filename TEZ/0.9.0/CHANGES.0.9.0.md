@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-05-08)
+## Release 0.9.0 - Unreleased (as of 2017-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -247,6 +247,9 @@
 | [TEZ-3707](https://issues.apache.org/jira/browse/TEZ-3707) | TezSharedExecutor race condition in awaitTermination vs isTerminated. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3696](https://issues.apache.org/jira/browse/TEZ-3696) | Jobs can hang when both concurrency and speculation are enabled |  Major | . | Eric Badger | Eric Badger |
 | [TEZ-3697](https://issues.apache.org/jira/browse/TEZ-3697) | Adding #output\_record in vertex manager event payload |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3700](https://issues.apache.org/jira/browse/TEZ-3700) | Consumer attempt should kill itself instead of failing during validation checks with final merge avoidance |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3717](https://issues.apache.org/jira/browse/TEZ-3717) | tez-yarn-timeline-history-with-fs does not build with hadoop-2.8. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3719](https://issues.apache.org/jira/browse/TEZ-3719) | DAGImpl.computeProgress slows down dispatcher and ipc threads |  Major | . | Rajesh Balamohan | Gopal V |
 
 
 ### TESTS:
@@ -285,6 +288,7 @@
 | [TEZ-3654](https://issues.apache.org/jira/browse/TEZ-3654) | Make CartesianProduct edge work with GroupInputEdge |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-1187](https://issues.apache.org/jira/browse/TEZ-1187) | Add a framework ExecutorService which shares threads. |  Major | . | Siddharth Seth | Harish Jaiprakash |
 | [TEZ-3690](https://issues.apache.org/jira/browse/TEZ-3690) | Tez on hadoop 3 build failed due to hdfs client/server jar separation |  Blocker | . | Junping Du | Junping Du |
+| [TEZ-3708](https://issues.apache.org/jira/browse/TEZ-3708) | Improve parallelism and auto grouping of unpartitioned cartesian product |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### OTHER:

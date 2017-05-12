@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.4 - Unreleased (as of 2017-05-08)
+## Release 3.5.4 - Unreleased (as of 2017-05-12)
 
 
 

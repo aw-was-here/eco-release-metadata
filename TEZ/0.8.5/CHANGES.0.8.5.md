@@ -85,6 +85,7 @@
 | [TEZ-3643](https://issues.apache.org/jira/browse/TEZ-3643) | Long running AMs can go out of memory due to retained AMContainer instances |  Critical | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3644](https://issues.apache.org/jira/browse/TEZ-3644) | Cleanup container list stored in AMNode |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3616](https://issues.apache.org/jira/browse/TEZ-3616) | TestMergeManager#testLocalDiskMergeMultipleTasks fails intermittently |  Major | . | Sonia Garudi | Fei Hui |
+| [TEZ-3719](https://issues.apache.org/jira/browse/TEZ-3719) | DAGImpl.computeProgress slows down dispatcher and ipc threads |  Major | . | Rajesh Balamohan | Gopal V |
 
 
 ### SUB-TASKS:

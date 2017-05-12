@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2017-05-08)
+## Release 3.6.0 - Unreleased (as of 2017-05-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -248,6 +248,7 @@
 | [ZOOKEEPER-2747](https://issues.apache.org/jira/browse/ZOOKEEPER-2747) | Fix ZooKeeperAdmin Compilation Warning |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2758](https://issues.apache.org/jira/browse/ZOOKEEPER-2758) | Typo: transasction --\> transaction |  Trivial | . | Jeff Widman |  |
 | [ZOOKEEPER-2316](https://issues.apache.org/jira/browse/ZOOKEEPER-2316) | comment does not match code logic |  Trivial | server | sunhaitao |  |
+| [ZOOKEEPER-1932](https://issues.apache.org/jira/browse/ZOOKEEPER-1932) | Remove deprecated LeaderElection class |  Major | leaderElection | Michi Mutsuzaki | Michael Han |
 
 
 ### TESTS:

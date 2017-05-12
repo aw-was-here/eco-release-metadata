@@ -42,4 +42,11 @@ updated the lexicographic byte array comparator to use a slightly more optimized
 Add table name to exception logging when a coprocessor is removed from a table by the region server
 
 
+---
+
+* [HBASE-17887](https://issues.apache.org/jira/browse/HBASE-17887) | *Blocker* | **Row-level consistency is broken for read**
+
+Now we pass on list of memstoreScanners to the StoreScanner along with the new files to ensure that the StoreScanner sees the latest memstore after flush.
+
+
 

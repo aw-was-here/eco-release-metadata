@@ -391,4 +391,32 @@ For each codec, Hadoop will use the implementation according to the order config
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HADOOP-14386](https://issues.apache.org/jira/browse/HADOOP-14386) | *Blocker* | **Rewind trunk from Guava 21.0 back to Guava 11.0.2**
+
+YARN application tags can no longer contain non-printable ASCII characters.
+
+
+---
+
+* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
+
+In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
+
+
+---
+
+* [HADOOP-14401](https://issues.apache.org/jira/browse/HADOOP-14401) | *Major* | **maven-project-info-reports-plugin can be removed**
+
+hadoop-auth and hadoop-hdfs-httpfs modules no longer generate dependencies.html via maven-project-info-reports-plugin.
+
+
+---
+
+* [HADOOP-14375](https://issues.apache.org/jira/browse/HADOOP-14375) | *Minor* | **Remove tomcat support from hadoop-functions.sh**
+
+This change removes the support in the shell scripts for Tomcat that was added in 3.0.0-alpha1.
+
+
 

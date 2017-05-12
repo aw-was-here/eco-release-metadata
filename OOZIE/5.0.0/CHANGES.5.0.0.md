@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-05-08)
+## Release 5.0.0 - Unreleased (as of 2017-05-12)
 
 
 
@@ -58,6 +58,7 @@
 | [OOZIE-2844](https://issues.apache.org/jira/browse/OOZIE-2844) | Increase stability of Oozie actions when log4j.properties is missing or not readable |  Major | action | Andras Piros | Andras Piros |
 | [OOZIE-2860](https://issues.apache.org/jira/browse/OOZIE-2860) | Improve Jetty logging |  Major | core | Andras Piros | Andras Piros |
 | [OOZIE-2851](https://issues.apache.org/jira/browse/OOZIE-2851) | spelling mistakes in examples |  Trivial | docs | Artem Ervits | Artem Ervits |
+| [OOZIE-2874](https://issues.apache.org/jira/browse/OOZIE-2874) | Make the Launcher Mapper map-only job's InputFormat class pluggable |  Major | . | Andras Piros | Andras Piros |
 
 
 ### BUG FIXES:
@@ -99,6 +100,8 @@
 | [OOZIE-2864](https://issues.apache.org/jira/browse/OOZIE-2864) | Maven artifacts for package com.codahale.metrics have inconsistent groupId |  Major | . | Andras Piros | Andras Piros |
 | [OOZIE-2818](https://issues.apache.org/jira/browse/OOZIE-2818) | Can't overwrite oozie.action.max.output.data on a per-workflow basis |  Major | . | Peter Cseh | Attila Sasvari |
 | [OOZIE-2870](https://issues.apache.org/jira/browse/OOZIE-2870) | non working examples in oozie documentation coordinator spec |  Major | docs | Clemens Valiente | Andras Piros |
+| [OOZIE-2751](https://issues.apache.org/jira/browse/OOZIE-2751) | LocalOozieClient is missing methods from OozieClient |  Major | . | Robert Kanter | Abhishek Bafna |
+| [OOZIE-2824](https://issues.apache.org/jira/browse/OOZIE-2824) | Fix typos in documentation |  Trivial | . | Laszlo Zeke | Laszlo Zeke |
 
 
 ### SUB-TASKS:

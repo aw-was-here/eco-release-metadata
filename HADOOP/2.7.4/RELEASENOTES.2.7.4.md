@@ -33,6 +33,13 @@ The Code Changes include following:
 
 ---
 
+* [HDFS-9902](https://issues.apache.org/jira/browse/HDFS-9902) | *Major* | **Support different values of dfs.datanode.du.reserved per storage type**
+
+Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
+
+
+---
+
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
 The output of hdfs fsck now also contains information about decommissioning replicas.
@@ -100,6 +107,13 @@ The fix prevents block recovery failure if replica of last block is being decomm
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [HDFS-11785](https://issues.apache.org/jira/browse/HDFS-11785) | *Critical* | **Backport HDFS-9902 to branch-2.7: Support different values of dfs.datanode.du.reserved per storage type**
+
+Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
 
 
 

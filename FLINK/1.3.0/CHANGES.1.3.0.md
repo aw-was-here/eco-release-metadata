@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-05-08)
+## Release 1.3.0 - Unreleased (as of 2017-05-12)
 
 
 
@@ -67,6 +67,7 @@
 | [FLINK-6177](https://issues.apache.org/jira/browse/FLINK-6177) | Add support for "Distributed Cache" in streaming applications |  Major | DataStream API | Zohar Mizrahi | Zohar Mizrahi |
 | [FLINK-4821](https://issues.apache.org/jira/browse/FLINK-4821) | Implement rescalable non-partitioned state for Kinesis Connector |  Major | Kinesis Connector | Tzu-Li (Gordon) Tai | Wei-Che Wei |
 | [FLINK-6178](https://issues.apache.org/jira/browse/FLINK-6178) | Allow upgrades to state serializers |  Critical | State Backends, Checkpointing, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6483](https://issues.apache.org/jira/browse/FLINK-6483) | Support time materialization |  Major | Table API & SQL | Timo Walther | Timo Walther |
 
 
 ### IMPROVEMENTS:
@@ -223,6 +224,9 @@
 | [FLINK-5974](https://issues.apache.org/jira/browse/FLINK-5974) | Support Mesos DNS |  Major | Cluster Management, Mesos | Eron Wright | Vijay Srinivasaraghavan |
 | [FLINK-6443](https://issues.apache.org/jira/browse/FLINK-6443) | Add more doc links in concepts sections |  Minor | Documentation | David Anderson | David Anderson |
 | [FLINK-6447](https://issues.apache.org/jira/browse/FLINK-6447) | AWS/EMR docs are out-of-date |  Major | Documentation | David Anderson | David Anderson |
+| [FLINK-6459](https://issues.apache.org/jira/browse/FLINK-6459) | Move ACCESS\_CONTROL\_ALLOW\_ORIGIN to JobManagerOptions |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6164](https://issues.apache.org/jira/browse/FLINK-6164) | Make ProcessWindowFunction a RichFunction |  Blocker | DataStream API | Aljoscha Krettek | Chesnay Schepler |
+| [FLINK-5720](https://issues.apache.org/jira/browse/FLINK-5720) | Deprecate "Folding" in all of DataStream API |  Blocker | DataStream API | Aljoscha Krettek | Chesnay Schepler |
 
 
 ### BUG FIXES:
@@ -455,8 +459,22 @@
 | [FLINK-6078](https://issues.apache.org/jira/browse/FLINK-6078) | ZooKeeper based high availability services should not close the underlying CuratorFramework |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-6463](https://issues.apache.org/jira/browse/FLINK-6463) | Throw exception when NOT-NEXT is after OPTIONAL |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-6401](https://issues.apache.org/jira/browse/FLINK-6401) | RocksDBPerformanceTest.testRocksDbRangeGetPerformance fails on Travis |  Critical | State Backends, Checkpointing, Tests | Till Rohrmann | Stephan Ewen |
-| [FLINK-6475](https://issues.apache.org/jira/browse/FLINK-6475) | Incremental snapshots in RocksDB hold lock during async file upload |  Critical | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
+| [FLINK-6474](https://issues.apache.org/jira/browse/FLINK-6474) | Potential loss of precision in 32 bit integer multiplication |  Minor | Network | Ted Yu | Ted Yu |
 | [FLINK-6394](https://issues.apache.org/jira/browse/FLINK-6394) | GroupCombine reuses instances even though object reuse is disabled |  Critical | DataSet API | Jaromir Vanek | Kurt Young |
+| [FLINK-6506](https://issues.apache.org/jira/browse/FLINK-6506) | Some tests in flink-tests exceed the memory resources in containerized Travis builds |  Major | Build System | Stefan Richter | Stefan Richter |
+| [FLINK-6436](https://issues.apache.org/jira/browse/FLINK-6436) | Bug in CommonCorrelate's generateCollector method when using udtf with udf |  Major | Table API & SQL | godfrey he | godfrey he |
+| [FLINK-6479](https://issues.apache.org/jira/browse/FLINK-6479) | Fix IndexOutOfBoundsException bug |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-5070](https://issues.apache.org/jira/browse/FLINK-5070) | Unable to use Scala's BeanProperty with classes |  Major | Core, Scala API, Type Serialization System | Jakub Nowacki | Timo Walther |
+| [FLINK-6396](https://issues.apache.org/jira/browse/FLINK-6396) | FsSavepointStreamFactoryTest fails on Windows |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6509](https://issues.apache.org/jira/browse/FLINK-6509) | TestingListener might miss JobLeader notifications |  Major | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-6330](https://issues.apache.org/jira/browse/FLINK-6330) | Improve Docker documentation |  Major | Docker | Patrick Lucas | Patrick Lucas |
+| [FLINK-5165](https://issues.apache.org/jira/browse/FLINK-5165) | Checkpointing tests using FsStatebackend fail on Windows |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6531](https://issues.apache.org/jira/browse/FLINK-6531) | Deserialize checkpoint hooks with user classloader |  Blocker | State Backends, Checkpointing | Eron Wright | Eron Wright |
+| [FLINK-6508](https://issues.apache.org/jira/browse/FLINK-6508) | Include license files of packaged dependencies |  Blocker | Table API & SQL | Fabian Hueske | Fabian Hueske |
+| [FLINK-6515](https://issues.apache.org/jira/browse/FLINK-6515) | KafkaConsumer checkpointing fails because of ClassLoader issues |  Blocker | Kafka Connector | Aljoscha Krettek | Stephan Ewen |
+| [FLINK-6501](https://issues.apache.org/jira/browse/FLINK-6501) | Make sure NOTICE files are bundled into shaded JAR files |  Blocker | Build System | Stephan Ewen | Stephan Ewen |
+| [FLINK-6564](https://issues.apache.org/jira/browse/FLINK-6564) | Build fails on file systems that do not distinguish between upper and lower case |  Blocker | Build System | Fabian Hueske | Fabian Hueske |
+| [FLINK-6562](https://issues.apache.org/jira/browse/FLINK-6562) | Support implicit table references for nested fields in SQL |  Major | Table API & SQL | Haohui Mai | Haohui Mai |
 
 
 ### TESTS:
@@ -534,6 +552,7 @@
 | [FLINK-6190](https://issues.apache.org/jira/browse/FLINK-6190) | Write "Serializer Configurations" metainfo along with state |  Major | State Backends, Checkpointing, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-6191](https://issues.apache.org/jira/browse/FLINK-6191) | Make non-primitive, internal built-in serializers reconfigurable |  Major | Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-6425](https://issues.apache.org/jira/browse/FLINK-6425) | Integrate serializer reconfiguration into state restore flow to activate serializer upgrades |  Major | State Backends, Checkpointing | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6475](https://issues.apache.org/jira/browse/FLINK-6475) | Incremental snapshots in RocksDB hold lock during async file upload |  Critical | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 
 
 ### OTHER:

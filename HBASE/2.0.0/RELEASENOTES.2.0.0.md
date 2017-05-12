@@ -5030,6 +5030,13 @@ HBASE-15535 Correct link to Trafodion
 
 ---
 
+* [HBASE-17914](https://issues.apache.org/jira/browse/HBASE-17914) | *Major* | **Create a new reader instead of cloning a new StoreFile when compaction**
+
+StoreFile.createReader method is gone. Call initReader and then getReader instead.
+
+
+---
+
 * [HBASE-17933](https://issues.apache.org/jira/browse/HBASE-17933) | *Major* | **[hbase-spark]  Support Java api for bulkload**
 
 <!-- markdown -->
@@ -5150,6 +5157,72 @@ Instead of comparing against live tables whose state changes due to writes and c
 * [HBASE-17471](https://issues.apache.org/jira/browse/HBASE-17471) | *Critical* | **Region Seqid will be out of order in WAL if using mvccPreAssign**
 
 MVCCPreAssign is added by HBASE-16698, but pre-assign mvcc is only used in put/delete path. Other write paths like increment/append still assign mvcc in ringbuffer's consumer thread. If put and increment are used parallel. Then seqid in WAL may not increase monotonically. Disorder in wals will lead to data loss.This patch bring all mvcc/seqid event in wal.append, and synchronize wal append and mvcc acquirement. No disorder in wal will happen. Performance test shows no regression with this patch.
+
+
+---
+
+* [HBASE-14925](https://issues.apache.org/jira/browse/HBASE-14925) | *Major* | **Develop HBase shell command/tool to list table's region info through command line**
+
+Added a shell command 'list\_regions' for displaying the table's region info through command line.
+
+        List all regions for a particular table as an array and also filter them by server name (optional) as prefix
+        and maximum locality (optional). By default, it will return all the regions for the table with any locality.
+        The command displays server name, region name, start key, end key, size of the region in MB, number of requests
+        and the locality. The information can be projected out via an array as third parameter. By default all these information
+        is displayed. Possible array values are SERVER\_NAME, REGION\_NAME, START\_KEY, END\_KEY, SIZE, REQ and LOCALITY. Values
+        are not case sensitive. If you don't want to filter by server name, pass an empty hash / string as shown below.
+
+        Examples:
+        hbase\> list\_regions 'table\_name'
+        hbase\> list\_regions 'table\_name', 'server\_name'
+        hbase\> list\_regions 'table\_name', {SERVER\_NAME =\> 'server\_name', LOCALITY\_THRESHOLD =\> 0.8}
+        hbase\> list\_regions 'table\_name', {SERVER\_NAME =\> 'server\_name', LOCALITY\_THRESHOLD =\> 0.8}, ['SERVER\_NAME']
+        hbase\> list\_regions 'table\_name', {}, ['SERVER\_NAME', 'start\_key']
+        hbase\> list\_regions 'table\_name', '', ['SERVER\_NAME', 'start\_key']
+
+
+---
+
+* [HBASE-18009](https://issues.apache.org/jira/browse/HBASE-18009) | *Major* | **Move RpcServer.Call to a separated file**
+
+The return value of CallRunner.getCall is changed so this is an incompatible change as CallRunner is declared as IA.LimitedPrivate. CallRunner is declared as IS.Evolving so we do not break the rule. And we still keep the getCall method to reduce the impact to user code.
+
+
+---
+
+* [HBASE-15199](https://issues.apache.org/jira/browse/HBASE-15199) | *Critical* | **Move jruby jar so only on hbase-shell module classpath; currently globally available**
+
+The JRuby jar is no longer automatically included in classpaths for HBase server processes nor clients. It is still included in the classpath for the HBase shell and for invocations of org.jruby.Main, which should cover HBase provided support scripts.
+
+
+---
+
+* [HBASE-15296](https://issues.apache.org/jira/browse/HBASE-15296) | *Major* | **Break out writer and reader from StoreFile**
+
+\<!-- mardown --\>
+Refactor that breaks out StoreFile Reader and Writer inner classes as StoreFileReader and StoreFileWriter.
+
+NOTE! Changes RegionObserver Coprocessor Interface so incompatible change (Discussed on dev list in thread "[Note breaking change on RegionObserver in hbase-2.0.0](https://s.apache.org/hbase-dev-note-about-HBASE-15296)"
+
+
+---
+
+* [HBASE-17887](https://issues.apache.org/jira/browse/HBASE-17887) | *Blocker* | **Row-level consistency is broken for read**
+
+Now we pass on list of memstoreScanners to the StoreScanner along with the new files to ensure that the StoreScanner sees the latest memstore after flush.
+
+
+---
+
+* [HBASE-17786](https://issues.apache.org/jira/browse/HBASE-17786) | *Major* | **Create LoadBalancer perf-tests (test balancer algorithm decoupled from workload)**
+
+$ bin/hbase org.apache.hadoop.hbase.master.balancer.LoadBalancerPerformanceEvaluation -help
+usage: hbase org.apache.hadoop.hbase.master.balancer.LoadBalancerPerformanceEvaluation \<options\>
+Options:
+ -regions \<arg\>         Number of regions to consider by load balancer. Default: 1000000
+ -servers \<arg\>         Number of servers to consider by load balancer. Default: 1000
+ -load\_balancer \<arg\>   Type of Load Balancer to use. Default:
+                        org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer
 
 
 
