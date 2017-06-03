@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.10.0 - Unreleased (as of 2017-05-12)
+## Release 1.10.0 - Unreleased (as of 2017-06-03)
 
 
 
@@ -28,6 +28,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PARQUET-755](https://issues.apache.org/jira/browse/PARQUET-755) | create parquet-arrow module with schema converter |  Major | . | Julien Le Dem | Julien Le Dem |
 | [PARQUET-220](https://issues.apache.org/jira/browse/PARQUET-220) | Unnecessary warning in ParquetRecordReader.initialize |  Major | parquet-mr | Konstantin Shaposhnikov | Reuben Kuhnert |
+| [PARQUET-969](https://issues.apache.org/jira/browse/PARQUET-969) | Decimal datatype support for parquet-tools output |  Minor | . | Dan Fowler |  |
+| [PARQUET-852](https://issues.apache.org/jira/browse/PARQUET-852) | Slowly ramp up sizes of byte[] in ByteBasedBitPackingEncoder |  Minor | . | John Jenkins |  |
+| [PARQUET-990](https://issues.apache.org/jira/browse/PARQUET-990) | More detailed error messages in footer parsing |  Minor | parquet-mr | Andrew Ash | Andrew Ash |
 
 
 ### BUG FIXES:
@@ -37,6 +40,7 @@
 | [PARQUET-765](https://issues.apache.org/jira/browse/PARQUET-765) | Upgrade Avro to 1.8.1 |  Major | parquet-avro | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-783](https://issues.apache.org/jira/browse/PARQUET-783) | H2SeekableInputStream does not close its underlying FSDataInputStream, leading to connection leaks |  Critical | parquet-mr | Michael Allman | Michael Allman |
 | [PARQUET-786](https://issues.apache.org/jira/browse/PARQUET-786) | parquet-tools README incorrectly has 'java jar' instead of 'java -jar' |  Major | . | Mark Nelson | Mark Nelson |
+| [PARQUET-196](https://issues.apache.org/jira/browse/PARQUET-196) | parquet-tools command to get rowcount & size |  Minor | parquet-mr | Swapnil |  |
 
 
 ### OTHER:

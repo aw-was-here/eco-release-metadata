@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Hadoop v3.0.0-alpha4
+    * [Changes](3.0.0-alpha4/CHANGES.3.0.0-alpha4.html)
+    * [Release Notes](3.0.0-alpha4/RELEASENOTES.3.0.0-alpha4.html)
 * Apache Hadoop v3.0.0-alpha3
     * [Changes](3.0.0-alpha3/CHANGES.3.0.0-alpha3.html)
     * [Release Notes](3.0.0-alpha3/RELEASENOTES.3.0.0-alpha3.html)

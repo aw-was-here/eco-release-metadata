@@ -92,12 +92,12 @@
 | [KAFKA-4614](https://issues.apache.org/jira/browse/KAFKA-4614) | Long GC pause harming broker performance which is caused by mmap objects created for OffsetIndex |  Major | core | Yuto Kawamura | Yuto Kawamura |
 | [KAFKA-4432](https://issues.apache.org/jira/browse/KAFKA-4432) | ProducerPerformance.java : Add support to supply custom message payloads. |  Minor | . | Sandesh Karkera |  |
 | [KAFKA-4688](https://issues.apache.org/jira/browse/KAFKA-4688) | Kafka 0.10.1.1 should be available in system tests |  Major | . | Colin P. McCabe | Colin P. McCabe |
-| [KAFKA-4684](https://issues.apache.org/jira/browse/KAFKA-4684) | Kafka does not offer kafka-configs.bat on Windows box |  Minor | tools | huxi | huxi |
+| [KAFKA-4684](https://issues.apache.org/jira/browse/KAFKA-4684) | Kafka does not offer kafka-configs.bat on Windows box |  Minor | tools | huxihx | huxihx |
 | [KAFKA-3209](https://issues.apache.org/jira/browse/KAFKA-3209) | Support single message transforms in Kafka Connect |  Blocker | KafkaConnect | Neha Narkhede | Ewen Cheslack-Postava |
 | [KAFKA-4613](https://issues.apache.org/jira/browse/KAFKA-4613) | Treat null-key records the same way for joins and aggreations |  Major | streams | Matthias J. Sax | Jeyhun Karimov |
 | [KAFKA-4462](https://issues.apache.org/jira/browse/KAFKA-4462) | Improved Kafka Client Compatibility Policy |  Major | clients | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4182](https://issues.apache.org/jira/browse/KAFKA-4182) | Move the change logger out of RocksDB stores |  Major | streams | Damian Guy |  |
-| [KAFKA-4727](https://issues.apache.org/jira/browse/KAFKA-4727) | A Production server configuration needs to be updated |  Major | . | Jun Rao | huxi |
+| [KAFKA-4727](https://issues.apache.org/jira/browse/KAFKA-4727) | A Production server configuration needs to be updated |  Major | . | Jun Rao | huxihx |
 | [KAFKA-4734](https://issues.apache.org/jira/browse/KAFKA-4734) | timeindex on old segments not trimmed to actual size |  Major | . | Jun Rao | Jiangjie Qin |
 
 
@@ -183,12 +183,12 @@
 | [KAFKA-4485](https://issues.apache.org/jira/browse/KAFKA-4485) | Follower should be in the isr if its FetchRequest has fetched up to the logEndOffset of leader |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-4527](https://issues.apache.org/jira/browse/KAFKA-4527) | Transient failure of ConnectDistributedTest.test\_pause\_and\_resume\_sink where paused connector produces messages |  Major | KafkaConnect, system tests | Ewen Cheslack-Postava | Shikhar Bhushan |
 | [KAFKA-4549](https://issues.apache.org/jira/browse/KAFKA-4549) | KafkaLZ4OutputStream does not write EndMark if flush() is not called before close() |  Major | clients | MURAKAMI Masahiko | MURAKAMI Masahiko |
-| [KAFKA-4428](https://issues.apache.org/jira/browse/KAFKA-4428) | Kafka does not exit when it receives "Address already in use" error during startup |  Major | network | Zeynep Arikoglu | huxi |
-| [KAFKA-4351](https://issues.apache.org/jira/browse/KAFKA-4351) | Topic regex behavioral change with MirrorMaker new consumer |  Minor | tools | Dustin Cote | huxi |
+| [KAFKA-4428](https://issues.apache.org/jira/browse/KAFKA-4428) | Kafka does not exit when it receives "Address already in use" error during startup |  Major | network | Zeynep Arikoglu | huxihx |
+| [KAFKA-4351](https://issues.apache.org/jira/browse/KAFKA-4351) | Topic regex behavioral change with MirrorMaker new consumer |  Minor | tools | Dustin Cote | huxihx |
 | [KAFKA-4480](https://issues.apache.org/jira/browse/KAFKA-4480) | kafka-configs will execute the removal of an invalid property and not report an error |  Major | config | Justin Manchester | Vahid Hashemian |
 | [KAFKA-4318](https://issues.apache.org/jira/browse/KAFKA-4318) | Migrate ProducerSendTest to the new consumer |  Minor | unit tests | Balint Molnar | Balint Molnar |
 | [KAFKA-4561](https://issues.apache.org/jira/browse/KAFKA-4561) | Ordering of operations in StreamThread.shutdownTasksAndState may void at-least-once guarantees |  Major | streams | Damian Guy | Damian Guy |
-| [KAFKA-4434](https://issues.apache.org/jira/browse/KAFKA-4434) | KafkaProducer configuration is logged twice |  Minor | config | Ruben de Gooijer | huxi |
+| [KAFKA-4434](https://issues.apache.org/jira/browse/KAFKA-4434) | KafkaProducer configuration is logged twice |  Minor | config | Ruben de Gooijer | huxihx |
 | [KAFKA-4523](https://issues.apache.org/jira/browse/KAFKA-4523) | Controlled shutdown fails if consumer group restabilizes during shutdown |  Major | . | Steve Niemitz | Steve Niemitz |
 | [KAFKA-4551](https://issues.apache.org/jira/browse/KAFKA-4551) | StreamsSmokeTest.test\_streams intermittent failure |  Blocker | . | Roger Hoover | Damian Guy |
 | [KAFKA-4455](https://issues.apache.org/jira/browse/KAFKA-4455) | CommitFailedException during rebalance doesn't release resources in tasks/processors |  Major | streams | Davor Poldrugo | Ewen Cheslack-Postava |
@@ -197,7 +197,7 @@
 | [KAFKA-4180](https://issues.apache.org/jira/browse/KAFKA-4180) | Shared authentication with multiple active Kafka producers/consumers |  Major | producer , security | Guillaume Grossetie | Mickael Maison |
 | [KAFKA-4565](https://issues.apache.org/jira/browse/KAFKA-4565) | Separation of Internal and External traffic (KIP-103) |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-4627](https://issues.apache.org/jira/browse/KAFKA-4627) | Intermittent test failure in consumer close test |  Major | unit tests | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-3739](https://issues.apache.org/jira/browse/KAFKA-3739) | Add no-arg constructor for library provided serdes |  Major | streams | Guozhang Wang | huxi |
+| [KAFKA-3739](https://issues.apache.org/jira/browse/KAFKA-3739) | Add no-arg constructor for library provided serdes |  Major | streams | Guozhang Wang | huxihx |
 | [KAFKA-3853](https://issues.apache.org/jira/browse/KAFKA-3853) | Report offsets for empty groups in ConsumerGroupCommand |  Major | admin, tools | Jason Gustafson | Vahid Hashemian |
 | [KAFKA-4622](https://issues.apache.org/jira/browse/KAFKA-4622) | KafkaConsumer does not properly handle authorization errors from offset fetches |  Major | consumer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4619](https://issues.apache.org/jira/browse/KAFKA-4619) | Dissallow to output records with unknown keys in TransformValues |  Major | streams | Matthias J. Sax | Matthias J. Sax |
@@ -205,7 +205,7 @@
 | [KAFKA-4672](https://issues.apache.org/jira/browse/KAFKA-4672) | KIP-100 api changes break Java 8 lambda expressions in some cases |  Major | streams | Xavier Léauté | Xavier Léauté |
 | [KAFKA-4633](https://issues.apache.org/jira/browse/KAFKA-4633) | Always use regex pattern subscription to avoid auto create topics |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-4671](https://issues.apache.org/jira/browse/KAFKA-4671) | Fix Streams window retention policy |  Major | streams | Matthias J. Sax | Matthias J. Sax |
-| [KAFKA-4576](https://issues.apache.org/jira/browse/KAFKA-4576) | Log segments close to max size break on fetch |  Critical | log | Ivan Babrou | huxi |
+| [KAFKA-4576](https://issues.apache.org/jira/browse/KAFKA-4576) | Log segments close to max size break on fetch |  Critical | log | Ivan Babrou | huxihx |
 | [KAFKA-4687](https://issues.apache.org/jira/browse/KAFKA-4687) | InvalidTopicException is possible for topic colliding with itself when concurrently created |  Major | admin | Andrew Olson | Andrew Olson |
 | [KAFKA-4673](https://issues.apache.org/jira/browse/KAFKA-4673) | Python VerifiableConsumer service has thread-safety bug for event\_handlers |  Major | system tests | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-4229](https://issues.apache.org/jira/browse/KAFKA-4229) | Controller can't start after several zk expired event |  Major | controller | Pengwei | Pengwei |

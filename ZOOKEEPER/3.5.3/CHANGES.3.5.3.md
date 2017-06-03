@@ -88,11 +88,11 @@
 | [ZOOKEEPER-2464](https://issues.apache.org/jira/browse/ZOOKEEPER-2464) | NullPointerException on ContainerManager |  Major | server | Stefano Salmaso | Jordan Zimmerman |
 | [ZOOKEEPER-2642](https://issues.apache.org/jira/browse/ZOOKEEPER-2642) | ZooKeeper reconfig API backward compatibility fix |  Blocker | c client, java client | Jordan Zimmerman | Jordan Zimmerman |
 | [ZOOKEEPER-2683](https://issues.apache.org/jira/browse/ZOOKEEPER-2683) | RaceConditionTest is flaky |  Major | tests | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2617](https://issues.apache.org/jira/browse/ZOOKEEPER-2617) | correct a few spelling typos |  Trivial | . | tony mancill |  |
+| [ZOOKEEPER-2617](https://issues.apache.org/jira/browse/ZOOKEEPER-2617) | correct a few spelling typos |  Trivial | . | tony mancill | tony mancill |
 | [ZOOKEEPER-2678](https://issues.apache.org/jira/browse/ZOOKEEPER-2678) | Large databases take a long time to regain a quorum |  Major | server | Robert Joseph Evans | Robert Joseph Evans |
 | [ZOOKEEPER-2687](https://issues.apache.org/jira/browse/ZOOKEEPER-2687) | Deadlock while shutting down the Leader server. |  Major | server | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693) | DOS attack on wchp/wchc four letter words (4lw) |  Blocker | security, server | Patrick Hunt | Michael Han |
-| [ZOOKEEPER-2460](https://issues.apache.org/jira/browse/ZOOKEEPER-2460) | Remove javacc dependency from public Maven pom |  Critical | java client | Enrico Olivelli |  |
+| [ZOOKEEPER-2460](https://issues.apache.org/jira/browse/ZOOKEEPER-2460) | Remove javacc dependency from public Maven pom |  Critical | java client | Enrico Olivelli | Enrico Olivelli |
 | [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
 | [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
 | [ZOOKEEPER-2737](https://issues.apache.org/jira/browse/ZOOKEEPER-2737) | NettyServerCnxFactory leaks connection if exception happens while writing to a channel. |  Critical | server | Michael Han | Michael Han |
@@ -107,7 +107,7 @@
 | [ZOOKEEPER-2484](https://issues.apache.org/jira/browse/ZOOKEEPER-2484) | Flaky Test: org.apache.zookeeper.test.LoadFromLogTest.testLoadFailure |  Major | server, tests | Michael Han | Michael Han |
 | [ZOOKEEPER-2656](https://issues.apache.org/jira/browse/ZOOKEEPER-2656) | Fix ServerConfigTest#testValidArguments test case failures |  Major | . | Rakesh R | Michael Han |
 | [ZOOKEEPER-2664](https://issues.apache.org/jira/browse/ZOOKEEPER-2664) | ClientPortBindTest#testBindByAddress may fail due to "No such device" exception |  Major | . | Ted Yu | Ted Yu |
-| [ZOOKEEPER-2665](https://issues.apache.org/jira/browse/ZOOKEEPER-2665) | Port QA github pull request build to branch 3.4 and 3.5 |  Major | build | Flavio Junqueira |  |
+| [ZOOKEEPER-2665](https://issues.apache.org/jira/browse/ZOOKEEPER-2665) | Port QA github pull request build to branch 3.4 and 3.5 |  Major | build | Flavio Junqueira | Enrico Olivelli |
 | [ZOOKEEPER-2718](https://issues.apache.org/jira/browse/ZOOKEEPER-2718) | org.apache.zookeeper.server.quorum.StandaloneDisabledTest fails intermittently |  Major | quorum, server, tests | Sneha Kanekar | Michael Han |
 | [ZOOKEEPER-2716](https://issues.apache.org/jira/browse/ZOOKEEPER-2716) | Flaky Test: org.apache.zookeeper.server.SessionTrackerTest.testAddSessionAfterSessionExpiry |  Major | server, tests | Michael Han | Michael Han |
 

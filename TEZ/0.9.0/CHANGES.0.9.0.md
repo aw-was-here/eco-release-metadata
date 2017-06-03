@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-05-12)
+## Release 0.9.0 - Unreleased (as of 2017-06-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -27,6 +27,7 @@
 | [TEZ-3659](https://issues.apache.org/jira/browse/TEZ-3659) | AM/Task classpath should not contain hadoop conf directory. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3611](https://issues.apache.org/jira/browse/TEZ-3611) | Create lightweight summary events for ATS. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3689](https://issues.apache.org/jira/browse/TEZ-3689) | Change minimum hadoop version to 2.7.0 |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3745](https://issues.apache.org/jira/browse/TEZ-3745) | Change master to required java 8 |  Blocker | . | Siddharth Seth | Siddharth Seth |
 
 
 ### IMPORTANT ISSUES:
@@ -44,6 +45,7 @@
 | [TEZ-909](https://issues.apache.org/jira/browse/TEZ-909) | Provide support for application tags |  Major | . | Rohini Palaniswamy | Eric Badger |
 | [TEZ-3466](https://issues.apache.org/jira/browse/TEZ-3466) | Tez classpath building to mimic mapreduce classpath building |  Major | . | Jonathan Eagles | Jason Lowe |
 | [TEZ-3271](https://issues.apache.org/jira/browse/TEZ-3271) | Provide mapreduce failures.maxpercent equivalent |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3334](https://issues.apache.org/jira/browse/TEZ-3334) | Tez Custom Shuffle Handler |  Major | . | Jonathan Eagles |  |
 
 
 ### IMPROVEMENTS:
@@ -82,6 +84,9 @@
 | [TEZ-1526](https://issues.apache.org/jira/browse/TEZ-1526) | LoadingCache for TezTaskID slow for large jobs |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3680](https://issues.apache.org/jira/browse/TEZ-3680) | Optimizations to UnorderedPartitionedKVWriter |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3673](https://issues.apache.org/jira/browse/TEZ-3673) | Allocate smaller buffers in UnorderedPartitionedKVWriter |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3715](https://issues.apache.org/jira/browse/TEZ-3715) | Differentiate between TaskAttempt submission and TaskAttempt started |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3007](https://issues.apache.org/jira/browse/TEZ-3007) | Use AppFinalState.ENDED when unregistering with the RM in session mode |  Major | . | Siddharth Seth | Harish Jaiprakash |
+| [TEZ-3747](https://issues.apache.org/jira/browse/TEZ-3747) | TezConstants.TEZ\_SHUFFLE\_HANDLER\_SERVICE\_ID is referenced in Hive |  Minor | . | Rajesh Balamohan | Kuhu Shukla |
 
 
 ### BUG FIXES:
@@ -250,6 +255,23 @@
 | [TEZ-3700](https://issues.apache.org/jira/browse/TEZ-3700) | Consumer attempt should kill itself instead of failing during validation checks with final merge avoidance |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3717](https://issues.apache.org/jira/browse/TEZ-3717) | tez-yarn-timeline-history-with-fs does not build with hadoop-2.8. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3719](https://issues.apache.org/jira/browse/TEZ-3719) | DAGImpl.computeProgress slows down dispatcher and ipc threads |  Major | . | Rajesh Balamohan | Gopal V |
+| [TEZ-3709](https://issues.apache.org/jira/browse/TEZ-3709) | TezMerger is slow for high number of segments |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3731](https://issues.apache.org/jira/browse/TEZ-3731) | Add committer kshukla to Tez Team List |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3723](https://issues.apache.org/jira/browse/TEZ-3723) | TezIndexRecord#hasData() returns true for empty index record in the Unordered case |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3730](https://issues.apache.org/jira/browse/TEZ-3730) | Lower logging level in UnorderedPartitionedKVWriter |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [TEZ-3662](https://issues.apache.org/jira/browse/TEZ-3662) | Vertex Duration in 0.9 Tez UI regression from 0.7 |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3737](https://issues.apache.org/jira/browse/TEZ-3737) | FairCartesianProductVertexMananger used incorrect #partition |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3742](https://issues.apache.org/jira/browse/TEZ-3742) | Fix AMContainerHelpers#createCommonContainerLaunchContext to not pass localResources. |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3743](https://issues.apache.org/jira/browse/TEZ-3743) | TestTaskCommunicatorContextImpl throws NullPointerException after TEZ-3334 merge |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3744](https://issues.apache.org/jira/browse/TEZ-3744) | Fix findbugs warnings after TEZ-3334 merge |  Major | . | Jason Lowe | Kuhu Shukla |
+| [TEZ-3736](https://issues.apache.org/jira/browse/TEZ-3736) | SubmittedDAGs is always 0 in Resource Manager UI |  Minor | . | Artem Velykorodnyi | Artem Velykorodnyi |
+| [TEZ-3714](https://issues.apache.org/jira/browse/TEZ-3714) | Tez UI: Hive Queries page: Use Dag ID and App ID if they are published form Hive side. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3739](https://issues.apache.org/jira/browse/TEZ-3739) | Fair CartesianProduct doesn't works well with huge difference in output size |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3748](https://issues.apache.org/jira/browse/TEZ-3748) | TaskAttemptImpl State Machine Invalid event: TA\_SUBMITTED at KILL\_IN\_PROGRESS |  Critical | . | Kuhu Shukla | Jonathan Eagles |
+| [TEZ-3749](https://issues.apache.org/jira/browse/TEZ-3749) | Get map and reduce task memory from JobConf. |  Minor | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3750](https://issues.apache.org/jira/browse/TEZ-3750) | Add TEZ\_RUNTIME\_UNORDERED\_PARTITIONED\_KVWRITER\_BUFFER\_MERGE\_PERCENT to UnorderedPartitionedKVOutput. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3701](https://issues.apache.org/jira/browse/TEZ-3701) | UnorderedPartitionedKVWriter - issues with parallel Deflater usage, synchronousqueue in threadpool |  Blocker | . | Harish Jaiprakash | Rajesh Balamohan |
+| [TEZ-3732](https://issues.apache.org/jira/browse/TEZ-3732) | Reduce Object size of InputAttemptIdentifier and MapOutput for large jobs |  Major | . | Jonathan Eagles | Jonathan Eagles |
 
 
 ### TESTS:
@@ -267,28 +289,77 @@
 | [TEZ-3063](https://issues.apache.org/jira/browse/TEZ-3063) | Tez UI : Display Input, Output, Processor, Source and Sink configurations under a vertex |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3357](https://issues.apache.org/jira/browse/TEZ-3357) | Change TimelineCachePlugin to handle DAG grouping |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3358](https://issues.apache.org/jira/browse/TEZ-3358) | Support using the same TimelineGroupId for multiple DAGs |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3355](https://issues.apache.org/jira/browse/TEZ-3355) | Tez Custom Shuffle Handler POC |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3374](https://issues.apache.org/jira/browse/TEZ-3374) | Change TEZ\_HISTORY\_LOGGING\_TIMELINE\_NUM\_DAGS\_PER\_GROUP conf key name. |  Major | . | Harish Jaiprakash | Tsuyoshi Ozawa |
 | [TEZ-3359](https://issues.apache.org/jira/browse/TEZ-3359) | Add granular log levels for HistoryLoggingService. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3376](https://issues.apache.org/jira/browse/TEZ-3376) | Fix groupId generation to account for dagId starting with 1. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3380](https://issues.apache.org/jira/browse/TEZ-3380) | Shuffle Handler: Replace primitive wrapper's valueOf method with parse\* method to avoid unnecessary boxing/unboxing |  Major | . | Jonathan Eagles | Kuhu Shukla |
+| [TEZ-3377](https://issues.apache.org/jira/browse/TEZ-3377) | Remove ShuffleHandler dependency on mapred.FadvisedChunkedFile and mapred.FadvisedFileRegion |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3378](https://issues.apache.org/jira/browse/TEZ-3378) | Move Shuffle Handler configuration into the Tez namespace |  Major | . | Jonathan Eagles | Eric Badger |
+| [TEZ-3393](https://issues.apache.org/jira/browse/TEZ-3393) | Remove extra jetty dependency from Shuffle Handler |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3390](https://issues.apache.org/jira/browse/TEZ-3390) | Package Shuffle Handler as a shaded uber-jar |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3238](https://issues.apache.org/jira/browse/TEZ-3238) | Shuffle service name should be configureable and should not be hardcoded to ‘mapreduce\_shuffle’ |  Major | . | Rob Leidle | Jonathan Eagles |
+| [TEZ-3408](https://issues.apache.org/jira/browse/TEZ-3408) | Allow Task Output Files to reside in DAG specific directories for Custom Shuffle Handler |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3410](https://issues.apache.org/jira/browse/TEZ-3410) | ShuffleHandler should use Path.SEPARATOR instead of '/' |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3412](https://issues.apache.org/jira/browse/TEZ-3412) | Modify ShuffleHandler to use Constants.DAG\_PREFIX and fix AttemptPathIdentifier#toString() |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3411](https://issues.apache.org/jira/browse/TEZ-3411) | TestShuffleHandler#testSendMapCount should not used hard coded ShuffleHandler port |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3360](https://issues.apache.org/jira/browse/TEZ-3360) | Tez Custom Shuffle Handler Documentation |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3395](https://issues.apache.org/jira/browse/TEZ-3395) | Refactor ShuffleVertexManager to make parts of it re-usable in other plugins |  Major | . | Ming Ma | Ming Ma |
 | [TEZ-3230](https://issues.apache.org/jira/browse/TEZ-3230) | Implement vertex manager and edge manager of cartesian product edge |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3000](https://issues.apache.org/jira/browse/TEZ-3000) | Fix TestContainerReuse |  Major | . | Jeff Zhang | Ming Ma |
 | [TEZ-3419](https://issues.apache.org/jira/browse/TEZ-3419) | Tez UI: Applications page shows error, for users with only DAG level ACL permission. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3487](https://issues.apache.org/jira/browse/TEZ-3487) | Improvements in travis yml file to get builds to work |  Major | . | darion yaphet | darion yaphet |
+| [TEZ-3362](https://issues.apache.org/jira/browse/TEZ-3362) | Delete intermediate data at DAG level for Shuffle Handler |  Major | . | Jonathan Eagles | Kuhu Shukla |
+| [TEZ-3480](https://issues.apache.org/jira/browse/TEZ-3480) | Port MAPREDUCE-6763 to Tez ShuffleHandler |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3465](https://issues.apache.org/jira/browse/TEZ-3465) | Support broadcast edge into cartesian product vertex and forbid other edges |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3269](https://issues.apache.org/jira/browse/TEZ-3269) | Provide basic fair routing and scheduling functionality via custom VertexManager and EdgeManager |  Major | . | Ming Ma | Ming Ma |
+| [TEZ-3509](https://issues.apache.org/jira/browse/TEZ-3509) | Make DAG Deletion Tracker configurable for ContainerLaunchers |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3361](https://issues.apache.org/jira/browse/TEZ-3361) | Fetch Multiple Partitions from the Shuffle Handler |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3557](https://issues.apache.org/jira/browse/TEZ-3557) | TEZ-3362 causes TestContainerLauncherWrapper#testDelegation to fail |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3564](https://issues.apache.org/jira/browse/TEZ-3564) | TezConfiguration#TEZ\_DELETION\_TRACKER\_CLASS has the wrong config key-name |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3563](https://issues.apache.org/jira/browse/TEZ-3563) | Tez Shuffle Handler logging fails to initialize |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3532](https://issues.apache.org/jira/browse/TEZ-3532) | Backport MAPREDUCE-6808. Log map attempts as part of shuffle handler audit log |  Major | . | Jonathan Eagles | Kuhu Shukla |
 | [TEZ-3579](https://issues.apache.org/jira/browse/TEZ-3579) | Wrong configuration key for max slow start fraction in CartesianProductVertexManager |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3586](https://issues.apache.org/jira/browse/TEZ-3586) | Remove fusesource.leveldbjni from the tez-auxservices shaded jar |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3587](https://issues.apache.org/jira/browse/TEZ-3587) | Fetcher fetchInputs() can NPE on srcAttempt due to missing entry in pathToAttemptMap |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3458](https://issues.apache.org/jira/browse/TEZ-3458) | Auto grouping for cartesian product edge(unpartitioned case) |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3590](https://issues.apache.org/jira/browse/TEZ-3590) | Remove google.protobuf from the tez-auxservices shaded jar |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3595](https://issues.apache.org/jira/browse/TEZ-3595) | Composite Fetch account error for disk direct |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3596](https://issues.apache.org/jira/browse/TEZ-3596) | Number of Empty DME logged for Composite fetch is too high |  Minor | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3597](https://issues.apache.org/jira/browse/TEZ-3597) | Composite Fetch hangs on certain DME empty events. |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3599](https://issues.apache.org/jira/browse/TEZ-3599) | Unordered Fetcher can hang if empty partitions are present |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3604](https://issues.apache.org/jira/browse/TEZ-3604) | Remove the compositeInputAttemptIdentifier from remaining list upon fetch completion in the Ordered case |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3606](https://issues.apache.org/jira/browse/TEZ-3606) | Fix debug log for empty partitions to the expanded partitionId in the Composite case |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3608](https://issues.apache.org/jira/browse/TEZ-3608) | Fetcher can hang if copyMapOutput/fetchInputs returns early |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3612](https://issues.apache.org/jira/browse/TEZ-3612) | Tez Shuffle Handler Content length does not match actual |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3618](https://issues.apache.org/jira/browse/TEZ-3618) | Shuffle Handler Loading cache equality tests always results is false |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3620](https://issues.apache.org/jira/browse/TEZ-3620) | UnorderedPartitionedKVOutput is missing the shuffle service config in the confKeys set |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3621](https://issues.apache.org/jira/browse/TEZ-3621) | Optimize the Shuffle Handler content length calculation for keep alive |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3253](https://issues.apache.org/jira/browse/TEZ-3253) | Remove special handling for last app attempt (absence of ApplicationConstants.MAX\_APP\_ATTEMPTS\_ENV in AM env) |  Major | . | Hitesh Shah | Akira Ajisaka |
 | [TEZ-3655](https://issues.apache.org/jira/browse/TEZ-3655) | Specify netty version instead of inheriting from hadoop dependency |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3628](https://issues.apache.org/jira/browse/TEZ-3628) | Give Tez shuffle handler threads custom names |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3665](https://issues.apache.org/jira/browse/TEZ-3665) | TestATSV15HistoryLoggingService should use mocked TimelineClient |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3667](https://issues.apache.org/jira/browse/TEZ-3667) | Stop using org.apache.hadoop.security.ssl.SSLFactory.DEFAULT\_SSL\_REQUIRE\_CLIENT\_CERT |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3668](https://issues.apache.org/jira/browse/TEZ-3668) | Explicitly include hadoop-mapreduce-client-shuffle for test in root pom |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3652](https://issues.apache.org/jira/browse/TEZ-3652) | Remove ShuffleClientMetrics |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3682](https://issues.apache.org/jira/browse/TEZ-3682) | Pass parameters instead of configuration for changes to support tez shuffle handler |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3683](https://issues.apache.org/jira/browse/TEZ-3683) | LocalContainerLauncher#shouldDelete member variable is not used |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3684](https://issues.apache.org/jira/browse/TEZ-3684) | Incorporate first pass non-essential TEZ-3334 pre-merge feedback |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3654](https://issues.apache.org/jira/browse/TEZ-3654) | Make CartesianProduct edge work with GroupInputEdge |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-1187](https://issues.apache.org/jira/browse/TEZ-1187) | Add a framework ExecutorService which shares threads. |  Major | . | Siddharth Seth | Harish Jaiprakash |
 | [TEZ-3690](https://issues.apache.org/jira/browse/TEZ-3690) | Tez on hadoop 3 build failed due to hdfs client/server jar separation |  Blocker | . | Junping Du | Junping Du |
+| [TEZ-3685](https://issues.apache.org/jira/browse/TEZ-3685) | ShuffleHandler completedInputSet off-by-one error |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3702](https://issues.apache.org/jira/browse/TEZ-3702) | Tez shuffle jar includes service loader entry for ClientProtocolProvider but not the corresponding class |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3705](https://issues.apache.org/jira/browse/TEZ-3705) | Modify DeletionTracker and deletion threads to be initialized only if enabled for tez\_shuffle |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [TEZ-3708](https://issues.apache.org/jira/browse/TEZ-3708) | Improve parallelism and auto grouping of unpartitioned cartesian product |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
+| [TEZ-3725](https://issues.apache.org/jira/browse/TEZ-3725) | Cleanup http connections and other unnecessary fields in DAG Deletion tracker classes. |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3726](https://issues.apache.org/jira/browse/TEZ-3726) | Clean up DeletionTracker's reflection instantiation and provide ContainerLauncher with dagComplete() functionality |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3691](https://issues.apache.org/jira/browse/TEZ-3691) | Setup fetchers to use shared executor. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3735](https://issues.apache.org/jira/browse/TEZ-3735) | Test failures in TestTaskAttempt and TestAMContainerMap |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3740](https://issues.apache.org/jira/browse/TEZ-3740) | Clean up TEZ-3334-CHANGES.txt |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3633](https://issues.apache.org/jira/browse/TEZ-3633) | Implement keep-alive timeout in tez shuffle handler |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3712](https://issues.apache.org/jira/browse/TEZ-3712) | Use Local FileContext for deleting dag level directories |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3713](https://issues.apache.org/jira/browse/TEZ-3713) | Allow dag level deletion in cases where containers are reused |  Major | . | Kuhu Shukla | Kuhu Shukla |
 
 
 ### OTHER:
@@ -306,5 +377,6 @@
 | [TEZ-3660](https://issues.apache.org/jira/browse/TEZ-3660) | Remove CHANGES.txt |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3657](https://issues.apache.org/jira/browse/TEZ-3657) | Add committer zhiyuany to the Tez Team List |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 | [TEZ-3663](https://issues.apache.org/jira/browse/TEZ-3663) | Add harishjp to Tez teams list. |  Minor | . | Harish Jaiprakash | Harish Jaiprakash |
+| [TEZ-3716](https://issues.apache.org/jira/browse/TEZ-3716) | Allow attempt retries to be treated the same as the first attempt |  Major | . | Siddharth Seth | Siddharth Seth |
 
 

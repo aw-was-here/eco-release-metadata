@@ -460,6 +460,7 @@
 | [SPARK-18834](https://issues.apache.org/jira/browse/SPARK-18834) | Expose event time time stats through StreamingQueryProgress |  Critical | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-18852](https://issues.apache.org/jira/browse/SPARK-18852) | StreamingQuery.lastProgress should be null when recentProgress is empty |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-18826](https://issues.apache.org/jira/browse/SPARK-18826) | Make FileStream be able to start with most recent files |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-11597](https://issues.apache.org/jira/browse/SPARK-11597) | improve performance of array and map encoder |  Major | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### BUG FIXES:

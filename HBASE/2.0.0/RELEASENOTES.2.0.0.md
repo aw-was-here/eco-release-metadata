@@ -5225,4 +5225,145 @@ Options:
                         org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer
 
 
+---
+
+* [HBASE-17343](https://issues.apache.org/jira/browse/HBASE-17343) | *Blocker* | **Make Compacting Memstore default in 2.0 with BASIC as the default type**
+
+ This JIRA changes the default MemStore to be CompactingMemStore instead of DefaultMemStore. In-memory compaction of CompactingMemStore demonstrated sizable improvement in HBase’s write amplification and read/write performance.
+
+CompactingMemStore achieves these gains through smart use of RAM. The algorithm periodically re-organizes the in-memory data in efficient data structures and reduces redundancies. The  HBase server’s memory footprint therefore periodically expands and contracts. The outcome is longer lifetime of data in memory, less I/O, and overall faster performance. More details about the algorithm and its use appear in the Apache HBase Blog: https://blogs.apache.org/hbase/
+
+How To Use:
+The in-memory compaction level can be configured both globally and per column family. The supported levels are none (DefaultMemStore), basic, and eager. 
+
+By default, all tables apply basic in-memory compaction. This global configuration can be overridden in hbase-site.xml, as follows: 
+
+\<property\>
+ \<name\>hbase.hregion.compacting.memstore.type\</name\>
+ \<value\>\<none\|basic\|eager\>\</value\>
+ \</property\>
+
+The level can also be configured in the HBase shell per column family, as follows:  
+
+create ‘\<tablename\>’, 
+{NAME =\> ‘\<cfname\>’, IN\_MEMORY\_COMPACTION =\> ‘\<NONE\|BASIC\|EAGER\>’}
+
+
+---
+
+* [HBASE-16851](https://issues.apache.org/jira/browse/HBASE-16851) | *Major* | **User-facing documentation for the In-Memory Compaction feature**
+
+Two blog posts on Apache HBase blog: user manual and programmer manual. 
+Ref. guide draft published: https://docs.google.com/document/d/1Xi1jh\_30NKnjE3wSR-XF5JQixtyT6H\_CdFTaVi78LKw/edit
+
+
+---
+
+* [HBASE-18018](https://issues.apache.org/jira/browse/HBASE-18018) | *Major* | **Support abort for all procedures by default**
+
+The default behavior for abort() method of StateMachineProcedure class is changed to support aborting all procedures irrespective of if procedure supports rollback or not.
+
+
+---
+
+* [HBASE-11013](https://issues.apache.org/jira/browse/HBASE-11013) | *Major* | **Clone Snapshots on Secure Cluster Should provide option to apply Retained User Permissions**
+
+While creating a snapshot, it will save permissions of the original table into .snapshotinfo file(Backward compatibility) , which is in the snapshot root directory.  For clone\_snapshot/restore\_snapshot command, we provide an additional option( RESTORE\_ACL) to decide whether we will grant permissons of the origin table to the newly created table.
+
+
+---
+
+* [HBASE-18035](https://issues.apache.org/jira/browse/HBASE-18035) | *Critical* | **Meta replica does not give any primaryOperationTimeout to primary meta region**
+
+When a client is configured to use meta replica, it sends scan request to all meta replicas almost at the same time. Since meta replica contains stale data, if result from one of replica comes back first, the client may get wrong region locations. To fix this, "hbase.client.meta.replica.scan.timeout" is introduced, a client will always send to primary meta region first, wait the configured timeout for reply. If no result is received, it will send request to replica meta regions. The unit for "hbase.client.meta.replica.scan.timeout"  is microsecond, the default value is 1000000 (1 second).
+
+
+---
+
+* [HBASE-15616](https://issues.apache.org/jira/browse/HBASE-15616) | *Major* | **Allow null qualifier for all table operations**
+
+After this issue, all table operations will support null qualifier, such as put/get/scan/increment/append/checkAndMutate/checkAndPut/checkAndDelete.
+
+
+---
+
+* [HBASE-17997](https://issues.apache.org/jira/browse/HBASE-17997) | *Major* | **In dev environment, add jruby-complete jar to classpath only when jruby is needed**
+
+When JRUBY\_HOME is specified, if the command is "hbase shell" or "hbase org.jruby.Main", CLASSPATH and HBASE\_OPTS will be updated according to JRUBY\_HOME specified
+\* Jar under JRUBY\_HOME is added to CLASSPATH
+\* The following will be added into HBASE\_OPTS
+
+-Djruby.home=$JRUBY\_HOME -Djruby.lib=$JRUBY\_HOME/lib
+
+
+That is, as long as JRUBY\_HOME is specified, JRUBY\_HOME specified will take precedence.
+\* In dev env, the jar recorded in cached\_classpath\_jruby.txt will be ignored
+\* In non dev env, jruby-complete jar packaged with HBase will be ignored
+
+
+---
+
+* [HBASE-18122](https://issues.apache.org/jira/browse/HBASE-18122) | *Major* | **Scanner id should include ServerName of region server**
+
+The scanner id is not from 1 anymore.
+The first 32 bits are MurmurHash32 of ServerName string "host,port,ts". The ServerName contains both host, port, and start timestamp so it can prevent collision. The lowest 32bit is generated by atomic int.
+
+
+---
+
+* [HBASE-18129](https://issues.apache.org/jira/browse/HBASE-18129) | *Major* | **truncate\_preserve fails when the truncate method doesn't exists on the master**
+
+The command truncate\_preserve will be fine when the truncate method doesn't exist on the master
+
+
+---
+
+* [HBASE-3462](https://issues.apache.org/jira/browse/HBASE-3462) | *Major* | **Fix table.jsp in regards to splitting a region/table with an optional splitkey**
+
+UI pages for splitting/merging now operate by taking a row key prefix from the user rather than a full region name.
+
+
+---
+
+* [HBASE-14614](https://issues.apache.org/jira/browse/HBASE-14614) | *Major* | **Procedure v2: Core Assignment Manager**
+
+Replaces the AssignmentManager with a new procedurev2-based AssignmentManager
+
+h1. AMv2
+Puts AssignmentManager up on top of the ProcedureV2 state machine with persistence engine. Each assignment atom is now a Procedure implementation; e.g. an AssignProcedure and an UnassignProcedure. Molecules of aggregated Procedures are used to do more involved assignment steps: e.g. the move region procedure is made of an Unassign followed by an Assign subprocedure.
+
+AMv2 is 1500 lines. Old AM was near 4000. Functionality has been moved out to Procedures. In-memory states of regions and servers has been cleaned up stored in new RegionStates implementation. RegionStateStore takes care of publishing final region state out to the hbase:meta table.
+
+New RemoteProcedureDispatcher/RSProcedureDispatcher runs the Procedure-based assignments ‘remotely’. Knows about ‘servers’. Does aggregation of assignments by time on a time/count basis so can send procedures in batches rather than one per RPC. Procedure status comes back on the back of the RegionServer heartbeat reporting online regions. The response is passed to the AMv2 to ‘process’. It will check against the in-memory state. If there is a mismatch, it fences out the RegionServer on the assumption that something went wrong on the RS side.Timeouts trigger retries. The Procedure machine ensures only one operation at a time on any one region/table using locking and smarts about what is serial and what can be run concurrently.
+
+New accounting of RegionServer version will be used running rolling restarts.
+
+‘States’ -- OPENING, CLOSING, etc. -- are now in-memory in-the-master only serialized out to the ProcedureV2 WAL. They are no longer persisted to ZooKeeper.
+
+h2. Assign Detail
+The Assign starts by pushing the "assign" operation to the AssignmentManager and then will go into a “waiting" state. The AM will batch the "assign" requests and ask the Balancer where to put the region (the various policies will be respected: retain, round-robin, random). Once the AM and the balancer have found a place for the region, the procedure will be resumed and an "open region" request will be placed in the Remote Dispatcher queue, and the procedure once again will go into a "waiting state".  The Remote Dispatcher will batch the various requests for that server and they will be sent to the RS for execution. The RS will complete the open operation by calling master.reportRegionStateTransition(). The AM will intercept the transition report, and notify the procedure. The procedure will finish the assignment by publishing to new state on hbase:meta or it will retry the assignment.
+
+h3. Unassign Detail
+ The Unassign starts by placing a "close region" request in the Remote Dispatcher queue, and the procedure will then go into a "waiting state". The Remote Dispatcher will batch the various requests for that server and they will be sent to the RS for execution. The RS will complete the open operation by calling master.reportRegionStateTransition(). The AM will intercept the transition report, and notify the procedure. The procedure will finish the unassign by publishing its new state on meta or it will retry the unassign.
+
+h1. New Configs
+ \* "hbase.procedure.remote.dispatcher.threadpool.size" defaults 128
+ \* "hbase.procedure.remote.dispatcher.delay.msec" default 150ms
+ \* "hbase.procedure.remote.dispatcher.max.queue.size" with default 32
+ \* "hbase.regionserver.rpc.startup.waittime" with default 60 seconds.
+h1. TODO
+As of this writing.
+
+Put up a model diagram.
+
+ \* Handle region migration
+ \* Handle meta assignment first
+ \* Handle sys table assignment first (e.g. acl, namespace)
+ \* Handle table priorities
+ \* Do we report same AM metrics as we used too? We do it all in here now.
+
+INCOMPATIBLE
+A known incompatible is that because splits and merges are now run from the master, Coprocessors that used to watch for merge/split from a RegionObserver now no longer work; to watch split/merges, you need to have an observer on the Master instead.
+
+
 

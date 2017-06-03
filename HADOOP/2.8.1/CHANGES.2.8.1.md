@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.1 - Unreleased (as of 2017-05-12)
+## Release 2.8.1 - Unreleased (as of 2017-06-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -51,6 +51,7 @@
 | [HDFS-11558](https://issues.apache.org/jira/browse/HDFS-11558) | BPServiceActor thread name is too long |  Minor | datanode | Tsz Wo Nicholas Sze | Xiaobing Zhou |
 | [HDFS-11648](https://issues.apache.org/jira/browse/HDFS-11648) | Lazy construct the IIP pathname |  Major | . | Daryn Sharp | Daryn Sharp |
 | [YARN-6457](https://issues.apache.org/jira/browse/YARN-6457) | Allow custom SSL configuration to be supplied in WebApps |  Major | webapp, yarn | Sanjay M Pujare | Sanjay M Pujare |
+| [YARN-6493](https://issues.apache.org/jira/browse/YARN-6493) | Print requested node partition in assignContainer logs |  Major | . | Jonathan Hung | Jonathan Hung |
 
 
 ### BUG FIXES:
@@ -59,6 +60,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-4562](https://issues.apache.org/jira/browse/YARN-4562) | YARN WebApp ignores the configuration passed to it for keystore settings |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HDFS-9276](https://issues.apache.org/jira/browse/HDFS-9276) | Failed to Update HDFS Delegation Token for long running application in HA mode |  Major | fs, ha, security | Liangliang Gu | Liangliang Gu |
+| [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | Trash does not descent into child directories to check for permissions |  Critical | fs, security | Eric Yang | Weiwei Yang |
 | [HADOOP-13508](https://issues.apache.org/jira/browse/HADOOP-13508) | FsPermission string constructor does not recognize sticky bit |  Major | . | Atul Sikaria | Atul Sikaria |
 | [HADOOP-13928](https://issues.apache.org/jira/browse/HADOOP-13928) | TestAdlFileContextMainOperationsLive.testGetFileContext1 runtime error |  Major | fs/adl, test | John Zhuge | John Zhuge |
 | [HADOOP-13976](https://issues.apache.org/jira/browse/HADOOP-13976) | Path globbing does not match newlines |  Major | . | Eric Badger | Eric Badger |
@@ -150,6 +152,19 @@
 | [HADOOP-14373](https://issues.apache.org/jira/browse/HADOOP-14373) | License error In org.apache.hadoop.metrics2.util.Servers |  Major | . | hu xiaodong | hu xiaodong |
 | [HADOOP-14405](https://issues.apache.org/jira/browse/HADOOP-14405) | Fix performance regression due to incorrect use of DataChecksum |  Major | native, performance | LiXin Ge | LiXin Ge |
 | [HDFS-11674](https://issues.apache.org/jira/browse/HDFS-11674) | reserveSpaceForReplicas is not released if append request failed due to mirror down and replica recovered |  Critical | datanode | Vinayakumar B | Vinayakumar B |
+| [YARN-6598](https://issues.apache.org/jira/browse/YARN-6598) | History server getApplicationReport NPE when fetching report for pre-2.8 job |  Blocker | timelineserver | Jason Lowe | Jason Lowe |
+| [YARN-6603](https://issues.apache.org/jira/browse/YARN-6603) | NPE in RMAppsBlock |  Major | resourcemanager | Jason Lowe | Jason Lowe |
+| [YARN-6577](https://issues.apache.org/jira/browse/YARN-6577) | Remove unused ContainerLocalization classes |  Minor | nodemanager | ZhangBing Lin | ZhangBing Lin |
+| [HDFS-11849](https://issues.apache.org/jira/browse/HDFS-11849) | JournalNode startup failure exception should be logged in log file |  Major | journal-node | Surendra Singh Lilhore | Surendra Singh Lilhore |
+| [HDFS-11864](https://issues.apache.org/jira/browse/HDFS-11864) | Document  Metrics to track usage of memory for writes |  Major | documentation | Brahma Reddy Battula | Yiqun Lin |
+| [YARN-6615](https://issues.apache.org/jira/browse/YARN-6615) | AmIpFilter drops query parameters on redirect |  Major | . | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
+| [HDFS-11661](https://issues.apache.org/jira/browse/HDFS-11661) | GetContentSummary uses excessive amounts of memory |  Blocker | namenode | Nathan Roberts | Wei-Chiu Chuang |
+| [HDFS-11787](https://issues.apache.org/jira/browse/HDFS-11787) | After HDFS-11515, -du still throws ConcurrentModificationException |  Major | snapshots, tools | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [YARN-6141](https://issues.apache.org/jira/browse/YARN-6141) | ppc64le on Linux doesn't trigger \_\_linux get\_executable codepath |  Major | nodemanager | Sonia Garudi | Ayappan |
+| [HDFS-11445](https://issues.apache.org/jira/browse/HDFS-11445) | FSCK shows overall health stauts as corrupt even one replica is corrupt |  Critical | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [YARN-6641](https://issues.apache.org/jira/browse/YARN-6641) | Non-public resource localization on a bad disk causes subsequent containers failure |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [YARN-6649](https://issues.apache.org/jira/browse/YARN-6649) | RollingLevelDBTimelineServer throws RuntimeException if object decoding ever fails runtime exception |  Critical | . | Jonathan Eagles | Jonathan Eagles |
+| [HDFS-11893](https://issues.apache.org/jira/browse/HDFS-11893) | Fix TestDFSShell.testMoveWithTargetPortEmpty failure. |  Major | test | Konstantin Shvachko | Brahma Reddy Battula |
 
 
 ### TESTS:

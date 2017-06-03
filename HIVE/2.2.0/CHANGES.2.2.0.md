@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-05-12)
+## Release 2.2.0 - Unreleased (as of 2017-06-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -45,7 +45,6 @@
 | [HIVE-14315](https://issues.apache.org/jira/browse/HIVE-14315) | Implement StatsProvidingRecordReader for ParquetRecordReaderWrapper |  Major | Statistics | Chao Sun | Chao Sun |
 | [HIVE-14035](https://issues.apache.org/jira/browse/HIVE-14035) | Enable predicate pushdown to delta files created by ACID Transactions |  Major | Transactions | Saket Saurabh | Saket Saurabh |
 | [HIVE-14362](https://issues.apache.org/jira/browse/HIVE-14362) | Support explain analyze in Hive |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
-| [HIVE-14233](https://issues.apache.org/jira/browse/HIVE-14233) | Improve vectorization for ACID by eliminating row-by-row stitching |  Major | Transactions, Vectorization | Saket Saurabh | Saket Saurabh |
 | [HIVE-14217](https://issues.apache.org/jira/browse/HIVE-14217) | Druid integration |  Major | Druid integration | Julian Hyde | Jesus Camacho Rodriguez |
 | [HIVE-14249](https://issues.apache.org/jira/browse/HIVE-14249) | Add simple materialized views with manual rebuilds |  Major | Materialized views, Parser | Alan Gates | Jesus Camacho Rodriguez |
 | [HIVE-14558](https://issues.apache.org/jira/browse/HIVE-14558) | Add support for listing views similar to "show tables" |  Major | Hive | Naveen Gangam | Naveen Gangam |
@@ -856,7 +855,6 @@
 | [HIVE-15958](https://issues.apache.org/jira/browse/HIVE-15958) | LLAP: IPC connections are not being reused for umbilical protocol |  Major | llap | Rajesh Balamohan | Prasanth Jayachandran |
 | [HIVE-16022](https://issues.apache.org/jira/browse/HIVE-16022) | BloomFilter check not showing up in MERGE statement queries |  Major | Query Planning | Jason Dere | Jason Dere |
 | [HIVE-13864](https://issues.apache.org/jira/browse/HIVE-13864) | Beeline ignores the command that follows a semicolon and comment |  Major | . | Muthu Manickam | Yongzhi Chen |
-| [HIVE-12767](https://issues.apache.org/jira/browse/HIVE-12767) | Implement table property to address Parquet int96 timestamp bug |  Major | . | Sergio Peña | Barna Zsombor Klara |
 | [HIVE-16040](https://issues.apache.org/jira/browse/HIVE-16040) | union column expansion should take aliases from the leftmost branch |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-15935](https://issues.apache.org/jira/browse/HIVE-15935) | ACL is not set in ATS data |  Major | . | Daniel Dai | Daniel Dai |
 | [HIVE-7517](https://issues.apache.org/jira/browse/HIVE-7517) | RecordIdentifier overrides equals() but not hashCode() |  Major | Query Processor, Transactions | Eugene Koifman | Eugene Koifman |
@@ -870,7 +868,6 @@
 | [HIVE-13335](https://issues.apache.org/jira/browse/HIVE-13335) | tune TxnHandler.performTimeOuts() batch size |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-15848](https://issues.apache.org/jira/browse/HIVE-15848) | count or sum distinct incorrect when hive.optimize.reducededuplication set to true |  Critical | . | Biao Wu | Zoltan Haindrich |
 | [HIVE-15952](https://issues.apache.org/jira/browse/HIVE-15952) | Add blobstore integration test for CREATE LIKE |  Major | Test | Juan Rodríguez Hortalá | Juan Rodríguez Hortalá |
-| [HIVE-16088](https://issues.apache.org/jira/browse/HIVE-16088) | Fix hive conf property name introduced in HIVE-12767 |  Trivial | . | Barna Zsombor Klara | Barna Zsombor Klara |
 | [HIVE-16070](https://issues.apache.org/jira/browse/HIVE-16070) | fix nonReserved list in IdentifiersParser.g |  Major | Query Planning, Query Processor, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-16081](https://issues.apache.org/jira/browse/HIVE-16081) | allow "0.23" shim creation for Hadoop 3 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16086](https://issues.apache.org/jira/browse/HIVE-16086) | Fix HiveMetaStoreChecker.checkPartitionDirsSingleThreaded method |  Major | . | Kiran Kumar Kolli | Kiran Kumar Kolli |
@@ -962,6 +959,8 @@
 | [HIVE-12614](https://issues.apache.org/jira/browse/HIVE-12614) | RESET command does not close spark session |  Minor | Spark | Nemon Lou | Sahil Takiar |
 | [HIVE-16547](https://issues.apache.org/jira/browse/HIVE-16547) | LLAP: may not unlock buffers in some cases |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16545](https://issues.apache.org/jira/browse/HIVE-16545) | LLAP: bug in arena size determination logic |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-16683](https://issues.apache.org/jira/browse/HIVE-16683) | ORC WriterVersion gets ArrayIndexOutOfBoundsException on newer ORC files |  Major | ORC | Owen O'Malley | Owen O'Malley |
+| [HIVE-16549](https://issues.apache.org/jira/browse/HIVE-16549) | Fix an incompatible change in PredicateLeafImpl from HIVE-15269 |  Major | storage-api | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:

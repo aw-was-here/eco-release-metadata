@@ -153,7 +153,7 @@
 | [FLINK-5021](https://issues.apache.org/jira/browse/FLINK-5021) | Makes the ContinuousFileReaderOperator rescalable. |  Major | filesystem-connector | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-4939](https://issues.apache.org/jira/browse/FLINK-4939) | GenericWriteAheadSink: Decouple the creating from the committing subtask for a pending checkpoint |  Major | Cassandra Connector | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-4527](https://issues.apache.org/jira/browse/FLINK-4527) | Drop the "flinkAccumulators" from the Execution |  Major | JobManager | Stephan Ewen | Chesnay Schepler |
-| [FLINK-4369](https://issues.apache.org/jira/browse/FLINK-4369) | EvictingWindowOperator Must Actually Evict Elements |  Blocker | Streaming | Aljoscha Krettek | vishnu viswanath |
+| [FLINK-4369](https://issues.apache.org/jira/browse/FLINK-4369) | EvictingWindowOperator Must Actually Evict Elements |  Blocker | Streaming | Aljoscha Krettek | Vishnu Viswanath |
 | [FLINK-5054](https://issues.apache.org/jira/browse/FLINK-5054) | Make the BucketingSink rescalable. |  Major | filesystem-connector | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-5123](https://issues.apache.org/jira/browse/FLINK-5123) | Add description how to do proper shading to Flink docs. |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-3869](https://issues.apache.org/jira/browse/FLINK-3869) | WindowedStream.apply with FoldFunction is too restrictive |  Major | Streaming | Aljoscha Krettek | Yassine Marzougui |
@@ -588,7 +588,7 @@
 | [FLINK-4221](https://issues.apache.org/jira/browse/FLINK-4221) | Show metrics in WebFrontend |  Major | Metrics, Webfrontend | Chesnay Schepler | Robert Metzger |
 | [FLINK-4984](https://issues.apache.org/jira/browse/FLINK-4984) | Add Cancellation Barriers to BarrierTracker and BarrierBuffer |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-4985](https://issues.apache.org/jira/browse/FLINK-4985) | Report Declined/Canceled Checkpoints to Checkpoint Coordinator |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
-| [FLINK-4174](https://issues.apache.org/jira/browse/FLINK-4174) | Enhance Window Evictor |  Major | Streaming | vishnu viswanath | vishnu viswanath |
+| [FLINK-4174](https://issues.apache.org/jira/browse/FLINK-4174) | Enhance Window Evictor |  Major | Streaming | Vishnu Viswanath | Vishnu Viswanath |
 | [FLINK-4900](https://issues.apache.org/jira/browse/FLINK-4900) | Implement Docker image support |  Major | Cluster Management, Mesos | Eron Wright | Mischa Krüger |
 | [FLINK-4937](https://issues.apache.org/jira/browse/FLINK-4937) | Add incremental group window aggregation for streaming Table API |  Major | Table API & SQL | Fabian Hueske | sunjincheng |
 | [FLINK-4993](https://issues.apache.org/jira/browse/FLINK-4993) | Don't Allow Trigger.onMerge() to return TriggerResult |  Major | Streaming | Aljoscha Krettek | Aljoscha Krettek |

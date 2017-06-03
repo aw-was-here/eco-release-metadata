@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-05-12)
+## Release 1.3.0 - Unreleased (as of 2017-06-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -670,6 +670,7 @@
 | [HIVE-15859](https://issues.apache.org/jira/browse/HIVE-15859) | HoS: Write RPC messages in event loop |  Major | Hive, Spark | KaiXu | Rui Li |
 | [HIVE-16473](https://issues.apache.org/jira/browse/HIVE-16473) | Hive-on-Tez may fail to write to an HBase table |  Major | . | Mahesh Balakrishnan | Sergey Shelukhin |
 | [HIVE-16287](https://issues.apache.org/jira/browse/HIVE-16287) | Alter table partition rename with location - moves partition back to hive warehouse |  Minor | Metastore | Ying Chen | Vihang Karajgaonkar |
+| [HIVE-16413](https://issues.apache.org/jira/browse/HIVE-16413) | Create table as select does not check ownership of the location |  Major | Authorization, SQLStandardAuthorization | Niklaus Xiao | Niklaus Xiao |
 
 
 ### TESTS:
@@ -683,6 +684,7 @@
 | [HIVE-12697](https://issues.apache.org/jira/browse/HIVE-12697) | Remove deprecated post option from webhcat test files |  Major | WebHCat | Aswathy Chellammal Sreekumar | Aswathy Chellammal Sreekumar |
 | [HIVE-13055](https://issues.apache.org/jira/browse/HIVE-13055) | Add unit tests for HIVE-11512 |  Major | HiveServer2 | Naveen Gangam | Naveen Gangam |
 | [HIVE-12279](https://issues.apache.org/jira/browse/HIVE-12279) | Testcase to verify session temporary files are removed after HIVE-11768 |  Major | HiveServer2, Test | Daniel Dai | Daniel Dai |
+| [HIVE-16673](https://issues.apache.org/jira/browse/HIVE-16673) | Test for HIVE-16413 |  Major | . | Zoltan Haindrich | Zoltan Haindrich |
 
 
 ### SUB-TASKS:

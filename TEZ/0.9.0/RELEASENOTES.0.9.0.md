@@ -49,4 +49,11 @@ DAGPlan and Counters were moved out of TEZ\_DAG\_ID entity into DAG\_EXTRA\_INFO
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [TEZ-3745](https://issues.apache.org/jira/browse/TEZ-3745) | *Blocker* | **Change master to required java 8**
+
+**WARNING: No release note provided for this change.**
+
+
 

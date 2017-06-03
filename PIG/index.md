@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Pig v0.18.0
+    * [Changes](0.18.0/CHANGES.0.18.0.html)
+    * [Release Notes](0.18.0/RELEASENOTES.0.18.0.html)
 * Apache Pig v0.17.0
     * [Changes](0.17.0/CHANGES.0.17.0.html)
     * [Release Notes](0.17.0/RELEASENOTES.0.17.0.html)

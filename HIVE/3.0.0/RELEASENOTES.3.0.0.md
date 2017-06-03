@@ -72,6 +72,13 @@ Embedded web services now rely on Jetty 9; downstream users who rely on Hive's c
 
 ---
 
+* [HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520) | *Major* | **Cache hive metadata in metastore**
+
+To use CachedStore, please set hive.metastore.rawstore.impl to "org.apache.hadoop.hive.metastore.cache.CachedStore" in hive-site.xml.
+
+
+---
+
 * [HIVE-16269](https://issues.apache.org/jira/browse/HIVE-16269) | *Major* | **enable incremental function dump to be loaded via repl load**
 
 Committed to master.
@@ -85,6 +92,35 @@ HIVE-14412 adds 'timestamp with time zone' data type to Hive. The full qualified
 'timestamptz' is accepted as a type alias for 'timestamp with time zone'.
 Conversion between date/timestamp and timestamp with time zone is done using the system time zone.
 'time' becomes a reserved key word after HIVE-14412, thus can break user queries where 'time' is used as identifiers. If users want to continue use 'time' as identifiers, they have to escape it with '\`' (backtick).
+
+
+---
+
+* [HIVE-1010](https://issues.apache.org/jira/browse/HIVE-1010) | *Major* | **Implement INFORMATION\_SCHEMA in Hive**
+
+New method added to StorageHandler to pass credentials around.
+
+Adds db type to hive schematool. The db type is "hive". When you run the schematool w/ hive it installs the "sys" db and the "information\_schema" db. both contain tables and views that expose meta information about tables, columns etc.
+
+
+---
+
+* [HIVE-16686](https://issues.apache.org/jira/browse/HIVE-16686) | *Major* | **repl invocations of distcp needs additional handling**
+
+This introduces parsing of additional parameters that are not directly used by hive, but are passed on to distcp when hive invokes it. We now introduce the ability to use the hive command to do "set" commands to pass along cli arguments to distcp.
+
+Any parameter set as "set distcp.options.blah=''" will result in an extra "-blah" argument going into distcp, as well as any parameter set as "set distcp.options.foo='bar'" will result in an extra "-foo bar" argument going to distcp.
+
+Currently, we always pass along "-update" and "-skipcrccheck" to distcp - that is retained as defaults if no distcp.options.\* params are found. If they are found, then these options are not added by default, letting the user instead provide an excplicit list.
+
+Note that all of these properties affect how distcp runs when it is launched by hive, but are not directly hive settings. Instead, hive will allow setting them through the use of the "set" command.
+
+
+---
+
+* [HIVE-16799](https://issues.apache.org/jira/browse/HIVE-16799) | *Major* | **Control the max number of task for a stage in a spark job**
+
+Document the new configuration.
 
 
 

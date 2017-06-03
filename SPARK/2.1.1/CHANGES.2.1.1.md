@@ -77,6 +77,7 @@
 | [SPARK-19986](https://issues.apache.org/jira/browse/SPARK-19986) | Make pyspark.streaming.tests.CheckpointTests more stable |  Major | Tests | Shixiong Zhu |  |
 | [SPARK-19999](https://issues.apache.org/jira/browse/SPARK-19999) | Test failures in Spark Core due to java.nio.Bits.unaligned() |  Minor | Spark Core | Sonia Garudi | Sonia Garudi |
 | [SPARK-17564](https://issues.apache.org/jira/browse/SPARK-17564) | Flaky RequestTimeoutIntegrationSuite, furtherRequestsDelay |  Minor | Tests | Adam Roberts | Shixiong Zhu |
+| [SPARK-19555](https://issues.apache.org/jira/browse/SPARK-19555) | Improve inefficient StringUtils.escapeLikeRegex() method |  Major | SQL | Josh Rosen |  |
 
 
 ### BUG FIXES:
@@ -258,6 +259,7 @@
 | [SPARK-20451](https://issues.apache.org/jira/browse/SPARK-20451) | Filter out nested mapType datatypes from sort order in randomSplit |  Major | SQL | Sameer Agarwal | Sameer Agarwal |
 | [SPARK-20312](https://issues.apache.org/jira/browse/SPARK-20312) | query optimizer calls udf with null values when it doesn't expect them |  Major | SQL | Albert Meltzer |  |
 | [SPARK-20570](https://issues.apache.org/jira/browse/SPARK-20570) | The main version number on docs/latest/index.html |  Major | Documentation | liucht-inspur | Michael Armbrust |
+| [SPARK-18651](https://issues.apache.org/jira/browse/SPARK-18651) | KeyValueGroupedDataset[K, V].reduceGroups cannot handle primitive for V |  Major | SQL | koert kuipers |  |
 
 
 ### TESTS:

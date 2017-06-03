@@ -18,55 +18,25 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.1 - Unreleased (as of 2017-05-08)
+## Release 2.2.1 - Unreleased (as of 2017-06-03)
 
-
-
-### NEW FEATURES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-20047](https://issues.apache.org/jira/browse/SPARK-20047) | Constrained Logistic Regression |  Major | MLlib | DB Tsai | Yanbo Liang |
-| [SPARK-14471](https://issues.apache.org/jira/browse/SPARK-14471) | The alias created in SELECT could be used in GROUP BY and followed expressions |  Major | SQL | Davies Liu | Takeshi Yamamuro |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-20426](https://issues.apache.org/jira/browse/SPARK-20426) | OneForOneStreamManager occupies too much memory. |  Major | Shuffle | jin xing | jin xing |
-| [SPARK-20621](https://issues.apache.org/jira/browse/SPARK-20621) | Delete deprecated config parameter in 'spark-env.sh' |  Minor | Deploy | coneyliu | coneyliu |
+| [SPARK-20861](https://issues.apache.org/jira/browse/SPARK-20861) | Pyspark CrossValidator & TrainValidationSplit should delegate parameter looping to estimators |  Minor | ML, PySpark | Bago Amirbekian | Bago Amirbekian |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-20483](https://issues.apache.org/jira/browse/SPARK-20483) | Mesos Coarse mode may starve other Mesos frameworks if max cores is not a multiple of executor cores |  Minor | Mesos | Davis Shepherd | Davis Shepherd |
-| [SPARK-20482](https://issues.apache.org/jira/browse/SPARK-20482) | Resolving Casts is too strict on having time zone set |  Major | SQL | Kris Mok | Kris Mok |
-| [SPARK-20476](https://issues.apache.org/jira/browse/SPARK-20476) | Exception between "create table as" and "get\_json\_object" |  Major | SQL | cen yuhai | Xiao Li |
-| [SPARK-20471](https://issues.apache.org/jira/browse/SPARK-20471) | Remove AggregateBenchmark testsuite warning: Two level hashmap is disabled but vectorized hashmap is enabled. |  Major | Tests | caoxuewen | caoxuewen |
-| [SPARK-20534](https://issues.apache.org/jira/browse/SPARK-20534) | Outer generators skip missing records if used alone |  Major | SQL | Maciej Szymkiewicz | Maciej Szymkiewicz |
-| [SPARK-20517](https://issues.apache.org/jira/browse/SPARK-20517) | Download link in history server UI is not correct |  Minor | Spark Core | Saisai Shao | Saisai Shao |
-| [SPARK-20459](https://issues.apache.org/jira/browse/SPARK-20459) | JdbcUtils throws IllegalStateException: Cause already initialized after getting SQLException |  Minor | SQL | Jessie Yu | Sean Owen |
-| [SPARK-20537](https://issues.apache.org/jira/browse/SPARK-20537) | OffHeapColumnVector reallocation may not copy existing data |  Major | Spark Core | Kazuaki Ishizaki | Kazuaki Ishizaki |
-| [SPARK-20549](https://issues.apache.org/jira/browse/SPARK-20549) | java.io.CharConversionException: Invalid UTF-32 in JsonToStructs |  Major | SQL | Burak Yavuz | Burak Yavuz |
-| [SPARK-20558](https://issues.apache.org/jira/browse/SPARK-20558) | clear InheritableThreadLocal variables in SparkContext when stopping it |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
-| [SPARK-20546](https://issues.apache.org/jira/browse/SPARK-20546) | spark-class gets syntax error in posix mode |  Minor | Deploy | Jessie Yu | Jessie Yu |
-
-
-### TESTS:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-20596](https://issues.apache.org/jira/browse/SPARK-20596) | Improve ALS recommend all test cases |  Minor | ML, Tests | Nick Pentreath | Nick Pentreath |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-12837](https://issues.apache.org/jira/browse/SPARK-12837) | Spark driver requires large memory space for serialized results even there are no data collected to the driver |  Critical | SQL | Tien-Dung LE | Wenchen Fan |
-| [SPARK-20421](https://issues.apache.org/jira/browse/SPARK-20421) | Mark JobProgressListener (and related classes) as deprecated |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
+| [SPARK-20140](https://issues.apache.org/jira/browse/SPARK-20140) | Remove hardcoded kinesis retry wait and max retries |  Major | DStreams | Yash Sharma | Yash Sharma |
+| [SPARK-20756](https://issues.apache.org/jira/browse/SPARK-20756) | yarn-shuffle jar has references to unshaded guava and contains scala classes |  Major | YARN | Mark Grover | Mark Grover |
+| [SPARK-20814](https://issues.apache.org/jira/browse/SPARK-20814) | Mesos scheduler does not respect spark.executor.extraClassPath configuration |  Critical | Mesos | Gene Pang | Marcelo Vanzin |
+| [SPARK-20365](https://issues.apache.org/jira/browse/SPARK-20365) | Not so accurate classpath format for AM and Containers |  Minor | YARN | Saisai Shao |  |
+| [SPARK-20922](https://issues.apache.org/jira/browse/SPARK-20922) | Unsafe deserialization in Spark LauncherConnection |  Major | Spark Submit | Aditya Sharad | Marcelo Vanzin |
 
 

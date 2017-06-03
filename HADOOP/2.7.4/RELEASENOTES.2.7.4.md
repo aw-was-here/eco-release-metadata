@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HADOOP-7851](https://issues.apache.org/jira/browse/HADOOP-7851) | *Major* | **Configuration.getClasses() never returns the default value.**
+
+Fixed Configuration.getClasses() API to return the default value if the key is not set.
+
+
+---
+
 * [HADOOP-12668](https://issues.apache.org/jira/browse/HADOOP-12668) | *Critical* | **Support excluding weak Ciphers in HttpServer2 through ssl-server.xml**
 
 The Code Changes include following:
@@ -43,6 +50,13 @@ Reserved space can be configured independently for different storage types for c
 * [HDFS-7933](https://issues.apache.org/jira/browse/HDFS-7933) | *Major* | **fsck should also report decommissioning replicas.**
 
 The output of hdfs fsck now also contains information about decommissioning replicas.
+
+
+---
+
+* [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
+
+HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
 
 
 ---

@@ -190,7 +190,7 @@
 | [HDFS-10909](https://issues.apache.org/jira/browse/HDFS-10909) | De-duplicate code in ErasureCodingWorker#initializeStripedReadThreadPool and DFSClient#initThreadsNumForStripedReads |  Minor | . | Wei-Chiu Chuang | Manoj Govindassamy |
 | [HADOOP-13784](https://issues.apache.org/jira/browse/HADOOP-13784) | Output javadoc inside the target directory |  Major | documentation | Andrew Wang | Andrew Wang |
 | [HDFS-11080](https://issues.apache.org/jira/browse/HDFS-11080) | Update HttpFS to use ConfigRedactor |  Major | . | Sean Mackrory | Sean Mackrory |
-| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | . | Tao Jie | Tao Jie |
+| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | . | Tao Jie | Jonathan Hung |
 | [HADOOP-12453](https://issues.apache.org/jira/browse/HADOOP-12453) | Support decoding KMS Delegation Token with its own Identifier |  Major | kms, security | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-11088](https://issues.apache.org/jira/browse/HDFS-11088) | Quash unnecessary safemode WARN message during NameNode startup |  Trivial | . | Andrew Wang | Yiqun Lin |
 | [MAPREDUCE-6796](https://issues.apache.org/jira/browse/MAPREDUCE-6796) | Remove unused properties from JTConfig.java |  Major | . | Akira Ajisaka | Haibo Chen |
@@ -433,7 +433,7 @@
 | [YARN-4743](https://issues.apache.org/jira/browse/YARN-4743) | FairSharePolicy breaks TimSort assumption |  Major | fairscheduler | Zephyr Guo | Zephyr Guo |
 | [HADOOP-13763](https://issues.apache.org/jira/browse/HADOOP-13763) | KMS REST API Documentation Decrypt URL typo |  Minor | documentation, kms | Jeffrey E  Rodriguez | Jeffrey E  Rodriguez |
 | [YARN-5794](https://issues.apache.org/jira/browse/YARN-5794) | Fix the asflicense warnings |  Major | . | Yiqun Lin | Yiqun Lin |
-| [HADOOP-13770](https://issues.apache.org/jira/browse/HADOOP-13770) | Shell.checkIsBashSupported swallowed an interrupted exception |  Blocker | util | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [HADOOP-13770](https://issues.apache.org/jira/browse/HADOOP-13770) | Shell.checkIsBashSupported swallowed an interrupted exception |  Minor | util | Wei-Chiu Chuang | Wei-Chiu Chuang |
 | [YARN-5027](https://issues.apache.org/jira/browse/YARN-5027) | NM should clean up app log dirs after NM restart |  Major | nodemanager | sandflee | sandflee |
 | [YARN-5767](https://issues.apache.org/jira/browse/YARN-5767) | Fix the order that resources are cleaned up from the local Public/Private caches |  Major | . | Chris Trezzo | Chris Trezzo |
 | [HDFS-11061](https://issues.apache.org/jira/browse/HDFS-11061) | Update dfs -count -t command line help and documentation |  Minor | documentation, fs | Wei-Chiu Chuang | Yiqun Lin |
@@ -645,7 +645,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-5608](https://issues.apache.org/jira/browse/YARN-5608) | TestAMRMClient.setup() fails with ArrayOutOfBoundsException |  Major | test | Daniel Templeton | Daniel Templeton |
 | [HDFS-10657](https://issues.apache.org/jira/browse/HDFS-10657) | testAclCLI.xml setfacl test should expect mask r-x |  Minor | . | John Zhuge | John Zhuge |
 | [YARN-5656](https://issues.apache.org/jira/browse/YARN-5656) | Fix ReservationACLsTestBase |  Major | . | Sean Po | Sean Po |
 | [HDFS-9333](https://issues.apache.org/jira/browse/HDFS-9333) | Some tests using MiniDFSCluster errored complaining port in use |  Minor | test | Kai Zheng | Masatake Iwasaki |
@@ -660,6 +659,7 @@
 | [HDFS-11278](https://issues.apache.org/jira/browse/HDFS-11278) | Add missing @Test annotation for TestSafeMode.testSafeModeUtils() |  Trivial | namenode | Lukas Majercak | Lukas Majercak |
 | [MAPREDUCE-6831](https://issues.apache.org/jira/browse/MAPREDUCE-6831) | Flaky test TestJobImpl.testKilledDuringKillAbort |  Major | mrv2 | Peter Bacsko | Peter Bacsko |
 | [HDFS-11290](https://issues.apache.org/jira/browse/HDFS-11290) | TestFSNameSystemMBean should wait until JMX cache is cleared |  Major | test | Akira Ajisaka | Erik Krogen |
+| [YARN-5608](https://issues.apache.org/jira/browse/YARN-5608) | TestAMRMClient.setup() fails with ArrayOutOfBoundsException |  Major | test | Daniel Templeton | Daniel Templeton |
 
 
 ### SUB-TASKS:

@@ -51,4 +51,19 @@ zookeeper-security-migration --zookeeper.acl secure --zookeeper.connect zoo1:218
 That seems pretty bad to be honest... A fast enough ZkClient could delete some root nodes, and create the nodes they like before the Acls get set.
 
 
+---
+
+* [KAFKA-5289](https://issues.apache.org/jira/browse/KAFKA-5289) | *Critical* | **One StopReplicaRequest will caused two Responses**
+
+After discussed with my friend markTC，we find a bug.
+One StopReplicaRequest will caused two Responses.
+
+At core/src/main/scala/kafka/server/KafkaApi.class 175 and 176 lines.
+
+When an exception caused at 'replicaManager.replicaFetcherManager.shutdownIdleFetcherThreads()', 
+will also return two responses.
+
+one is at 175 lines 'requestChannel.sendResponse(new RequestChannel.Response(request, new ResponseSend(request.connectionId, responseHeader, response)))' and another at 111 lines 'requestChannel.sendResponse(new Response(request, new ResponseSend(request.connectionId, respHeader, response)))'.
+
+
 

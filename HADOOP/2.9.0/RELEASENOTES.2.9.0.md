@@ -300,9 +300,44 @@ If  a positive value is passed to command line switch -blocksperchunk, files wit
 
 ---
 
+* [HDFS-9016](https://issues.apache.org/jira/browse/HDFS-9016) | *Major* | **Display upgrade domain information in fsck**
+
+New fsck option "-upgradedomains" has been added to display upgrade domains of any block.
+
+
+---
+
 * [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
 
 In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
+
+
+---
+
+* [HADOOP-14419](https://issues.apache.org/jira/browse/HADOOP-14419) | *Minor* | **Remove findbugs report from docs profile**
+
+Findbugs report is no longer part of the documentation.
+
+
+---
+
+* [HDFS-11661](https://issues.apache.org/jira/browse/HDFS-11661) | *Blocker* | **GetContentSummary uses excessive amounts of memory**
+
+Reverted HDFS-10797 to fix a scalability regression brought by the commit.
+
+
+---
+
+* [HDFS-11787](https://issues.apache.org/jira/browse/HDFS-11787) | *Major* | **After HDFS-11515, -du still throws ConcurrentModificationException**
+
+Reverted HDFS-11515.
+
+
+---
+
+* [HADOOP-14407](https://issues.apache.org/jira/browse/HADOOP-14407) | *Major* | **DistCp - Introduce a configurable copy buffer size**
+
+The copy buffer size can be configured via the new parameter \<copybuffersize\>. By default the \<copybuffersize\> is set to 8KB.
 
 
 

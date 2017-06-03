@@ -18,8 +18,15 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-05-12)
+## Release 5.0.0 - Unreleased (as of 2017-06-03)
 
+
+
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2387](https://issues.apache.org/jira/browse/OOZIE-2387) | Oozie is Unable to handle Spaces in file/archive tag. |  Major | action | shiv pratap singh | Attila Sasvari |
 
 
 ### NEW FEATURES:
@@ -32,6 +39,7 @@
 | [OOZIE-2701](https://issues.apache.org/jira/browse/OOZIE-2701) | Oozie to support Multiple HCatalog URIs |  Major | core | Abhishek Bafna | Abhishek Bafna |
 | [OOZIE-2827](https://issues.apache.org/jira/browse/OOZIE-2827) | More directly view of the coordinator’s history from perspective of workflow action. |  Major | . | Alonzo Zhou |  |
 | [OOZIE-2843](https://issues.apache.org/jira/browse/OOZIE-2843) | Enhance logging inside ZKLocksService and MemoryLocksService |  Minor | action, coordinator | Andras Piros | Andras Piros |
+| [OOZIE-1770](https://issues.apache.org/jira/browse/OOZIE-1770) | Create Oozie Application Master for YARN |  Major | . | Bowen Zhang | Peter Cseh |
 
 
 ### IMPROVEMENTS:
@@ -59,6 +67,8 @@
 | [OOZIE-2860](https://issues.apache.org/jira/browse/OOZIE-2860) | Improve Jetty logging |  Major | core | Andras Piros | Andras Piros |
 | [OOZIE-2851](https://issues.apache.org/jira/browse/OOZIE-2851) | spelling mistakes in examples |  Trivial | docs | Artem Ervits | Artem Ervits |
 | [OOZIE-2874](https://issues.apache.org/jira/browse/OOZIE-2874) | Make the Launcher Mapper map-only job's InputFormat class pluggable |  Major | . | Andras Piros | Andras Piros |
+| [OOZIE-2780](https://issues.apache.org/jira/browse/OOZIE-2780) | Upgrade minimum Hadoop version to 2.6.0 |  Minor | core | Artem Ervits | Artem Ervits |
+| [OOZIE-2888](https://issues.apache.org/jira/browse/OOZIE-2888) | Upgrade commons-io to 2.4 |  Minor | core | Artem Ervits | Artem Ervits |
 
 
 ### BUG FIXES:
@@ -102,6 +112,11 @@
 | [OOZIE-2870](https://issues.apache.org/jira/browse/OOZIE-2870) | non working examples in oozie documentation coordinator spec |  Major | docs | Clemens Valiente | Andras Piros |
 | [OOZIE-2751](https://issues.apache.org/jira/browse/OOZIE-2751) | LocalOozieClient is missing methods from OozieClient |  Major | . | Robert Kanter | Abhishek Bafna |
 | [OOZIE-2824](https://issues.apache.org/jira/browse/OOZIE-2824) | Fix typos in documentation |  Trivial | . | Laszlo Zeke | Laszlo Zeke |
+| [OOZIE-2872](https://issues.apache.org/jira/browse/OOZIE-2872) | Address backward compatibility issue introduced by OOZIE-2748 |  Major | . | Peter Bacsko | Peter Bacsko |
+| [OOZIE-2908](https://issues.apache.org/jira/browse/OOZIE-2908) | Fix typo in oozie.actions.null.args.allowed property in oozie-default.xml |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2317](https://issues.apache.org/jira/browse/OOZIE-2317) | Figure out what to do about Tomcat 6 End of Life |  Major | core | Robert Kanter |  |
+| [OOZIE-2917](https://issues.apache.org/jira/browse/OOZIE-2917) | duplicate declaration warning for io.dropwizard.metrics:metrics-core |  Trivial | core | Artem Ervits | Artem Ervits |
+| [OOZIE-2886](https://issues.apache.org/jira/browse/OOZIE-2886) | Ensure consistent versioning of hadoop jars in sharelibs |  Major | build | Robert Kanter | Artem Ervits |
 
 
 ### SUB-TASKS:
@@ -113,6 +128,7 @@
 | [OOZIE-2519](https://issues.apache.org/jira/browse/OOZIE-2519) | Oozie HA with SSL info is slightly incorrect |  Major | docs | Robert Kanter | Andras Piros |
 | [OOZIE-2753](https://issues.apache.org/jira/browse/OOZIE-2753) | Update Docs for Jetty Tomcat changes |  Major | docs | Robert Kanter | Attila Sasvari |
 | [OOZIE-1283](https://issues.apache.org/jira/browse/OOZIE-1283) | Remove the old ssh documentation |  Minor | docs | Robert Kanter | Jan Hentschel |
+| [OOZIE-2875](https://issues.apache.org/jira/browse/OOZIE-2875) | Typo in ssh action twiki docs |  Minor | docs | Dongying Jiao | Dongying Jiao |
 
 
 ### OTHER:

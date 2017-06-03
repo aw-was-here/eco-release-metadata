@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.2.2 - Unreleased (as of 2017-05-12)
+## Release 1.2.2 - Unreleased (as of 2017-06-03)
 
 
 
@@ -43,5 +43,8 @@
 | [FLINK-6059](https://issues.apache.org/jira/browse/FLINK-6059) | Reject DataSet\<Row\> and DataStream\<Row\> without RowTypeInformation |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-6394](https://issues.apache.org/jira/browse/FLINK-6394) | GroupCombine reuses instances even though object reuse is disabled |  Critical | DataSet API | Jaromir Vanek | Kurt Young |
 | [FLINK-6330](https://issues.apache.org/jira/browse/FLINK-6330) | Improve Docker documentation |  Major | Docker | Patrick Lucas | Patrick Lucas |
+| [FLINK-6581](https://issues.apache.org/jira/browse/FLINK-6581) | Dynamic property parsing broken for YARN |  Major | YARN | Till Rohrmann | Till Rohrmann |
+| [FLINK-6328](https://issues.apache.org/jira/browse/FLINK-6328) | Savepoints must not be counted as retained checkpoints |  Blocker | State Backends, Checkpointing | Stephan Ewen | Till Rohrmann |
+| [FLINK-6775](https://issues.apache.org/jira/browse/FLINK-6775) | StateDescriptor cannot be shared by multiple subtasks |  Blocker | DataStream API | Till Rohrmann | Till Rohrmann |
 
 

@@ -95,13 +95,6 @@ The classes in org.apache.hadoop.record are moved from hadoop-common to a new ha
 
 ---
 
-* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
-
-fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
-
-
----
-
 * [HADOOP-9902](https://issues.apache.org/jira/browse/HADOOP-9902) | *Major* | **Shell script rewrite**
 
 <!-- markdown -->
@@ -1944,6 +1937,13 @@ New fsck option "-upgradedomains" has been added to display upgrade domains of a
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
+
+fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
 
 
 

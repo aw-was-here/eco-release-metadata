@@ -18,8 +18,15 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.8.6 - Unreleased (as of 2017-05-12)
+## Release 0.8.6 - Unreleased (as of 2017-06-03)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3007](https://issues.apache.org/jira/browse/TEZ-3007) | Use AppFinalState.ENDED when unregistering with the RM in session mode |  Major | . | Siddharth Seth | Harish Jaiprakash |
 
 
 ### BUG FIXES:

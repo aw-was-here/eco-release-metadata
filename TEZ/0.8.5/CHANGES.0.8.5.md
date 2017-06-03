@@ -86,6 +86,7 @@
 | [TEZ-3644](https://issues.apache.org/jira/browse/TEZ-3644) | Cleanup container list stored in AMNode |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3616](https://issues.apache.org/jira/browse/TEZ-3616) | TestMergeManager#testLocalDiskMergeMultipleTasks fails intermittently |  Major | . | Sonia Garudi | Fei Hui |
 | [TEZ-3719](https://issues.apache.org/jira/browse/TEZ-3719) | DAGImpl.computeProgress slows down dispatcher and ipc threads |  Major | . | Rajesh Balamohan | Gopal V |
+| [TEZ-3709](https://issues.apache.org/jira/browse/TEZ-3709) | TezMerger is slow for high number of segments |  Major | . | Jonathan Eagles | Jonathan Eagles |
 
 
 ### SUB-TASKS:

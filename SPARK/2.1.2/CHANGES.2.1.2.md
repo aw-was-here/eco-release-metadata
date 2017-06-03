@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-05-12)
+## Release 2.1.2 - Unreleased (as of 2017-06-03)
 
 
 
@@ -32,6 +32,9 @@
 | [SPARK-20409](https://issues.apache.org/jira/browse/SPARK-20409) | fail early if aggregate function in GROUP BY |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-20404](https://issues.apache.org/jira/browse/SPARK-20404) | Regression with accumulator names when migrating from 1.6 to 2.x |  Minor | Spark Core | Sergey Zhemzhitsky | Sergey Zhemzhitsky |
 | [SPARK-20627](https://issues.apache.org/jira/browse/SPARK-20627) | Remove pip local version string (PEP440) |  Major | PySpark | holdenk | holdenk |
+| [SPARK-20796](https://issues.apache.org/jira/browse/SPARK-20796) | the location of start-master.sh in spark-standalone.md is wrong |  Trivial | Documentation | liuzhaokun | liuzhaokun |
+| [SPARK-20759](https://issues.apache.org/jira/browse/SPARK-20759) | SCALA\_VERSION in \_config.yml,LICENSE and Dockerfile should be consistent with pom.xml |  Trivial | Documentation | liuzhaokun | liuzhaokun |
+| [SPARK-20868](https://issues.apache.org/jira/browse/SPARK-20868) | UnsafeShuffleWriter should verify the position after FileChannel.transferTo |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
 
 
 ### BUG FIXES:
@@ -58,10 +61,29 @@
 | [SPARK-17685](https://issues.apache.org/jira/browse/SPARK-17685) | WholeStageCodegenExec throws IndexOutOfBoundsException |  Minor | SQL | Yuming Wang | Yuming Wang |
 | [SPARK-20686](https://issues.apache.org/jira/browse/SPARK-20686) | PropagateEmptyRelation incorrectly handles aggregate without grouping expressions |  Major | Optimizer, SQL | Josh Rosen | Josh Rosen |
 | [SPARK-20631](https://issues.apache.org/jira/browse/SPARK-20631) | LogisticRegression.\_checkThresholdConsistency should use values not Params |  Minor | ML, PySpark | Maciej Szymkiewicz | Maciej Szymkiewicz |
+| [SPARK-20393](https://issues.apache.org/jira/browse/SPARK-20393) | Strengthen Spark to prevent XSS vulnerabilities |  Major | Web UI | Nicholas Marion | Nicholas Marion |
 | [SPARK-20688](https://issues.apache.org/jira/browse/SPARK-20688) | correctly check analysis for scalar sub-queries |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-20685](https://issues.apache.org/jira/browse/SPARK-20685) | BatchPythonEvaluation UDF evaluator fails for case of single UDF with repeated argument |  Major | PySpark | Josh Rosen | Josh Rosen |
 | [SPARK-20665](https://issues.apache.org/jira/browse/SPARK-20665) | Spark-sql, "Bround" and "Round" function return NULL |  Major | SQL | liuxian | liuxian |
 | [SPARK-17424](https://issues.apache.org/jira/browse/SPARK-17424) | Dataset job fails from unsound substitution in ScalaReflect |  Major | Spark Core | Ryan Blue | Ryan Blue |
+| [SPARK-20705](https://issues.apache.org/jira/browse/SPARK-20705) | The sort function can not be used in the master page when you use Firefox or Google Chrome. |  Minor | Web UI | guoxiaolongzte | guoxiaolongzte |
+| [SPARK-20735](https://issues.apache.org/jira/browse/SPARK-20735) | Enable cross join in TPCDSQueryBenchmark |  Minor | SQL, Tests | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-20769](https://issues.apache.org/jira/browse/SPARK-20769) | Incorrect documentation for using Jupyter notebook |  Minor | Documentation | Andrew Ray | Andrew Ray |
+| [SPARK-20798](https://issues.apache.org/jira/browse/SPARK-20798) | GenerateUnsafeProjection should check if value is null before calling the getter |  Major | SQL | Ala Luszczak | Ala Luszczak |
+| [SPARK-20773](https://issues.apache.org/jira/browse/SPARK-20773) | ParquetWriteSupport.writeFields is quadratic in number of fields |  Minor | SQL | T Poterba | T Poterba |
+| [SPARK-20781](https://issues.apache.org/jira/browse/SPARK-20781) | the location of Dockerfile in docker.properties.template is wrong |  Minor | Mesos | liuzhaokun | liuzhaokun |
+| [SPARK-20687](https://issues.apache.org/jira/browse/SPARK-20687) | mllib.Matrices.fromBreeze may crash when converting from Breeze sparse matrix |  Minor | MLlib | Ignacio Bermudez Corrales | Ignacio Bermudez Corrales |
+| [SPARK-20756](https://issues.apache.org/jira/browse/SPARK-20756) | yarn-shuffle jar has references to unshaded guava and contains scala classes |  Major | YARN | Mark Grover | Mark Grover |
+| [SPARK-18406](https://issues.apache.org/jira/browse/SPARK-18406) | Race between end-of-task and completion iterator read lock release |  Major | Block Manager, Spark Core | Josh Rosen | Jiang Xingbo |
+| [SPARK-20862](https://issues.apache.org/jira/browse/SPARK-20862) | LogisticRegressionModel throws TypeError |  Minor | MLlib, PySpark | Bago Amirbekian | Bago Amirbekian |
+| [SPARK-20848](https://issues.apache.org/jira/browse/SPARK-20848) | Dangling threads when reading parquet files in local mode |  Major | Input/Output, SQL | Nick Pritchard | Liang-Chi Hsieh |
+| [SPARK-20250](https://issues.apache.org/jira/browse/SPARK-20250) | Improper OOM error when a task been killed while spilling data |  Major | Spark Core | Feng Zhu | coneyliu |
+| [SPARK-20874](https://issues.apache.org/jira/browse/SPARK-20874) | The "examples" project doesn't depend on Structured Streaming Kafka source |  Minor | Examples | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-20843](https://issues.apache.org/jira/browse/SPARK-20843) | Cannot gracefully kill drivers which take longer than 10 seconds to die |  Major | Spark Core | Michael Allman | Shixiong Zhu |
+| [SPARK-20275](https://issues.apache.org/jira/browse/SPARK-20275) | HistoryServer page shows incorrect complete date of inprogress apps |  Minor | Spark Core | Saisai Shao | Saisai Shao |
+| [SPARK-20940](https://issues.apache.org/jira/browse/SPARK-20940) | AccumulatorV2 should not throw IllegalAccessError |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-20922](https://issues.apache.org/jira/browse/SPARK-20922) | Unsafe deserialization in Spark LauncherConnection |  Major | Spark Submit | Aditya Sharad | Marcelo Vanzin |
+| [SPARK-20974](https://issues.apache.org/jira/browse/SPARK-20974) | we should run REPL tests if SQL core has code changes |  Major | Build | Wenchen Fan | Wenchen Fan |
 
 
 ### TESTS:

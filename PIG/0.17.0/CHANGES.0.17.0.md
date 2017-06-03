@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.0 - Unreleased (as of 2017-05-12)
+## Release 0.17.0 - Unreleased (as of 2017-06-03)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -39,6 +39,7 @@
 | [PIG-4963](https://issues.apache.org/jira/browse/PIG-4963) | Add a Bloom join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5110](https://issues.apache.org/jira/browse/PIG-5110) | Removing schema alias and :: coming from parent relation |  Major | . | Adam Szita | Adam Szita |
 | [PIG-5214](https://issues.apache.org/jira/browse/PIG-5214) | search any substring in the input string |  Major | internal-udfs | Yuxiang Wang | Yuxiang Wang |
+| [PIG-4059](https://issues.apache.org/jira/browse/PIG-4059) | Pig on Spark |  Major | spark | Rohini Palaniswamy | Praveen Rachabattuni |
 
 
 ### IMPROVEMENTS:
@@ -73,6 +74,10 @@
 | [PIG-5211](https://issues.apache.org/jira/browse/PIG-5211) | Optimize Nested Limited Sort |  Major | . | Jin Sun | Jin Sun |
 | [PIG-5222](https://issues.apache.org/jira/browse/PIG-5222) | Fix Junit Deprecations |  Major | . | William Watson | William Watson |
 | [PIG-5221](https://issues.apache.org/jira/browse/PIG-5221) | More fs.default.name deprecation warnings |  Major | . | William Watson | William Watson |
+| [PIG-5224](https://issues.apache.org/jira/browse/PIG-5224) | Extra foreach from ColumnPrune preventing Accumulator usage |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-4924](https://issues.apache.org/jira/browse/PIG-4924) | Translate failures.maxpercent MR setting to Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5184](https://issues.apache.org/jira/browse/PIG-5184) | set command to view value of a variable |  Major | parser | Daniel Dai | Daniel Dai |
+| [PIG-5248](https://issues.apache.org/jira/browse/PIG-5248) | Fix TestCombiner#testGroupByLimit after PigOnSpark merge |  Major | . | Adam Szita | Rohini Palaniswamy |
 
 
 ### BUG FIXES:
@@ -153,6 +158,17 @@
 | [PIG-5209](https://issues.apache.org/jira/browse/PIG-5209) | Cross product on flatten(map) fails with ClassCastException |  Minor | impl | Koji Noguchi | Koji Noguchi |
 | [PIG-5223](https://issues.apache.org/jira/browse/PIG-5223) | TestLimitVariable.testNestedLimitVariable1 and TestSecondarySortMR.testNestedLimitedSort  failing |  Major | . | Koji Noguchi | Jin Sun |
 | [PIG-5226](https://issues.apache.org/jira/browse/PIG-5226) | PreprocessorContext.java can deadlock forever with large stderr |  Minor | . | Jacob Tolar | Jacob Tolar |
+| [PIG-4748](https://issues.apache.org/jira/browse/PIG-4748) | DateTimeWritable forgets Chronology |  Major | impl | Martin Junghanns | Adam Szita |
+| [PIG-5185](https://issues.apache.org/jira/browse/PIG-5185) | Job name show "DefaultJobName" when running a Python script |  Major | impl | Daniel Dai | Daniel Dai |
+| [PIG-3021](https://issues.apache.org/jira/browse/PIG-3021) | Split results missing records when there is null values in the column comparison |  Major | . | Chang Luo | Nian Ji |
+| [PIG-3103](https://issues.apache.org/jira/browse/PIG-3103) | make mockito a test dependency (instead of compile) |  Major | . | Julien Le Dem | Nandor Kollar |
+| [PIG-5238](https://issues.apache.org/jira/browse/PIG-5238) | Fix datetime related test issues after PIG-4748 |  Minor | . | Adam Szita | Adam Szita |
+| [PIG-5235](https://issues.apache.org/jira/browse/PIG-5235) | Typecast with as-clause fails for tuple/bag with an empty schema |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5231](https://issues.apache.org/jira/browse/PIG-5231) | PigStorage with -schema may produce inconsistent outputs with more fields |  Minor | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5236](https://issues.apache.org/jira/browse/PIG-5236) | json simple jar not included automatically with piggybank AvroStorage |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [PIG-5188](https://issues.apache.org/jira/browse/PIG-5188) | Review pig-index.xml |  Major | documentation | Daniel Dai | Adam Szita |
+| [PIG-5244](https://issues.apache.org/jira/browse/PIG-5244) | Several unit tests are failing in Tez mode after merging spark branch |  Major | tez | Nandor Kollar | Nandor Kollar |
+| [PIG-5245](https://issues.apache.org/jira/browse/PIG-5245) | TestGrunt.testStopOnFailure is flaky |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 
 
 ### TESTS:
@@ -178,5 +194,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-5109](https://issues.apache.org/jira/browse/PIG-5109) | Remove HadoopJobHistoryLoader |  Major | piggybank | Adam Szita | Adam Szita |
+| [PIG-5194](https://issues.apache.org/jira/browse/PIG-5194) | HiveUDF fails with Spark exec type |  Major | spark | Adam Szita | Adam Szita |
 
 
