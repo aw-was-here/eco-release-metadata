@@ -206,7 +206,6 @@
 | [HADOOP-13590](https://issues.apache.org/jira/browse/HADOOP-13590) | Retry until TGT expires even if the UGI renewal thread encountered exception |  Major | security | Xiao Chen | Xiao Chen |
 | [HDFS-11120](https://issues.apache.org/jira/browse/HDFS-11120) | TestEncryptionZones should waitActive |  Minor | test | Xiao Chen | John Zhuge |
 | [HADOOP-13687](https://issues.apache.org/jira/browse/HADOOP-13687) | Provide a unified dependency artifact that transitively includes the cloud storage modules shipped with Hadoop. |  Major | build | Chris Nauroth | Chris Nauroth |
-| [HADOOP-13720](https://issues.apache.org/jira/browse/HADOOP-13720) | Add more info to the msgs printed in AbstractDelegationTokenSecretManager for better supportability |  Trivial | common, security | Yongjun Zhang | Yongjun Zhang |
 | [YARN-5552](https://issues.apache.org/jira/browse/YARN-5552) | Add Builder methods for common yarn API records |  Major | . | Arun Suresh | Tao Jie |
 | [HDFS-10941](https://issues.apache.org/jira/browse/HDFS-10941) | Improve BlockManager#processMisReplicatesAsync log |  Major | namenode | Xiaoyu Yao | Chen Liang |
 | [YARN-4033](https://issues.apache.org/jira/browse/YARN-4033) | In FairScheduler, parent queues should also display queue status |  Major | fairscheduler | Siqi Li | Siqi Li |
@@ -823,6 +822,7 @@
 | [YARN-4329](https://issues.apache.org/jira/browse/YARN-4329) | Allow fetching exact reason as to why a submitted app is in ACCEPTED state in Fair Scheduler |  Major | fairscheduler, resourcemanager | Naganarasimha G R | Yufei Gu |
 | [YARN-4498](https://issues.apache.org/jira/browse/YARN-4498) | Application level node labels stats to be available in REST |  Major | api, client, resourcemanager | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-5611](https://issues.apache.org/jira/browse/YARN-5611) | Provide an API to update lifetime of an application. |  Major | resourcemanager | Rohith Sharma K S | Rohith Sharma K S |
+| [HADOOP-13720](https://issues.apache.org/jira/browse/HADOOP-13720) | Add more info to the msgs printed in AbstractDelegationTokenSecretManager for better supportability |  Trivial | common, security | Yongjun Zhang | Yongjun Zhang |
 | [HDFS-11122](https://issues.apache.org/jira/browse/HDFS-11122) | TestDFSAdmin#testReportCommand fails due to timed out |  Minor | test | Yiqun Lin | Yiqun Lin |
 | [HDFS-11119](https://issues.apache.org/jira/browse/HDFS-11119) | Support for parallel checking of StorageLocations on DataNode startup |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
 | [HDFS-10872](https://issues.apache.org/jira/browse/HDFS-10872) | Add MutableRate metrics for FSNamesystemLock operations |  Major | namenode | Erik Krogen | Erik Krogen |

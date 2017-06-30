@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-06-03)
+## Release 1.3.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -39,6 +39,7 @@
 | [BIGTOP-2749](https://issues.apache.org/jira/browse/BIGTOP-2749) | puppet: use jessie package on jessie, not trusty |  Major | debian | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2750](https://issues.apache.org/jira/browse/BIGTOP-2750) | puppet: increase compatibility with future versions |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2753](https://issues.apache.org/jira/browse/BIGTOP-2753) | Initial support for Debian-9 |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2679](https://issues.apache.org/jira/browse/BIGTOP-2679) | Streamline CI Jobs |  Major | build | Olaf Flebbe | Olaf Flebbe |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.10 - Unreleased (as of 2017-06-03)
+## Release 0.10 - Unreleased (as of 2017-06-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -181,7 +181,6 @@
 | [FALCON-2101](https://issues.apache.org/jira/browse/FALCON-2101) | Disable IT tests that depend on instance RUNNING status for 0.10 release |  Major | . | Balu Vellanki | Balu Vellanki |
 | [FALCON-2107](https://issues.apache.org/jira/browse/FALCON-2107) | NPE in FalconWorkflowEngine::isActive() method when FalconJPAService is not used |  Blocker | . | Balu Vellanki | Balu Vellanki |
 | [FALCON-2104](https://issues.apache.org/jira/browse/FALCON-2104) | Loss of data in GraphDB when upgrading Falcon from 0.9 to 0.10. |  Critical | . | Balu Vellanki | Balu Vellanki |
-| [FALCON-2108](https://issues.apache.org/jira/browse/FALCON-2108) | Fix licensing issues for Falcon release |  Blocker | general | Srikanth Sundarrajan | Srikanth Sundarrajan |
 
 
 ### SUB-TASKS:
@@ -224,12 +223,6 @@
 | [FALCON-1801](https://issues.apache.org/jira/browse/FALCON-1801) | Update CHANGES.txt in trunk to mark 0.9 as released |  Major | . | Pallavi Rao | Pallavi Rao |
 | [FALCON-2099](https://issues.apache.org/jira/browse/FALCON-2099) | Update Installation-steps.txt and NOTICE.txt for 0.10 release |  Major | ease | Balu Vellanki | Balu Vellanki |
 | [FALCON-2005](https://issues.apache.org/jira/browse/FALCON-2005) | Update CHANGES.0.10.md for 0.10 release |  Major | ease | Balu Vellanki | Balu Vellanki |
-| [FALCON-2098](https://issues.apache.org/jira/browse/FALCON-2098) | Create release notes for 0.10 |  Major | ease | Balu Vellanki | Balu Vellanki |
-| [FALCON-1997](https://issues.apache.org/jira/browse/FALCON-1997) | Verify source tarball and run few end to end tests |  Major | build-tools | Balu Vellanki | Balu Vellanki |
-| [FALCON-1999](https://issues.apache.org/jira/browse/FALCON-1999) | Merge pending patches and update fix version |  Major | general | Balu Vellanki | Balu Vellanki |
-| [FALCON-2003](https://issues.apache.org/jira/browse/FALCON-2003) | Check licenses and copyright information |  Major | docs | Balu Vellanki | Balu Vellanki |
-| [FALCON-1995](https://issues.apache.org/jira/browse/FALCON-1995) | Document upgrade from 0.9 to 0.10 |  Major | docs | Balu Vellanki | Balu Vellanki |
-| [FALCON-2006](https://issues.apache.org/jira/browse/FALCON-2006) | Update documentation on site and announce the release |  Major | ease | Balu Vellanki | Balu Vellanki |
 
 
 ### OTHER:
@@ -245,6 +238,5 @@
 | [FALCON-1899](https://issues.apache.org/jira/browse/FALCON-1899) | Create examples artifact module in Falcon |  Major | . | Peeyush Bishnoi | Peeyush Bishnoi |
 | [FALCON-1948](https://issues.apache.org/jira/browse/FALCON-1948) | Document steps to configure Oozie for Falcon |  Major | docs | Venkatesan Ramachandran | Venkatesan Ramachandran |
 | [FALCON-2008](https://issues.apache.org/jira/browse/FALCON-2008) | Add documentation for Graphite Notification Plugin |  Major | . | Praveen Adlakha | Praveen Adlakha |
-| [FALCON-1992](https://issues.apache.org/jira/browse/FALCON-1992) | Prepare Falcon Release v0.10 |  Major | ease | Balu Vellanki | Balu Vellanki |
 
 

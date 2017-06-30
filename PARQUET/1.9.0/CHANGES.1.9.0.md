@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.9.0 - Unreleased (as of 2017-06-03)
+## Release 1.9.0 - 2016-10-23
 
 
 
@@ -60,6 +60,7 @@
 | [PARQUET-740](https://issues.apache.org/jira/browse/PARQUET-740) | Introduce editorconfig |  Major | . | Niels Basjes | Niels Basjes |
 | [PARQUET-822](https://issues.apache.org/jira/browse/PARQUET-822) | Upgrade java dependencies |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-665](https://issues.apache.org/jira/browse/PARQUET-665) | Parquet-mr: Protobuf 3 support |  Major | parquet-mr | Wael Nasreddine | Wael Nasreddine |
+| [PARQUET-1012](https://issues.apache.org/jira/browse/PARQUET-1012) | parquet-cpp and parquet-mr version parse inconsistent |  Major | parquet-cpp | Xianjin YE | Deepak Majeti |
 
 
 ### BUG FIXES:
@@ -122,6 +123,7 @@
 | [PARQUET-825](https://issues.apache.org/jira/browse/PARQUET-825) | Static analyzer findings (NPEs, resource leaks) |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-806](https://issues.apache.org/jira/browse/PARQUET-806) | Parquet-tools silently suppresses error messages |  Major | parquet-mr | Zoltan Ivanfi | Zoltan Ivanfi |
 | [PARQUET-772](https://issues.apache.org/jira/browse/PARQUET-772) | Test fails if current locale has decimal mark other than . |  Trivial | parquet-mr | Zoltan Ivanfi | Zoltan Ivanfi |
+| [PARQUET-686](https://issues.apache.org/jira/browse/PARQUET-686) | Allow for Unsigned Statistics in Binary Type |  Major | parquet-format | Andrew Duffy | Ryan Blue |
 
 
 ### TESTS:

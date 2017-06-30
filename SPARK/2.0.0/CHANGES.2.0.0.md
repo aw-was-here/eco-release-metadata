@@ -2473,6 +2473,7 @@
 | [SPARK-14811](https://issues.apache.org/jira/browse/SPARK-14811) | ML, Graph 2.0 QA: API: New Scala APIs, docs |  Blocker | Documentation, GraphX, ML, MLlib | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-16359](https://issues.apache.org/jira/browse/SPARK-16359) | unidoc workaround for multiple kafka versions |  Major | DStreams | Cody Koeninger | Cody Koeninger |
 | [SPARK-16286](https://issues.apache.org/jira/browse/SPARK-16286) | Implement stack table generating function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
+| [SPARK-16430](https://issues.apache.org/jira/browse/SPARK-16430) | Add an option in file stream source to read 1 file at a time |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-16285](https://issues.apache.org/jira/browse/SPARK-16285) | Implement sentences SQL function |  Major | SQL | Reynold Xin | Dongjoon Hyun |
 | [SPARK-13638](https://issues.apache.org/jira/browse/SPARK-13638) | Support for saving with a quote mode |  Minor | SQL | Hyukjin Kwon | Jurriaan Pruis |
 | [SPARK-16281](https://issues.apache.org/jira/browse/SPARK-16281) | Implement parse\_url SQL function |  Major | SQL | Reynold Xin | Jian Wu |

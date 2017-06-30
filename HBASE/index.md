@@ -70,6 +70,9 @@
 * Apache HBase v1.2
     * [Changes](1.2/CHANGES.1.2.html)
     * [Release Notes](1.2/RELEASENOTES.1.2.html)
+* Apache HBase v1.1.12
+    * [Changes](1.1.12/CHANGES.1.1.12.html)
+    * [Release Notes](1.1.12/RELEASENOTES.1.1.12.html)
 * Apache HBase v1.1.11
     * [Changes](1.1.11/CHANGES.1.1.11.html)
     * [Release Notes](1.1.11/RELEASENOTES.1.1.11.html)

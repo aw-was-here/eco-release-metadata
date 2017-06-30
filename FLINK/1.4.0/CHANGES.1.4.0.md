@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.4.0 - Unreleased (as of 2017-06-03)
+## Release 1.4.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-6483](https://issues.apache.org/jira/browse/FLINK-6483) | Support time materialization |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-5340](https://issues.apache.org/jira/browse/FLINK-5340) | Add a metric exposing jobs uptimes |  Minor | Core | Dan Bress | Stephan Ewen |
+| [FLINK-6237](https://issues.apache.org/jira/browse/FLINK-6237) | support RAND and RAND\_INTEGER on Table API & SQL |  Major | Table API & SQL | godfrey he | godfrey he |
 
 
 ### IMPROVEMENTS:
@@ -38,7 +39,6 @@
 | [FLINK-6164](https://issues.apache.org/jira/browse/FLINK-6164) | Make ProcessWindowFunction a RichFunction |  Blocker | DataStream API | Aljoscha Krettek | Chesnay Schepler |
 | [FLINK-5720](https://issues.apache.org/jira/browse/FLINK-5720) | Deprecate "Folding" in all of DataStream API |  Blocker | DataStream API | Aljoscha Krettek | Chesnay Schepler |
 | [FLINK-6461](https://issues.apache.org/jira/browse/FLINK-6461) | Deprecate web-related configuration defaults in ConfigConstants |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-6414](https://issues.apache.org/jira/browse/FLINK-6414) | Use scala.binary.version in place of change-scala-version.sh |  Major | Build System | Greg Hogan | Greg Hogan |
 | [FLINK-6013](https://issues.apache.org/jira/browse/FLINK-6013) | Add Datadog HTTP metrics reporter |  Critical | Metrics | Bowen Li | Bowen Li |
 | [FLINK-6558](https://issues.apache.org/jira/browse/FLINK-6558) | Yarn tests fail on Windows |  Major | Tests, YARN | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6565](https://issues.apache.org/jira/browse/FLINK-6565) | Improve error messages for state restore failures |  Critical | State Backends, Checkpointing | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
@@ -69,6 +69,29 @@
 | [FLINK-6824](https://issues.apache.org/jira/browse/FLINK-6824) | Activate checkstyle for runtime/event |  Trivial | Distributed Coordination | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6819](https://issues.apache.org/jira/browse/FLINK-6819) | Activate checkstyle for runtime/leaderretrieval |  Trivial | Distributed Coordination | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6818](https://issues.apache.org/jira/browse/FLINK-6818) | Activate checkstyle for runtime/history |  Trivial | History Server | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6820](https://issues.apache.org/jira/browse/FLINK-6820) | Activate checkstyle for runtime/filecache |  Trivial | Local Runtime | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6852](https://issues.apache.org/jira/browse/FLINK-6852) | Fix misuse of GCD |  Minor | Machine Learning Library | Ruidong Li | Ruidong Li |
+| [FLINK-6414](https://issues.apache.org/jira/browse/FLINK-6414) | Use scala.binary.version in place of change-scala-version.sh |  Major | Build System | Greg Hogan | Greg Hogan |
+| [FLINK-6803](https://issues.apache.org/jira/browse/FLINK-6803) | Add test for PojoSerializer when Pojo changes |  Major | Type Serialization System | Till Rohrmann | Till Rohrmann |
+| [FLINK-6796](https://issues.apache.org/jira/browse/FLINK-6796) | Allow setting the user code class loader for AbstractStreamOperatorTestHarness |  Minor | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-6859](https://issues.apache.org/jira/browse/FLINK-6859) | StateCleaningCountTrigger should not delete timer |  Major | Table API & SQL | Fabian Hueske | sunjincheng |
+| [FLINK-6929](https://issues.apache.org/jira/browse/FLINK-6929) | Add documentation for Table API OVER windows |  Major | Documentation, Table API & SQL | Fabian Hueske | sunjincheng |
+| [FLINK-6937](https://issues.apache.org/jira/browse/FLINK-6937) | Fix link markdown in Production Readiness Checklist doc |  Minor | Documentation | Juan Paulo Gutierrez |  |
+| [FLINK-6985](https://issues.apache.org/jira/browse/FLINK-6985) | Remove bugfix version from docs title |  Minor | Documentation | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-6952](https://issues.apache.org/jira/browse/FLINK-6952) | Add link to Javadocs |  Minor | Documentation | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-6769](https://issues.apache.org/jira/browse/FLINK-6769) | Replace usage of deprecated FileSystem#create(Path, boolean) |  Trivial | Core | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6863](https://issues.apache.org/jira/browse/FLINK-6863) | Fully separate streaming&batch examples |  Major | Examples | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6788](https://issues.apache.org/jira/browse/FLINK-6788) | Remove unused GenericFlatTypePostPass/AbstractSchema class |  Trivial | Optimizer | Chesnay Schepler | Miao Wang |
+| [FLINK-6967](https://issues.apache.org/jira/browse/FLINK-6967) | Fully separate batch and storm examples |  Minor | Examples, Storm Compatibility | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6786](https://issues.apache.org/jira/browse/FLINK-6786) | Remove duplicate QueryScopeInfoTest |  Major | Metrics, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6389](https://issues.apache.org/jira/browse/FLINK-6389) | Upgrade hbase dependency to 1.3.1 |  Minor | Batch Connectors and Input/Output Formats | Ted Yu | mingleizhang |
+| [FLINK-6682](https://issues.apache.org/jira/browse/FLINK-6682) | Improve error message in case parallelism exceeds maxParallelism |  Major | State Backends, Checkpointing | Chesnay Schepler | mingleizhang |
+| [FLINK-6418](https://issues.apache.org/jira/browse/FLINK-6418) | Support for dynamic state changes in CEP patterns |  Major | CEP | Elias Levy | Dawid Wysakowicz |
+| [FLINK-6920](https://issues.apache.org/jira/browse/FLINK-6920) | Remove minor guava usages in several modules |  Major | Batch Connectors and Input/Output Formats, Build System, ElasticSearch Connector, Gelly, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-7014](https://issues.apache.org/jira/browse/FLINK-7014) | Expose isDeterministic interface to ScalarFunction and TableFunction |  Major | Table API & SQL | Ruidong Li | Ruidong Li |
+| [FLINK-7004](https://issues.apache.org/jira/browse/FLINK-7004) | Switch to Travis Trusty image |  Critical | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-7008](https://issues.apache.org/jira/browse/FLINK-7008) | Update NFA state only when the NFA changes. |  Major | CEP | Kostas Kloudas | Dian Fu |
+| [FLINK-6710](https://issues.apache.org/jira/browse/FLINK-6710) | Remove twitter-inputformat |  Minor | Batch Connectors and Input/Output Formats | Chesnay Schepler | Chesnay Schepler |
 
 
 ### BUG FIXES:
@@ -141,6 +164,47 @@
 | [FLINK-6809](https://issues.apache.org/jira/browse/FLINK-6809) | side outputs documentation: wrong variable name in java example code |  Trivial | Documentation | Petr Novotnik | Petr Novotnik |
 | [FLINK-6840](https://issues.apache.org/jira/browse/FLINK-6840) | MultipleLinearRegression documentation contains outdated information |  Major | Machine Learning Library | Till Rohrmann | Till Rohrmann |
 | [FLINK-6797](https://issues.apache.org/jira/browse/FLINK-6797) | building docs fails with bundler 1.15 |  Major | Documentation | David Anderson | David Anderson |
+| [FLINK-6837](https://issues.apache.org/jira/browse/FLINK-6837) | Fix a small error message bug, And improve some message info. |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6816](https://issues.apache.org/jira/browse/FLINK-6816) | Fix wrong usage of Scala string interpolation in Table API |  Minor | Table API & SQL | Jark Wu | Jark Wu |
+| [FLINK-6812](https://issues.apache.org/jira/browse/FLINK-6812) | Elasticsearch 5 release artifacts not published to Maven central |  Blocker | ElasticSearch Connector | Tzu-Li (Gordon) Tai | Robert Metzger |
+| [FLINK-6844](https://issues.apache.org/jira/browse/FLINK-6844) | TraversableSerializer should implement compatibility methods |  Blocker | Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6853](https://issues.apache.org/jira/browse/FLINK-6853) | Migrating from Flink 1.1 fails for FlinkCEP |  Major | CEP | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6815](https://issues.apache.org/jira/browse/FLINK-6815) | Javadocs don't work anymore in Flink 1.4-SNAPSHOT |  Major | Build System | Robert Metzger | Robert Metzger |
+| [FLINK-6834](https://issues.apache.org/jira/browse/FLINK-6834) | Over window doesn't support complex calculation |  Major | Table API & SQL | Jark Wu | Jark Wu |
+| [FLINK-6783](https://issues.apache.org/jira/browse/FLINK-6783) | Wrongly extracted TypeInformations for WindowedStream::aggregate |  Blocker | Core, DataStream API | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-6876](https://issues.apache.org/jira/browse/FLINK-6876) | The comment of DataStream#assignTimestampsAndWatermarks is incorrect |  Minor | DataStream API | Dian Fu |  |
+| [FLINK-6869](https://issues.apache.org/jira/browse/FLINK-6869) | Scala serializers do not have the serialVersionUID specified |  Blocker | Scala API, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6883](https://issues.apache.org/jira/browse/FLINK-6883) | Serializer for collection of Scala case classes are generated with different anonymous class names in 1.3 |  Blocker | Scala API, Type Serialization System | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-6804](https://issues.apache.org/jira/browse/FLINK-6804) | Inconsistent state migration behaviour between different state backends |  Critical | State Backends, Checkpointing, Type Serialization System | Till Rohrmann | Tzu-Li (Gordon) Tai |
+| [FLINK-6801](https://issues.apache.org/jira/browse/FLINK-6801) | PojoSerializerConfigSnapshot cannot deal with missing Pojo fields |  Major | Type Serialization System | Till Rohrmann | Tzu-Li (Gordon) Tai |
+| [FLINK-6848](https://issues.apache.org/jira/browse/FLINK-6848) | Extend the managed state docs with a Scala example |  Major | Documentation, State Backends, Checkpointing | Fokko Driesprong | Fokko Driesprong |
+| [FLINK-6833](https://issues.apache.org/jira/browse/FLINK-6833) | Race condition: Asynchronous checkpointing task can fail completed StreamTask |  Critical | Local Runtime, State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
+| [FLINK-6899](https://issues.apache.org/jira/browse/FLINK-6899) | Wrong state array size in NestedMapsStateTable |  Minor | State Backends, Checkpointing | Till Rohrmann | Till Rohrmann |
+| [FLINK-6744](https://issues.apache.org/jira/browse/FLINK-6744) | Flaky ExecutionGraphSchedulingTest |  Critical | Tests | Chesnay Schepler | Till Rohrmann |
+| [FLINK-6685](https://issues.apache.org/jira/browse/FLINK-6685) | SafetyNetCloseableRegistry is closed prematurely in Task::triggerCheckpointBarrier |  Blocker | . | Stefan Richter | Stefan Richter |
+| [FLINK-6817](https://issues.apache.org/jira/browse/FLINK-6817) | Fix NPE when preceding is not set in OVER window |  Minor | Table API & SQL | Jark Wu | Jark Wu |
+| [FLINK-6915](https://issues.apache.org/jira/browse/FLINK-6915) | EnumValueSerializer broken |  Major | State Backends, Checkpointing, Type Serialization System | Till Rohrmann | Till Rohrmann |
+| [FLINK-6914](https://issues.apache.org/jira/browse/FLINK-6914) | TrySerializer#ensureCompatibility causes StackOverflowException |  Major | State Backends, Checkpointing, Type Serialization System | Till Rohrmann | Till Rohrmann |
+| [FLINK-6913](https://issues.apache.org/jira/browse/FLINK-6913) | Instable StatefulJobSavepointMigrationITCase.testRestoreSavepoint |  Critical | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-6941](https://issues.apache.org/jira/browse/FLINK-6941) | Selecting window start / end on over window causes field not resolve exception |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6886](https://issues.apache.org/jira/browse/FLINK-6886) | Fix Timestamp field can not be selected in event time case when  toDataStream[T], \`T\` not a \`Row\` Type. |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6602](https://issues.apache.org/jira/browse/FLINK-6602) | Table source with defined time attributes allows empty string |  Major | Table API & SQL | Timo Walther | Zhe Li |
+| [FLINK-6930](https://issues.apache.org/jira/browse/FLINK-6930) | Selecting window start / end on row-based Tumble/Slide window causes NPE |  Major | Table API & SQL | Fabian Hueske | Jark Wu |
+| [FLINK-6881](https://issues.apache.org/jira/browse/FLINK-6881) | Creating a table from a POJO and defining a time attribute fails |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-6896](https://issues.apache.org/jira/browse/FLINK-6896) | Creating a table from a POJO and use table sink to output fail |  Major | Table API & SQL | Mark You | sunjincheng |
+| [FLINK-6652](https://issues.apache.org/jira/browse/FLINK-6652) | Problem with DelimitedInputFormat |  Major | Batch Connectors and Input/Output Formats | Moritz Schubotz | Fabian Hueske |
+| [FLINK-6836](https://issues.apache.org/jira/browse/FLINK-6836) | Failing YARNSessionCapacitySchedulerITCase.testTaskManagerFailure |  Critical | Tests, YARN | Till Rohrmann | Till Rohrmann |
+| [FLINK-6945](https://issues.apache.org/jira/browse/FLINK-6945) | TaskCancelAsyncProducerConsumerITCase.testCancelAsyncProducerAndConsumer instable test case |  Critical | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-6918](https://issues.apache.org/jira/browse/FLINK-6918) | Failing tests: ChainLengthDecreaseTest and ChainLengthIncreaseTest |  Critical | Tests | Greg Hogan | Till Rohrmann |
+| [FLINK-6806](https://issues.apache.org/jira/browse/FLINK-6806) | rocksdb is not listed as state backend in doc |  Minor | Documentation | Bowen Li | Bowen Li |
+| [FLINK-6956](https://issues.apache.org/jira/browse/FLINK-6956) | Table examples broken |  Major | Examples, Table API & SQL | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6943](https://issues.apache.org/jira/browse/FLINK-6943) | Improve exceptions within TypeExtractionUtils#getSingleAbstractMethod |  Major | Core | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-6541](https://issues.apache.org/jira/browse/FLINK-6541) | Jar upload directory not created |  Minor | Webfrontend | Andrey | Chesnay Schepler |
+| [FLINK-6774](https://issues.apache.org/jira/browse/FLINK-6774) | build-helper-maven-plugin version not set |  Minor | Build System | Nico Kruber | Nico Kruber |
+| [FLINK-6868](https://issues.apache.org/jira/browse/FLINK-6868) | Using \`scala.binary.version\` for \`flink-streaming-scala\` in \`Cassandra Connector\` |  Blocker | Build System, Cassandra Connector | Benedict Jin | Benedict Jin |
+| [FLINK-6994](https://issues.apache.org/jira/browse/FLINK-6994) | Wrong base url in master docs |  Major | Documentation | Timo Walther | Timo Walther |
+| [FLINK-7005](https://issues.apache.org/jira/browse/FLINK-7005) | Optimization steps are missing for nested registered tables |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-7025](https://issues.apache.org/jira/browse/FLINK-7025) | Using NullByteKeySelector for Unbounded ProcTime NonPartitioned Over |  Major | Table API & SQL | sunjincheng | sunjincheng |
 
 
 ### TESTS:
@@ -149,6 +213,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-6175](https://issues.apache.org/jira/browse/FLINK-6175) | HistoryServerTest.testFullArchiveLifecycle fails |  Major | History Server, Tests, Webfrontend | Ufuk Celebi | Chesnay Schepler |
 | [FLINK-6597](https://issues.apache.org/jira/browse/FLINK-6597) | Cleanup WindowOperatorTest useless imports |  Major | Streaming | sunjincheng | sunjincheng |
+| [FLINK-6845](https://issues.apache.org/jira/browse/FLINK-6845) | Cleanup  "println(StreamITCase.testResults)" call in test case |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6830](https://issues.apache.org/jira/browse/FLINK-6830) | Add ITTests for savepoint migration from 1.3 |  Major | State Backends, Checkpointing | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### SUB-TASKS:
@@ -189,5 +255,15 @@
 | [FLINK-6737](https://issues.apache.org/jira/browse/FLINK-6737) | Fix over expression parse String error. |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-6722](https://issues.apache.org/jira/browse/FLINK-6722) | Activate strict checkstyle for flink-table |  Major | Table API & SQL | Chesnay Schepler | Greg Hogan |
 | [FLINK-6570](https://issues.apache.org/jira/browse/FLINK-6570) | QueryableStateClient constructor in documentation doesn't match actual signature |  Major | Documentation, Queryable State | Robert Metzger |  |
+| [FLINK-6745](https://issues.apache.org/jira/browse/FLINK-6745) | Table API / SQL Docs: Overview Page |  Major | Documentation, Table API & SQL | Fabian Hueske | Fabian Hueske |
+| [FLINK-6746](https://issues.apache.org/jira/browse/FLINK-6746) | Table API / SQL Docs: Common Page |  Major | Documentation, Table API & SQL | Fabian Hueske | Fabian Hueske |
+| [FLINK-6661](https://issues.apache.org/jira/browse/FLINK-6661) | Merge "Subtasks" and "TaskManagers" view |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6723](https://issues.apache.org/jira/browse/FLINK-6723) | Activate strict checkstyle for flink-libraries |  Trivial | CEP, Gelly, Machine Learning Library, Python API, Table API & SQL | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-6488](https://issues.apache.org/jira/browse/FLINK-6488) | Mark deprecated for 'start-local.sh' and 'stop-local' scripts |  Major | Startup Shell Scripts | Stephan Ewen | mingleizhang |
+| [FLINK-6798](https://issues.apache.org/jira/browse/FLINK-6798) | Remove/update documentation about network buffer tuning |  Major | Documentation, Network | Robert Metzger | Nico Kruber |
+| [FLINK-6784](https://issues.apache.org/jira/browse/FLINK-6784) | Add some notes about externalized checkpoints and the difference to savepoints |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
+| [FLINK-6782](https://issues.apache.org/jira/browse/FLINK-6782) | Update savepoint documentation |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
+| [FLINK-6960](https://issues.apache.org/jira/browse/FLINK-6960) | Add E() supported in SQL |  Major | Table API & SQL | sunjincheng | sunjincheng |
+| [FLINK-6942](https://issues.apache.org/jira/browse/FLINK-6942) | Add E() supported in TableAPI |  Major | Table API & SQL | sunjincheng | Timo Walther |
 
 

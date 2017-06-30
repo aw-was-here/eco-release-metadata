@@ -307,13 +307,6 @@ New fsck option "-upgradedomains" has been added to display upgrade domains of a
 
 ---
 
-* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
-
-In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
-
-
----
-
 * [HADOOP-14419](https://issues.apache.org/jira/browse/HADOOP-14419) | *Minor* | **Remove findbugs report from docs profile**
 
 Findbugs report is no longer part of the documentation.
@@ -328,16 +321,23 @@ Reverted HDFS-10797 to fix a scalability regression brought by the commit.
 
 ---
 
-* [HDFS-11787](https://issues.apache.org/jira/browse/HDFS-11787) | *Major* | **After HDFS-11515, -du still throws ConcurrentModificationException**
+* [HADOOP-14407](https://issues.apache.org/jira/browse/HADOOP-14407) | *Major* | **DistCp - Introduce a configurable copy buffer size**
 
-Reverted HDFS-11515.
+The copy buffer size can be configured via the new parameter \<copybuffersize\>. By default the \<copybuffersize\> is set to 8KB.
 
 
 ---
 
-* [HADOOP-14407](https://issues.apache.org/jira/browse/HADOOP-14407) | *Major* | **DistCp - Introduce a configurable copy buffer size**
+* [HADOOP-14536](https://issues.apache.org/jira/browse/HADOOP-14536) | *Major* | **Update azure-storage sdk to version 5.3.0**
 
-The copy buffer size can be configured via the new parameter \<copybuffersize\>. By default the \<copybuffersize\> is set to 8KB.
+The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
+
+
+---
+
+* [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | *Major* | **Azure: Concurrent I/O does not work when secure.mode is enabled**
+
+Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be used with the secure mode feature.
 
 
 

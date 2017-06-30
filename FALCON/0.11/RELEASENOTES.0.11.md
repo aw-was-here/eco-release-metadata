@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [FALCON-2121](https://issues.apache.org/jira/browse/FALCON-2121) | *Major* | **If a feed does not exist on a cluster, process submission fails with NPE**
+
+Ensure a useful message is displayed when entity validation fails.
+
+
 

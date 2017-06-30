@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-06-03)
+## Release 2.0.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -37,6 +37,7 @@
 | [PARQUET-342](https://issues.apache.org/jira/browse/PARQUET-342) | Can't build Parquet on Java 6 |  Major | parquet-mr | Nezih Yigitbasi | Nezih Yigitbasi |
 | [PARQUET-362](https://issues.apache.org/jira/browse/PARQUET-362) | Parquet buffered writer is too sensitive regarding unions and unknown fields |  Major | parquet-mr | Laurent Goujon |  |
 | [PARQUET-375](https://issues.apache.org/jira/browse/PARQUET-375) | Parquet Readme.md still points to release 1.7.0 |  Major | parquet-mr | Luciano Resende |  |
+| [PARQUET-1010](https://issues.apache.org/jira/browse/PARQUET-1010) | SKIP FILES STARTS WITH "." in parquet.hadoop.ParquetFileReader.readAllFootersInParallel |  Blocker | parquet-mr | Sandish Kumar HN |  |
 
 
 ### OTHER:

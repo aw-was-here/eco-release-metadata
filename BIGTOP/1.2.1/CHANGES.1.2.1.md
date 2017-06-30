@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-06-03)
+## Release 1.2.1 - Unreleased (as of 2017-06-30)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2253](https://issues.apache.org/jira/browse/BIGTOP-2253) | Rewrite Bigtop Docker Provisioner to use native solutions and support multi-host cluster deployment |  Major | docker, provisioner | Evans Ye | Evans Ye |
 | [BIGTOP-2779](https://issues.apache.org/jira/browse/BIGTOP-2779) | new hive charm |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2822](https://issues.apache.org/jira/browse/BIGTOP-2822) | spark charm: leverage puppet config, gpu enablement |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 
 
 ### IMPROVEMENTS:
@@ -40,6 +41,11 @@
 | [BIGTOP-2355](https://issues.apache.org/jira/browse/BIGTOP-2355) | Update Mahout version to 0.13.0 |  Minor | build | Andrew Musselman | Andrew Musselman |
 | [BIGTOP-2777](https://issues.apache.org/jira/browse/BIGTOP-2777) | make hbase charm more robust |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2783](https://issues.apache.org/jira/browse/BIGTOP-2783) | new charm icons for zookeeper and zeppelin |  Trivial | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2795](https://issues.apache.org/jira/browse/BIGTOP-2795) | spark charm: fix sparkpi and rework start/stop logic |  Minor | . | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2802](https://issues.apache.org/jira/browse/BIGTOP-2802) | Some packages don't create necessary groups on debian-based system if the users correspond to them already exist |  Major | . | Kengo Seki | Kengo Seki |
+| [BIGTOP-2807](https://issues.apache.org/jira/browse/BIGTOP-2807) | Upgrade Spark to 2.1.1 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2812](https://issues.apache.org/jira/browse/BIGTOP-2812) | Upgrade Zeppelin version to 0.7.2 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2821](https://issues.apache.org/jira/browse/BIGTOP-2821) | expose extra config options for spark |  Minor | . | Kevin W Monroe | Kevin W Monroe |
 
 
 ### BUG FIXES:
@@ -62,6 +68,16 @@
 | [BIGTOP-2790](https://issues.apache.org/jira/browse/BIGTOP-2790) | Ambari: deploying cluster fails due to ambari-agent version mismatch |  Major | . | Kengo Seki | Kengo Seki |
 | [BIGTOP-2789](https://issues.apache.org/jira/browse/BIGTOP-2789) | Ambari: installing ODPi mpack fails due to changing its file name |  Major | . | Kengo Seki | Kengo Seki |
 | [BIGTOP-2793](https://issues.apache.org/jira/browse/BIGTOP-2793) | BIGTOP-2790 broke Ambari build on rpm-based system |  Major | build | Kengo Seki | Kengo Seki |
+| [BIGTOP-2775](https://issues.apache.org/jira/browse/BIGTOP-2775) | Make open jdk 8 available on bigtop/puppet:debian-8 |  Major | docker | Evans Ye | Evans Ye |
+| [BIGTOP-2801](https://issues.apache.org/jira/browse/BIGTOP-2801) | charm race condition when gathering metrics |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2797](https://issues.apache.org/jira/browse/BIGTOP-2797) | zeppelin charm external role handling |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2799](https://issues.apache.org/jira/browse/BIGTOP-2799) | [Puppet] Flink deployment failure on all supported OS |  Major | flink | Evans Ye | Evans Ye |
+| [BIGTOP-2798](https://issues.apache.org/jira/browse/BIGTOP-2798) | Apex component has duplicate slf4j binding |  Major | . | Thomas Weise | Thomas Weise |
+| [BIGTOP-2805](https://issues.apache.org/jira/browse/BIGTOP-2805) | ycsb: turn of autodetection of dependencies by rpm |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2806](https://issues.apache.org/jira/browse/BIGTOP-2806) | hue is not installable on debian, ubuntu |  Major | hue | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2803](https://issues.apache.org/jira/browse/BIGTOP-2803) | Minor issues in bigtop.bom |  Trivial | build | Kengo Seki | Konstantin Boudnik |
+| [BIGTOP-2743](https://issues.apache.org/jira/browse/BIGTOP-2743) | hbase shell does not work on ppc64le |  Major | hbase | Kevin W Monroe | Olaf Flebbe |
+| [BIGTOP-2808](https://issues.apache.org/jira/browse/BIGTOP-2808) | Handle deletion of symlinks: update gradle |  Major | build, toolchain | Olaf Flebbe | Olaf Flebbe |
 
 
 ### SUB-TASKS:
@@ -75,6 +91,10 @@
 | [BIGTOP-2767](https://issues.apache.org/jira/browse/BIGTOP-2767) | Auto detect repo does not need OS code name since 1.2.0 |  Minor | sandbox | Evans Ye | Evans Ye |
 | [BIGTOP-2769](https://issues.apache.org/jira/browse/BIGTOP-2769) | OS\_TO\_CODE\_NAME has been removed in BIGTOP-2767 |  Minor | sandbox | Evans Ye | Evans Ye |
 | [BIGTOP-2772](https://issues.apache.org/jira/browse/BIGTOP-2772) | [Sandbox] Add --dryrun mode into helper script and document |  Minor | sandbox | Evans Ye | Evans Ye |
+| [BIGTOP-2165](https://issues.apache.org/jira/browse/BIGTOP-2165) | ignite-hadoop service doesn't start |  Major | build, ignite | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2814](https://issues.apache.org/jira/browse/BIGTOP-2814) | Make provisioner config names be consistent with OS names in CI |  Major | ci, provisioner | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2815](https://issues.apache.org/jira/browse/BIGTOP-2815) | Puppet should be able to generate multiple repo files |  Major | deployment | Konstantin Boudnik | Konstantin Boudnik |
+| [BIGTOP-2816](https://issues.apache.org/jira/browse/BIGTOP-2816) | Fix provisioner config name for ubuntu-16.04 |  Trivial | provisioner | Evans Ye | Evans Ye |
 
 
 ### OTHER:

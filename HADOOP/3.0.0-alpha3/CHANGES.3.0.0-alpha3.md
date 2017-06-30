@@ -22,6 +22,13 @@
 
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-6709](https://issues.apache.org/jira/browse/YARN-6709) | Root privilege escalation in experimental Docker support |  Blocker | nodemanager, security | Allen Wittenauer | Varun Vasudev |
+
+
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.0 - Unreleased (as of 2017-06-03)
+## Release 2.2.0 - Unreleased (as of 2017-06-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -215,6 +215,7 @@
 | [HIVE-16230](https://issues.apache.org/jira/browse/HIVE-16230) | Enable CBO in presence of hints |  Major | CBO, Logical Optimizer | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-16166](https://issues.apache.org/jira/browse/HIVE-16166) | HS2 may still waste up to 15% of memory on duplicate strings |  Major | . | Misha Dmitriev | Misha Dmitriev |
 | [HIVE-16286](https://issues.apache.org/jira/browse/HIVE-16286) | Log canceled query id |  Trivial | . | Jimmy Xiang | Jimmy Xiang |
+| [HIVE-16962](https://issues.apache.org/jira/browse/HIVE-16962) | Better error msg for Hive on Spark in case user cancels query and closes session |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 
 
 ### BUG FIXES:

@@ -66,4 +66,42 @@ will also return two responses.
 one is at 175 lines 'requestChannel.sendResponse(new RequestChannel.Response(request, new ResponseSend(request.connectionId, responseHeader, response)))' and another at 111 lines 'requestChannel.sendResponse(new Response(request, new ResponseSend(request.connectionId, respHeader, response)))'.
 
 
+---
+
+* [KAFKA-3123](https://issues.apache.org/jira/browse/KAFKA-3123) | *Critical* | **Follower Broker cannot start if offsets are already out of range**
+
+I was trying to upgrade our test Windows cluster from 0.8.1.1 to 0.9.0 one machine at a time. Our logs have just 2 hours of retention. I had re-imaged the test machine under consideration, and got the following error in loop after starting afresh with 0.9.0 broker:
+
+[2016-01-19 13:57:28,809] WARN [ReplicaFetcherThread-1-169595708], Replica 177775588 for partition [EventLogs4,1] reset its fetch offset from 0 to current leader 169595708's start offset 334086 (kafka.server.ReplicaFetcherThread)
+[2016-01-19 13:57:28,809] ERROR [ReplicaFetcherThread-1-169595708], Error getting offset for partition [EventLogs4,1] to broker 169595708 (kafka.server.ReplicaFetcherThread)
+java.lang.IllegalStateException: Compaction for partition [EXO\_EventLogs4,1] cannot be aborted and paused since it is in LogCleaningPaused state.
+	at kafka.log.LogCleanerManager$$anonfun$abortAndPauseCleaning$1.apply$mcV$sp(LogCleanerManager.scala:149)
+	at kafka.log.LogCleanerManager$$anonfun$abortAndPauseCleaning$1.apply(LogCleanerManager.scala:140)
+	at kafka.log.LogCleanerManager$$anonfun$abortAndPauseCleaning$1.apply(LogCleanerManager.scala:140)
+	at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:262)
+	at kafka.log.LogCleanerManager.abortAndPauseCleaning(LogCleanerManager.scala:140)
+	at kafka.log.LogCleaner.abortAndPauseCleaning(LogCleaner.scala:141)
+	at kafka.log.LogManager.truncateFullyAndStartAt(LogManager.scala:304)
+	at kafka.server.ReplicaFetcherThread.handleOffsetOutOfRange(ReplicaFetcherThread.scala:185)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1$$anonfun$apply$2.apply(AbstractFetcherThread.scala:152)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1$$anonfun$apply$2.apply(AbstractFetcherThread.scala:122)
+	at scala.Option.foreach(Option.scala:236)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1.apply(AbstractFetcherThread.scala:122)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2$$anonfun$apply$mcV$sp$1.apply(AbstractFetcherThread.scala:120)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashMap$$anonfun$foreach$1.apply(HashMap.scala:98)
+	at scala.collection.mutable.HashTable$class.foreachEntry(HashTable.scala:226)
+	at scala.collection.mutable.HashMap.foreachEntry(HashMap.scala:39)
+	at scala.collection.mutable.HashMap.foreach(HashMap.scala:98)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply$mcV$sp(AbstractFetcherThread.scala:120)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply(AbstractFetcherThread.scala:120)
+	at kafka.server.AbstractFetcherThread$$anonfun$processFetchRequest$2.apply(AbstractFetcherThread.scala:120)
+	at kafka.utils.CoreUtils$.inLock(CoreUtils.scala:262)
+	at kafka.server.AbstractFetcherThread.processFetchRequest(AbstractFetcherThread.scala:118)
+	at kafka.server.AbstractFetcherThread.doWork(AbstractFetcherThread.scala:93)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:63)
+
+I could unblock myself with a code change. I deleted the action for "case s =\>" in the LogCleanerManager.scala's abortAndPauseCleaning(). I think we should not throw exception if the state is already LogCleaningAborted or LogCleaningPaused in this function, but instead just let it roll.
+
+
 

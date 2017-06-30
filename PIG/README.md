@@ -19,6 +19,9 @@
 * Apache Pig v0.18.0
     * [Changes](0.18.0/CHANGES.0.18.0.md)
     * [Release Notes](0.18.0/RELEASENOTES.0.18.0.md)
+* Apache Pig v0.17.1
+    * [Changes](0.17.1/CHANGES.0.17.1.md)
+    * [Release Notes](0.17.1/RELEASENOTES.0.17.1.md)
 * Apache Pig v0.17.0
     * [Changes](0.17.0/CHANGES.0.17.0.md)
     * [Release Notes](0.17.0/RELEASENOTES.0.17.0.md)

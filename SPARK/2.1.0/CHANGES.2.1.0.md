@@ -409,7 +409,7 @@
 | [SPARK-18410](https://issues.apache.org/jira/browse/SPARK-18410) | Add structured kafka example |  Minor | Structured Streaming | Genmao Yu | Genmao Yu |
 | [SPARK-18434](https://issues.apache.org/jira/browse/SPARK-18434) | Add missing ParamValidations for ML algos |  Minor | ML | zhengruifeng | zhengruifeng |
 | [SPARK-18446](https://issues.apache.org/jira/browse/SPARK-18446) | make sure all ML algos have links to API docs |  Trivial | Documentation, ML | zhengruifeng | zhengruifeng |
-| [SPARK-18420](https://issues.apache.org/jira/browse/SPARK-18420) | Fix the errors caused by lint check in Java |  Minor | Build | coneyliu | coneyliu |
+| [SPARK-18420](https://issues.apache.org/jira/browse/SPARK-18420) | Fix the errors caused by lint check in Java |  Minor | Build | Xianyang Liu | Xianyang Liu |
 | [SPARK-17268](https://issues.apache.org/jira/browse/SPARK-17268) | Break Optimizer.scala apart |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-16865](https://issues.apache.org/jira/browse/SPARK-16865) | A file-based end-to-end SQL query suite |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-17462](https://issues.apache.org/jira/browse/SPARK-17462) | Check for places within MLlib which should use VersionUtils to parse Spark version strings |  Minor | ML, MLlib | Joseph K. Bradley | Vincent |
@@ -994,6 +994,8 @@
 | [SPARK-12777](https://issues.apache.org/jira/browse/SPARK-12777) | Dataset fields can't be Scala tuples |  Major | SQL | Chris Jansen | Jakob Odersky |
 | [SPARK-19696](https://issues.apache.org/jira/browse/SPARK-19696) | Wrong Documentation for Java Word Count Example |  Minor | Documentation | gaurav gupta | Sean Owen |
 | [SPARK-18970](https://issues.apache.org/jira/browse/SPARK-18970) | FileSource failure during file list refresh doesn't cause an application to fail, but stops further processing |  Major | SQL, Structured Streaming | Lev |  |
+| [SPARK-11811](https://issues.apache.org/jira/browse/SPARK-11811) | Database can't be changed if it is specified in url |  Major | SQL | meiyoula |  |
+| [SPARK-20998](https://issues.apache.org/jira/browse/SPARK-20998) | BroadcastHashJoin producing wrong results |  Major | SQL | Mohit |  |
 
 
 ### TESTS:

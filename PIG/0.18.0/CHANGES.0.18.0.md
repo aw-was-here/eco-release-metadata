@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.18.0 - Unreleased (as of 2017-06-03)
+## Release 0.18.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-5216](https://issues.apache.org/jira/browse/PIG-5216) | Customizable Error Handling for Loaders in Pig |  Major | . | Iris Zeng | Iris Zeng |
+| [PIG-5251](https://issues.apache.org/jira/browse/PIG-5251) | Bump joda-time to 2.9.9 |  Major | . | Artem Ervits | Artem Ervits |
 
 
 ### BUG FIXES:
@@ -35,5 +36,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-5244](https://issues.apache.org/jira/browse/PIG-5244) | Several unit tests are failing in Tez mode after merging spark branch |  Major | tez | Nandor Kollar | Nandor Kollar |
 | [PIG-5225](https://issues.apache.org/jira/browse/PIG-5225) | Several unit tests are not annotated with @Test |  Major | . | Nandor Kollar | Nandor Kollar |
+| [PIG-4700](https://issues.apache.org/jira/browse/PIG-4700) | Enable progress reporting for Tasks in Tez |  Major | . | Rohini Palaniswamy | Satish Subhashrao Saley |
+| [PIG-4548](https://issues.apache.org/jira/browse/PIG-4548) | Records Lost With Specific Combination of Commands and Streaming Function |  Major | . | Steve T | Koji Noguchi |
+| [PIG-5263](https://issues.apache.org/jira/browse/PIG-5263) | Using wildcard doesn't work with OrcStorage |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
 
 

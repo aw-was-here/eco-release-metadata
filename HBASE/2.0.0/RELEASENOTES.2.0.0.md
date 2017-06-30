@@ -3955,6 +3955,13 @@ The HBase property 'hbase.bulkload.staging.dir' is deprecated and is ignored fro
 
 ---
 
+* [HBASE-16660](https://issues.apache.org/jira/browse/HBASE-16660) | *Critical* | **ArrayIndexOutOfBounds during the majorCompactionCheck in DateTieredCompaction**
+
+"Please do not use DateTieredCompaction with Major Compaction unless you have a version with this. Otherwise your cluster will not compact any store files and you can end up running out of file descriptors." @churro morales
+
+
+---
+
 * [HBASE-16672](https://issues.apache.org/jira/browse/HBASE-16672) | *Major* | **Add option for bulk load to always copy hfile(s) instead of renaming**
 
 This issue adds a config, always.copy.files, to LoadIncrementalHFiles.
@@ -5364,6 +5371,133 @@ Put up a model diagram.
 
 INCOMPATIBLE
 A known incompatible is that because splits and merges are now run from the master, Coprocessors that used to watch for merge/split from a RegionObserver now no longer work; to watch split/merges, you need to have an observer on the Master instead.
+
+
+---
+
+* [HBASE-16196](https://issues.apache.org/jira/browse/HBASE-16196) | *Critical* | **Update jruby to a newer version.**
+
+The bundled JRuby 1.6.8 has been updated to version 9.1.9.0. The represents a change from Ruby 1.8 to Ruby 2.3.3, which introduces non-compatible language changes for user scripts.
+
+This JRuby version update required an update to joni-2.1.11 and jcodings-1.0.18, used for regular expression matching, as well as several transitive dependency updates that should not be user-visible.
+
+
+---
+
+* [HBASE-18038](https://issues.apache.org/jira/browse/HBASE-18038) | *Critical* | **Rename StoreFile to HStoreFile and add a StoreFile interface for CP**
+
+StoreFile is now changed to an interface. This is an incompatible change. The coprocessors which implement RegionObserver may need to modify their code.
+
+
+---
+
+* [HBASE-9393](https://issues.apache.org/jira/browse/HBASE-9393) | *Critical* | **Hbase does not closing a closed socket resulting in many CLOSE\_WAIT**
+
+To handle this issue client need to have Hadoop client 2.6.4 or 2.7.0+ Hadoop version as CanUnBuffer interface which was added as part of HDFS-7694 is available in only those versions.
+
+
+---
+
+* [HBASE-16549](https://issues.apache.org/jira/browse/HBASE-16549) | *Major* | **Procedure v2 - Add new AM metrics**
+
+Following AMv2 procedures are modified to override onSubmit(), onFinish() hooks provided by HBASE-17888 to do
+metrics calculations when procedures are submitted and finshed:
+\* AssignProcedure
+\* UnassignProcedure
+\* MergeTableRegionProcedure
+\* SplitTableRegionProcedure
+\* ServerCrashProcedure
+
+Following metrics is collected for each of the above procedure during lifetime of a process:
+\* Total number of requests submitted for a type of procedure
+\* Histogram of runtime in milliseconds for successfully completed procedures
+\* Total number of failed procedures
+
+As we are moving away from Hadoop's metric2, hbase-metrics-api module is used for newly added metrics.
+
+
+---
+
+* [HBASE-15576](https://issues.apache.org/jira/browse/HBASE-15576) | *Major* | **Scanning cursor to prevent blocking long time on ResultScanner.next()**
+
+If you don't like scanning being blocked too long because of heartbeat and partial result, you can use Scan#setNeedCursorResult(true) to get a special result within scanning timeout setting time which will tell you where row the server is scanning. See its javadoc for more details.
+
+
+---
+
+* [HBASE-17849](https://issues.apache.org/jira/browse/HBASE-17849) | *Major* | **PE tool random read is not totally random**
+
+When randomRead and randomSeekScan is used with PE tool, now we allow using both --size and --rows. The --size specifies the total size of the data (the range) on which the reads should be performed and --rows specifies the number of rows to be read by each client with in that range.
+
+
+---
+
+* [HBASE-18149](https://issues.apache.org/jira/browse/HBASE-18149) | *Major* | **The setting rules for table-scope attributes and family-scope attributes should keep consistent**
+
+If the table-scope attributes value is false, you need not to enclose 'false' in single quotation.Both COMPACTION\_ENABLED =\> false and COMPACTION\_ENABLED =\> 'false' will take effect
+
+
+---
+
+* [HBASE-18008](https://issues.apache.org/jira/browse/HBASE-18008) | *Major* | **Any HColumnDescriptor we give out should be immutable**
+
+1) The HColumnDescriptor got from Admin, AsyncAdmin, and Table is immutable. 
+2) HColumnDescriptor have been marked as "Deprecated" and user should substituted  
+     ColumnFamilyDescriptor for HColumnDescriptor.
+3) ColumnFamilyDescriptor is constructed through ColumnFamilyDescriptorBuilder and it contains all of the read-only methods from HColumnDescriptor
+4) The value to which the IS\_MOB/MOB\_THRESHOLD is mapped is stored as String rather than Boolean/Long. The MOB is an new feature to 2.0 so this change should be acceptable
+
+
+---
+
+* [HBASE-18109](https://issues.apache.org/jira/browse/HBASE-18109) | *Critical* | **Assign system tables first (priority)**
+
+Adds a sort of procedures before submission so system tables are queued first (which will help ensure they go out first). This should be good enough along w/ existing scheduling mechanisms to ensure system/meta are assigned first (See reasoning below). Open new issue if insufficient.
+
+
+---
+
+* [HBASE-18137](https://issues.apache.org/jira/browse/HBASE-18137) | *Critical* | **Replication gets stuck for empty WALs**
+
+0-length WAL files can potentially cause the replication queue to get stuck.  A new config "replication.source.eof.autorecovery" has been added: if set to true (default is false), the 0-length WAL file will be skipped after 1) the max number of retries has been hit, and 2) there are more WAL files in the queue.  The risk of enabling this is that there is a chance the 0-length WAL file actually has some data (e.g. block went missing and will come back once a datanode is recovered).
+
+
+---
+
+* [HBASE-18187](https://issues.apache.org/jira/browse/HBASE-18187) | *Major* | **Release hbase-2.0.0-alpha1**
+
+Pushed the release. For detail: http://apache-hbase.679495.n3.nabble.com/ANNOUNCE-Apache-HBase-2-0-0-alpha-1-is-now-available-for-download-td4088484.html
+
+
+---
+
+* [HBASE-17928](https://issues.apache.org/jira/browse/HBASE-17928) | *Major* | **Shell tool to clear compaction queues**
+
+Adds clear\_compaction\_queues to the hbase shell.
+{code}
+  Clear compaction queues on a regionserver.
+  The queue\_name contains short and long. 
+  short is shortCompactions's queue,long is longCompactions's queue.
+  
+  Examples:
+  hbase\> clear\_compaction\_queues 'host187.example.com,60020'
+  hbase\> clear\_compaction\_queues 'host187.example.com,60020','long'
+  hbase\> clear\_compaction\_queues 'host187.example.com,60020', ['long','short']
+{code}
+
+
+---
+
+* [HBASE-17110](https://issues.apache.org/jira/browse/HBASE-17110) | *Major* | **Improve SimpleLoadBalancer to always take server-level balance into account**
+
+After HBASE-17110 the bytable strategy for SimpleLoadBalancer will also take server level balance into account
+
+
+---
+
+* [HBASE-14902](https://issues.apache.org/jira/browse/HBASE-14902) | *Major* | **Revert some of the stringency recently introduced by checkstyle tightening**
+
+Changes the checkstyle so that on a continuation line for javadoc, instead of default four spaces, instead now it is two spaces. Also one line statements as in if (true) x =1; now pass checkstyle.
 
 
 

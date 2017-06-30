@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-06-03)
+## Release 5.0.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -69,6 +69,13 @@
 | [OOZIE-2874](https://issues.apache.org/jira/browse/OOZIE-2874) | Make the Launcher Mapper map-only job's InputFormat class pluggable |  Major | . | Andras Piros | Andras Piros |
 | [OOZIE-2780](https://issues.apache.org/jira/browse/OOZIE-2780) | Upgrade minimum Hadoop version to 2.6.0 |  Minor | core | Artem Ervits | Artem Ervits |
 | [OOZIE-2888](https://issues.apache.org/jira/browse/OOZIE-2888) | Upgrade commons-io to 2.4 |  Minor | core | Artem Ervits | Artem Ervits |
+| [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923) | Improve Spark options parsing |  Major | action | Andras Piros | Andras Piros |
+| [OOZIE-2651](https://issues.apache.org/jira/browse/OOZIE-2651) | Set javax.xml.parsers.DocumentBuilderFactory sys prop to make XML handling faster |  Major | core | Robert Kanter | Robert Kanter |
+| [OOZIE-2933](https://issues.apache.org/jira/browse/OOZIE-2933) | Switch from Findbugs to Spotbugs |  Minor | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2924](https://issues.apache.org/jira/browse/OOZIE-2924) | ./bin/mkdistro.sh reports a number instances of no @throws for Exception |  Trivial | client, core | Artem Ervits | Artem Ervits |
+| [OOZIE-2769](https://issues.apache.org/jira/browse/OOZIE-2769) | Extend FS action to allow setrep on a file |  Minor | action, core | Artem Ervits | Artem Ervits |
+| [OOZIE-2920](https://issues.apache.org/jira/browse/OOZIE-2920) | Document Distcp can copy files within a cluster |  Trivial | . | Artem Ervits | Artem Ervits |
+| [OOZIE-2848](https://issues.apache.org/jira/browse/OOZIE-2848) | Override sharelib.tgz in distro when rebuilding Oozie |  Trivial | . | Attila Sasvari | Attila Sasvari |
 
 
 ### BUG FIXES:
@@ -117,6 +124,22 @@
 | [OOZIE-2317](https://issues.apache.org/jira/browse/OOZIE-2317) | Figure out what to do about Tomcat 6 End of Life |  Major | core | Robert Kanter |  |
 | [OOZIE-2917](https://issues.apache.org/jira/browse/OOZIE-2917) | duplicate declaration warning for io.dropwizard.metrics:metrics-core |  Trivial | core | Artem Ervits | Artem Ervits |
 | [OOZIE-2886](https://issues.apache.org/jira/browse/OOZIE-2886) | Ensure consistent versioning of hadoop jars in sharelibs |  Major | build | Robert Kanter | Artem Ervits |
+| [OOZIE-2928](https://issues.apache.org/jira/browse/OOZIE-2928) | Unit Tests using LocalOozie fail randomly |  Major | core | Denes Bodo | Denes Bodo |
+| [OOZIE-2950](https://issues.apache.org/jira/browse/OOZIE-2950) | TestOozieCLI.testSlaEvents is not testing SLAServlet. |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2902](https://issues.apache.org/jira/browse/OOZIE-2902) | org.apache.oozie.action.hadoop.TestJavaActionExecutor fails after hadoop 2.6 upgrade |  Blocker | core | Artem Ervits | Artem Ervits |
+| [OOZIE-2815](https://issues.apache.org/jira/browse/OOZIE-2815) | Oozie not always display job log |  Major | . | Purshotam Shah | Andras Piros |
+| [OOZIE-2796](https://issues.apache.org/jira/browse/OOZIE-2796) | oozie.action.keep.action.dir not getting noticed |  Major | . | Andras Piros | Xiaobin Zheng |
+| [OOZIE-2846](https://issues.apache.org/jira/browse/OOZIE-2846) | TestSSLServerConnectorFactory fails with Jetty 9.3 and 9.4 |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2794](https://issues.apache.org/jira/browse/OOZIE-2794) | Hive and Pig tests failing when multiple pre-commit jobs are running |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2884](https://issues.apache.org/jira/browse/OOZIE-2884) | consolidate hadoop versions in pomfiles |  Major | . | Peter Cseh | Artem Ervits |
+| [OOZIE-2733](https://issues.apache.org/jira/browse/OOZIE-2733) | change org.apache.hadoop.fs.permission.AccessControlException to org.apache.hadoop.security.AccessControlException |  Major | . | Peter Cseh | Peter Cseh |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-2959](https://issues.apache.org/jira/browse/OOZIE-2959) | TestTimestampedMessageParser fails in Oozie Core |  Major | tests | Parita Johari |  |
 
 
 ### SUB-TASKS:
@@ -129,6 +152,14 @@
 | [OOZIE-2753](https://issues.apache.org/jira/browse/OOZIE-2753) | Update Docs for Jetty Tomcat changes |  Major | docs | Robert Kanter | Attila Sasvari |
 | [OOZIE-1283](https://issues.apache.org/jira/browse/OOZIE-1283) | Remove the old ssh documentation |  Minor | docs | Robert Kanter | Jan Hentschel |
 | [OOZIE-2875](https://issues.apache.org/jira/browse/OOZIE-2875) | Typo in ssh action twiki docs |  Minor | docs | Dongying Jiao | Dongying Jiao |
+| [OOZIE-2747](https://issues.apache.org/jira/browse/OOZIE-2747) | README.txt is out of date |  Major | docs | Robert Kanter | Jan Hentschel |
+| [OOZIE-2825](https://issues.apache.org/jira/browse/OOZIE-2825) | Custom Authentication doc page is not well formatted |  Minor | . | Laszlo Zeke | Jan Hentschel |
+| [OOZIE-2935](https://issues.apache.org/jira/browse/OOZIE-2935) | Fix "concatenates strings using + in a loop" Findbugs error in oozie-sharelib-streaming |  Major | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2939](https://issues.apache.org/jira/browse/OOZIE-2939) | Fix Findbugs warnings related to reliance on default encoding in oozie-sharelib-hive2 module |  Major | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2938](https://issues.apache.org/jira/browse/OOZIE-2938) | Fix Findbugs warnings in oozie-sharelib-hive module |  Major | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2944](https://issues.apache.org/jira/browse/OOZIE-2944) | Shell action example does not work with Oozie on Yarn on hadoop 2.6 |  Major | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2943](https://issues.apache.org/jira/browse/OOZIE-2943) | Fix Findbugs warnings in oozie-sharelib-pig |  Major | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2849](https://issues.apache.org/jira/browse/OOZIE-2849) | Fix build warnings when assembling directories |  Trivial | . | Attila Sasvari | Attila Sasvari |
 
 
 ### OTHER:
@@ -136,5 +167,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2540](https://issues.apache.org/jira/browse/OOZIE-2540) | Create a PySpark example |  Major | examples | Robert Kanter | Abhishek Bafna |
+| [OOZIE-2926](https://issues.apache.org/jira/browse/OOZIE-2926) | Update Oozie version to 5.0.0-SNAPSHOT |  Blocker | . | Robert Kanter | Artem Ervits |
+| [OOZIE-2936](https://issues.apache.org/jira/browse/OOZIE-2936) | Fix Javadoc warnings from build |  Minor | build | Jan Hentschel | Jan Hentschel |
 
 

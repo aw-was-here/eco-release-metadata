@@ -23,9 +23,49 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
+
+HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
+
+
+---
+
+* [HDFS-11499](https://issues.apache.org/jira/browse/HDFS-11499) | *Major* | **Decommissioning stuck because of failing recovery**
+
+Allow a block to complete if the number of replicas on live nodes, decommissioning nodes and nodes in maintenance mode satisfies minimum replication factor.
+The fix prevents block recovery failure if replica of last block is being decommissioned. Vice versa, the decommissioning will be stuck, waiting for the last block to be completed. In addition, file close() operation will not fail due to last block being decommissioned.
+
+
+---
+
+* [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
+
+<!-- markdown --> 
+
+* Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
+* Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
+* Old properties are still supported
+
+
+---
+
+* [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | *Major* | **Set default ADLS access token provider type to ClientCredential**
+
+Switch the default ADLS access token provider type from Custom to ClientCredential.
+
+
+---
+
 * [HDFS-9016](https://issues.apache.org/jira/browse/HDFS-9016) | *Major* | **Display upgrade domain information in fsck**
 
 New fsck option "-upgradedomains" has been added to display upgrade domains of any block.
+
+
+---
+
+* [HDFS-11661](https://issues.apache.org/jira/browse/HDFS-11661) | *Blocker* | **GetContentSummary uses excessive amounts of memory**
+
+Reverted HDFS-10797 to fix a scalability regression brought by the commit.
 
 
 

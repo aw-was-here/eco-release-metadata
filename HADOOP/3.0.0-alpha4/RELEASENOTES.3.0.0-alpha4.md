@@ -350,7 +350,7 @@ The deprecated ProcessTree methods getCumulativeVmem
 
 * [HDFS-11402](https://issues.apache.org/jira/browse/HDFS-11402) | *Major* | **HDFS Snapshots should capture point-in-time copies of OPEN files**
 
-**WARNING: No release note provided for this change.**
+When the config param "dfs.namenode.snapshot.capture.openfiles" is enabled, HDFS snapshots taken will additionally capture point-in-time copies of the open files that have valid leases. Even when the current version open files grow or shrink in size, the snapshot will always retain the immutable versions of these open files, just as in for all other closed files. Note: The file length captured for open files in the snapshot was the one recorded in NameNode at the time of snapshot and it may be shorter than what the client has written till then. In order to capture the latest length, the client can call hflush/hsync with the flag SyncFlag.UPDATE\_LENGTH on the open files handles.
 
 
 ---
@@ -400,13 +400,6 @@ YARN application tags can no longer contain non-printable ASCII characters.
 
 ---
 
-* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
-
-In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
-
-
----
-
 * [HADOOP-14401](https://issues.apache.org/jira/browse/HADOOP-14401) | *Major* | **maven-project-info-reports-plugin can be removed**
 
 hadoop-auth and hadoop-hdfs-httpfs modules no longer generate dependencies.html via maven-project-info-reports-plugin.
@@ -435,13 +428,6 @@ Reverted HDFS-10797 to fix a scalability regression brought by the commit.
 
 ---
 
-* [HDFS-11787](https://issues.apache.org/jira/browse/HDFS-11787) | *Major* | **After HDFS-11515, -du still throws ConcurrentModificationException**
-
-Reverted HDFS-11515.
-
-
----
-
 * [HADOOP-14426](https://issues.apache.org/jira/browse/HADOOP-14426) | *Blocker* | **Upgrade Kerby version from 1.0.0-RC2 to 1.0.0**
 
 **WARNING: No release note provided for this change.**
@@ -459,6 +445,48 @@ The copy buffer size can be configured via the new parameter \<copybuffersize\>.
 * [HADOOP-13921](https://issues.apache.org/jira/browse/HADOOP-13921) | *Critical* | **Remove Log4j classes from JobConf**
 
 Changes the type of JobConf.DEFAULT\_LOG\_LEVEL from a Log4J Level to a String. Clients that referenced this field will need to be recompiled and may need to alter their source to account for the type change. The level itself remains conceptually at "INFO".
+
+
+---
+
+* [HADOOP-8143](https://issues.apache.org/jira/browse/HADOOP-8143) | *Minor* | **Change distcp to have -pb on by default**
+
+If -p option of distcp command is unspecified, block size is preserved.
+
+
+---
+
+* [HADOOP-14502](https://issues.apache.org/jira/browse/HADOOP-14502) | *Minor* | **Confusion/name conflict between NameNodeActivity#BlockReportNumOps and RpcDetailedActivity#BlockReportNumOps**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HDFS-11067](https://issues.apache.org/jira/browse/HDFS-11067) | *Major* | **DFS#listStatusIterator(..) should throw FileNotFoundException if the directory deleted before fetching next batch of entries**
+
+DistributedFileSystem#listStatusIterator(..) throws FileNotFoundException if directory got deleted during iterating over large list beyond ls limit.
+
+
+---
+
+* [HDFS-11956](https://issues.apache.org/jira/browse/HDFS-11956) | *Blocker* | **Do not require a storage ID or target storage IDs when writing a block**
+
+Hadoop 2.x clients do not pass the storage ID or target storage IDs when writing a block. For backwards compatibility, the DataNode will not require the presence of these fields. This means older clients are unable to write to a particular storage as chosen by the NameNode (e.g. HDFS-9806).
+
+
+---
+
+* [HADOOP-14536](https://issues.apache.org/jira/browse/HADOOP-14536) | *Major* | **Update azure-storage sdk to version 5.3.0**
+
+The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
+
+
+---
+
+* [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | *Major* | **Azure: Concurrent I/O does not work when secure.mode is enabled**
+
+Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be used with the secure mode feature.
 
 
 

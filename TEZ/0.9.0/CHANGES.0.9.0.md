@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.0 - Unreleased (as of 2017-06-03)
+## Release 0.9.0 - Unreleased (as of 2017-06-30)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -28,6 +28,7 @@
 | [TEZ-3611](https://issues.apache.org/jira/browse/TEZ-3611) | Create lightweight summary events for ATS. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3689](https://issues.apache.org/jira/browse/TEZ-3689) | Change minimum hadoop version to 2.7.0 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-3745](https://issues.apache.org/jira/browse/TEZ-3745) | Change master to required java 8 |  Blocker | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-3693](https://issues.apache.org/jira/browse/TEZ-3693) | ControlledClock is not used |  Trivial | . | Jason Lowe | Muhammad Samir Khan |
 
 
 ### IMPORTANT ISSUES:
@@ -272,6 +273,22 @@
 | [TEZ-3750](https://issues.apache.org/jira/browse/TEZ-3750) | Add TEZ\_RUNTIME\_UNORDERED\_PARTITIONED\_KVWRITER\_BUFFER\_MERGE\_PERCENT to UnorderedPartitionedKVOutput. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3701](https://issues.apache.org/jira/browse/TEZ-3701) | UnorderedPartitionedKVWriter - issues with parallel Deflater usage, synchronousqueue in threadpool |  Blocker | . | Harish Jaiprakash | Rajesh Balamohan |
 | [TEZ-3732](https://issues.apache.org/jira/browse/TEZ-3732) | Reduce Object size of InputAttemptIdentifier and MapOutput for large jobs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3698](https://issues.apache.org/jira/browse/TEZ-3698) | UnorderedKV writer should be able to honor tez.runtime.enable.final-merge.in.output without pipelinedshuffle |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3741](https://issues.apache.org/jira/browse/TEZ-3741) | Tez outputs should free memory when closed |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3760](https://issues.apache.org/jira/browse/TEZ-3760) | Tez AUX Services: Shading needs to filter SIG files with -Pazure builds |  Blocker | . | Gopal V | Kuhu Shukla |
+| [TEZ-3766](https://issues.apache.org/jira/browse/TEZ-3766) | Tez Aux-services : Clean up shaded jar to not include default config xml files and yarn-client pieces |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3768](https://issues.apache.org/jira/browse/TEZ-3768) | Test timeout value for TestShuffleHandlerJobs is low |  Minor | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3758](https://issues.apache.org/jira/browse/TEZ-3758) | Vertex can hang in RUNNING state when two task attempts finish very closely and have retroactive failures |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3761](https://issues.apache.org/jira/browse/TEZ-3761) | NPE in Fetcher under load |  Major | . | Rajesh Balamohan | Jonathan Eagles |
+| [TEZ-3762](https://issues.apache.org/jira/browse/TEZ-3762) | When final merge is disabled in unordered case, it should create index file instead of relying on cache |  Major | . | Rajesh Balamohan | Zhiyuan Yang |
+| [TEZ-3778](https://issues.apache.org/jira/browse/TEZ-3778) | Remove SecurityInfo from tez-auxservices shaded jar |  Blocker | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3767](https://issues.apache.org/jira/browse/TEZ-3767) | Shuffle should not report error to AM during inputContext.killSelf() |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3777](https://issues.apache.org/jira/browse/TEZ-3777) | Avoid buffer copies by passing RLE flag to TezMerger from PipelinedSorter |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3769](https://issues.apache.org/jira/browse/TEZ-3769) | Unordered: Fix wrong stats being sent out in the last event, when final merge is disabled |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-3771](https://issues.apache.org/jira/browse/TEZ-3771) | Tez UI: WASB/ADLS counters should be listed on the Tez UI |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
+| [TEZ-3605](https://issues.apache.org/jira/browse/TEZ-3605) | Detect and prune empty partitions for the Ordered case |  Major | . | Kuhu Shukla | Kuhu Shukla |
+| [TEZ-3775](https://issues.apache.org/jira/browse/TEZ-3775) | Tez UI: Show DAG context in document title |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3274](https://issues.apache.org/jira/browse/TEZ-3274) | Vertex with MRInput and broadcast input does not respect slow start |  Major | . | Jonathan Eagles | Eric Badger |
 
 
 ### TESTS:

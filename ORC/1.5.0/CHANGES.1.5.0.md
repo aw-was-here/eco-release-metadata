@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.5.0 - Unreleased (as of 2017-06-03)
+## Release 1.5.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-173](https://issues.apache.org/jira/browse/ORC-173) | [C++] Expose Indexes as API |  Major | . | Deepak Majeti | Deepak Majeti |
 | [ORC-193](https://issues.apache.org/jira/browse/ORC-193) | Refactor WriterImp to clean up TreeWriter API |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-194](https://issues.apache.org/jira/browse/ORC-194) | Split TreeWriters out of WriterImpl |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -37,6 +38,7 @@
 | [ORC-188](https://issues.apache.org/jira/browse/ORC-188) | Fix RAT problems |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-185](https://issues.apache.org/jira/browse/ORC-185) | [C++] Simplify Statististics Implementation |  Major | . | Deepak Majeti | Deepak Majeti |
 | [ORC-198](https://issues.apache.org/jira/browse/ORC-198) | Decimal types created with convert command generates IllegalArgumentException for valid documents |  Major | Java | Shawn Hooton | Shawn Hooton |
+| [ORC-202](https://issues.apache.org/jira/browse/ORC-202) | Add enum that encodes which writer wrote a file |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### SUB-TASKS:

@@ -23,56 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
+* [YARN-6709](https://issues.apache.org/jira/browse/YARN-6709) | *Blocker* | **Root privilege escalation in experimental Docker support**
 
-HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
-
-
----
-
-* [HDFS-11499](https://issues.apache.org/jira/browse/HDFS-11499) | *Major* | **Decommissioning stuck because of failing recovery**
-
-Allow a block to complete if the number of replicas on live nodes, decommissioning nodes and nodes in maintenance mode satisfies minimum replication factor.
-The fix prevents block recovery failure if replica of last block is being decommissioned. Vice versa, the decommissioning will be stuck, waiting for the last block to be completed. In addition, file close() operation will not fail due to last block being decommissioned.
-
-
----
-
-* [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
-
-<!-- markdown --> 
-
-* Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
-* Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
-* Old properties are still supported
-
-
----
-
-* [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | *Major* | **Set default ADLS access token provider type to ClientCredential**
-
-Switch the default ADLS access token provider type from Custom to ClientCredential.
-
-
----
-
-* [HDFS-11515](https://issues.apache.org/jira/browse/HDFS-11515) | *Major* | **-du throws ConcurrentModificationException**
-
-In case a directory with subdirectories were removed from a directory that has a snapshot containing the removed subdirectory, hdfs dfs -du on any ancestor of the removed directories ran into a ConcurrentModificationException, and failed.
-
-
----
-
-* [HDFS-11661](https://issues.apache.org/jira/browse/HDFS-11661) | *Blocker* | **GetContentSummary uses excessive amounts of memory**
-
-Reverted HDFS-10797 to fix a scalability regression brought by the commit.
-
-
----
-
-* [HDFS-11787](https://issues.apache.org/jira/browse/HDFS-11787) | *Major* | **After HDFS-11515, -du still throws ConcurrentModificationException**
-
-Reverted HDFS-11515.
+**WARNING: No release note provided for this change.**
 
 
 

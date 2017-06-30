@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.10.0 - Unreleased (as of 2017-06-03)
+## Release 1.10.0 - Unreleased (as of 2017-06-30)
 
 
 
@@ -31,6 +31,7 @@
 | [PARQUET-969](https://issues.apache.org/jira/browse/PARQUET-969) | Decimal datatype support for parquet-tools output |  Minor | . | Dan Fowler |  |
 | [PARQUET-852](https://issues.apache.org/jira/browse/PARQUET-852) | Slowly ramp up sizes of byte[] in ByteBasedBitPackingEncoder |  Minor | . | John Jenkins |  |
 | [PARQUET-990](https://issues.apache.org/jira/browse/PARQUET-990) | More detailed error messages in footer parsing |  Minor | parquet-mr | Andrew Ash | Andrew Ash |
+| [PARQUET-884](https://issues.apache.org/jira/browse/PARQUET-884) | Add support for Decimal datatype to Parquet-Pig record reader |  Minor | parquet-pig | Ellen Kletscher | Ellen Kletscher |
 
 
 ### BUG FIXES:

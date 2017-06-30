@@ -29,4 +29,18 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Users of Apache Yetus Test Patch who wish to run the findbugs check on all changed modules rather than just those that have changed source files can now pass `--findbugs-skip-maven-source-check`.
 
 
+---
+
+* [YETUS-509](https://issues.apache.org/jira/browse/YETUS-509) | *Major* | **Remove maven-eclipse plugin support**
+
+We have removed testing of the maven-eclipse plugin as it has been deprecated for several years now.
+
+
+---
+
+* [YETUS-512](https://issues.apache.org/jira/browse/YETUS-512) | *Blocker* | **Switch default docker image over to Xenial**
+
+This patch switches the default image over to Ubuntu 16.04 LTS, OpenJDK 8, and Ruby 2.3.
+
+
 

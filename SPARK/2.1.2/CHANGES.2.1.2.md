@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-06-03)
+## Release 2.1.2 - Unreleased (as of 2017-06-30)
 
 
 
@@ -35,6 +35,7 @@
 | [SPARK-20796](https://issues.apache.org/jira/browse/SPARK-20796) | the location of start-master.sh in spark-standalone.md is wrong |  Trivial | Documentation | liuzhaokun | liuzhaokun |
 | [SPARK-20759](https://issues.apache.org/jira/browse/SPARK-20759) | SCALA\_VERSION in \_config.yml,LICENSE and Dockerfile should be consistent with pom.xml |  Trivial | Documentation | liuzhaokun | liuzhaokun |
 | [SPARK-20868](https://issues.apache.org/jira/browse/SPARK-20868) | UnsafeShuffleWriter should verify the position after FileChannel.transferTo |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
+| [SPARK-21072](https://issues.apache.org/jira/browse/SPARK-21072) | \`TreeNode.mapChildren\` should only apply to the children node. |  Major | SQL | Xianyang Liu | Xianyang Liu |
 
 
 ### BUG FIXES:
@@ -77,13 +78,28 @@
 | [SPARK-18406](https://issues.apache.org/jira/browse/SPARK-18406) | Race between end-of-task and completion iterator read lock release |  Major | Block Manager, Spark Core | Josh Rosen | Jiang Xingbo |
 | [SPARK-20862](https://issues.apache.org/jira/browse/SPARK-20862) | LogisticRegressionModel throws TypeError |  Minor | MLlib, PySpark | Bago Amirbekian | Bago Amirbekian |
 | [SPARK-20848](https://issues.apache.org/jira/browse/SPARK-20848) | Dangling threads when reading parquet files in local mode |  Major | Input/Output, SQL | Nick Pritchard | Liang-Chi Hsieh |
-| [SPARK-20250](https://issues.apache.org/jira/browse/SPARK-20250) | Improper OOM error when a task been killed while spilling data |  Major | Spark Core | Feng Zhu | coneyliu |
+| [SPARK-20250](https://issues.apache.org/jira/browse/SPARK-20250) | Improper OOM error when a task been killed while spilling data |  Major | Spark Core | Feng Zhu | Xianyang Liu |
 | [SPARK-20874](https://issues.apache.org/jira/browse/SPARK-20874) | The "examples" project doesn't depend on Structured Streaming Kafka source |  Minor | Examples | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-20843](https://issues.apache.org/jira/browse/SPARK-20843) | Cannot gracefully kill drivers which take longer than 10 seconds to die |  Major | Spark Core | Michael Allman | Shixiong Zhu |
 | [SPARK-20275](https://issues.apache.org/jira/browse/SPARK-20275) | HistoryServer page shows incorrect complete date of inprogress apps |  Minor | Spark Core | Saisai Shao | Saisai Shao |
 | [SPARK-20940](https://issues.apache.org/jira/browse/SPARK-20940) | AccumulatorV2 should not throw IllegalAccessError |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-20922](https://issues.apache.org/jira/browse/SPARK-20922) | Unsafe deserialization in Spark LauncherConnection |  Major | Spark Submit | Aditya Sharad | Marcelo Vanzin |
 | [SPARK-20974](https://issues.apache.org/jira/browse/SPARK-20974) | we should run REPL tests if SQL core has code changes |  Major | Build | Wenchen Fan | Wenchen Fan |
+| [SPARK-20914](https://issues.apache.org/jira/browse/SPARK-20914) | Javadoc contains code that is invalid |  Trivial | Documentation | Cristian Teodor | Sean Owen |
+| [SPARK-20920](https://issues.apache.org/jira/browse/SPARK-20920) | ForkJoinPool pools are leaked when writing hive tables with many partitions |  Major | SQL | Rares Mirica | Sean Owen |
+| [SPARK-21064](https://issues.apache.org/jira/browse/SPARK-21064) | Fix the default value bug in NettyBlockTransferServiceSuite |  Trivial | Tests | DjvuLee | DjvuLee |
+| [SPARK-20211](https://issues.apache.org/jira/browse/SPARK-20211) | \`1 \> 0.0001\` throws Decimal scale (0) cannot be greater than precision (-2) exception |  Major | SQL | StanZhai | Xiao Li |
+| [SPARK-16251](https://issues.apache.org/jira/browse/SPARK-16251) | LocalCheckpointSuite's - missing checkpoint block fails with informative message is flaky. |  Minor | . | Prashant Sharma | Jiang Xingbo |
+| [SPARK-20200](https://issues.apache.org/jira/browse/SPARK-20200) | Flaky Test: org.apache.spark.rdd.LocalCheckpointSuite |  Minor | Spark Core | Takuya Ueshin | Jiang Xingbo |
+| [SPARK-19688](https://issues.apache.org/jira/browse/SPARK-19688) | Spark on Yarn Credentials File set to different application directory |  Minor | DStreams, YARN | Devaraj Jonnadula | Xing Shi |
+| [SPARK-21138](https://issues.apache.org/jira/browse/SPARK-21138) | Cannot delete staging dir when the clusters of "spark.yarn.stagingDir" and "spark.hadoop.fs.defaultFS" are different |  Major | YARN | sharkd tu | sharkd tu |
+| [SPARK-21167](https://issues.apache.org/jira/browse/SPARK-21167) | Path is not decoded correctly when reading output of FileSink |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-21181](https://issues.apache.org/jira/browse/SPARK-21181) | Suppress memory leak errors reported by netty |  Minor | Input/Output | Dhruve Ashar | Dhruve Ashar |
+| [SPARK-20555](https://issues.apache.org/jira/browse/SPARK-20555) | Incorrect handling of Oracle's decimal types via JDBC |  Major | SQL | Gabor Feher | Gabor Feher |
+| [SPARK-21159](https://issues.apache.org/jira/browse/SPARK-21159) | Cluster mode, driver throws connection refused exception submitted by SparkLauncher |  Major | Spark Core, Spark Submit | niefei | Marcelo Vanzin |
+| [SPARK-21203](https://issues.apache.org/jira/browse/SPARK-21203) | Wrong results of insertion of Array of Struct |  Critical | SQL | Xiao Li | Xiao Li |
+| [SPARK-21176](https://issues.apache.org/jira/browse/SPARK-21176) | Master UI hangs with spark.ui.reverseProxy=true if the master node has many CPUs |  Major | Web UI | Ingo Schuster | Ingo Schuster |
+| [SPARK-21258](https://issues.apache.org/jira/browse/SPARK-21258) | Window result incorrect using complex object with spilling |  Major | SQL | Herman van Hovell | Herman van Hovell |
 
 
 ### TESTS:
@@ -91,6 +107,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-20603](https://issues.apache.org/jira/browse/SPARK-20603) | Flaky test: o.a.s.sql.kafka010.KafkaSourceSuite deserialization of initial offset with Spark 2.1.0 |  Minor | Tests | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-21114](https://issues.apache.org/jira/browse/SPARK-21114) | Test failure in Spark 2.1 due to name mismatch |  Major | SQL | Xiao Li | Xiao Li |
 
 
 ### OTHER:
@@ -99,5 +116,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-20296](https://issues.apache.org/jira/browse/SPARK-20296) | UnsupportedOperationChecker text on distinct aggregations differs from docs |  Trivial | Structured Streaming | Jason Tokayer | Jason Tokayer |
 | [SPARK-20455](https://issues.apache.org/jira/browse/SPARK-20455) | Missing Test Target in Documentation for "Running Docker-based Integration Test Suites" |  Trivial | Documentation | Armin Braun | Armin Braun |
+| [SPARK-21123](https://issues.apache.org/jira/browse/SPARK-21123) | Options for file stream source are in a wrong table |  Minor | Documentation, Structured Streaming | Shixiong Zhu | Assaf Mendelson |
 
 

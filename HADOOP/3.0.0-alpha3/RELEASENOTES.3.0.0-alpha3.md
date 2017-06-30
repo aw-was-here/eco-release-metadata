@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [YARN-6709](https://issues.apache.org/jira/browse/YARN-6709) | *Blocker* | **Root privilege escalation in experimental Docker support**
+
+**WARNING: No release note provided for this change.**
+
+
 

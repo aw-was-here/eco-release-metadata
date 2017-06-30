@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.11.0.0 - 2017-06-14
+## Release 0.11.0.0 - 2017-06-28
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4864](https://issues.apache.org/jira/browse/KAFKA-4864) | Kafka Secure Migrator tool doesn't secure all the nodes |  Critical | . | Stephane Maarek |  |
 | [KAFKA-5289](https://issues.apache.org/jira/browse/KAFKA-5289) | One StopReplicaRequest will caused two Responses |  Critical | core | xuzq | Ismael Juma |
+| [KAFKA-3123](https://issues.apache.org/jira/browse/KAFKA-3123) | Follower Broker cannot start if offsets are already out of range |  Critical | core, replication | Soumyajit Sahu | Mickael Maison |
 
 
 ### NEW FEATURES:
@@ -37,12 +38,13 @@
 | [KAFKA-4720](https://issues.apache.org/jira/browse/KAFKA-4720) | Add KStream.peek(ForeachAction\<K,V\>) |  Major | streams | Steven Schlansker | Steven Schlansker |
 | [KAFKA-4881](https://issues.apache.org/jira/browse/KAFKA-4881) | Add internal leave.group.on.close config to consumer |  Major | clients | Damian Guy | Damian Guy |
 | [KAFKA-4586](https://issues.apache.org/jira/browse/KAFKA-4586) | Add purgeDataBefore() API in AdminClient |  Major | . | Dong Lin | Dong Lin |
-| [KAFKA-4208](https://issues.apache.org/jira/browse/KAFKA-4208) | Add Record Headers |  Critical | clients, core | Michael Andre Pearce |  |
+| [KAFKA-4208](https://issues.apache.org/jira/browse/KAFKA-4208) | Add Record Headers |  Critical | clients, core | Michael Andre Pearce | Michael Andre Pearce |
 | [KAFKA-4923](https://issues.apache.org/jira/browse/KAFKA-4923) | Add Exactly-Once Semantics to Streams |  Major | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-4743](https://issues.apache.org/jira/browse/KAFKA-4743) | Add a tool to Reset Consumer Group Offsets |  Major | consumer, core, tools | Jorge Quilcate | Jorge Quilcate |
 | [KAFKA-3487](https://issues.apache.org/jira/browse/KAFKA-3487) | KIP-146: Support per-connector/per-task classloaders in Connect |  Critical | KafkaConnect | Ewen Cheslack-Postava | Konstantine Karantasis |
 | [KAFKA-5192](https://issues.apache.org/jira/browse/KAFKA-5192) | Range Scan for Windowed State Stores |  Major | streams | Xavier Léauté | Xavier Léauté |
 | [KAFKA-5059](https://issues.apache.org/jira/browse/KAFKA-5059) | Implement Transactional Coordinator |  Major | core | Damian Guy | Damian Guy |
+| [KAFKA-4815](https://issues.apache.org/jira/browse/KAFKA-4815) | Idempotent/transactional Producer (KIP-98) |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
 
 
 ### IMPROVEMENTS:
@@ -84,7 +86,7 @@
 | [KAFKA-5176](https://issues.apache.org/jira/browse/KAFKA-5176) | AdminClient: add controller and clusterId methods to DescribeClusterResults |  Major | admin | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-5194](https://issues.apache.org/jira/browse/KAFKA-5194) | KIP-153: Include only client traffic in BytesOutPerSec metric |  Major | metrics | Mickael Maison | Mickael Maison |
 | [KAFKA-4982](https://issues.apache.org/jira/browse/KAFKA-4982) | Add listener tag to socket-server-metrics.connection-... metrics (KIP-136) |  Major | . | Edoardo Comar | Edoardo Comar |
-| [KAFKA-5257](https://issues.apache.org/jira/browse/KAFKA-5257) | CLONE - Change Default unclean.leader.election.enabled from True to False |  Major | . | Ben Stopford | Sharad |
+| [KAFKA-5257](https://issues.apache.org/jira/browse/KAFKA-5257) | Change Default unclean.leader.election.enabled from True to False |  Major | . | Ben Stopford | Sharad |
 | [KAFKA-5166](https://issues.apache.org/jira/browse/KAFKA-5166) | Add option "dry run" to Streams application reset tool |  Minor | streams, tools | Matthias J. Sax | Bharat Viswanadham |
 | [KAFKA-4772](https://issues.apache.org/jira/browse/KAFKA-4772) | Exploit #peek to implement #print() and other methods |  Minor | streams | Matthias J. Sax | james chien |
 | [KAFKA-5036](https://issues.apache.org/jira/browse/KAFKA-5036) | Followups from KIP-101 |  Major | . | Jun Rao | Ben Stopford |
@@ -99,8 +101,12 @@
 | [KAFKA-4195](https://issues.apache.org/jira/browse/KAFKA-4195) | support throttling on request rate |  Major | . | Jun Rao | Rajini Sivaram |
 | [KAFKA-2358](https://issues.apache.org/jira/browse/KAFKA-2358) | Cluster collection returning methods should never return null |  Minor | . | Stevo Slavic | Stevo Slavic |
 | [KAFKA-5311](https://issues.apache.org/jira/browse/KAFKA-5311) | Support ExtendedDeserializer in Kafka Streams |  Major | streams | Dale Peakall | Dale Peakall |
-| [KAFKA-5327](https://issues.apache.org/jira/browse/KAFKA-5327) | Console Consumer should only poll for up to max messages |  Minor | tools | Dustin Cote | huxihx |
 | [KAFKA-4291](https://issues.apache.org/jira/browse/KAFKA-4291) | TopicCommand --describe shows topics marked for deletion as under-replicated and unavailable (KIP-137) |  Major | admin | Mickael Maison | Mickael Maison |
+| [KAFKA-5112](https://issues.apache.org/jira/browse/KAFKA-5112) | Trunk compatibility tests should test against 0.10.2 |  Blocker | . | Colin P. McCabe | Ismael Juma |
+| [KAFKA-5411](https://issues.apache.org/jira/browse/KAFKA-5411) | Generate javadoc for AdminClient and show configs in documentation |  Blocker | . | Ismael Juma | Ismael Juma |
+| [KAFKA-5405](https://issues.apache.org/jira/browse/KAFKA-5405) | Request log should log throttle time |  Major | . | Jun Rao | huxihx |
+| [KAFKA-5446](https://issues.apache.org/jira/browse/KAFKA-5446) | Annoying braces showed on log.error using streams |  Trivial | streams | Paolo Patierno | Paolo Patierno |
+| [KAFKA-4829](https://issues.apache.org/jira/browse/KAFKA-4829) | Improve logging of StreamTask commits |  Minor | streams | Steven Schlansker | Guozhang Wang |
 
 
 ### BUG FIXES:
@@ -155,7 +161,7 @@
 | [KAFKA-4738](https://issues.apache.org/jira/browse/KAFKA-4738) | Remove generic type of class ClientState |  Minor | streams | Matthias J. Sax | Sharad |
 | [KAFKA-4891](https://issues.apache.org/jira/browse/KAFKA-4891) | kafka.request.logger TRACE regression |  Major | . | Onur Karaman | Onur Karaman |
 | [KAFKA-4783](https://issues.apache.org/jira/browse/KAFKA-4783) | KIP-128: Blackbox or pass through converter or ByteArrayConverter for connect |  Major | KafkaConnect | Antony Stubbs | Ewen Cheslack-Postava |
-| [KAFKA-4885](https://issues.apache.org/jira/browse/KAFKA-4885) | processstreamwithcachedstatestore﻿ and other streams benchmarks fail occasionally |  Major | streams | Eno Thereska | Guozhang Wang |
+| [KAFKA-4885](https://issues.apache.org/jira/browse/KAFKA-4885) | processstreamwithcachedstatestore and other streams benchmarks fail occasionally |  Major | streams | Eno Thereska | Guozhang Wang |
 | [KAFKA-4895](https://issues.apache.org/jira/browse/KAFKA-4895) | Fix findbugs "format string should use %n rather than \\n" in tools |  Major | tools | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4607](https://issues.apache.org/jira/browse/KAFKA-4607) | Kafka Streams allows you to provide strings with illegal characters for internal topic names |  Minor | . | Nikki Thean | Nikki Thean |
 | [KAFKA-4894](https://issues.apache.org/jira/browse/KAFKA-4894) | Fix findbugs "default character set in use" warnings |  Major | . | Colin P. McCabe | Colin P. McCabe |
@@ -231,7 +237,6 @@
 | [KAFKA-5173](https://issues.apache.org/jira/browse/KAFKA-5173) | SASL tests failing with Could not find a 'KafkaServer' or 'sasl\_plaintext.KafkaServer' entry in the JAAS configuration |  Major | . | Ismael Juma | Rajini Sivaram |
 | [KAFKA-5216](https://issues.apache.org/jira/browse/KAFKA-5216) | Cached Session/Window store may return error on iterator.peekNextKey() |  Major | streams | Xavier Léauté | Xavier Léauté |
 | [KAFKA-5198](https://issues.apache.org/jira/browse/KAFKA-5198) | RocksDbStore#openIterators should be synchronized, since it is accessed from multiple threads |  Major | streams | Colin P. McCabe | Colin P. McCabe |
-| [KAFKA-5167](https://issues.apache.org/jira/browse/KAFKA-5167) | streams task gets stuck after re-balance due to LockException |  Major | streams | Narendra Kumar | Matthias J. Sax |
 | [KAFKA-5230](https://issues.apache.org/jira/browse/KAFKA-5230) | Recommended values for Connect transformations contain the wrong class name |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-5232](https://issues.apache.org/jira/browse/KAFKA-5232) | Kafka broker fails to start if a topic containing dot in its name is marked for delete but hasn't been deleted during previous uptime |  Critical | core | jaikiran pai | jaikiran pai |
 | [KAFKA-5203](https://issues.apache.org/jira/browse/KAFKA-5203) | Percentilles are calculated incorrectly |  Minor | metrics | Ivan A. Melnikov |  |
@@ -283,7 +288,42 @@
 | [KAFKA-4595](https://issues.apache.org/jira/browse/KAFKA-4595) | Controller send thread can't stop when broker change listener event trigger for  dead brokers |  Critical | . | Pengwei | Onur Karaman |
 | [KAFKA-5373](https://issues.apache.org/jira/browse/KAFKA-5373) | ConsoleConsumer prints out object addresses rather than what is expected |  Blocker | . | Colin P. McCabe | Apurva Mehta |
 | [KAFKA-5374](https://issues.apache.org/jira/browse/KAFKA-5374) | AdminClient gets "server returned information about unknown correlation ID" when communicating with older brokers |  Blocker | admin | Colin P. McCabe | Colin P. McCabe |
-| [KAFKA-5098](https://issues.apache.org/jira/browse/KAFKA-5098) | KafkaProducer.send() blocks and generates TimeoutException if topic name has illegal char |  Major | producer | Jeff Larsen | huxihx |
+| [KAFKA-5325](https://issues.apache.org/jira/browse/KAFKA-5325) | Connection Lose during Kafka Kerberos Renewal process |  Major | producer | MuthuKumar | Rajini Sivaram |
+| [KAFKA-5051](https://issues.apache.org/jira/browse/KAFKA-5051) | Avoid DNS reverse lookup in security-critical TLS code path |  Major | security | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-5375](https://issues.apache.org/jira/browse/KAFKA-5375) | Transactions: Concurrent transactional consumer loses messages when there are broker bounces |  Blocker | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-4942](https://issues.apache.org/jira/browse/KAFKA-4942) | Kafka Connect: Offset committing times out before expected |  Major | KafkaConnect | Stephane Maarek |  |
+| [KAFKA-5380](https://issues.apache.org/jira/browse/KAFKA-5380) | Transient test failure: KafkaConsumerTest.testChangingRegexSubscription |  Major | consumer | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-5395](https://issues.apache.org/jira/browse/KAFKA-5395) | Distributed Herder Deadlocks on Shutdown |  Critical | KafkaConnect | Michael Jaschob | Rajini Sivaram |
+| [KAFKA-5394](https://issues.apache.org/jira/browse/KAFKA-5394) | KafkaAdminClient#timeoutCallsInFlight does not work as expected |  Major | admin | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5385](https://issues.apache.org/jira/browse/KAFKA-5385) | Transactional Producer allows batches to expire and commits transactions regardless |  Blocker | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5329](https://issues.apache.org/jira/browse/KAFKA-5329) | Replica list in the metadata cache on the broker may have different order from zookeeper |  Major | . | Jiangjie Qin | Ismael Juma |
+| [KAFKA-5362](https://issues.apache.org/jira/browse/KAFKA-5362) | Add EOS system tests for Streams API |  Blocker | streams, system tests | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5382](https://issues.apache.org/jira/browse/KAFKA-5382) | Log recovery can fail if topic names contain one of the index suffixes |  Major | . | Jason Gustafson |  |
+| [KAFKA-5414](https://issues.apache.org/jira/browse/KAFKA-5414) | Console consumer offset commit regression |  Critical | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5422](https://issues.apache.org/jira/browse/KAFKA-5422) | Multiple produce request failures causes invalid state transition in TransactionManager |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5415](https://issues.apache.org/jira/browse/KAFKA-5415) | TransactionCoordinator doesn't complete transition to PrepareCommit state |  Blocker | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5433](https://issues.apache.org/jira/browse/KAFKA-5433) | Transient test failure: SaslPlainSslEndToEndAuthorizationTest.testNoProduceWithDescribeAcl |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-5416](https://issues.apache.org/jira/browse/KAFKA-5416) | TransactionCoordinator doesn't complete transition to CompleteCommit |  Blocker | . | Apurva Mehta | Guozhang Wang |
+| [KAFKA-5404](https://issues.apache.org/jira/browse/KAFKA-5404) | Add more AdminClient checks to ClientCompatibilityTest |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5418](https://issues.apache.org/jira/browse/KAFKA-5418) | ZkUtils.getAllPartitions() may fail if a topic is marked for deletion |  Major | core | Edoardo Comar | Mickael Maison |
+| [KAFKA-5354](https://issues.apache.org/jira/browse/KAFKA-5354) | MirrorMaker not preserving headers |  Blocker | . | Jun Rao | Michael Andre Pearce |
+| [KAFKA-5448](https://issues.apache.org/jira/browse/KAFKA-5448) | TimestampConverter's "type" config conflicts with the basic Transformation "type" config |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-5450](https://issues.apache.org/jira/browse/KAFKA-5450) | Scripts to startup Connect in system tests have too short a timeout |  Major | system tests | Randall Hauch | Randall Hauch |
+| [KAFKA-5442](https://issues.apache.org/jira/browse/KAFKA-5442) | Streams producer \`client.id\` are not unique for EOS |  Blocker | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5449](https://issues.apache.org/jira/browse/KAFKA-5449) | Flaky test TransactionsTest.testReadCommittedConsumerShouldNotSeeUndecidedData |  Blocker | core, unit tests | Matthias J. Sax | Jason Gustafson |
+| [KAFKA-5457](https://issues.apache.org/jira/browse/KAFKA-5457) | MemoryRecordsBuilder.hasRoomfor doesn't take into account the headers while computing available space |  Blocker | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5456](https://issues.apache.org/jira/browse/KAFKA-5456) | Producer fails with NPE if compressed V0 or V1 record is larger than batch size |  Blocker | producer | Matthias J. Sax | Jason Gustafson |
+| [KAFKA-5463](https://issues.apache.org/jira/browse/KAFKA-5463) | Controller incorrectly logs rack information when new brokers are added |  Minor | config, controller | Jeff Chao |  |
+| [KAFKA-5455](https://issues.apache.org/jira/browse/KAFKA-5455) | Update java docs for consumer and producer to be up to date for EOS |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5336](https://issues.apache.org/jira/browse/KAFKA-5336) | ListGroup requires Describe on Cluster, but the command-line AclCommand tool does not allow this to be set |  Minor | security | Vahid Hashemian | Vahid Hashemian |
+| [KAFKA-5472](https://issues.apache.org/jira/browse/KAFKA-5472) | Connector validate REST endpoint returning duplicate entries in "groups" |  Blocker | KafkaConnect | Randall Hauch | Randall Hauch |
+| [KAFKA-5413](https://issues.apache.org/jira/browse/KAFKA-5413) | Log cleaner fails due to large offset in segment file |  Critical | core | Nicholas Ngorok | Kelvin Rutt |
+| [KAFKA-5477](https://issues.apache.org/jira/browse/KAFKA-5477) | TransactionalProducer sleeps unnecessarily long during back to back transactions |  Blocker | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5475](https://issues.apache.org/jira/browse/KAFKA-5475) | Connector config validation REST API endpoint not including fields for transformations |  Blocker | KafkaConnect | Ewen Cheslack-Postava | Konstantine Karantasis |
+| [KAFKA-5491](https://issues.apache.org/jira/browse/KAFKA-5491) | The ProducerPerformance tool should support transactions |  Major | . | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5486](https://issues.apache.org/jira/browse/KAFKA-5486) | org.apache.kafka logging should go to server.log |  Critical | . | Ismael Juma | Ismael Juma |
+| [KAFKA-4059](https://issues.apache.org/jira/browse/KAFKA-4059) | Documentation still refers to AsyncProducer and SyncProducer |  Major | producer | Andrew B | Tom Bentley |
+| [KAFKA-5498](https://issues.apache.org/jira/browse/KAFKA-5498) | Connect validation API stops returning recommendations for some fields after the right sequence of requests |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 
 
 ### TESTS:
@@ -293,6 +333,8 @@
 | [KAFKA-4574](https://issues.apache.org/jira/browse/KAFKA-4574) | Transient failure in ZooKeeperSecurityUpgradeTest.test\_zk\_security\_upgrade with security\_protocol = SASL\_PLAINTEXT, SSL |  Major | system tests | Shikhar Bhushan | Apurva Mehta |
 | [KAFKA-4703](https://issues.apache.org/jira/browse/KAFKA-4703) | Test with two SASL\_SSL listeners with different JAAS contexts |  Major | . | Ismael Juma | Balint Molnar |
 | [KAFKA-5126](https://issues.apache.org/jira/browse/KAFKA-5126) | Implement KIP-98 transactional methods in the MockProducer |  Major | . | Apurva Mehta | Matthias J. Sax |
+| [KAFKA-5371](https://issues.apache.org/jira/browse/KAFKA-5371) | SyncProducerTest.testReachableServer has become flaky |  Major | . | Apurva Mehta | Ismael Juma |
+| [KAFKA-5366](https://issues.apache.org/jira/browse/KAFKA-5366) | Add cases for concurrent transactional reads and writes in system tests |  Blocker | . | Apurva Mehta | Apurva Mehta |
 
 
 ### SUB-TASKS:
@@ -369,7 +411,6 @@
 | [KAFKA-5280](https://issues.apache.org/jira/browse/KAFKA-5280) | Protect concurrent access to the cached transaction status |  Blocker | clients, core, producer | Apurva Mehta | Guozhang Wang |
 | [KAFKA-5310](https://issues.apache.org/jira/browse/KAFKA-5310) | reset ControllerContext during resignation |  Major | . | Onur Karaman | Onur Karaman |
 | [KAFKA-5273](https://issues.apache.org/jira/browse/KAFKA-5273) | KafkaConsumer.committed() should get latest committed offsets from the server |  Blocker | clients, core, producer | Apurva Mehta | Apurva Mehta |
-| [KAFKA-5006](https://issues.apache.org/jira/browse/KAFKA-5006) | KeyValueStore.put may throw exception unrelated to the current put attempt |  Blocker | streams | Xavier Léauté | Eno Thereska |
 | [KAFKA-5259](https://issues.apache.org/jira/browse/KAFKA-5259) | TransactionalId authorization should imply ProducerId authorization |  Blocker | clients, core, producer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-4935](https://issues.apache.org/jira/browse/KAFKA-4935) | Consider disabling record level CRC checks for message format V2 |  Blocker | . | Apurva Mehta | Jason Gustafson |
 | [KAFKA-5279](https://issues.apache.org/jira/browse/KAFKA-5279) | TransactionCoordinator must expire transactionalIds |  Blocker | . | Apurva Mehta | Damian Guy |
@@ -390,12 +431,33 @@
 | [KAFKA-5351](https://issues.apache.org/jira/browse/KAFKA-5351) | Broker clean bounce test puts the broker into a 'CONCURRENT\_TRANSACTIONS' state permanently |  Blocker | clients, core, producer | Apurva Mehta | Apurva Mehta |
 | [KAFKA-5281](https://issues.apache.org/jira/browse/KAFKA-5281) | System tests for KIP-98 / transactions |  Blocker | . | Apurva Mehta | Apurva Mehta |
 | [KAFKA-5283](https://issues.apache.org/jira/browse/KAFKA-5283) | Update clients and server code to make sure that epoch and sequence numbers wrap around |  Blocker | clients, core, producer | Apurva Mehta | Jason Gustafson |
-| [KAFKA-5364](https://issues.apache.org/jira/browse/KAFKA-5364) | Producer attempts to send transactional messages before adding partitions to transaction |  Blocker | clients, core, producer | Apurva Mehta | Apurva Mehta |
 | [KAFKA-5365](https://issues.apache.org/jira/browse/KAFKA-5365) | Fix regression in compressed message iteration affecting magic v0 and v1 |  Blocker | clients, core, producer | Jason Gustafson | Jason Gustafson |
 | [KAFKA-5282](https://issues.apache.org/jira/browse/KAFKA-5282) | Transactions integration test: Use factory methods to keep track of open producers and consumers and close them all on tearDown |  Major | clients, core, producer | Apurva Mehta | Vahid Hashemian |
 | [KAFKA-3264](https://issues.apache.org/jira/browse/KAFKA-3264) | Mark the old Scala consumer and related classes as deprecated |  Major | . | Grant Henke | Vahid Hashemian |
 | [KAFKA-5322](https://issues.apache.org/jira/browse/KAFKA-5322) | Resolve AddPartitions response error code inconsistency |  Blocker | clients, core, producer | Jason Gustafson | Apurva Mehta |
 | [KAFKA-5019](https://issues.apache.org/jira/browse/KAFKA-5019) | Exactly-once upgrade notes |  Blocker | clients, core, producer | Ismael Juma | Jason Gustafson |
+| [KAFKA-5355](https://issues.apache.org/jira/browse/KAFKA-5355) | Broker returns messages beyond "latest stable offset" to transactional consumer in read\_committed mode |  Blocker | core | Matthias J. Sax | Jason Gustafson |
+| [KAFKA-5357](https://issues.apache.org/jira/browse/KAFKA-5357) | StackOverFlow error in transaction coordinator |  Blocker | . | Apurva Mehta | Damian Guy |
+| [KAFKA-5376](https://issues.apache.org/jira/browse/KAFKA-5376) | Transactions: Concurrent transactional consumer reads aborted messages |  Blocker | . | Apurva Mehta | Jason Gustafson |
+| [KAFKA-4948](https://issues.apache.org/jira/browse/KAFKA-4948) | Failure in kafka.admin.DescribeConsumerGroupTest.testDescribeExistingGroupWithNoMembersWithNewConsumer |  Major | unit tests | Guozhang Wang | Rajini Sivaram |
+| [KAFKA-5364](https://issues.apache.org/jira/browse/KAFKA-5364) | Producer attempts to send transactional messages before adding partitions to transaction |  Blocker | clients, core, producer | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5339](https://issues.apache.org/jira/browse/KAFKA-5339) | Transactions system test with hard broker bounces fails sporadically |  Major | clients, core, producer | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5378](https://issues.apache.org/jira/browse/KAFKA-5378) | Last Stable Offset not returned in Fetch request |  Critical | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5292](https://issues.apache.org/jira/browse/KAFKA-5292) | Fix authorization checks in AdminClient |  Blocker | . | Ismael Juma | Colin P. McCabe |
+| [KAFKA-5427](https://issues.apache.org/jira/browse/KAFKA-5427) | Transactional producer cannot find coordinator when trying to abort transaction after error |  Blocker | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5437](https://issues.apache.org/jira/browse/KAFKA-5437) | TransactionalMessageCopier should be force killed on test shutdown |  Major | clients, core, producer | Jason Gustafson | Apurva Mehta |
+| [KAFKA-5429](https://issues.apache.org/jira/browse/KAFKA-5429) | Producer IllegalStateException: Batch has already been completed |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5428](https://issues.apache.org/jira/browse/KAFKA-5428) | Transactional producer aborts batches incorrectly in abortable error state |  Blocker | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5438](https://issues.apache.org/jira/browse/KAFKA-5438) | UnsupportedOperationException in WriteTxnMarkers handler |  Blocker | clients, core, producer | Jason Gustafson | Apurva Mehta |
+| [KAFKA-5317](https://issues.apache.org/jira/browse/KAFKA-5317) | Update KIP-98 to reflect changes during implementation. |  Blocker | clients, core, producer | Apurva Mehta | Apurva Mehta |
+| [KAFKA-5274](https://issues.apache.org/jira/browse/KAFKA-5274) | Review and improve AdminClient Javadoc for the first release (KIP-117) |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-5443](https://issues.apache.org/jira/browse/KAFKA-5443) | Consumer should use last offset from batch to set next fetch offset |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5275](https://issues.apache.org/jira/browse/KAFKA-5275) | Review and potentially tweak AdminClient API for the initial release (KIP-117) |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-5031](https://issues.apache.org/jira/browse/KAFKA-5031) | Additional validation in validateMessagesAndAssignOffsets |  Critical | clients, core, producer | Ismael Juma |  |
+| [KAFKA-5435](https://issues.apache.org/jira/browse/KAFKA-5435) | Produce state lost if no snapshot retained |  Blocker | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-5021](https://issues.apache.org/jira/browse/KAFKA-5021) | Update Message Delivery Semantics section to take into account KIP-98 |  Critical | clients, core, producer | Ismael Juma | Jason Gustafson |
+| [KAFKA-5502](https://issues.apache.org/jira/browse/KAFKA-5502) | read current brokers from zookeeper upon processing broker change |  Major | . | Onur Karaman | Onur Karaman |
+| [KAFKA-5032](https://issues.apache.org/jira/browse/KAFKA-5032) | Think through implications of max.message.size affecting record batches in message format V2 |  Critical | clients, core, producer | Ismael Juma | Apurva Mehta |
 
 
 ### OTHER:
