@@ -29,6 +29,13 @@
 | [YARN-6709](https://issues.apache.org/jira/browse/YARN-6709) | Root privilege escalation in experimental Docker support |  Blocker | nodemanager, security | Allen Wittenauer | Varun Vasudev |
 
 
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-5892](https://issues.apache.org/jira/browse/YARN-5892) | Support user-specific minimum user limit percentage in Capacity Scheduler |  Major | capacityscheduler | Eric Payne | Eric Payne |
+
+
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

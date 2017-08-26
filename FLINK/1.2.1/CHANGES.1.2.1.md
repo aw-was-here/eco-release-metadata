@@ -51,6 +51,7 @@
 | [FLINK-4326](https://issues.apache.org/jira/browse/FLINK-4326) | Flink start-up scripts should optionally start services on the foreground |  Major | Startup Shell Scripts | Elias Levy | Greg Hogan |
 | [FLINK-5217](https://issues.apache.org/jira/browse/FLINK-5217) | Deprecated interface Checkpointed make clear suggestion |  Major | DataStream API | shijinkui |  |
 | [FLINK-6212](https://issues.apache.org/jira/browse/FLINK-6212) | Missing reference to flink-avro dependency |  Minor | Documentation | Omar Erminy |  |
+| [FLINK-3347](https://issues.apache.org/jira/browse/FLINK-3347) | TaskManager (or its ActorSystem) need to restart in case they notice quarantine |  Critical | Distributed Coordination | Stephan Ewen | Till Rohrmann |
 | [FLINK-5756](https://issues.apache.org/jira/browse/FLINK-5756) | When there are many values under the same key in ListState, RocksDBStateBackend performances poor |  Major | State Backends, Checkpointing | Syinchwun Leo |  |
 
 

@@ -3222,7 +3222,7 @@ Introduce an AsyncFSOutput interface which is an abstraction of the original Fan
 
 * [HBASE-15477](https://issues.apache.org/jira/browse/HBASE-15477) | *Major* | **Do not save 'next block header' when we cache hfileblocks**
 
-Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (3 bytes) when writing the cache.
+Fix over-persisting in blockcache; no longer save the block PLUS the header of the next block (33 bytes) when writing the cache.
 
 Also removes support for hfileblock v1; hfile block v1 was used writing hfile v1. hfile v1 was the default in hbase before hbase-0.92. hbase.96 would not start unless all v1 hfiles had been compacted out of the cluster.
 
@@ -3626,6 +3626,13 @@ For new cluster or cluster upgraded from 1.1.x and newer release, there is no is
 
 ---
 
+* [HBASE-16231](https://issues.apache.org/jira/browse/HBASE-16231) | *Major* | **Integration tests should support client keytab login for secure clusters**
+
+Prior to this change, the integration test clients (IntegrationTest\*) relied on the Kerberos credential cache for authentication against secured clusters.  This could lead to the tests failing due to authentication failures when the tickets in the credential cache expired.  With this change, the integration test clients will make use of the configuration properties for "hbase.client.keytab.file" and "hbase.client.kerberos.principal", when available.  This will perform a login from the configured keytab file and automatically refresh the credentials in the background for the process lifetime.
+
+
+---
+
 * [HBASE-3727](https://issues.apache.org/jira/browse/HBASE-3727) | *Minor* | **MultiHFileOutputFormat**
 
 MultiHFileOutputFormat support output of HFiles from multiple tables. It will output directories and hfiles as follow, 
@@ -3854,6 +3861,8 @@ Please note that if we turn this DBE on, HFile block will be bigger than NONE en
  \* integer: dataSize
  \*
 \*/
+
+Seek in row when random reading is one of the main consumers of CPU. This helps. See slide #7 here https://www.slideshare.net/HBaseCon/lift-the-ceiling-of-hbase-throughputs?qid=597ee2fa-8125-4faa-bb3b-2bf1ba9ccafb&v=&b=&from\_search=6
 
 
 ---
@@ -5147,8 +5156,9 @@ Global custom metrics names follow the "source.metricsName" format.
 
 * [HBASE-17263](https://issues.apache.org/jira/browse/HBASE-17263) | *Major* | **  Netty based rpc server impl**
 
-HBASE-17263 introduced a new RPC server with Netty4 implementation, which could improve random read (get) performance. By default, it is off.
-To use this feature, please set “hbase.rpc.server.impl" to “org.apache.hadoop.hbase.ipc.NettyRpcServer”.
+A new RPC server based on Netty4 which can improve random read (get) performance. By default, it is off. To use this feature, please set “hbase.rpc.server.impl" to “org.apache.hadoop.hbase.ipc.NettyRpcServer”.
+
+In one deploy, doubled the throughput and lowered the latency significantly: see https://www.slideshare.net/HBaseCon/lift-the-ceiling-of-hbase-throughputs?qid=597ee2fa-8125-4faa-bb3b-2bf1ba9ccafb&v=&b=&from\_search=6
 
 
 ---
@@ -5498,6 +5508,218 @@ After HBASE-17110 the bytable strategy for SimpleLoadBalancer will also take ser
 * [HBASE-14902](https://issues.apache.org/jira/browse/HBASE-14902) | *Major* | **Revert some of the stringency recently introduced by checkstyle tightening**
 
 Changes the checkstyle so that on a continuation line for javadoc, instead of default four spaces, instead now it is two spaces. Also one line statements as in if (true) x =1; now pass checkstyle.
+
+
+---
+
+* [HBASE-15943](https://issues.apache.org/jira/browse/HBASE-15943) | *Major* | **Add page displaying JVM process metrics**
+
+Adds new "Process Metrics' tab along the top which leads to new page that dumps mbean -- mostly jvm -- metrics
+
+
+---
+
+* [HBASE-18240](https://issues.apache.org/jira/browse/HBASE-18240) | *Major* | **Add hbase-thirdparty, a project with hbase utility including an hbase-shaded-thirdparty module with guava, netty, etc.**
+
+Adds a new project, hbase-thirdparty, at https://git-wip-us.apache.org/repos/asf/hbase-thirdparty used by core hbase. GroupID org.apache.hbase.thirdparty. Version 1.0.0. 
+
+This project packages relocated third-party libraries used by Apache HBase such as protobuf, guava, and netty among others. HBase core depends on it.
+
+It has threre submodules, one to patch and then relocate (shade) protobuf, and one to do messy .so renaming (netty). The remainder module relocates a bundle of other (unpatched) libs used by hbase. This latter set includes protobuf-util, netty-all, gson, and guava.
+
+All shading is done using the same relocation offset of org.apache.hadoop.hbase.shaded; we add this prefix to the relocated thirdparty library class names.
+
+See the pom.xml in hbase-thirdparty for the explicit version of each third-party lib included (of note, we update out internal protobuf from 3.1.0 to 3.3.1).
+
+
+---
+
+* [HBASE-16120](https://issues.apache.org/jira/browse/HBASE-16120) | *Minor* | **Add shell test for truncate\_preserve**
+
+Add unit tests for truncate\_preserve
+
+
+---
+
+* [HBASE-6581](https://issues.apache.org/jira/browse/HBASE-6581) | *Major* | **Build with hadoop.profile=3.0**
+
+Make us build against hadoop trunk (3.0)
+
+
+---
+
+* [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083) | *Major* | **Make large/small file clean thread number configurable in HFileCleaner**
+
+After HBASE-18083 we could configure HFileCleaner to use multiple threads for large/small (archived) hfile cleaning with hbase.regionserver.hfilecleaner.large.thread.count and hbase.regionserver.hfilecleaner.small.thread.count, both default to 1. These properties support online configuration change.
+
+
+---
+
+* [HBASE-16090](https://issues.apache.org/jira/browse/HBASE-16090) | *Major* | **ResultScanner is not closed in SyncTable#finishRemainingHashRanges()**
+
+pushed to 1.3 and 1.2. SyncTable was introduced in 1.2, so skipping 1.1.
+
+
+---
+
+* [HBASE-17908](https://issues.apache.org/jira/browse/HBASE-17908) | *Critical* | **Upgrade guava**
+
+Use relocated guava 22.0 gotten from the new hbase-thirdparty ancillary project.
+
+Incompatible change. ReplicationEndpoint and subclasses extend guava Service which changed pretty radically between 12.0 and 22.0. Change is kosher because implementations are marked audience private. Still, this will likely cause grief for the likes of the downstream lily indexer.
+
+
+---
+
+* [HBASE-18107](https://issues.apache.org/jira/browse/HBASE-18107) | *Major* | **[AMv2] Remove DispatchMergingRegionsRequest & DispatchMergingRegions**
+
+Removes merge region code added into branch-2 but that was not needed after all. Branch-2 replaced dispatchMergingRegions with MergeTableRegionsProcedure.
+
+Removed:
+
+# dispatchMergingRegions from Connection (was superceded long ago in branch-1).
+# mergeRegions from RsRpcServices (was not used).
+
+
+---
+
+* [HBASE-18023](https://issues.apache.org/jira/browse/HBASE-18023) | *Minor* | **Log multi-\* requests for more than threshold number of rows**
+
+HBASE-18023 introduces a warning message in the RegionServer log when an RPC is received from a client that has more than 5000 "actions" (where an "action" is a collection of mutations for a specific row) in a single RPC. Misbehaving clients who send large RPCs to RegionServers can be malicious, causing temporary pauses via garbage collection or denial of service via crashes. The threshold of 5000 actions per RPC is defined by the property "hbase.rpc.rows.warning.threshold" in hbase-site.xml.
+
+
+---
+
+* [HBASE-17056](https://issues.apache.org/jira/browse/HBASE-17056) | *Critical* | **Remove checked in PB generated files**
+
+Purge all checked in generated protobuf files (30MB). Generate protobuf files inline with the build. Remove checked-in and patched protobuf. Get it from new hbase-thirdparty instead.
+
+Side-effect: Our protobuf went from 3.1.0 to 3.3.1.
+
+Build does not take noticeably longer (still about 2.5 minutes to do a mvn clean install -DskipTests).
+
+IDEs will probably require a mvn build first else they'll complain about missing (generated) files.
+
+
+---
+
+* [HBASE-18492](https://issues.apache.org/jira/browse/HBASE-18492) | *Major* | **[AMv2] Embed code for selecting highest versioned region server for system table regions in AssignmentManager.processAssignQueue()**
+
+Favors new servers over older versions when assigning system table regions (more to follow in this area; i.e. changes in the AM itself).
+
+
+---
+
+* [HBASE-17125](https://issues.apache.org/jira/browse/HBASE-17125) | *Critical* | **Inconsistent result when use filter to read data**
+
+Marked Scan and Get's setMaxVersions() and setMaxVersions(int) as deprecated. They are easy to misunderstand with column family's max versions, so use readAllVersions() and readVersions(int) instead.
+
+
+---
+
+* [HBASE-18387](https://issues.apache.org/jira/browse/HBASE-18387) | *Minor* | **[Thrift] Make principal configurable in DemoClient.java**
+
+This change allows the demonstration Thrift client to customize the server principal used by the Thrift server for instances secured with Kerberos.
+
+
+---
+
+* [HBASE-18500](https://issues.apache.org/jira/browse/HBASE-18500) | *Major* | **Performance issue: Don't use BufferedMutator for HTable's put method**
+
+Remove the deprecated method get/setWriteBufferSize from Table and remove writeBufferSize from TableBuilder. Remove the BufferedMutatorImpl from HTable.
+
+
+---
+
+* [HBASE-18469](https://issues.apache.org/jira/browse/HBASE-18469) | *Critical* | **Correct  RegionServer metric of  totalRequestCount**
+
+In HBASE-18469 we introduced a new RegionServer metrics in name of "totalRowActionRequestCount" which counts in all row actions and equals to the sum of "readRequestCount" and "writeRequestCount". Meantime, we have changed "totalRequestCount" to count only once for multi request, while previously we will count in action number of the request. As a result, existing monitoring system on totalRequestCount will still work but see a smaller value, and we strongly recommend to change to use the new metrics to monitor server load.
+
+
+---
+
+* [HBASE-18551](https://issues.apache.org/jira/browse/HBASE-18551) | *Major* | **[AMv2] UnassignProcedure and crashed regionservers**
+
+Unassign will not proceed if it is unable to talk to the remote server. Now it will expire the server it is unable to communicate with and then wait until it is signaled by ServerCrashProcedure that the server's logs have been split. Only then will judge the unassign successful. 
+
+We do this because a subsequent assign lacking the crashed server context might open a region w/o first splitting logs.
+
+
+---
+
+* [HBASE-15511](https://issues.apache.org/jira/browse/HBASE-15511) | *Major* | **ClusterStatus should be able to return responses by scope**
+
+Provide a new way to get ClusterStatus with a filter to filter out unwanted information by using ClusterStatus.Options, such that the response back to client can be limited.
+Note that, the constructor way to new a ClusterStatus will be no longer support after 2.0.0,  and use ClusterStatus.Builder instead.
+
+
+---
+
+* [HBASE-18271](https://issues.apache.org/jira/browse/HBASE-18271) | *Blocker* | **Shade netty**
+
+Depend on hbase-thirdparty for our netty instead of directly relying on netty-all. netty is relocated in hbase-thirdparty from io.netty to org.apache.hadoop.hbase.shaded.io.netty. One kink is that netty bundles an .so. Its files also are relocated. So netty can find the .so content, need to specify on command-line a system property telling netty about the shading. 
+
+The .so trick is from
+             https://stackoverflow.com/questions/33825743/rename-files-inside-a-jar-using-some-maven-plugin
+
+In essence we need the below defined whenever we run tests or deploy:
+
+-Dorg.apache.hadoop.hbase.shaded.io.netty.packagePrefix=org.apache.hadoop.hbase.shaded.
+
+(The trailing '.' is required)
+
+See toward the end of this issue for how to pass config: https://github.com/netty/netty/issues/6665
+
+The system property has been added to bin/hbase. If starting hbase with other than bin/hbase, add this system property (at least on linux).
+
+For devs, going forward, do not reference io.netty. Reference org.apache.hadoop.hbase.io.netty instead. Here is sample:
+
+{code}
+-import io.netty.channel.Channel;
+-import io.netty.channel.EventLoop;
++import org.apache.hadoop.hbase.shaded.io.netty.channel.Channel;
++import org.apache.hadoop.hbase.shaded.io.netty.channel.EventLoop;
+{code}
+
+
+---
+
+* [HBASE-18528](https://issues.apache.org/jira/browse/HBASE-18528) | *Critical* | **DON'T allow user to modify the passed table/column descriptor**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-18511](https://issues.apache.org/jira/browse/HBASE-18511) | *Blocker* | **Default no regions on master**
+
+Changes the configuration hbase.balancer.tablesOnMaster from list of table names that the can carry (with 'none' meaning no tables on the master) to instead be a boolean that is set to true if master carries tables/regions and false if it does not. If true, the master acts like any regionserver.
+
+If false, then the master carries no tables. This is the default for hbase-2.0.0.
+
+Another boolean configuration, hbase.balancer.tablesOnMaster.systemTablesOnly, when set to true, enables hbase.balancer.tablesOnMaster and makes it so the master hosts system tables exclusively (the long-time deploy mode of master branch and branch-2 up until this commit).
+
+The change of hbase.balancer.tablesOnMaster from String list to boolean and
+the addition of a simple boolean to enable system-tables on Master was done
+to constrain what operators might ask for via this master configuration.
+Stipulating what tables are bound to the Master server verges into
+regionserver grouping territory, a more robust means of specifying table
+and server combinations. Operators should use this latter if they want
+layouts more exotic than those supplied by the provided booleans.
+
+
+---
+
+* [HBASE-18631](https://issues.apache.org/jira/browse/HBASE-18631) | *Minor* | **Allow configuration of ChaosMonkey properties via hbase-site**
+
+This change invalidates the need for a separate Java properties file to configure the ChaosMonkey included with HBase. These properties can be provided directly in hbase-site.xml. If configuration in provided in both locations, the Java properties file takes precendence.
+
+
+---
+
+* [HBASE-18546](https://issues.apache.org/jira/browse/HBASE-18546) | *Critical* | **Always overwrite the TS for Append/Increment unless no existing cells are found**
+
+If there is no existing cell in submitting Append/Increment, the custom ts won't be overridden. By contrast, the cell's ts will always be overridden by server.
 
 
 

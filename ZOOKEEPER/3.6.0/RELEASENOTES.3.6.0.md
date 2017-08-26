@@ -117,4 +117,18 @@ After the migration of ZooKeeper's version control system from 'svn repo' to 'ap
 1
 
 
+---
+
+* [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | *Major* | **Multi-thread NIOServerCnxn**
+
+There is a possibility of file descriptor leakage issue under high workload. Please upgrade to the latest version of JVM or the version that has a fix for this bug (http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=7118373)
+
+
+---
+
+* [ZOOKEEPER-2841](https://issues.apache.org/jira/browse/ZOOKEEPER-2841) | *Major* | **ZooKeeper public include files leak porting changes**
+
+cmake is added to replace the existing hardcoded (and outdated) visual studio solutions for windows platform.
+
+
 

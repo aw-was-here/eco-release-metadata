@@ -142,6 +142,13 @@ HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eri
 
 ---
 
+* [HADOOP-13588](https://issues.apache.org/jira/browse/HADOOP-13588) | *Major* | **ConfServlet should respect Accept request header**
+
+Conf HTTP service should set response's content type according to the Accept header in the request.
+
+
+---
+
 * [MAPREDUCE-6776](https://issues.apache.org/jira/browse/MAPREDUCE-6776) | *Major* | **yarn.app.mapreduce.client.job.max-retries should have a more useful default**
 
 The default value of yarn.app.mapreduce.client.job.max-retries has been changed from 0 to 3.  This will help protect clients from failures that are transient.  True failures may take slightly longer now due to the retries.
@@ -166,13 +173,6 @@ DockerContainerExecutor is deprecated starting 2.9.0 and removed from 3.0.0. Ple
 * [HDFS-10756](https://issues.apache.org/jira/browse/HDFS-10756) | *Major* | **Expose getTrashRoot to HTTPFS and WebHDFS**
 
 "getTrashRoot" returns a trash root for a path. Currently in DFS if the path "/foo" is a normal path, it returns "/user/$USER/.Trash" for "/foo" and if "/foo" is an encrypted zone, it returns "/foo/.Trash/$USER" for the child file/dir of "/foo". This patch is about to override the old "getTrashRoot" of httpfs and webhdfs, so that the behavior of returning trash root in httpfs and webhdfs are consistent with DFS.
-
-
----
-
-* [YARN-5825](https://issues.apache.org/jira/browse/YARN-5825) | *Major* | **ProportionalPreemptionalPolicy could use readLock over LeafQueue instead of synchronized block**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -293,6 +293,13 @@ If  a positive value is passed to command line switch -blocksperchunk, files wit
 
 ---
 
+* [HDFS-11402](https://issues.apache.org/jira/browse/HDFS-11402) | *Major* | **HDFS Snapshots should capture point-in-time copies of OPEN files**
+
+When the config param "dfs.namenode.snapshot.capture.openfiles" is enabled, HDFS snapshots taken will additionally capture point-in-time copies of the open files that have valid leases. Even when the current version open files grow or shrink in size, the snapshot will always retain the immutable versions of these open files, just as in for all other closed files. Note: The file length captured for open files in the snapshot was the one recorded in NameNode at the time of snapshot and it may be shorter than what the client has written till then. In order to capture the latest length, the client can call hflush/hsync with the flag SyncFlag.UPDATE\_LENGTH on the open files handles.
+
+
+---
+
 * [YARN-2962](https://issues.apache.org/jira/browse/YARN-2962) | *Critical* | **ZKRMStateStore: Limit the number of znodes under a znode**
 
 **WARNING: No release note provided for this change.**
@@ -328,6 +335,15 @@ The copy buffer size can be configured via the new parameter \<copybuffersize\>.
 
 ---
 
+* [YARN-6127](https://issues.apache.org/jira/browse/YARN-6127) | *Major* | **Add support for work preserving NM restart when AMRMProxy is enabled**
+
+This breaks rolling upgrades because it changes the major version of the NM state store schema. Therefore when a new NM comes up on an old state store it crashes.
+
+The state store versions for this change have been updated in YARN-6798.
+
+
+---
+
 * [HADOOP-14536](https://issues.apache.org/jira/browse/HADOOP-14536) | *Major* | **Update azure-storage sdk to version 5.3.0**
 
 The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
@@ -338,6 +354,88 @@ The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
 * [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | *Major* | **Azure: Concurrent I/O does not work when secure.mode is enabled**
 
 Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be used with the secure mode feature.
+
+
+---
+
+* [HADOOP-14535](https://issues.apache.org/jira/browse/HADOOP-14535) | *Major* | **wasb: implement high-performance random access and seek of block blobs**
+
+Random access and seek improvements for the wasb:// (Azure) file system.
+
+
+---
+
+* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
+
+This breaks rolling upgrades because it changes the major version of the NM state store schema. Therefore when a new NM comes up on an old state store it crashes.
+
+The state store versions for this change have been updated in YARN-6798.
+
+
+---
+
+* [YARN-6798](https://issues.apache.org/jira/browse/YARN-6798) | *Major* | **Fix NM startup failure with old state store due to version mismatch**
+
+This fixes the LevelDB state store for the NodeManager.  As of this patch, the state store versions now correspond to the following table.
+
+- Previous Patch: YARN-5049
+-- LevelDB Key: queued
+-- Hadoop Versions: 2.9.0, 3.0.0-alpha1
+-- Corresponding LevelDB Version: 1.2
+- Previous Patch: YARN-6127
+-- LevelDB Key: AMRMProxy/NextMasterKey
+-- Hadoop Versions: 2.9.0, 3.0.0-alpha4
+-- Corresponding LevelDB Version: 1.1
+
+
+---
+
+* [HADOOP-14539](https://issues.apache.org/jira/browse/HADOOP-14539) | *Major* | **Move commons logging APIs over to slf4j in hadoop-common**
+
+In Hadoop common, fatal log level is changed to error because slf4j API does not support fatal log level.
+
+
+---
+
+* [HADOOP-14518](https://issues.apache.org/jira/browse/HADOOP-14518) | *Minor* | **Customize User-Agent header sent in HTTP/HTTPS requests by WASB.**
+
+WASB now includes the current Apache Hadoop version in the User-Agent string passed to Azure Blob service. Users also may include optional additional information to identify their application. See the documentation of configuration property fs.wasb.user.agent.id for further details.
+
+
+---
+
+* [HADOOP-14722](https://issues.apache.org/jira/browse/HADOOP-14722) | *Major* | **Azure: BlockBlobInputStream position incorrect after seek**
+
+Bug fix to Azure Filesystem related to HADOOP-14535.
+
+
+---
+
+* [HADOOP-14680](https://issues.apache.org/jira/browse/HADOOP-14680) | *Minor* | **Azure: IndexOutOfBoundsException in BlockBlobInputStream**
+
+Bug fix to Azure Filesystem related to HADOOP-14535
+
+
+---
+
+* [HADOOP-14260](https://issues.apache.org/jira/browse/HADOOP-14260) | *Major* | **Configuration.dumpConfiguration should redact sensitive information**
+
+<!-- markdown -->
+Configuration.dumpConfiguration no longer prints out the clear text values for the sensitive keys listed in `hadoop.security.sensitive-config-keys`. Callers can override the default list of sensitive keys either to redact more keys or print the clear text values for a few extra keys for debugging purpose.
+
+
+---
+
+* [HADOOP-14660](https://issues.apache.org/jira/browse/HADOOP-14660) | *Major* | **wasb: improve throughput by 34% when account limit exceeded**
+
+Up to 34% throughput improvement for the wasb:// (Azure) file system when fs.azure.selfthrottling.enable is false fs.azure.autothrottling.enable is true.
+
+
+---
+
+* [HADOOP-14769](https://issues.apache.org/jira/browse/HADOOP-14769) | *Major* | **WASB: delete recursive should not fail if a file is deleted**
+
+Recursive directory delete improvement for the wasb filesystem.
 
 
 

@@ -65,6 +65,7 @@
 | [KAFKA-5097](https://issues.apache.org/jira/browse/KAFKA-5097) | KafkaConsumer.poll throws IllegalStateException |  Blocker | . | Ismael Juma | Eno Thereska |
 | [KAFKA-5095](https://issues.apache.org/jira/browse/KAFKA-5095) | ThreadCacheTest.cacheOverheadsSmallValues fails intermittently |  Major | streams | Damian Guy | Eno Thereska |
 | [KAFKA-4980](https://issues.apache.org/jira/browse/KAFKA-4980) | testReprocessingFromScratch unit test failure |  Major | streams | Eno Thereska | Matthias J. Sax |
+| [KAFKA-5577](https://issues.apache.org/jira/browse/KAFKA-5577) | WindowedStreamPartitioner does not provide topic name to serializer |  Major | streams | Matthias J. Sax | Matthias J. Sax |
 
 
 ### SUB-TASKS:

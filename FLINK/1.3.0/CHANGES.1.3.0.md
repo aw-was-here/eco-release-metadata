@@ -249,6 +249,7 @@
 | [FLINK-6653](https://issues.apache.org/jira/browse/FLINK-6653) | Avoid directly serializing AWS's Shard class in Kinesis consumer's checkpoints |  Major | Kinesis Connector | Tzu-Li (Gordon) Tai | Wei-Che Wei |
 | [FLINK-6766](https://issues.apache.org/jira/browse/FLINK-6766) | Update documentation with async backends and incremental checkpoints |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 | [FLINK-6985](https://issues.apache.org/jira/browse/FLINK-6985) | Remove bugfix version from docs title |  Minor | Documentation | Ufuk Celebi | Ufuk Celebi |
+| [FLINK-5883](https://issues.apache.org/jira/browse/FLINK-5883) | Re-adding the Exception-thrown code for ListKeyGroupedIterator when the iterator is requested the second time |  Major | DataSet API | lincoln.lee | lincoln.lee |
 
 
 ### BUG FIXES:
@@ -547,6 +548,9 @@
 | [FLINK-6704](https://issues.apache.org/jira/browse/FLINK-6704) | Cannot disable YARN user jar inclusion |  Minor | YARN | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6702](https://issues.apache.org/jira/browse/FLINK-6702) | SIGABRT after CEPOperatorTest#testCEPOperatorSerializationWRocksDB() during GC |  Major | CEP, Tests | Nico Kruber | Nico Kruber |
 | [FLINK-6753](https://issues.apache.org/jira/browse/FLINK-6753) | Flaky SqlITCase |  Major | Table API & SQL, Tests | Chesnay Schepler | Timo Walther |
+| [FLINK-7039](https://issues.apache.org/jira/browse/FLINK-7039) | Increase forkCountTestPackage for sudo-enabled TravisCI |  Trivial | Build System | Greg Hogan | Greg Hogan |
+| [FLINK-6412](https://issues.apache.org/jira/browse/FLINK-6412) | Stream has already been closed during job cancel |  Major | State Backends, Checkpointing | Andrey | Stefan Richter |
+| [FLINK-7176](https://issues.apache.org/jira/browse/FLINK-7176) | Failed builds (due to compilation) don't upload logs |  Major | Travis | Chesnay Schepler | Chesnay Schepler |
 
 
 ### TESTS:
@@ -651,6 +655,9 @@
 | [FLINK-6798](https://issues.apache.org/jira/browse/FLINK-6798) | Remove/update documentation about network buffer tuning |  Major | Documentation, Network | Robert Metzger | Nico Kruber |
 | [FLINK-6784](https://issues.apache.org/jira/browse/FLINK-6784) | Add some notes about externalized checkpoints and the difference to savepoints |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
 | [FLINK-6782](https://issues.apache.org/jira/browse/FLINK-6782) | Update savepoint documentation |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
+| [FLINK-5867](https://issues.apache.org/jira/browse/FLINK-5867) | The implementation of RestartPipelinedRegionStrategy |  Major | JobManager | shuai.xu | shuai.xu |
+| [FLINK-5868](https://issues.apache.org/jira/browse/FLINK-5868) | Implement a new RestartStrategy that works for the FailoverRegion. |  Major | JobManager | shuai.xu | shuai.xu |
+| [FLINK-5866](https://issues.apache.org/jira/browse/FLINK-5866) | The implementation of FailoverRegion. |  Major | JobManager | shuai.xu | shuai.xu |
 
 
 ### OTHER:

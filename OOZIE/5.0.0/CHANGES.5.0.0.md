@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-06-30)
+## Release 5.0.0 - Unreleased (as of 2017-08-26)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2387](https://issues.apache.org/jira/browse/OOZIE-2387) | Oozie is Unable to handle Spaces in file/archive tag. |  Major | action | shiv pratap singh | Attila Sasvari |
+| [OOZIE-2984](https://issues.apache.org/jira/browse/OOZIE-2984) | Parse spark-defaults.conf values with spaces without needing the quotes |  Major | . | Fahd Siddiqui | Andras Piros |
 
 
 ### NEW FEATURES:
@@ -76,6 +77,8 @@
 | [OOZIE-2769](https://issues.apache.org/jira/browse/OOZIE-2769) | Extend FS action to allow setrep on a file |  Minor | action, core | Artem Ervits | Artem Ervits |
 | [OOZIE-2920](https://issues.apache.org/jira/browse/OOZIE-2920) | Document Distcp can copy files within a cluster |  Trivial | . | Artem Ervits | Artem Ervits |
 | [OOZIE-2848](https://issues.apache.org/jira/browse/OOZIE-2848) | Override sharelib.tgz in distro when rebuilding Oozie |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2854](https://issues.apache.org/jira/browse/OOZIE-2854) | Oozie should handle transient database problems |  Major | core | Peter Bacsko | Andras Piros |
+| [OOZIE-2004](https://issues.apache.org/jira/browse/OOZIE-2004) | Improve Oozie version info output |  Minor | build | Chunjun Xiao | Artem Ervits |
 
 
 ### BUG FIXES:
@@ -133,6 +136,21 @@
 | [OOZIE-2794](https://issues.apache.org/jira/browse/OOZIE-2794) | Hive and Pig tests failing when multiple pre-commit jobs are running |  Major | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2884](https://issues.apache.org/jira/browse/OOZIE-2884) | consolidate hadoop versions in pomfiles |  Major | . | Peter Cseh | Artem Ervits |
 | [OOZIE-2733](https://issues.apache.org/jira/browse/OOZIE-2733) | change org.apache.hadoop.fs.permission.AccessControlException to org.apache.hadoop.security.AccessControlException |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2987](https://issues.apache.org/jira/browse/OOZIE-2987) | Coord action missing dependencies should show URI template with unresolved dependencies |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-3004](https://issues.apache.org/jira/browse/OOZIE-3004) | Forked action retry info is not working |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2662](https://issues.apache.org/jira/browse/OOZIE-2662) | DB migration fails if database is too big |  Major | . | Peter Cseh | Andras Piros |
+| [OOZIE-3018](https://issues.apache.org/jira/browse/OOZIE-3018) | Use Hadoop's CredentialProvider for passwords in SchemaCheckerService |  Major | . | Andras Piros | Andras Piros |
+| [OOZIE-3019](https://issues.apache.org/jira/browse/OOZIE-3019) | Remove getPasswordMethod in ConfigurationService |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-2974](https://issues.apache.org/jira/browse/OOZIE-2974) | Change TestLiteWorkflowAppParser so that it works with Hadoop 3 |  Major | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-3021](https://issues.apache.org/jira/browse/OOZIE-3021) | Error on job or SLA event listening: WARN logs instead of DEBUG |  Major | core | Andras Piros | Andras Piros |
+| [OOZIE-2852](https://issues.apache.org/jira/browse/OOZIE-2852) | Remove simple-json dependency from oozie sharelib |  Major | . | Peter Cseh | Artem Ervits |
+| [OOZIE-2999](https://issues.apache.org/jira/browse/OOZIE-2999) | minioozie can't compile |  Major | tests | Artem Ervits | Artem Ervits |
+| [OOZIE-3009](https://issues.apache.org/jira/browse/OOZIE-3009) | Number of Oozie tests executed dropped after OOZIE-2854 |  Blocker | . | Attila Sasvari | Andras Piros |
+| [OOZIE-2608](https://issues.apache.org/jira/browse/OOZIE-2608) | Comma in oozie.service.JPAService.jdbc.password value results in authentication error |  Minor | core | Nikolai Grigoriev | Peter Cseh |
+| [OOZIE-2670](https://issues.apache.org/jira/browse/OOZIE-2670) | Upgrade Hbase to 1.2 |  Major | . | Peter Cseh | Peter Cseh |
+| [OOZIE-3028](https://issues.apache.org/jira/browse/OOZIE-3028) | Oozie Pig Action fails with no python dependencies |  Major | build | Prabhu Joseph | Artem Ervits |
+| [OOZIE-3036](https://issues.apache.org/jira/browse/OOZIE-3036) | Spark 2.2.0 support: tell Spark not to get any delegation tokens |  Major | . | Andras Piros | Andras Piros |
+| [OOZIE-2940](https://issues.apache.org/jira/browse/OOZIE-2940) | Possible NullPointerException in WorkflowActionBean |  Major | workflow | AppChecker | Denes Bodo |
 
 
 ### TESTS:
@@ -140,6 +158,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2959](https://issues.apache.org/jira/browse/OOZIE-2959) | TestTimestampedMessageParser fails in Oozie Core |  Major | tests | Parita Johari |  |
+| [OOZIE-2958](https://issues.apache.org/jira/browse/OOZIE-2958) | TestLauncherAM fails in Share Lib Oozie |  Major | tests | Parita Johari | Peter Bacsko |
 
 
 ### SUB-TASKS:
@@ -160,6 +179,17 @@
 | [OOZIE-2944](https://issues.apache.org/jira/browse/OOZIE-2944) | Shell action example does not work with Oozie on Yarn on hadoop 2.6 |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2943](https://issues.apache.org/jira/browse/OOZIE-2943) | Fix Findbugs warnings in oozie-sharelib-pig |  Major | build | Jan Hentschel | Jan Hentschel |
 | [OOZIE-2849](https://issues.apache.org/jira/browse/OOZIE-2849) | Fix build warnings when assembling directories |  Trivial | . | Attila Sasvari | Attila Sasvari |
+| [OOZIE-2918](https://issues.apache.org/jira/browse/OOZIE-2918) | Delete LauncherMapper and its test |  Major | . | Peter Cseh | Attila Sasvari |
+| [OOZIE-2911](https://issues.apache.org/jira/browse/OOZIE-2911) | Re-add test testWfActionKillChildJob and adapt it to OYA |  Major | . | Peter Bacsko | Peter Cseh |
+| [OOZIE-2371](https://issues.apache.org/jira/browse/OOZIE-2371) | Add docs for state transitions for WF Action states |  Blocker | docs | Robert Kanter | Daniel Becker |
+| [OOZIE-3013](https://issues.apache.org/jira/browse/OOZIE-3013) | Bump java version in pre-commit job to 1.8 |  Major | core | Peter Cseh | Peter Cseh |
+| [OOZIE-2995](https://issues.apache.org/jira/browse/OOZIE-2995) | In preparation for Java 8, remove MaxPermSize=512m |  Blocker | . | Artem Ervits | Artem Ervits |
+| [OOZIE-2910](https://issues.apache.org/jira/browse/OOZIE-2910) | Re-add testChildKill and adapt it to OYA |  Major | . | Peter Bacsko | Peter Bacsko |
+| [OOZIE-2961](https://issues.apache.org/jira/browse/OOZIE-2961) | build contains multiple warnings for is not a parameter name |  Trivial | docs | Artem Ervits | Artem Ervits |
+| [OOZIE-2960](https://issues.apache.org/jira/browse/OOZIE-2960) | Fix warnings for @return tag has no arguments |  Trivial | docs | Artem Ervits | Artem Ervits |
+| [OOZIE-2977](https://issues.apache.org/jira/browse/OOZIE-2977) | Fix javadoc error: self-closing element not allowed |  Trivial | . | Artem Ervits | Artem Ervits |
+| [OOZIE-2931](https://issues.apache.org/jira/browse/OOZIE-2931) | Fix warnings during build for "no @param for" |  Trivial | action, client, core | Artem Ervits | Artem Ervits |
+| [OOZIE-3011](https://issues.apache.org/jira/browse/OOZIE-3011) | API for workflows: decision nodes autogeneration (simple cases) |  Major | client | Andras Piros | Daniel Becker |
 
 
 ### OTHER:
@@ -169,5 +199,6 @@
 | [OOZIE-2540](https://issues.apache.org/jira/browse/OOZIE-2540) | Create a PySpark example |  Major | examples | Robert Kanter | Abhishek Bafna |
 | [OOZIE-2926](https://issues.apache.org/jira/browse/OOZIE-2926) | Update Oozie version to 5.0.0-SNAPSHOT |  Blocker | . | Robert Kanter | Artem Ervits |
 | [OOZIE-2936](https://issues.apache.org/jira/browse/OOZIE-2936) | Fix Javadoc warnings from build |  Minor | build | Jan Hentschel | Jan Hentschel |
+| [OOZIE-2946](https://issues.apache.org/jira/browse/OOZIE-2946) | Include find-sec-bugs plugin |  Minor | build, security | Jan Hentschel | Jan Hentschel |
 
 

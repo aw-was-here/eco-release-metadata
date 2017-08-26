@@ -244,7 +244,6 @@
 | [FLINK-4752](https://issues.apache.org/jira/browse/FLINK-4752) | Improve session window documentation |  Minor | Documentation | Till Rohrmann | Fabian Hueske |
 | [FLINK-5480](https://issues.apache.org/jira/browse/FLINK-5480) | User-provided hashes for operators |  Major | DataStream API | Stefan Richter | Stefan Richter |
 | [FLINK-5575](https://issues.apache.org/jira/browse/FLINK-5575) | in old releases, warn users and guide them to the latest stable docs |  Major | Documentation | David Anderson | David Anderson |
-| [FLINK-3347](https://issues.apache.org/jira/browse/FLINK-3347) | TaskManager (or its ActorSystem) need to restart in case they notice quarantine |  Critical | Distributed Coordination | Stephan Ewen | Till Rohrmann |
 | [FLINK-6985](https://issues.apache.org/jira/browse/FLINK-6985) | Remove bugfix version from docs title |  Minor | Documentation | Ufuk Celebi | Ufuk Celebi |
 
 

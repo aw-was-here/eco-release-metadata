@@ -144,6 +144,7 @@
 | [SPARK-12420](https://issues.apache.org/jira/browse/SPARK-12420) | Have a built-in CSV data source implementation |  Major | SQL | Reynold Xin |  |
 | [SPARK-9041](https://issues.apache.org/jira/browse/SPARK-9041) | Support reading of delimited text files as DataFrames |  Major | SQL | Vishal Bagga |  |
 | [SPARK-10320](https://issues.apache.org/jira/browse/SPARK-10320) | Kafka Support new topic subscriptions without requiring restart of the streaming context |  Major | DStreams | Sudarshan Kadambi | Cody Koeninger |
+| [SPARK-12957](https://issues.apache.org/jira/browse/SPARK-12957) | Derive and propagate data constrains in logical plan |  Major | SQL | Yin Huai | Sameer Agarwal |
 
 
 ### IMPROVEMENTS:

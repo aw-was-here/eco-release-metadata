@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.0.3 - Unreleased (as of 2017-06-30)
+## Release 2.0.3 - Unreleased (as of 2017-08-26)
 
 
 
@@ -187,6 +187,12 @@
 | [SPARK-20200](https://issues.apache.org/jira/browse/SPARK-20200) | Flaky Test: org.apache.spark.rdd.LocalCheckpointSuite |  Minor | Spark Core | Takuya Ueshin | Jiang Xingbo |
 | [SPARK-19688](https://issues.apache.org/jira/browse/SPARK-19688) | Spark on Yarn Credentials File set to different application directory |  Minor | DStreams, YARN | Devaraj Jonnadula | Xing Shi |
 | [SPARK-21138](https://issues.apache.org/jira/browse/SPARK-21138) | Cannot delete staging dir when the clusters of "spark.yarn.stagingDir" and "spark.hadoop.fs.defaultFS" are different |  Major | YARN | sharkd tu | sharkd tu |
+| [SPARK-21282](https://issues.apache.org/jira/browse/SPARK-21282) | Fix test failure in 2.0 |  Major | SQL | Xiao Li | Xiao Li |
+| [SPARK-21426](https://issues.apache.org/jira/browse/SPARK-21426) | Fix test failure due to unsupported hex literals. |  Major | Tests | Xiao Li | Xiao Li |
+| [SPARK-21344](https://issues.apache.org/jira/browse/SPARK-21344) | BinaryType comparison does signed byte array comparison |  Major | SQL | Shubham Chopra | Kazuaki Ishizaki |
+| [SPARK-21332](https://issues.apache.org/jira/browse/SPARK-21332) | Incorrect result type inferred for some decimal expressions |  Major | SQL | Alexander Shkapsky | Anton Okolnychyi |
+| [SPARK-21306](https://issues.apache.org/jira/browse/SPARK-21306) | OneVsRest Conceals Columns That May Be Relevant To Underlying Classifier |  Critical | ML | Cathal Garvey | Yan Facai (颜发才) |
+| [SPARK-21522](https://issues.apache.org/jira/browse/SPARK-21522) | Flaky test: LauncherServerSuite.testStreamFiltering |  Minor | Tests | Marcelo Vanzin | Marcelo Vanzin |
 
 
 ### TESTS:

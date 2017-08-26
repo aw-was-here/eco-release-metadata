@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-06-30)
+## Release 2.1.2 - Unreleased (as of 2017-08-26)
 
 
 
@@ -42,6 +42,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-18535](https://issues.apache.org/jira/browse/SPARK-18535) | Redact sensitive information from Spark logs and UI |  Major | Web UI, YARN | Mark Grover | Mark Grover |
 | [SPARK-20164](https://issues.apache.org/jira/browse/SPARK-20164) | AnalysisException not tolerant of null query plan |  Major | SQL | Kunal Khamar | Kunal Khamar |
 | [SPARK-20191](https://issues.apache.org/jira/browse/SPARK-20191) | RackResolver not correctly being overridden in YARN tests |  Major | YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-20042](https://issues.apache.org/jira/browse/SPARK-20042) | Buttons on executor log page don't work with spark.ui.reverseProxy=true |  Minor | Web UI | Oliver Koeth | Oliver Koeth |
@@ -97,9 +98,24 @@
 | [SPARK-21181](https://issues.apache.org/jira/browse/SPARK-21181) | Suppress memory leak errors reported by netty |  Minor | Input/Output | Dhruve Ashar | Dhruve Ashar |
 | [SPARK-20555](https://issues.apache.org/jira/browse/SPARK-20555) | Incorrect handling of Oracle's decimal types via JDBC |  Major | SQL | Gabor Feher | Gabor Feher |
 | [SPARK-21159](https://issues.apache.org/jira/browse/SPARK-21159) | Cluster mode, driver throws connection refused exception submitted by SparkLauncher |  Major | Spark Core, Spark Submit | niefei | Marcelo Vanzin |
-| [SPARK-21203](https://issues.apache.org/jira/browse/SPARK-21203) | Wrong results of insertion of Array of Struct |  Critical | SQL | Xiao Li | Xiao Li |
+| [SPARK-21203](https://issues.apache.org/jira/browse/SPARK-21203) | Wrong results of insertion of Array of Struct |  Blocker | SQL | Xiao Li | Xiao Li |
+| [SPARK-19104](https://issues.apache.org/jira/browse/SPARK-19104) |  CompileException with Map and Case Class in Spark 2.1.0 |  Major | Optimizer, SQL | Nils Grabbert | Liang-Chi Hsieh |
 | [SPARK-21176](https://issues.apache.org/jira/browse/SPARK-21176) | Master UI hangs with spark.ui.reverseProxy=true if the master node has many CPUs |  Major | Web UI | Ingo Schuster | Ingo Schuster |
-| [SPARK-21258](https://issues.apache.org/jira/browse/SPARK-21258) | Window result incorrect using complex object with spilling |  Major | SQL | Herman van Hovell | Herman van Hovell |
+| [SPARK-20256](https://issues.apache.org/jira/browse/SPARK-20256) | Fail to start SparkContext/SparkSession with Hive support enabled when user does not have read/write privilege to Hive metastore warehouse dir |  Critical | SQL | Xin Wu | Dongjoon Hyun |
+| [SPARK-21312](https://issues.apache.org/jira/browse/SPARK-21312) | UnsafeRow writeToStream has incorrect offsetInByteArray calculation for non-zero offset |  Major | SQL | Sumedh Wale | Sumedh Wale |
+| [SPARK-21345](https://issues.apache.org/jira/browse/SPARK-21345) | SparkSessionBuilderSuite should clean up stopped sessions |  Major | SQL, Tests | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-21344](https://issues.apache.org/jira/browse/SPARK-21344) | BinaryType comparison does signed byte array comparison |  Major | SQL | Shubham Chopra | Kazuaki Ishizaki |
+| [SPARK-21332](https://issues.apache.org/jira/browse/SPARK-21332) | Incorrect result type inferred for some decimal expressions |  Major | SQL | Alexander Shkapsky | Anton Okolnychyi |
+| [SPARK-21441](https://issues.apache.org/jira/browse/SPARK-21441) | Incorrect Codegen in SortMergeJoinExec results failures in some cases |  Major | SQL | Feng Zhu | Feng Zhu |
+| [SPARK-21446](https://issues.apache.org/jira/browse/SPARK-21446) | [SQL] JDBC Postgres fetchsize parameter ignored again |  Major | SQL | Albert Jang | Albert Jang |
+| [SPARK-21306](https://issues.apache.org/jira/browse/SPARK-21306) | OneVsRest Conceals Columns That May Be Relevant To Underlying Classifier |  Critical | ML | Cathal Garvey | Yan Facai (颜发才) |
+| [SPARK-21555](https://issues.apache.org/jira/browse/SPARK-21555) | GROUP BY don't work with expressions with NVL and nested objects |  Major | SQL | Vitaly Gerasimov | Liang-Chi Hsieh |
+| [SPARK-21522](https://issues.apache.org/jira/browse/SPARK-21522) | Flaky test: LauncherServerSuite.testStreamFiltering |  Minor | Tests | Marcelo Vanzin | Marcelo Vanzin |
+| [SPARK-12717](https://issues.apache.org/jira/browse/SPARK-12717) | pyspark broadcast fails when using multiple threads |  Critical | PySpark | Edward Walker | Bryan Cutler |
+| [SPARK-21330](https://issues.apache.org/jira/browse/SPARK-21330) | Bad partitioning does not allow to read a JDBC table with extreme values on the partition column |  Major | SQL | Stefano Parmesan | Andrew Ray |
+| [SPARK-21588](https://issues.apache.org/jira/browse/SPARK-21588) | SQLContext.getConf(key, null) should return null, but it throws NPE |  Minor | SQL | Burak Yavuz | Vinod KC |
+| [SPARK-21721](https://issues.apache.org/jira/browse/SPARK-21721) | Memory leak in org.apache.spark.sql.hive.execution.InsertIntoHiveTable |  Critical | SQL | yzheng616 | Liang-Chi Hsieh |
+| [SPARK-21793](https://issues.apache.org/jira/browse/SPARK-21793) | Correct validateAndTransformSchema in GaussianMixture and AFTSurvivalRegression |  Minor | MLlib | Cedric Pelvet | Cedric Pelvet |
 
 
 ### TESTS:
@@ -108,6 +124,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-20603](https://issues.apache.org/jira/browse/SPARK-20603) | Flaky test: o.a.s.sql.kafka010.KafkaSourceSuite deserialization of initial offset with Spark 2.1.0 |  Minor | Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-21114](https://issues.apache.org/jira/browse/SPARK-21114) | Test failure in Spark 2.1 due to name mismatch |  Major | SQL | Xiao Li | Xiao Li |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-21083](https://issues.apache.org/jira/browse/SPARK-21083) | Store zero size and row count after analyzing empty table |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
 
 
 ### OTHER:

@@ -59,4 +59,11 @@ Trunk: Committed revision 1740738.
 IPv6 addresses are now properly parsed in the config
 
 
+---
+
+* [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | *Major* | **Multi-thread NIOServerCnxn**
+
+There is a possibility of file descriptor leakage issue under high workload. Please upgrade to the latest version of JVM or the version that has a fix for this bug (http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=7118373)
+
+
 

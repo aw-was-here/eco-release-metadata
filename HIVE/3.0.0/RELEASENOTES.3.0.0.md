@@ -123,4 +123,25 @@ Note that all of these properties affect how distcp runs when it is launched by 
 Document the new configuration.
 
 
+---
+
+* [HIVE-17050](https://issues.apache.org/jira/browse/HIVE-17050) | *Major* | **Multiline queries that have comment in middle fail when executed via "beeline -e"**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17234](https://issues.apache.org/jira/browse/HIVE-17234) | *Major* | **Remove HBase metastore from master**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17241](https://issues.apache.org/jira/browse/HIVE-17241) | *Major* | **Change metastore classes to not use the shims**
+
+**WARNING: No release note provided for this change.**
+
+
 

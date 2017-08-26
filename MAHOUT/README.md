@@ -22,6 +22,9 @@
 * Apache Mahout v0.14.0
     * [Changes](0.14.0/CHANGES.0.14.0.md)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.md)
+* Apache Mahout v0.13.2
+    * [Changes](0.13.2/CHANGES.0.13.2.md)
+    * [Release Notes](0.13.2/RELEASENOTES.0.13.2.md)
 * Apache Mahout v0.13.1
     * [Changes](0.13.1/CHANGES.0.13.1.md)
     * [Release Notes](0.13.1/RELEASENOTES.0.13.1.md)

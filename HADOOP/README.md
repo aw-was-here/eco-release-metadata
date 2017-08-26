@@ -34,6 +34,12 @@
 * Apache Hadoop v2.9.0
     * [Changes](2.9.0/CHANGES.2.9.0.md)
     * [Release Notes](2.9.0/RELEASENOTES.2.9.0.md)
+* Apache Hadoop v2.9
+    * [Changes](2.9/CHANGES.2.9.md)
+    * [Release Notes](2.9/RELEASENOTES.2.9.md)
+* Apache Hadoop v2.8.3
+    * [Changes](2.8.3/CHANGES.2.8.3.md)
+    * [Release Notes](2.8.3/RELEASENOTES.2.8.3.md)
 * Apache Hadoop v2.8.2
     * [Changes](2.8.2/CHANGES.2.8.2.md)
     * [Release Notes](2.8.2/RELEASENOTES.2.8.2.md)
@@ -43,6 +49,9 @@
 * Apache Hadoop v2.8.0
     * [Changes](2.8.0/CHANGES.2.8.0.md)
     * [Release Notes](2.8.0/RELEASENOTES.2.8.0.md)
+* Apache Hadoop v2.7.5
+    * [Changes](2.7.5/CHANGES.2.7.5.md)
+    * [Release Notes](2.7.5/RELEASENOTES.2.7.5.md)
 * Apache Hadoop v2.7.4
     * [Changes](2.7.4/CHANGES.2.7.4.md)
     * [Release Notes](2.7.4/RELEASENOTES.2.7.4.md)

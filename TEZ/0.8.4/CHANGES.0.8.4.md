@@ -73,6 +73,7 @@
 | [TEZ-3281](https://issues.apache.org/jira/browse/TEZ-3281) | Tez UI: Swimlane improvements |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3290](https://issues.apache.org/jira/browse/TEZ-3290) | Set full task attempt id string in configuration object |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [TEZ-3298](https://issues.apache.org/jira/browse/TEZ-3298) | Tez fails to compile against hadoop 2.8 after MAPREDUCE-5870 |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3297](https://issues.apache.org/jira/browse/TEZ-3297) | Deadlock scenario in AM during ShuffleVertexManager auto reduce |  Critical | . | Zhiyuan Yang | Rajesh Balamohan |
 | [TEZ-3294](https://issues.apache.org/jira/browse/TEZ-3294) | DAG.createDag() does not clear local state on repeat calls |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
 | [TEZ-3296](https://issues.apache.org/jira/browse/TEZ-3296) | Tez job can hang if two vertices at the same root distance have different task requirements |  Critical | . | Jason Lowe | Jason Lowe |
 | [TEZ-3304](https://issues.apache.org/jira/browse/TEZ-3304) | TestHistoryParser fails with Hadoop 2.7 |  Major | . | Jonathan Eagles | Jonathan Eagles |

@@ -51,4 +51,32 @@ If a single WAL group (or DefaultWALProvider) is used, running without this fix 
 0-length WAL files can potentially cause the replication queue to get stuck.  A new config "replication.source.eof.autorecovery" has been added: if set to true (default is false), the 0-length WAL file will be skipped after 1) the max number of retries has been hit, and 2) there are more WAL files in the queue.  The risk of enabling this is that there is a chance the 0-length WAL file actually has some data (e.g. block went missing and will come back once a datanode is recovered).
 
 
+---
+
+* [HBASE-18255](https://issues.apache.org/jira/browse/HBASE-18255) | *Critical* | **Time-Delayed HBase Performance Degradation with Java 7**
+
+This change sets the JVM property ReservedCodeCacheSize to 256MB in the provided hbase-env.sh example file. The specific value for this property attempts to prevent performance issues seen when HBase using Java 7. The value set is the same as the default when using Java8.
+
+
+---
+
+* [HBASE-16090](https://issues.apache.org/jira/browse/HBASE-16090) | *Major* | **ResultScanner is not closed in SyncTable#finishRemainingHashRanges()**
+
+pushed to 1.3 and 1.2. SyncTable was introduced in 1.2, so skipping 1.1.
+
+
+---
+
+* [HBASE-18387](https://issues.apache.org/jira/browse/HBASE-18387) | *Minor* | **[Thrift] Make principal configurable in DemoClient.java**
+
+This change allows the demonstration Thrift client to customize the server principal used by the Thrift server for instances secured with Kerberos.
+
+
+---
+
+* [HBASE-18631](https://issues.apache.org/jira/browse/HBASE-18631) | *Minor* | **Allow configuration of ChaosMonkey properties via hbase-site**
+
+This change invalidates the need for a separate Java properties file to configure the ChaosMonkey included with HBase. These properties can be provided directly in hbase-site.xml. If configuration in provided in both locations, the Java properties file takes precendence.
+
+
 

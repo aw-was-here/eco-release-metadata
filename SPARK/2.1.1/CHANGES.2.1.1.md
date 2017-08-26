@@ -152,6 +152,7 @@
 | [SPARK-18750](https://issues.apache.org/jira/browse/SPARK-18750) | spark should be able to control the number of executor and should not throw stack overslow |  Major | . | Neerja Khattar | Marcelo Vanzin |
 | [SPARK-18863](https://issues.apache.org/jira/browse/SPARK-18863) | Output non-aggregate expressions without GROUP BY in a subquery does not yield an error |  Major | SQL | Nattavut Sutyanyong | Nattavut Sutyanyong |
 | [SPARK-19311](https://issues.apache.org/jira/browse/SPARK-19311) | UDFs disregard UDT type hierarchy |  Major | SQL | Gregor Moehler | Gregor Moehler |
+| [SPARK-19307](https://issues.apache.org/jira/browse/SPARK-19307) | SPARK-17387 caused ignorance of conf object passed to SparkContext: |  Major | PySpark | yuriy\_hupalo | Marcelo Vanzin |
 | [SPARK-14804](https://issues.apache.org/jira/browse/SPARK-14804) | Graph vertexRDD/EdgeRDD checkpoint results ClassCastException: |  Minor | GraphX | SuYan | Tathagata Das |
 | [SPARK-19220](https://issues.apache.org/jira/browse/SPARK-19220) | SSL redirect handler only redirects the server's root |  Major | Web UI | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-19338](https://issues.apache.org/jira/browse/SPARK-19338) | Always Identical Name for UDF in the EXPLAIN output |  Major | SQL | Xiao Li | Takeshi Yamamuro |
@@ -234,7 +235,7 @@
 | [SPARK-19925](https://issues.apache.org/jira/browse/SPARK-19925) | SparkR spark.getSparkFiles fails on executor |  Critical | SparkR | Yanbo Liang | Yanbo Liang |
 | [SPARK-20021](https://issues.apache.org/jira/browse/SPARK-20021) | Miss backslash in python code |  Trivial | PySpark | Genmao Yu | Genmao Yu |
 | [SPARK-19959](https://issues.apache.org/jira/browse/SPARK-19959) | df[java.lang.Long].collect throws NullPointerException if df includes null |  Major | SQL | Kazuaki Ishizaki | Kazuaki Ishizaki |
-| [SPARK-20086](https://issues.apache.org/jira/browse/SPARK-20086) | issue with pyspark 2.1.0 window function |  Major | PySpark | mandar uapdhye | Herman van Hovell |
+| [SPARK-20086](https://issues.apache.org/jira/browse/SPARK-20086) | issue with pyspark 2.1.0 window function |  Major | PySpark | mandar upadhye | Herman van Hovell |
 | [SPARK-20102](https://issues.apache.org/jira/browse/SPARK-20102) | Fix two minor build script issues blocking 2.1.1 RC + master snapshot builds |  Major | Build | Josh Rosen | Josh Rosen |
 | [SPARK-20111](https://issues.apache.org/jira/browse/SPARK-20111) | codegen bug surfaced by GraphFrames issue 165 |  Major | SQL | Joseph K. Bradley |  |
 | [SPARK-19995](https://issues.apache.org/jira/browse/SPARK-19995) | Using real user to connect HiveMetastore in HiveClientImpl |  Major | SQL | Saisai Shao | Saisai Shao |

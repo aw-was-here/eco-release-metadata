@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.10.2.2 - Unreleased (as of 2017-06-30)
+## Release 0.10.2.2 - Unreleased (as of 2017-08-26)
 
 
 
@@ -45,5 +45,10 @@
 | [KAFKA-5395](https://issues.apache.org/jira/browse/KAFKA-5395) | Distributed Herder Deadlocks on Shutdown |  Critical | KafkaConnect | Michael Jaschob | Rajini Sivaram |
 | [KAFKA-5413](https://issues.apache.org/jira/browse/KAFKA-5413) | Log cleaner fails due to large offset in segment file |  Critical | core | Nicholas Ngorok | Kelvin Rutt |
 | [KAFKA-5484](https://issues.apache.org/jira/browse/KAFKA-5484) | Refactor kafkatest docker support |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5167](https://issues.apache.org/jira/browse/KAFKA-5167) | streams task gets stuck after re-balance due to LockException |  Major | streams | Narendra Kumar | Matthias J. Sax |
+| [KAFKA-5464](https://issues.apache.org/jira/browse/KAFKA-5464) | StreamsKafkaClient should not use StreamsConfig.POLL\_MS\_CONFIG |  Major | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5623](https://issues.apache.org/jira/browse/KAFKA-5623) | ducktape kafka service: do not assume Service contains num\_nodes |  Major | system tests | Colin P. McCabe |  |
+| [KAFKA-5643](https://issues.apache.org/jira/browse/KAFKA-5643) | Using \_DUCKTAPE\_OPTIONS has no effect on executing tests |  Major | system tests | Paolo Patierno | Paolo Patierno |
+| [KAFKA-5731](https://issues.apache.org/jira/browse/KAFKA-5731) | Connect WorkerSinkTask out of order offset commit can lead to inconsistent state |  Major | KafkaConnect | Jason Gustafson | Randall Hauch |
 
 

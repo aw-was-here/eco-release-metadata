@@ -37,6 +37,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [TEZ-3652](https://issues.apache.org/jira/browse/TEZ-3652) | *Major* | **Remove ShuffleClientMetrics**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [TEZ-3611](https://issues.apache.org/jira/browse/TEZ-3611) | *Major* | **Create lightweight summary events for ATS.**
 
 DAGPlan and Counters were moved out of TEZ\_DAG\_ID entity into DAG\_EXTRA\_INFO entity.

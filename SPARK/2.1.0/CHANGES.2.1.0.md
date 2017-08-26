@@ -318,7 +318,6 @@
 | [SPARK-16516](https://issues.apache.org/jira/browse/SPARK-16516) | Support for pushing down filters for decimal and timestamp types in ORC |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-17682](https://issues.apache.org/jira/browse/SPARK-17682) | nit: Mark children as final for Unary, Binary, Leaf expression and plan nodes |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-17677](https://issues.apache.org/jira/browse/SPARK-17677) | Break WindowExec.scala into multiple files |  Major | SQL | Reynold Xin | Reynold Xin |
-| [SPARK-17614](https://issues.apache.org/jira/browse/SPARK-17614) | sparkSession.read() .jdbc(\*\*\*) use the sql syntax "where 1=0" that Cassandra does not support |  Minor | SQL | Paul Wu | Sean Owen |
 | [SPARK-17648](https://issues.apache.org/jira/browse/SPARK-17648) | TaskSchedulerImpl.resourceOffers should take an IndexedSeq, not a Seq |  Minor | Scheduler, Spark Core | Imran Rashid | Imran Rashid |
 | [SPARK-17715](https://issues.apache.org/jira/browse/SPARK-17715) | Log INFO per task launch creates a large driver log |  Trivial | Scheduler | Brian Cho | Brian Cho |
 | [SPARK-17653](https://issues.apache.org/jira/browse/SPARK-17653) | Optimizer should remove unnecessary distincts (in multiple unions) |  Major | SQL | Reynold Xin | Liang-Chi Hsieh |
@@ -461,6 +460,7 @@
 | [SPARK-18852](https://issues.apache.org/jira/browse/SPARK-18852) | StreamingQuery.lastProgress should be null when recentProgress is empty |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-18826](https://issues.apache.org/jira/browse/SPARK-18826) | Make FileStream be able to start with most recent files |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-11597](https://issues.apache.org/jira/browse/SPARK-11597) | improve performance of array and map encoder |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-17614](https://issues.apache.org/jira/browse/SPARK-17614) | sparkSession.read() .jdbc(\*\*\*) use the sql syntax "where 1=0" that Cassandra does not support |  Minor | SQL | Paul Wu | Sean Owen |
 
 
 ### BUG FIXES:
@@ -891,6 +891,7 @@
 | [SPARK-18430](https://issues.apache.org/jira/browse/SPARK-18430) | Returned Message Null when Hitting an Invocation Exception of Function Lookup. |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-18300](https://issues.apache.org/jira/browse/SPARK-18300) | ClassCastException during count distinct |  Major | SQL | Emlyn Corrin | Herman van Hovell |
 | [SPARK-18400](https://issues.apache.org/jira/browse/SPARK-18400) | NPE when resharding Kinesis Stream |  Minor | DStreams | Brian ONeill | Sean Owen |
+| [SPARK-18415](https://issues.apache.org/jira/browse/SPARK-18415) | Weird Plan Output when CTE used in RunnableCommand |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-18172](https://issues.apache.org/jira/browse/SPARK-18172) | AnalysisException in first/last during aggregation |  Major | SQL | Emlyn Corrin | Song Jun |
 | [SPARK-18442](https://issues.apache.org/jira/browse/SPARK-18442) | Fix nullability of WrapOption. |  Minor | SQL | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-18464](https://issues.apache.org/jira/browse/SPARK-18464) | Spark SQL fails to load tables created without providing a schema |  Blocker | SQL | Yin Huai | Wenchen Fan |
@@ -924,6 +925,7 @@
 | [SPARK-18436](https://issues.apache.org/jira/browse/SPARK-18436) | isin causing SQL syntax error with JDBC |  Major | SQL | Dan | Jiang Xingbo |
 | [SPARK-18583](https://issues.apache.org/jira/browse/SPARK-18583) | Fix nullability of InputFileName. |  Minor | SQL | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-17251](https://issues.apache.org/jira/browse/SPARK-17251) | "ClassCastException: OuterReference cannot be cast to NamedExpression" for correlated subquery on the RHS of an IN operator |  Major | SQL | Josh Rosen | Dongjoon Hyun |
+| [SPARK-18594](https://issues.apache.org/jira/browse/SPARK-18594) | Name Validation of Databases/Tables |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-18407](https://issues.apache.org/jira/browse/SPARK-18407) | Inferred partition columns cause assertion error |  Critical | Structured Streaming | Michael Armbrust | Burak Yavuz |
 | [SPARK-18118](https://issues.apache.org/jira/browse/SPARK-18118) | SpecificSafeProjection.apply of Java Object from Dataset to JavaRDD Grows Beyond 64 KB |  Major | SQL | Aleksander Eskilson | Kazuaki Ishizaki |
 | [SPARK-17783](https://issues.apache.org/jira/browse/SPARK-17783) | Hide Credentials in CREATE and DESC FORMATTED/EXTENDED a PERSISTENT/TEMP Table for JDBC |  Critical | SQL | Xiao Li | Xiao Li |
@@ -1166,7 +1168,6 @@
 | [SPARK-18283](https://issues.apache.org/jira/browse/SPARK-18283) | Add a test to make sure the default starting offset is latest |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-18295](https://issues.apache.org/jira/browse/SPARK-18295) | Match up to\_json to from\_json in null safety |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-18217](https://issues.apache.org/jira/browse/SPARK-18217) | Disallow creating permanent views based on temporary views or UDFs |  Major | SQL | Reynold Xin | Xiao Li |
-| [SPARK-18191](https://issues.apache.org/jira/browse/SPARK-18191) | Port RDD API to use commit protocol |  Major | Spark Core | Reynold Xin | Jiang Xingbo |
 | [SPARK-18239](https://issues.apache.org/jira/browse/SPARK-18239) | Gradient Boosted Tree wrapper in SparkR |  Major | ML, SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-18333](https://issues.apache.org/jira/browse/SPARK-18333) | Revert hacks in parquet and orc reader to support case insensitive resolution |  Major | SQL | Eric Liang | Eric Liang |
 | [SPARK-17990](https://issues.apache.org/jira/browse/SPARK-17990) | ALTER TABLE ... ADD PARTITION does not play nice with mixed-case partition column names |  Major | SQL | Michael Allman | Wenchen Fan |

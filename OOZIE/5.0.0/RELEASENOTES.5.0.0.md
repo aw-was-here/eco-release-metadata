@@ -58,4 +58,34 @@ Sample XML File --
 \</workflow-app\>
 
 
+---
+
+* [OOZIE-2984](https://issues.apache.org/jira/browse/OOZIE-2984) | *Major* | **Parse spark-defaults.conf values with spaces without needing the quotes**
+
+Oozie requires multiple java opts to be enclosed in quotes. For example:
+{code}
+spark.driver.extraJavaOptions="-Xmn2703m -XX:SurvivorRatio=2 -XX:ParallelGCThreads=20"
+{code}
+
+However the above breaks spark-shell. 
+
+{code}
+$ ./spark2-shell
+Invalid initial young generation size: -Xmn2212m -XX:SurvivorRatio=2 -XX:ParallelGCThreads=20
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+{code}
+
+To fix spark-shell, we have to remove the quotes, which errors out Oozie:
+{code}
+Error: Unrecognized option '-XX:SurvivorRatio=2'
+...
+--conf
+spark.executor.extraJavaOptions=-Xmn2703m -Dlog4j.configuration=spark-log4j.properties
+-XX:SurvivorRatio=2
+{code}
+
+Oozie should be able to parse spark-defaults.conf values with spaces without needing the quotes.
+
+
 

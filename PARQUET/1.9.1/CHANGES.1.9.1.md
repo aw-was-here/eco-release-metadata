@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.9.1 - Unreleased (as of 2017-06-30)
+## Release 1.9.1 - Unreleased (as of 2017-08-26)
 
 
 

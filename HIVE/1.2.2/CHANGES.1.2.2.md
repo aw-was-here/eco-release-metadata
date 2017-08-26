@@ -83,7 +83,6 @@
 | [HIVE-13390](https://issues.apache.org/jira/browse/HIVE-13390) | HiveServer2: Add more test to ZK service discovery using MiniHS2 |  Major | HiveServer2, JDBC | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-13948](https://issues.apache.org/jira/browse/HIVE-13948) | Incorrect timezone handling in Writable results in wrong dates in queries |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14210](https://issues.apache.org/jira/browse/HIVE-14210) | ExecDriver should call jobclient.close() to trigger cleanup |  Major | Hive, HiveServer2 | Thomas Friedrich | Thomas Friedrich |
-| [HIVE-14964](https://issues.apache.org/jira/browse/HIVE-14964) | Failing Test: Fix TestBeelineArgParsing tests |  Major | Tests | Jason Dere | Zoltan Haindrich |
 
 
 ### TESTS:

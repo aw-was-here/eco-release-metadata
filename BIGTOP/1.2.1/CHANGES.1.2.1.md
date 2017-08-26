@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-06-30)
+## Release 1.2.1 - Unreleased (as of 2017-08-26)
 
 
 
@@ -35,6 +35,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2730](https://issues.apache.org/jira/browse/BIGTOP-2730) | Bump zookeeper to 3.4.10 |  Major | build | Yakir Gibraltar | Yakir Gibraltar |
 | [BIGTOP-2677](https://issues.apache.org/jira/browse/BIGTOP-2677) | layer-spark: Improve sparkpi action output |  Minor | spark | Antonio Rosales | Kevin W Monroe |
 | [BIGTOP-2770](https://issues.apache.org/jira/browse/BIGTOP-2770) | Juju charm/bundle refresh |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2778](https://issues.apache.org/jira/browse/BIGTOP-2778) | Delete PermSize / MaxPermsize options, no longer support by Java 8 |  Trivial | build | YoungWoo Kim | Arnaud Launay |
@@ -46,6 +47,9 @@
 | [BIGTOP-2807](https://issues.apache.org/jira/browse/BIGTOP-2807) | Upgrade Spark to 2.1.1 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2812](https://issues.apache.org/jira/browse/BIGTOP-2812) | Upgrade Zeppelin version to 0.7.2 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2821](https://issues.apache.org/jira/browse/BIGTOP-2821) | expose extra config options for spark |  Minor | . | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2827](https://issues.apache.org/jira/browse/BIGTOP-2827) | juju bundle refresh (june 2017) |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2828](https://issues.apache.org/jira/browse/BIGTOP-2828) | Since BIGTOP-2775 JDK version has been specified by Bigtop Puppet |  Minor | deployment, docker, provisioner, sandbox | Evans Ye | Evans Ye |
+| [BIGTOP-2819](https://issues.apache.org/jira/browse/BIGTOP-2819) | Polish the README.md for 1.2.1 release |  Major | documentation | Evans Ye | Evans Ye |
 
 
 ### BUG FIXES:
@@ -53,7 +57,14 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2738](https://issues.apache.org/jira/browse/BIGTOP-2738) | spark-worker fails to start |  Critical | spark | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2737](https://issues.apache.org/jira/browse/BIGTOP-2737) | Spark charm doesn't handle HA or examples well |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2740](https://issues.apache.org/jira/browse/BIGTOP-2740) | hbase 1.1.3 does not work on ppc64le |  Critical | hbase | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2748](https://issues.apache.org/jira/browse/BIGTOP-2748) | Fix a puppet compatibilty issue |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2749](https://issues.apache.org/jira/browse/BIGTOP-2749) | puppet: use jessie package on jessie, not trusty |  Major | debian | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2750](https://issues.apache.org/jira/browse/BIGTOP-2750) | puppet: increase compatibility with future versions |  Major | deployment | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2754](https://issues.apache.org/jira/browse/BIGTOP-2754) | Revert BIGTOP-2730: Upgrade Zookeeper to version 3.4.10 |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2755](https://issues.apache.org/jira/browse/BIGTOP-2755) | Gradle needs cacerts file in place on fedora |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2753](https://issues.apache.org/jira/browse/BIGTOP-2753) | Initial support for Debian-9 |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2762](https://issues.apache.org/jira/browse/BIGTOP-2762) | Zeppelin installation failed due to JDK not installed |  Major | deployment | Evans Ye | Evans Ye |
 | [BIGTOP-2765](https://issues.apache.org/jira/browse/BIGTOP-2765) | fix roles logic for spark/zeppelin charms |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2764](https://issues.apache.org/jira/browse/BIGTOP-2764) | deployment failure when roles include spark::common and spark::yarn\* |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
@@ -64,11 +75,14 @@
 | [BIGTOP-2774](https://issues.apache.org/jira/browse/BIGTOP-2774) | gradlew toolchain does not work on Ubuntu 16.04.2/Puppet 3.8.5 |  Major | toolchain | Kengo Seki | Kengo Seki |
 | [BIGTOP-2729](https://issues.apache.org/jira/browse/BIGTOP-2729) | AMBARI-20686: Add ID to allow compilation with recent maven |  Major | build, debian | Arnaud Launay | Arnaud Launay |
 | [BIGTOP-2781](https://issues.apache.org/jira/browse/BIGTOP-2781) | [Provisioner] 127.0.0.1 does not successfully inserted after BIGTOP-2756 |  Major | provisioner | Evans Ye | Evans Ye |
+| [BIGTOP-2771](https://issues.apache.org/jira/browse/BIGTOP-2771) | ambari: build failed due to using third-party ConcurrentHashMap instead of the standard one unnecessarily |  Major | . | Kengo Seki | Kengo Seki |
 | [BIGTOP-2788](https://issues.apache.org/jira/browse/BIGTOP-2788) | Corrects Apex patch for version 3.6.0 |  Trivial | . | Arnaud Launay | Arnaud Launay |
 | [BIGTOP-2790](https://issues.apache.org/jira/browse/BIGTOP-2790) | Ambari: deploying cluster fails due to ambari-agent version mismatch |  Major | . | Kengo Seki | Kengo Seki |
 | [BIGTOP-2789](https://issues.apache.org/jira/browse/BIGTOP-2789) | Ambari: installing ODPi mpack fails due to changing its file name |  Major | . | Kengo Seki | Kengo Seki |
 | [BIGTOP-2793](https://issues.apache.org/jira/browse/BIGTOP-2793) | BIGTOP-2790 broke Ambari build on rpm-based system |  Major | build | Kengo Seki | Kengo Seki |
 | [BIGTOP-2775](https://issues.apache.org/jira/browse/BIGTOP-2775) | Make open jdk 8 available on bigtop/puppet:debian-8 |  Major | docker | Evans Ye | Evans Ye |
+| [BIGTOP-2796](https://issues.apache.org/jira/browse/BIGTOP-2796) | Bigtop Zookeeper(3.4.6) package conflict with Ubuntu 16.04 Zookeeper(3.4.8) |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-2800](https://issues.apache.org/jira/browse/BIGTOP-2800) | provisioner fails for kerberos on centos-7 |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2801](https://issues.apache.org/jira/browse/BIGTOP-2801) | charm race condition when gathering metrics |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2797](https://issues.apache.org/jira/browse/BIGTOP-2797) | zeppelin charm external role handling |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2799](https://issues.apache.org/jira/browse/BIGTOP-2799) | [Puppet] Flink deployment failure on all supported OS |  Major | flink | Evans Ye | Evans Ye |
@@ -76,8 +90,14 @@
 | [BIGTOP-2805](https://issues.apache.org/jira/browse/BIGTOP-2805) | ycsb: turn of autodetection of dependencies by rpm |  Major | . | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2806](https://issues.apache.org/jira/browse/BIGTOP-2806) | hue is not installable on debian, ubuntu |  Major | hue | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2803](https://issues.apache.org/jira/browse/BIGTOP-2803) | Minor issues in bigtop.bom |  Trivial | build | Kengo Seki | Konstantin Boudnik |
+| [BIGTOP-2679](https://issues.apache.org/jira/browse/BIGTOP-2679) | Streamline CI Jobs |  Major | build | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2743](https://issues.apache.org/jira/browse/BIGTOP-2743) | hbase shell does not work on ppc64le |  Major | hbase | Kevin W Monroe | Olaf Flebbe |
 | [BIGTOP-2808](https://issues.apache.org/jira/browse/BIGTOP-2808) | Handle deletion of symlinks: update gradle |  Major | build, toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2295](https://issues.apache.org/jira/browse/BIGTOP-2295) | Docker tests should consume current builds |  Major | build, ci | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2829](https://issues.apache.org/jira/browse/BIGTOP-2829) | [iTest] build failed during Maven integration test phase |  Blocker | tests | Evans Ye | Evans Ye |
+| [BIGTOP-2832](https://issues.apache.org/jira/browse/BIGTOP-2832) | Toolchain failed to install on Debian 8 |  Blocker | toolchain | Evans Ye | Evans Ye |
+| [BIGTOP-2870](https://issues.apache.org/jira/browse/BIGTOP-2870) | testHCFS should be using USER\_NAME for expected output |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2871](https://issues.apache.org/jira/browse/BIGTOP-2871) | Make run\_itest report Standard Error from tests to stderr |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### SUB-TASKS:
@@ -101,6 +121,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2739](https://issues.apache.org/jira/browse/BIGTOP-2739) | refresh juju bundles with latest charm revs |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2747](https://issues.apache.org/jira/browse/BIGTOP-2747) | new charm revs for bigtop-1.2 |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2776](https://issues.apache.org/jira/browse/BIGTOP-2776) | Bump Apache Apex version to 3.6.0 |  Major | build | Thomas Weise | Thomas Weise |
 

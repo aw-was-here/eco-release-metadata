@@ -27,7 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4233](https://issues.apache.org/jira/browse/KAFKA-4233) | StateDirectory fails to create directory if any parent directory does not exist |  Major | streams | Ryan Worsley | Damian Guy |
-| [KAFKA-4360](https://issues.apache.org/jira/browse/KAFKA-4360) | Controller may deadLock when autoLeaderRebalance encounter zk expired |  Major | controller | Json Tu |  |
+| [KAFKA-4360](https://issues.apache.org/jira/browse/KAFKA-4360) | Controller may deadLock when autoLeaderRebalance encounter zk expired |  Major | controller | tuyang |  |
 
 
 ### NEW FEATURES:
@@ -72,7 +72,7 @@
 | [KAFKA-4393](https://issues.apache.org/jira/browse/KAFKA-4393) | Improve invalid/negative TS handling |  Major | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-4140](https://issues.apache.org/jira/browse/KAFKA-4140) | Update system tests to allow running tests in parallel |  Major | . | Geoff Anderson | Geoff Anderson |
 | [KAFKA-4390](https://issues.apache.org/jira/browse/KAFKA-4390) | Replace MessageSet usage with client-side equivalents |  Major | . | Jason Gustafson | Jason Gustafson |
-| [KAFKA-4447](https://issues.apache.org/jira/browse/KAFKA-4447) | Controller resigned but it also acts as a controller for a long time |  Major | controller | Json Tu |  |
+| [KAFKA-4447](https://issues.apache.org/jira/browse/KAFKA-4447) | Controller resigned but it also acts as a controller for a long time |  Major | controller | tuyang |  |
 | [KAFKA-4500](https://issues.apache.org/jira/browse/KAFKA-4500) | Kafka Code Improvements |  Minor | clients | Rekha Joshi | Rekha Joshi |
 | [KAFKA-3284](https://issues.apache.org/jira/browse/KAFKA-3284) | Consider removing beta label in security documentation |  Major | security | Ismael Juma | Ismael Juma |
 | [KAFKA-4404](https://issues.apache.org/jira/browse/KAFKA-4404) | Add knowledge of sign to numeric schema types |  Minor | KafkaConnect | Andy Bryant | Ewen Cheslack-Postava |

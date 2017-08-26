@@ -28,4 +28,18 @@ These release notes cover new developer and user-facing incompatibilities, impor
 To handle this issue client need to have Hadoop client 2.6.4 or 2.7.0+ Hadoop version as CanUnBuffer interface which was added as part of HDFS-7694 is available in only those versions.
 
 
+---
+
+* [HBASE-18255](https://issues.apache.org/jira/browse/HBASE-18255) | *Critical* | **Time-Delayed HBase Performance Degradation with Java 7**
+
+This change sets the JVM property ReservedCodeCacheSize to 256MB in the provided hbase-env.sh example file. The specific value for this property attempts to prevent performance issues seen when HBase using Java 7. The value set is the same as the default when using Java8.
+
+
+---
+
+* [HBASE-18387](https://issues.apache.org/jira/browse/HBASE-18387) | *Minor* | **[Thrift] Make principal configurable in DemoClient.java**
+
+This change allows the demonstration Thrift client to customize the server principal used by the Thrift server for instances secured with Kerberos.
+
+
 

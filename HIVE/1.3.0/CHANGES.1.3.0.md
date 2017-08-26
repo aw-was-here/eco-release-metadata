@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-06-30)
+## Release 1.3.0 - Unreleased (as of 2017-08-26)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -114,7 +114,6 @@
 | [HIVE-11956](https://issues.apache.org/jira/browse/HIVE-11956) | SHOW LOCKS should indicate what acquired the lock |  Critical | CLI, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-14080](https://issues.apache.org/jira/browse/HIVE-14080) | hive.metastore.schema.verification should check for schema compatiblity |  Major | Metastore | Thejas M Nair | Thejas M Nair |
 | [HIVE-10815](https://issues.apache.org/jira/browse/HIVE-10815) | Let HiveMetaStoreClient Choose MetaStore Randomly |  Major | HiveServer2, Metastore | Nemon Lou | Nemon Lou |
-| [HIVE-14533](https://issues.apache.org/jira/browse/HIVE-14533) | improve performance of enforceMaxLength in HiveCharWritable/HiveVarcharWritable |  Minor | Serializers/Deserializers | Thomas Friedrich | Thomas Friedrich |
 | [HIVE-14828](https://issues.apache.org/jira/browse/HIVE-14828) | Cloud/S3: Stats publishing should be on HDFS instead of S3 |  Minor | Statistics | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-15068](https://issues.apache.org/jira/browse/HIVE-15068) | Run ClearDanglingScratchDir periodically inside HS2 |  Major | HiveServer2 | Daniel Dai | Daniel Dai |
 | [HIVE-15322](https://issues.apache.org/jira/browse/HIVE-15322) | Skipping "hbase mapredcp" in hive script for certain services |  Major | . | Daniel Dai | Daniel Dai |
@@ -655,22 +654,18 @@
 | [HIVE-14483](https://issues.apache.org/jira/browse/HIVE-14483) |  java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory$BytesColumnVectorUtil.commonReadByteArrays |  Critical | ORC | Sergey Zadoroshnyak | Sergey Zadoroshnyak |
 | [HIVE-13610](https://issues.apache.org/jira/browse/HIVE-13610) | Hive exec module won't compile with IBM JDK |  Major | . | Pan Yuxuan | Pan Yuxuan |
 | [HIVE-14674](https://issues.apache.org/jira/browse/HIVE-14674) |  Incorrect syntax near the keyword 'with' using MS SQL Server |  Critical | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
-| [HIVE-10809](https://issues.apache.org/jira/browse/HIVE-10809) | HCat FileOutputCommitterContainer leaves behind empty \_SCRATCH directories |  Major | HCatalog | Selina Zhang | Selina Zhang |
 | [HIVE-14814](https://issues.apache.org/jira/browse/HIVE-14814) | metastoreClient is used directly in Hive cause NPE |  Major | . | Dileep Kumar Chiguruvada | Prasanth Jayachandran |
 | [HIVE-14690](https://issues.apache.org/jira/browse/HIVE-14690) | Query fail when hive.exec.parallel=true, with conflicting session dir |  Major | . | Daniel Dai | Daniel Dai |
 | [HIVE-14968](https://issues.apache.org/jira/browse/HIVE-14968) | Fix compilation failure on branch-1 |  Major | . | Daniel Dai | Daniel Dai |
-| [HIVE-14964](https://issues.apache.org/jira/browse/HIVE-14964) | Failing Test: Fix TestBeelineArgParsing tests |  Major | Tests | Jason Dere | Zoltan Haindrich |
 | [HIVE-15099](https://issues.apache.org/jira/browse/HIVE-15099) | PTFOperator.PTFInvocation didn't properly reset the input partition |  Major | Hive, PTF-Windowing | Wei Zheng | Wei Zheng |
 | [HIVE-15120](https://issues.apache.org/jira/browse/HIVE-15120) | Storage based auth: allow option to enforce write checks for external tables |  Major | Authorization | Thejas M Nair | Daniel Dai |
 | [HIVE-15181](https://issues.apache.org/jira/browse/HIVE-15181) | buildQueryWithINClause didn't properly handle multiples of ConfVars.METASTORE\_DIRECT\_SQL\_MAX\_ELEMENTS\_IN\_CLAUSE |  Critical | Hive, Transactions | Wei Zheng | Wei Zheng |
 | [HIVE-15551](https://issues.apache.org/jira/browse/HIVE-15551) | memory leak in directsql for mysql+bonecp specific initialization |  Major | Metastore | Xiaomin Zhang | Xiaomin Zhang |
-| [HIVE-15519](https://issues.apache.org/jira/browse/HIVE-15519) | BitSet not computed properly for ColumnBuffer subset |  Critical | Hive, JDBC | Bharat Viswanadham | Rui Li |
 | [HIVE-15714](https://issues.apache.org/jira/browse/HIVE-15714) | backport HIVE-11985 (and HIVE-12601) to branch-1 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
-| [HIVE-15840](https://issues.apache.org/jira/browse/HIVE-15840) | Webhcat test TestPig\_5 failing with Pig on Tez at check for percent complete of job |  Major | HCatalog | Daniel Dai | Daniel Dai |
-| [HIVE-15859](https://issues.apache.org/jira/browse/HIVE-15859) | HoS: Write RPC messages in event loop |  Major | Hive, Spark | KaiXu | Rui Li |
 | [HIVE-16473](https://issues.apache.org/jira/browse/HIVE-16473) | Hive-on-Tez may fail to write to an HBase table |  Major | . | Mahesh Balakrishnan | Sergey Shelukhin |
 | [HIVE-16287](https://issues.apache.org/jira/browse/HIVE-16287) | Alter table partition rename with location - moves partition back to hive warehouse |  Minor | Metastore | Ying Chen | Vihang Karajgaonkar |
 | [HIVE-16413](https://issues.apache.org/jira/browse/HIVE-16413) | Create table as select does not check ownership of the location |  Major | Authorization, SQLStandardAuthorization | Niklaus Xiao | Niklaus Xiao |
+| [HIVE-16710](https://issues.apache.org/jira/browse/HIVE-16710) | Make MAX\_MS\_TYPENAME\_LENGTH configurable |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
 
 
 ### TESTS:

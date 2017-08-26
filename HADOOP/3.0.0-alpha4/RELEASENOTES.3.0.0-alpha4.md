@@ -458,7 +458,7 @@ If -p option of distcp command is unspecified, block size is preserved.
 
 * [HADOOP-14502](https://issues.apache.org/jira/browse/HADOOP-14502) | *Minor* | **Confusion/name conflict between NameNodeActivity#BlockReportNumOps and RpcDetailedActivity#BlockReportNumOps**
 
-**WARNING: No release note provided for this change.**
+Remove the BlockReport(NumOps,AvgTime) metrics emitted under the NameNodeActivity context in favor of StorageBlockReport(NumOps,AvgTime) which more accurately represent the metric. Same for the corresponding quantile metrics.
 
 
 ---
@@ -466,6 +466,15 @@ If -p option of distcp command is unspecified, block size is preserved.
 * [HDFS-11067](https://issues.apache.org/jira/browse/HDFS-11067) | *Major* | **DFS#listStatusIterator(..) should throw FileNotFoundException if the directory deleted before fetching next batch of entries**
 
 DistributedFileSystem#listStatusIterator(..) throws FileNotFoundException if directory got deleted during iterating over large list beyond ls limit.
+
+
+---
+
+* [YARN-6127](https://issues.apache.org/jira/browse/YARN-6127) | *Major* | **Add support for work preserving NM restart when AMRMProxy is enabled**
+
+This breaks rolling upgrades because it changes the major version of the NM state store schema. Therefore when a new NM comes up on an old state store it crashes.
+
+The state store versions for this change have been updated in YARN-6798.
 
 
 ---
@@ -487,6 +496,13 @@ The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
 * [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | *Major* | **Azure: Concurrent I/O does not work when secure.mode is enabled**
 
 Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be used with the secure mode feature.
+
+
+---
+
+* [YARN-6959](https://issues.apache.org/jira/browse/YARN-6959) | *Major* | **RM may allocate wrong AM Container for new attempt**
+
+**WARNING: No release note provided for this change.**
 
 
 

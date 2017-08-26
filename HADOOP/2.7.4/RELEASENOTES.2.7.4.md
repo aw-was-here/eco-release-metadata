@@ -30,6 +30,13 @@ Fixed Configuration.getClasses() API to return the default value if the key is n
 
 ---
 
+* [HDFS-9503](https://issues.apache.org/jira/browse/HDFS-9503) | *Major* | **Replace -namenode option with -fs for NNThroughputBenchmark**
+
+The patch replaces -namenode option with -fs for specifying the remote name node against which the benchmark is running. Before this patch, if '-namenode' was not given, the benchmark would run in standalone mode, ignoring the 'fs.defaultFS' in config file even if it's remote. With this patch, the benchmark, as other tools, will rely on the 'fs.defaultFS' config, which is overridable by -fs command option, to run standalone mode or remote mode.
+
+
+---
+
 * [HADOOP-12668](https://issues.apache.org/jira/browse/HADOOP-12668) | *Critical* | **Support excluding weak Ciphers in HttpServer2 through ssl-server.xml**
 
 The Code Changes include following:
@@ -121,13 +128,6 @@ The fix prevents block recovery failure if replica of last block is being decomm
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
-
-
----
-
-* [HDFS-11785](https://issues.apache.org/jira/browse/HDFS-11785) | *Critical* | **Backport HDFS-9902 to branch-2.7: Support different values of dfs.datanode.du.reserved per storage type**
-
-Reserved space can be configured independently for different storage types for clusters with heterogeneous storage. The 'dfs.datanode.du.reserved' property name can be suffixed with a storage types (i.e. one of ssd, disk, archival or ram\_disk). e.g. reserved space for RAM\_DISK storage can be configured using the property 'dfs.datanode.du.reserved.ram\_disk'. If specific storage type reservation is not configured then the value specified by 'dfs.datanode.du.reserved' will be used for all volumes.
 
 
 

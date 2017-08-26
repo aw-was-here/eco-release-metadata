@@ -45,6 +45,7 @@
 | [KAFKA-5192](https://issues.apache.org/jira/browse/KAFKA-5192) | Range Scan for Windowed State Stores |  Major | streams | Xavier Léauté | Xavier Léauté |
 | [KAFKA-5059](https://issues.apache.org/jira/browse/KAFKA-5059) | Implement Transactional Coordinator |  Major | core | Damian Guy | Damian Guy |
 | [KAFKA-4815](https://issues.apache.org/jira/browse/KAFKA-4815) | Idempotent/transactional Producer (KIP-98) |  Major | clients, core, producer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-2590](https://issues.apache.org/jira/browse/KAFKA-2590) | KIP-28: Kafka Streams Checklist |  Major | streams | Guozhang Wang | Guozhang Wang |
 
 
 ### IMPROVEMENTS:
@@ -324,6 +325,8 @@
 | [KAFKA-5486](https://issues.apache.org/jira/browse/KAFKA-5486) | org.apache.kafka logging should go to server.log |  Critical | . | Ismael Juma | Ismael Juma |
 | [KAFKA-4059](https://issues.apache.org/jira/browse/KAFKA-4059) | Documentation still refers to AsyncProducer and SyncProducer |  Major | producer | Andrew B | Tom Bentley |
 | [KAFKA-5498](https://issues.apache.org/jira/browse/KAFKA-5498) | Connect validation API stops returning recommendations for some fields after the right sequence of requests |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-5577](https://issues.apache.org/jira/browse/KAFKA-5577) | WindowedStreamPartitioner does not provide topic name to serializer |  Major | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-4840](https://issues.apache.org/jira/browse/KAFKA-4840) | There are are still cases where producer buffer pool will not remove waiters. |  Major | clients | Sean McCauliff | Sean McCauliff |
 
 
 ### TESTS:

@@ -784,6 +784,13 @@ There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The bra
 
 ---
 
+* [HADOOP-12209](https://issues.apache.org/jira/browse/HADOOP-12209) | *Minor* | **Comparable type should be in FileStatus**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HDFS-7582](https://issues.apache.org/jira/browse/HDFS-7582) | *Major* | **Enforce maximum number of ACL entries separately per access and default.**
 
 Limit on Maximum number of ACL entries(32) will be enforced separately on access and default ACLs. So in total, max. 64 ACL entries can be present in a ACL spec.
@@ -1541,13 +1548,6 @@ Remove invisible synchronization primitives from DataInputBuffer
 
 ---
 
-* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
-
-This breaks rolling upgrades because it changes the major version of the NM state store schema. Therefore when a new NM comes up on an old state store it crashes.
-
-
----
-
 * [HADOOP-13122](https://issues.apache.org/jira/browse/HADOOP-13122) | *Minor* | **Customize User-Agent header sent in HTTP requests by S3A.**
 
 S3A now includes the current Hadoop version in the User-Agent string passed through the AWS SDK to the S3 service.  Users also may include optional additional information to identify their application.  See the documentation of configuration property fs.s3a.user.agent.prefix for further details.
@@ -1944,6 +1944,15 @@ Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_M
 * [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | *Minor* | **option to disable fsck dots**
 
 fsck does not print out dots for progress reporting by default. To print out dots, you should specify '-showprogress' option.
+
+
+---
+
+* [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | *Major* | **Extend NMStateStore to save queued container information**
+
+This breaks rolling upgrades because it changes the major version of the NM state store schema. Therefore when a new NM comes up on an old state store it crashes.
+
+The state store versions for this change have been updated in YARN-6798.
 
 
 

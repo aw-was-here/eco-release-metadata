@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 1
 
 
+---
+
+* [ZOOKEEPER-2841](https://issues.apache.org/jira/browse/ZOOKEEPER-2841) | *Major* | **ZooKeeper public include files leak porting changes**
+
+cmake is added to replace the existing hardcoded (and outdated) visual studio solutions for windows platform.
+
+
 

@@ -415,13 +415,6 @@ The `hadoop fs -ls` command now prints "Permission denied" rather than "No such 
 
 ---
 
-* [YARN-5825](https://issues.apache.org/jira/browse/YARN-5825) | *Major* | **ProportionalPreemptionalPolicy could use readLock over LeafQueue instead of synchronized block**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HDFS-11056](https://issues.apache.org/jira/browse/HDFS-11056) | *Major* | **Concurrent append and read operations lead to checksum error**
 
 Load last partial chunk checksum properly into memory when converting a finalized/temporary replica to rbw replica. This ensures concurrent reader reads the correct checksum that matches the data before the update.

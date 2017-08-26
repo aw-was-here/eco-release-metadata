@@ -18,21 +18,25 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.0 - Unreleased (as of 2017-06-30)
+## Release 2.9.0 - Unreleased (as of 2017-08-26)
 
 ### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-4784](https://issues.apache.org/jira/browse/YARN-4784) | Fairscheduler: defaultQueueSchedulingPolicy should not accept FIFO |  Major | fairscheduler | Yufei Gu | Yufei Gu |
+| [HADOOP-13588](https://issues.apache.org/jira/browse/HADOOP-13588) | ConfServlet should respect Accept request header |  Major | conf | Weiwei Yang | Weiwei Yang |
 | [MAPREDUCE-6776](https://issues.apache.org/jira/browse/MAPREDUCE-6776) | yarn.app.mapreduce.client.job.max-retries should have a more useful default |  Major | client | Daniel Templeton | Miklos Szegedi |
 | [YARN-5388](https://issues.apache.org/jira/browse/YARN-5388) | Deprecate and remove DockerContainerExecutor |  Critical | nodemanager | Daniel Templeton | Daniel Templeton |
-| [YARN-5825](https://issues.apache.org/jira/browse/YARN-5825) | ProportionalPreemptionalPolicy could use readLock over LeafQueue instead of synchronized block |  Major | capacity scheduler | Sunil G | Sunil G |
 | [HADOOP-12705](https://issues.apache.org/jira/browse/HADOOP-12705) | Upgrade Jackson 2.2.3 to 2.7.8 |  Major | build | Steve Loughran | Sean Mackrory |
 | [HADOOP-13050](https://issues.apache.org/jira/browse/HADOOP-13050) | Upgrade to AWS SDK 1.11.45 |  Blocker | build, fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-14174](https://issues.apache.org/jira/browse/HADOOP-14174) | Set default ADLS access token provider type to ClientCredential |  Major | fs/adl | John Zhuge | John Zhuge |
+| [HDFS-11402](https://issues.apache.org/jira/browse/HDFS-11402) | HDFS Snapshots should capture point-in-time copies of OPEN files |  Major | hdfs | Manoj Govindassamy | Manoj Govindassamy |
 | [YARN-2962](https://issues.apache.org/jira/browse/YARN-2962) | ZKRMStateStore: Limit the number of znodes under a znode |  Critical | resourcemanager | Karthik Kambatla | Varun Saxena |
 | [HADOOP-14419](https://issues.apache.org/jira/browse/HADOOP-14419) | Remove findbugs report from docs profile |  Minor | . | Andras Bokor | Andras Bokor |
+| [YARN-6127](https://issues.apache.org/jira/browse/YARN-6127) | Add support for work preserving NM restart when AMRMProxy is enabled |  Major | amrmproxy, nodemanager | Subru Krishnan | Botong Huang |
+| [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | Extend NMStateStore to save queued container information |  Major | nodemanager, resourcemanager | Konstantinos Karanasos | Konstantinos Karanasos |
+| [HADOOP-14260](https://issues.apache.org/jira/browse/HADOOP-14260) | Configuration.dumpConfiguration should redact sensitive information |  Major | conf, security | Vihang Karajgaonkar | John Zhuge |
 
 
 ### NEW FEATURES:
@@ -56,6 +60,8 @@
 | [MAPREDUCE-6871](https://issues.apache.org/jira/browse/MAPREDUCE-6871) | Allow users to specify racks and nodes for strict locality for AMs |  Major | client | Robert Kanter | Robert Kanter |
 | [HDFS-11417](https://issues.apache.org/jira/browse/HDFS-11417) | Add datanode admin command to get the storage info. |  Major | . | Surendra Singh Lilhore | Surendra Singh Lilhore |
 | [YARN-679](https://issues.apache.org/jira/browse/YARN-679) | add an entry point that can start any Yarn service |  Major | api | Steve Loughran | Steve Loughran |
+| [YARN-4161](https://issues.apache.org/jira/browse/YARN-4161) | Capacity Scheduler : Assign single or multiple containers per heart beat driven by configuration |  Major | capacity scheduler | Mayank Bansal | Wei Yan |
+| [HDFS-12117](https://issues.apache.org/jira/browse/HDFS-12117) | HttpFS does not seem to support SNAPSHOT related methods for WebHDFS REST Interface |  Major | httpfs | Wellington Chevreuil | Wellington Chevreuil |
 
 
 ### IMPROVEMENTS:
@@ -102,7 +108,7 @@
 | [YARN-4697](https://issues.apache.org/jira/browse/YARN-4697) | NM aggregation thread pool is not bound by limits |  Critical | nodemanager | Haibo Chen | Haibo Chen |
 | [YARN-4579](https://issues.apache.org/jira/browse/YARN-4579) | Allow DefaultContainerExecutor container log directory permissions to be configurable |  Major | yarn | Ray Chiang | Ray Chiang |
 | [HADOOP-12841](https://issues.apache.org/jira/browse/HADOOP-12841) | Update s3-related properties in core-default.xml |  Minor | fs/s3 | Wei-Chiu Chuang | Wei-Chiu Chuang |
-| [YARN-4718](https://issues.apache.org/jira/browse/YARN-4718) | Rename variables in SchedulerNode to reduce ambiguity post YARN-1011 |  Major | scheduler | Karthik Kambatla | Inigo Goiri |
+| [YARN-4718](https://issues.apache.org/jira/browse/YARN-4718) | Rename variables in SchedulerNode to reduce ambiguity post YARN-1011 |  Major | scheduler | Karthik Kambatla | Íñigo Goiri |
 | [HDFS-9521](https://issues.apache.org/jira/browse/HDFS-9521) | TransferFsImage.receiveFile should account and log separate times for image download and fsync to disk |  Minor | . | Wellington Chevreuil | Wellington Chevreuil |
 | [HADOOP-11404](https://issues.apache.org/jira/browse/HADOOP-11404) | Clarify the "expected client Kerberos principal is null" authorization message |  Minor | security | Stephen Chu | Stephen Chu |
 | [YARN-4719](https://issues.apache.org/jira/browse/YARN-4719) | Add a helper library to maintain node state and allows common queries |  Major | scheduler | Karthik Kambatla | Karthik Kambatla |
@@ -112,6 +118,7 @@
 | [YARN-4732](https://issues.apache.org/jira/browse/YARN-4732) | \*ProcessTree classes have too many whitespace issues |  Trivial | . | Karthik Kambatla | Gabor Liptak |
 | [HADOOP-12952](https://issues.apache.org/jira/browse/HADOOP-12952) | /BUILDING example of zero-docs dist should skip javadocs |  Trivial | build, documentation | Steve Loughran | Steve Loughran |
 | [YARN-4436](https://issues.apache.org/jira/browse/YARN-4436) | DistShell ApplicationMaster.ExecBatScripStringtPath is misspelled |  Trivial | applications/distributed-shell | Daniel Templeton | Matt LaMantia |
+| [YARN-4639](https://issues.apache.org/jira/browse/YARN-4639) | Remove dead code in TestDelegationTokenRenewer added in YARN-3055 |  Trivial | resourcemanager | Daniel Templeton | Daniel Templeton |
 | [YARN-4607](https://issues.apache.org/jira/browse/YARN-4607) | Pagination support for AppAttempt page TotalOutstandingResource Requests table |  Minor | . | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-4769](https://issues.apache.org/jira/browse/YARN-4769) | Add support for CSRF header in the dump capacity scheduler logs and kill app buttons in RM web UI |  Major | . | Varun Vasudev | Varun Vasudev |
 | [HADOOP-12984](https://issues.apache.org/jira/browse/HADOOP-12984) | Add GenericTestUtils.getTestDir method and use it for temporary directory in tests |  Major | build, test | Steve Loughran | Steve Loughran |
@@ -128,6 +135,7 @@
 | [HDFS-9782](https://issues.apache.org/jira/browse/HDFS-9782) | RollingFileSystemSink should have configurable roll interval |  Major | . | Daniel Templeton | Daniel Templeton |
 | [HADOOP-13160](https://issues.apache.org/jira/browse/HADOOP-13160) | Suppress checkstyle JavadocPackage check for test source |  Minor | . | John Zhuge | John Zhuge |
 | [YARN-4766](https://issues.apache.org/jira/browse/YARN-4766) | NM should not aggregate logs older than the retention policy |  Major | log-aggregation, nodemanager | Haibo Chen | Haibo Chen |
+| [HADOOP-13197](https://issues.apache.org/jira/browse/HADOOP-13197) | Add non-decayed call metrics for DecayRpcScheduler |  Major | ipc, metrics | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-12291](https://issues.apache.org/jira/browse/HADOOP-12291) | Add support for nested groups in LdapGroupsMapping |  Major | security | Gautam Gopalakrishnan | Esther Kundin |
 | [HDFS-7541](https://issues.apache.org/jira/browse/HDFS-7541) | Upgrade Domains in HDFS |  Major | . | Ming Ma | Ming Ma |
 | [HDFS-10256](https://issues.apache.org/jira/browse/HDFS-10256) | Use GenericTestUtils.getTestDir method in tests for temporary directories |  Major | build, test | Vinayakumar B | Vinayakumar B |
@@ -172,6 +180,7 @@
 | [YARN-5400](https://issues.apache.org/jira/browse/YARN-5400) | Light cleanup in ZKRMStateStore |  Trivial | resourcemanager | Daniel Templeton | Daniel Templeton |
 | [MAPREDUCE-6718](https://issues.apache.org/jira/browse/MAPREDUCE-6718) | add progress log to JHS during startup |  Minor | jobhistoryserver | Haibo Chen | Haibo Chen |
 | [MAPREDUCE-6638](https://issues.apache.org/jira/browse/MAPREDUCE-6638) | Do not attempt to recover progress from previous job attempts if spill encryption is enabled |  Major | applicationmaster | Karthik Kambatla | Haibo Chen |
+| [HADOOP-13628](https://issues.apache.org/jira/browse/HADOOP-13628) | Support to retrieve specific property from configuration via REST API |  Major | conf | Weiwei Yang | Weiwei Yang |
 | [HDFS-10683](https://issues.apache.org/jira/browse/HDFS-10683) | Make class Token$PrivateToken private |  Minor | . | John Zhuge | John Zhuge |
 | [HADOOP-13688](https://issues.apache.org/jira/browse/HADOOP-13688) | Stop bundling HTML source code in javadoc JARs |  Major | build | Andrew Wang | Andrew Wang |
 | [YARN-5551](https://issues.apache.org/jira/browse/YARN-5551) | Ignore file backed pages from memory computation when smaps is enabled |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
@@ -190,7 +199,7 @@
 | [HDFS-11088](https://issues.apache.org/jira/browse/HDFS-11088) | Quash unnecessary safemode WARN message during NameNode startup |  Trivial | . | Andrew Wang | Yiqun Lin |
 | [YARN-4998](https://issues.apache.org/jira/browse/YARN-4998) | Minor cleanup to UGI use in AdminService |  Trivial | resourcemanager | Daniel Templeton | Daniel Templeton |
 | [HDFS-10756](https://issues.apache.org/jira/browse/HDFS-10756) | Expose getTrashRoot to HTTPFS and WebHDFS |  Major | encryption, httpfs, webhdfs | Xiao Chen | Yuanbo Liu |
-| [YARN-5356](https://issues.apache.org/jira/browse/YARN-5356) | NodeManager should communicate physical resource capability to ResourceManager |  Major | nodemanager, resourcemanager | Nathan Roberts | Inigo Goiri |
+| [YARN-5356](https://issues.apache.org/jira/browse/YARN-5356) | NodeManager should communicate physical resource capability to ResourceManager |  Major | nodemanager, resourcemanager | Nathan Roberts | Íñigo Goiri |
 | [HADOOP-13802](https://issues.apache.org/jira/browse/HADOOP-13802) | Make generic options help more consistent, and aligned |  Minor | . | Grant Sohn | Grant Sohn |
 | [HDFS-9482](https://issues.apache.org/jira/browse/HDFS-9482) | Replace DatanodeInfo constructors with a builder pattern |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HADOOP-13687](https://issues.apache.org/jira/browse/HADOOP-13687) | Provide a unified dependency artifact that transitively includes the cloud storage modules shipped with Hadoop. |  Major | build | Chris Nauroth | Chris Nauroth |
@@ -230,7 +239,6 @@
 | [MAPREDUCE-6728](https://issues.apache.org/jira/browse/MAPREDUCE-6728) | Give fetchers hint when ShuffleHandler rejects a shuffling connection |  Major | mrv2 | Haibo Chen | Haibo Chen |
 | [YARN-5547](https://issues.apache.org/jira/browse/YARN-5547) | NMLeveldbStateStore should be more tolerant of unknown keys |  Major | nodemanager | Jason Lowe | Ajith S |
 | [HDFS-10534](https://issues.apache.org/jira/browse/HDFS-10534) | NameNode WebUI should display DataNode usage histogram |  Major | namenode, ui | Zhe Zhang | Kai Sasaki |
-| [MAPREDUCE-6829](https://issues.apache.org/jira/browse/MAPREDUCE-6829) | Add peak memory usage counter for each task |  Major | mrv2 | Yufei Gu | Miklos Szegedi |
 | [HADOOP-14003](https://issues.apache.org/jira/browse/HADOOP-14003) | Make additional KMS tomcat settings configurable |  Major | kms | Andrew Wang | Andrew Wang |
 | [HDFS-11374](https://issues.apache.org/jira/browse/HDFS-11374) | Skip FSync in Test util CreateEditsLog to speed up edit log generation |  Minor | hdfs | Hanisha Koneru | Hanisha Koneru |
 | [HDFS-9884](https://issues.apache.org/jira/browse/HDFS-9884) | Use doxia macro to generate in-page TOC of HDFS site documentation |  Major | documentation | Masatake Iwasaki | Masatake Iwasaki |
@@ -353,7 +361,6 @@
 | [HADOOP-14523](https://issues.apache.org/jira/browse/HADOOP-14523) | OpensslAesCtrCryptoCodec.finalize() holds excessive amounts of memory |  Major | . | Misha Dmitriev | Misha Dmitriev |
 | [HADOOP-14524](https://issues.apache.org/jira/browse/HADOOP-14524) | Make CryptoCodec Closeable so it can be cleaned up proactively |  Major | . | Xiao Chen | Xiao Chen |
 | [HADOOP-14424](https://issues.apache.org/jira/browse/HADOOP-14424) | Add CRC32C performance test. |  Minor | common | LiXin Ge | LiXin Ge |
-| [HDFS-10480](https://issues.apache.org/jira/browse/HDFS-10480) | Add an admin command to list currently open files |  Major | . | Kihwal Lee | Manoj Govindassamy |
 | [HDFS-11345](https://issues.apache.org/jira/browse/HDFS-11345) | Document the configuration key for FSNamesystem lock fairness |  Minor | documentation, namenode | Zhe Zhang | Erik Krogen |
 | [HDFS-11992](https://issues.apache.org/jira/browse/HDFS-11992) | Replace commons-logging APIs with slf4j in FsDatasetImpl |  Major | . | Akira Ajisaka | hu xiaodong |
 | [HDFS-11993](https://issues.apache.org/jira/browse/HDFS-11993) | Add log info when connect to datanode socket address failed |  Major | hdfs-client | chencan | chencan |
@@ -364,6 +371,57 @@
 | [HADOOP-14611](https://issues.apache.org/jira/browse/HADOOP-14611) | NetworkTopology.DEFAULT\_HOST\_LEVEL is unused |  Trivial | . | Daniel Templeton | Chen Liang |
 | [YARN-6751](https://issues.apache.org/jira/browse/YARN-6751) | Display reserved resources in web UI per queue |  Major | fairscheduler, webapp | Abdullah Yousufi | Abdullah Yousufi |
 | [HDFS-12042](https://issues.apache.org/jira/browse/HDFS-12042) | Lazy initialize AbstractINodeDiffList#diffs for snapshots to reduce memory consumption |  Major | . | Misha Dmitriev | Misha Dmitriev |
+| [HDFS-12078](https://issues.apache.org/jira/browse/HDFS-12078) | Add time unit to the description of property dfs.namenode.stale.datanode.interval in hdfs-default.xml |  Minor | documentation, hdfs | Weiwei Yang | Weiwei Yang |
+| [YARN-6752](https://issues.apache.org/jira/browse/YARN-6752) | Display reserved resources in web UI per application |  Major | fairscheduler | Abdullah Yousufi | Abdullah Yousufi |
+| [YARN-6746](https://issues.apache.org/jira/browse/YARN-6746) | SchedulerUtils.checkResourceRequestMatchingNodePartition() is dead code |  Minor | scheduler | Daniel Templeton | Deepti Sawhney |
+| [YARN-6410](https://issues.apache.org/jira/browse/YARN-6410) | FSContext.scheduler should be final |  Minor | fairscheduler | Daniel Templeton | Yeliang Cang |
+| [YARN-6764](https://issues.apache.org/jira/browse/YARN-6764) | Simplify the logic in FairScheduler#attemptScheduling |  Trivial | fairscheduler | Yufei Gu | Yufei Gu |
+| [HADOOP-14443](https://issues.apache.org/jira/browse/HADOOP-14443) | Azure: Support retry and client side failover for authorization, SASKey and delegation token generation |  Major | fs/azure | Santhosh G Nayak | Santhosh G Nayak |
+| [HADOOP-14535](https://issues.apache.org/jira/browse/HADOOP-14535) | wasb: implement high-performance random access and seek of block blobs |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
+| [HADOOP-14629](https://issues.apache.org/jira/browse/HADOOP-14629) | Improve exception checking in FileContext related JUnit tests |  Major | fs, test | Andras Bokor | Andras Bokor |
+| [HDFS-6874](https://issues.apache.org/jira/browse/HDFS-6874) | Add GETFILEBLOCKLOCATIONS operation to HttpFS |  Major | httpfs | Gao Zhong Liang | Weiwei Yang |
+| [YARN-6689](https://issues.apache.org/jira/browse/YARN-6689) | PlacementRule should be configurable |  Major | . | Jonathan Hung | Jonathan Hung |
+| [HDFS-12130](https://issues.apache.org/jira/browse/HDFS-12130) | Optimizing permission check for getContentSummary |  Major | namenode | Chen Liang | Chen Liang |
+| [HDFS-12137](https://issues.apache.org/jira/browse/HDFS-12137) | DN dataset lock should be fair |  Critical | datanode | Daryn Sharp | Daryn Sharp |
+| [HADOOP-14521](https://issues.apache.org/jira/browse/HADOOP-14521) | KMS client needs retry logic |  Major | . | Rushabh S Shah | Rushabh S Shah |
+| [YARN-6280](https://issues.apache.org/jira/browse/YARN-6280) | Introduce deselect query param to skip ResourceRequest from getApp/getApps REST API |  Major | resourcemanager, restapi | Lantao Jin | Lantao Jin |
+| [HDFS-12138](https://issues.apache.org/jira/browse/HDFS-12138) | Remove redundant 'public' modifiers from BlockCollection |  Trivial | namenode | Chen Liang | Chen Liang |
+| [HADOOP-14640](https://issues.apache.org/jira/browse/HADOOP-14640) | Azure: Support affinity for service running on localhost and reuse SPNEGO hadoop.auth cookie for authorization, SASKey and delegation token generation |  Major | fs/azure | Santhosh G Nayak | Santhosh G Nayak |
+| [HDFS-12067](https://issues.apache.org/jira/browse/HDFS-12067) | Correct dfsadmin commands usage message to reflects IPC port |  Major | . | steven-wugang | steven-wugang |
+| [HADOOP-14666](https://issues.apache.org/jira/browse/HADOOP-14666) | Tests use assertTrue(....equals(...)) instead of assertEquals() |  Minor | test | Daniel Templeton | Daniel Templeton |
+| [HADOOP-14659](https://issues.apache.org/jira/browse/HADOOP-14659) | UGI getShortUserName does not need to search the Subject |  Major | common | Daryn Sharp | Daryn Sharp |
+| [YARN-6768](https://issues.apache.org/jira/browse/YARN-6768) | Improve performance of yarn api record toString and fromString |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [YARN-6779](https://issues.apache.org/jira/browse/YARN-6779) | DominantResourceFairnessPolicy.DominantResourceFairnessComparator.calculateShares() should be @VisibleForTesting |  Trivial | fairscheduler | Daniel Templeton | Yeliang Cang |
+| [HADOOP-14681](https://issues.apache.org/jira/browse/HADOOP-14681) | Remove MockitoMaker class |  Major | test | Andras Bokor | Andras Bokor |
+| [HDFS-12143](https://issues.apache.org/jira/browse/HDFS-12143) | Improve performance of getting and removing inode features |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-12171](https://issues.apache.org/jira/browse/HDFS-12171) | Reduce IIP object allocations for inode lookup |  Major | namenode | Daryn Sharp | Daryn Sharp |
+| [HDFS-12190](https://issues.apache.org/jira/browse/HDFS-12190) | Enable 'hdfs dfs -stat' to display access time |  Major | hdfs, shell | Yongjun Zhang | Yongjun Zhang |
+| [YARN-6864](https://issues.apache.org/jira/browse/YARN-6864) | FSPreemptionThread cleanup for readability |  Minor | fairscheduler | Daniel Templeton | Daniel Templeton |
+| [YARN-5892](https://issues.apache.org/jira/browse/YARN-5892) | Support user-specific minimum user limit percentage in Capacity Scheduler |  Major | capacityscheduler | Eric Payne | Eric Payne |
+| [HADOOP-14455](https://issues.apache.org/jira/browse/HADOOP-14455) | ViewFileSystem#rename should support be supported within same nameservice with different mountpoints |  Major | viewfs | Brahma Reddy Battula | Brahma Reddy Battula |
+| [HADOOP-14690](https://issues.apache.org/jira/browse/HADOOP-14690) | RetryInvocationHandler$RetryInfo should override toString() |  Minor | . | Akira Ajisaka | Yeliang Cang |
+| [HDFS-10480](https://issues.apache.org/jira/browse/HDFS-10480) | Add an admin command to list currently open files |  Major | . | Kihwal Lee | Manoj Govindassamy |
+| [HADOOP-14709](https://issues.apache.org/jira/browse/HADOOP-14709) | Fix checkstyle warnings in ContractTestUtils |  Minor | test | Steve Loughran | Thomas Marquardt |
+| [MAPREDUCE-6914](https://issues.apache.org/jira/browse/MAPREDUCE-6914) | Tests use assertTrue(....equals(...)) instead of assertEquals() |  Minor | test | Daniel Templeton | Daniel Templeton |
+| [YARN-6832](https://issues.apache.org/jira/browse/YARN-6832) | Tests use assertTrue(....equals(...)) instead of assertEquals() |  Minor | test | Daniel Templeton | Daniel Templeton |
+| [HDFS-12131](https://issues.apache.org/jira/browse/HDFS-12131) | Add some of the FSNamesystem JMX values as metrics |  Minor | hdfs, namenode | Erik Krogen | Erik Krogen |
+| [HADOOP-14706](https://issues.apache.org/jira/browse/HADOOP-14706) | Adding a helper method to determine whether a log is Log4j implement |  Minor | util | Wenxin He | Wenxin He |
+| [HDFS-12251](https://issues.apache.org/jira/browse/HDFS-12251) | Add document for StreamCapabilities |  Major | . | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [YARN-6634](https://issues.apache.org/jira/browse/YARN-6634) | [API] Refactor ResourceManager WebServices to make API explicit |  Critical | resourcemanager | Subru Krishnan | Giovanni Matteo Fumarola |
+| [YARN-6802](https://issues.apache.org/jira/browse/YARN-6802) | Add Max AM Resource and AM Resource Usage to Leaf Queue View in FairScheduler WebUI |  Major | fairscheduler | YunFan Zhou | YunFan Zhou |
+| [HDFS-12264](https://issues.apache.org/jira/browse/HDFS-12264) | DataNode uses a deprecated method IoUtils#cleanup. |  Major | . | Ajay Kumar | Ajay Kumar |
+| [YARN-6811](https://issues.apache.org/jira/browse/YARN-6811) | [ATS1.5]  All history logs should be kept under its own User Directory. |  Major | timelineclient, timelineserver | Rohith Sharma K S | Rohith Sharma K S |
+| [YARN-6879](https://issues.apache.org/jira/browse/YARN-6879) | TestLeafQueue.testDRFUserLimits() has commented out code |  Trivial | capacity scheduler, test | Daniel Templeton | Angela Wang |
+| [MAPREDUCE-6923](https://issues.apache.org/jira/browse/MAPREDUCE-6923) | Optimize MapReduce Shuffle I/O for small partitions |  Major | . | Robert Schmidtke | Robert Schmidtke |
+| [YARN-6884](https://issues.apache.org/jira/browse/YARN-6884) | AllocationFileLoaderService.loadQueue() has an if without braces |  Trivial | fairscheduler | Daniel Templeton | weiyuan |
+| [HADOOP-14627](https://issues.apache.org/jira/browse/HADOOP-14627) | Support MSI and DeviceCode token provider in ADLS |  Major | fs/adl | Atul Sikaria | Atul Sikaria |
+| [HADOOP-14741](https://issues.apache.org/jira/browse/HADOOP-14741) | Refactor curator based ZooKeeper communication into common library |  Major | . | Subru Krishnan | Íñigo Goiri |
+| [YARN-6917](https://issues.apache.org/jira/browse/YARN-6917) | Queue path is recomputed from scratch on every allocation |  Minor | capacityscheduler | Jason Lowe | Eric Payne |
+| [HADOOP-14662](https://issues.apache.org/jira/browse/HADOOP-14662) | Update azure-storage sdk to version 5.4.0 |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
+| [YARN-3254](https://issues.apache.org/jira/browse/YARN-3254) | HealthReport should include disk full information |  Major | nodemanager | Akira Ajisaka | Suma Shivaprasad |
+| [YARN-7053](https://issues.apache.org/jira/browse/YARN-7053) | Move curator transaction support to ZKCuratorManager |  Major | . | Jonathan Hung | Jonathan Hung |
+| [HADOOP-14251](https://issues.apache.org/jira/browse/HADOOP-14251) | Credential provider should handle property key deprecation |  Critical | security | John Zhuge | John Zhuge |
+| [YARN-7049](https://issues.apache.org/jira/browse/YARN-7049) | FSAppAttempt preemption related fields have confusing names |  Major | fairscheduler | Karthik Kambatla | Karthik Kambatla |
 
 
 ### BUG FIXES:
@@ -373,7 +431,6 @@
 | [HADOOP-7256](https://issues.apache.org/jira/browse/HADOOP-7256) | Resource leak during failure scenario of closing of resources. |  Minor | util | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [YARN-524](https://issues.apache.org/jira/browse/YARN-524) | TestYarnVersionInfo failing if generated properties doesn't include an SVN URL |  Minor | api | Steve Loughran | Steve Loughran |
 | [YARN-1471](https://issues.apache.org/jira/browse/YARN-1471) | The SLS simulator is not running the preemption policy for CapacityScheduler |  Minor | . | Carlo Curino | Carlo Curino |
-| [MAPREDUCE-5875](https://issues.apache.org/jira/browse/MAPREDUCE-5875) | Make Counter limits consistent across JobClient, MRAppMaster, and YarnChild |  Major | applicationmaster, client, task | Gera Shegalov | Gera Shegalov |
 | [HADOOP-11703](https://issues.apache.org/jira/browse/HADOOP-11703) | git should ignore .DS\_Store files on Mac OS X |  Major | . | Abin Shahab | Abin Shahab |
 | [YARN-4156](https://issues.apache.org/jira/browse/YARN-4156) | TestAMRestart#testAMBlacklistPreventsRestartOnSameNode assumes CapacityScheduler |  Major | . | Anubhav Dhoot | Anubhav Dhoot |
 | [YARN-4417](https://issues.apache.org/jira/browse/YARN-4417) | Make RM and Timeline-server REST APIs more consistent |  Major | . | Wangda Tan | Wangda Tan |
@@ -442,7 +499,6 @@
 | [YARN-4976](https://issues.apache.org/jira/browse/YARN-4976) | Missing NullPointer check in ContainerLaunchContextPBImpl causes RM to die |  Major | resourcemanager | Giovanni Matteo Fumarola | Giovanni Matteo Fumarola |
 | [YARN-4795](https://issues.apache.org/jira/browse/YARN-4795) | ContainerMetrics drops records |  Major | resourcemanager | Daniel Templeton | Daniel Templeton |
 | [YARN-4983](https://issues.apache.org/jira/browse/YARN-4983) | JVM and UGI metrics disappear after RM is once transitioned to standby mode |  Major | . | Li Lu | Li Lu |
-| [MAPREDUCE-6286](https://issues.apache.org/jira/browse/MAPREDUCE-6286) | A typo in HistoryViewer makes some code useless, which causes counter limits are not reset correctly. |  Major | client | zhihai xu | zhihai xu |
 | [HADOOP-13012](https://issues.apache.org/jira/browse/HADOOP-13012) | yetus-wrapper should fail sooner when download fails |  Minor | yetus | Steven K. Wong | Steven K. Wong |
 | [HADOOP-12469](https://issues.apache.org/jira/browse/HADOOP-12469) | distcp should not ignore the ignoreFailures option |  Critical | tools/distcp | Gera Shegalov | Mingliang Liu |
 | [MAPREDUCE-6677](https://issues.apache.org/jira/browse/MAPREDUCE-6677) | LocalContainerAllocator doesn't specify resource of the containers allocated. |  Major | mr-am | Haibo Chen | Haibo Chen |
@@ -508,7 +564,6 @@
 | [YARN-4833](https://issues.apache.org/jira/browse/YARN-4833) | For Queue AccessControlException client retries multiple times on both RM |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-5521](https://issues.apache.org/jira/browse/YARN-5521) | TestCapacityScheduler#testKillAllAppsInQueue fails randomly |  Major | . | Varun Saxena | sandflee |
 | [HADOOP-13437](https://issues.apache.org/jira/browse/HADOOP-13437) | KMS should reload whitelist and default key ACLs when hot-reloading |  Major | kms | Xiao Chen | Xiao Chen |
-| [YARN-5514](https://issues.apache.org/jira/browse/YARN-5514) | Clarify DecommissionType.FORCEFUL comment |  Minor | documentation | Robert Kanter | Vrushali C |
 | [YARN-5475](https://issues.apache.org/jira/browse/YARN-5475) | Test failed for TestAggregatedLogFormat on trunk |  Major | . | Junping Du | Jun Gong |
 | [YARN-5523](https://issues.apache.org/jira/browse/YARN-5523) | Yarn running container log fetching causes OutOfMemoryError |  Major | log-aggregation | Prasanth Jayachandran | Xuan Gong |
 | [HADOOP-11786](https://issues.apache.org/jira/browse/HADOOP-11786) | Fix Javadoc typos in org.apache.hadoop.fs.FileSystem |  Trivial | documentation | Chen He | Andras Bokor |
@@ -570,6 +625,7 @@
 | [YARN-5843](https://issues.apache.org/jira/browse/YARN-5843) | Incorrect documentation for timeline service entityType/events REST end points |  Minor | . | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-5834](https://issues.apache.org/jira/browse/YARN-5834) | TestNodeStatusUpdater.testNMRMConnectionConf compares nodemanager wait time to the incorrect value |  Trivial | . | Miklos Szegedi | Chang Li |
 | [YARN-5545](https://issues.apache.org/jira/browse/YARN-5545) | Fix issues related to Max App in capacity scheduler |  Major | capacity scheduler | Bibin A Chundatt | Bibin A Chundatt |
+| [YARN-5825](https://issues.apache.org/jira/browse/YARN-5825) | ProportionalPreemptionalPolicy could use readLock over LeafQueue instead of synchronized block |  Major | capacity scheduler | Sunil G | Sunil G |
 | [YARN-5874](https://issues.apache.org/jira/browse/YARN-5874) | RM -format-state-store and -remove-application-from-state-store commands fail with NPE |  Critical | resourcemanager | Varun Saxena | Varun Saxena |
 | [YARN-5873](https://issues.apache.org/jira/browse/YARN-5873) | RM crashes with NPE if generic application history is enabled |  Critical | resourcemanager | Varun Saxena | Varun Saxena |
 | [MAPREDUCE-6811](https://issues.apache.org/jira/browse/MAPREDUCE-6811) | TestPipeApplication#testSubmitter fails after HADOOP-13802 |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -624,7 +680,7 @@
 | [YARN-6068](https://issues.apache.org/jira/browse/YARN-6068) | Log aggregation get failed when NM restart even with recovery |  Blocker | . | Junping Du | Junping Du |
 | [YARN-6073](https://issues.apache.org/jira/browse/YARN-6073) | Misuse of format specifier in Preconditions.checkArgument |  Trivial | . | Yongjun Zhang | Yuanbo Liu |
 | [YARN-5899](https://issues.apache.org/jira/browse/YARN-5899) | Debug log in AbstractCSQueue#canAssignToThisQueue needs improvement |  Trivial | capacity scheduler | Ying Zhang | Ying Zhang |
-| [YARN-6054](https://issues.apache.org/jira/browse/YARN-6054) | TimelineServer fails to start when some LevelDb state files are missing. |  Major | . | Ravi Prakash | Ravi Prakash |
+| [YARN-6054](https://issues.apache.org/jira/browse/YARN-6054) | TimelineServer fails to start when some LevelDb state files are missing. |  Critical | . | Ravi Prakash | Ravi Prakash |
 | [YARN-6022](https://issues.apache.org/jira/browse/YARN-6022) | Revert changes of AbstractResourceRequest |  Blocker | . | Wangda Tan | Wangda Tan |
 | [YARN-4148](https://issues.apache.org/jira/browse/YARN-4148) | When killing app, RM releases app's resource before they are released by NM |  Major | resourcemanager | Jun Gong | Jason Lowe |
 | [YARN-6079](https://issues.apache.org/jira/browse/YARN-6079) | simple spelling errors in yarn test code |  Trivial | test | Grant Sohn | vijay |
@@ -732,7 +788,7 @@
 | [YARN-6217](https://issues.apache.org/jira/browse/YARN-6217) | TestLocalCacheDirectoryManager test timeout is too aggressive |  Major | test | Jason Lowe | Miklos Szegedi |
 | [YARN-6353](https://issues.apache.org/jira/browse/YARN-6353) | Clean up OrderingPolicy javadoc |  Minor | resourcemanager | Daniel Templeton | Daniel Templeton |
 | [HADOOP-14059](https://issues.apache.org/jira/browse/HADOOP-14059) | typo in s3a rename(self, subdir) error message |  Minor | . | Steve Loughran | Steve Loughran |
-| [HDFS-6648](https://issues.apache.org/jira/browse/HDFS-6648) | Order of namenodes in ConfiguredFailoverProxyProvider is undefined |  Major | ha, hdfs-client | Rafal Wojdyla | Inigo Goiri |
+| [HDFS-6648](https://issues.apache.org/jira/browse/HDFS-6648) | Order of namenodes in ConfiguredFailoverProxyProvider is undefined |  Major | ha, hdfs-client | Rafal Wojdyla | Íñigo Goiri |
 | [HDFS-11132](https://issues.apache.org/jira/browse/HDFS-11132) | Allow AccessControlException in contract tests when getFileStatus on subdirectory of existing files |  Major | fs/adl, test | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HADOOP-14204](https://issues.apache.org/jira/browse/HADOOP-14204) | S3A multipart commit failing, "UnsupportedOperationException at java.util.Collections$UnmodifiableList.sort" |  Critical | fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-14205](https://issues.apache.org/jira/browse/HADOOP-14205) | No FileSystem for scheme: adl |  Major | fs/adl | John Zhuge | John Zhuge |
@@ -808,6 +864,7 @@
 | [YARN-6453](https://issues.apache.org/jira/browse/YARN-6453) | fairscheduler-statedump.log gets generated regardless of service |  Blocker | fairscheduler, scheduler | Allen Wittenauer | Yufei Gu |
 | [YARN-6153](https://issues.apache.org/jira/browse/YARN-6153) | keepContainer does not work when AM retry window is set |  Major | resourcemanager | kyungwan nam | kyungwan nam |
 | [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689) | New exception thrown by DFSClient#isHDFSEncryptionEnabled broke hacky hive code |  Major | . | Yongjun Zhang | Yongjun Zhang |
+| [YARN-5889](https://issues.apache.org/jira/browse/YARN-5889) | Improve and refactor user-limit calculation in capacity scheduler |  Major | capacity scheduler | Sunil G | Sunil G |
 | [YARN-6500](https://issues.apache.org/jira/browse/YARN-6500) | Do not mount inaccessible cgroups directories in CgroupsLCEResourcesHandler |  Major | nodemanager | Miklos Szegedi | Miklos Szegedi |
 | [HDFS-11691](https://issues.apache.org/jira/browse/HDFS-11691) | Add a proper scheme to the datanode links in NN web UI |  Major | . | Kihwal Lee | Kihwal Lee |
 | [HADOOP-14341](https://issues.apache.org/jira/browse/HADOOP-14341) | Support multi-line value for ssl.server.exclude.cipher.list |  Major | . | John Zhuge | John Zhuge |
@@ -825,7 +882,7 @@
 | [HDFS-11714](https://issues.apache.org/jira/browse/HDFS-11714) | Newly added NN storage directory won't get initialized and cause space exhaustion |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [HDFS-11593](https://issues.apache.org/jira/browse/HDFS-11593) | Change SimpleHttpProxyHandler#exceptionCaught log level from info to debug |  Minor | datanode | Xiaoyu Yao | Xiaobing Zhou |
 | [HADOOP-14371](https://issues.apache.org/jira/browse/HADOOP-14371) | License error in TestLoadBalancingKMSClientProvider.java |  Major | . | hu xiaodong | hu xiaodong |
-| [HADOOP-14369](https://issues.apache.org/jira/browse/HADOOP-14369) | NetworkTopology calls expensive toString() when logging |  Major | . | Inigo Goiri | Inigo Goiri |
+| [HADOOP-14369](https://issues.apache.org/jira/browse/HADOOP-14369) | NetworkTopology calls expensive toString() when logging |  Major | . | Íñigo Goiri | Íñigo Goiri |
 | [YARN-6519](https://issues.apache.org/jira/browse/YARN-6519) | Fix warnings from Spotbugs in hadoop-yarn-server-resourcemanager |  Major | resourcemanager | Weiwei Yang | Weiwei Yang |
 | [YARN-6481](https://issues.apache.org/jira/browse/YARN-6481) | Yarn top shows negative container number in FS |  Major | yarn | Yufei Gu | Tao Jie |
 | [HADOOP-14306](https://issues.apache.org/jira/browse/HADOOP-14306) | TestLocalFileSystem tests have very low timeouts |  Major | . | Eric Badger | Eric Badger |
@@ -883,7 +940,7 @@
 | [HDFS-11817](https://issues.apache.org/jira/browse/HDFS-11817) | A faulty node can cause a lease leak and NPE on accessing data |  Critical | . | Kihwal Lee | Kihwal Lee |
 | [YARN-6641](https://issues.apache.org/jira/browse/YARN-6641) | Non-public resource localization on a bad disk causes subsequent containers failure |  Major | . | Kuhu Shukla | Kuhu Shukla |
 | [HADOOP-14431](https://issues.apache.org/jira/browse/HADOOP-14431) | ModifyTime of FileStatus returned by SFTPFileSystem's getFileStatus method is wrong |  Major | fs | Hongyuan Li | Hongyuan Li |
-| [HDFS-11078](https://issues.apache.org/jira/browse/HDFS-11078) | Fix NPE in LazyPersistFileScrubber |  Major | . | Inigo Goiri | Inigo Goiri |
+| [HDFS-11078](https://issues.apache.org/jira/browse/HDFS-11078) | Fix NPE in LazyPersistFileScrubber |  Major | . | Íñigo Goiri | Íñigo Goiri |
 | [HADOOP-14464](https://issues.apache.org/jira/browse/HADOOP-14464) | hadoop-aws doc header warning #5 line wrapped |  Trivial | documentation, fs/s3 | John Zhuge | John Zhuge |
 | [HDFS-11659](https://issues.apache.org/jira/browse/HDFS-11659) | TestDataNodeHotSwapVolumes.testRemoveVolumeBeingWritten fail due to no DataNode available for pipeline recovery. |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 | [YARN-6366](https://issues.apache.org/jira/browse/YARN-6366) | Refactor the NodeManager DeletionService to support additional DeletionTask types. |  Major | nodemanager, yarn | Shane Kumpf | Shane Kumpf |
@@ -938,8 +995,104 @@
 | [HADOOP-14594](https://issues.apache.org/jira/browse/HADOOP-14594) | ITestS3AFileOperationCost::testFakeDirectoryDeletion to uncomment metric assertions |  Major | fs/s3 | Mingliang Liu | Mingliang Liu |
 | [YARN-6467](https://issues.apache.org/jira/browse/YARN-6467) | CSQueueMetrics needs to update the current metrics for default partition only |  Major | capacity scheduler | Naganarasimha G R | Manikandan R |
 | [HADOOP-14024](https://issues.apache.org/jira/browse/HADOOP-14024) | KMS JMX endpoint throws ClassNotFoundException |  Critical | kms | Andrew Wang | John Zhuge |
-| [MAPREDUCE-6697](https://issues.apache.org/jira/browse/MAPREDUCE-6697) | Concurrent task limits should only be applied when necessary |  Major | mrv2 | Jason Lowe | Nathan Roberts |
+| [HDFS-12043](https://issues.apache.org/jira/browse/HDFS-12043) | Add counters for block re-replication |  Major | . | Chen Liang | Chen Liang |
 | [YARN-6344](https://issues.apache.org/jira/browse/YARN-6344) | Add parameter for rack locality delay in CapacityScheduler |  Major | capacityscheduler | Konstantinos Karanasos | Konstantinos Karanasos |
+| [HDFS-12079](https://issues.apache.org/jira/browse/HDFS-12079) | Description of dfs.block.invalidate.limit is incorrect in hdfs-default.xml |  Minor | documentation | Weiwei Yang | Weiwei Yang |
+| [MAPREDUCE-6909](https://issues.apache.org/jira/browse/MAPREDUCE-6909) | LocalJobRunner fails when run on a node from multiple users |  Blocker | client | Jason Lowe | Jason Lowe |
+| [HADOOP-13414](https://issues.apache.org/jira/browse/HADOOP-13414) | Hide Jetty Server version header in HTTP responses |  Major | security | Vinayakumar B | Surendra Singh Lilhore |
+| [MAPREDUCE-6911](https://issues.apache.org/jira/browse/MAPREDUCE-6911) | TestMapreduceConfigFields.testCompareXmlAgainstConfigurationClass fails consistently |  Major | . | Eric Badger | Eric Badger |
+| [YARN-6708](https://issues.apache.org/jira/browse/YARN-6708) | Nodemanager container crash after ext3 folder limit |  Critical | . | Bibin A Chundatt | Bibin A Chundatt |
+| [HADOOP-14563](https://issues.apache.org/jira/browse/HADOOP-14563) | LoadBalancingKMSClientProvider#warmUpEncryptedKeys swallows IOException |  Major | . | Rushabh S Shah | Rushabh S Shah |
+| [YARN-6428](https://issues.apache.org/jira/browse/YARN-6428) | Queue AM limit is not honored  in CS always |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
+| [YARN-6770](https://issues.apache.org/jira/browse/YARN-6770) | [Docs] A small mistake in the example of TimelineClient |  Trivial | docs | Jinjiang Ling | Jinjiang Ling |
+| [HADOOP-10829](https://issues.apache.org/jira/browse/HADOOP-10829) | Iteration on CredentialProviderFactory.serviceLoader  is thread-unsafe |  Major | security | Benoy Antony | Benoy Antony |
+| [HADOOP-14581](https://issues.apache.org/jira/browse/HADOOP-14581) | Restrict setOwner to list of user when security is enabled in wasb |  Major | fs/azure | Varada Hemeswari | Varada Hemeswari |
+| [YARN-6809](https://issues.apache.org/jira/browse/YARN-6809) | Fix typo in ResourceManagerHA.md |  Trivial | documentation | Akira Ajisaka | Yeliang Cang |
+| [YARN-6797](https://issues.apache.org/jira/browse/YARN-6797) | TimelineWriter does not fully consume the POST response |  Major | timelineclient | Jason Lowe | Jason Lowe |
+| [HDFS-11502](https://issues.apache.org/jira/browse/HDFS-11502) | Datanode UI should display hostname based on JMX bean instead of window.location.hostname |  Major | hdfs | Jeffrey E  Rodriguez | Jeffrey E  Rodriguez |
+| [HADOOP-14646](https://issues.apache.org/jira/browse/HADOOP-14646) | FileContextMainOperationsBaseTest#testListStatusFilterWithSomeMatches never runs |  Minor | test | Andras Bokor | Andras Bokor |
+| [HADOOP-14658](https://issues.apache.org/jira/browse/HADOOP-14658) | branch-2 compilation is broken in hadoop-azure |  Blocker | build, fs/azure | Sunil G | Sunil G |
+| [MAPREDUCE-6697](https://issues.apache.org/jira/browse/MAPREDUCE-6697) | Concurrent task limits should only be applied when necessary |  Major | mrv2 | Jason Lowe | Nathan Roberts |
+| [YARN-6654](https://issues.apache.org/jira/browse/YARN-6654) | RollingLevelDBTimelineStore backwards incompatible after fst upgrade |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
+| [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805) | NPE in LinuxContainerExecutor due to null PrivilegedOperationException exit code |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-6792](https://issues.apache.org/jira/browse/YARN-6792) | Incorrect XML convertion in NodeIDsInfo and LabelsToNodesInfo |  Blocker | resourcemanager | Giovanni Matteo Fumarola | Giovanni Matteo Fumarola |
+| [YARN-6769](https://issues.apache.org/jira/browse/YARN-6769) | Make schedulables without demand less needy in FairSharePolicy#compare |  Major | fairscheduler | YunFan Zhou | YunFan Zhou |
+| [YARN-6759](https://issues.apache.org/jira/browse/YARN-6759) | Fix TestRMRestart.testRMRestartWaitForPreviousAMToFinish failure |  Major | . | Naganarasimha G R | Naganarasimha G R |
+| [YARN-3260](https://issues.apache.org/jira/browse/YARN-3260) | AM attempt fail to register before RM processes launch event |  Critical | resourcemanager | Jason Lowe | Bibin A Chundatt |
+| [HDFS-12140](https://issues.apache.org/jira/browse/HDFS-12140) | Remove BPOfferService lock contention to get block pool id |  Critical | datanode | Daryn Sharp | Daryn Sharp |
+| [HDFS-12112](https://issues.apache.org/jira/browse/HDFS-12112) | TestBlockManager#testBlockManagerMachinesArray sometimes fails with NPE |  Minor | . | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [YARN-6714](https://issues.apache.org/jira/browse/YARN-6714) | IllegalStateException while handling APP\_ATTEMPT\_REMOVED event when async-scheduling enabled in CapacityScheduler |  Major | . | Tao Yang | Tao Yang |
+| [MAPREDUCE-6889](https://issues.apache.org/jira/browse/MAPREDUCE-6889) | Add Job#close API to shutdown MR client services. |  Major | . | Rohith Sharma K S | Rohith Sharma K S |
+| [MAPREDUCE-6910](https://issues.apache.org/jira/browse/MAPREDUCE-6910) | MapReduceTrackingUriPlugin can not return the right URI of history server with HTTPS |  Major | jobhistoryserver | Lantao Jin | Lantao Jin |
+| [HDFS-12154](https://issues.apache.org/jira/browse/HDFS-12154) | Incorrect javadoc description in StorageLocationChecker#check |  Major | . | Nandakumar | Nandakumar |
+| [YARN-6798](https://issues.apache.org/jira/browse/YARN-6798) | Fix NM startup failure with old state store due to version mismatch |  Major | nodemanager | Ray Chiang | Botong Huang |
+| [HADOOP-14637](https://issues.apache.org/jira/browse/HADOOP-14637) | GenericTestUtils.waitFor needs to check condition again after max wait time |  Major | . | Daniel Templeton | Daniel Templeton |
+| [YARN-6819](https://issues.apache.org/jira/browse/YARN-6819) | Application report fails if app rejected due to nodesize |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
+| [HADOOP-14669](https://issues.apache.org/jira/browse/HADOOP-14669) | GenericTestUtils.waitFor should use monotonic time |  Trivial | test | Jason Lowe | Daniel Templeton |
+| [HDFS-12158](https://issues.apache.org/jira/browse/HDFS-12158) | Secondary Namenode's web interface lack configs for X-FRAME-OPTIONS protection |  Major | namenode | Mukul Kumar Singh | Mukul Kumar Singh |
+| [HDFS-12139](https://issues.apache.org/jira/browse/HDFS-12139) | HTTPFS liststatus returns incorrect pathSuffix for path of file |  Major | httpfs | Yongjun Zhang | Yongjun Zhang |
+| [YARN-6837](https://issues.apache.org/jira/browse/YARN-6837) | Null LocalResource visibility or resource type can crash the nodemanager |  Major | . | Jinjiang Ling | Jinjiang Ling |
+| [HDFS-11472](https://issues.apache.org/jira/browse/HDFS-11472) | Fix inconsistent replica size after a data pipeline failure |  Critical | datanode | Wei-Chiu Chuang | Erik Krogen |
+| [HDFS-11742](https://issues.apache.org/jira/browse/HDFS-11742) | Improve balancer usability after HDFS-8818 |  Blocker | . | Kihwal Lee | Kihwal Lee |
+| [HDFS-12176](https://issues.apache.org/jira/browse/HDFS-12176) | dfsadmin shows DFS Used%: NaN% if the cluster has zero block. |  Trivial | . | Wei-Chiu Chuang | Weiwei Yang |
+| [YARN-6844](https://issues.apache.org/jira/browse/YARN-6844) | AMRMClientImpl.checkNodeLabelExpression() has wrong error message |  Minor | . | Daniel Templeton | Manikandan R |
+| [YARN-6150](https://issues.apache.org/jira/browse/YARN-6150) | TestContainerManagerSecurity tests for Yarn Server are flakey |  Major | test | Daniel Sturman | Daniel Sturman |
+| [YARN-6102](https://issues.apache.org/jira/browse/YARN-6102) | RMActiveService context to be updated with new RMContext on failover |  Critical | . | Ajith S | Rohith Sharma K S |
+| [HADOOP-14578](https://issues.apache.org/jira/browse/HADOOP-14578) | Bind IPC connections to kerberos UPN host for proxy users |  Major | ipc | Daryn Sharp | Daryn Sharp |
+| [HDFS-11896](https://issues.apache.org/jira/browse/HDFS-11896) | Non-dfsUsed will be doubled on dead node re-registration |  Blocker | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [YARN-6870](https://issues.apache.org/jira/browse/YARN-6870) | Fix floating point inaccuracies in resource availability check in AllocationBasedResourceUtilizationTracker |  Major | api, nodemanager | Brook Zhou | Brook Zhou |
+| [YARN-5728](https://issues.apache.org/jira/browse/YARN-5728) | TestMiniYarnClusterNodeUtilization.testUpdateNodeUtilization timeout |  Major | test | Akira Ajisaka | Akira Ajisaka |
+| [HADOOP-14677](https://issues.apache.org/jira/browse/HADOOP-14677) | mvn clean compile fails |  Major | build | Andras Bokor | Andras Bokor |
+| [HDFS-12082](https://issues.apache.org/jira/browse/HDFS-12082) | BlockInvalidateLimit value is incorrectly set after namenode heartbeat interval reconfigured |  Major | hdfs, namenode | Weiwei Yang | Weiwei Yang |
+| [YARN-6628](https://issues.apache.org/jira/browse/YARN-6628) | Unexpected jackson-core-2.2.3 dependency introduced |  Blocker | timelineserver | Jason Lowe | Jonathan Eagles |
+| [HADOOP-14644](https://issues.apache.org/jira/browse/HADOOP-14644) | Increase max heap size of Maven javadoc plugin |  Major | test | Andras Bokor | Andras Bokor |
+| [MAPREDUCE-6921](https://issues.apache.org/jira/browse/MAPREDUCE-6921) | TestUmbilicalProtocolWithJobToken#testJobTokenRpc fails |  Major | . | Sonia Garudi | Sonia Garudi |
+| [HADOOP-14701](https://issues.apache.org/jira/browse/HADOOP-14701) | Configuration can log misleading warnings about an attempt to override final parameter |  Major | conf | Andrew Sherman | Andrew Sherman |
+| [YARN-5731](https://issues.apache.org/jira/browse/YARN-5731) | Preemption calculation is not accurate when reserved containers are present in queue. |  Major | capacity scheduler | Sunil G | Wangda Tan |
+| [HADOOP-14683](https://issues.apache.org/jira/browse/HADOOP-14683) | FileStatus.compareTo binary compatible issue |  Blocker | . | Sergey Shelukhin | Akira Ajisaka |
+| [HADOOP-14702](https://issues.apache.org/jira/browse/HADOOP-14702) | Fix formatting issue and regression caused by conversion from APT to Markdown |  Minor | documentation | Doris Gu | Doris Gu |
+| [YARN-6872](https://issues.apache.org/jira/browse/YARN-6872) | Ensure apps could run given NodeLabels are disabled post RM switchover/restart |  Major | resourcemanager | Sunil G | Sunil G |
+| [HDFS-12217](https://issues.apache.org/jira/browse/HDFS-12217) | HDFS snapshots doesn't capture all open files when one of the open files is deleted |  Major | snapshots | Manoj Govindassamy | Manoj Govindassamy |
+| [YARN-6846](https://issues.apache.org/jira/browse/YARN-6846) | Nodemanager can fail to fully delete application local directories when applications are killed |  Critical | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-6678](https://issues.apache.org/jira/browse/YARN-6678) | Handle IllegalStateException in Async Scheduling mode of CapacityScheduler |  Major | capacityscheduler | Tao Yang | Tao Yang |
+| [YARN-6895](https://issues.apache.org/jira/browse/YARN-6895) | [FairScheduler] Preemption reservation may cause regular reservation leaks |  Blocker | fairscheduler | Miklos Szegedi | Miklos Szegedi |
+| [HADOOP-14722](https://issues.apache.org/jira/browse/HADOOP-14722) | Azure: BlockBlobInputStream position incorrect after seek |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
+| [YARN-6951](https://issues.apache.org/jira/browse/YARN-6951) | Fix debug log when Resource Handler chain is enabled |  Minor | . | Yang Wang | Yang Wang |
+| [HADOOP-14727](https://issues.apache.org/jira/browse/HADOOP-14727) | Socket not closed properly when reading Configurations with BlockReaderRemote |  Blocker | conf | Xiao Chen | Jonathan Eagles |
+| [YARN-6920](https://issues.apache.org/jira/browse/YARN-6920) | Fix resource leak that happens during container re-initialization. |  Major | nodemanager | Arun Suresh | Arun Suresh |
+| [HDFS-12198](https://issues.apache.org/jira/browse/HDFS-12198) | Document missing namenode metrics that were added recently |  Minor | documentation | Yiqun Lin | Yiqun Lin |
+| [HADOOP-14680](https://issues.apache.org/jira/browse/HADOOP-14680) | Azure: IndexOutOfBoundsException in BlockBlobInputStream |  Minor | fs/azure | Rajesh Balamohan | Thomas Marquardt |
+| [YARN-6757](https://issues.apache.org/jira/browse/YARN-6757) | Refactor the usage of yarn.nodemanager.linux-container-executor.cgroups.mount-path |  Minor | nodemanager | Miklos Szegedi | Miklos Szegedi |
+| [MAPREDUCE-6927](https://issues.apache.org/jira/browse/MAPREDUCE-6927) | MR job should only set tracking url if history was successfully written |  Major | . | Eric Badger | Eric Badger |
+| [HADOOP-14598](https://issues.apache.org/jira/browse/HADOOP-14598) | Blacklist Http/HttpsFileSystem in FsUrlStreamHandlerFactory |  Major | fs/azure, test | Steve Loughran | Steve Loughran |
+| [HDFS-12157](https://issues.apache.org/jira/browse/HDFS-12157) | Do fsyncDirectory(..) outside of FSDataset lock |  Critical | datanode | Vinayakumar B | Vinayakumar B |
+| [HDFS-12278](https://issues.apache.org/jira/browse/HDFS-12278) | LeaseManager operations are inefficient in 2.8. |  Blocker | namenode | Rushabh S Shah | Rushabh S Shah |
+| [HADOOP-14743](https://issues.apache.org/jira/browse/HADOOP-14743) | CompositeGroupsMapping should not swallow exceptions |  Major | security | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [HADOOP-14754](https://issues.apache.org/jira/browse/HADOOP-14754) | TestCommonConfigurationFields failed: core-default.xml has 2 wasb properties missing in classes |  Minor | common, fs/azure | John Zhuge | John Zhuge |
+| [YARN-5927](https://issues.apache.org/jira/browse/YARN-5927) | BaseContainerManagerTest::waitForNMContainerState timeout accounting is not accurate |  Trivial | . | Miklos Szegedi | Kai Sasaki |
+| [YARN-6967](https://issues.apache.org/jira/browse/YARN-6967) | Limit application attempt's diagnostic message size thoroughly |  Major | resourcemanager | Chengbing Liu | Chengbing Liu |
+| [HDFS-11303](https://issues.apache.org/jira/browse/HDFS-11303) | Hedged read might hang infinitely if read data from all DN failed |  Major | hdfs-client | Chen Zhang | Chen Zhang |
+| [YARN-6987](https://issues.apache.org/jira/browse/YARN-6987) | Log app attempt during InvalidStateTransition |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [HADOOP-14773](https://issues.apache.org/jira/browse/HADOOP-14773) | Extend ZKCuratorManager API for more reusability |  Major | . | Íñigo Goiri | Íñigo Goiri |
+| [YARN-6965](https://issues.apache.org/jira/browse/YARN-6965) | Duplicate instantiation in FairSchedulerQueueInfo |  Minor | fairscheduler | Masahiro Tanaka | Masahiro Tanaka |
+| [YARN-7020](https://issues.apache.org/jira/browse/YARN-7020) | TestAMRMProxy#testAMRMProxyTokenRenewal is flakey |  Major | . | Robert Kanter | Robert Kanter |
+| [MAPREDUCE-6940](https://issues.apache.org/jira/browse/MAPREDUCE-6940) | Copy-paste error in the TaskAttemptUnsuccessfulCompletionEvent constructor |  Minor | . | Oleg Danilov | Oleg Danilov |
+| [MAPREDUCE-6936](https://issues.apache.org/jira/browse/MAPREDUCE-6936) | Remove unnecessary dependency of hadoop-yarn-server-common from hadoop-mapreduce-client-common |  Major | mrv2 | Haibo Chen | Haibo Chen |
+| [YARN-7007](https://issues.apache.org/jira/browse/YARN-7007) | NPE in RM while using YarnClient.getApplications() |  Major | . | Lingfeng Su | Lingfeng Su |
+| [HDFS-12325](https://issues.apache.org/jira/browse/HDFS-12325) | SFTPFileSystem operations should restore cwd |  Major | . | Namit Maheshwari | Chen Liang |
+| [HDFS-11738](https://issues.apache.org/jira/browse/HDFS-11738) | Hedged pread takes more time when block moved from initial locations |  Major | hdfs-client | Vinayakumar B | Vinayakumar B |
+| [YARN-2416](https://issues.apache.org/jira/browse/YARN-2416) | InvalidStateTransitonException in ResourceManager if AMLauncher does not receive response for startContainers() call in time |  Critical | resourcemanager | Jian Fang | Jonathan Eagles |
+| [YARN-7048](https://issues.apache.org/jira/browse/YARN-7048) | Fix tests faking kerberos to explicitly set ugi auth type |  Major | yarn | Daryn Sharp | Daryn Sharp |
+| [HADOOP-14687](https://issues.apache.org/jira/browse/HADOOP-14687) | AuthenticatedURL will reuse bad/expired session cookies |  Critical | common | Daryn Sharp | Daryn Sharp |
+| [YARN-6251](https://issues.apache.org/jira/browse/YARN-6251) | Do async container release to prevent deadlock during container updates |  Major | . | Arun Suresh | Arun Suresh |
+| [YARN-7090](https://issues.apache.org/jira/browse/YARN-7090) | testRMRestartAfterNodeLabelDisabled get failed when CapacityScheduler is configured |  Major | test | Yesha Vora | Wangda Tan |
+| [YARN-7074](https://issues.apache.org/jira/browse/YARN-7074) | Fix NM state store update comment |  Minor | nodemanager | Botong Huang | Botong Huang |
+| [YARN-6640](https://issues.apache.org/jira/browse/YARN-6640) |  AM heartbeat stuck when responseId overflows MAX\_INT |  Blocker | . | Botong Huang | Botong Huang |
+| [HDFS-12319](https://issues.apache.org/jira/browse/HDFS-12319) | DirectoryScanner will throw IllegalStateException when Multiple BP's are present |  Blocker | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [HDFS-12299](https://issues.apache.org/jira/browse/HDFS-12299) | Race Between update pipeline and DN Re-Registration |  Critical | . | Brahma Reddy Battula | Brahma Reddy Battula |
+| [YARN-7052](https://issues.apache.org/jira/browse/YARN-7052) | RM SchedulingMonitor gives no indication why the spawned thread crashed. |  Critical | yarn | Eric Payne | Eric Payne |
+| [YARN-7087](https://issues.apache.org/jira/browse/YARN-7087) | NM failed to perform log aggregation due to absent container |  Blocker | log-aggregation | Jason Lowe | Jason Lowe |
+| [HDFS-12215](https://issues.apache.org/jira/browse/HDFS-12215) | DataNode#transferBlock does not create its daemon in the xceiver thread group |  Major | datanode | Lei (Eddy) Xu | Lei (Eddy) Xu |
 
 
 ### TESTS:
@@ -949,6 +1102,7 @@
 | [HDFS-9300](https://issues.apache.org/jira/browse/HDFS-9300) | TestDirectoryScanner.testThrottle() is still a little flakey |  Major | balancer & mover, test | Daniel Templeton | Daniel Templeton |
 | [YARN-4704](https://issues.apache.org/jira/browse/YARN-4704) | TestResourceManager#testResourceAllocation() fails when using FairScheduler |  Major | fairscheduler, test | Ray Chiang | Yufei Gu |
 | [HADOOP-12701](https://issues.apache.org/jira/browse/HADOOP-12701) | Run checkstyle on test source files |  Minor | . | John Zhuge | John Zhuge |
+| [HADOOP-13178](https://issues.apache.org/jira/browse/HADOOP-13178) | TestShellBasedIdMapping.testStaticMapUpdate doesn't work on OS X |  Major | test | Allen Wittenauer | Kai Sasaki |
 | [YARN-5024](https://issues.apache.org/jira/browse/YARN-5024) | TestContainerResourceUsage#testUsageAfterAMRestartWithMultipleContainers random failure |  Major | test | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-5005](https://issues.apache.org/jira/browse/YARN-5005) | TestRMWebServices#testDumpingSchedulerLogs fails randomly |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
 | [YARN-5118](https://issues.apache.org/jira/browse/YARN-5118) | Tests fails with localizer port bind exception. |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
@@ -963,6 +1117,10 @@
 | [HDFS-11290](https://issues.apache.org/jira/browse/HDFS-11290) | TestFSNameSystemMBean should wait until JMX cache is cleared |  Major | test | Akira Ajisaka | Erik Krogen |
 | [HDFS-11570](https://issues.apache.org/jira/browse/HDFS-11570) | Unit test for NameNodeStatusMXBean |  Major | hdfs, test | Hanisha Koneru | Hanisha Koneru |
 | [HADOOP-14218](https://issues.apache.org/jira/browse/HADOOP-14218) | Replace assertThat with assertTrue in MetricsAsserts |  Minor | . | Akira Ajisaka | Akira Ajisaka |
+| [YARN-5548](https://issues.apache.org/jira/browse/YARN-5548) | Use MockRMMemoryStateStore to reduce test failures |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
+| [HADOOP-14245](https://issues.apache.org/jira/browse/HADOOP-14245) | Use Mockito.when instead of Mockito.stub |  Minor | test | Akira Ajisaka | Andras Bokor |
+| [YARN-5349](https://issues.apache.org/jira/browse/YARN-5349) | TestWorkPreservingRMRestart#testUAMRecoveryOnRMWorkPreservingRestart  fail intermittently |  Minor | . | sandflee | Jason Lowe |
+| [HDFS-11988](https://issues.apache.org/jira/browse/HDFS-11988) | Verify HDFS Snapshots with open files captured are safe across truncates and appends on current version file |  Major | hdfs, snapshots | Manoj Govindassamy | Manoj Govindassamy |
 
 
 ### SUB-TASKS:
@@ -1048,7 +1206,7 @@
 | [YARN-5122](https://issues.apache.org/jira/browse/YARN-5122) | "yarn logs" for running containers should print an explicit footer saying that the log may be incomplete |  Major | . | Vinod Kumar Vavilapalli | Jian He |
 | [YARN-5251](https://issues.apache.org/jira/browse/YARN-5251) | Yarn CLI to obtain App logs for last 'n' bytes fails with 'java.io.IOException' and for 'n' bytes fails with NumberFormatException |  Blocker | . | Sumana Sathish | Xuan Gong |
 | [HDFS-10328](https://issues.apache.org/jira/browse/HDFS-10328) | Add per-cache-pool default replication num configuration |  Minor | caching | xupeng | xupeng |
-| [YARN-5171](https://issues.apache.org/jira/browse/YARN-5171) | Extend DistributedSchedulerProtocol to notify RM of containers allocated by the Node |  Major | . | Arun Suresh | Inigo Goiri |
+| [YARN-5171](https://issues.apache.org/jira/browse/YARN-5171) | Extend DistributedSchedulerProtocol to notify RM of containers allocated by the Node |  Major | . | Arun Suresh | Íñigo Goiri |
 | [YARN-5227](https://issues.apache.org/jira/browse/YARN-5227) | yarn logs command: no need to specify -applicationId when specifying containerId |  Major | . | Jian He | Gergely Novák |
 | [YARN-5224](https://issues.apache.org/jira/browse/YARN-5224) | Logs for a completed container are not available in the yarn logs output for a live application |  Major | . | Siddharth Seth | Xuan Gong |
 | [YARN-5233](https://issues.apache.org/jira/browse/YARN-5233) | Support for specifying a path for ATS plugin jars |  Major | timelineserver | Li Lu | Li Lu |
@@ -1071,6 +1229,7 @@
 | [YARN-5470](https://issues.apache.org/jira/browse/YARN-5470) | Differentiate exactly match with regex in yarn log CLI |  Major | . | Xuan Gong | Xuan Gong |
 | [YARN-5394](https://issues.apache.org/jira/browse/YARN-5394) | Remove bind-mount /etc/passwd for Docker containers |  Major | yarn | Zhankun Tang | Zhankun Tang |
 | [YARN-5137](https://issues.apache.org/jira/browse/YARN-5137) | Make DiskChecker pluggable in NodeManager |  Major | nodemanager | Ray Chiang | Yufei Gu |
+| [YARN-5514](https://issues.apache.org/jira/browse/YARN-5514) | Clarify DecommissionType.FORCEFUL comment |  Minor | documentation | Robert Kanter | Vrushali C |
 | [YARN-4676](https://issues.apache.org/jira/browse/YARN-4676) | Automatic and Asynchronous Decommissioning Nodes Status Tracking |  Major | resourcemanager | Daniel Zhi | Daniel Zhi |
 | [YARN-5042](https://issues.apache.org/jira/browse/YARN-5042) | Mount /sys/fs/cgroup into Docker containers as read only mount |  Major | yarn | Varun Vasudev | luhuichun |
 | [YARN-5564](https://issues.apache.org/jira/browse/YARN-5564) | Fix typo in RM\_SCHEDULER\_RESERVATION\_THRESHOLD\_INCREMENT\_MULTIPLE |  Trivial | fairscheduler | Ray Chiang | Ray Chiang |
@@ -1122,6 +1281,7 @@
 | [YARN-5524](https://issues.apache.org/jira/browse/YARN-5524) | Yarn live log aggregation does not throw if command line arg is wrong |  Major | log-aggregation | Prasanth Jayachandran | Xuan Gong |
 | [YARN-5650](https://issues.apache.org/jira/browse/YARN-5650) | Render Application Timeout value in web UI |  Major | scheduler | Rohith Sharma K S | Akhil PB |
 | [HDFS-11182](https://issues.apache.org/jira/browse/HDFS-11182) | Update DataNode to use DatasetVolumeChecker |  Major | datanode | Arpit Agarwal | Arpit Agarwal |
+| [YARN-5938](https://issues.apache.org/jira/browse/YARN-5938) | Refactoring OpportunisticContainerAllocator to use SchedulerRequestKey instead of Priority and other misc fixes |  Major | . | Arun Suresh | Arun Suresh |
 | [YARN-5756](https://issues.apache.org/jira/browse/YARN-5756) | Add state-machine implementation for scheduler queues |  Major | . | Xuan Gong | Xuan Gong |
 | [YARN-5931](https://issues.apache.org/jira/browse/YARN-5931) | Document timeout interfaces CLI and REST APIs |  Major | scheduler | Rohith Sharma K S | Rohith Sharma K S |
 | [YARN-5529](https://issues.apache.org/jira/browse/YARN-5529) | Create new DiskValidator class with metrics |  Major | nodemanager | Ray Chiang | Yufei Gu |
@@ -1150,12 +1310,14 @@
 | [HADOOP-14033](https://issues.apache.org/jira/browse/HADOOP-14033) | Reduce fair call queue lock contention |  Major | ipc | Daryn Sharp | Daryn Sharp |
 | [HADOOP-13075](https://issues.apache.org/jira/browse/HADOOP-13075) | Add support for SSE-KMS and SSE-C in s3a filesystem |  Major | fs/s3 | Andrew Olson | Steve Moist |
 | [YARN-6113](https://issues.apache.org/jira/browse/YARN-6113) | re-direct NM Web Service to get container logs for finished applications |  Major | . | Xuan Gong | Xuan Gong |
+| [YARN-5966](https://issues.apache.org/jira/browse/YARN-5966) | AMRMClient changes to support ExecutionType update |  Major | . | Arun Suresh | Arun Suresh |
 | [YARN-6156](https://issues.apache.org/jira/browse/YARN-6156) | AM blacklisting to consider node label partition |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
 | [HDFS-11265](https://issues.apache.org/jira/browse/HDFS-11265) | Extend visualization for Maintenance Mode under Datanode tab in the NameNode UI |  Major | datanode, namenode | Manoj Govindassamy | Elek, Marton |
 | [YARN-6163](https://issues.apache.org/jira/browse/YARN-6163) | FS Preemption is a trickle for severely starved applications |  Major | fairscheduler | Karthik Kambatla | Karthik Kambatla |
 | [YARN-5798](https://issues.apache.org/jira/browse/YARN-5798) | Set UncaughtExceptionHandler for all FairScheduler threads |  Major | fairscheduler | Karthik Kambatla | Yufei Gu |
 | [HADOOP-14040](https://issues.apache.org/jira/browse/HADOOP-14040) | Use shaded aws-sdk uber-JAR 1.11.86 |  Major | build, fs/s3 | Steve Loughran | Steve Loughran |
 | [YARN-6193](https://issues.apache.org/jira/browse/YARN-6193) | FairScheduler might not trigger preemption when using DRF |  Major | fairscheduler | Karthik Kambatla | Karthik Kambatla |
+| [HDFS-11430](https://issues.apache.org/jira/browse/HDFS-11430) | Separate class InnerNode from class NetworkTopology and make it extendable |  Major | namenode | Chen Liang | Tsz Wo Nicholas Sze |
 | [HADOOP-14099](https://issues.apache.org/jira/browse/HADOOP-14099) | Split S3 testing documentation out into its own file |  Minor | documentation, fs/s3 | Steve Loughran | Steve Loughran |
 | [HDFS-11411](https://issues.apache.org/jira/browse/HDFS-11411) | Avoid OutOfMemoryError in TestMaintenanceState test runs |  Major | datanode, namenode | Manoj Govindassamy | Manoj Govindassamy |
 | [HADOOP-14102](https://issues.apache.org/jira/browse/HADOOP-14102) | Relax error message assertion in S3A test ITestS3AEncryptionSSEC |  Minor | fs/s3 | Mingliang Liu | Mingliang Liu |
@@ -1163,12 +1325,15 @@
 | [YARN-6228](https://issues.apache.org/jira/browse/YARN-6228) | EntityGroupFSTimelineStore should allow configurable cache stores. |  Major | timelineserver | Li Lu | Li Lu |
 | [YARN-6215](https://issues.apache.org/jira/browse/YARN-6215) | FairScheduler preemption and update should not run concurrently |  Major | fairscheduler, test | Sunil G | Tao Jie |
 | [YARN-6123](https://issues.apache.org/jira/browse/YARN-6123) | [YARN-5864] Add a test to make sure queues of orderingPolicy will be updated when childQueues is added or removed. |  Major | . | Wangda Tan | Wangda Tan |
+| [HDFS-11450](https://issues.apache.org/jira/browse/HDFS-11450) | HDFS specific network topology classes with storage type info included |  Major | namenode | Chen Liang | Chen Liang |
 | [HDFS-11412](https://issues.apache.org/jira/browse/HDFS-11412) | Maintenance minimum replication config value allowable range should be [0, DefaultReplication] |  Major | datanode, namenode | Manoj Govindassamy | Manoj Govindassamy |
 | [YARN-5669](https://issues.apache.org/jira/browse/YARN-5669) | Add support for Docker pull |  Major | yarn | Zhankun Tang | luhuichun |
 | [YARN-1047](https://issues.apache.org/jira/browse/YARN-1047) | Expose # of pre-emptions as a queue counter |  Major | fairscheduler | Philip Zeyliger | Karthik Kambatla |
 | [YARN-6281](https://issues.apache.org/jira/browse/YARN-6281) | Cleanup when AMRMProxy fails to initialize a new interceptor chain |  Minor | . | Botong Huang | Botong Huang |
+| [HDFS-11482](https://issues.apache.org/jira/browse/HDFS-11482) | Add storage type demand to into DFSNetworkTopology#chooseRandom |  Major | namenode | Chen Liang | Chen Liang |
 | [YARN-6314](https://issues.apache.org/jira/browse/YARN-6314) | Potential infinite redirection on YARN log redirection web service |  Major | . | Xuan Gong | Xuan Gong |
 | [YARN-6313](https://issues.apache.org/jira/browse/YARN-6313) | yarn logs cli should provide logs for a completed container even when application is still running |  Major | . | Siddharth Seth | Xuan Gong |
+| [HDFS-11514](https://issues.apache.org/jira/browse/HDFS-11514) | DFSTopologyNodeImpl#chooseRandom optimizations |  Major | namenode | Chen Liang | Chen Liang |
 | [YARN-6367](https://issues.apache.org/jira/browse/YARN-6367) | YARN logs CLI needs alway check containerLogsInfo/containerLogInfo before parse the JSON object from NMWebService |  Major | . | Siddharth Seth | Xuan Gong |
 | [HADOOP-14120](https://issues.apache.org/jira/browse/HADOOP-14120) | needless S3AFileSystem.setOptionalPutRequestParameters in S3ABlockOutputStream putObject() |  Minor | fs/s3 | Steve Loughran | Yuanbo Liu |
 | [HADOOP-14135](https://issues.apache.org/jira/browse/HADOOP-14135) | Remove URI parameter in AWSCredentialProvider constructors |  Major | fs/s3 | Mingliang Liu | Mingliang Liu |
@@ -1176,6 +1341,7 @@
 | [HADOOP-14197](https://issues.apache.org/jira/browse/HADOOP-14197) | Fix ADLS doc for credential provider |  Major | documentation, fs/adl | John Zhuge | John Zhuge |
 | [HADOOP-14230](https://issues.apache.org/jira/browse/HADOOP-14230) | TestAdlFileSystemContractLive fails to clean up |  Minor | fs/adl, test | John Zhuge | John Zhuge |
 | [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | Rename ADLS credential properties |  Minor | fs/adl | John Zhuge | John Zhuge |
+| [HDFS-11577](https://issues.apache.org/jira/browse/HDFS-11577) | Combine the old and the new chooseRandom for better performance |  Major | namenode | Chen Liang | Chen Liang |
 | [YARN-6109](https://issues.apache.org/jira/browse/YARN-6109) | Add an ability to convert ChildQueue to ParentQueue |  Major | capacity scheduler | Xuan Gong | Xuan Gong |
 | [HADOOP-14290](https://issues.apache.org/jira/browse/HADOOP-14290) | Update SLF4J from 1.7.10 to 1.7.25 |  Major | . | Akira Ajisaka | Akira Ajisaka |
 | [YARN-6372](https://issues.apache.org/jira/browse/YARN-6372) | Add default value for NM disk validator |  Major | nodemanager | Yufei Gu | Yufei Gu |
@@ -1218,15 +1384,48 @@
 | [YARN-6680](https://issues.apache.org/jira/browse/YARN-6680) | Avoid locking overhead for NO\_LABEL lookups |  Major | resourcemanager | Daryn Sharp | Daryn Sharp |
 | [HADOOP-14296](https://issues.apache.org/jira/browse/HADOOP-14296) | Move logging APIs over to slf4j in hadoop-tools |  Major | . | Akira Ajisaka | Akira Ajisaka |
 | [HADOOP-14542](https://issues.apache.org/jira/browse/HADOOP-14542) | Add IOUtils.cleanupWithLogger that accepts slf4j logger API |  Major | . | Akira Ajisaka | Chen Liang |
-| [YARN-6127](https://issues.apache.org/jira/browse/YARN-6127) | Add support for work preserving NM restart when AMRMProxy is enabled |  Major | amrmproxy, nodemanager | Subru Krishnan | Botong Huang |
-| [HADOOP-14547](https://issues.apache.org/jira/browse/HADOOP-14547) | [WASB] the configured retry policy is not used for all storage operations. |  Major | fs/azure | Thomas | Thomas |
+| [HADOOP-14547](https://issues.apache.org/jira/browse/HADOOP-14547) | [WASB] the configured retry policy is not used for all storage operations. |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
 | [HADOOP-14549](https://issues.apache.org/jira/browse/HADOOP-14549) | Use GenericTestUtils.setLogLevel when available in hadoop-tools |  Major | . | Akira Ajisaka | Wenxin He |
 | [HADOOP-14573](https://issues.apache.org/jira/browse/HADOOP-14573) | regression: Azure tests which capture logs failing with move to SLF4J |  Major | fs/azure, test | Steve Loughran | Steve Loughran |
-| [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | Azure: Concurrent I/O does not work when secure.mode is enabled |  Major | fs/azure | Thomas | Thomas |
+| [HADOOP-14546](https://issues.apache.org/jira/browse/HADOOP-14546) | Azure: Concurrent I/O does not work when secure.mode is enabled |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
 | [HADOOP-14190](https://issues.apache.org/jira/browse/HADOOP-14190) | add more on s3 regions to the s3a documentation |  Minor | documentation, fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-14609](https://issues.apache.org/jira/browse/HADOOP-14609) | NPE in AzureNativeFileSystemStore.checkContainer() if StorageException lacks an error code |  Major | fs/azure | Steve Loughran | Steve Loughran |
 | [YARN-5311](https://issues.apache.org/jira/browse/YARN-5311) | Document graceful decommission CLI and usage |  Major | documentation | Junping Du | Elek, Marton |
 | [HADOOP-14596](https://issues.apache.org/jira/browse/HADOOP-14596) | AWS SDK 1.11+ aborts() on close() if \> 0 bytes in stream; logs error |  Blocker | fs/s3 | Steve Loughran | Steve Loughran |
+| [YARN-6681](https://issues.apache.org/jira/browse/YARN-6681) | Eliminate double-copy of child queues in canAssignToThisQueue |  Major | resourcemanager | Daryn Sharp | Daryn Sharp |
+| [HADOOP-14615](https://issues.apache.org/jira/browse/HADOOP-14615) | Add ServiceOperations.stopQuietly that accept slf4j logger API |  Major | . | Wenxin He | Wenxin He |
+| [HADOOP-14617](https://issues.apache.org/jira/browse/HADOOP-14617) | Add ReflectionUtils.logThreadInfo that accept slf4j logger API |  Major | . | Wenxin He | Wenxin He |
+| [HADOOP-14571](https://issues.apache.org/jira/browse/HADOOP-14571) | Deprecate public APIs relate to log4j1 |  Major | . | Akira Ajisaka | Wenxin He |
+| [HADOOP-14587](https://issues.apache.org/jira/browse/HADOOP-14587) | Use GenericTestUtils.setLogLevel when available in hadoop-common |  Major | . | Wenxin He | Wenxin He |
+| [YARN-6776](https://issues.apache.org/jira/browse/YARN-6776) | Refactor ApplicaitonMasterService to move actual processing logic to a separate class |  Minor | . | Arun Suresh | Arun Suresh |
+| [HADOOP-14638](https://issues.apache.org/jira/browse/HADOOP-14638) | Replace commons-logging APIs with slf4j in StreamPumper |  Major | . | Wenxin He | Wenxin He |
+| [YARN-2113](https://issues.apache.org/jira/browse/YARN-2113) | Add cross-user preemption within CapacityScheduler's leaf-queue |  Major | capacity scheduler | Vinod Kumar Vavilapalli | Sunil G |
+| [HADOOP-14642](https://issues.apache.org/jira/browse/HADOOP-14642) | wasb: add support for caching Authorization and SASKeys |  Major | fs/azure | Sivaguru Sankaridurg | Sivaguru Sankaridurg |
+| [YARN-6777](https://issues.apache.org/jira/browse/YARN-6777) | Support for ApplicationMasterService processing chain of interceptors |  Major | . | Arun Suresh | Arun Suresh |
+| [YARN-6775](https://issues.apache.org/jira/browse/YARN-6775) | CapacityScheduler: Improvements to assignContainers, avoid unnecessary canAssignToUser/Queue calls |  Major | capacityscheduler | Nathan Roberts | Nathan Roberts |
+| [HADOOP-14539](https://issues.apache.org/jira/browse/HADOOP-14539) | Move commons logging APIs over to slf4j in hadoop-common |  Major | . | Akira Ajisaka | Wenxin He |
+| [HADOOP-14518](https://issues.apache.org/jira/browse/HADOOP-14518) | Customize User-Agent header sent in HTTP/HTTPS requests by WASB. |  Minor | fs/azure | Georgi Chalakov | Georgi Chalakov |
+| [YARN-6804](https://issues.apache.org/jira/browse/YARN-6804) | Allow custom hostname for docker containers in native services |  Major | yarn-native-services | Billie Rinaldi | Billie Rinaldi |
+| [HADOOP-14678](https://issues.apache.org/jira/browse/HADOOP-14678) | AdlFilesystem#initialize swallows exception when getting user name |  Minor | fs/adl | John Zhuge | John Zhuge |
+| [HADOOP-14397](https://issues.apache.org/jira/browse/HADOOP-14397) | Pull up the builder pattern to FileSystem and add AbstractContractCreateTest for it |  Major | common, fs, hdfs-client | Lei (Eddy) Xu | Lei (Eddy) Xu |
+| [HDFS-9388](https://issues.apache.org/jira/browse/HDFS-9388) | Refactor decommission related code to support maintenance state for datanodes |  Major | . | Ming Ma | Manoj Govindassamy |
+| [YARN-5977](https://issues.apache.org/jira/browse/YARN-5977) | ContainerManagementProtocol changes to support change of container ExecutionType |  Major | . | Arun Suresh | kartheek muthyala |
+| [HADOOP-14126](https://issues.apache.org/jira/browse/HADOOP-14126) | remove jackson, joda and other transient aws SDK dependencies from hadoop-aws |  Minor | build, fs/s3 | Steve Loughran | Steve Loughran |
+| [YARN-6957](https://issues.apache.org/jira/browse/YARN-6957) | Moving logging APIs over to slf4j in hadoop-yarn-server-sharedcachemanager |  Major | . | Yeliang Cang | Yeliang Cang |
+| [YARN-6873](https://issues.apache.org/jira/browse/YARN-6873) | Moving logging APIs over to slf4j in hadoop-yarn-server-applicationhistoryservice |  Major | . | Yeliang Cang | Yeliang Cang |
+| [YARN-6897](https://issues.apache.org/jira/browse/YARN-6897) | Refactoring RMWebServices by moving some util methods to RMWebAppUtil |  Major | . | Giovanni Matteo Fumarola | Giovanni Matteo Fumarola |
+| [HADOOP-14715](https://issues.apache.org/jira/browse/HADOOP-14715) | TestWasbRemoteCallHelper failing |  Major | fs/azure, test | Steve Loughran | Esfandiar Manii |
+| [YARN-6958](https://issues.apache.org/jira/browse/YARN-6958) | Moving logging APIs over to slf4j in hadoop-yarn-server-timelineservice |  Major | . | Yeliang Cang | Yeliang Cang |
+| [HADOOP-14183](https://issues.apache.org/jira/browse/HADOOP-14183) | Remove service loader config file for wasb fs |  Minor | fs/azure | John Zhuge | Esfandiar Manii |
+| [YARN-6687](https://issues.apache.org/jira/browse/YARN-6687) | Validate that the duration of the periodic reservation is less than the periodicity |  Major | reservation system | Subru Krishnan | Subru Krishnan |
+| [YARN-5978](https://issues.apache.org/jira/browse/YARN-5978) | ContainerScheduler and ContainerManager changes to support ExecType update |  Major | . | Arun Suresh | kartheek muthyala |
+| [YARN-6741](https://issues.apache.org/jira/browse/YARN-6741) | Deleting all children of a Parent Queue on refresh throws exception |  Major | capacity scheduler | Naganarasimha G R | Naganarasimha G R |
+| [HADOOP-14660](https://issues.apache.org/jira/browse/HADOOP-14660) | wasb: improve throughput by 34% when account limit exceeded |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
+| [YARN-6988](https://issues.apache.org/jira/browse/YARN-6988) | container-executor fails for docker when command length \> 4096 B |  Major | yarn | Eric Badger | Eric Badger |
+| [HADOOP-14769](https://issues.apache.org/jira/browse/HADOOP-14769) | WASB: delete recursive should not fail if a file is deleted |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
+| [YARN-6979](https://issues.apache.org/jira/browse/YARN-6979) | Add flag to notify all types of container updates to NM via NodeHeartbeatResponse |  Major | . | Arun Suresh | kartheek muthyala |
+| [YARN-7047](https://issues.apache.org/jira/browse/YARN-7047) | Moving logging APIs over to slf4j in hadoop-yarn-server-nodemanager |  Major | . | Yeliang Cang | Yeliang Cang |
+| [YARN-6876](https://issues.apache.org/jira/browse/YARN-6876) | Create an abstract log writer for extendability |  Major | . | Xuan Gong | Xuan Gong |
 
 
 ### OTHER:
@@ -1242,5 +1441,6 @@
 | [YARN-6411](https://issues.apache.org/jira/browse/YARN-6411) | Clean up the overwrite of createDispatcher() in subclass of MockRM |  Minor | resourcemanager | Yufei Gu | Yufei Gu |
 | [HADOOP-14344](https://issues.apache.org/jira/browse/HADOOP-14344) | Revert HADOOP-13606 swift FS to add a service load metadata file |  Major | . | John Zhuge | John Zhuge |
 | [HDFS-11717](https://issues.apache.org/jira/browse/HDFS-11717) | Add unit test for HDFS-11709 StandbyCheckpointer should handle non-existing legacyOivImageDir gracefully |  Minor | ha, namenode | Erik Krogen | Erik Krogen |
+| [YARN-6969](https://issues.apache.org/jira/browse/YARN-6969) | Clean up unused code in class FairSchedulerQueueInfo |  Trivial | fairscheduler | Yufei Gu | Larry Lo |
 
 

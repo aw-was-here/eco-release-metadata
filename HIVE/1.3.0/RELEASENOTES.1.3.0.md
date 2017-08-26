@@ -294,4 +294,11 @@ Vectorization: LIKE should anchor the regexes
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HIVE-16710](https://issues.apache.org/jira/browse/HIVE-16710) | *Major* | **Make MAX\_MS\_TYPENAME\_LENGTH configurable**
+
+This issue is resolved in 2.3 and 3.0 via a different commit (HIVE-12274)
+
+
 
