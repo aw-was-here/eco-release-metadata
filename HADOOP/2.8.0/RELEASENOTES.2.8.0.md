@@ -1120,7 +1120,7 @@ Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_M
 
 * [YARN-6959](https://issues.apache.org/jira/browse/YARN-6959) | *Major* | **RM may allocate wrong AM Container for new attempt**
 
-**WARNING: No release note provided for this change.**
+ResourceManager will now record ResourceRequests from different attempts into different objects.
 
 
 

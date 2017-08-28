@@ -112,7 +112,7 @@
 | [HADOOP-13716](https://issues.apache.org/jira/browse/HADOOP-13716) | Add LambdaTestUtils class for tests; fix eventual consistency problem in contract test setup |  Major | test | Steve Loughran | Steve Loughran |
 | [HADOOP-14049](https://issues.apache.org/jira/browse/HADOOP-14049) | Honour AclBit flag associated to file/folder permission for Azure datalake account |  Major | fs/adl | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HADOOP-14048](https://issues.apache.org/jira/browse/HADOOP-14048) | REDO operation of WASB#AtomicRename should create placeholder blob for destination folder |  Critical | fs/azure | NITIN VERMA | NITIN VERMA |
-| [MAPREDUCE-6304](https://issues.apache.org/jira/browse/MAPREDUCE-6304) | Specifying node labels when submitting MR jobs |  Major | . | Jian Fang | Naganarasimha G R |
+| [MAPREDUCE-6304](https://issues.apache.org/jira/browse/MAPREDUCE-6304) | Specifying node labels when submitting MR jobs |  Major | job submission | Jian Fang | Naganarasimha G R |
 
 
 ### IMPROVEMENTS:
@@ -781,7 +781,7 @@
 | [HADOOP-13603](https://issues.apache.org/jira/browse/HADOOP-13603) | Ignore package line length checkstyle rule |  Major | build | Shane Kumpf | Shane Kumpf |
 | [HADOOP-13583](https://issues.apache.org/jira/browse/HADOOP-13583) | Incorporate checkcompatibility script which runs Java API Compliance Checker |  Major | scripts | Andrew Wang | Andrew Wang |
 | [HDFS-11080](https://issues.apache.org/jira/browse/HDFS-11080) | Update HttpFS to use ConfigRedactor |  Major | . | Sean Mackrory | Sean Mackrory |
-| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | . | Tao Jie | Jonathan Hung |
+| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | resourcemanager | Tao Jie | Tao Jie |
 | [HADOOP-12453](https://issues.apache.org/jira/browse/HADOOP-12453) | Support decoding KMS Delegation Token with its own Identifier |  Major | kms, security | Xiaoyu Yao | Xiaoyu Yao |
 | [HADOOP-7930](https://issues.apache.org/jira/browse/HADOOP-7930) | Kerberos relogin interval in UserGroupInformation should be configurable |  Major | security | Alejandro Abdelnur | Robert Kanter |
 | [YARN-5720](https://issues.apache.org/jira/browse/YARN-5720) | Update document for "rmadmin -replaceLabelOnNode" |  Minor | . | Tao Jie | Tao Jie |
@@ -2305,7 +2305,7 @@
 | [HDFS-11144](https://issues.apache.org/jira/browse/HDFS-11144) | TestFileCreationDelete#testFileCreationDeleteParent fails wind bind exception |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
 | [HDFS-11101](https://issues.apache.org/jira/browse/HDFS-11101) | TestDFSShell#testMoveWithTargetPortEmpty fails intermittently |  Major | test | Brahma Reddy Battula | Brahma Reddy Battula |
 | [YARN-5859](https://issues.apache.org/jira/browse/YARN-5859) | TestResourceLocalizationService#testParallelDownloadAttemptsForPublicResource sometimes fails |  Major | test | Jason Lowe | Eric Badger |
-| [HADOOP-13663](https://issues.apache.org/jira/browse/HADOOP-13663) | Index out of range in SysInfoWindows |  Major | scripts | Íñigo Goiri | Íñigo Goiri |
+| [HADOOP-13663](https://issues.apache.org/jira/browse/HADOOP-13663) | Index out of range in SysInfoWindows |  Major | native, util | Íñigo Goiri | Íñigo Goiri |
 | [HDFS-11174](https://issues.apache.org/jira/browse/HDFS-11174) | Wrong HttpFS test command in doc |  Minor | documentation, httpfs | John Zhuge | John Zhuge |
 | [HADOOP-13820](https://issues.apache.org/jira/browse/HADOOP-13820) | Replace ugi.getUsername() with ugi.getShortUserName() in viewFS |  Minor | viewfs | Archana T | Brahma Reddy Battula |
 | [HADOOP-13838](https://issues.apache.org/jira/browse/HADOOP-13838) | KMSTokenRenewer should close providers |  Critical | kms | Xiao Chen | Xiao Chen |

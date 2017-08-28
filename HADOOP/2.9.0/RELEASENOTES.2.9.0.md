@@ -376,16 +376,18 @@ The state store versions for this change have been updated in YARN-6798.
 
 * [YARN-6798](https://issues.apache.org/jira/browse/YARN-6798) | *Major* | **Fix NM startup failure with old state store due to version mismatch**
 
+<!-- markdown -->
+
 This fixes the LevelDB state store for the NodeManager.  As of this patch, the state store versions now correspond to the following table.
 
-- Previous Patch: YARN-5049
--- LevelDB Key: queued
--- Hadoop Versions: 2.9.0, 3.0.0-alpha1
--- Corresponding LevelDB Version: 1.2
-- Previous Patch: YARN-6127
--- LevelDB Key: AMRMProxy/NextMasterKey
--- Hadoop Versions: 2.9.0, 3.0.0-alpha4
--- Corresponding LevelDB Version: 1.1
+* Previous Patch: YARN-5049
+  * LevelDB Key: queued
+  * Hadoop Versions: 2.9.0, 3.0.0-alpha1
+  * Corresponding LevelDB Version: 1.2
+* Previous Patch: YARN-6127
+  * LevelDB Key: AMRMProxy/NextMasterKey
+  * Hadoop Versions: 2.9.0, 3.0.0-alpha4
+  * Corresponding LevelDB Version: 1.1
 
 
 ---
