@@ -124,7 +124,7 @@
 | [HADOOP-12726](https://issues.apache.org/jira/browse/HADOOP-12726) | Unsupported FS operations should throw UnsupportedOperationException |  Major | fs | Daniel Templeton | Daniel Templeton |
 | [HADOOP-13534](https://issues.apache.org/jira/browse/HADOOP-13534) | Remove unused TrashPolicy#getInstance and initialize code |  Minor | . | Zhe Zhang | Yiqun Lin |
 | [YARN-5567](https://issues.apache.org/jira/browse/YARN-5567) | Fix script exit code checking in NodeHealthScriptRunner#reportHealthStatus |  Major | nodemanager | Yufei Gu | Yufei Gu |
-| [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | option to disable fsck dots |  Minor | . | Allen Wittenauer | Mohammad Kamrul Islam |
+| [HDFS-2538](https://issues.apache.org/jira/browse/HDFS-2538) | option to disable fsck dots |  Minor | namenode | Allen Wittenauer | Mohammad Kamrul Islam |
 | [YARN-5049](https://issues.apache.org/jira/browse/YARN-5049) | Extend NMStateStore to save queued container information |  Major | nodemanager, resourcemanager | Konstantinos Karanasos | Konstantinos Karanasos |
 
 
@@ -207,7 +207,7 @@
 | [MAPREDUCE-6578](https://issues.apache.org/jira/browse/MAPREDUCE-6578) | Add support for HDFS heterogeneous storage testing to TestDFSIO |  Major | . | Wei Zhou | Wei Zhou |
 | [HADOOP-13396](https://issues.apache.org/jira/browse/HADOOP-13396) | Allow pluggable audit loggers in KMS |  Major | kms | Xiao Chen | Xiao Chen |
 | [HDFS-10584](https://issues.apache.org/jira/browse/HDFS-10584) | Allow long-running Mover tool to login with keytab |  Major | balancer & mover, security | Rakesh R | Rakesh R |
-| [MAPREDUCE-6304](https://issues.apache.org/jira/browse/MAPREDUCE-6304) | Specifying node labels when submitting MR jobs |  Major | . | Jian Fang | Naganarasimha G R |
+| [MAPREDUCE-6304](https://issues.apache.org/jira/browse/MAPREDUCE-6304) | Specifying node labels when submitting MR jobs |  Major | job submission | Jian Fang | Naganarasimha G R |
 
 
 ### IMPROVEMENTS:
@@ -2931,7 +2931,6 @@
 | [YARN-5389](https://issues.apache.org/jira/browse/YARN-5389) | TestYarnClient#testReservationDelete fails |  Major | . | Rohith Sharma K S | Sean Po |
 | [YARN-5560](https://issues.apache.org/jira/browse/YARN-5560) | Clean up bad exception catching practices in TestYarnClient |  Major | . | Sean Po | Sean Po |
 | [HADOOP-7363](https://issues.apache.org/jira/browse/HADOOP-7363) | TestRawLocalFileSystemContract is needed |  Major | fs | Matt Foley | Andras Bokor |
-| [HDFS-12253](https://issues.apache.org/jira/browse/HDFS-12253) | CLONE - Pretty-format the output for DFSIO |  Major | . | Dennis Huo | Kai Zheng |
 
 
 ### SUB-TASKS:

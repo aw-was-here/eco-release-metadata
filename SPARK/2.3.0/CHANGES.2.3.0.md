@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.0 - Unreleased (as of 2017-08-26)
+## Release 2.3.0 - Unreleased (as of 2017-08-28)
 
 
 
@@ -203,6 +203,7 @@
 | [SPARK-21408](https://issues.apache.org/jira/browse/SPARK-21408) | Default RPC dispatcher thread pool size too large for small executors |  Minor | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-21435](https://issues.apache.org/jira/browse/SPARK-21435) | Empty files should be skipped while write to file |  Minor | SQL | Li Yuanjian | Li Yuanjian |
 | [SPARK-21401](https://issues.apache.org/jira/browse/SPARK-21401) | add poll function for BoundedPriorityQueue |  Minor | ML, MLlib | Peng Meng | Peng Meng |
+| [SPARK-10216](https://issues.apache.org/jira/browse/SPARK-10216) | Avoid creating empty files during overwrite into Hive table with group by query |  Minor | SQL | Keuntae Park | Hyukjin Kwon |
 | [SPARK-21243](https://issues.apache.org/jira/browse/SPARK-21243) | Limit the number of maps in a single shuffle fetch |  Minor | Spark Core | Dhruve Ashar | Dhruve Ashar |
 | [SPARK-21477](https://issues.apache.org/jira/browse/SPARK-21477) | Mark LocalTableScanExec's input data transient |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-21472](https://issues.apache.org/jira/browse/SPARK-21472) | Introduce ArrowColumnVector as a reader for Arrow vectors. |  Major | SQL | Takuya Ueshin | Takuya Ueshin |
@@ -502,6 +503,8 @@
 | [SPARK-17742](https://issues.apache.org/jira/browse/SPARK-17742) | Spark Launcher does not get failed state in Listener |  Major | Spark Submit | Aseem Bansal | Marcelo Vanzin |
 | [SPARK-21837](https://issues.apache.org/jira/browse/SPARK-21837) | UserDefinedTypeSuite local UDFs not actually testing what it intends |  Minor | SQL, Tests | Sean Owen | Sean Owen |
 | [SPARK-21831](https://issues.apache.org/jira/browse/SPARK-21831) | Remove \`spark.sql.hive.convertMetastoreOrc\` config in HiveCompatibilitySuite |  Minor | Tests | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-21818](https://issues.apache.org/jira/browse/SPARK-21818) | MultivariateOnlineSummarizer.variance generate negative result |  Major | ML, MLlib | Weichen Xu | Weichen Xu |
+| [SPARK-21798](https://issues.apache.org/jira/browse/SPARK-21798) | No config to replace deprecated SPARK\_CLASSPATH config for launching daemons like History Server |  Minor | Spark Core | Sanket Reddy | Parth Gandhi |
 
 
 ### TESTS:
@@ -518,6 +521,7 @@
 | [SPARK-21370](https://issues.apache.org/jira/browse/SPARK-21370) | Avoid doing anything on HDFSBackedStateStore.abort() when there are no updates to commit |  Minor | Structured Streaming | Burak Yavuz | Burak Yavuz |
 | [SPARK-21573](https://issues.apache.org/jira/browse/SPARK-21573) | Tests failing with run-tests.py SyntaxError occasionally in Jenkins |  Minor | Tests | Hyukjin Kwon | shane knapp |
 | [SPARK-21663](https://issues.apache.org/jira/browse/SPARK-21663) | MapOutputTrackerSuite case test("remote fetch below max RPC message size") should call stop |  Minor | Tests | wangjiaochun | wangjiaochun |
+| [SPARK-21843](https://issues.apache.org/jira/browse/SPARK-21843) | testNameNote should be "(minNumPostShufflePartitions: " + numPartitions + ")" in ExchangeCoordinatorSuite |  Trivial | Tests | iamhumanbeing | iamhumanbeing |
 
 
 ### SUB-TASKS:

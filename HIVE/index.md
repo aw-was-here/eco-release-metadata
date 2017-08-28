@@ -22,9 +22,15 @@
 * Apache Hive v2.4.0
     * [Changes](2.4.0/CHANGES.2.4.0.html)
     * [Release Notes](2.4.0/RELEASENOTES.2.4.0.html)
+* Apache Hive v2.3.1
+    * [Changes](2.3.1/CHANGES.2.3.1.html)
+    * [Release Notes](2.3.1/RELEASENOTES.2.3.1.html)
 * Apache Hive v2.3.0
     * [Changes](2.3.0/CHANGES.2.3.0.html)
     * [Release Notes](2.3.0/RELEASENOTES.2.3.0.html)
+* Apache Hive v2.2.1
+    * [Changes](2.2.1/CHANGES.2.2.1.html)
+    * [Release Notes](2.2.1/RELEASENOTES.2.2.1.html)
 * Apache Hive v2.2.0
     * [Changes](2.2.0/CHANGES.2.2.0.html)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)

@@ -16,9 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Spark  2+ Release Notes
+# Apache Hive Changelog
 
-These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
+## Release 2.3.1 - Unreleased (as of 2017-08-28)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-17048](https://issues.apache.org/jira/browse/HIVE-17048) | Pass HiveOperation info to HiveSemanticAnalyzerHook through HiveSemanticAnalyzerHookContext |  Major | Hooks | Aihua Xu | Aihua Xu |
 
 

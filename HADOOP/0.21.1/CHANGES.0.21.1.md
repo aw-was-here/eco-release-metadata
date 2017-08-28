@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 0.21.1 - Unreleased (as of 2017-05-04)
+## Release 0.21.1 - Unreleased (as of 2017-08-28)
 
 ### INCOMPATIBLE CHANGES:
 

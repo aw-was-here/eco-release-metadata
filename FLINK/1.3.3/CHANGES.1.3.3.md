@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.3.3 - Unreleased (as of 2017-08-26)
+## Release 1.3.3 - Unreleased (as of 2017-08-28)
 
 
 

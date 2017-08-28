@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2017-08-26)
+## Release 5.0.0 - Unreleased (as of 2017-08-28)
 
 
 
@@ -79,6 +79,7 @@
 | [OOZIE-2848](https://issues.apache.org/jira/browse/OOZIE-2848) | Override sharelib.tgz in distro when rebuilding Oozie |  Trivial | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-2854](https://issues.apache.org/jira/browse/OOZIE-2854) | Oozie should handle transient database problems |  Major | core | Peter Bacsko | Andras Piros |
 | [OOZIE-2004](https://issues.apache.org/jira/browse/OOZIE-2004) | Improve Oozie version info output |  Minor | build | Chunjun Xiao | Artem Ervits |
+| [OOZIE-3038](https://issues.apache.org/jira/browse/OOZIE-3038) | Make all Oozie JUnit tests pass on dist\_test |  Major | tests | Andras Piros | Andras Piros |
 
 
 ### BUG FIXES:

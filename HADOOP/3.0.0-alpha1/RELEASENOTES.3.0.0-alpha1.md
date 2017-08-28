@@ -1887,7 +1887,7 @@ S3A now supports configuration of multiple credential provider classes for authe
 
 * [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
 
-HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
+Permissions are now checked when moving a file to Trash.
 
 
 ---

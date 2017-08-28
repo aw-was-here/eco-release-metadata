@@ -247,7 +247,7 @@ See also HADOOP-14238 as related problem.
 
 * [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
 
-<!-- markdown --> 
+<!-- markdown -->
 
 * Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
 * Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
@@ -502,7 +502,7 @@ Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be 
 
 * [YARN-6959](https://issues.apache.org/jira/browse/YARN-6959) | *Major* | **RM may allocate wrong AM Container for new attempt**
 
-**WARNING: No release note provided for this change.**
+ResourceManager will now record ResourceRequests from different attempts into different objects.
 
 
 

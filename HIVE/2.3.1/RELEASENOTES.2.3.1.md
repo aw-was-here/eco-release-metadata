@@ -16,16 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hadoop Changelog
+# Apache Hive  2.3.1 Release Notes
 
-## Release 1.1.3 - Unreleased (as of 2017-08-28)
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
-
-
-### BUG FIXES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [HDFS-5028](https://issues.apache.org/jira/browse/HDFS-5028) | LeaseRenewer throw java.util.ConcurrentModificationException when timeout |  Major | . | yunjiong zhao | yunjiong zhao |
 
 

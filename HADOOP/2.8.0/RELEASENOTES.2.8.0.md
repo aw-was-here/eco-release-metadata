@@ -291,6 +291,13 @@ There is a typo in the event string "WORKFLOW\_ID" (as "WORKLFOW\_ID").  The bra
 
 ---
 
+* [HADOOP-12209](https://issues.apache.org/jira/browse/HADOOP-12209) | *Minor* | **Comparable type should be in FileStatus**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [HDFS-7582](https://issues.apache.org/jira/browse/HDFS-7582) | *Major* | **Enforce maximum number of ACL entries separately per access and default.**
 
 Limit on Maximum number of ACL entries(32) will be enforced separately on access and default ACLs. So in total, max. 64 ACL entries can be present in a ACL spec.
@@ -1107,6 +1114,13 @@ Applications may encounter build problems if they did depend on these JARs, and 
 * [HDFS-8818](https://issues.apache.org/jira/browse/HDFS-8818) | *Major* | **Allow Balancer to run faster**
 
 Add a new conf "dfs.balancer.max-size-to-move" so that Balancer.MAX\_SIZE\_TO\_MOVE becomes configurable.
+
+
+---
+
+* [YARN-6959](https://issues.apache.org/jira/browse/YARN-6959) | *Major* | **RM may allocate wrong AM Container for new attempt**
+
+**WARNING: No release note provided for this change.**
 
 
 

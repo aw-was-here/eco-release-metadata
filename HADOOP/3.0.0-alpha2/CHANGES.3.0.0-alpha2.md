@@ -189,7 +189,7 @@
 | [HDFS-10909](https://issues.apache.org/jira/browse/HDFS-10909) | De-duplicate code in ErasureCodingWorker#initializeStripedReadThreadPool and DFSClient#initThreadsNumForStripedReads |  Minor | . | Wei-Chiu Chuang | Manoj Govindassamy |
 | [HADOOP-13784](https://issues.apache.org/jira/browse/HADOOP-13784) | Output javadoc inside the target directory |  Major | documentation | Andrew Wang | Andrew Wang |
 | [HDFS-11080](https://issues.apache.org/jira/browse/HDFS-11080) | Update HttpFS to use ConfigRedactor |  Major | . | Sean Mackrory | Sean Mackrory |
-| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | . | Tao Jie | Jonathan Hung |
+| [YARN-5697](https://issues.apache.org/jira/browse/YARN-5697) | Use CliParser to parse options in RMAdminCLI |  Major | resourcemanager | Tao Jie | Tao Jie |
 | [HADOOP-12453](https://issues.apache.org/jira/browse/HADOOP-12453) | Support decoding KMS Delegation Token with its own Identifier |  Major | kms, security | Xiaoyu Yao | Xiaoyu Yao |
 | [HDFS-11088](https://issues.apache.org/jira/browse/HDFS-11088) | Quash unnecessary safemode WARN message during NameNode startup |  Trivial | . | Andrew Wang | Yiqun Lin |
 | [MAPREDUCE-6796](https://issues.apache.org/jira/browse/MAPREDUCE-6796) | Remove unused properties from JTConfig.java |  Major | . | Akira Ajisaka | Haibo Chen |
@@ -499,7 +499,7 @@
 | [YARN-5859](https://issues.apache.org/jira/browse/YARN-5859) | TestResourceLocalizationService#testParallelDownloadAttemptsForPublicResource sometimes fails |  Major | test | Jason Lowe | Eric Badger |
 | [MAPREDUCE-6793](https://issues.apache.org/jira/browse/MAPREDUCE-6793) | io.sort.factor code default and mapred-default.xml values inconsistent |  Trivial | task | Gera Shegalov | Prabhu Joseph |
 | [HDFS-10966](https://issues.apache.org/jira/browse/HDFS-10966) | Enhance Dispatcher logic on deciding when to give up a source DataNode |  Major | balancer & mover | Zhe Zhang | Mark Wagner |
-| [HADOOP-13663](https://issues.apache.org/jira/browse/HADOOP-13663) | Index out of range in SysInfoWindows |  Major | scripts | Íñigo Goiri | Íñigo Goiri |
+| [HADOOP-13663](https://issues.apache.org/jira/browse/HADOOP-13663) | Index out of range in SysInfoWindows |  Major | native, util | Íñigo Goiri | Íñigo Goiri |
 | [YARN-5911](https://issues.apache.org/jira/browse/YARN-5911) | DrainDispatcher does not drain all events on stop even if setDrainEventsOnStop is true |  Major | . | Varun Saxena | Varun Saxena |
 | [YARN-5918](https://issues.apache.org/jira/browse/YARN-5918) | Handle Opportunistic scheduling allocate request failure when NM is lost |  Major | . | Bibin A Chundatt | Bibin A Chundatt |
 | [HADOOP-13766](https://issues.apache.org/jira/browse/HADOOP-13766) | Fix a typo in the comments of RPC.getProtocolVersion |  Trivial | common | Ethan Li | Ethan Li |

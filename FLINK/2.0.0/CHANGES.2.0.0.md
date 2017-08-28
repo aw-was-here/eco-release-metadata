@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-08-26)
+## Release 2.0.0 - Unreleased (as of 2017-08-28)
 
 
 

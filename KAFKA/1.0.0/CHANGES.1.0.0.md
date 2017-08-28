@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.0.0 - Unreleased (as of 2017-08-26)
+## Release 1.0.0 - Unreleased (as of 2017-08-28)
 
 
 
@@ -58,6 +58,7 @@
 | [KAFKA-5744](https://issues.apache.org/jira/browse/KAFKA-5744) | ShellTest: add tests for attempting to run nonexistent program, error return |  Major | unit tests | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-4322](https://issues.apache.org/jira/browse/KAFKA-4322) | StateRestoreCallback begin and end indication |  Minor | streams | Mark Shelton | Mark Shelton |
 | [KAFKA-5755](https://issues.apache.org/jira/browse/KAFKA-5755) | Refactor Producer to use LogContext |  Major | producer | Jason Gustafson | huxihx |
+| [KAFKA-4380](https://issues.apache.org/jira/browse/KAFKA-4380) | Update the usage description of clean shutdown file. |  Trivial | log | holdenk | holdenk |
 
 
 ### BUG FIXES:
@@ -119,6 +120,7 @@
 | [KAFKA-5644](https://issues.apache.org/jira/browse/KAFKA-5644) | Transient test failure: ResetConsumerGroupOffsetTest.testResetOffsetsToZonedDateTime |  Minor | . | Manikumar | Manikumar |
 | [KAFKA-5595](https://issues.apache.org/jira/browse/KAFKA-5595) | Illegal state in SocketServer; attempt to send with another send in progress |  Major | . | Jason Gustafson | Rajini Sivaram |
 | [KAFKA-5771](https://issues.apache.org/jira/browse/KAFKA-5771) | org.apache.kafka.streams.state.internals.Segments#segments method returns incorrect results when segments were added out of order |  Major | streams | Alexander Radzishevsky | Alexander Radzishevsky |
+| [KAFKA-5620](https://issues.apache.org/jira/browse/KAFKA-5620) | SerializationException in doSend() masks class cast exception |  Major | . | Jeremy Custenborder | Jeremy Custenborder |
 
 
 ### TESTS:

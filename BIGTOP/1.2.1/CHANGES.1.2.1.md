@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-08-26)
+## Release 1.2.1 - Unreleased (as of 2017-08-28)
 
 
 
@@ -98,6 +98,7 @@
 | [BIGTOP-2832](https://issues.apache.org/jira/browse/BIGTOP-2832) | Toolchain failed to install on Debian 8 |  Blocker | toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-2870](https://issues.apache.org/jira/browse/BIGTOP-2870) | testHCFS should be using USER\_NAME for expected output |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2871](https://issues.apache.org/jira/browse/BIGTOP-2871) | Make run\_itest report Standard Error from tests to stderr |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2873](https://issues.apache.org/jira/browse/BIGTOP-2873) | A few cosmetic changes to run\_itest.sh output |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 
 
 ### SUB-TASKS:

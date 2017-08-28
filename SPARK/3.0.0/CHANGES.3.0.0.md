@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 3.0.0 - Unreleased (as of 2017-08-26)
+## Release 3.0.0 - Unreleased (as of 2017-08-28)
 
 
 
@@ -28,7 +28,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-20449](https://issues.apache.org/jira/browse/SPARK-20449) | Upgrade breeze version to 0.13.1 |  Minor | ML | Yanbo Liang | Yanbo Liang |
 | [SPARK-21409](https://issues.apache.org/jira/browse/SPARK-21409) | Expose state store memory usage in SQL metrics and progress updates |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
-| [SPARK-21765](https://issues.apache.org/jira/browse/SPARK-21765) | Ensure all leaf nodes that are derived from streaming sources have isStreaming=true |  Major | SQL, Structured Streaming | Jose Torres |  |
 
 
 ### BUG FIXES:

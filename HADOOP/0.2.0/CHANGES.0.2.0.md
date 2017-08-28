@@ -97,7 +97,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HADOOP-187](https://issues.apache.org/jira/browse/HADOOP-187) | simple distributed dfs random data writer & sort example applications |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HADOOP-184](https://issues.apache.org/jira/browse/HADOOP-184) | hadoop nightly build and regression test on a cluster |  Minor | . | Mahadev konar | Mahadev konar |
-| [HADOOP-193](https://issues.apache.org/jira/browse/HADOOP-193) | DFS i/o benchmark. |  Major | fs | Konstantin Shvachko |  |
+| [HADOOP-193](https://issues.apache.org/jira/browse/HADOOP-193) | DFS i/o benchmark. |  Major | fs | Konstantin Shvachko | Konstantin Shvachko |
 | [HADOOP-194](https://issues.apache.org/jira/browse/HADOOP-194) | Distributed checkup of the file system consistency. |  Major | . | Konstantin Shvachko | Konstantin Shvachko |
 
 

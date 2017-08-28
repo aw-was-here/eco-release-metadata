@@ -5722,4 +5722,14 @@ This change invalidates the need for a separate Java properties file to configur
 If there is no existing cell in submitting Append/Increment, the custom ts won't be overridden. By contrast, the cell's ts will always be overridden by server.
 
 
+---
+
+* [HBASE-18519](https://issues.apache.org/jira/browse/HBASE-18519) | *Major* | **Use builder pattern to create cell**
+
+Introduce the CellBuilder helper.
+1) Using CellBuilderFactory to get CellBuilder for creating cell with row, 
+    column, qualifier, type, and value.
+2) For internal use, the ExtendedCellBuilder, which is created by ExtendedCellBuilderFactory, is able to build cell with extra fields - sequence id and tags -
+
+
 

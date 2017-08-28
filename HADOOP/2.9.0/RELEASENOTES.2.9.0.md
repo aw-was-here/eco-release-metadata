@@ -137,7 +137,7 @@ Added new plugin property yarn.nodemanager.disk-validator to allow the NodeManag
 
 * [HDFS-8312](https://issues.apache.org/jira/browse/HDFS-8312) | *Critical* | **Trash does not descent into child directories to check for permissions**
 
-HDFS-8312. Added permission check for moving file to Trash. (Weiwei Yang via Eric Yang)
+Permissions are now checked when moving a file to Trash.
 
 
 ---
@@ -263,7 +263,7 @@ Move the check for hadoop-site.xml to static initialization of the Configuration
 
 * [HADOOP-14038](https://issues.apache.org/jira/browse/HADOOP-14038) | *Minor* | **Rename ADLS credential properties**
 
-<!-- markdown --> 
+<!-- markdown -->
 
 * Properties {{dfs.adls.*}} are renamed {{fs.adl.*}}
 * Property {{adl.dfs.enable.client.latency.tracker}} is renamed {{adl.enable.client.latency.tracker}}
