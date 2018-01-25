@@ -1008,6 +1008,13 @@ The preferred block size XML element has been corrected from "\\\<perferredBlock
 
 ---
 
+* [HADOOP-12436](https://issues.apache.org/jira/browse/HADOOP-12436) | *Major* | **GlobPattern regex library has performance issues with wildcard characters**
+
+GlobFilter and RegexFilter.compile() now returns com.google.re2j.pattern.Pattern instead of java.util.regex.Pattern
+
+
+---
+
 * [HDFS-9184](https://issues.apache.org/jira/browse/HDFS-9184) | *Major* | **Logging HDFS operation's caller context into audit logs**
 
 The feature needs to enabled by setting "hadoop.caller.context.enabled" to true. When the feature is used, additional fields are written into namenode audit log records.

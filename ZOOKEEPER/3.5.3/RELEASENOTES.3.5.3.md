@@ -35,4 +35,11 @@ After the migration of ZooKeeper's version control system from 'svn repo' to 'ap
 There is a possibility of file descriptor leakage issue under high workload. Please upgrade to the latest version of JVM or the version that has a fix for this bug (http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=7118373)
 
 
+---
+
+* [ZOOKEEPER-2885](https://issues.apache.org/jira/browse/ZOOKEEPER-2885) | *Critical* | **zookeeper-3.5.3-beta.tar.gz file in mirror site is corrupted**
+
+Thank you all. It's a POSIX tar file, not gzip. My mistake.
+
+
 

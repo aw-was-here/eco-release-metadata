@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.2.1 - Unreleased (as of 2017-08-28)
+## Release 1.2.1 - 2017-11-14
 
 
 
@@ -99,6 +99,16 @@
 | [BIGTOP-2870](https://issues.apache.org/jira/browse/BIGTOP-2870) | testHCFS should be using USER\_NAME for expected output |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2871](https://issues.apache.org/jira/browse/BIGTOP-2871) | Make run\_itest report Standard Error from tests to stderr |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-2873](https://issues.apache.org/jira/browse/BIGTOP-2873) | A few cosmetic changes to run\_itest.sh output |  Major | tests | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2850](https://issues.apache.org/jira/browse/BIGTOP-2850) | Not able to build bigtop/slaves image for OpenSuSE 42.1 |  Blocker | docker | Evans Ye | Evans Ye |
+| [BIGTOP-2879](https://issues.apache.org/jira/browse/BIGTOP-2879) | BIGTOP-2749 breaks deployments on Debian-8 |  Major | debian, deployment | Evans Ye | Evans Ye |
+| [BIGTOP-2716](https://issues.apache.org/jira/browse/BIGTOP-2716) | Solr build failed when OpenJDK8u\_121 is used |  Major | build | Jun He | Jun He |
+| [BIGTOP-2826](https://issues.apache.org/jira/browse/BIGTOP-2826) | Zeppelin RPM is broken: "missing" osgi package deps |  Major | rpm | Alexander Ermakov | Alexander Ermakov |
+| [BIGTOP-2890](https://issues.apache.org/jira/browse/BIGTOP-2890) | Download page must not link to snapshots / nightly builds |  Major | . | Sebb | Evans Ye |
+| [BIGTOP-2901](https://issues.apache.org/jira/browse/BIGTOP-2901) | disable GPDB because of build failure on OpenSuSE 42.1 |  Blocker | build | Evans Ye | Olaf Flebbe |
+| [BIGTOP-2900](https://issues.apache.org/jira/browse/BIGTOP-2900) | Crunch build failed because of OS OOM killer on OpenJDK 1.8.0-144 |  Blocker | build | Evans Ye | Evans Ye |
+| [BIGTOP-2903](https://issues.apache.org/jira/browse/BIGTOP-2903) | update protobuf rpm links |  Major | toolchain | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2908](https://issues.apache.org/jira/browse/BIGTOP-2908) | giraph charm: release audit failure |  Blocker | build | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2891](https://issues.apache.org/jira/browse/BIGTOP-2891) | Download page must link to ASF mirrors |  Major | . | Sebb | Evans Ye |
 
 
 ### SUB-TASKS:
@@ -125,5 +135,8 @@
 | [BIGTOP-2739](https://issues.apache.org/jira/browse/BIGTOP-2739) | refresh juju bundles with latest charm revs |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2747](https://issues.apache.org/jira/browse/BIGTOP-2747) | new charm revs for bigtop-1.2 |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-2776](https://issues.apache.org/jira/browse/BIGTOP-2776) | Bump Apache Apex version to 3.6.0 |  Major | build | Thomas Weise | Thomas Weise |
+| [BIGTOP-2877](https://issues.apache.org/jira/browse/BIGTOP-2877) | Drop Kite packaging |  Major | build | Evans Ye | Evans Ye |
+| [BIGTOP-2786](https://issues.apache.org/jira/browse/BIGTOP-2786) | Push Bigtop 1.2.1 Docker build slaves to Docker Hub |  Major | build, docker | Evans Ye | Evans Ye |
+| [BIGTOP-2785](https://issues.apache.org/jira/browse/BIGTOP-2785) | Define Bigtop 1.2.1 release BOM |  Blocker | . | Evans Ye | Evans Ye |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.3.0 - Unreleased (as of 2017-08-28)
+## Release 2.3.0 - 2017-07-18
 
 ### INCOMPATIBLE CHANGES:
 
@@ -51,6 +51,7 @@
 | [HIVE-1555](https://issues.apache.org/jira/browse/HIVE-1555) | JDBC Storage Handler |  Major | JDBC | Bob Robertson | Gunther Hagleitner |
 | [HIVE-15691](https://issues.apache.org/jira/browse/HIVE-15691) | Create StrictRegexWriter to work with RegexSerializer for Flume Hive Sink |  Critical | HCatalog, Transactions | Kalyan | Kalyan |
 | [HIVE-15434](https://issues.apache.org/jira/browse/HIVE-15434) | Add UDF to allow interrogation of uniontype values |  Major | UDF | David Maughan | David Maughan |
+| [HIVE-10924](https://issues.apache.org/jira/browse/HIVE-10924) | add support for MERGE statement |  Major | Query Planning, Query Processor, Transactions | Eugene Koifman | Eugene Koifman |
 
 
 ### IMPROVEMENTS:
@@ -128,11 +129,11 @@
 | [HIVE-15682](https://issues.apache.org/jira/browse/HIVE-15682) | Eliminate per-row based dummy iterator creation |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
 | [HIVE-15815](https://issues.apache.org/jira/browse/HIVE-15815) | Allow to pass some Oozie properties to Spark in HoS |  Minor | Diagnosability, Spark | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-15683](https://issues.apache.org/jira/browse/HIVE-15683) | Make what's done in HIVE-15580 for group by configurable |  Major | Spark | Xuefu Zhang | Xuefu Zhang |
-| [HIVE-15792](https://issues.apache.org/jira/browse/HIVE-15792) | Hive should raise SemanticException when LPAD/RPAD pad character's length is 0 |  Minor | . | Zoltan Chovan | Nandakumar |
+| [HIVE-15792](https://issues.apache.org/jira/browse/HIVE-15792) | Hive should raise SemanticException when LPAD/RPAD pad character's length is 0 |  Minor | . | Zoltan Chovan | Nanda kumar |
 | [HIVE-15915](https://issues.apache.org/jira/browse/HIVE-15915) | Emit progress percentage in getting operation status |  Minor | HiveServer2 | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-15489](https://issues.apache.org/jira/browse/HIVE-15489) | Alternatively use table scan stats for HoS |  Major | Spark, Statistics | Chao Sun | Chao Sun |
 | [HIVE-15796](https://issues.apache.org/jira/browse/HIVE-15796) | HoS: poor reducer parallelism when operator stats are not accurate |  Major | Statistics | Chao Sun | Chao Sun |
-| [HIVE-15879](https://issues.apache.org/jira/browse/HIVE-15879) | Fix HiveMetaStoreChecker.checkPartitionDirs method |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-15879](https://issues.apache.org/jira/browse/HIVE-15879) | Fix HiveMetaStoreChecker.checkPartitionDirs method |  Major | Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16014](https://issues.apache.org/jira/browse/HIVE-16014) | HiveMetastoreChecker should use hive.metastore.fshandler.threads instead of hive.mv.files.thread for pool size |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16045](https://issues.apache.org/jira/browse/HIVE-16045) | Print progress bar along with operation log |  Major | HiveServer2 | anishek | anishek |
 | [HIVE-15882](https://issues.apache.org/jira/browse/HIVE-15882) | HS2 generating high memory pressure with many partitions and concurrent queries |  Major | HiveServer2 | Misha Dmitriev | Misha Dmitriev |
@@ -315,11 +316,11 @@
 | [HIVE-15446](https://issues.apache.org/jira/browse/HIVE-15446) | Hive fails in recursive debug |  Minor | Diagnosability | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-15471](https://issues.apache.org/jira/browse/HIVE-15471) | LLAP UI: NPE when getting thread metrics |  Minor | llap | Rajesh Balamohan | Rajesh Balamohan |
 | [HIVE-15476](https://issues.apache.org/jira/browse/HIVE-15476) | ObjectStore.getMTableColumnStatistics() should check if colNames is empty |  Minor | Query Planning | Aihua Xu | Aihua Xu |
-| [HIVE-8373](https://issues.apache.org/jira/browse/HIVE-8373) | OOM for a simple query with spark.master=local [Spark Branch] |  Major | Spark | Xuefu Zhang | liyunzhang\_intel |
-| [HIVE-15313](https://issues.apache.org/jira/browse/HIVE-15313) | Add export spark.yarn.archive or spark.yarn.jars variable in Hive on Spark document |  Minor | . | liyunzhang\_intel | liyunzhang\_intel |
+| [HIVE-8373](https://issues.apache.org/jira/browse/HIVE-8373) | OOM for a simple query with spark.master=local [Spark Branch] |  Major | Spark | Xuefu Zhang | liyunzhang |
+| [HIVE-15313](https://issues.apache.org/jira/browse/HIVE-15313) | Add export spark.yarn.archive or spark.yarn.jars variable in Hive on Spark document |  Minor | . | liyunzhang | liyunzhang |
 | [HIVE-15494](https://issues.apache.org/jira/browse/HIVE-15494) | Create perfLogger in method execute instead of class initialization for SparkTask |  Minor | Spark | zhihai xu | zhihai xu |
 | [HIVE-15299](https://issues.apache.org/jira/browse/HIVE-15299) | Yarn-cluster and yarn-client deprecated in Spark 2.0 |  Minor | . | Rui Li | Rui Li |
-| [HIVE-15530](https://issues.apache.org/jira/browse/HIVE-15530) | Optimize the column stats update logic in table alteration |  Major | Hive | Yibing Shi | Yibing Shi |
+| [HIVE-15530](https://issues.apache.org/jira/browse/HIVE-15530) | Optimize the column stats update logic in table alteration |  Major | Hive, Metastore | Yibing Shi | Yibing Shi |
 | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563) | Ignore Illegal Operation state transition exception in SQLOperation.runQuery to expose real exception. |  Minor | . | zhihai xu | zhihai xu |
 | [HIVE-14384](https://issues.apache.org/jira/browse/HIVE-14384) | CBO: Decimal constant folding is failing |  Major | CBO | Gopal V | Jesus Camacho Rodriguez |
 | [HIVE-14303](https://issues.apache.org/jira/browse/HIVE-14303) | CommonJoinOperator.checkAndGenObject should return directly to avoid NPE if ExecReducer.close is called twice. |  Major | . | zhihai xu | zhihai xu |
@@ -329,7 +330,7 @@
 | [HIVE-15625](https://issues.apache.org/jira/browse/HIVE-15625) | escape1 test fails on Mac |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14707](https://issues.apache.org/jira/browse/HIVE-14707) | ACID: Insert shuffle sort-merges on blank KEY |  Major | Transactions | Gopal V | Eugene Koifman |
 | [HIVE-15519](https://issues.apache.org/jira/browse/HIVE-15519) | BitSet not computed properly for ColumnBuffer subset |  Critical | Hive, JDBC | Bharat Viswanadham | Rui Li |
-| [HIVE-15579](https://issues.apache.org/jira/browse/HIVE-15579) | Support HADOOP\_PROXY\_USER for secure impersonation in hive metastore client |  Major | . | Thejas M Nair | Nandakumar |
+| [HIVE-15579](https://issues.apache.org/jira/browse/HIVE-15579) | Support HADOOP\_PROXY\_USER for secure impersonation in hive metastore client |  Major | . | Thejas M Nair | Nanda kumar |
 | [HIVE-15662](https://issues.apache.org/jira/browse/HIVE-15662) | check startTime in SparkTask to make sure startTime is not less than submitTime |  Minor | . | zhihai xu | zhihai xu |
 | [HIVE-15679](https://issues.apache.org/jira/browse/HIVE-15679) | Some metastore metrics always contains column=null (write\_column\_statistics, write\_partition\_column\_statistics) |  Trivial | Metastore | Peter Vary | Peter Vary |
 | [HIVE-14634](https://issues.apache.org/jira/browse/HIVE-14634) | TxnHandler.heartbeatTxnRange() can be done in 1 SQL statement |  Major | Metastore, Transactions | Eugene Koifman | Eugene Koifman |
@@ -389,7 +390,7 @@
 | [HIVE-15952](https://issues.apache.org/jira/browse/HIVE-15952) | Add blobstore integration test for CREATE LIKE |  Major | Test | Juan Rodríguez Hortalá | Juan Rodríguez Hortalá |
 | [HIVE-16070](https://issues.apache.org/jira/browse/HIVE-16070) | fix nonReserved list in IdentifiersParser.g |  Major | Query Planning, Query Processor, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-16081](https://issues.apache.org/jira/browse/HIVE-16081) | allow "0.23" shim creation for Hadoop 3 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
-| [HIVE-16086](https://issues.apache.org/jira/browse/HIVE-16086) | Fix HiveMetaStoreChecker.checkPartitionDirsSingleThreaded method |  Major | . | Kiran Kumar Kolli | Kiran Kumar Kolli |
+| [HIVE-16086](https://issues.apache.org/jira/browse/HIVE-16086) | Fix HiveMetaStoreChecker.checkPartitionDirsSingleThreaded method |  Major | Metastore | Kiran Kumar Kolli | Kiran Kumar Kolli |
 | [HIVE-16109](https://issues.apache.org/jira/browse/HIVE-16109) | TestDbTxnManager generates a huge hive.log |  Major | Tests, Transactions | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16106](https://issues.apache.org/jira/browse/HIVE-16106) | Upgrade to Datanucleus 4.2.12 |  Major | Metastore | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-16097](https://issues.apache.org/jira/browse/HIVE-16097) | minor fixes to metrics and logs in LlapTaskScheduler |  Major | llap | Siddharth Seth | Siddharth Seth |
@@ -459,7 +460,6 @@
 | [HIVE-16273](https://issues.apache.org/jira/browse/HIVE-16273) | Vectorization: Make non-column key expressions work in MERGEPARTIAL mode |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-14801](https://issues.apache.org/jira/browse/HIVE-14801) | improve TestPartitionNameWhitelistValidation stability |  Major | . | Thejas M Nair | Thejas M Nair |
 | [HIVE-16282](https://issues.apache.org/jira/browse/HIVE-16282) | Semijoin: Disable slow-start for the bloom filter aggregate task |  Major | . | Gopal V | Deepak Jaiswal |
-| [HIVE-16298](https://issues.apache.org/jira/browse/HIVE-16298) | Add config to specify multi-column joins have correlated columns |  Major | . | Jason Dere | Siddharth Seth |
 | [HIVE-16274](https://issues.apache.org/jira/browse/HIVE-16274) | Support tuning of NDV of columns using lower/upper bounds |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-9815](https://issues.apache.org/jira/browse/HIVE-9815) | Metastore column"SERDE\_PARAMS"."PARAM\_VALUE"  limited to 4000 bytes |  Critical | Metastore | Naveen Gangam | Naveen Gangam |
 | [HIVE-15249](https://issues.apache.org/jira/browse/HIVE-15249) | HIve 2.1.0 is throwing InvalidObjectException(message:Invalid column type name is too long |  Major | Hive | vishal.rajan | Naveen Gangam |
@@ -505,6 +505,9 @@
 | [HIVE-16761](https://issues.apache.org/jira/browse/HIVE-16761) | LLAP IO: SMB joins fail elevator |  Major | . | Gopal V | Sergey Shelukhin |
 | [HIVE-15144](https://issues.apache.org/jira/browse/HIVE-15144) | JSON.org license is now CatX |  Blocker | . | Robert Kanter | Owen O'Malley |
 | [HIVE-16366](https://issues.apache.org/jira/browse/HIVE-16366) | Hive 2.3 release planning |  Blocker | . | Pengcheng Xiong | Pengcheng Xiong |
+| [HIVE-17411](https://issues.apache.org/jira/browse/HIVE-17411) | LLAP IO may incorrectly release a refcount in some rare cases |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-13989](https://issues.apache.org/jira/browse/HIVE-13989) | Extended ACLs are not handled according to specification |  Major | HCatalog | Chris Drome | Chris Drome |
+| [HIVE-17333](https://issues.apache.org/jira/browse/HIVE-17333) | Schema changes in HIVE-12274 for Oracle may not work for upgrade |  Major | Metastore | Naveen Gangam | Naveen Gangam |
 
 
 ### TESTS:
@@ -634,7 +637,6 @@
 | [HIVE-15207](https://issues.apache.org/jira/browse/HIVE-15207) | Implement a capability to detect incorrect sequence numbers |  Major | Metastore | Aihua Xu | Aihua Xu |
 | [HIVE-15072](https://issues.apache.org/jira/browse/HIVE-15072) | Schematool should recognize missing tables in metastore |  Major | Metastore | Yongzhi Chen | Naveen Gangam |
 | [HIVE-15073](https://issues.apache.org/jira/browse/HIVE-15073) | Schematool should detect malformed URIs |  Major | . | Yongzhi Chen | Yongzhi Chen |
-| [HIVE-15121](https://issues.apache.org/jira/browse/HIVE-15121) | Last MR job in Hive should be able to write to a different scratch directory |  Major | Hive | Sahil Takiar | Sahil Takiar |
 | [HIVE-15168](https://issues.apache.org/jira/browse/HIVE-15168) | Flaky test: TestSparkClient.testJobSubmission (still flaky) |  Major | . | Barna Zsombor Klara | Barna Zsombor Klara |
 | [HIVE-15263](https://issues.apache.org/jira/browse/HIVE-15263) | Detect the values for incorrect NULL values |  Major | Metastore | Aihua Xu | Aihua Xu |
 | [HIVE-15114](https://issues.apache.org/jira/browse/HIVE-15114) | Remove extra MoveTask operators from the ConditionalTask |  Major | Hive | Sahil Takiar | Sergio Peña |

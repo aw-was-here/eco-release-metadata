@@ -50,7 +50,7 @@
 | [SPARK-7159](https://issues.apache.org/jira/browse/SPARK-7159) | Support multiclass logistic regression in spark.ml |  Critical | ML | Joseph K. Bradley | Seth Hendrickson |
 | [SPARK-17150](https://issues.apache.org/jira/browse/SPARK-17150) | Support SQL generation for inline tables |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-17187](https://issues.apache.org/jira/browse/SPARK-17187) | Support using arbitrary Java object as internal aggregation buffer object |  Major | SQL | Sean Zhong | Sean Zhong |
-| [SPARK-5682](https://issues.apache.org/jira/browse/SPARK-5682) | Add encrypted shuffle in spark |  Major | Shuffle | liyunzhang\_intel | Ferdinand Xu |
+| [SPARK-5682](https://issues.apache.org/jira/browse/SPARK-5682) | Add encrypted shuffle in spark |  Major | Shuffle | liyunzhang | Ferdinand Xu |
 | [SPARK-17351](https://issues.apache.org/jira/browse/SPARK-17351) | Refactor JDBCRDD to expose JDBC -\> SparkSQL conversion functionality |  Major | SQL | Josh Rosen | Josh Rosen |
 | [SPARK-17315](https://issues.apache.org/jira/browse/SPARK-17315) | Add Kolmogorov-Smirnov Test to SparkR |  Major | . | Junyang Qian | Junyang Qian |
 | [SPARK-17456](https://issues.apache.org/jira/browse/SPARK-17456) | Utility for parsing Spark versions |  Minor | Spark Core | Joseph K. Bradley | Joseph K. Bradley |
@@ -1215,6 +1215,7 @@
 | [SPARK-18325](https://issues.apache.org/jira/browse/SPARK-18325) | SparkR 2.1 QA: Check for new R APIs requiring example code |  Major | Documentation, SparkR | Joseph K. Bradley | Yanbo Liang |
 | [SPARK-18332](https://issues.apache.org/jira/browse/SPARK-18332) | SparkR 2.1 QA: Programming guide, migration guide, vignettes updates |  Critical | Documentation, SparkR | Joseph K. Bradley | Xiangrui Meng |
 | [SPARK-14480](https://issues.apache.org/jira/browse/SPARK-14480) | Remove meaningless StringIteratorReader for CSV data source for better performance |  Major | SQL | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-9299](https://issues.apache.org/jira/browse/SPARK-9299) | percentile and percentile\_approx aggregate functions |  Major | SQL | Yin Huai |  |
 
 
 ### OTHER:

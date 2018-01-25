@@ -103,6 +103,7 @@
 | [SPARK-18148](https://issues.apache.org/jira/browse/SPARK-18148) | Misleading Error Message for Aggregation Without Window/GroupBy |  Major | SQL | Pat McDonough | Jiang Xingbo |
 | [SPARK-17337](https://issues.apache.org/jira/browse/SPARK-17337) | Incomplete algorithm for name resolution in Catalyst paser may lead to incorrect result |  Major | SQL | Nattavut Sutyanyong | Herman van Hovell |
 | [SPARK-18342](https://issues.apache.org/jira/browse/SPARK-18342) | HDFSBackedStateStore can fail to rename files causing snapshotting and recovery to fail |  Critical | Structured Streaming | Burak Yavuz | Burak Yavuz |
+| [SPARK-15685](https://issues.apache.org/jira/browse/SPARK-15685) | StackOverflowError (VirtualMachineError) or NoClassDefFoundError (LinkageError) should not System.exit() in local mode |  Major | Spark Core | Brett Randall |  |
 
 
 ### TESTS:

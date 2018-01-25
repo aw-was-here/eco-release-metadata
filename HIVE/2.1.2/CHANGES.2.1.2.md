@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-08-28)
+## Release 2.1.2 - Unreleased (as of 2018-01-25)
 
 
 
@@ -39,5 +39,7 @@
 | [HIVE-15872](https://issues.apache.org/jira/browse/HIVE-15872) | The PERCENTILE\_APPROX UDAF does not work with empty set |  Major | UDF | Chaozhong Yang | Chaozhong Yang |
 | [HIVE-14804](https://issues.apache.org/jira/browse/HIVE-14804) | HPLSQL multiple db connection does not switch back to Hive |  Blocker | hpl/sql | Dmitry Kozlov | Fei Hui |
 | [HIVE-16239](https://issues.apache.org/jira/browse/HIVE-16239) | remove useless hiveserver |  Major | CLI | Fei Hui | Fei Hui |
+| [HIVE-17664](https://issues.apache.org/jira/browse/HIVE-17664) | Refactor and add new tests |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-17831](https://issues.apache.org/jira/browse/HIVE-17831) | HiveSemanticAnalyzerHookContext does not update the HiveOperation after sem.analyze() is called |  Major | Hive | Sergio Peña | Aihua Xu |
 
 

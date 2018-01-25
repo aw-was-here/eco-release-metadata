@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Ensure a useful message is displayed when entity validation fails.
 
 
+---
+
+* [FALCON-2182](https://issues.apache.org/jira/browse/FALCON-2182) | *Major* | **Add support for Falcon user extensions**
+
+Resolving this as most of the sub-tasks are resolved. The ones remaining are nice to haves, which I'll move out of this task.
+
+
 

@@ -23,106 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [FLINK-7149](https://issues.apache.org/jira/browse/FLINK-7149) | *Major* | **Add checkpoint ID to 'sendValues()' in GenericWriteAheadSink**
-
-Fixed in
-  - 1.4.0 via 4d7d847d07e8355b5c63d11e9683fca8398fcae1
-  - 1.3.2 via faf79745659130b6da61034e275abbb3bcb3371c
-
-
----
-
-* [FLINK-7150](https://issues.apache.org/jira/browse/FLINK-7150) | *Major* | **Code improvements to the ElasticSearch connector**
-
-Fixed via 89fd63599db7451af081040cdc05bd4dc840b44d
-
-
----
-
-* [FLINK-7136](https://issues.apache.org/jira/browse/FLINK-7136) | *Major* | **Docs search can be customized to be more useful**
-
-Fixed via 251fb98450b048b5dbba6770a27eebf6ddd95885
-
-
----
-
 * [FLINK-7178](https://issues.apache.org/jira/browse/FLINK-7178) | *Critical* | **Datadog Metric Reporter Jar is Lacking Dependencies**
 
 Users that specified the {{shaded}} classifier in the dependency for the datatog/prometheus reporter must remove the classifier when switching to 1.3.2 / 1.4.0 .
-
-
----
-
-* [FLINK-6654](https://issues.apache.org/jira/browse/FLINK-6654) | *Major* | **missing maven dependency on "flink-shaded-hadoop2-uber" in flink-dist**
-
-Fixed in
-  - 1.3.2 via 01265fe1529b6712311051ed2d210b5e2e5cf0a8
-  - 1.4.0 via 70d53487a7f619d97aaad49879ad4cf7f5704adb
-
-
----
-
-* [FLINK-7233](https://issues.apache.org/jira/browse/FLINK-7233) | *Major* | **TaskManagerHeapSizeCalculationJavaBashTest failed on Travis**
-
-Fixed in
-  - 1.3.2 via 129a82fbadaddf9befef86cc20797d698ee92e96
-  - 1.4.0 via 3a503cd30b436b75a6b93a7a216d7b6d4de20a55
-
-
----
-
-* [FLINK-7105](https://issues.apache.org/jira/browse/FLINK-7105) | *Major* | **Make ActorSystem creation per default non-daemonic**
-
-Fixed in 02bf80cf7108253dfc3444fd3fbdeda79fabe333
-
-
----
-
-* [FLINK-6665](https://issues.apache.org/jira/browse/FLINK-6665) | *Major* | **Pass a ScheduledExecutorService to the RestartStrategy**
-
-Fixed in 
-  - 1.4.0 via 65400bd0a0f6a3bdd3e0bad05e2179534eaf6e9e
-  - 1.3.2 via 65400bd0a0f6a3bdd3e0bad05e2179534eaf6e9e
-
-1.3.2 needed to be fixed because this was a blocker for a critical bug fix
-
-
----
-
-* [FLINK-6667](https://issues.apache.org/jira/browse/FLINK-6667) | *Major* | **Pass a callback type to the RestartStrategy, rather than the full ExecutionGraph**
-
-Fixed in 
-  - 1.4.0 via 65400bd0a0f6a3bdd3e0bad05e2179534eaf6e9e
-  - 1.3.2 via 65400bd0a0f6a3bdd3e0bad05e2179534eaf6e9e
-
-1.3.2 needed to be fixed because this was a blocker for a critical bug fix
-
-
----
-
-* [FLINK-7216](https://issues.apache.org/jira/browse/FLINK-7216) | *Blocker* | **ExecutionGraph can perform concurrent global restarts to scheduling**
-
-Fixed in 
-  - 1.4.0 via 74a6cbab4e736cdb353d100cdd29f51809325796
-  - 1.3.2 via e6348fbde1fc0ee8ea682063a4d6503ba3b68864
-
-
----
-
-* [FLINK-7231](https://issues.apache.org/jira/browse/FLINK-7231) | *Blocker* | **SlotSharingGroups are not always released in time for new restarts**
-
-Fixed in
-  - 1.4.0 via 605319b550aeba5612b0e32fa193521081b7adc5
-  - 1.3.2 via 39f5b1144167dcb80e8708f4cb5426e76f648026
-
-
----
-
-* [FLINK-7225](https://issues.apache.org/jira/browse/FLINK-7225) | *Major* | **Cutoff exception message in StateDescriptor**
-
-Fixed in
-  - 1.4.0 via 3c756085375a003c7fbf8d477924f5b17efcb115
-  - 1.3.2 via 618d544491664e9fb0e67d6e95596895cdc9d56d
 
 
 ---
@@ -141,9 +44,44 @@ The default Kafka version for Flink Kafka Consumer 0.10 is bumped from 0.10.0.1 
 
 ---
 
+* [FLINK-7508](https://issues.apache.org/jira/browse/FLINK-7508) | *Critical* | **switch FlinkKinesisProducer to use KPL's ThreadingMode to ThreadedPool mode rather than Per\_Request mode**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [FLINK-7654](https://issues.apache.org/jira/browse/FLINK-7654) | *Major* | **Update RabbitMQ Java client to  4.x**
+
+The RabbitMQ Java client version used in the RabbitMQ Streaming Connector has been upgraded to 4.2.0.
+
+
+---
+
+* [FLINK-4660](https://issues.apache.org/jira/browse/FLINK-4660) | *Critical* | **HadoopFileSystem (with S3A) may leak connections, which cause job to stuck in a restarting loop**
+
+Closing the reopened issue to update versions in which this is fixed
+
+
+---
+
+* [FLINK-7388](https://issues.apache.org/jira/browse/FLINK-7388) | *Major* | **ProcessFunction.onTimer() sets processing time as timestamp**
+
+The timestamp of elements emitted from ProcessFunction.onTimer() is no longer set to the timestamp of the timestamp of the timer if the firing timer is a processing-time timer.
+
+
+---
+
+* [FLINK-7540](https://issues.apache.org/jira/browse/FLINK-7540) | *Blocker* | **Akka hostnames are not normalised consistently**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
 * [FLINK-5851](https://issues.apache.org/jira/browse/FLINK-5851) | *Major* | **Renaming AsyncCollector into ResultPromise/ResultFuture**
 
-This change is breaking the API of the AsyncFunction which is now called with a {{ResultFuture}} instead of a {{AsyncCollector}}. In order to complete the future with the result one has to call {{ResultFuture#complete}} or {{ResultFuture#completeExceptionally}} in case of an exceptional completion.
+The API of AsyncFunction is changed. The type of object handed to {{asyncInvoke()}} is now {{ResultFuture}} instead of {{AsyncCollector}}. In order to complete the future with the result one has to call {{ResultFuture#complete}} or {{ResultFuture#completeExceptionally}} in case of an exceptional completion.
 
 
 

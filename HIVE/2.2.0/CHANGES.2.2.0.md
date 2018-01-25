@@ -301,7 +301,7 @@
 | [HIVE-14530](https://issues.apache.org/jira/browse/HIVE-14530) | Union All query returns incorrect results |  Major | Query Planning | wenhe li | Jesus Camacho Rodriguez |
 | [HIVE-14589](https://issues.apache.org/jira/browse/HIVE-14589) | add consistent node replacement to LLAP for splits |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14607](https://issues.apache.org/jira/browse/HIVE-14607) |  ORC split generation failed with exception: java.lang.ArrayIndexOutOfBoundsException: 1 |  Critical | Transactions | Eugene Koifman | Matt McCline |
-| [HIVE-14693](https://issues.apache.org/jira/browse/HIVE-14693) | Some paritions will be left out when partition number is the multiple of the option hive.msck.repair.batch.size |  Major | Hive | Ferdinand Xu | Ferdinand Xu |
+| [HIVE-14693](https://issues.apache.org/jira/browse/HIVE-14693) | Some partitions will be left out when partition number is a multiple of the option hive.msck.repair.batch.size |  Major | Hive | Ferdinand Xu | Ferdinand Xu |
 | [HIVE-13383](https://issues.apache.org/jira/browse/HIVE-13383) | RetryingMetaStoreClient retries non retriable embedded metastore client |  Major | Metastore | Thejas M Nair | Thejas M Nair |
 | [HIVE-14697](https://issues.apache.org/jira/browse/HIVE-14697) | Can not access kerberized HS2 Web UI |  Major | Security, Web UI | Chaoyu Tang | Chaoyu Tang |
 | [HIVE-14608](https://issues.apache.org/jira/browse/HIVE-14608) | LLAP: slow scheduling due to LlapTaskScheduler not removing nodes on kill |  Critical | . | Sergey Shelukhin | Sergey Shelukhin |
@@ -566,6 +566,8 @@
 | [HIVE-16787](https://issues.apache.org/jira/browse/HIVE-16787) | Fix itests in branch-2.2 |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HIVE-17154](https://issues.apache.org/jira/browse/HIVE-17154) | fix rat problems in branch-2.2 |  Major | . | Owen O'Malley | Owen O'Malley |
 | [HIVE-17188](https://issues.apache.org/jira/browse/HIVE-17188) | ObjectStore runs out of memory for large batches of addPartitions(). |  Major | Metastore | Mithun Radhakrishnan | Chris Drome |
+| [HIVE-15862](https://issues.apache.org/jira/browse/HIVE-15862) | beeline always have a warning "Hive does not support autoCommit=false" |  Major | Beeline | yangfang | yangfang |
+| [HIVE-18112](https://issues.apache.org/jira/browse/HIVE-18112) | show create for view having special char in where clause is not showing properly |  Minor | . | Naresh P R | Naresh P R |
 
 
 ### TESTS:

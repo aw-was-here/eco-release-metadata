@@ -19,6 +19,9 @@
 * Apache Oozie v5.0.0
     * [Changes](5.0.0/CHANGES.5.0.0.html)
     * [Release Notes](5.0.0/RELEASENOTES.5.0.0.html)
+* Apache Oozie v4.3.1
+    * [Changes](4.3.1/CHANGES.4.3.1.html)
+    * [Release Notes](4.3.1/RELEASENOTES.4.3.1.html)
 * Apache Oozie v4.3.0
     * [Changes](4.3.0/CHANGES.4.3.0.html)
     * [Release Notes](4.3.0/RELEASENOTES.4.3.0.html)

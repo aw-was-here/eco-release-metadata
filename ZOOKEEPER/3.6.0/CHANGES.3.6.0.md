@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2017-08-28)
+## Release 3.6.0 - Unreleased (as of 2018-01-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -28,6 +28,14 @@
 | [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | Multi-thread NIOServerCnxn |  Major | server | Jay Shrauner | Thawan Kooburat |
 
 
+### IMPORTANT ISSUES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ZOOKEEPER-2890](https://issues.apache.org/jira/browse/ZOOKEEPER-2890) | Local automatic variable is left uninitialized and then freed. |  Critical | c client | Alexander A. Strelets | Alexander A. Strelets |
+| [ZOOKEEPER-2952](https://issues.apache.org/jira/browse/ZOOKEEPER-2952) | Upgrade third party libraries to address vulnerabilities |  Critical | server | Andor Molnar | Andor Molnar |
+
+
 ### NEW FEATURES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -35,6 +43,8 @@
 | [ZOOKEEPER-2163](https://issues.apache.org/jira/browse/ZOOKEEPER-2163) | Introduce new ZNode type: container |  Major | c client, java client, server | Jordan Zimmerman | Jordan Zimmerman |
 | [ZOOKEEPER-1962](https://issues.apache.org/jira/browse/ZOOKEEPER-1962) | Add a CLI command to recursively list a znode and children |  Minor | java client | Gautam Gopalakrishnan | Gautam Gopalakrishnan |
 | [ZOOKEEPER-2169](https://issues.apache.org/jira/browse/ZOOKEEPER-2169) | Enable creation of nodes with TTLs |  Major | c client, java client, jute, server | Camille Fournier | Jordan Zimmerman |
+| [ZOOKEEPER-2875](https://issues.apache.org/jira/browse/ZOOKEEPER-2875) | Add ant task for running OWASP dependency report |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-1703](https://issues.apache.org/jira/browse/ZOOKEEPER-1703) | Please add instructions for running the tutorial |  Minor | documentation | Hayden Schultz | Andor Molnar |
 
 
 ### IMPROVEMENTS:
@@ -110,6 +120,13 @@
 | [ZOOKEEPER-2864](https://issues.apache.org/jira/browse/ZOOKEEPER-2864) | Add script to run a java api compatibility tool |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2870](https://issues.apache.org/jira/browse/ZOOKEEPER-2870) | Improve the efficiency of AtomicFileOutputStream |  Major | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-2880](https://issues.apache.org/jira/browse/ZOOKEEPER-2880) | Rename README.txt to README.md |  Minor | other | Michael Han | Manoj Mallela |
+| [ZOOKEEPER-2829](https://issues.apache.org/jira/browse/ZOOKEEPER-2829) | Interface usability / compatibility improvements through Java annotation. |  Major | java client, server | Michael Han | Abraham Fine |
+| [ZOOKEEPER-2630](https://issues.apache.org/jira/browse/ZOOKEEPER-2630) | Use interface type instead of implementation type when appropriate. |  Trivial | . | Michael Han | Tamas Penzes |
+| [ZOOKEEPER-2896](https://issues.apache.org/jira/browse/ZOOKEEPER-2896) | Remove unused imports from org.apache.zookeeper.test.CreateTest.java |  Minor | tests | Nikhil Bhide | Nikhil Bhide |
+| [ZOOKEEPER-2887](https://issues.apache.org/jira/browse/ZOOKEEPER-2887) | define dependency versions in build.xml to be easily overridden in build.properties |  Major | build | Tamas Penzes | Tamas Penzes |
+| [ZOOKEEPER-2904](https://issues.apache.org/jira/browse/ZOOKEEPER-2904) | Remove unused imports from org.apache.zookeeper.server.quorum.WatchLeakTest |  Trivial | . | Nikhil Bhide | Nikhil Bhide |
+| [ZOOKEEPER-2915](https://issues.apache.org/jira/browse/ZOOKEEPER-2915) | Use "strict" conflict management in ivy |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2950](https://issues.apache.org/jira/browse/ZOOKEEPER-2950) | Add keys for the Zxid from the stat command to check\_zookeeper.py |  Trivial | scripts | Alex Bame | Alex Bame |
 
 
 ### BUG FIXES:
@@ -183,8 +200,8 @@
 | [ZOOKEEPER-2311](https://issues.apache.org/jira/browse/ZOOKEEPER-2311) | assert in setup\_random |  Major | c client | Marshall McMullen | Marshall McMullen |
 | [ZOOKEEPER-2299](https://issues.apache.org/jira/browse/ZOOKEEPER-2299) | NullPointerException in LocalPeerBean for ClientAddress |  Major | jmx | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2295](https://issues.apache.org/jira/browse/ZOOKEEPER-2295) | TGT refresh time logic is wrong |  Major | . | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2281](https://issues.apache.org/jira/browse/ZOOKEEPER-2281) | ZK Server startup fails if there are spaces in the JAVA\_HOME path |  Minor | scripts | neha | neha |
-| [ZOOKEEPER-2340](https://issues.apache.org/jira/browse/ZOOKEEPER-2340) | JMX is disabled even if JMXDISABLE is false |  Minor | . | neha | Mohammad Arshad |
+| [ZOOKEEPER-2281](https://issues.apache.org/jira/browse/ZOOKEEPER-2281) | ZK Server startup fails if there are spaces in the JAVA\_HOME path |  Minor | scripts | Neha Bathra | Neha Bathra |
+| [ZOOKEEPER-2340](https://issues.apache.org/jira/browse/ZOOKEEPER-2340) | JMX is disabled even if JMXDISABLE is false |  Minor | . | Neha Bathra | Mohammad Arshad |
 | [ZOOKEEPER-2229](https://issues.apache.org/jira/browse/ZOOKEEPER-2229) | Several four-letter words are undocumented. |  Major | documentation | Chris Nauroth | Chris Nauroth |
 | [ZOOKEEPER-2252](https://issues.apache.org/jira/browse/ZOOKEEPER-2252) | Random test case failure in org.apache.zookeeper.test.StaticHostProviderTest |  Minor | . | Mohammad Arshad | Timothy Ward |
 | [ZOOKEEPER-1029](https://issues.apache.org/jira/browse/ZOOKEEPER-1029) | C client bug in zookeeper\_init (if bad hostname is given) |  Blocker | c client | Dheeraj Agrawal | Flavio Junqueira |
@@ -280,6 +297,27 @@
 | [ZOOKEEPER-2874](https://issues.apache.org/jira/browse/ZOOKEEPER-2874) | Windows Debug builds don't link with \`/MTd\` |  Major | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
 | [ZOOKEEPER-2804](https://issues.apache.org/jira/browse/ZOOKEEPER-2804) | Node creation fails with NPE if ACLs are null |  Major | . | Bhupendra Kumar Jain | Bhupendra Kumar Jain |
 | [ZOOKEEPER-2861](https://issues.apache.org/jira/browse/ZOOKEEPER-2861) | Main-Class JAR manifest attribute is incorrect |  Minor | build | Yaniv Kunda | Yaniv Kunda |
+| [ZOOKEEPER-2349](https://issues.apache.org/jira/browse/ZOOKEEPER-2349) | Update documentation for snapCount |  Minor | documentation | Raghavendra Prabhu | maoling |
+| [ZOOKEEPER-2581](https://issues.apache.org/jira/browse/ZOOKEEPER-2581) | Not handled NullPointerException while creating key manager and trustManager |  Major | server | Rakesh Kumar Singh | maoling |
+| [ZOOKEEPER-2777](https://issues.apache.org/jira/browse/ZOOKEEPER-2777) | There is a typo in zk.py which prevents from using/compiling it. |  Major | contrib | Frederic Leger | Nikhil Bhide |
+| [ZOOKEEPER-2905](https://issues.apache.org/jira/browse/ZOOKEEPER-2905) | Don't include \`config.h\` in \`zookeeper.h\` |  Major | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
+| [ZOOKEEPER-2906](https://issues.apache.org/jira/browse/ZOOKEEPER-2906) | The OWASP dependency check jar should not be included in the default classpath |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2914](https://issues.apache.org/jira/browse/ZOOKEEPER-2914) | compiler warning using java 9 |  Minor | build | Patrick Hunt | Andor Molnar |
+| [ZOOKEEPER-2909](https://issues.apache.org/jira/browse/ZOOKEEPER-2909) | Create ant task to generate ivy dependency reports |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2690](https://issues.apache.org/jira/browse/ZOOKEEPER-2690) | Update documentation source for ZOOKEEPER-2574 |  Minor | documentation | Michael Han | Mark Fenes |
+| [ZOOKEEPER-2923](https://issues.apache.org/jira/browse/ZOOKEEPER-2923) | The comment of the variable matchSyncs in class CommitProcessor has a mistake. |  Minor | quorum | Jiafu Jiang | Jiafu Jiang |
+| [ZOOKEEPER-2934](https://issues.apache.org/jira/browse/ZOOKEEPER-2934) | c versions of election and queue recipes do not compile |  Major | recipes | Abraham Fine | Andor Molnar |
+| [ZOOKEEPER-2931](https://issues.apache.org/jira/browse/ZOOKEEPER-2931) | WriteLock recipe: incorrect znode ordering when the sessionId is part of the znode name |  Major | . | Javier Cacheiro |  |
+| [ZOOKEEPER-2944](https://issues.apache.org/jira/browse/ZOOKEEPER-2944) | Specify correct overflow value |  Trivial | documentation | Chris Donati |  |
+| [ZOOKEEPER-2948](https://issues.apache.org/jira/browse/ZOOKEEPER-2948) | Failing c unit tests on apache jenkins |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2338](https://issues.apache.org/jira/browse/ZOOKEEPER-2338) | c bindings should create socket's with SOCK\_CLOEXEC to avoid fd leaks on fork/exec |  Major | c client | James DeFelice | Radu Brumariu |
+| [ZOOKEEPER-2924](https://issues.apache.org/jira/browse/ZOOKEEPER-2924) | Flaky Test: org.apache.zookeeper.test.LoadFromLogTest.testRestoreWithTransactionErrors |  Major | server, tests | Andor Molnar | Andor Molnar |
+| [ZOOKEEPER-2951](https://issues.apache.org/jira/browse/ZOOKEEPER-2951) | zkServer.cmd does not start when JAVA\_HOME ends with a \\ |  Major | server | Jorg Heymans |  |
+| [ZOOKEEPER-2953](https://issues.apache.org/jira/browse/ZOOKEEPER-2953) | Flaky Test: testNoLogBeforeLeaderEstablishment |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2893](https://issues.apache.org/jira/browse/ZOOKEEPER-2893) | very poor choice of logging if client fails to connect to server |  Major | java client | Paul Millar | Andor Molnar |
+| [ZOOKEEPER-2249](https://issues.apache.org/jira/browse/ZOOKEEPER-2249) | CRC check failed when preAllocSize smaller than node data |  Major | . | Benjamin Jaton | Abraham Fine |
+| [ZOOKEEPER-2961](https://issues.apache.org/jira/browse/ZOOKEEPER-2961) | Fix testElectionFraud Flakyness |  Major | . | Abraham Fine | Abraham Fine |
+| [ZOOKEEPER-2964](https://issues.apache.org/jira/browse/ZOOKEEPER-2964) | "Conf" command returns dataDir and dataLogDir opposingly |  Minor | server | Qihong Xu |  |
 
 
 ### TESTS:
@@ -324,12 +362,14 @@
 | [ZOOKEEPER-2707](https://issues.apache.org/jira/browse/ZOOKEEPER-2707) | Fix "Unexpected bean exists!" issue in WatcherTests |  Major | tests | Abraham Fine | Michael Han |
 | [ZOOKEEPER-2754](https://issues.apache.org/jira/browse/ZOOKEEPER-2754) | Set up Apache Jenkins job that runs the flaky test analyzer script. |  Major | tests | Michael Han | Michael Han |
 | [ZOOKEEPER-169](https://issues.apache.org/jira/browse/ZOOKEEPER-169) | Content needed: "Connecting to ZooKeeper" |  Major | documentation | Robbie Scott | Michelle Tan |
+| [ZOOKEEPER-2935](https://issues.apache.org/jira/browse/ZOOKEEPER-2935) | [QP MutualAuth]: Port ZOOKEEPER-1045 implementation from branch-3.5 to trunk |  Major | quorum, security | Abraham Fine | Abraham Fine |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ZOOKEEPER-2795](https://issues.apache.org/jira/browse/ZOOKEEPER-2795) | Change log level for "ZKShutdownHandler is not registered" error message |  Trivial | . | Andy Chambers | Abraham Fine |
 | [ZOOKEEPER-1604](https://issues.apache.org/jira/browse/ZOOKEEPER-1604) | remove rpm/deb/... packaging |  Major | build | Patrick Hunt | Chris Nauroth |
 | [ZOOKEEPER-2658](https://issues.apache.org/jira/browse/ZOOKEEPER-2658) | Trunk / branch-3.5 build broken. |  Critical | . | Michael Han | Michael Han |
 | [ZOOKEEPER-2709](https://issues.apache.org/jira/browse/ZOOKEEPER-2709) | Clarify documentation around "auth" ACL scheme |  Minor | documentation | Josh Elser | Josh Elser |

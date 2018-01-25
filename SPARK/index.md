@@ -19,15 +19,27 @@
 * Apache Spark v3.0.0
     * [Changes](3.0.0/CHANGES.3.0.0.html)
     * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
+* Apache Spark v2.4.0
+    * [Changes](2.4.0/CHANGES.2.4.0.html)
+    * [Release Notes](2.4.0/RELEASENOTES.2.4.0.html)
+* Apache Spark v2.3.1
+    * [Changes](2.3.1/CHANGES.2.3.1.html)
+    * [Release Notes](2.3.1/RELEASENOTES.2.3.1.html)
 * Apache Spark v2.3.0
     * [Changes](2.3.0/CHANGES.2.3.0.html)
     * [Release Notes](2.3.0/RELEASENOTES.2.3.0.html)
+* Apache Spark v2.2.2
+    * [Changes](2.2.2/CHANGES.2.2.2.html)
+    * [Release Notes](2.2.2/RELEASENOTES.2.2.2.html)
 * Apache Spark v2.2.1
     * [Changes](2.2.1/CHANGES.2.2.1.html)
     * [Release Notes](2.2.1/RELEASENOTES.2.2.1.html)
 * Apache Spark v2.2.0
     * [Changes](2.2.0/CHANGES.2.2.0.html)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
+* Apache Spark v2.1.3
+    * [Changes](2.1.3/CHANGES.2.1.3.html)
+    * [Release Notes](2.1.3/RELEASENOTES.2.1.3.html)
 * Apache Spark v2.1.2
     * [Changes](2.1.2/CHANGES.2.1.2.html)
     * [Release Notes](2.1.2/RELEASENOTES.2.1.2.html)

@@ -150,7 +150,7 @@
 | [OOZIE-2413](https://issues.apache.org/jira/browse/OOZIE-2413) | Kerberos credentials can expire if the KDC is slow to respond |  Major | security | Robert Kanter | Robert Kanter |
 | [OOZIE-2348](https://issues.apache.org/jira/browse/OOZIE-2348) | Recovery service keeps on recovering coord action of suspended jobs |  Major | . | Purshotam Shah | Purshotam Shah |
 | [OOZIE-2407](https://issues.apache.org/jira/browse/OOZIE-2407) | AbandonedService should not send mail if there is no abandoned coord |  Major | . | Purshotam Shah | Purshotam Shah |
-| [OOZIE-2380](https://issues.apache.org/jira/browse/OOZIE-2380) | Oozie Hive action failed with wrong tmp path |  Major | core | Sergey Svinarchuk | Sergey Svinarchuk |
+| [OOZIE-2380](https://issues.apache.org/jira/browse/OOZIE-2380) | Oozie Hive action failed with wrong tmp path |  Major | core | Sergey Svynarchuk | Sergey Svynarchuk |
 | [OOZIE-2030](https://issues.apache.org/jira/browse/OOZIE-2030) | Configuration properties from global section is not getting set in Hadoop job conf when using sub-workflow action in Oozie workflow.xml |  Major | action | Peeyush Bishnoi | Jaydeep Vishwakarma |
 | [OOZIE-2428](https://issues.apache.org/jira/browse/OOZIE-2428) | TestSLAService, TestSLAEventGeneration flakey tests |  Minor | tests | Ferenc Denes | Ferenc Denes |
 | [OOZIE-2435](https://issues.apache.org/jira/browse/OOZIE-2435) | TestCoordChangeXCommand is flakey |  Major | tests | Ferenc Denes | Ferenc Denes |
@@ -263,7 +263,7 @@
 | [OOZIE-2194](https://issues.apache.org/jira/browse/OOZIE-2194) | oozie job -kill doesn't work with spark action |  Major | . | Thomas Graves | Abhishek Bafna |
 | [OOZIE-2673](https://issues.apache.org/jira/browse/OOZIE-2673) | Include XSD for shell-action:0.3 in documentation |  Minor | . | Satish Subhashrao Saley | Abhishek Bafna |
 | [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606) | Set spark.yarn.jars to fix Spark 2.0 with Oozie |  Major | core | Jonathan Kelly | Satish Subhashrao Saley |
-| [OOZIE-2622](https://issues.apache.org/jira/browse/OOZIE-2622) | ExtJS 2.2 is no longer available |  Blocker | . | Sergey Svinarchuk | Robert Kanter |
+| [OOZIE-2622](https://issues.apache.org/jira/browse/OOZIE-2622) | ExtJS 2.2 is no longer available |  Blocker | . | Sergey Svynarchuk | Robert Kanter |
 | [OOZIE-1814](https://issues.apache.org/jira/browse/OOZIE-1814) | Oozie should mask any passwords in logs and REST interfaces |  Major | . | Bowen Zhang | Andras Piros |
 | [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658) | --driver-class-path can overwrite the classpath in SparkMain |  Blocker | . | Peter Cseh | Peter Cseh |
 | [OOZIE-2613](https://issues.apache.org/jira/browse/OOZIE-2613) | Upgrade hive version from 0.13.1 to 1.2.0 |  Blocker | core | Abhishek Bafna | Abhishek Bafna |

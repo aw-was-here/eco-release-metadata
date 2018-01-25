@@ -1233,7 +1233,7 @@
 | [SPARK-13923](https://issues.apache.org/jira/browse/SPARK-13923) | Implement SessionCatalog to manage temp functions and tables |  Major | SQL | Andrew Or | Andrew Or |
 | [SPARK-13719](https://issues.apache.org/jira/browse/SPARK-13719) | Bad JSON record raises ﻿java.lang.ClassCastException |  Minor | SQL | dmtran | Hyukjin Kwon |
 | [SPARK-13403](https://issues.apache.org/jira/browse/SPARK-13403) | HiveConf used for SparkSQL is not based on the Hadoop configuration |  Major | Spark Core | Ryan Blue | Ryan Blue |
-| [SPARK-13948](https://issues.apache.org/jira/browse/SPARK-13948) | 	MiMa Check should catch if the visibility change to \`private\` |  Critical | Build, Project Infra | Dongjoon Hyun | Josh Rosen |
+| [SPARK-13948](https://issues.apache.org/jira/browse/SPARK-13948) |  MiMa Check should catch if the visibility change to \`private\` |  Critical | Build, Project Infra | Dongjoon Hyun | Josh Rosen |
 | [SPARK-13901](https://issues.apache.org/jira/browse/SPARK-13901) | We get wrong logdebug information when jump to the next locality level. |  Trivial | Scheduler, Spark Core | yaoyin | yaoyin |
 | [SPARK-13776](https://issues.apache.org/jira/browse/SPARK-13776) | Web UI is not available after ./sbin/start-master.sh |  Minor | Web UI | Erik O'Shaughnessy | Shixiong Zhu |
 | [SPARK-13937](https://issues.apache.org/jira/browse/SPARK-13937) | PySpark ML JavaWrapper, variable \_java\_obj should not be static |  Trivial | ML, PySpark | Bryan Cutler | Bryan Cutler |

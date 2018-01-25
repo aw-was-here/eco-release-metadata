@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.3.4 - Unreleased (as of 2017-08-28)
+## Release 1.3.4 - 2017-10-16
 
 
 
@@ -42,6 +42,9 @@
 | [ORC-87](https://issues.apache.org/jira/browse/ORC-87) | [C++] Handle missing timezone conversion for timestamp statistics |  Major | C++ | Deepak Majeti | Deepak Majeti |
 | [ORC-181](https://issues.apache.org/jira/browse/ORC-181) | ByteRleDecoder doesn't seek correctly |  Major | C++ | Gang Wu | Gang Wu |
 | [ORC-188](https://issues.apache.org/jira/browse/ORC-188) | Fix RAT problems |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-162](https://issues.apache.org/jira/browse/ORC-162) | Handle 0 byte files as empty ORC files |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-241](https://issues.apache.org/jira/browse/ORC-241) | Make attempts to read a future file format a runtime error instead of warning |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-246](https://issues.apache.org/jira/browse/ORC-246) | fix dockerfile for ubuntu 16 to install tzdata |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:

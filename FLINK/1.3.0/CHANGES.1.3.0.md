@@ -278,7 +278,7 @@
 | [FLINK-5350](https://issues.apache.org/jira/browse/FLINK-5350) | Don't overwrite existing Jaas config property |  Major | Security | Maximilian Michels | Maximilian Michels |
 | [FLINK-5427](https://issues.apache.org/jira/browse/FLINK-5427) | Typo in the event\_timestamps\_watermarks doc |  Minor | Documentation | Yelei Feng |  |
 | [FLINK-5379](https://issues.apache.org/jira/browse/FLINK-5379) | Flink CliFrontend does not return when not logged in with kerberos |  Major | Client | Robert Metzger | Eron Wright |
-| [FLINK-5444](https://issues.apache.org/jira/browse/FLINK-5444) | Flink UI uses absolute URLs. |  Major | . | Joerg Schad | Joerg Schad |
+| [FLINK-5444](https://issues.apache.org/jira/browse/FLINK-5444) | Flink UI uses absolute URLs. |  Major | . | Jörg Schad | Jörg Schad |
 | [FLINK-5407](https://issues.apache.org/jira/browse/FLINK-5407) | Savepoint for iterative Task fails. |  Major | State Backends, Checkpointing | Stephan Ewen | Stefan Richter |
 | [FLINK-5467](https://issues.apache.org/jira/browse/FLINK-5467) | Stateless chained tasks set legacy operator state |  Major | State Backends, Checkpointing | Ufuk Celebi | Stefan Richter |
 | [FLINK-5489](https://issues.apache.org/jira/browse/FLINK-5489) | maven release:prepare fails due to invalid JDOM comments in pom.xml |  Minor | Build System | Haohui Mai | Haohui Mai |
@@ -551,6 +551,7 @@
 | [FLINK-7039](https://issues.apache.org/jira/browse/FLINK-7039) | Increase forkCountTestPackage for sudo-enabled TravisCI |  Trivial | Build System | Greg Hogan | Greg Hogan |
 | [FLINK-6412](https://issues.apache.org/jira/browse/FLINK-6412) | Stream has already been closed during job cancel |  Major | State Backends, Checkpointing | Andrey | Stefan Richter |
 | [FLINK-7176](https://issues.apache.org/jira/browse/FLINK-7176) | Failed builds (due to compilation) don't upload logs |  Major | Travis | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-7730](https://issues.apache.org/jira/browse/FLINK-7730) | TableFunction LEFT OUTER joins with ON predicates are broken |  Critical | Table API & SQL | Fabian Hueske | Xingcan Cui |
 
 
 ### TESTS:
@@ -658,6 +659,7 @@
 | [FLINK-5867](https://issues.apache.org/jira/browse/FLINK-5867) | The implementation of RestartPipelinedRegionStrategy |  Major | JobManager | shuai.xu | shuai.xu |
 | [FLINK-5868](https://issues.apache.org/jira/browse/FLINK-5868) | Implement a new RestartStrategy that works for the FailoverRegion. |  Major | JobManager | shuai.xu | shuai.xu |
 | [FLINK-5866](https://issues.apache.org/jira/browse/FLINK-5866) | The implementation of FailoverRegion. |  Major | JobManager | shuai.xu | shuai.xu |
+| [FLINK-6676](https://issues.apache.org/jira/browse/FLINK-6676) | API Migration guide: add QueryableStateClient changes |  Major | Documentation, Queryable State | Nico Kruber | Kostas Kloudas |
 
 
 ### OTHER:
@@ -670,6 +672,8 @@
 | [FLINK-6269](https://issues.apache.org/jira/browse/FLINK-6269) | var could be a val |  Trivial | JobManager | CanBin Zheng | CanBin Zheng |
 | [FLINK-4644](https://issues.apache.org/jira/browse/FLINK-4644) | Deprecate "flink.base.dir.path" from ConfigConstants |  Minor | Build System | Maximilian Michels | Stephan Ewen |
 | [FLINK-4545](https://issues.apache.org/jira/browse/FLINK-4545) | Flink automatically manages TM network buffer |  Critical | Network | Zhenzhong Xu | Nico Kruber |
+| [FLINK-7537](https://issues.apache.org/jira/browse/FLINK-7537) | Add InfluxDB Sink for Flink Streaming |  Major | Streaming Connectors | Hai Zhou UTC+8 | Hai Zhou UTC+8 |
+| [FLINK-6106](https://issues.apache.org/jira/browse/FLINK-6106) | Blob Server doesn't delete tmp fold when exit in HA mode. |  Major | Distributed Coordination, JobManager | Syinchwun Leo |  |
 | [FLINK-5084](https://issues.apache.org/jira/browse/FLINK-5084) | Replace Java Table API integration tests by unit tests |  Minor | Table API & SQL | Fabian Hueske |  |
 | [FLINK-4820](https://issues.apache.org/jira/browse/FLINK-4820) | Slf4j / log4j version upgrade to support dynamic change of log levels --\> Make logging framework exchangeable |  Major | Build System | Zhenzhong Xu | Stephan Ewen |
 | [FLINK-5074](https://issues.apache.org/jira/browse/FLINK-5074) | Implement a RunningJobRegistry based on Zookeeper |  Major | Cluster Management | shuai.xu | shuai.xu |

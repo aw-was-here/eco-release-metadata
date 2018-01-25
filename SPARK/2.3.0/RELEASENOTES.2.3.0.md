@@ -301,4 +301,84 @@ import com.datastax.spark.connector.\_
 {code}
 
 
+---
+
+* [SPARK-17047](https://issues.apache.org/jira/browse/SPARK-17047) | *Major* | **Spark 2 cannot create table when CLUSTERED.**
+
+This does not work with CLUSTERED BY clause in Spark 2 now!
+
+
+
+
+CREATE TABLE test.dummy2
+ (
+     ID INT
+   , CLUSTERED INT
+   , SCATTERED INT
+   , RANDOMISED INT
+   , RANDOM\_STRING VARCHAR(50)
+   , SMALL\_VC VARCHAR(10)
+   , PADDING  VARCHAR(10)
+)
+CLUSTERED BY (ID) INTO 256 BUCKETS
+STORED AS ORC
+TBLPROPERTIES ( "orc.compress"="SNAPPY",
+"orc.create.index"="true",
+"orc.bloom.filter.columns"="ID",
+"orc.bloom.filter.fpp"="0.05",
+"orc.stripe.size"="268435456",
+"orc.row.index.stride"="10000" )
+
+scala\> HiveContext.sql(sqltext)
+org.apache.spark.sql.catalyst.parser.ParseException:
+Operation not allowed: CREATE TABLE ... CLUSTERED BY(line 2, pos 0)
+
+
+---
+
+* [SPARK-19552](https://issues.apache.org/jira/browse/SPARK-19552) | *Major* | **Upgrade Netty version to 4.1.x final**
+
+Netty 4.1.8 was recently released but isn't API compatible with previous major versions (like Netty 4.0.x), see http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html for details.
+
+This version does include a fix for a security concern but not one we'd be exposed to with Spark "out of the box". Let's upgrade the version we use to be on the safe side as the security fix I'm especially interested in is not available in the 4.0.x release line. 
+
+We should move up anyway to take on a bunch of other big fixes cited in the release notes (and if anyone were to use Spark with netty and tcnative, they shouldn't be exposed to the security problem) - we should be good citizens and make this change.
+
+As this 4.1 version involves API changes we'll need to implement a few methods and possibly adjust the Sasl tests. This JIRA and associated pull request starts the process which I'll work on - and any help would be much appreciated! Currently I know:
+
+{code}
+@Override
+public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise)
+      throws Exception {
+      if (!foundEncryptionHandler) {
+        foundEncryptionHandler =
+          ctx.channel().pipeline().get(encryptHandlerName) != null; \<-- this returns false and causes test failures
+      }
+      ctx.write(msg, promise);
+    }
+{code}
+
+
+Here's what changes will be required (at least):
+
+{code}
+common/network-common/src/main/java/org/apache/spark/network/crypto/TransportCipher.java{code} requires touch, retain and transferred methods
+
+{code}
+common/network-common/src/main/java/org/apache/spark/network/sasl/SaslEncryption.java{code} requires the above methods too
+
+{code}common/network-common/src/test/java/org/apache/spark/network/protocol/MessageWithHeaderSuite.java{code}
+
+With "dummy" implementations so we can at least compile and test, we'll see five new test failures to address.
+
+These are
+{code}
+org.apache.spark.network.sasl.SparkSaslSuite.testFileRegionEncryption
+org.apache.spark.network.sasl.SparkSaslSuite.testSaslEncryption
+org.apache.spark.network.shuffle.ExternalShuffleSecuritySuite.testEncryption
+org.apache.spark.rpc.netty.NettyRpcEnvSuite.send with SASL encryption
+org.apache.spark.rpc.netty.NettyRpcEnvSuite.ask with SASL encryption
+{code}
+
+
 

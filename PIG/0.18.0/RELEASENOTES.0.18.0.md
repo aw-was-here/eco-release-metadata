@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [PIG-5272](https://issues.apache.org/jira/browse/PIG-5272) | *Minor* | **BagToTuple output schema is incorrect**
+
+Removed Incorrect Schema Definition from BagToTuple
+
+
 

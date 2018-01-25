@@ -498,11 +498,4 @@ The WASB FileSystem now uses version 5.3.0 of the Azure Storage SDK.
 Fix to wasb:// (Azure) file system that allows the concurrent I/O feature to be used with the secure mode feature.
 
 
----
-
-* [YARN-6959](https://issues.apache.org/jira/browse/YARN-6959) | *Major* | **RM may allocate wrong AM Container for new attempt**
-
-ResourceManager will now record ResourceRequests from different attempts into different objects.
-
-
 

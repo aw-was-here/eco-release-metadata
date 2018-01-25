@@ -35,8 +35,6 @@
 | [FLINK-6575](https://issues.apache.org/jira/browse/FLINK-6575) | Disable all tests on Windows that use HDFS |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7032](https://issues.apache.org/jira/browse/FLINK-7032) | Intellij is constantly changing language level of sub projects back to 1.6 |  Major | Build System | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-7069](https://issues.apache.org/jira/browse/FLINK-7069) | Catch exceptions for each reporter separately |  Blocker | Metrics | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-7149](https://issues.apache.org/jira/browse/FLINK-7149) | Add checkpoint ID to 'sendValues()' in GenericWriteAheadSink |  Major | Streaming Connectors | Stephan Ewen | Stephan Ewen |
-| [FLINK-7233](https://issues.apache.org/jira/browse/FLINK-7233) | TaskManagerHeapSizeCalculationJavaBashTest failed on Travis |  Major | Tests | Chesnay Schepler | Nico Kruber |
 | [FLINK-7224](https://issues.apache.org/jira/browse/FLINK-7224) | Incorrect Javadoc description in all Kafka consumer versions |  Major | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-7211](https://issues.apache.org/jira/browse/FLINK-7211) | Exclude Gelly javadoc jar from release |  Trivial | Build System | Greg Hogan | Greg Hogan |
 | [FLINK-6365](https://issues.apache.org/jira/browse/FLINK-6365) | Adapt default values of the Kinesis connector |  Minor | Kinesis Connector | Steffen Hausmann | Bowen Li |
@@ -46,6 +44,9 @@
 | [FLINK-6998](https://issues.apache.org/jira/browse/FLINK-6998) | Kafka connector needs to expose metrics for failed/successful offset commits in the Kafka Consumer callback |  Major | Kafka Connector | Zhenzhong Xu | Zhenzhong Xu |
 | [FLINK-7287](https://issues.apache.org/jira/browse/FLINK-7287) | test instability in Kafka010ITCase.testCommitOffsetsToKafka |  Major | Kafka Connector, Tests | Nico Kruber | Nico Kruber |
 | [FLINK-7290](https://issues.apache.org/jira/browse/FLINK-7290) | Make release scripts modular |  Major | Build System | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-6995](https://issues.apache.org/jira/browse/FLINK-6995) | Add a warning to outdated documentation |  Major | Documentation | Timo Walther | mingleizhang |
+| [FLINK-7233](https://issues.apache.org/jira/browse/FLINK-7233) | TaskManagerHeapSizeCalculationJavaBashTest failed on Travis |  Major | Tests | Chesnay Schepler | Nico Kruber |
+| [FLINK-7149](https://issues.apache.org/jira/browse/FLINK-7149) | Add checkpoint ID to 'sendValues()' in GenericWriteAheadSink |  Major | Streaming Connectors | Stephan Ewen | Stephan Ewen |
 
 
 ### BUG FIXES:
@@ -69,17 +70,12 @@
 | [FLINK-7038](https://issues.apache.org/jira/browse/FLINK-7038) | Several misused "KeyedDataStream" term in docs and Javadocs |  Trivial | Documentation | Tzu-Li (Gordon) Tai | mingleizhang |
 | [FLINK-7041](https://issues.apache.org/jira/browse/FLINK-7041) | Deserialize StateBackend from JobCheckpointingSettings with user classloader |  Blocker | DataStream API, Distributed Coordination, State Backends, Checkpointing | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-7133](https://issues.apache.org/jira/browse/FLINK-7133) | Fix Elasticsearch version interference |  Blocker | Streaming Connectors | Aljoscha Krettek | Adebski |
-| [FLINK-7158](https://issues.apache.org/jira/browse/FLINK-7158) | Wrong test jar dependency in flink-clients |  Blocker | Build System | Stephan Ewen | Stephan Ewen |
 | [FLINK-6965](https://issues.apache.org/jira/browse/FLINK-6965) | Avro is missing snappy dependency |  Blocker | Type Serialization System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7132](https://issues.apache.org/jira/browse/FLINK-7132) | Fix BulkIteration parallelism |  Major | Java API | Greg Hogan | Greg Hogan |
 | [FLINK-7034](https://issues.apache.org/jira/browse/FLINK-7034) | GraphiteReporter cannot recover from lost connection |  Blocker | Metrics | Aleksandr | Aljoscha Krettek |
 | [FLINK-7154](https://issues.apache.org/jira/browse/FLINK-7154) | Missing call to build CsvTableSource example |  Trivial | Documentation | Greg Hogan | Greg Hogan |
 | [FLINK-7178](https://issues.apache.org/jira/browse/FLINK-7178) | Datadog Metric Reporter Jar is Lacking Dependencies |  Critical | Metrics | Elias Levy | Chesnay Schepler |
 | [FLINK-6964](https://issues.apache.org/jira/browse/FLINK-6964) | Fix recovery for incremental checkpoints in StandaloneCompletedCheckpointStore |  Blocker | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
-| [FLINK-6654](https://issues.apache.org/jira/browse/FLINK-6654) | missing maven dependency on "flink-shaded-hadoop2-uber" in flink-dist |  Major | Build System | Nico Kruber | Nico Kruber |
-| [FLINK-7216](https://issues.apache.org/jira/browse/FLINK-7216) | ExecutionGraph can perform concurrent global restarts to scheduling |  Blocker | Distributed Coordination | Stephan Ewen | Stephan Ewen |
-| [FLINK-7231](https://issues.apache.org/jira/browse/FLINK-7231) | SlotSharingGroups are not always released in time for new restarts |  Blocker | Distributed Coordination | Stephan Ewen | Stephan Ewen |
-| [FLINK-7225](https://issues.apache.org/jira/browse/FLINK-7225) | Cutoff exception message in StateDescriptor |  Major | State Backends, Checkpointing | Chesnay Schepler | Stephan Ewen |
 | [FLINK-7137](https://issues.apache.org/jira/browse/FLINK-7137) | Flink table API defaults top level fields as nullable and all nested fields within CompositeType as non-nullable |  Major | Table API & SQL | Rong Rong | Rong Rong |
 | [FLINK-7177](https://issues.apache.org/jira/browse/FLINK-7177) | DataSetAggregateWithNullValuesRule fails creating null literal for non-nullable type |  Major | Table API & SQL | Rong Rong | Timo Walther |
 | [FLINK-7255](https://issues.apache.org/jira/browse/FLINK-7255) | ListStateDescriptor example uses wrong constructor |  Major | Documentation, State Backends, Checkpointing | Chesnay Schepler | Chesnay Schepler |
@@ -92,6 +88,13 @@
 | [FLINK-6996](https://issues.apache.org/jira/browse/FLINK-6996) | FlinkKafkaProducer010 doesn't guarantee at-least-once semantic |  Blocker | Kafka Connector | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-7143](https://issues.apache.org/jira/browse/FLINK-7143) | Partition assignment for Kafka consumer is not stable |  Blocker | Kafka Connector | Steven Zhen Wu | Tzu-Li (Gordon) Tai |
 | [FLINK-7268](https://issues.apache.org/jira/browse/FLINK-7268) | Zookeeper Checkpoint Store interacting with Incremental State Handles can lead to loss of handles |  Blocker | State Backends, Checkpointing | Aljoscha Krettek | Stefan Richter |
+| [FLINK-4660](https://issues.apache.org/jira/browse/FLINK-4660) | HadoopFileSystem (with S3A) may leak connections, which cause job to stuck in a restarting loop |  Critical | State Backends, Checkpointing | Zhenzhong Xu |  |
+| [FLINK-7231](https://issues.apache.org/jira/browse/FLINK-7231) | SlotSharingGroups are not always released in time for new restarts |  Blocker | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-7225](https://issues.apache.org/jira/browse/FLINK-7225) | Cutoff exception message in StateDescriptor |  Major | State Backends, Checkpointing | Chesnay Schepler | Stephan Ewen |
+| [FLINK-7216](https://issues.apache.org/jira/browse/FLINK-7216) | ExecutionGraph can perform concurrent global restarts to scheduling |  Blocker | Distributed Coordination | Stephan Ewen | Stephan Ewen |
+| [FLINK-7158](https://issues.apache.org/jira/browse/FLINK-7158) | Wrong test jar dependency in flink-clients |  Blocker | Build System | Stephan Ewen | Stephan Ewen |
+| [FLINK-6654](https://issues.apache.org/jira/browse/FLINK-6654) | missing maven dependency on "flink-shaded-hadoop2-uber" in flink-dist |  Major | Build System | Nico Kruber | Nico Kruber |
+| [FLINK-7266](https://issues.apache.org/jira/browse/FLINK-7266) | Don't attempt to delete parent directory on S3 |  Blocker | Core | Stephan Ewen | Aljoscha Krettek |
 
 
 ### SUB-TASKS:
@@ -99,7 +102,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-6680](https://issues.apache.org/jira/browse/FLINK-6680) | App & Flink migration guide: updates for the 1.3 release |  Major | Documentation | Nico Kruber | Tzu-Li (Gordon) Tai |
-| [FLINK-6665](https://issues.apache.org/jira/browse/FLINK-6665) | Pass a ScheduledExecutorService to the RestartStrategy |  Major | Distributed Coordination | Stephan Ewen | Fang Yong |
 | [FLINK-6667](https://issues.apache.org/jira/browse/FLINK-6667) | Pass a callback type to the RestartStrategy, rather than the full ExecutionGraph |  Major | Distributed Coordination | Stephan Ewen | Fang Yong |
+| [FLINK-6665](https://issues.apache.org/jira/browse/FLINK-6665) | Pass a ScheduledExecutorService to the RestartStrategy |  Major | Distributed Coordination | Stephan Ewen | Fang Yong |
 
 

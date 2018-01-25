@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-08-28)
+## Release 2.0.0 - Unreleased (as of 2018-01-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -38,11 +38,14 @@
 | [HBASE-12774](https://issues.apache.org/jira/browse/HBASE-12774) | Fix the inconsistent permission checks for bulkloading. |  Minor | . | Srikanth Srungarapu | Srikanth Srungarapu |
 | [HBASE-12684](https://issues.apache.org/jira/browse/HBASE-12684) | Add new AsyncRpcClient |  Major | Client | Jurriaan Mous | Jurriaan Mous |
 | [HBASE-6778](https://issues.apache.org/jira/browse/HBASE-6778) | Deprecate Chore; its a thread per task when we should have one thread to do all tasks |  Major | . | stack | Jonathan Lawlor |
+| [HBASE-13171](https://issues.apache.org/jira/browse/HBASE-13171) | Change AccessControlClient methods to accept connection object to reduce setup time. |  Minor | . | Srikanth Srungarapu | Srikanth Srungarapu |
 | [HBASE-12586](https://issues.apache.org/jira/browse/HBASE-12586) | Task 6 & 7 from HBASE-9117,  delete all public HTable constructors and delete ConnectionManager#{delete,get}Connection |  Major | . | stack | Mikhail Antonov |
 | [HBASE-13198](https://issues.apache.org/jira/browse/HBASE-13198) | Remove HConnectionManager |  Major | API | Mikhail Antonov | Mikhail Antonov |
 | [HBASE-13248](https://issues.apache.org/jira/browse/HBASE-13248) | Make HConnectionImplementation top-level class. |  Major | API | Mikhail Antonov | Mikhail Antonov |
+| [HBASE-13298](https://issues.apache.org/jira/browse/HBASE-13298) | Clarify if Table.{set\|get}WriteBufferSize() is deprecated or not |  Critical | API | Lars George | stack |
 | [HBASE-10728](https://issues.apache.org/jira/browse/HBASE-10728) | get\_counter value is never used. |  Major | . | Jean-Marc Spaggiari | Lars George |
 | [HBASE-13373](https://issues.apache.org/jira/browse/HBASE-13373) | Squash HFileReaderV3 together with HFileReaderV2 and AbstractHFileReader; ditto for Scanners and BlockReader, etc. |  Major | . | stack | stack |
+| [HBASE-12990](https://issues.apache.org/jira/browse/HBASE-12990) | MetaScanner should be replaced by MetaTableAccessor |  Major | Client | Andrey Stepachev | Andrey Stepachev |
 | [HBASE-13118](https://issues.apache.org/jira/browse/HBASE-13118) | [PE] Add being able to write many columns |  Major | test | stack | stack |
 | [HBASE-10800](https://issues.apache.org/jira/browse/HBASE-10800) | Use CellComparator instead of KVComparator |  Major | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-13636](https://issues.apache.org/jira/browse/HBASE-13636) | Remove deprecation for HBASE-4072 (Reading of zoo.cfg) |  Major | . | Lars Francke | Lars Francke |
@@ -55,6 +58,7 @@
 | [HBASE-14047](https://issues.apache.org/jira/browse/HBASE-14047) | Cleanup deprecated APIs from Cell class |  Major | Client | Ashish Singhi | Ashish Singhi |
 | [HBASE-7782](https://issues.apache.org/jira/browse/HBASE-7782) | HBaseTestingUtility.truncateTable() not acting like CLI |  Minor | test | Adrien Mogenet | Sean Busbey |
 | [HBASE-14027](https://issues.apache.org/jira/browse/HBASE-14027) | Clean up netty dependencies |  Major | build | Sean Busbey | Sean Busbey |
+| [HBASE-12296](https://issues.apache.org/jira/browse/HBASE-12296) | Filters should work with ByteBufferedCell |  Major | regionserver, Scanners | ramkrishna.s.vasudevan | Anoop Sam John |
 | [HBASE-13954](https://issues.apache.org/jira/browse/HBASE-13954) | Remove HTableInterface#getRowOrBefore related server side code |  Major | API | Ashish Singhi | Ashish Singhi |
 | [HBASE-13706](https://issues.apache.org/jira/browse/HBASE-13706) | CoprocessorClassLoader should not exempt Hive classes |  Minor | Coprocessors | Jerry He | Jerry He |
 | [HBASE-12751](https://issues.apache.org/jira/browse/HBASE-12751) | Allow RowLock to be reader writer |  Major | regionserver | Elliott Clark | stack |
@@ -118,6 +122,7 @@
 | [HBASE-18009](https://issues.apache.org/jira/browse/HBASE-18009) | Move RpcServer.Call to a separated file |  Major | IPC/RPC | Duo Zhang | Duo Zhang |
 | [HBASE-15199](https://issues.apache.org/jira/browse/HBASE-15199) | Move jruby jar so only on hbase-shell module classpath; currently globally available |  Critical | dependencies, jruby, shell | stack | Xiang Li |
 | [HBASE-15296](https://issues.apache.org/jira/browse/HBASE-15296) | Break out writer and reader from StoreFile |  Major | regionserver | Appy | Appy |
+| [HBASE-11013](https://issues.apache.org/jira/browse/HBASE-11013) | Clone Snapshots on Secure Cluster Should provide option to apply Retained User Permissions |  Major | snapshots | Ted Yu | Zheng Hu |
 | [HBASE-3462](https://issues.apache.org/jira/browse/HBASE-3462) | Fix table.jsp in regards to splitting a region/table with an optional splitkey |  Major | master | Lars George | Balazs Meszaros |
 | [HBASE-14614](https://issues.apache.org/jira/browse/HBASE-14614) | Procedure v2: Core Assignment Manager |  Major | proc-v2 | Stephen Yuan Jiang | Matteo Bertozzi |
 | [HBASE-16196](https://issues.apache.org/jira/browse/HBASE-16196) | Update jruby to a newer version. |  Critical | dependencies, shell | Elliott Clark | Mike Drob |
@@ -129,6 +134,9 @@
 | [HBASE-18528](https://issues.apache.org/jira/browse/HBASE-18528) | DON'T allow user to modify the passed table/column descriptor |  Critical | Coprocessors, master | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-18511](https://issues.apache.org/jira/browse/HBASE-18511) | Default no regions on master |  Blocker | master | stack | stack |
 | [HBASE-18546](https://issues.apache.org/jira/browse/HBASE-18546) | Always overwrite the TS for Append/Increment unless no existing cells are found |  Critical | API, Client | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-15607](https://issues.apache.org/jira/browse/HBASE-15607) | Remove PB references from Admin for 2.0 |  Blocker | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
+| [HBASE-18142](https://issues.apache.org/jira/browse/HBASE-18142) | Deletion of a cell deletes the previous versions too |  Major | API, shell | Karthick | ChunHao |
+| [HBASE-18897](https://issues.apache.org/jira/browse/HBASE-18897) | Substitute MemStore for Memstore |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 
 
 ### IMPORTANT ISSUES:
@@ -178,18 +186,13 @@
 | [HBASE-10070](https://issues.apache.org/jira/browse/HBASE-10070) | HBase read high-availability using timeline-consistent region replicas |  Major | Admin, API, LatencyResilience | Enis Soztutar | Enis Soztutar |
 | [HBASE-13639](https://issues.apache.org/jira/browse/HBASE-13639) | SyncTable - rsync for HBase tables |  Major | mapreduce, Operability, tooling | Dave Latham | Dave Latham |
 | [HBASE-13702](https://issues.apache.org/jira/browse/HBASE-13702) | ImportTsv: Add dry-run functionality and log bad rows |  Major | . | Appy | Appy |
-| [HBASE-13992](https://issues.apache.org/jira/browse/HBASE-13992) | Integrate SparkOnHBase into HBase |  Major | spark | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-14154](https://issues.apache.org/jira/browse/HBASE-14154) | DFS Replication should be configurable at column family level |  Minor | . | Ashish Singhi | Ashish Singhi |
-| [HBASE-14150](https://issues.apache.org/jira/browse/HBASE-14150) | Add BulkLoad functionality to HBase-Spark Module |  Major | spark | Theodore michael Malaska | Theodore michael Malaska |
-| [HBASE-14181](https://issues.apache.org/jira/browse/HBASE-14181) | Add Spark DataFrame DataSource to HBase-Spark Module |  Minor | spark | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-14456](https://issues.apache.org/jira/browse/HBASE-14456) | Implement a namespace-based region grouping strategy for RegionGroupingProvider |  Major | . | Yu Li | Yu Li |
 | [HBASE-14459](https://issues.apache.org/jira/browse/HBASE-14459) | Add request and response sizes metrics |  Major | metrics | Sanjeev Srivatsa | Sanjeev Srivatsa |
 | [HBASE-14529](https://issues.apache.org/jira/browse/HBASE-14529) | Respond to SIGHUP to reload config |  Major | Operability | Elliott Clark | Elliott Clark |
 | [HBASE-12911](https://issues.apache.org/jira/browse/HBASE-12911) | Client-side metrics |  Major | Client, Operability, Performance | Nick Dimiduk | Nick Dimiduk |
-| [HBASE-14340](https://issues.apache.org/jira/browse/HBASE-14340) | Add second bulk load option to Spark Bulk Load to send puts as the value |  Minor | spark | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-13153](https://issues.apache.org/jira/browse/HBASE-13153) | Bulk Loaded HFile Replication |  Major | Replication | sunhaitao | Ashish Singhi |
 | [HBASE-14980](https://issues.apache.org/jira/browse/HBASE-14980) | Project Astro |  Major | documentation | Yan |  |
-| [HBASE-14849](https://issues.apache.org/jira/browse/HBASE-14849) | Add option to set block cache to false on SparkSQL executions |  Major | spark | Theodore michael Malaska | Zhan Zhang |
 | [HBASE-15036](https://issues.apache.org/jira/browse/HBASE-15036) | Update HBase Spark documentation to include bulk load with thin records |  Major | . | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-11262](https://issues.apache.org/jira/browse/HBASE-11262) | Avoid empty columns while doing bulk-load |  Major | . | Ashish Kumar | Ashish Kumar |
 | [HBASE-14355](https://issues.apache.org/jira/browse/HBASE-14355) | Scan different TimeRange for each column family |  Major | Client, regionserver, Scanners | Dave Latham | churro morales |
@@ -200,7 +203,6 @@
 | [HBASE-14441](https://issues.apache.org/jira/browse/HBASE-14441) | HBase Backup/Restore Phase 2: Multiple RS per host support |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-6721](https://issues.apache.org/jira/browse/HBASE-6721) | RegionServer Group based Assignment |  Major | regionserver | Francis Liu | Francis Liu |
 | [HBASE-15592](https://issues.apache.org/jira/browse/HBASE-15592) | Print Procedure WAL content |  Major | . | Jerry He | Jerry He |
-| [HBASE-15572](https://issues.apache.org/jira/browse/HBASE-15572) | Adding optional timestamp semantics to HBase-Spark |  Major | spark | Weiqing Yang | Weiqing Yang |
 | [HBASE-15281](https://issues.apache.org/jira/browse/HBASE-15281) | Allow the FileSystem inside HFileSystem to be wrapped |  Major | Filesystem Integration, hbase | Rajesh Nishtala | Rajesh Nishtala |
 | [HBASE-15798](https://issues.apache.org/jira/browse/HBASE-15798) | Add Async RpcChannels to all RpcClients |  Major | . | Jurriaan Mous | Jurriaan Mous |
 | [HBASE-15847](https://issues.apache.org/jira/browse/HBASE-15847) | VerifyReplication prefix filtering |  Major | Replication | Geoffrey Jacoby | Geoffrey Jacoby |
@@ -209,11 +211,10 @@
 | [HBASE-10358](https://issues.apache.org/jira/browse/HBASE-10358) | Shell changes for setting consistency per request |  Major | shell | Enis Soztutar | Yi Liang |
 | [HBASE-15881](https://issues.apache.org/jira/browse/HBASE-15881) | Allow BZIP2 compression |  Major | HFile | Lars Hofhansl | Lars Hofhansl |
 | [HBASE-3727](https://issues.apache.org/jira/browse/HBASE-3727) | MultiHFileOutputFormat |  Minor | . | Andrew Purtell | Yi Liang |
-| [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | Push entries to peer clusters serially |  Critical | regionserver, Replication | Honghua Feng | Phil Yang |
 | [HBASE-12721](https://issues.apache.org/jira/browse/HBASE-12721) | Create Docker container cluster infrastructure to enable better testing |  Major | build, community, documentation, test | Dima Spivak | Dima Spivak |
 | [HBASE-16213](https://issues.apache.org/jira/browse/HBASE-16213) | A new HFileBlock structure for fast random get |  Major | Performance | binlijin | binlijin |
 | [HBASE-16388](https://issues.apache.org/jira/browse/HBASE-16388) | Prevent client threads being blocked by only one slow region server |  Major | . | Phil Yang | Phil Yang |
-| [HBASE-16447](https://issues.apache.org/jira/browse/HBASE-16447) | Replication by namespaces config in peer |  Major | Replication | Guanghao Zhang | Guanghao Zhang |
+| [HBASE-16447](https://issues.apache.org/jira/browse/HBASE-16447) | Replication by namespaces config in peer |  Critical | Replication | Guanghao Zhang | Guanghao Zhang |
 | [HBASE-16677](https://issues.apache.org/jira/browse/HBASE-16677) | Add table size (total store file size) to table page |  Minor | website | Guang Yang | Guang Yang |
 | [HBASE-16751](https://issues.apache.org/jira/browse/HBASE-16751) | Add tuning information to HBase Book |  Minor | . | Peter Conrad | Peter Conrad |
 | [HBASE-16463](https://issues.apache.org/jira/browse/HBASE-16463) | Improve transparent table/CF encryption with Commons Crypto |  Major | encryption | Dapeng Sun | Dapeng Sun |
@@ -225,10 +226,8 @@
 | [HBASE-16981](https://issues.apache.org/jira/browse/HBASE-16981) | Expand Mob Compaction Partition policy from daily to weekly, monthly |  Major | mob | huaxiang sun | huaxiang sun |
 | [HBASE-17737](https://issues.apache.org/jira/browse/HBASE-17737) | Thrift2 proxy should support scan timeRange per column family |  Major | Thrift | Yechao Chen | Yechao Chen |
 | [HBASE-17758](https://issues.apache.org/jira/browse/HBASE-17758) | [RSGROUP] Add shell command to move servers and tables at the same time |  Major | rsgroup | Guangxu Cheng | Guangxu Cheng |
-| [HBASE-14417](https://issues.apache.org/jira/browse/HBASE-14417) | Incremental backup and bulk loading |  Blocker | . | Vladimir Rodionov | Ted Yu |
 | [HBASE-14141](https://issues.apache.org/jira/browse/HBASE-14141) | HBase Backup/Restore Phase 3: Filter WALs on backup to include only edits from backed up tables |  Blocker | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-17542](https://issues.apache.org/jira/browse/HBASE-17542) | Move backup system table into separate namespace |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
-| [HBASE-17933](https://issues.apache.org/jira/browse/HBASE-17933) | [hbase-spark]  Support Java api for bulkload |  Major | spark | Yi Liang | Yi Liang |
 | [HBASE-17757](https://issues.apache.org/jira/browse/HBASE-17757) | Unify blocksize after encoding to decrease memory fragment |  Major | . | Allan Yang | Allan Yang |
 | [HBASE-16961](https://issues.apache.org/jira/browse/HBASE-16961) | FileSystem Quotas |  Major | . | Josh Elser | Josh Elser |
 | [HBASE-15576](https://issues.apache.org/jira/browse/HBASE-15576) | Scanning cursor to prevent blocking long time on ResultScanner.next() |  Major | . | Phil Yang | Phil Yang |
@@ -236,6 +235,10 @@
 | [HBASE-17928](https://issues.apache.org/jira/browse/HBASE-17928) | Shell tool to clear compaction queues |  Major | Compaction, Operability | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-15943](https://issues.apache.org/jira/browse/HBASE-15943) | Add page displaying JVM process metrics |  Major | Operability, UI | Samir Ahmic | Samir Ahmic |
 | [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135) | HBase Backup/Restore Phase 3: Merge backup images |  Critical | . | Vladimir Rodionov | Vladimir Rodionov |
+| [HBASE-15806](https://issues.apache.org/jira/browse/HBASE-15806) | An endpoint-based export tool |  Critical | Coprocessors, tooling | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-14417](https://issues.apache.org/jira/browse/HBASE-14417) | Incremental backup and bulk loading |  Blocker | . | Vladimir Rodionov | Ted Yu |
+| [HBASE-18171](https://issues.apache.org/jira/browse/HBASE-18171) | Scanning cursor for async client |  Major | . | Phil Yang | Duo Zhang |
+| [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | Push entries to peer clusters serially |  Critical | regionserver, Replication | Honghua Feng | Phil Yang |
 
 
 ### IMPROVEMENTS:
@@ -440,7 +443,6 @@
 | [HBASE-13183](https://issues.apache.org/jira/browse/HBASE-13183) | Make ZK tickTime configurable in standalone HBase |  Minor | master | Alex Araujo | Alex Araujo |
 | [HBASE-13185](https://issues.apache.org/jira/browse/HBASE-13185) | Document hbase.regionserver.thrift.framed.max\_frame\_size\_in\_mb more clearly |  Trivial | documentation | Daisuke Kobayashi | Daisuke Kobayashi |
 | [HBASE-12405](https://issues.apache.org/jira/browse/HBASE-12405) | WAL accounting by Store |  Major | wal | Duo Zhang | Duo Zhang |
-| [HBASE-13171](https://issues.apache.org/jira/browse/HBASE-13171) | Change AccessControlClient methods to accept connection object to reduce setup time. |  Minor | . | Srikanth Srungarapu | Srikanth Srungarapu |
 | [HBASE-13162](https://issues.apache.org/jira/browse/HBASE-13162) | Add capability for cleaning hbase acls to hbase cleanup script. |  Minor | . | Srikanth Srungarapu | Srikanth Srungarapu |
 | [HBASE-13236](https://issues.apache.org/jira/browse/HBASE-13236) | Clean up m2e-related warnings/errors from poms |  Minor | build | Josh Elser | Josh Elser |
 | [HBASE-13240](https://issues.apache.org/jira/browse/HBASE-13240) | add an exemption to test-patch for build-only changes. |  Minor | build | Sean Busbey | Sean Busbey |
@@ -464,7 +466,6 @@
 | [HBASE-13341](https://issues.apache.org/jira/browse/HBASE-13341) | Add option to disable filtering on interface annotations for the API compatibility report |  Minor | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-12891](https://issues.apache.org/jira/browse/HBASE-12891) | Parallel execution for Hbck checkRegionConsistency |  Major | hbck | churro morales | Dave Latham |
 | [HBASE-6919](https://issues.apache.org/jira/browse/HBASE-6919) | Remove unnecessary throws IOException from Bytes.readVLong |  Minor | . | James Taylor | Appy |
-| [HBASE-12990](https://issues.apache.org/jira/browse/HBASE-12990) | MetaScanner should be replaced by MetaTableAccessor |  Major | Client | Andrey Stepachev | Andrey Stepachev |
 | [HBASE-13370](https://issues.apache.org/jira/browse/HBASE-13370) | PE tool could give option for using Explicit Column Tracker which leads to seeks |  Major | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-11864](https://issues.apache.org/jira/browse/HBASE-11864) | Enhance HLogPrettyPrinter to print information from WAL Header |  Minor | . | Ted Yu | Chuhan Yang |
 | [HBASE-13362](https://issues.apache.org/jira/browse/HBASE-13362) | Set max result size from client only (like scanner caching). |  Major | . | Lars Hofhansl | Lars Hofhansl |
@@ -566,7 +567,6 @@
 | [HBASE-14193](https://issues.apache.org/jira/browse/HBASE-14193) | Remove support for direct upgrade from pre-0.96 versions |  Minor | . | Lars Francke | Lars Francke |
 | [HBASE-14455](https://issues.apache.org/jira/browse/HBASE-14455) | Try to get rid of unused HConnection instance |  Minor | . | Heng Chen | Heng Chen |
 | [HBASE-14478](https://issues.apache.org/jira/browse/HBASE-14478) | A ThreadPoolExecutor with a LinkedBlockingQueue cannot execute tasks concurrently |  Major | regionserver | Jingcheng Du | Jingcheng Du |
-| [HBASE-14515](https://issues.apache.org/jira/browse/HBASE-14515) | Allow spark module unit tests to be skipped with a profile |  Minor | build, spark | Sean Busbey | Sean Busbey |
 | [HBASE-14230](https://issues.apache.org/jira/browse/HBASE-14230) | replace reflection in FSHlog with HdfsDataOutputStream#getCurrentBlockReplication() |  Minor | wal | Heng Chen | Heng Chen |
 | [HBASE-14547](https://issues.apache.org/jira/browse/HBASE-14547) | Add more debug/trace to zk-procedure |  Trivial | snapshots | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-14520](https://issues.apache.org/jira/browse/HBASE-14520) | Optimize the number of calls for tags creation in bulk load |  Major | . | Bhupendra Kumar Jain | Bhupendra Kumar Jain |
@@ -577,7 +577,6 @@
 | [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517) | Show regionserver's version in master status page |  Minor | monitoring | Liu Shaohui | Liu Shaohui |
 | [HBASE-14582](https://issues.apache.org/jira/browse/HBASE-14582) | Regionserver status webpage bucketcache list can become huge |  Major | regionserver | James Hartshorn | stack |
 | [HBASE-14587](https://issues.apache.org/jira/browse/HBASE-14587) | Attach a test-sources.jar for hbase-server |  Major | build | Andrew Wang | Andrew Wang |
-| [HBASE-14158](https://issues.apache.org/jira/browse/HBASE-14158) | Add documentation for Initial Release for HBase-Spark Module integration |  Major | documentation, spark | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-14588](https://issues.apache.org/jira/browse/HBASE-14588) | Stop accessing test resources from within src folder |  Major | build, test | Andrew Wang | Andrew Wang |
 | [HBASE-14268](https://issues.apache.org/jira/browse/HBASE-14268) | Improve KeyLocker |  Minor | util | Hiroshi Ikeda | Hiroshi Ikeda |
 | [HBASE-14586](https://issues.apache.org/jira/browse/HBASE-14586) | Use a maven profile to run Jacoco analysis |  Minor | pom | Andrew Wang | Andrew Wang |
@@ -648,7 +647,6 @@
 | [HBASE-14468](https://issues.apache.org/jira/browse/HBASE-14468) | Compaction improvements: FIFO compaction policy |  Major | Compaction, Performance | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-15068](https://issues.apache.org/jira/browse/HBASE-15068) | Add metrics for region normalization plans |  Major | . | Ted Yu | Ted Yu |
 | [HBASE-15076](https://issues.apache.org/jira/browse/HBASE-15076) | Add getScanner(Scan scan, List\<KeyValueScanner\> additionalScanners) API into Region interface |  Critical | regionserver | liu ming | Anoop Sam John |
-| [HBASE-14159](https://issues.apache.org/jira/browse/HBASE-14159) | Resolve warning introduced by HBase-Spark module |  Minor | build, spark | Theodore michael Malaska | Appy |
 | [HBASE-13525](https://issues.apache.org/jira/browse/HBASE-13525) | Update test-patch to leverage Apache Yetus |  Major | build | Sean Busbey | Sean Busbey |
 | [HBASE-15119](https://issues.apache.org/jira/browse/HBASE-15119) | Include git SHA in check\_compatibility reports |  Minor | build | Nick Dimiduk | Nick Dimiduk |
 | [HBASE-14865](https://issues.apache.org/jira/browse/HBASE-14865) | Support passing multiple QOPs to SaslClient/Server via hbase.rpc.protection |  Major | security | Appy | Appy |
@@ -663,7 +661,6 @@
 | [HBASE-11792](https://issues.apache.org/jira/browse/HBASE-11792) | Organize PerformanceEvaluation usage output |  Minor | Performance, test | Nick Dimiduk | Misty Stanley-Jones |
 | [HBASE-15229](https://issues.apache.org/jira/browse/HBASE-15229) | Canary Tools should not call System.Exit on error |  Critical | canary | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-15223](https://issues.apache.org/jira/browse/HBASE-15223) | Make convertScanToString public for Spark |  Major | . | Jerry He | Jerry He |
-| [HBASE-15282](https://issues.apache.org/jira/browse/HBASE-15282) | Bump hbase-spark to use Spark 1.6.0 |  Major | spark | Jonathan Hsieh | Jonathan Hsieh |
 | [HBASE-15219](https://issues.apache.org/jira/browse/HBASE-15219) | Canary tool does not return non-zero exit code when one of regions is in stuck state |  Critical | canary | Vishal Khandelwal | Ted Yu |
 | [HBASE-15301](https://issues.apache.org/jira/browse/HBASE-15301) | Remove the never-thrown NamingException from TableInputFormatBase#reverseDNS method signature |  Minor | . | Yu Li | Yu Li |
 | [HBASE-11927](https://issues.apache.org/jira/browse/HBASE-11927) | Use Native Hadoop Library for HFile checksum (And flip default from CRC32 to CRC32C) |  Major | Performance | stack | Appy |
@@ -676,7 +673,6 @@
 | [HBASE-15338](https://issues.apache.org/jira/browse/HBASE-15338) | Add a option to disable the data block cache for testing the performance of underlying file system |  Minor | integration tests | Liu Shaohui | Liu Shaohui |
 | [HBASE-15243](https://issues.apache.org/jira/browse/HBASE-15243) | Utilize the lowest seek value when all Filters in MUST\_PASS\_ONE FilterList return SEEK\_NEXT\_USING\_HINT |  Major | . | Ted Yu | Ted Yu |
 | [HBASE-15413](https://issues.apache.org/jira/browse/HBASE-15413) | Procedure-V2: print out ProcedureInfo during trace |  Trivial | proc-v2 | Stephen Yuan Jiang | Stephen Yuan Jiang |
-| [HBASE-15434](https://issues.apache.org/jira/browse/HBASE-15434) | [findbugs] Exclude scala generated source and protobuf generated code in hbase-spark module |  Major | spark | Jonathan Hsieh | Jonathan Hsieh |
 | [HBASE-15331](https://issues.apache.org/jira/browse/HBASE-15331) | HBase Backup/Restore Phase 2: Optimized Restore operation |  Major | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-15470](https://issues.apache.org/jira/browse/HBASE-15470) | Add a setting for Priority queue length |  Major | IPC/RPC, Region Assignment | Elliott Clark | Elliott Clark |
 | [HBASE-12940](https://issues.apache.org/jira/browse/HBASE-12940) | Expose listPeerConfigs and getPeerConfig to the HBase shell |  Major | shell | Kevin Risden | Geoffrey Jacoby |
@@ -753,7 +749,7 @@
 | [HBASE-14397](https://issues.apache.org/jira/browse/HBASE-14397) | PrefixFilter doesn't filter all remaining rows if the prefix is longer than rowkey being compared |  Minor | Filters | Jianwei Cui | Jianwei Cui |
 | [HBASE-15870](https://issues.apache.org/jira/browse/HBASE-15870) | Specify columns in REST multi gets |  Minor | REST | Dean Gurvitz | Matt Warhaftig |
 | [HBASE-16085](https://issues.apache.org/jira/browse/HBASE-16085) | Add on metric for failed compactions |  Major | . | Elliott Clark | Gary Helmling |
-| [HBASE-15353](https://issues.apache.org/jira/browse/HBASE-15353) | Add metric for number of CallQueueTooBigException's |  Minor | IPC/RPC, metrics | Elliott Clark | Jingcheng Du |
+| [HBASE-15353](https://issues.apache.org/jira/browse/HBASE-15353) | Add metric for number of CallQueueTooBigExceptions |  Minor | IPC/RPC, metrics | Elliott Clark | Jingcheng Du |
 | [HBASE-16089](https://issues.apache.org/jira/browse/HBASE-16089) | Add on FastPath for CoDel |  Major | . | Elliott Clark | Elliott Clark |
 | [HBASE-14007](https://issues.apache.org/jira/browse/HBASE-14007) | Writing to table through MR should fail upfront if table does not exist/is disabled |  Minor | mapreduce | Thiruvel Thirumoolan | Thiruvel Thirumoolan |
 | [HBASE-16139](https://issues.apache.org/jira/browse/HBASE-16139) | Use CellUtil instead of KeyValueUtil in Import |  Minor | . | NIDHI GAMBHIR | NIDHI GAMBHIR |
@@ -826,10 +822,7 @@
 | [HBASE-16784](https://issues.apache.org/jira/browse/HBASE-16784) | Make use of ExtendedCell#write(OutputStream os) for the default HFileWriter#append() |  Major | . | ramkrishna.s.vasudevan | ramkrishna.s.vasudevan |
 | [HBASE-16792](https://issues.apache.org/jira/browse/HBASE-16792) | Reuse KeyValue.KeyOnlyKeyValue in BufferedDataBlockEncoder.SeekerState |  Minor | . | binlijin | binlijin |
 | [HBASE-15921](https://issues.apache.org/jira/browse/HBASE-15921) | Add first AsyncTable impl and create TableImpl based on it |  Major | Client | Jurriaan Mous | Duo Zhang |
-| [HBASE-16638](https://issues.apache.org/jira/browse/HBASE-16638) | Reduce the number of Connection's created in classes of hbase-spark module |  Critical | spark | Ted Yu | Weiqing Yang |
 | [HBASE-16821](https://issues.apache.org/jira/browse/HBASE-16821) | Enhance LoadIncrementalHFiles API to convey missing hfiles if any |  Major | . | Ted Yu | Ted Yu |
-| [HBASE-16818](https://issues.apache.org/jira/browse/HBASE-16818) | Avoid multiple copies of binary data during the conversion from Result to Row |  Major | spark | Weiqing Yang | Weiqing Yang |
-| [HBASE-16823](https://issues.apache.org/jira/browse/HBASE-16823) | Add examples in HBase Spark module |  Major | spark | Weiqing Yang | Weiqing Yang |
 | [HBASE-16844](https://issues.apache.org/jira/browse/HBASE-16844) |  Procedure V2: DispatchMergingRegionsProcedure to use base class StateMachineProcedure for abort and rollback |  Trivial | master, proc-v2 | Stephen Yuan Jiang | Stephen Yuan Jiang |
 | [HBASE-16774](https://issues.apache.org/jira/browse/HBASE-16774) | [shell] Add coverage to TestShell when ZooKeeper is not reachable |  Major | shell, test | Esteban Gutierrez | Esteban Gutierrez |
 | [HBASE-16854](https://issues.apache.org/jira/browse/HBASE-16854) | Refactor the org.apache.hadoop.hbase.client.Action |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
@@ -845,7 +838,6 @@
 | [HBASE-16840](https://issues.apache.org/jira/browse/HBASE-16840) | Reuse cell's timestamp and type in ScanQueryMatcher |  Minor | . | binlijin | binlijin |
 | [HBASE-17026](https://issues.apache.org/jira/browse/HBASE-17026) | VerifyReplication log should distinguish whether good row key is result of revalidation |  Minor | . | Ted Yu | Ted Yu |
 | [HBASE-17063](https://issues.apache.org/jira/browse/HBASE-17063) | Cleanup TestHRegion : remove duplicate variables for method name and two unused params in initRegion |  Minor | . | Appy | Appy |
-| [HBASE-17047](https://issues.apache.org/jira/browse/HBASE-17047) | Add an API to get HBase connection cache statistics |  Minor | spark | Weiqing Yang | Weiqing Yang |
 | [HBASE-17077](https://issues.apache.org/jira/browse/HBASE-17077) | Don't copy the replication queue belonging to the peer which has been deleted |  Minor | . | Guanghao Zhang | Guanghao Zhang |
 | [HBASE-17037](https://issues.apache.org/jira/browse/HBASE-17037) | Enhance LoadIncrementalHFiles API to convey loaded files |  Major | . | Ted Yu | Ted Yu |
 | [HBASE-16708](https://issues.apache.org/jira/browse/HBASE-16708) | Expose endpoint Coprocessor name in "responseTooSlow" log messages |  Major | . | Nick Dimiduk | Yi Liang |
@@ -894,7 +886,6 @@
 | [HBASE-16698](https://issues.apache.org/jira/browse/HBASE-16698) | Performance issue: handlers stuck waiting for CountDownLatch inside WALKey#getWriteEntry under high writing workload |  Major | Performance | Yu Li | Yu Li |
 | [HBASE-17462](https://issues.apache.org/jira/browse/HBASE-17462) | Use sliding window for read/write request costs in StochasticLoadBalancer |  Major | . | Ted Yu | Tim Brown |
 | [HBASE-17515](https://issues.apache.org/jira/browse/HBASE-17515) | Reduce memory footprint of RegionLoads kept by StochasticLoadBalancer |  Major | . | Ted Yu | Tim Brown |
-| [HBASE-17549](https://issues.apache.org/jira/browse/HBASE-17549) | HBase-Spark Module : Incorrect log at println and unwanted comment code |  Major | spark | Chetan Khatri | Chetan Khatri |
 | [HBASE-17563](https://issues.apache.org/jira/browse/HBASE-17563) | Foreach and switch in RootDocProcessor and StabilityOptions |  Trivial | . | Jan Hentschel | Jan Hentschel |
 | [HBASE-17555](https://issues.apache.org/jira/browse/HBASE-17555) | Change calls to deprecated getHBaseAdmin to getAdmin |  Minor | . | Jan Hentschel | Jan Hentschel |
 | [HBASE-17569](https://issues.apache.org/jira/browse/HBASE-17569) | HBase-Procedure module need to support mvn clean test -PskipProcedureTests to skip unit test |  Minor | proc-v2 | Yi Liang | Yi Liang |
@@ -960,7 +951,6 @@
 | [HBASE-18043](https://issues.apache.org/jira/browse/HBASE-18043) | Institute a hard limit for individual cell size that cannot be overridden by clients |  Major | IPC/RPC, regionserver | Andrew Purtell | Andrew Purtell |
 | [HBASE-17910](https://issues.apache.org/jira/browse/HBASE-17910) | Use separated StoreFileReader for streaming read |  Major | regionserver, scan, Scanners | Duo Zhang | Duo Zhang |
 | [HBASE-18019](https://issues.apache.org/jira/browse/HBASE-18019) | Close redundant memstore scanners |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
-| [HBASE-11013](https://issues.apache.org/jira/browse/HBASE-11013) | Clone Snapshots on Secure Cluster Should provide option to apply Retained User Permissions |  Major | snapshots | Ted Yu | Zheng Hu |
 | [HBASE-18067](https://issues.apache.org/jira/browse/HBASE-18067) | Support a default converter for data read shell commands |  Minor | shell | Josh Elser | Josh Elser |
 | [HBASE-18075](https://issues.apache.org/jira/browse/HBASE-18075) | Support namespaces and tables with non-latin alphabetical characters |  Major | Client | Josh Elser | Josh Elser |
 | [HBASE-18094](https://issues.apache.org/jira/browse/HBASE-18094) | Display the return value of the command append |  Major | shell | Guangxu Cheng | Guangxu Cheng |
@@ -988,7 +978,23 @@
 | [HBASE-18581](https://issues.apache.org/jira/browse/HBASE-18581) | Remove dead code and some tidy up in BaseLoadBalancer |  Minor | Balancer | Umesh Agashe | Umesh Agashe |
 | [HBASE-18631](https://issues.apache.org/jira/browse/HBASE-18631) | Allow configuration of ChaosMonkey properties via hbase-site |  Minor | integration tests | Josh Elser | Josh Elser |
 | [HBASE-18519](https://issues.apache.org/jira/browse/HBASE-18519) | Use builder pattern to create cell |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
-| [HBASE-17249](https://issues.apache.org/jira/browse/HBASE-17249) | Get/Scan's setTimeRange/setColumnFamilyTimeRange can take the TimeRange reference as the parameter instead of creating a new setColumnFamilyTimeRange instance |  Major | . | huaxiang sun | huaxiang sun |
+| [HBASE-18674](https://issues.apache.org/jira/browse/HBASE-18674) | upgrade hbase to commons-lang3 |  Major | . | Umesh Agashe | Umesh Agashe |
+| [HBASE-18538](https://issues.apache.org/jira/browse/HBASE-18538) | deduplicate copies of jquery files |  Minor | build | Tamas Penzes | Tamas Penzes |
+| [HBASE-18609](https://issues.apache.org/jira/browse/HBASE-18609) | Apply ClusterStatus#getClusterStatus(EnumSet\<Option\>) in code base |  Major | . | Chia-Ping Tsai | Reid Chan |
+| [HBASE-18478](https://issues.apache.org/jira/browse/HBASE-18478) | Allow users to remove RegionFinder from LoadBalancer calculations if no locality possible |  Major | Balancer | Zach York | Zach York |
+| [HBASE-11462](https://issues.apache.org/jira/browse/HBASE-11462) | MetaTableAccessor shouldn't use ZooKeeeper |  Major | Client, Zookeeper | Mikhail Antonov | Mikhail Antonov |
+| [HBASE-18436](https://issues.apache.org/jira/browse/HBASE-18436) | Add client-side hedged read metrics |  Minor | . | Yun Zhao | Yun Zhao |
+| [HBASE-18559](https://issues.apache.org/jira/browse/HBASE-18559) | Add histogram to MetricsConnection to track concurrent calls per server |  Minor | Client | Robert Yokota | Robert Yokota |
+| [HBASE-16894](https://issues.apache.org/jira/browse/HBASE-16894) | Create more than 1 split per region, generalize HBASE-12590 |  Major | . | Enis Soztutar | Yi Liang |
+| [HBASE-16010](https://issues.apache.org/jira/browse/HBASE-16010) | Put draining function through Admin API |  Minor | . | Jerry He | Matt Warhaftig |
+| [HBASE-18824](https://issues.apache.org/jira/browse/HBASE-18824) | Add meaningful comment to HConstants.LATEST\_TIMESTAMP to explain why it is MAX\_VALUE |  Minor | . | Xiang Li | Xiang Li |
+| [HBASE-19091](https://issues.apache.org/jira/browse/HBASE-19091) | Code annotation wrote "BinaryComparator" instead of "LongComparator" |  Minor | Client | Qilin Cao | Qilin Cao |
+| [HBASE-18602](https://issues.apache.org/jira/browse/HBASE-18602) | rsgroup cleanup unassign code |  Minor | rsgroup | Wang, Xinglong | Wang, Xinglong |
+| [HBASE-19140](https://issues.apache.org/jira/browse/HBASE-19140) | hbase-cleanup.sh uses deprecated call to remove files in hdfs |  Trivial | scripts | Artem Ervits | Artem Ervits |
+| [HBASE-19227](https://issues.apache.org/jira/browse/HBASE-19227) | Nightly jobs should archive JVM dumpstream files |  Critical | build | Sean Busbey | Sean Busbey |
+| [HBASE-19290](https://issues.apache.org/jira/browse/HBASE-19290) | Reduce zk request when doing split log |  Major | . | binlijin | binlijin |
+| [HBASE-19448](https://issues.apache.org/jira/browse/HBASE-19448) | Replace StringBuffer with StringBuilder for hbase-server |  Trivial | hbase | BELUGA BEHR | BELUGA BEHR |
+| [HBASE-19531](https://issues.apache.org/jira/browse/HBASE-19531) | Remove needless volatile declaration |  Trivial | . | Chia-Ping Tsai | Yun-Chi Shih |
 
 
 ### BUG FIXES:
@@ -1609,7 +1615,6 @@
 | [HBASE-13305](https://issues.apache.org/jira/browse/HBASE-13305) | Get(Get get) is not copying the row key |  Major | API | Lars George | Ashish Singhi |
 | [HBASE-13311](https://issues.apache.org/jira/browse/HBASE-13311) | TestQuotaThrottle flaky on slow machine |  Minor | test | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-13294](https://issues.apache.org/jira/browse/HBASE-13294) | Fix the critical ancient loopholes in security testing infrastructure. |  Major | . | Srikanth Srungarapu | Srikanth Srungarapu |
-| [HBASE-13298](https://issues.apache.org/jira/browse/HBASE-13298) | Clarify if Table.{set\|get}WriteBufferSize() is deprecated or not |  Critical | API | Lars George | stack |
 | [HBASE-13325](https://issues.apache.org/jira/browse/HBASE-13325) | Protocol Buffers 2.5 no longer available for download on code.google.com |  Major | . | Andrew Purtell | Elliott Clark |
 | [HBASE-13265](https://issues.apache.org/jira/browse/HBASE-13265) | Make thrift2 usable from c++ |  Major | . | Elliott Clark | Elliott Clark |
 | [HBASE-8725](https://issues.apache.org/jira/browse/HBASE-8725) | Add total time RPC call metrics |  Major | metrics | Elliott Clark | Nate Edel |
@@ -1767,7 +1772,7 @@
 | [HBASE-13878](https://issues.apache.org/jira/browse/HBASE-13878) | Set hbase.fs.tmp.dir config in HBaseTestingUtility.java for Phoenix UT to use |  Minor | test | Stephen Yuan Jiang | Stephen Yuan Jiang |
 | [HBASE-13560](https://issues.apache.org/jira/browse/HBASE-13560) | Large compaction queue should steal from small compaction queue when idle |  Major | Compaction | Elliott Clark | Changgeng Li |
 | [HBASE-13892](https://issues.apache.org/jira/browse/HBASE-13892) | Scanner with all results filtered out results in NPE |  Critical | Client | Josh Elser | Josh Elser |
-| [HBASE-13901](https://issues.apache.org/jira/browse/HBASE-13901) | Error while calling watcher on creating and deleting an HBase table |  Minor | . | neha | Ashish Singhi |
+| [HBASE-13901](https://issues.apache.org/jira/browse/HBASE-13901) | Error while calling watcher on creating and deleting an HBase table |  Minor | . | Neha Bathra | Ashish Singhi |
 | [HBASE-13833](https://issues.apache.org/jira/browse/HBASE-13833) | LoadIncrementalHFile.doBulkLoad(Path,HTable) doesn't handle unmanaged connections when using SecureBulkLoad |  Major | tooling | Nick Dimiduk | Nick Dimiduk |
 | [HBASE-13905](https://issues.apache.org/jira/browse/HBASE-13905) | TestRecoveredEdits.testReplayWorksThoughLotsOfFlushing failing consistently on branch-1.1 |  Critical | regionserver, test | Nick Dimiduk | Nick Dimiduk |
 | [HBASE-13888](https://issues.apache.org/jira/browse/HBASE-13888) | Fix refill bug from HBASE-13686 |  Major | regionserver | Guanghao Zhang | Guanghao Zhang |
@@ -1889,7 +1894,6 @@
 | [HBASE-14385](https://issues.apache.org/jira/browse/HBASE-14385) | Close the sockets that is missing in connection closure. |  Minor | Client | Srikanth Srungarapu | Srikanth Srungarapu |
 | [HBASE-14382](https://issues.apache.org/jira/browse/HBASE-14382) | TestInterfaceAudienceAnnotations should hadoop-compt module resources |  Minor | test | Nick Dimiduk | Nick Dimiduk |
 | [HBASE-14392](https://issues.apache.org/jira/browse/HBASE-14392) | [tests] TestLogRollingNoCluster fails on master from time to time |  Major | test | stack | stack |
-| [HBASE-14377](https://issues.apache.org/jira/browse/HBASE-14377) | JavaHBaseContextSuite not being run |  Critical | spark | Sean Busbey | Sean Busbey |
 | [HBASE-14307](https://issues.apache.org/jira/browse/HBASE-14307) | Incorrect use of positional read api in HFileBlock |  Major | io | Shradha Revankar | Chris Nauroth |
 | [HBASE-14380](https://issues.apache.org/jira/browse/HBASE-14380) | Correct data gets skipped along with bad data in importTsv bulk load thru TsvImporterTextMapper |  Major | mapreduce, tooling | Bhupendra Kumar Jain | Bhupendra Kumar Jain |
 | [HBASE-14145](https://issues.apache.org/jira/browse/HBASE-14145) | Allow the Canary in regionserver mode to try all regions on the server, not just one |  Major | canary, util | Elliott Clark | Sanjeev Srivatsa |
@@ -1946,7 +1950,6 @@
 | [HBASE-14608](https://issues.apache.org/jira/browse/HBASE-14608) | testWalRollOnLowReplication has some risk to assert failed after HBASE-14600 |  Major | test | Heng Chen | Heng Chen |
 | [HBASE-14521](https://issues.apache.org/jira/browse/HBASE-14521) | Unify the semantic of hbase.client.retries.number |  Major | . | Yu Li | Yu Li |
 | [HBASE-14594](https://issues.apache.org/jira/browse/HBASE-14594) | Use new DNS API introduced in HADOOP-12437 |  Major | util | Josh Elser | Josh Elser |
-| [HBASE-14406](https://issues.apache.org/jira/browse/HBASE-14406) | The dataframe datasource filter is wrong, and will result in data loss or unexpected behavior |  Blocker | spark | Zhan Zhang | Theodore michael Malaska |
 | [HBASE-14474](https://issues.apache.org/jira/browse/HBASE-14474) | DeadLock in RpcClientImpl.Connection.close() |  Blocker | IPC/RPC | Enis Soztutar | Enis Soztutar |
 | [HBASE-14597](https://issues.apache.org/jira/browse/HBASE-14597) | Fix Groups cache in multi-threaded env |  Major | . | Elliott Clark | Elliott Clark |
 | [HBASE-14625](https://issues.apache.org/jira/browse/HBASE-14625) | Chaos Monkey should shut down faster |  Major | integration tests, test | Elliott Clark | Elliott Clark |
@@ -2052,7 +2055,6 @@
 | [HBASE-14941](https://issues.apache.org/jira/browse/HBASE-14941) | locate\_region shell command |  Trivial | shell | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-14901](https://issues.apache.org/jira/browse/HBASE-14901) | There is duplicated code to create/manage encryption keys |  Minor | encryption | Nate Edel | Nate Edel |
 | [HBASE-14769](https://issues.apache.org/jira/browse/HBASE-14769) | Remove unused functions and duplicate javadocs from HBaseAdmin |  Major | . | Appy | Appy |
-| [HBASE-14745](https://issues.apache.org/jira/browse/HBASE-14745) | Shade the last few dependencies in hbase-shaded-client |  Blocker | Client, dependencies | Elliott Clark | Elliott Clark |
 | [HBASE-14960](https://issues.apache.org/jira/browse/HBASE-14960) | Fallback to using default RPCControllerFactory if class cannot be loaded |  Major | . | Enis Soztutar | Enis Soztutar |
 | [HBASE-14953](https://issues.apache.org/jira/browse/HBASE-14953) | HBaseInterClusterReplicationEndpoint: Do not retry the whole batch of edits in case of RejectedExecutionException |  Critical | Replication | Ashu Pachauri | Ashu Pachauri |
 | [HBASE-14701](https://issues.apache.org/jira/browse/HBASE-14701) | Fix flakey Failed tests:    TestMobFlushSnapshotFromClient\>TestFlushSnapshotFromClient.testSkipFlushTableSnapshot:199 null |  Major | test | stack | Jingcheng Du |
@@ -2154,8 +2156,6 @@
 | [HBASE-15298](https://issues.apache.org/jira/browse/HBASE-15298) | Fix missing or wrong asciidoc anchors in the reference guide |  Minor | documentation | Youngjoon Kim | Youngjoon Kim |
 | [HBASE-15285](https://issues.apache.org/jira/browse/HBASE-15285) | Forward-port respect for isReturnResult from HBASE-15095 |  Major | Client | stack | stack |
 | [HBASE-15247](https://issues.apache.org/jira/browse/HBASE-15247) | InclusiveStopFilter does not respect reverse Filter property |  Major | Filters | Rick Moritz | Amal Joshy |
-| [HBASE-15184](https://issues.apache.org/jira/browse/HBASE-15184) | SparkSQL Scan operation doesn't work on kerberos cluster |  Critical | spark | Theodore michael Malaska | Theodore michael Malaska |
-| [HBASE-15310](https://issues.apache.org/jira/browse/HBASE-15310) | hbase-spark module has compilation failures with clover profile |  Major | spark, test | Jonathan Hsieh | Jonathan Hsieh |
 | [HBASE-15319](https://issues.apache.org/jira/browse/HBASE-15319) | clearJmxCache does not take effect actually |  Major | metrics | Hao Lin | Elliott Clark |
 | [HBASE-15332](https://issues.apache.org/jira/browse/HBASE-15332) | Document how to take advantage of HDFS-6133 in HBase |  Major | documentation | Misty Stanley-Jones | Misty Stanley-Jones |
 | [HBASE-15358](https://issues.apache.org/jira/browse/HBASE-15358) | canEnforceTimeLimitFromScope should use timeScope instead of sizeScope |  Major | Scanners | Phil Yang | Phil Yang |
@@ -2423,7 +2423,6 @@
 | [HBASE-16614](https://issues.apache.org/jira/browse/HBASE-16614) | Use daemon thread for netty event loop |  Major | IPC/RPC, rpc | Duo Zhang | Duo Zhang |
 | [HBASE-16609](https://issues.apache.org/jira/browse/HBASE-16609) | Fake cells EmptyByteBufferedCell  created in read path not implementing SettableSequenceId |  Major | . | Yu Sun | Yu Sun |
 | [HBASE-16491](https://issues.apache.org/jira/browse/HBASE-16491) | A few org.apache.hadoop.hbase.rsgroup classes missing @InterfaceAudience annotation |  Minor | API, regionserver | Ted Yu | Umesh Agashe |
-| [HBASE-16611](https://issues.apache.org/jira/browse/HBASE-16611) | Flakey org.apache.hadoop.hbase.client.TestReplicasClient.testCancelOfMultiGet |  Major | . | Heng Chen | Heng Chen |
 | [HBASE-16612](https://issues.apache.org/jira/browse/HBASE-16612) | Use array to cache Types for KeyValue.Type.codeToType |  Minor | . | Phil Yang | Phil Yang |
 | [HBASE-16624](https://issues.apache.org/jira/browse/HBASE-16624) | MVCC DeSerialization bug in the HFileScannerImpl |  Blocker | HFile | deepankar | deepankar |
 | [HBASE-16165](https://issues.apache.org/jira/browse/HBASE-16165) | Decrease RpcServer.callQueueSize before writeResponse causes OOM |  Minor | IPC/RPC, rpc | Duo Zhang | Guanghao Zhang |
@@ -2466,7 +2465,6 @@
 | [HBASE-16768](https://issues.apache.org/jira/browse/HBASE-16768) | Inconsistent results from the Append/Increment |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-16771](https://issues.apache.org/jira/browse/HBASE-16771) | VerifyReplication should increase GOODROWS counter if re-comparison passes |  Major | . | Ted Yu | Ted Yu |
 | [HBASE-16699](https://issues.apache.org/jira/browse/HBASE-16699) | Overflows in AverageIntervalRateLimiter's refill() and getWaitInterval() |  Major | . | huaxiang sun | huaxiang sun |
-| [HBASE-16804](https://issues.apache.org/jira/browse/HBASE-16804) | JavaHBaseContext.streamBulkGet is void but should be JavaDStream |  Major | spark | Igor Yurinok | Igor Yurinok |
 | [HBASE-16793](https://issues.apache.org/jira/browse/HBASE-16793) | Exclude shaded protobuf files from rat check |  Major | build | Duo Zhang | Duo Zhang |
 | [HBASE-16622](https://issues.apache.org/jira/browse/HBASE-16622) | Fix some issues with the HBase reference guide |  Major | documentation | alexxiyang | alexxiyang |
 | [HBASE-15109](https://issues.apache.org/jira/browse/HBASE-15109) | HM/RS failed to start when "fs.hdfs.impl.disable.cache" is set to true |  Critical | regionserver | Pankaj Kumar | Pankaj Kumar |
@@ -2548,7 +2546,6 @@
 | [HBASE-17116](https://issues.apache.org/jira/browse/HBASE-17116) | [PerformanceEvaluation] Add option to configure block size |  Trivial | tooling | Esteban Gutierrez | Yi Liang |
 | [HBASE-17072](https://issues.apache.org/jira/browse/HBASE-17072) | CPU usage starts to climb up to 90-100% when using G1GC; purge ThreadLocal usage |  Critical | Performance, regionserver | Eiichi Sato | Eiichi Sato |
 | [HBASE-17186](https://issues.apache.org/jira/browse/HBASE-17186) | MasterProcedureTestingUtility#testRecoveryAndDoubleExecution displays stale procedure state info |  Minor | proc-v2, test | Stephen Yuan Jiang | Stephen Yuan Jiang |
-| [HBASE-17192](https://issues.apache.org/jira/browse/HBASE-17192) | remove use of scala-tools.org from pom |  Blocker | spark, website | Sean Busbey | Sean Busbey |
 | [HBASE-17224](https://issues.apache.org/jira/browse/HBASE-17224) | There are lots of spelling errors in the HBase logging and exception messages |  Trivial | Client, io, mapreduce, master, regionserver, security, wal | Grant Sohn | Grant Sohn |
 | [HBASE-17206](https://issues.apache.org/jira/browse/HBASE-17206) | FSHLog may roll a new writer successfully with unflushed entries |  Critical | wal | Duo Zhang | Duo Zhang |
 | [HBASE-16209](https://issues.apache.org/jira/browse/HBASE-16209) | Provide an ExponentialBackOffPolicy sleep between failed region open requests |  Major | . | Joseph | Ashu Pachauri |
@@ -2598,7 +2595,6 @@
 | [HBASE-17357](https://issues.apache.org/jira/browse/HBASE-17357) | PerformanceEvaluation parameters parsing triggers NPE. |  Minor | Performance, test | Jean-Marc Spaggiari | Dave Navarro |
 | [HBASE-17489](https://issues.apache.org/jira/browse/HBASE-17489) | ClientScanner may send a next request to a RegionScanner which has been exhausted |  Critical | Client, scan | Duo Zhang | Duo Zhang |
 | [HBASE-17407](https://issues.apache.org/jira/browse/HBASE-17407) | Correct update of maxFlushedSeqId in HRegion |  Major | wal | Eshcar Hillel | Eshcar Hillel |
-| [HBASE-17547](https://issues.apache.org/jira/browse/HBASE-17547) | HBase-Spark Module : TableCatelog doesn't support multiple columns from Single Column family |  Major | spark | Chetan Khatri | Chetan Khatri |
 | [HBASE-17271](https://issues.apache.org/jira/browse/HBASE-17271) | hbase-thrift QA tests only run one test |  Major | . | Ted Yu | Jan Hentschel |
 | [HBASE-17540](https://issues.apache.org/jira/browse/HBASE-17540) | Change SASL server GSSAPI callback log line from DEBUG to TRACE in RegionServer to reduce log volumes in DEBUG mode |  Minor | regionserver | Maddineni Sukumar | Maddineni Sukumar |
 | [HBASE-16785](https://issues.apache.org/jira/browse/HBASE-16785) | We are not running all tests |  Major | build, test | stack | stack |
@@ -2613,7 +2609,6 @@
 | [HBASE-17578](https://issues.apache.org/jira/browse/HBASE-17578) | Thrift per-method metrics should still update in the case of exceptions |  Major | Thrift | Gary Helmling | Gary Helmling |
 | [HBASE-17187](https://issues.apache.org/jira/browse/HBASE-17187) | DoNotRetryExceptions from coprocessors should bubble up to the application |  Major | . | Enis Soztutar | Enis Soztutar |
 | [HBASE-17606](https://issues.apache.org/jira/browse/HBASE-17606) | Fix failing TestRpcControllerFactory introduced by HBASE-17508 |  Major | Client, scan | Duo Zhang | Duo Zhang |
-| [HBASE-17574](https://issues.apache.org/jira/browse/HBASE-17574) | Clean up how to run tests under hbase-spark module |  Major | spark | Yi Liang | Yi Liang |
 | [HBASE-17565](https://issues.apache.org/jira/browse/HBASE-17565) | StochasticLoadBalancer may incorrectly skip balancing due to skewed multiplier sum |  Critical | . | Ted Yu | Ted Yu |
 | [HBASE-17381](https://issues.apache.org/jira/browse/HBASE-17381) | ReplicationSourceWorkerThread can die due to unhandled exceptions |  Major | Replication | Gary Helmling | Zheng Hu |
 | [HBASE-17105](https://issues.apache.org/jira/browse/HBASE-17105) | Annotate RegionServerObserver |  Major | . | Enis Soztutar | Enis Soztutar |
@@ -2635,7 +2630,6 @@
 | [HBASE-17518](https://issues.apache.org/jira/browse/HBASE-17518) | HBase Reference Guide has a syntax error |  Minor | documentation | Zhang Ningbo |  |
 | [HBASE-15328](https://issues.apache.org/jira/browse/HBASE-15328) | Unvalidated Redirect in HMaster |  Minor | security | stack | Sean Busbey |
 | [HBASE-17675](https://issues.apache.org/jira/browse/HBASE-17675) | ReplicationEndpoint should choose new sinks if a SaslException occurs |  Major | . | churro morales | churro morales |
-| [HBASE-17590](https://issues.apache.org/jira/browse/HBASE-17590) | Drop cache hint should work for StoreFile write path |  Major | . | Appy | Ashu Pachauri |
 | [HBASE-13882](https://issues.apache.org/jira/browse/HBASE-13882) | Fix RegionSplitPolicy section in HBase book |  Trivial | documentation | Vladimir Rodionov | Jan Hentschel |
 | [HBASE-17677](https://issues.apache.org/jira/browse/HBASE-17677) | ServerName parsing from directory name should be more robust to errors from guava's HostAndPort |  Major | wal | Sean Busbey | Sean Busbey |
 | [HBASE-17069](https://issues.apache.org/jira/browse/HBASE-17069) | RegionServer writes invalid META entries for split daughters in some circumstances |  Blocker | wal | Andrew Purtell | Abhishek Singh Chouhan |
@@ -2659,7 +2653,6 @@
 | [HBASE-17772](https://issues.apache.org/jira/browse/HBASE-17772) | IntegrationTestRSGroup won't run |  Minor | rsgroup | stack | stack |
 | [HBASE-17746](https://issues.apache.org/jira/browse/HBASE-17746) | TestSimpleRpcScheduler.testCoDelScheduling is broken |  Major | integration tests | Anup Halarnkar | Chia-Ping Tsai |
 | [HBASE-17773](https://issues.apache.org/jira/browse/HBASE-17773) | VerifyReplication tool wrongly emits warning "ERROR: Invalid argument '--recomparesleep=xx'" |  Trivial | . | Tomu Tsuruhara | Tomu Tsuruhara |
-| [HBASE-15597](https://issues.apache.org/jira/browse/HBASE-15597) | Clean up configuration keys used in hbase-spark module |  Critical | spark | Sean Busbey | Yi Liang |
 | [HBASE-17501](https://issues.apache.org/jira/browse/HBASE-17501) | NullPointerException after Datanodes Decommissioned and Terminated |  Minor | Filesystem Integration, Operability | Patrick Dignan | James Moore |
 | [HBASE-17780](https://issues.apache.org/jira/browse/HBASE-17780) | BoundedByteBufferPool "At capacity" messages are not actionable |  Minor | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-17779](https://issues.apache.org/jira/browse/HBASE-17779) | disable\_table\_replication returns misleading message and does not turn off replication |  Major | Replication | Ted Yu | Janos Gub |
@@ -2685,7 +2678,6 @@
 | [HBASE-17863](https://issues.apache.org/jira/browse/HBASE-17863) | Procedure V2:  Proc Executor cleanup. Split FINISHED state to two states: SUCCESS and FAILED. |  Major | proc-v2 | Umesh Agashe | Umesh Agashe |
 | [HBASE-17905](https://issues.apache.org/jira/browse/HBASE-17905) | [hbase-spark]  bulkload does not work when table not exist |  Major | . | Yi Liang | Yi Liang |
 | [HBASE-17816](https://issues.apache.org/jira/browse/HBASE-17816) | HRegion#mutateRowWithLocks should update writeRequestCount metric |  Major | metrics | Ashu Pachauri | Weizhan Zeng |
-| [HBASE-17909](https://issues.apache.org/jira/browse/HBASE-17909) | Redundant exclusion of jruby-complete in pom of hbase-spark |  Minor | spark | Xiang Li | Xiang Li |
 | [HBASE-17903](https://issues.apache.org/jira/browse/HBASE-17903) | Corrected the alias for the link of HBASE-6580 |  Trivial | documentation | Chia-Ping Tsai | Jan Hentschel |
 | [HBASE-15535](https://issues.apache.org/jira/browse/HBASE-15535) | Correct link to Trafodion |  Blocker | documentation | Atanu Mishra | Gabor Liptak |
 | [HBASE-17366](https://issues.apache.org/jira/browse/HBASE-17366) | Run TestHFile#testReaderWithoutBlockCache failes |  Trivial | test | huaxiang sun | huaxiang sun |
@@ -2818,6 +2810,49 @@
 | [HBASE-18628](https://issues.apache.org/jira/browse/HBASE-18628) | ZKPermissionWatcher blocks all ZK notifications |  Critical | regionserver | Mike Drob | Mike Drob |
 | [HBASE-18607](https://issues.apache.org/jira/browse/HBASE-18607) | fix submit-patch.py to support utf8 |  Trivial | . | Tamas Penzes | Tamas Penzes |
 | [HBASE-18679](https://issues.apache.org/jira/browse/HBASE-18679) | YARN may null Counters object and cause an NPE in ITBLL |  Trivial | integration tests | Josh Elser | Josh Elser |
+| [HBASE-14745](https://issues.apache.org/jira/browse/HBASE-14745) | Shade the last few dependencies in hbase-shaded-client |  Blocker | Client, dependencies | Elliott Clark | Elliott Clark |
+| [HBASE-18306](https://issues.apache.org/jira/browse/HBASE-18306) | Get rid of TableDescriptor#getConfiguration |  Critical | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-18543](https://issues.apache.org/jira/browse/HBASE-18543) | Re-enable test master.TestMasterFailover on master |  Major | amv2 | Umesh Agashe | Umesh Agashe |
+| [HBASE-18771](https://issues.apache.org/jira/browse/HBASE-18771) | Incorrect StoreFileRefresh leading to split and compaction failures |  Blocker | . | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
+| [HBASE-16611](https://issues.apache.org/jira/browse/HBASE-16611) | Flakey org.apache.hadoop.hbase.client.TestReplicasClient.testCancelOfMultiGet |  Major | . | Heng Chen | Heng Chen |
+| [HBASE-18796](https://issues.apache.org/jira/browse/HBASE-18796) | Admin#isTableAvailable returns incorrect result before daughter regions are opened |  Major | . | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
+| [HBASE-18830](https://issues.apache.org/jira/browse/HBASE-18830) | TestCanaryTool does not check Canary monitor's error code |  Major | . | Chinmay Kulkarni | Chinmay Kulkarni |
+| [HBASE-18762](https://issues.apache.org/jira/browse/HBASE-18762) | Canary sink type cast error |  Major | . | Chinmay Kulkarni | Chinmay Kulkarni |
+| [HBASE-18606](https://issues.apache.org/jira/browse/HBASE-18606) | Tests in hbase-spark module fail with UnsatisfiedLinkError |  Critical | spark, test | Ted Yu | stack |
+| [HBASE-18921](https://issues.apache.org/jira/browse/HBASE-18921) | Result.current() throws ArrayIndexOutOfBoundsException after calling advance() |  Minor | . | Maytee Chinavanichkit | Maytee Chinavanichkit |
+| [HBASE-18958](https://issues.apache.org/jira/browse/HBASE-18958) | Remove the IS annotation from SpaceLimitingException |  Trivial | . | Chia-Ping Tsai | Jan Hentschel |
+| [HBASE-18842](https://issues.apache.org/jira/browse/HBASE-18842) | The hbase shell clone\_snaphost command returns bad error message |  Minor | . | Thoralf Gutierrez | Jesse Yates |
+| [HBASE-17590](https://issues.apache.org/jira/browse/HBASE-17590) | Drop cache hint should work for StoreFile write path |  Major | . | Appy | Ashu Pachauri |
+| [HBASE-18990](https://issues.apache.org/jira/browse/HBASE-18990) | ServerLoad doesn't override #equals which leads to #equals in ClusterStatus always false |  Trivial | . | Reid Chan | Reid Chan |
+| [HBASE-19014](https://issues.apache.org/jira/browse/HBASE-19014) | surefire fails; When writing xml report stdout/stderr ... No such file or directory |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-16290](https://issues.apache.org/jira/browse/HBASE-16290) | Dump summary of callQueue content; can help debugging |  Major | Operability | stack | Sreeram Venkatasubramanian |
+| [HBASE-19066](https://issues.apache.org/jira/browse/HBASE-19066) | Correct the directory of openjdk-8 for jenkins |  Major | build | Chia-Ping Tsai | Sean Busbey |
+| [HBASE-18922](https://issues.apache.org/jira/browse/HBASE-18922) | Fix all dead links in our HBase book |  Major | documentation | Chia-Ping Tsai | Yung-An He |
+| [HBASE-18438](https://issues.apache.org/jira/browse/HBASE-18438) | Precommit doesn't warn about unused imports |  Critical | build | Mike Drob | Chia-Ping Tsai |
+| [HBASE-19129](https://issues.apache.org/jira/browse/HBASE-19129) | TestChoreService is flaky (branch-1 / branch-1.4) |  Trivial | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-19138](https://issues.apache.org/jira/browse/HBASE-19138) | Rare failure in TestLruBlockCache |  Trivial | test | Andrew Purtell | Andrew Purtell |
+| [HBASE-19150](https://issues.apache.org/jira/browse/HBASE-19150) | TestSnapshotWithAcl is flaky |  Minor | . | Andrew Purtell | churro morales |
+| [HBASE-19144](https://issues.apache.org/jira/browse/HBASE-19144) | [RSgroups] Retry assignments in FAILED\_OPEN state when servers (re)join the cluster |  Major | rsgroup | Andrew Purtell | Andrew Purtell |
+| [HBASE-19173](https://issues.apache.org/jira/browse/HBASE-19173) | Configure IntegrationTestRSGroup automatically for minicluster mode |  Minor | rsgroup, test | Andrew Purtell | Andrew Purtell |
+| [HBASE-19117](https://issues.apache.org/jira/browse/HBASE-19117) | Avoid NPE occurring while active master dies |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19111](https://issues.apache.org/jira/browse/HBASE-19111) | Add missing CellUtil#isPut(Cell) methods |  Critical | Client | Josh Elser | Josh Elser |
+| [HBASE-19088](https://issues.apache.org/jira/browse/HBASE-19088) | move\_tables\_rsgroup will throw an exception when the table is disabled |  Major | rsgroup | Guangxu Cheng | Guangxu Cheng |
+| [HBASE-19194](https://issues.apache.org/jira/browse/HBASE-19194) | TestRSGroupsBase has some always false checks |  Blocker | rsgroup, test | Mike Drob | Andrew Purtell |
+| [HBASE-12091](https://issues.apache.org/jira/browse/HBASE-12091) | Optionally ignore edits for dropped tables for replication. |  Major | . | Lars Hofhansl | Lars Hofhansl |
+| [HBASE-19332](https://issues.apache.org/jira/browse/HBASE-19332) | DumpReplicationQueues misreports total WAL size |  Trivial | Replication | Gary Helmling | Gary Helmling |
+| [HBASE-19385](https://issues.apache.org/jira/browse/HBASE-19385) | [1.3] TestReplicator failed 1.3 nightly |  Major | test | stack | stack |
+| [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285) | Add per-table latency histograms |  Critical | metrics | Clay B. | Josh Elser |
+| [HBASE-19396](https://issues.apache.org/jira/browse/HBASE-19396) | Fix flaky test TestHTableMultiplexerFlushCache |  Minor | test | Guanghao Zhang | Guanghao Zhang |
+| [HBASE-16239](https://issues.apache.org/jira/browse/HBASE-16239) | Better logging for RPC related exceptions |  Major | . | Enis Soztutar | Enis Soztutar |
+| [HBASE-19445](https://issues.apache.org/jira/browse/HBASE-19445) | PerformanceEvaluation NPE processing split policy option |  Trivial | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-19447](https://issues.apache.org/jira/browse/HBASE-19447) | INFO level logging of GetClusterStatus from HMaster is too chatty |  Major | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-19624](https://issues.apache.org/jira/browse/HBASE-19624) | TestIOFencing hangs |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19671](https://issues.apache.org/jira/browse/HBASE-19671) | Fix TestMultiParallel#testActiveThreadsCount |  Minor | test | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19163](https://issues.apache.org/jira/browse/HBASE-19163) | "Maximum lock count exceeded" from region server's batch processing |  Major | regionserver | huaxiang sun | huaxiang sun |
+| [HBASE-19828](https://issues.apache.org/jira/browse/HBASE-19828) | Flakey TestRegionsOnMasterOptions.testRegionsOnAllServers |  Major | . | stack | stack |
+| [HBASE-17513](https://issues.apache.org/jira/browse/HBASE-17513) | Thrift Server 1 uses different QOP settings than RPC and Thrift Server 2 and can easily be misconfigured so there is no encryption when the operator expects it. |  Critical | documentation, security, Thrift, Usability | Sean Busbey | Reid Chan |
+| [HBASE-17079](https://issues.apache.org/jira/browse/HBASE-17079) | HBase build fails on windows, hbase-archetype-builder is reason for failure |  Major | build | Mohammad Arshad | Mohammad Arshad |
+| [HBASE-19756](https://issues.apache.org/jira/browse/HBASE-19756) | Master NPE during completed failed proc eviction |  Major | . | Thiruvel Thirumoolan | Thiruvel Thirumoolan |
 
 
 ### TESTS:
@@ -2910,6 +2945,7 @@
 | [HBASE-17672](https://issues.apache.org/jira/browse/HBASE-17672) | "Grant should set access rights appropriately" test fails |  Major | . | Ted Yu | Zheng Hu |
 | [HBASE-17703](https://issues.apache.org/jira/browse/HBASE-17703) | TestThriftServerCmdLine is flaky in master branch |  Major | . | Ted Yu | Jan Hentschel |
 | [HBASE-17806](https://issues.apache.org/jira/browse/HBASE-17806) | TestRSGroups#testMoveServersAndTables is flaky in master branch |  Major | . | Ted Yu | Guangxu Cheng |
+| [HBASE-16051](https://issues.apache.org/jira/browse/HBASE-16051) | TestScannerHeartbeatMessages fails on some machines |  Major | test | Mikhail Antonov | Phil Yang |
 
 
 ### SUB-TASKS:
@@ -3147,7 +3183,6 @@
 | [HBASE-13832](https://issues.apache.org/jira/browse/HBASE-13832) | Procedure V2: master fail to start due to WALProcedureStore sync failures when HDFS data nodes count is low |  Blocker | master, proc-v2 | Stephen Yuan Jiang | Matteo Bertozzi |
 | [HBASE-13387](https://issues.apache.org/jira/browse/HBASE-13387) | Add ByteBufferedCell an extension to Cell |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |
 | [HBASE-13993](https://issues.apache.org/jira/browse/HBASE-13993) | WALProcedureStore fencing is not effective if new WAL rolls |  Major | master | Enis Soztutar | Enis Soztutar |
-| [HBASE-12296](https://issues.apache.org/jira/browse/HBASE-12296) | Filters should work with ByteBufferedCell |  Major | regionserver, Scanners | ramkrishna.s.vasudevan | Anoop Sam John |
 | [HBASE-14102](https://issues.apache.org/jira/browse/HBASE-14102) | Add thank you to our thanks page for vectorportal.com |  Major | . | stack | stack |
 | [HBASE-14104](https://issues.apache.org/jira/browse/HBASE-14104) | Add vectorportal.com to NOTICES.txt as src of our logo |  Major | documentation | stack | stack |
 | [HBASE-14120](https://issues.apache.org/jira/browse/HBASE-14120) | ByteBufferUtils#compareTo small optimization |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |
@@ -3309,7 +3344,6 @@
 | [HBASE-15421](https://issues.apache.org/jira/browse/HBASE-15421) | Convert TestStoreScanner to junit4 from junit3 and clean up close of scanners |  Minor | test | stack | stack |
 | [HBASE-15422](https://issues.apache.org/jira/browse/HBASE-15422) | Procedure v2 - Avoid double yield |  Major | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-15113](https://issues.apache.org/jira/browse/HBASE-15113) | Procedure v2 - Speedup eviction of sys operation results |  Minor | proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
-| [HBASE-15336](https://issues.apache.org/jira/browse/HBASE-15336) | Support Dataframe writer to the spark connector |  Major | spark | Zhan Zhang | Zhan Zhang |
 | [HBASE-15435](https://issues.apache.org/jira/browse/HBASE-15435) | Add WAL (in bytes) written metric |  Major | . | Alicia Ying Shu | Alicia Ying Shu |
 | [HBASE-15180](https://issues.apache.org/jira/browse/HBASE-15180) | Reduce garbage created while reading Cells from Codec Decoder |  Major | regionserver | Anoop Sam John | Anoop Sam John |
 | [HBASE-15390](https://issues.apache.org/jira/browse/HBASE-15390) | Unnecessary MetaCache evictions cause elevated number of requests to meta |  Blocker | Client | Mikhail Antonov | Mikhail Antonov |
@@ -3360,7 +3394,6 @@
 | [HBASE-15740](https://issues.apache.org/jira/browse/HBASE-15740) | Replication source.shippedKBs metric is undercounting because it is in KB |  Major | . | Enis Soztutar | Enis Soztutar |
 | [HBASE-15785](https://issues.apache.org/jira/browse/HBASE-15785) | Unnecessary lock in ByteBufferArray |  Major | regionserver, Scanners | Anoop Sam John | Anoop Sam John |
 | [HBASE-15813](https://issues.apache.org/jira/browse/HBASE-15813) | Rename DefaultWALProvider to a more specific name and clean up unnecessary reference to it |  Major | wal | Duo Zhang | Duo Zhang |
-| [HBASE-15333](https://issues.apache.org/jira/browse/HBASE-15333) | [hbase-spark] Enhance dataframe filters to handle naively encoded short, integer, long, float and double |  Major | spark | Zhan Zhang | Zhan Zhang |
 | [HBASE-15825](https://issues.apache.org/jira/browse/HBASE-15825) | Fix the null pointer in DynamicLogicExpressionSuite |  Major | . | Zhan Zhang | Zhan Zhang |
 | [HBASE-15651](https://issues.apache.org/jira/browse/HBASE-15651) | Add report-flakies.py to use jenkins api to get failing tests |  Major | . | Appy | Appy |
 | [HBASE-15865](https://issues.apache.org/jira/browse/HBASE-15865) | Move TestTableDeleteFamilyHandler and TestTableDescriptorModification handler tests to procedure |  Trivial | test | Matteo Bertozzi | Matteo Bertozzi |
@@ -3405,7 +3438,6 @@
 | [HBASE-16214](https://issues.apache.org/jira/browse/HBASE-16214) | Add in UI description of Replication Table |  Minor | Replication | Joseph | Joseph |
 | [HBASE-16208](https://issues.apache.org/jira/browse/HBASE-16208) | Make TableBasedReplicationQueuesImpl check that queue exists before attempting to remove it |  Major | Replication | Joseph | Joseph |
 | [HBASE-16195](https://issues.apache.org/jira/browse/HBASE-16195) | Should not add chunk into chunkQueue if not using chunk pool in HeapMemStoreLAB |  Major | . | Yu Li | Yu Li |
-| [HBASE-15473](https://issues.apache.org/jira/browse/HBASE-15473) | Documentation for the usage of hbase dataframe user api (JSON, Avro, etc) |  Blocker | documentation, spark | Zhan Zhang | Weiqing Yang |
 | [HBASE-15305](https://issues.apache.org/jira/browse/HBASE-15305) | Fix a couple of incorrect anchors in HBase ref guide |  Major | documentation | Misty Stanley-Jones | Misty Stanley-Jones |
 | [HBASE-16219](https://issues.apache.org/jira/browse/HBASE-16219) | Move meta bootstrap out of HMaster |  Trivial | master, Region Assignment | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-16233](https://issues.apache.org/jira/browse/HBASE-16233) | Procedure V2: Support acquire/release shared table lock concurrently |  Major | proc-v2 | Stephen Yuan Jiang | Stephen Yuan Jiang |
@@ -3640,7 +3672,7 @@
 | [HBASE-17872](https://issues.apache.org/jira/browse/HBASE-17872) | The MSLABImpl generates the invaild cells when unsafe is not availble |  Critical | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-16477](https://issues.apache.org/jira/browse/HBASE-16477) | Remove Writable interface and related code from WALEdit/WALKey |  Major | wal | Enis Soztutar | Enis Soztutar |
 | [HBASE-17896](https://issues.apache.org/jira/browse/HBASE-17896) | The FIXED\_OVERHEAD of Segment is incorrect |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
-| [HBASE-17895](https://issues.apache.org/jira/browse/HBASE-17895) | TestAsyncProcess#testAction fails if unsafe support is false |  Trivial | test | Chia-Ping Tsai | Wen-Hsiu,Chang |
+| [HBASE-17895](https://issues.apache.org/jira/browse/HBASE-17895) | TestAsyncProcess#testAction fails if unsafe support is false |  Trivial | test | Chia-Ping Tsai | Wen-Hsiu Chang |
 | [HBASE-17897](https://issues.apache.org/jira/browse/HBASE-17897) | StripeStoreFileManager#nonOpenRowCompare use the wrong comparison function |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-17866](https://issues.apache.org/jira/browse/HBASE-17866) | Implement async setQuota/getQuota methods. |  Major | Client | Zheng Hu | Zheng Hu |
 | [HBASE-17925](https://issues.apache.org/jira/browse/HBASE-17925) | mvn assembly:single fails against hadoop3-alpha2 |  Major | hadoop3 | Jonathan Hsieh | Jonathan Hsieh |
@@ -3708,6 +3740,18 @@
 | [HBASE-18103](https://issues.apache.org/jira/browse/HBASE-18103) | [AMv2] If Master gives OPEN to another, if original eventually succeeds, Master will kill it |  Critical | master, proc-v2 | stack | Umesh Agashe |
 | [HBASE-18503](https://issues.apache.org/jira/browse/HBASE-18503) | Change \*\*\*Util and Master to use TableDescriptor and ColumnFamilyDescriptor |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-18687](https://issues.apache.org/jira/browse/HBASE-18687) | Add @since 2.0.0 to new classes |  Major | API | stack | stack |
+| [HBASE-18718](https://issues.apache.org/jira/browse/HBASE-18718) | Document the coprocessor.Export |  Major | Coprocessors, documentation, tooling | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-18786](https://issues.apache.org/jira/browse/HBASE-18786) | FileNotFoundException should not be silently handled for primary region replicas |  Major | regionserver, Scanners | Ashu Pachauri | Andrew Purtell |
+| [HBASE-18010](https://issues.apache.org/jira/browse/HBASE-18010) | Connect CellChunkMap to be used for flattening in CompactingMemStore |  Major | . | Anastasia Braginsky | Anastasia Braginsky |
+| [HBASE-18108](https://issues.apache.org/jira/browse/HBASE-18108) | Procedure WALs are archived but not cleaned; fix |  Blocker | proc-v2 | stack | Peter Somogyi |
+| [HBASE-19203](https://issues.apache.org/jira/browse/HBASE-19203) | Update Hadoop version used for build to 2.7.4 |  Major | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-18624](https://issues.apache.org/jira/browse/HBASE-18624) | Added support for clearing BlockCache based on table name |  Major | . | Ajay Jadhav | Zach York |
+| [HBASE-19468](https://issues.apache.org/jira/browse/HBASE-19468) | FNFE during scans and flushes |  Critical | regionserver, Scanners | Thiruvel Thirumoolan | ramkrishna.s.vasudevan |
+| [HBASE-19502](https://issues.apache.org/jira/browse/HBASE-19502) | Make sure we have closed all StoreFileScanners if we fail to open any StoreFileScanners |  Major | regionserver, Scanners | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19629](https://issues.apache.org/jira/browse/HBASE-19629) | RawCell#getTags should return the Iterator\<Tag\> in order to avoid iterating through whole tag array at once |  Major | . | Chia-Ping Tsai | ramkrishna.s.vasudevan |
+| [HBASE-19628](https://issues.apache.org/jira/browse/HBASE-19628) | ByteBufferCell should extend ExtendedCell |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19626](https://issues.apache.org/jira/browse/HBASE-19626) | Rename Cell.DataType to Cell.Type |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19746](https://issues.apache.org/jira/browse/HBASE-19746) | Add default impl to Cell#getType |  Critical | . | Chia-Ping Tsai | Chia-Ping Tsai |
 
 
 ### OTHER:
@@ -3718,7 +3762,6 @@
 | [HBASE-12859](https://issues.apache.org/jira/browse/HBASE-12859) | New master API to track major compaction completion |  Major | . | Lars Hofhansl | Lars Hofhansl |
 | [HBASE-13747](https://issues.apache.org/jira/browse/HBASE-13747) | Promote Java 8 to "yes" in support matrix |  Critical | java | Sean Busbey | Sean Busbey |
 | [HBASE-11339](https://issues.apache.org/jira/browse/HBASE-11339) | HBase MOB |  Major | regionserver, Scanners | Jingcheng Du | Jingcheng Du |
-| [HBASE-14184](https://issues.apache.org/jira/browse/HBASE-14184) | Fix indention and typo in JavaHBaseContext |  Minor | spark | Theodore michael Malaska | Theodore michael Malaska |
 | [HBASE-14869](https://issues.apache.org/jira/browse/HBASE-14869) | Better request latency and size histograms |  Major | . | Lars Hofhansl | Vikas Vishwakarma |
 | [HBASE-14420](https://issues.apache.org/jira/browse/HBASE-14420) | Zombie Stomping Session |  Critical | test | stack | stack |
 | [HBASE-14457](https://issues.apache.org/jira/browse/HBASE-14457) | Umbrella: Improve Multiple WAL for production usage |  Major | . | Yu Li | Yu Li |
@@ -3731,6 +3774,8 @@
 | [HBASE-18037](https://issues.apache.org/jira/browse/HBASE-18037) | Do not expose implementation classes to CP |  Blocker | Coprocessors | Duo Zhang | Duo Zhang |
 | [HBASE-16617](https://issues.apache.org/jira/browse/HBASE-16617) | Procedure V2 - Improvements |  Minor | master, proc-v2 | Matteo Bertozzi | Matteo Bertozzi |
 | [HBASE-15086](https://issues.apache.org/jira/browse/HBASE-15086) | Fix findbugs complaint so yetus reports more green |  Major | build | stack | stack |
+| [HBASE-19627](https://issues.apache.org/jira/browse/HBASE-19627) | Stabilize the method signature for Cell and its impl |  Critical | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19425](https://issues.apache.org/jira/browse/HBASE-19425) | Align the methods in Put/Delete/Increment/Append |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 | [HBASE-11459](https://issues.apache.org/jira/browse/HBASE-11459) | Add more doc on compression codecs, how to hook up native lib, lz4, etc. |  Minor | documentation | stack | stack |
 | [HBASE-11317](https://issues.apache.org/jira/browse/HBASE-11317) | Expand unit testing to cover Mockito and MRUnit and give more examples |  Trivial | documentation | Mike Drob | Misty Stanley-Jones |
 | [HBASE-10398](https://issues.apache.org/jira/browse/HBASE-10398) | HBase book updates for Replication after HBASE-10322 |  Major | documentation | Anoop Sam John | Misty Stanley-Jones |
@@ -3893,7 +3938,6 @@
 | [HBASE-16812](https://issues.apache.org/jira/browse/HBASE-16812) | Clean up the locks in MOB |  Minor | mob | Appy | Jingcheng Du |
 | [HBASE-17609](https://issues.apache.org/jira/browse/HBASE-17609) | Allow for region merging in the UI |  Major | . | churro morales | churro morales |
 | [HBASE-17618](https://issues.apache.org/jira/browse/HBASE-17618) | Refactor the implementation of modify table and delete column in MOB |  Major | mob | Jingcheng Du | Jingcheng Du |
-| [HBASE-14375](https://issues.apache.org/jira/browse/HBASE-14375) | Define public API for spark integration module |  Blocker | spark | Sean Busbey | Jerry He |
 | [HBASE-17782](https://issues.apache.org/jira/browse/HBASE-17782) | Extend IdReadWriteLock to support using both weak and soft reference |  Major | . | Yu Li | Yu Li |
 | [HBASE-17802](https://issues.apache.org/jira/browse/HBASE-17802) | Add note that minor versions can add methods to Interfaces |  Major | documentation | stack | stack |
 | [HBASE-17834](https://issues.apache.org/jira/browse/HBASE-17834) | close stale github PRs |  Minor | community | Sean Busbey | Sean Busbey |
@@ -3901,7 +3945,6 @@
 | [HBASE-16215](https://issues.apache.org/jira/browse/HBASE-16215) | clean up references for EOM release lines |  Major | community, website | Sean Busbey | Sean Busbey |
 | [HBASE-17828](https://issues.apache.org/jira/browse/HBASE-17828) | Revisit the IS annotation and the documentation |  Critical | API | Duo Zhang | Duo Zhang |
 | [HBASE-17965](https://issues.apache.org/jira/browse/HBASE-17965) | Canary tool should print the regionserver name on failure |  Minor | . | churro morales | Karan Mehta |
-| [HBASE-17972](https://issues.apache.org/jira/browse/HBASE-17972) | Remove mergePool from CompactSplitThread |  Minor | regionserver | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-17968](https://issues.apache.org/jira/browse/HBASE-17968) | Update copyright year in NOTICE file |  Trivial | build | Nick Dimiduk | Josh Elser |
 | [HBASE-13074](https://issues.apache.org/jira/browse/HBASE-13074) | Cleaned up usage of hbase.master.lease.thread.wakefrequency |  Trivial | wal | Sunil | Jan Hentschel |
 | [HBASE-18096](https://issues.apache.org/jira/browse/HBASE-18096) | Limit HFileUtil visibility and add missing annotations |  Trivial | . | Balazs Meszaros | Balazs Meszaros |
@@ -3923,5 +3966,10 @@
 | [HBASE-17614](https://issues.apache.org/jira/browse/HBASE-17614) | Move Backup/Restore into separate module |  Blocker | . | Vladimir Rodionov | Vladimir Rodionov |
 | [HBASE-18670](https://issues.apache.org/jira/browse/HBASE-18670) | Add .DS\_Store to .gitignore |  Minor | community | Chia-Ping Tsai | Deon Huang |
 | [HBASE-18611](https://issues.apache.org/jira/browse/HBASE-18611) | Copy all tests from o.a.h.h.p.TestProtobufUtil to o.a.h.h.s.p.TestProtobufUtil |  Minor | Protobufs, test | Chia-Ping Tsai | ChunHao |
+| [HBASE-17967](https://issues.apache.org/jira/browse/HBASE-17967) | clean up documentation references to -ROOT- table. |  Minor | documentation | Sean Busbey | Chia-Ping Tsai |
+| [HBASE-10504](https://issues.apache.org/jira/browse/HBASE-10504) | Define Replication Interface |  Blocker | Replication | stack | Enis Soztutar |
+| [HBASE-18991](https://issues.apache.org/jira/browse/HBASE-18991) | Remove RegionMergeRequest |  Trivial | . | Chia-Ping Tsai | Jan Hentschel |
+| [HBASE-19217](https://issues.apache.org/jira/browse/HBASE-19217) | Update supplemental-models.xml for jetty-sslengine |  Major | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-15042](https://issues.apache.org/jira/browse/HBASE-15042) | refactor so that site materials are in the Standard Maven Place |  Minor | build, website | Sean Busbey | Jan Hentschel |
 
 

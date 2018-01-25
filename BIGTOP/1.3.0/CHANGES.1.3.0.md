@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2017-08-28)
+## Release 1.3.0 - Unreleased (as of 2018-01-25)
 
 
 
@@ -50,6 +50,25 @@
 | [BIGTOP-2839](https://issues.apache.org/jira/browse/BIGTOP-2839) | Bump Hadoop version to 2.7.4 |  Major | hadoop | Konstantin Boudnik | Konstantin Boudnik |
 | [BIGTOP-2856](https://issues.apache.org/jira/browse/BIGTOP-2856) | [sandbox] Add a condition in detect\_repo() |  Major | build, sandbox | Naresh Bhat | Naresh Bhat |
 | [BIGTOP-2872](https://issues.apache.org/jira/browse/BIGTOP-2872) | Replace aarch64 orgnanization with the more-specific arm64v8 organization in Official docker |  Major | docker | Yuqi Gu | Yuqi Gu |
+| [BIGTOP-2867](https://issues.apache.org/jira/browse/BIGTOP-2867) | spark charm: make bigtop version configurable |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2875](https://issues.apache.org/jira/browse/BIGTOP-2875) | giraph charm: update metadata/readme |  Trivial | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2874](https://issues.apache.org/jira/browse/BIGTOP-2874) | juju bundle refresh (august 2017) |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2889](https://issues.apache.org/jira/browse/BIGTOP-2889) | Remove HADOOP\_HOME\_WARN\_SUPPRESS setting |  Minor | hadoop | Akira Ajisaka | Akira Ajisaka |
+| [BIGTOP-2910](https://issues.apache.org/jira/browse/BIGTOP-2910) | zeppelin charm: support bigtop upgrade |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2916](https://issues.apache.org/jira/browse/BIGTOP-2916) | fix deprecated gradle syntax |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2920](https://issues.apache.org/jira/browse/BIGTOP-2920) | Cleanup puppet recipies: remove deprecated platforms |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2919](https://issues.apache.org/jira/browse/BIGTOP-2919) | Update maven to 3.5.2 |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2918](https://issues.apache.org/jira/browse/BIGTOP-2918) | Update distributions for Bigtop-1.3 |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2925](https://issues.apache.org/jira/browse/BIGTOP-2925) | Missing license header for .travis.yml |  Minor | . | Evans Ye | Evans Ye |
+| [BIGTOP-2794](https://issues.apache.org/jira/browse/BIGTOP-2794) | [bigtop-puppet] Support CentOS 7 AArch64 bigtop puppet |  Major | docker | Naresh Bhat | Naresh Bhat |
+| [BIGTOP-2787](https://issues.apache.org/jira/browse/BIGTOP-2787) | [bigtop-slaves] Support of CentOS 7 ARM64 bigtop-slaves |  Major | docker | Naresh Bhat | Naresh Bhat |
+| [BIGTOP-2936](https://issues.apache.org/jira/browse/BIGTOP-2936) | Add RedHat default Oracle Java install location to detection script |  Major | toolchain | Lars Francke | Lars Francke |
+| [BIGTOP-2869](https://issues.apache.org/jira/browse/BIGTOP-2869) | Bump solr to 6.6.0 |  Major | solr | Jun He | Jun He |
+| [BIGTOP-2810](https://issues.apache.org/jira/browse/BIGTOP-2810) | Support R integration for Zeppelin |  Minor | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2811](https://issues.apache.org/jira/browse/BIGTOP-2811) | Add R to toolchain for Spark and Zeppelin |  Minor | toolchain | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2809](https://issues.apache.org/jira/browse/BIGTOP-2809) | Support R integration for Spark |  Major | spark | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2698](https://issues.apache.org/jira/browse/BIGTOP-2698) | Build/install protobuf-2.5 from source |  Minor | toolchain | Sahil Aggarwal | Sahil Aggarwal |
+| [BIGTOP-2959](https://issues.apache.org/jira/browse/BIGTOP-2959) | Add SPARK\_DIST\_CLASSPATH to include libraries for HDFS and YARN |  Minor | build, spark | YoungWoo Kim | YoungWoo Kim |
 
 
 ### BUG FIXES:
@@ -77,6 +96,44 @@
 | [BIGTOP-2864](https://issues.apache.org/jira/browse/BIGTOP-2864) | Tez with "Class path contains multiple SLF4J bindings" warnings |  Minor | debian, rpm, tez | dengkai | dengkai |
 | [BIGTOP-2866](https://issues.apache.org/jira/browse/BIGTOP-2866) | Fix rmr depricated and people\* No such file or directory error |  Major | spark, tests | Naresh Bhat | Naresh Bhat |
 | [BIGTOP-2860](https://issues.apache.org/jira/browse/BIGTOP-2860) | Fix TestSpark.groovy syntax error |  Major | spark, tests | Yuqi Gu | Yuqi Gu |
+| [BIGTOP-2850](https://issues.apache.org/jira/browse/BIGTOP-2850) | Not able to build bigtop/slaves image for OpenSuSE 42.1 |  Blocker | docker | Evans Ye | Evans Ye |
+| [BIGTOP-2878](https://issues.apache.org/jira/browse/BIGTOP-2878) | Download task does not work for git repositories |  Major | build | Teruyoshi Zenmyo | Teruyoshi Zenmyo |
+| [BIGTOP-2826](https://issues.apache.org/jira/browse/BIGTOP-2826) | Zeppelin RPM is broken: "missing" osgi package deps |  Major | rpm | Alexander Ermakov | Alexander Ermakov |
+| [BIGTOP-2890](https://issues.apache.org/jira/browse/BIGTOP-2890) | Download page must not link to snapshots / nightly builds |  Major | . | Sebb | Evans Ye |
+| [BIGTOP-2903](https://issues.apache.org/jira/browse/BIGTOP-2903) | update protobuf rpm links |  Major | toolchain | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2907](https://issues.apache.org/jira/browse/BIGTOP-2907) | upgrading Ambari from 2.5.0 to 2.5.2 |  Major | build, ppc64le | Amir Sanjar | Amir Sanjar |
+| [BIGTOP-2908](https://issues.apache.org/jira/browse/BIGTOP-2908) | giraph charm: release audit failure |  Blocker | build | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2915](https://issues.apache.org/jira/browse/BIGTOP-2915) | Some files are missing ALv2 header |  Blocker | general | Konstantin Boudnik | Olaf Flebbe |
+| [BIGTOP-2885](https://issues.apache.org/jira/browse/BIGTOP-2885) | gpdb: disable gpcloud on CentOS 6 |  Major | . | Evans Ye |  |
+| [BIGTOP-2634](https://issues.apache.org/jira/browse/BIGTOP-2634) | package perl-Env does not exist in centos 6 |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2926](https://issues.apache.org/jira/browse/BIGTOP-2926) | introduce bigtop version into bigtop/puppet images |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2929](https://issues.apache.org/jira/browse/BIGTOP-2929) | Fix typo in opensuse version name |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2934](https://issues.apache.org/jira/browse/BIGTOP-2934) | Consolidate puppet usage by installing puppet from distro |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2930](https://issues.apache.org/jira/browse/BIGTOP-2930) | sqoop fedora26 : rsync missing |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2891](https://issues.apache.org/jira/browse/BIGTOP-2891) | Download page must link to ASF mirrors |  Major | . | Sebb | Evans Ye |
+| [BIGTOP-2935](https://issues.apache.org/jira/browse/BIGTOP-2935) | provisioner: Use proper command line depending on puppet version |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2932](https://issues.apache.org/jira/browse/BIGTOP-2932) | hadoop fedora26: openssl in native code problem |  Major | . | Olaf Flebbe | František Dvořák |
+| [BIGTOP-2942](https://issues.apache.org/jira/browse/BIGTOP-2942) | update tez to 0.9 |  Major | tez | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2943](https://issues.apache.org/jira/browse/BIGTOP-2943) | hbase does not compile with maven-3.5.2 |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2950](https://issues.apache.org/jira/browse/BIGTOP-2950) | BIGTOP-2869 breaks RAT check |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-2911](https://issues.apache.org/jira/browse/BIGTOP-2911) | Change Solr service ports to default 8983/8984 |  Minor | deployment, solr, tests | Jun He | Jun He |
+| [BIGTOP-2917](https://issues.apache.org/jira/browse/BIGTOP-2917) | Ignite smoke test failed with JDK8 |  Major | ignite | Jun He | Jun He |
+| [BIGTOP-2906](https://issues.apache.org/jira/browse/BIGTOP-2906) | Failed to start solr-server service using bigtop-deploy |  Major | deployment, solr, tests | Jun He | Jun He |
+| [BIGTOP-2958](https://issues.apache.org/jira/browse/BIGTOP-2958) | Tez should use appropriate profile for Hadoop shims |  Major | build | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2957](https://issues.apache.org/jira/browse/BIGTOP-2957) | Upgrade YCSB to 0.12.0 |  Minor | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2968](https://issues.apache.org/jira/browse/BIGTOP-2968) | Bump Hive version to 2.3.2 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2973](https://issues.apache.org/jira/browse/BIGTOP-2973) | Hama packaging is broken with Hadoop 2.8+ |  Major | build | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2976](https://issues.apache.org/jira/browse/BIGTOP-2976) | zookeeper-rest missing dependency on lsb-base |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2979](https://issues.apache.org/jira/browse/BIGTOP-2979) | JAVA\_HOME inconsistent on non-x86 architectures |  Major | build | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2981](https://issues.apache.org/jira/browse/BIGTOP-2981) | Packaging SparkR is broken due to BIGTOP-2959 |  Major | build | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2980](https://issues.apache.org/jira/browse/BIGTOP-2980) | Hama does not build on DEB type systems |  Major | build | Olaf Flebbe | Jun He |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [BIGTOP-2865](https://issues.apache.org/jira/browse/BIGTOP-2865) | HBase smoke test implementation |  Major | tests | Jun He | Jun He |
 
 
 ### SUB-TASKS:
@@ -84,6 +141,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2833](https://issues.apache.org/jira/browse/BIGTOP-2833) | [puppetize.sh] Support centos-7-aarch64 support |  Major | toolchain | Naresh Bhat | Naresh Bhat |
+| [BIGTOP-2893](https://issues.apache.org/jira/browse/BIGTOP-2893) | Bump Hadoop to 2.8.1 |  Major | hadoop | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2895](https://issues.apache.org/jira/browse/BIGTOP-2895) | Bump Pig to 0.17.0 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2899](https://issues.apache.org/jira/browse/BIGTOP-2899) | Bug: regression in Oozie build after BIGTOP-2895 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2898](https://issues.apache.org/jira/browse/BIGTOP-2898) | Bug: regression in Phoenix build after BIGTOP-2895 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
 
 
 ### OTHER:
@@ -91,5 +152,9 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2739](https://issues.apache.org/jira/browse/BIGTOP-2739) | refresh juju bundles with latest charm revs |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2877](https://issues.apache.org/jira/browse/BIGTOP-2877) | Drop Kite packaging |  Major | build | Evans Ye | Evans Ye |
+| [BIGTOP-2924](https://issues.apache.org/jira/browse/BIGTOP-2924) | Bring back 1.2.1 changes into master |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-2969](https://issues.apache.org/jira/browse/BIGTOP-2969) | Bump up Spark version to 2.2.0 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2970](https://issues.apache.org/jira/browse/BIGTOP-2970) | Bump Zeppelin version to 0.7.3 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 
 

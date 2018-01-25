@@ -18,8 +18,15 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.2 - Unreleased (as of 2017-08-28)
+## Release 2.1.2 - 2017-10-09
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-15799](https://issues.apache.org/jira/browse/SPARK-15799) | Release SparkR on CRAN |  Major | SparkR | Xiangrui Meng | Shivaram Venkataraman |
 
 
 ### IMPROVEMENTS:
@@ -36,13 +43,19 @@
 | [SPARK-20759](https://issues.apache.org/jira/browse/SPARK-20759) | SCALA\_VERSION in \_config.yml,LICENSE and Dockerfile should be consistent with pom.xml |  Trivial | Documentation | liuzhaokun | liuzhaokun |
 | [SPARK-20868](https://issues.apache.org/jira/browse/SPARK-20868) | UnsafeShuffleWriter should verify the position after FileChannel.transferTo |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
 | [SPARK-21072](https://issues.apache.org/jira/browse/SPARK-21072) | \`TreeNode.mapChildren\` should only apply to the children node. |  Major | SQL | Xianyang Liu | Xianyang Liu |
+| [SPARK-22043](https://issues.apache.org/jira/browse/SPARK-22043) | Python profile, show\_profiles() and dump\_profiles(), should throw an error with a better message |  Trivial | PySpark | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-22072](https://issues.apache.org/jira/browse/SPARK-22072) | Allow the same shell params to be used for all of the different steps in release-build |  Major | Build | holdenk | holdenk |
+| [SPARK-22138](https://issues.apache.org/jira/browse/SPARK-22138) | Allow retry during release-build |  Minor | Build | holdenk | holdenk |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-16625](https://issues.apache.org/jira/browse/SPARK-16625) | Oracle JDBC table creation fails with ORA-00902: invalid datatype |  Major | SQL | Daniel Darabos | Yuming Wang |
 | [SPARK-18535](https://issues.apache.org/jira/browse/SPARK-18535) | Redact sensitive information from Spark logs and UI |  Major | Web UI, YARN | Mark Grover | Mark Grover |
+| [SPARK-18971](https://issues.apache.org/jira/browse/SPARK-18971) | Netty issue may cause the shuffle client hang |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-19318](https://issues.apache.org/jira/browse/SPARK-19318) | Docker test case failure: \`SPARK-16625: General data types to be mapped to Oracle\` |  Major | SQL | Xiao Li | Suresh Thalamati |
 | [SPARK-20164](https://issues.apache.org/jira/browse/SPARK-20164) | AnalysisException not tolerant of null query plan |  Major | SQL | Kunal Khamar | Kunal Khamar |
 | [SPARK-20191](https://issues.apache.org/jira/browse/SPARK-20191) | RackResolver not correctly being overridden in YARN tests |  Major | YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-20042](https://issues.apache.org/jira/browse/SPARK-20042) | Buttons on executor log page don't work with spark.ui.reverseProxy=true |  Minor | Web UI | Oliver Koeth | Oliver Koeth |
@@ -116,6 +129,18 @@
 | [SPARK-21588](https://issues.apache.org/jira/browse/SPARK-21588) | SQLContext.getConf(key, null) should return null, but it throws NPE |  Minor | SQL | Burak Yavuz | Vinod KC |
 | [SPARK-21721](https://issues.apache.org/jira/browse/SPARK-21721) | Memory leak in org.apache.spark.sql.hive.execution.InsertIntoHiveTable |  Critical | SQL | yzheng616 | Liang-Chi Hsieh |
 | [SPARK-21793](https://issues.apache.org/jira/browse/SPARK-21793) | Correct validateAndTransformSchema in GaussianMixture and AFTSurvivalRegression |  Minor | MLlib | Cedric Pelvet | Cedric Pelvet |
+| [SPARK-21834](https://issues.apache.org/jira/browse/SPARK-21834) | Incorrect executor request in case of dynamic allocation |  Major | Scheduler | Sital Kedia | Sital Kedia |
+| [SPARK-21950](https://issues.apache.org/jira/browse/SPARK-21950) | pyspark.sql.tests.SQLTests2 should stop SparkContext. |  Major | PySpark, SQL, Tests | Takuya Ueshin | Takuya Ueshin |
+| [SPARK-21985](https://issues.apache.org/jira/browse/SPARK-21985) | PySpark PairDeserializer is broken for double-zipped RDDs |  Major | PySpark | Stuart Berg | Andrew Ray |
+| [SPARK-21953](https://issues.apache.org/jira/browse/SPARK-21953) | Show both memory and disk bytes spilled if either is present |  Minor | Web UI | Andrew Ash | Andrew Ash |
+| [SPARK-22052](https://issues.apache.org/jira/browse/SPARK-22052) | Incorrect Metric assigned in MetricsReporter.scala |  Minor | Input/Output, Structured Streaming | Jason Taaffe | Jason Taaffe |
+| [SPARK-21928](https://issues.apache.org/jira/browse/SPARK-21928) | ClassNotFoundException for custom Kryo registrator class during serde in netty threads |  Major | Spark Core | John Brock | Imran Rashid |
+| [SPARK-22071](https://issues.apache.org/jira/browse/SPARK-22071) | Improve release build scripts to check correct JAVA version is being used for build |  Major | Build | holdenk | holdenk |
+| [SPARK-22083](https://issues.apache.org/jira/browse/SPARK-22083) | When dropping multiple blocks to disk, Spark should release all locks on a failure |  Major | Block Manager, Spark Core | Imran Rashid | Imran Rashid |
+| [SPARK-22129](https://issues.apache.org/jira/browse/SPARK-22129) | Spark release scripts ignore the GPG\_KEY and always sign with your default key |  Blocker | Build | holdenk | holdenk |
+| [SPARK-22167](https://issues.apache.org/jira/browse/SPARK-22167) | Spark Packaging w/R distro issues |  Blocker | Build, SparkR | holdenk | holdenk |
+| [SPARK-22401](https://issues.apache.org/jira/browse/SPARK-22401) | Missing 2.1.2 tag in git |  Minor | Build, Deploy | Brian Barker | holdenk |
+| [SPARK-22406](https://issues.apache.org/jira/browse/SPARK-22406) | pyspark version tag is wrong on PyPi |  Minor | PySpark | Kerrick Staley | holdenk |
 
 
 ### TESTS:
@@ -140,5 +165,6 @@
 | [SPARK-20296](https://issues.apache.org/jira/browse/SPARK-20296) | UnsupportedOperationChecker text on distinct aggregations differs from docs |  Trivial | Structured Streaming | Jason Tokayer | Jason Tokayer |
 | [SPARK-20455](https://issues.apache.org/jira/browse/SPARK-20455) | Missing Test Target in Documentation for "Running Docker-based Integration Test Suites" |  Trivial | Documentation | Armin Braun | Armin Braun |
 | [SPARK-21123](https://issues.apache.org/jira/browse/SPARK-21123) | Options for file stream source are in a wrong table |  Minor | Documentation, Structured Streaming | Shixiong Zhu | Assaf Mendelson |
+| [SPARK-21976](https://issues.apache.org/jira/browse/SPARK-21976) | Fix wrong doc about Mean Absolute Error |  Minor | Documentation, MLlib | Favio Vázquez | Favio Vázquez |
 
 

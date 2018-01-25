@@ -237,6 +237,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-4209](https://issues.apache.org/jira/browse/KAFKA-4209) | Reduce time taken to run quota integration tests |  Major | unit tests | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-4580](https://issues.apache.org/jira/browse/KAFKA-4580) | Change one SASL system test to use new JAAS config property |  Blocker | system tests | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-4575](https://issues.apache.org/jira/browse/KAFKA-4575) | Transient failure in ConnectDistributedTest.test\_pause\_and\_resume\_sink in consuming messages after resuming sink connector |  Major | KafkaConnect, system tests | Shikhar Bhushan | Konstantine Karantasis |
 
 
 ### SUB-TASKS:

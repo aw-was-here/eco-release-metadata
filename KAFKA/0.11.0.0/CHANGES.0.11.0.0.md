@@ -108,6 +108,7 @@
 | [KAFKA-5405](https://issues.apache.org/jira/browse/KAFKA-5405) | Request log should log throttle time |  Major | . | Jun Rao | huxihx |
 | [KAFKA-5446](https://issues.apache.org/jira/browse/KAFKA-5446) | Annoying braces showed on log.error using streams |  Trivial | streams | Paolo Patierno | Paolo Patierno |
 | [KAFKA-4829](https://issues.apache.org/jira/browse/KAFKA-4829) | Improve logging of StreamTask commits |  Minor | streams | Steven Schlansker | Guozhang Wang |
+| [KAFKA-4520](https://issues.apache.org/jira/browse/KAFKA-4520) | Kafka broker fails with not so user-friendly error msg when log.dirs is not set |  Trivial | . | Buchi Reddy B |  |
 
 
 ### BUG FIXES:
@@ -219,7 +220,6 @@
 | [KAFKA-5119](https://issues.apache.org/jira/browse/KAFKA-5119) | Transient test failure SocketServerTest.testMetricCollectionAfterShutdown |  Major | unit tests | Jason Gustafson |  |
 | [KAFKA-5101](https://issues.apache.org/jira/browse/KAFKA-5101) | Remove KafkaController's incrementControllerEpoch method parameter |  Trivial | controller | Balint Molnar | Balint Molnar |
 | [KAFKA-5005](https://issues.apache.org/jira/browse/KAFKA-5005) | JoinIntegrationTest fails occasionally |  Major | streams, unit tests | Matthias J. Sax | Armin Braun |
-| [KAFKA-5140](https://issues.apache.org/jira/browse/KAFKA-5140) | Flaky ResetIntegrationTest |  Major | streams, unit tests | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-4899](https://issues.apache.org/jira/browse/KAFKA-4899) | Fix findbugs warnings in kafka-core |  Major | core | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-3754](https://issues.apache.org/jira/browse/KAFKA-3754) | Kafka default -Xloggc settings should include GC log rotation flags |  Minor | . | Ryan P | Ryan P |
 | [KAFKA-5144](https://issues.apache.org/jira/browse/KAFKA-5144) | MinTimestampTracker uses confusing variable names |  Trivial | streams | Michal Borowiecki | Michal Borowiecki |
@@ -326,7 +326,13 @@
 | [KAFKA-4059](https://issues.apache.org/jira/browse/KAFKA-4059) | Documentation still refers to AsyncProducer and SyncProducer |  Major | producer | Andrew B | Tom Bentley |
 | [KAFKA-5498](https://issues.apache.org/jira/browse/KAFKA-5498) | Connect validation API stops returning recommendations for some fields after the right sequence of requests |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-5577](https://issues.apache.org/jira/browse/KAFKA-5577) | WindowedStreamPartitioner does not provide topic name to serializer |  Major | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5154](https://issues.apache.org/jira/browse/KAFKA-5154) | Kafka Streams throws NPE during rebalance |  Major | streams | Lukas Gemela | Damian Guy |
 | [KAFKA-4840](https://issues.apache.org/jira/browse/KAFKA-4840) | There are are still cases where producer buffer pool will not remove waiters. |  Major | clients | Sean McCauliff | Sean McCauliff |
+| [KAFKA-5961](https://issues.apache.org/jira/browse/KAFKA-5961) | NullPointerException when consumer restore read messages with null key. |  Major | streams | Andres Gomez Ferrer |  |
+| [KAFKA-6088](https://issues.apache.org/jira/browse/KAFKA-6088) | Kafka Consumer slows down when reading from highly compacted topics |  Major | clients | James Cheng |  |
+| [KAFKA-4](https://issues.apache.org/jira/browse/KAFKA-4) | Confusing Error mesage from producer when no kafka brokers are available |  Minor | . |  |  |
+| [KAFKA-1561](https://issues.apache.org/jira/browse/KAFKA-1561) | Data Loss for Incremented Replica Factor and Leader Election |  Major | . | Guozhang Wang | Guozhang Wang |
+| [KAFKA-6334](https://issues.apache.org/jira/browse/KAFKA-6334) | Minor documentation typo |  Trivial | documentation | Andrew Olson | Andrew Olson |
 
 
 ### TESTS:

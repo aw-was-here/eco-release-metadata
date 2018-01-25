@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.18.0 - Unreleased (as of 2017-08-28)
+## Release 0.18.0 - Unreleased (as of 2018-01-25)
 
 
 
@@ -34,6 +34,10 @@
 | [PIG-5288](https://issues.apache.org/jira/browse/PIG-5288) | Improve performance of PigTextRawBytesComparator |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5282](https://issues.apache.org/jira/browse/PIG-5282) | Upgade to Java 8 |  Major | . | Nandor Kollar | Satish Subhashrao Saley |
 | [PIG-5268](https://issues.apache.org/jira/browse/PIG-5268) | Review of org.apache.pig.backend.hadoop.datastorage.HDataStorage |  Trivial | data | BELUGA BEHR | BELUGA BEHR |
+| [PIG-5298](https://issues.apache.org/jira/browse/PIG-5298) | Verify if org.mortbay.jetty is removable |  Major | . | Adam Szita | Nandor Kollar |
+| [PIG-5272](https://issues.apache.org/jira/browse/PIG-5272) | BagToTuple output schema is incorrect |  Minor | . | Joshua Juen | Joshua Juen |
+| [PIG-5302](https://issues.apache.org/jira/browse/PIG-5302) | Remove HttpClient dependency |  Major | . | Nandor Kollar | Nandor Kollar |
+| [PIG-5316](https://issues.apache.org/jira/browse/PIG-5316) | Initialize mapred.task.id property for PoS jobs |  Major | spark | Adam Szita | Nandor Kollar |
 
 
 ### BUG FIXES:
@@ -58,5 +62,29 @@
 | [PIG-5287](https://issues.apache.org/jira/browse/PIG-5287) | bump jython to 2.7.1 |  Minor | . | Artem Ervits | Artem Ervits |
 | [PIG-5294](https://issues.apache.org/jira/browse/PIG-5294) | Spark unit tests are always run in spark1 mode |  Major | build, spark | Adam Szita | Adam Szita |
 | [PIG-5293](https://issues.apache.org/jira/browse/PIG-5293) | Suspicious code as missing \`this' for a member |  Major | . | JC | JC |
+| [PIG-5290](https://issues.apache.org/jira/browse/PIG-5290) | User Cache upload contention can cause job failures |  Major | . | Erik Krogen | Erik Krogen |
+| [PIG-5271](https://issues.apache.org/jira/browse/PIG-5271) | StackOverflowError when compiling in Tez mode (with union and replicated join) |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5307](https://issues.apache.org/jira/browse/PIG-5307) | NPE in TezOperDependencyParallelismEstimator |  Minor | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5314](https://issues.apache.org/jira/browse/PIG-5314) | Abort method is not implemented in PigProcessor |  Major | . | Rohini Palaniswamy | Satish Subhashrao Saley |
+| [PIG-5310](https://issues.apache.org/jira/browse/PIG-5310) | MergeJoin throwing NullPointer Exception |  Major | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
+| [PIG-5315](https://issues.apache.org/jira/browse/PIG-5315) | pig.script is not set for scripts run via PigServer |  Minor | . | Rohini Palaniswamy | Satish Subhashrao Saley |
+| [PIG-5201](https://issues.apache.org/jira/browse/PIG-5201) | Null handling on FLATTEN |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5318](https://issues.apache.org/jira/browse/PIG-5318) | Unit test failures on Pig on Spark with Spark 2.2 |  Major | spark | Nandor Kollar | Nandor Kollar |
+| [PIG-5300](https://issues.apache.org/jira/browse/PIG-5300) | hashCode for Bag needs to be order independent |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5312](https://issues.apache.org/jira/browse/PIG-5312) | Uids not set in inner schemas after UNION ONSCHEMA |  Major | . | Travis Woodruff | Travis Woodruff |
+| [PIG-3864](https://issues.apache.org/jira/browse/PIG-3864) | ToDate(userstring, format, timezone) computes DateTime with strange handling of Daylight Saving Time with location based timezones |  Major | . | Frederic Schmaljohann | Daniel Dai |
+| [PIG-5322](https://issues.apache.org/jira/browse/PIG-5322) | ConstantCalculator optimizer is not applied for split |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5311](https://issues.apache.org/jira/browse/PIG-5311) | POReservoirSample fails for more than Integer.MAX\_VALUE records |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5325](https://issues.apache.org/jira/browse/PIG-5325) | Schema disambiguation can't be turned off for nested schemas |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5327](https://issues.apache.org/jira/browse/PIG-5327) | Check for DAG status before trying to kill |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5320](https://issues.apache.org/jira/browse/PIG-5320) | TestCubeOperator#testRollupBasic is flaky on Spark 2.2 |  Major | spark | Nandor Kollar | Nandor Kollar |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PIG-4120](https://issues.apache.org/jira/browse/PIG-4120) | Broadcast the index file in case of POMergeCoGroup and POMergeJoin |  Major | tez | Rohini Palaniswamy | Satish Subhashrao Saley |
+| [PIG-5305](https://issues.apache.org/jira/browse/PIG-5305) | Enable yarn-client mode execution of tests in Spark (1) mode |  Major | spark | Adam Szita | Adam Szita |
 
 

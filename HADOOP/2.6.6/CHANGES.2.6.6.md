@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.6.6 - Unreleased (as of 2017-08-28)
+## Release 2.6.6 - Unreleased (as of 2018-01-25)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -27,10 +27,19 @@
 | [HADOOP-13812](https://issues.apache.org/jira/browse/HADOOP-13812) | Upgrade Tomcat to 6.0.48 |  Blocker | kms | John Zhuge | John Zhuge |
 
 
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-8865](https://issues.apache.org/jira/browse/HDFS-8865) | Improve quota initialization performance |  Major | . | Kihwal Lee | Kihwal Lee |
+| [YARN-7590](https://issues.apache.org/jira/browse/YARN-7590) | Improve container-executor validation check |  Major | security, yarn | Eric Yang | Eric Yang |
+
+
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-9003](https://issues.apache.org/jira/browse/HDFS-9003) | ForkJoin thread pool leaks |  Major | . | Kihwal Lee | Kihwal Lee |
 | [YARN-4328](https://issues.apache.org/jira/browse/YARN-4328) | Findbugs warning in resourcemanager in branch-2.7 and branch-2.6 |  Minor | resourcemanager | Varun Saxena | Akira Ajisaka |
 | [HDFS-11180](https://issues.apache.org/jira/browse/HDFS-11180) | Intermittent deadlock in NameNode when failover happens. |  Blocker | namenode | Abhishek Modi | Akira Ajisaka |
 | [HDFS-11352](https://issues.apache.org/jira/browse/HDFS-11352) | Potential deadlock in NN when failing over |  Critical | namenode | Erik Krogen | Erik Krogen |
@@ -38,6 +47,7 @@
 | [YARN-6056](https://issues.apache.org/jira/browse/YARN-6056) | Yarn NM using LCE shows a failure when trying to delete a non-existing dir |  Major | yarn | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
 | [YARN-6615](https://issues.apache.org/jira/browse/YARN-6615) | AmIpFilter drops query parameters on redirect |  Major | . | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
 | [HADOOP-14474](https://issues.apache.org/jira/browse/HADOOP-14474) | Use OpenJDK 7 instead of Oracle JDK 7 to avoid oracle-java7-installer failures |  Major | build | Akira Ajisaka | Akira Ajisaka |
+| [HADOOP-15143](https://issues.apache.org/jira/browse/HADOOP-15143) | NPE due to Invalid KerberosTicket in UGI |  Major | . | Jitendra Nath Pandey | Mukul Kumar Singh |
 
 
 ### TESTS:

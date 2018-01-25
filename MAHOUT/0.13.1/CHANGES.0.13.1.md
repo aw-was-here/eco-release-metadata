@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.1 - Unreleased (as of 2017-08-28)
+## Release 0.13.1 - Unreleased (as of 2018-01-25)
 
 
 
@@ -48,6 +48,9 @@
 | [MAHOUT-1973](https://issues.apache.org/jira/browse/MAHOUT-1973) | When building profiles conditionally (say Flink, Viennacl) a hadoop.version related error occurs. Need to check if conditional building of other modules also has this error and fix the issue. |  Minor | build | Aditya AS | Aditya AS |
 | [MAHOUT-1994](https://issues.apache.org/jira/browse/MAHOUT-1994) | Remove ViennCL jars upon mvn clean. |  Blocker | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1993](https://issues.apache.org/jira/browse/MAHOUT-1993) | ViennaCL dependency-reduced.xml assembly scala versions are hardcoded to scala 2.10 |  Blocker | . | Andrew Palumbo | Andrew Palumbo |
+| [MAHOUT-2018](https://issues.apache.org/jira/browse/MAHOUT-2018) | missing dash delimiter in mahout-spark module pom.xml |  Major | . | Andrew Palumbo | Andrew Palumbo |
+| [MAHOUT-2020](https://issues.apache.org/jira/browse/MAHOUT-2020) | Maven repo structure malformed |  Blocker | build | Pat Ferrel | Trevor Grant |
+| [MAHOUT-2007](https://issues.apache.org/jira/browse/MAHOUT-2007) | Fix wikipedia xml dump url in examples |  Major | . | Andrew Palumbo | jack ai |
 
 
 ### OTHER:

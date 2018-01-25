@@ -253,4 +253,57 @@ import com.datastax.spark.connector.\_
 {code}
 
 
+---
+
+* [SPARK-21915](https://issues.apache.org/jira/browse/SPARK-21915) | *Minor* | **Model 1 and Model 2 ParamMaps Missing**
+
+Error in PySpark example code
+[https://github.com/apache/spark/blob/master/examples/src/main/python/ml/estimator\_transformer\_param\_example.py]
+
+The original Scala code says
+println("Model 2 was fit using parameters: " + model2.parent.extractParamMap)
+
+The parent is lr
+
+There is no method for accessing parent as is done in Scala.
+
+----
+
+This code has been tested in Python, and returns values consistent with Scala
+
+
+Proposing to call the lr variable instead of model1 or model2
+
+
+
+----
+This patch was tested with Spark 2.1.0 comparing the Scala and PySpark results. Pyspark returns nothing at present for those two print lines.
+
+The output for model2 in PySpark should be
+
+{Param(parent='LogisticRegression\_4187be538f744d5a9090', name='tol', doc='the convergence tolerance for iterative algorithms (\>= 0).'): 1e-06,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='elasticNetParam', doc='the ElasticNet mixing parameter, in range [0, 1]. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty.'): 0.0,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='predictionCol', doc='prediction column name.'): 'prediction',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='featuresCol', doc='features column name.'): 'features',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='labelCol', doc='label column name.'): 'label',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='probabilityCol', doc='Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities.'): 'myProbability',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='rawPredictionCol', doc='raw prediction (a.k.a. confidence) column name.'): 'rawPrediction',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='family', doc='The name of family which is a description of the label distribution to be used in the model. Supported options: auto, binomial, multinomial'): 'auto',
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='fitIntercept', doc='whether to fit an intercept term.'): True,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='threshold', doc='Threshold in binary classification prediction, in range [0, 1]. If threshold and thresholds are both set, they must match.e.g. if threshold is p, then thresholds must be equal to [1-p, p].'): 0.55,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='aggregationDepth', doc='suggested depth for treeAggregate (\>= 2).'): 2,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='maxIter', doc='max number of iterations (\>= 0).'): 30,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='regParam', doc='regularization parameter (\>= 0).'): 0.1,
+Param(parent='LogisticRegression\_4187be538f744d5a9090', name='standardization', doc='whether to standardize the training features before fitting the model.'): True}
+
+
+---
+
+* [SPARK-22471](https://issues.apache.org/jira/browse/SPARK-22471) | *Major* | **SQLListener consumes much memory causing OutOfMemoryError**
+
+\_SQLListener\_ may grow very large when Spark runs complex multi-stage requests. The listener tracks metrics for all stages in \_\_stageIdToStageMetrics\_ hash map. \_SQLListener\_ has some means to cleanup this hash map regularly, but this is not enough. Precisely, the method \_trimExecutionsIfNecessary\_ ensures that \_\_stageIdToStageMetrics\_ does not have metrics for very old data; this method runs on each execution completion.
+However, if an execution has many stages, \_SQLListener\_ keeps adding new entries to \_\_stageIdToStageMetrics\_ without calling \_trimExecutionsIfNecessary\_. The hash map may grow to enormous size.
+Strictly speaking, it is not a memory leak, because finally \_trimExecutionsIfNecessary\_ cleans the hash map. However, the driver program has high odds to crash with OutOfMemoryError (and it does).
+
+
 

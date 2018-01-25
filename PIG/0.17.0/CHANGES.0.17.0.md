@@ -101,10 +101,10 @@
 | [PIG-4947](https://issues.apache.org/jira/browse/PIG-4947) | LOAD with HBaseStorage using a mix of pure wildcards and prefixed wildcards results in empty maps for the pure wildcarded column families. |  Major | grunt | Youngjin | Daniel Dai |
 | [PIG-4957](https://issues.apache.org/jira/browse/PIG-4957) | See "Received kill signal" message for a normal run after PIG-4921 |  Major | . | Daniel Dai | Rohini Palaniswamy |
 | [PIG-4960](https://issues.apache.org/jira/browse/PIG-4960) | Split followed by order by/skewed join is skewed in Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-4961](https://issues.apache.org/jira/browse/PIG-4961) | CROSS followed by LIMIT inside nested foreach drop data from result |  Major | . | Sergey Svinarchuk | Rohini Palaniswamy |
+| [PIG-4961](https://issues.apache.org/jira/browse/PIG-4961) | CROSS followed by LIMIT inside nested foreach drop data from result |  Major | . | Sergey Svynarchuk | Rohini Palaniswamy |
 | [PIG-4935](https://issues.apache.org/jira/browse/PIG-4935) | TEZ\_USE\_CLUSTER\_HADOOP\_LIBS is always set to true |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4966](https://issues.apache.org/jira/browse/PIG-4966) | Fix Pig compatibility with Hive 2.1.0 |  Minor | build | Zach York | Zach York |
-| [PIG-4965](https://issues.apache.org/jira/browse/PIG-4965) | Refactor test/perf/pigmix/bin/runpigmix.pl to delete the output of single test case if we enable cleanup\_after\_test |  Major | . | liyunzhang\_intel | liyunzhang\_intel |
+| [PIG-4965](https://issues.apache.org/jira/browse/PIG-4965) | Refactor test/perf/pigmix/bin/runpigmix.pl to delete the output of single test case if we enable cleanup\_after\_test |  Major | . | liyunzhang | liyunzhang |
 | [PIG-4933](https://issues.apache.org/jira/browse/PIG-4933) | TestDataBagAccess.testBagConstantFlatten1/TestLogicalPlanBuilder.testQuery90  broken after PIG-2315 |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4972](https://issues.apache.org/jira/browse/PIG-4972) | StreamingIO\_1 fail on perl 5.22 |  Major | e2e harness | Daniel Dai | Daniel Dai |
 | [PIG-4973](https://issues.apache.org/jira/browse/PIG-4973) | Bigdecimal divison fails |  Major | impl | Adam Szita | Adam Szita |

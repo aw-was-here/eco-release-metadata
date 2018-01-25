@@ -114,4 +114,167 @@ This change allows the demonstration Thrift client to customize the server princ
 This change invalidates the need for a separate Java properties file to configure the ChaosMonkey included with HBase. These properties can be provided directly in hbase-site.xml. If configuration in provided in both locations, the Java properties file takes precendence.
 
 
+---
+
+* [HBASE-18665](https://issues.apache.org/jira/browse/HBASE-18665) | *Critical* | **ReversedScannerCallable invokes getRegionLocations incorrectly**
+
+Performing reverse scan on tables used the meta cache incorrectly and fetched data from meta table every time. This fix solves this issue and which results in performance improvement for reverse scans.
+
+
+---
+
+* [HBASE-18577](https://issues.apache.org/jira/browse/HBASE-18577) | *Critical* | **shaded client includes several non-relocated third party dependencies**
+
+<!-- markdown -->
+
+The HBase shaded artifacts (hbase-shaded-client and hbase-shaded-server) no longer contain several non-relocated third party dependency classes that were mistakenly included. Downstream users who relied on these classes being present will need to add a runtime dependency onto an appropriate third party artifact.
+
+Previously, we erroneously packaged several third party libs without relocating them. In some cases these libraries have now been relocated; in some cases they are no longer included at all.
+
+Includes:
+
+* jaxb
+* jetty
+* jersey
+* codahale metrics (HBase 1.4+ only)
+* commons-crypto
+* jets3t
+* junit
+* curator (HBase 1.4+)
+* netty 3 (HBase 1.1)
+* mokito-junit4 (HBase 1.1)
+
+There is now testing to ensure that the shaded artifacts only contain expected relocated content. It can be run via `mvn -Dtest=noUnitTests -pl hbase-shaded/hbase-shaded-check-invariants -am -Prelease verify`.
+
+For version 2.0+ this patch removes hadoop-mapreduce-client-core from the set of dependencies included for the hbase-client and hbase-shaded-client artifacts.
+
+For 2.0+, the slf4j-log4j12 dependency is now optional for both shaded artifacts.
+
+
+---
+
+* [HBASE-18675](https://issues.apache.org/jira/browse/HBASE-18675) | *Minor* | **Making {max,min}SessionTimeout configurable for MiniZooKeeperCluster**
+
+<!-- markdown -->
+
+Standalone clusters and minicluster instances can now configure the session timeout for our embedded ZooKeeper quorum using `hbase.zookeeper.property.minSessionTimeout` and `hbase.zookeeper.property.maxSessionTimeout`.
+
+
+---
+
+* [HBASE-18142](https://issues.apache.org/jira/browse/HBASE-18142) | *Major* | **Deletion of a cell deletes the previous versions too**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HBASE-19055](https://issues.apache.org/jira/browse/HBASE-19055) | *Blocker* | **Backport HBASE-19042 to other active branches**
+
+Precommit switched from Oracle JDK 8 to OpenJDK-8.
+
+
+---
+
+* [HBASE-19014](https://issues.apache.org/jira/browse/HBASE-19014) | *Major* | **surefire fails; When writing xml report stdout/stderr ... No such file or directory**
+
+Running tests with a wildcard selector, i.e.{{-Dtest=org.apache.hadoop.hbase.server.\*}} no longer works.
+
+
+---
+
+* [HBASE-18247](https://issues.apache.org/jira/browse/HBASE-18247) | *Minor* | **Hbck to fix the case that replica region shows as key in the meta table**
+
+The hbck tool can no correct the meta table should it get an entry for a read replica region.
+
+
+---
+
+* [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052) | *Critical* | **FixedFileTrailer should recognize CellComparatorImpl class in branch-1.x**
+
+FixedFileTrailer#getComparatorClass() recognizes CellComparatorImpl and CellComparatorImpl$MetaCellComparator classes.
+
+This is for rolling upgrade from 1.x release to 2.0 release.
+
+
+---
+
+* [HBASE-19189](https://issues.apache.org/jira/browse/HBASE-19189) | *Major* | **Ad-hoc test job for running a subset of tests lots of times**
+
+<!-- markdown -->
+
+Folks can now test out tests on an arbitrary release branch. Head over to [builds.a.o job "HBase-adhoc-run-tests"](https://builds.apache.org/view/H-L/view/HBase/job/HBase-adhoc-run-tests/), then pick "Build with parameters".
+Tests are specified as just names e.g. TestLogRollingNoCluster. can also be a glob. e.g. TestHFile*
+
+
+---
+
+* [HBASE-19262](https://issues.apache.org/jira/browse/HBASE-19262) | *Major* | **Revisit checkstyle rules**
+
+Change the import order rule that now we should put the shaded import at bottom. Ignore the VisibilityModifier warnings for test code.
+
+
+---
+
+* [HBASE-18090](https://issues.apache.org/jira/browse/HBASE-18090) | *Major* | **Improve TableSnapshotInputFormat to allow more multiple mappers per region**
+
+In this task, we make it possible to run multiple mappers per region in the table snapshot. The following code is primary table snapshot mapper initializatio: 
+
+TableMapReduceUtil.initTableSnapshotMapperJob(
+          snapshotName,                     // The name of the snapshot (of a table) to read from
+          scan,                                      // Scan instance to control CF and attribute selection
+          mapper,                                 // mapper
+          outputKeyClass,                   // mapper output key 
+          outputValueClass,                // mapper output value
+          job,                                       // The current job to adjust
+          true,                                     // upload HBase jars and jars for any of the configured job classes via the distributed cache (tmpjars)
+          restoreDir,                           // a temporary directory to copy the snapshot files into
+);
+
+The job only run one map task per region in the table snapshot. With this feature, client can specify the desired num of mappers when init table snapshot mapper job：
+
+TableMapReduceUtil.initTableSnapshotMapperJob(
+          snapshotName,                     // The name of the snapshot (of a table) to read from
+          scan,                                      // Scan instance to control CF and attribute selection
+          mapper,                                 // mapper
+          outputKeyClass,                   // mapper output key 
+          outputValueClass,                // mapper output value
+          job,                                       // The current job to adjust
+          true,                                     // upload HBase jars and jars for any of the configured job classes via the distributed cache (tmpjars)
+          restoreDir,                           // a temporary directory to copy the snapshot files into
+          splitAlgorithm,                     // splitAlgo algorithm to split, current split algorithms  support RegionSplitter.UniformSplit() and RegionSplitter.HexStringSplit()
+          n                                         // how many input splits to generate per one region
+);
+
+
+---
+
+* [HBASE-19354](https://issues.apache.org/jira/browse/HBASE-19354) | *Major* | **[branch-1] Build using a jdk that is beyond ubuntu trusty's openjdk-151**
+
+The jdks in ubuntu trusty  (14.04), our Docker os, don't work. HDFS hangs on trusty's openjdk-7 151 which makes for a bunch of hbase tests that just hang/timeout. See HBASE-19204. This patch adds azul jdks to our Docker env because they are available, and later versions of openjdk (openjdk-7 161)., a version that does not seem to hang HDFS.
+
+This change adds the azul repo and then install its jdks and rename the azul jvms as though they were from openjdk (otherwise yetus won't set JAVA\_HOME; it does find /usr/lib/jvm/ -name java-\* -type d so a symlink to the zulu jvms won't work).
+
+
+---
+
+* [HBASE-18233](https://issues.apache.org/jira/browse/HBASE-18233) | *Blocker* | **We shouldn't wait for readlock in doMiniBatchMutation in case of deadlock**
+
+This patch plus the sort of mutations done in HBASE-17924 fixes a regression doing increments and/or checkAndPut-style operations.
+
+
+---
+
+* [HBASE-19340](https://issues.apache.org/jira/browse/HBASE-19340) | *Major* | **Backport missing options in shell**
+
+Add missing constants configuration in shell thru backport.
+
+
+---
+
+* [HBASE-17513](https://issues.apache.org/jira/browse/HBASE-17513) | *Critical* | **Thrift Server 1 uses different QOP settings than RPC and Thrift Server 2 and can easily be misconfigured so there is no encryption when the operator expects it.**
+
+This change fixes an issue where users could have unintentionally configured the HBase Thrift1 server to run without wire-encryption, when they believed they had configured the Thrift1 server to do so.
+
+
 

@@ -35,4 +35,29 @@ These release notes cover new developer and user-facing incompatibilities, impor
 cmake is added to replace the existing hardcoded (and outdated) visual studio solutions for windows platform.
 
 
+---
+
+* [ZOOKEEPER-2890](https://issues.apache.org/jira/browse/ZOOKEEPER-2890) | *Critical* | **Local automatic variable is left uninitialized and then freed.**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [ZOOKEEPER-2950](https://issues.apache.org/jira/browse/ZOOKEEPER-2950) | *Trivial* | **Add keys for the Zxid from the stat command to check\_zookeeper.py**
+
+Add keys for the zxid and its component pieces: epoch and transaction counter. These are not reported by the 'mntr' command so they must be obtained from 'stat'. The counter is useful for tracking transaction rates, and epoch is useful for tracking leader churn.
+
+zk\_zxid - the 64bit zxid from ZK
+zk\_zxid\_counter - the lower 32 bits, AKA the counter
+zk\_zxid\_epoch - the upper 32 bits, AKA the epoch
+
+
+---
+
+* [ZOOKEEPER-2952](https://issues.apache.org/jira/browse/ZOOKEEPER-2952) | *Critical* | **Upgrade third party libraries to address vulnerabilities**
+
+**WARNING: No release note provided for this change.**
+
+
 

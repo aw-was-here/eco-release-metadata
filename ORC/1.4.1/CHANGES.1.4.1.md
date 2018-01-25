@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.1 - Unreleased (as of 2017-08-28)
+## Release 1.4.1 - 2017-10-16
 
 
 
@@ -39,5 +39,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-188](https://issues.apache.org/jira/browse/ORC-188) | Fix RAT problems |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-198](https://issues.apache.org/jira/browse/ORC-198) | Decimal types created with convert command generates IllegalArgumentException for valid documents |  Major | Java | Shawn Hooton | Shawn Hooton |
+| [ORC-233](https://issues.apache.org/jira/browse/ORC-233) | Allow \`orc.include.columns\` to be empty |  Major | Java | Dongjoon Hyun | Ajay Yadava |
+| [ORC-162](https://issues.apache.org/jira/browse/ORC-162) | Handle 0 byte files as empty ORC files |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-241](https://issues.apache.org/jira/browse/ORC-241) | Make attempts to read a future file format a runtime error instead of warning |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-246](https://issues.apache.org/jira/browse/ORC-246) | fix dockerfile for ubuntu 16 to install tzdata |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

@@ -188,4 +188,11 @@ hive.cbo.show.warnings (default false) is added to control display of cost-based
 Regression: Union of null with non-null (Gopal V, reviewed by Sergey Shelukhin)
 
 
+---
+
+* [HIVE-15862](https://issues.apache.org/jira/browse/HIVE-15862) | *Major* | **beeline always have a warning "Hive does not support autoCommit=false"**
+
+set the autoCommit default value to true in BeeLineOpts
+
+
 

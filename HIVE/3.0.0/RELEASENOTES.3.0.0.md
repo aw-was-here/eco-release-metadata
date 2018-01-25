@@ -144,4 +144,92 @@ Document the new configuration.
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [HIVE-17307](https://issues.apache.org/jira/browse/HIVE-17307) | *Major* | **Change the metastore to not use the metrics code in hive/common**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17483](https://issues.apache.org/jira/browse/HIVE-17483) | *Major* | **HS2 kill command to kill queries using query id**
+
+In HiveConnection - 
+static List\<JdbcConnectionParams\> getAllUrls(String zookeeperBasedHS2Url)
+You can call
+JdbcConnectionParams.toString() to get the actual URL
+
+In HiveStatement -
+You can get query id of a running query using -
+String getQueryId()
+
+You can kill hive queries using 
+"KILL QUERY \<queryid1\> \<queryid2\>"
+
+
+---
+
+* [HIVE-17679](https://issues.apache.org/jira/browse/HIVE-17679) | *Major* | **http-generic-click-jacking for WebHcat server**
+
+Security fix: Adds protection from clickjacking using X-Frame-Options header. 
+This will prevent use of WebHCat UI in frames. A new configuration 'templeton.frame.options.filter' is added to allow configuring such option.
+
+
+---
+
+* [HIVE-17519](https://issues.apache.org/jira/browse/HIVE-17519) | *Major* | **Transpose column stats display**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17540](https://issues.apache.org/jira/browse/HIVE-17540) | *Major* | **remove feature: describe pretty**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17652](https://issues.apache.org/jira/browse/HIVE-17652) | *Major* | **retire ANALYZE TABLE ... PARTIALSCAN**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17812](https://issues.apache.org/jira/browse/HIVE-17812) | *Major* | **Move remaining classes that HiveMetaStore depends on**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-15016](https://issues.apache.org/jira/browse/HIVE-15016) | *Major* | **Run tests with Hadoop 3.0.0-beta1**
+
+With this change, Hive is pointing to Hadoop 3.0.0-beta1 and HBase 2.0.0-alpha3.
+
+
+---
+
+* [HIVE-6590](https://issues.apache.org/jira/browse/HIVE-6590) | *Major* | **Hive does not work properly with boolean partition columns (wrong results and inserts to incorrect HDFS path)**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [HIVE-17710](https://issues.apache.org/jira/browse/HIVE-17710) | *Major* | **LockManager should only lock Managed tables**
+
+The LockManager which is installed automatically when enabling Acid (hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager) does not lock any External Tables since Hive has no control over what is modifying the data in such tables.
+
+
+---
+
+* [HIVE-18419](https://issues.apache.org/jira/browse/HIVE-18419) | *Major* | **CliDriver loads different hive-site.xml into HiveConf and MetastoreConf**
+
+n/a
+
+
 

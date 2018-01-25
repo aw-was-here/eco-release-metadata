@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.11.0.1 - Unreleased (as of 2017-08-28)
+## Release 0.11.0.1 - 2017-09-12
 
 
 
@@ -43,13 +43,13 @@
 | [KAFKA-5584](https://issues.apache.org/jira/browse/KAFKA-5584) | Incorrect log size for topics larger than 2 GB |  Critical | log | Gregor Uhlenheuer |  |
 | [KAFKA-5600](https://issues.apache.org/jira/browse/KAFKA-5600) | Group loading regression causing stale metadata/offsets cache |  Critical | core | Jan Burkhardt | Jan Burkhardt |
 | [KAFKA-5587](https://issues.apache.org/jira/browse/KAFKA-5587) | Processor got uncaught exception: NullPointerException |  Major | core | Dan | Rajini Sivaram |
-| [KAFKA-4669](https://issues.apache.org/jira/browse/KAFKA-4669) | KafkaProducer.flush hangs when NetworkClient.handleCompletedReceives throws exception |  Critical | clients | Cheng Ju | Rajini Sivaram |
 | [KAFKA-5608](https://issues.apache.org/jira/browse/KAFKA-5608) | System test failure due to timeout starting Jmx tool |  Major | . | Jason Gustafson | Ewen Cheslack-Postava |
 | [KAFKA-5556](https://issues.apache.org/jira/browse/KAFKA-5556) | KafkaConsumer.commitSync throws IllegalStateException: Attempt to retrieve exception from future which hasn't failed |  Critical | clients | Damian Guy | Umesh Chaudhary |
 | [KAFKA-5610](https://issues.apache.org/jira/browse/KAFKA-5610) | KafkaApis.handleWriteTxnMarkerRequest can return UNSUPPORTED\_FOR\_MESSAGE\_FORMAT error on partition emigration |  Critical | . | Apurva Mehta | Apurva Mehta |
 | [KAFKA-5623](https://issues.apache.org/jira/browse/KAFKA-5623) | ducktape kafka service: do not assume Service contains num\_nodes |  Major | system tests | Colin P. McCabe |  |
 | [KAFKA-5431](https://issues.apache.org/jira/browse/KAFKA-5431) | LogCleaner stopped due to org.apache.kafka.common.errors.CorruptRecordException |  Major | core | Carsten Rietz | huxihx |
 | [KAFKA-5512](https://issues.apache.org/jira/browse/KAFKA-5512) | KafkaConsumer: High memory allocation rate when idle |  Major | consumer | Stephane Roset |  |
+| [KAFKA-5562](https://issues.apache.org/jira/browse/KAFKA-5562) | Do streams state directory cleanup on a single thread |  Major | . | Damian Guy | Damian Guy |
 | [KAFKA-5634](https://issues.apache.org/jira/browse/KAFKA-5634) | Replica fetcher thread crashes due to OffsetOutOfRangeException |  Critical | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-5630](https://issues.apache.org/jira/browse/KAFKA-5630) | Consumer poll loop over the same record after a CorruptRecordException |  Critical | consumer | Vincent Maurin | Jiangjie Qin |
 | [KAFKA-5643](https://issues.apache.org/jira/browse/KAFKA-5643) | Using \_DUCKTAPE\_OPTIONS has no effect on executing tests |  Major | system tests | Paolo Patierno | Paolo Patierno |
@@ -69,6 +69,14 @@
 | [KAFKA-5417](https://issues.apache.org/jira/browse/KAFKA-5417) | Clients get inconsistent connection states when SASL/SSL connection is marked CONECTED and DISCONNECTED at the same time |  Critical | clients | dongeforever |  |
 | [KAFKA-5644](https://issues.apache.org/jira/browse/KAFKA-5644) | Transient test failure: ResetConsumerGroupOffsetTest.testResetOffsetsToZonedDateTime |  Minor | . | Manikumar | Manikumar |
 | [KAFKA-5771](https://issues.apache.org/jira/browse/KAFKA-5771) | org.apache.kafka.streams.state.internals.Segments#segments method returns incorrect results when segments were added out of order |  Major | streams | Alexander Radzishevsky | Alexander Radzishevsky |
+| [KAFKA-5787](https://issues.apache.org/jira/browse/KAFKA-5787) | StoreChangeLogReader needs to restore partitions that were added post initialization |  Blocker | streams | Damian Guy | Damian Guy |
+| [KAFKA-5603](https://issues.apache.org/jira/browse/KAFKA-5603) | Streams should not abort transaction when closing zombie task |  Critical | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5797](https://issues.apache.org/jira/browse/KAFKA-5797) | StoreChangelogReader should be resilient to broker-side metadata not available |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-2105](https://issues.apache.org/jira/browse/KAFKA-2105) | NullPointerException in client on MetadataRequest |  Minor | clients | Roger Hoover | Manikumar |
+| [KAFKA-5659](https://issues.apache.org/jira/browse/KAFKA-5659) | Fix error handling, efficiency issue in AdminClient#describeConfigs |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5818](https://issues.apache.org/jira/browse/KAFKA-5818) | KafkaStreams state transitions not correct |  Major | streams | Matthias J. Sax | Matthias J. Sax |
+| [KAFKA-5756](https://issues.apache.org/jira/browse/KAFKA-5756) | Synchronization issue on flush |  Major | KafkaConnect | Oleg Kuznetsov |  |
+| [KAFKA-5961](https://issues.apache.org/jira/browse/KAFKA-5961) | NullPointerException when consumer restore read messages with null key. |  Major | streams | Andres Gomez Ferrer |  |
 
 
 ### TESTS:

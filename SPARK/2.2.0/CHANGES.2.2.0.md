@@ -88,6 +88,7 @@
 | [SPARK-10643](https://issues.apache.org/jira/browse/SPARK-10643) | Support remote application download in client mode spark submit |  Minor | Spark Submit | Alan Braithwaite | Yu Peng |
 | [SPARK-15352](https://issues.apache.org/jira/browse/SPARK-15352) | Topology aware block replication |  Major | Block Manager, Mesos, Spark Core, YARN | Shubham Chopra | Shubham Chopra |
 | [SPARK-20979](https://issues.apache.org/jira/browse/SPARK-20979) | Add a rate source to generate values for tests and benchmark |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-18267](https://issues.apache.org/jira/browse/SPARK-18267) | Distribute PySpark via Python Package Index (pypi) |  Major | Build, Project Infra, PySpark | Reynold Xin | holdenk |
 
 
 ### IMPROVEMENTS:
@@ -520,7 +521,6 @@
 | [SPARK-16815](https://issues.apache.org/jira/browse/SPARK-16815) | Dataset[List[T]] leads to ArrayStoreException |  Minor | SQL | TobiasP | Michal Šenkýř |
 | [SPARK-19033](https://issues.apache.org/jira/browse/SPARK-19033) | HistoryServer still uses old ACLs even if ACLs are updated |  Minor | Spark Core | Saisai Shao | Saisai Shao |
 | [SPARK-19083](https://issues.apache.org/jira/browse/SPARK-19083) | sbin/start-history-server.sh scripts use of $@ without "" |  Trivial | . | zuotingbing | zuotingbing |
-| [SPARK-19106](https://issues.apache.org/jira/browse/SPARK-19106) | Styling for the configuration docs is broken |  Trivial | Documentation | Nicholas Chammas | Sean Owen |
 | [SPARK-19110](https://issues.apache.org/jira/browse/SPARK-19110) | DistributedLDAModel returns different logPrior for original and loaded model |  Major | ML, MLlib | Miao Wang | Miao Wang |
 | [SPARK-19093](https://issues.apache.org/jira/browse/SPARK-19093) | Cached tables are not used in SubqueryExpression |  Major | SQL | Josh Rosen | Dilip Biswal |
 | [SPARK-18952](https://issues.apache.org/jira/browse/SPARK-18952) | regex strings not properly escaped in codegen for aggregations |  Major | SQL | Burak Yavuz | Burak Yavuz |
@@ -1042,6 +1042,7 @@
 | [SPARK-19020](https://issues.apache.org/jira/browse/SPARK-19020) | Cardinality estimation of aggregate operator |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
 | [SPARK-18922](https://issues.apache.org/jira/browse/SPARK-18922) | Fix more resource-closing-related and path-related test failures in identified ones on Windows |  Minor | Tests | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-19149](https://issues.apache.org/jira/browse/SPARK-19149) | Unify two sets of statistics in LogicalPlan |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
+| [SPARK-18801](https://issues.apache.org/jira/browse/SPARK-18801) | Support resolve a nested view |  Major | SQL | Jiang Xingbo | Jiang Xingbo |
 | [SPARK-19132](https://issues.apache.org/jira/browse/SPARK-19132) | Add test cases for row size estimation |  Major | SQL | Reynold Xin | Zhenhua Wang |
 | [SPARK-19164](https://issues.apache.org/jira/browse/SPARK-19164) | Remove unused UserDefinedFunction.\_broadcast |  Major | PySpark, SQL | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-19151](https://issues.apache.org/jira/browse/SPARK-19151) | DataFrameWriter.saveAsTable should work with hive format with overwrite mode |  Major | SQL | Wenchen Fan | Song Jun |
@@ -1134,6 +1135,8 @@
 | [SPARK-20877](https://issues.apache.org/jira/browse/SPARK-20877) | Shorten test sets to run on CRAN |  Major | SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-20986](https://issues.apache.org/jira/browse/SPARK-20986) | Reset table's statistics after PruneFileSourcePartitions rule. |  Major | SQL | Lianhui Wang | Lianhui Wang |
 | [SPARK-21079](https://issues.apache.org/jira/browse/SPARK-21079) | ANALYZE TABLE fails to calculate totalSize for a partitioned table |  Major | SQL | Maria | Maria |
+| [SPARK-20676](https://issues.apache.org/jira/browse/SPARK-20676) | Upload to PyPi |  Major | PySpark | holdenk | holdenk |
+| [SPARK-18128](https://issues.apache.org/jira/browse/SPARK-18128) | Add support for publishing to PyPI |  Major | PySpark | holdenk | holdenk |
 
 
 ### OTHER:

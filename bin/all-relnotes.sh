@@ -1,5 +1,7 @@
 #!/usr/bin/env bash4
 
+export PYTHON=/usr/local/bin/python2
+
 function print_and_run
 {
   echo "${*}"
@@ -43,7 +45,7 @@ function common_rdm
   big_console_header "Apache ${title}"
 
   print_and_run \
-	"${RDM}" --project "${cap}" --outputdir "${cap}" \
+	"${PYTHON}" "${RDM}" --project "${cap}" --outputdir "${cap}" \
           --projecttitle "Apache ${title}" \
           --version "${v1}" --version "${v2}" \
           --range --index --license
@@ -98,7 +100,7 @@ big_console_header Hadoop
 # Hadoop is a mess.  There are now effectively 4 branches
 # in active development, so this range is huge. :(
 print_and_run \
-	${RDM} --project HADOOP --project HDFS \
+	"${PYTHON}" "${RDM}" --project HADOOP --project HDFS \
         --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --version 2.6.6 --version 2.6.10 \
@@ -106,21 +108,21 @@ print_and_run \
         --outputdir HADOOP
 
 print_and_run \
-	${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+	"${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --range --version 2.7.4 --version 2.7.9 \
         --index --license \
         --outputdir HADOOP
 
 print_and_run \
-        ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        "${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --range --version 2.8.1 --version 2.10.0 \
         --index --license \
         --outputdir HADOOP
 
 print_and_run \
-        ${RDM} --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        "${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --range --version 3.0.0 --version 4 \
         --index --license \

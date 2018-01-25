@@ -145,7 +145,7 @@
 | [PIG-4816](https://issues.apache.org/jira/browse/PIG-4816) | Read a null scalar causing a Tez failure |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-4819](https://issues.apache.org/jira/browse/PIG-4819) | RANDOM() udf can lead to missing or redundant records |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4833](https://issues.apache.org/jira/browse/PIG-4833) | TestBuiltin.testURIWithCurlyBrace in TEZ failing after PIG-4819 |  Minor | . | Koji Noguchi | Koji Noguchi |
-| [PIG-4832](https://issues.apache.org/jira/browse/PIG-4832) | Fix TestPrumeColumn NPE failure |  Major | . | liyunzhang\_intel | liyunzhang\_intel |
+| [PIG-4832](https://issues.apache.org/jira/browse/PIG-4832) | Fix TestPrumeColumn NPE failure |  Major | . | liyunzhang | liyunzhang |
 | [PIG-4841](https://issues.apache.org/jira/browse/PIG-4841) | Inline-op with schema declaration fails with syntax error |  Minor | parser | Koji Noguchi | Koji Noguchi |
 | [PIG-4845](https://issues.apache.org/jira/browse/PIG-4845) | Parallel instantiation of classes in Tez cause tasks to fail |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4850](https://issues.apache.org/jira/browse/PIG-4850) | Registered jars do not use submit replication |  Major | impl | Ryan Blue | Ryan Blue |

@@ -125,6 +125,7 @@
 | [PARQUET-772](https://issues.apache.org/jira/browse/PARQUET-772) | Test fails if current locale has decimal mark other than . |  Trivial | parquet-mr | Zoltan Ivanfi | Zoltan Ivanfi |
 | [PARQUET-686](https://issues.apache.org/jira/browse/PARQUET-686) | Allow for Unsigned Statistics in Binary Type |  Major | parquet-format | Andrew Duffy | Ryan Blue |
 | [PARQUET-826](https://issues.apache.org/jira/browse/PARQUET-826) | parquet.thrift comments for Statistics are not consistent with parquet-mr and Hive implementations |  Major | parquet-format | Lars Volker | Lars Volker |
+| [PARQUET-1133](https://issues.apache.org/jira/browse/PARQUET-1133) | INT96 types and Maps without OriginalType cause exceptions in PigSchemaConverter |  Major | parquet-pig | Addisu Feyissa | Addisu Feyissa |
 
 
 ### TESTS:

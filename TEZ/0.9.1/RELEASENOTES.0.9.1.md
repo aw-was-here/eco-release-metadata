@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [TEZ-3855](https://issues.apache.org/jira/browse/TEZ-3855) | *Blocker* | **Allow vertex manager to send event to processor**
+
+Issue was addressed in TEZ-3867.
+
+
 

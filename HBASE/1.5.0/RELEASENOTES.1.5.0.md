@@ -23,23 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HBASE-18267](https://issues.apache.org/jira/browse/HBASE-18267) | *Major* | **The result from the postAppend is ignored**
+* [HBASE-17314](https://issues.apache.org/jira/browse/HBASE-17314) | *Major* | **Limit total buffered size for all replication sources**
 
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HBASE-16993](https://issues.apache.org/jira/browse/HBASE-16993) | *Major* | **BucketCache throw java.io.IOException: Invalid HFile block magic when configuring hbase.bucketcache.bucket.sizes**
-
-Any value for hbase.bucketcache.bucket.sizes  configuration to be multiple of 256.  If that is not the case, instantiation of L2 Bucket cache itself will fail throwing IllegalArgumentException.
-
-
----
-
-* [HBASE-18374](https://issues.apache.org/jira/browse/HBASE-18374) | *Major* | **RegionServer Metrics improvements**
-
-This change adds the latency metrics checkAndPut, checkAndDelete, putBatch and deleteBatch . Also the previous regionserver "mutate" latency metrics are renamed to "put" metrics. Batch metrics capture the latency of the entire batch containing put/delete whereas put/delete metrics capture latency per operation. Note this change will break existing monitoring based on regionserver "mutate" latency metric.
+Add a conf "replication.total.buffer.quota" to limit total size of buffered entries in all replication peers. It will prevent server getting OOM if there are many peers. Default value is 256MB.
 
 
 ---
@@ -51,23 +37,87 @@ Sets a log length max of 1000 characters.
 
 ---
 
-* [HBASE-18469](https://issues.apache.org/jira/browse/HBASE-18469) | *Critical* | **Correct  RegionServer metric of  totalRequestCount**
+* [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | *Critical* | **Push entries to peer clusters serially**
 
-In HBASE-18469 we introduced a new RegionServer metrics in name of "totalRowActionRequestCount" which counts in all row actions and equals to the sum of "readRequestCount" and "writeRequestCount". Meantime, we have changed "totalRequestCount" to count only once for multi request, while previously we will count in action number of the request. As a result, existing monitoring system on totalRequestCount will still work but see a smaller value, and we strongly recommend to change to use the new metrics to monitor server load.
+Now in replication we can make sure the order of pushing logs is same as the order of requests from client. Set REPLICATION\_SCOPE=2 at one cf's configuration to enable this feature.
+This feature relies on zk-less assignment, and conflicts with distributed log replay. So users must set hbase.assignment.usezk and hbase.master.distributed.log.replay to false to support this feature.
 
 
 ---
 
-* [HBASE-18533](https://issues.apache.org/jira/browse/HBASE-18533) | *Major* | **Expose BucketCache values to be configured**
+* [HBASE-19189](https://issues.apache.org/jira/browse/HBASE-19189) | *Major* | **Ad-hoc test job for running a subset of tests lots of times**
 
-This patch exposes configuration for Bucketcache. These configs are very similar to those for the LRU cache, but are described below:
+<!-- markdown -->
 
-"hbase.bucketcache.single.factor"; /\*\* Single access bucket size \*/
-"hbase.bucketcache.multi.factor"; /\*\* Multiple access bucket size \*/
-"hbase.bucketcache.memory.factor"; /\*\* In-memory bucket size \*/
-"hbase.bucketcache.extrafreefactor"; /\*\* Free this floating point factor of extra blocks when evicting. For example free the number of blocks requested \* (1 + extraFreeFactor) \*/
-"hbase.bucketcache.acceptfactor"; /\*\* Acceptable size of cache (no evictions if size \< acceptable) \*/
-"hbase.bucketcache.minfactor"; /\*\* Minimum threshold of cache (when evicting, evict until size \< min) \*/
+Folks can now test out tests on an arbitrary release branch. Head over to [builds.a.o job "HBase-adhoc-run-tests"](https://builds.apache.org/view/H-L/view/HBase/job/HBase-adhoc-run-tests/), then pick "Build with parameters".
+Tests are specified as just names e.g. TestLogRollingNoCluster. can also be a glob. e.g. TestHFile*
+
+
+---
+
+* [HBASE-19262](https://issues.apache.org/jira/browse/HBASE-19262) | *Major* | **Revisit checkstyle rules**
+
+Change the import order rule that now we should put the shaded import at bottom. Ignore the VisibilityModifier warnings for test code.
+
+
+---
+
+* [HBASE-19691](https://issues.apache.org/jira/browse/HBASE-19691) | *Critical* | **Do not require ADMIN permission for obtaining ClusterStatus**
+
+This change reverts an unintentional requirement for global ADMIN permission to obtain cluster status from the active HMaster.
+
+
+---
+
+* [HBASE-19673](https://issues.apache.org/jira/browse/HBASE-19673) | *Major* | **Backport " Periodically ensure records are not buffered too long by BufferedMutator" to branch-1**
+
+The BufferedMutator now supports two settings that are used to ensure records do not stay too long in the buffer of a BufferedMutator. For periodically flushing the BufferedMutator there is now a "Timeout": "How old may the oldest record in the buffer be before we force a flush" and a "TimerTick": How often do we check if the timeout has been exceeded. Using these settings you can make the BufferedMutator automatically flush the write buffer if after the specified number of milliseconds no flush has occurred.
+
+This is mainly useful in streaming scenarios (i.e. writing data into HBase using Apache Flink/Beam/Storm) where it is common (especially in a test/development situation) to see small unpredictable bursts of data that need to be written into HBase. When using the BufferedMutator till now the effect was that records would remain in the write buffer until the buffer was full or an explicit flush was triggered. In practice this would mean that the 'last few records' of a burst would remain in the write buffer until the next burst arrives filling the buffer to capacity and thus triggering a flush.
+
+
+---
+
+* [HBASE-19358](https://issues.apache.org/jira/browse/HBASE-19358) | *Major* | **Improve the stability of splitting log when do fail over**
+
+After HBASE-19358 we introduced a new property hbase.split.writer.creation.bounded to limit the opening writers for each WALSplitter. If set to true, we won't open any writer for recovered.edits until the entries accumulated in memory reaching hbase.regionserver.hlog.splitlog.buffersize (which defaults at 128M) and will write and close the file in one go instead of keeping the writer open. It's false by default and we recommend to set it to true if your cluster has a high region load (like more than 300 regions per RS), especially when you observed obvious NN/HDFS slow down during hbase (single RS or cluster) failover.
+
+
+---
+
+* [HBASE-19483](https://issues.apache.org/jira/browse/HBASE-19483) | *Major* | **Add proper privilege check for rsgroup commands**
+
+This JIRA aims at refactoring AccessController, using ACL as core library in CPs.
+1. Stripping out a public class AccessChecker from AccessController, using ACL as core library in CPs. AccessChecker don't have any dependency on anything CP related. Create it's instance from other CPS.
+2. Change the default value of hbase.security.authorization to false.
+3. Don't use CP hooks to check access in RSGroup. Use the access checker instance directly in functions of RSGroupAdminServiceImpl.
+
+
+---
+
+* [HBASE-11409](https://issues.apache.org/jira/browse/HBASE-11409) | *Major* | **Add more flexibility for input directory structure to LoadIncrementalHFiles**
+
+Allows for users to bulk load entire tables from hdfs by specifying the parameter -loadTable.  This allows you to pass in a table level directory and have all regions column families bulk loaded, if you do not specify the -loadTable parameter LoadIncrementalHFiles will work as before. Note: you must have a pre-created table to run with -loadTable it will not create one for you.
+
+
+---
+
+* [HBASE-19163](https://issues.apache.org/jira/browse/HBASE-19163) | *Major* | **"Maximum lock count exceeded" from region server's batch processing**
+
+When there are many mutations against the same row in a batch, as each mutation will acquire a shared row lock, it will exceed the maximum shared lock count the java ReadWritelock supports (64k). Along with other optimization, the batch is divided into multiple possible minibatches. A new config is added to limit the maximum number of mutations in the minibatch.
+
+   \<property\>
+    \<name\>hbase.regionserver.minibatch.size\</name\>
+    \<value\>20000\</value\>
+   \</property\>
+The default value is 20000.
+
+
+---
+
+* [HBASE-15321](https://issues.apache.org/jira/browse/HBASE-15321) | *Major* | **Ability to open a HRegion from hdfs snapshot.**
+
+HRegion.openReadOnlyFileSystemHRegion() provides the ability to open HRegion from a read-only hdfs snapshot.  Because hdfs snapshots are read-only, no cleanup happens when using this API.
 
 
 

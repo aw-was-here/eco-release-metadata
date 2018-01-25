@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2017-08-28)
+## Release 0.13.0 - Unreleased (as of 2018-01-25)
 
 
 
@@ -68,11 +68,11 @@
 | [MAHOUT-1926](https://issues.apache.org/jira/browse/MAHOUT-1926) | Linear Regression Model can generate p-values outside of [0,1] |  Major | Algorithms | Trevor Grant | Trevor Grant |
 | [MAHOUT-1913](https://issues.apache.org/jira/browse/MAHOUT-1913) | Clean Up of VCL bindings |  Blocker | . | Andrew Palumbo | Andrew Musselman |
 | [MAHOUT-1919](https://issues.apache.org/jira/browse/MAHOUT-1919) | Flink Module breaks the build regularly |  Critical | . | Andrew Palumbo | Andrew Palumbo |
-| [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don't run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
 | [MAHOUT-1955](https://issues.apache.org/jira/browse/MAHOUT-1955) | Viennacl jars are not being picked up by the shell startup script |  Blocker | Mahout spark shell | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1957](https://issues.apache.org/jira/browse/MAHOUT-1957) | Ensure that ViennaCL Jars are included in the binary distribution. |  Blocker | build | Andrew Palumbo |  |
 | [MAHOUT-1960](https://issues.apache.org/jira/browse/MAHOUT-1960) | Flipped sign in the SparseSparseDrmTimer.mscala causes Desnse Matrix multiplication |  Blocker | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1963](https://issues.apache.org/jira/browse/MAHOUT-1963) | Signs are Flipped in the ViennaCL Sparse %\*% Sparse tests |  Critical | . | Andrew Palumbo | Andrew Palumbo |
+| [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don't run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
 
 
 ### TESTS:

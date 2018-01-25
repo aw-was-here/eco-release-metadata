@@ -22,6 +22,9 @@
 * Apache Kafka v0.11.1.0
     * [Changes](0.11.1.0/CHANGES.0.11.1.0.md)
     * [Release Notes](0.11.1.0/RELEASENOTES.0.11.1.0.md)
+* Apache Kafka v0.11.0.3
+    * [Changes](0.11.0.3/CHANGES.0.11.0.3.md)
+    * [Release Notes](0.11.0.3/RELEASENOTES.0.11.0.3.md)
 * Apache Kafka v0.11.0.2
     * [Changes](0.11.0.2/CHANGES.0.11.0.2.md)
     * [Release Notes](0.11.0.2/RELEASENOTES.0.11.0.2.md)

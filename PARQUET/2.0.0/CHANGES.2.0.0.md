@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 2.0.0 - Unreleased (as of 2017-08-28)
+## Release 2.0.0 - Unreleased (as of 2018-01-25)
 
 
 
@@ -38,6 +38,7 @@
 | [PARQUET-362](https://issues.apache.org/jira/browse/PARQUET-362) | Parquet buffered writer is too sensitive regarding unions and unknown fields |  Major | parquet-mr | Laurent Goujon |  |
 | [PARQUET-375](https://issues.apache.org/jira/browse/PARQUET-375) | Parquet Readme.md still points to release 1.7.0 |  Major | parquet-mr | Luciano Resende |  |
 | [PARQUET-1010](https://issues.apache.org/jira/browse/PARQUET-1010) | SKIP FILES STARTS WITH "." in parquet.hadoop.ParquetFileReader.readAllFootersInParallel |  Blocker | parquet-mr | Sandish Kumar HN |  |
+| [PARQUET-1077](https://issues.apache.org/jira/browse/PARQUET-1077) | [MR] Switch to long key ids in KEYs file |  Major | parquet-mr | Lars Volker | Lars Volker |
 
 
 ### OTHER:

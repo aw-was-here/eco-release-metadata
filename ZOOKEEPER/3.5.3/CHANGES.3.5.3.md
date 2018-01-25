@@ -101,6 +101,7 @@
 | [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
 | [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
 | [ZOOKEEPER-2737](https://issues.apache.org/jira/browse/ZOOKEEPER-2737) | NettyServerCnxFactory leaks connection if exception happens while writing to a channel. |  Critical | server | Michael Han | Michael Han |
+| [ZOOKEEPER-2885](https://issues.apache.org/jira/browse/ZOOKEEPER-2885) | zookeeper-3.5.3-beta.tar.gz file in mirror site is corrupted |  Critical | . | Gabriel |  |
 
 
 ### TESTS:
