@@ -70,7 +70,7 @@ common_rdm flink 1.4.0 2.0.0
 
 common_rdm kudu 1.0.0 2.0.0
 
-common_rdm impala 2.0.0 3.0.0
+common_rdm impala "Impala 2.0.0" "Impala 3.0.0"
 
 common_rdm mahout 0.13.0 2.0.0
 
