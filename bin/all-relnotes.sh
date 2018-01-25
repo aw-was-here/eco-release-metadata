@@ -76,11 +76,11 @@ common_rdm mahout 0.13.0 2.0.0
 
 common_rdm oozie 4.3.0 5.0.0
 
-common_rdm orc 1.2.4 2.0.0
+common_rdm orc 1.3.5 2.0.0
 
-common_rdm parquet 1.5.0 2.0.0
+common_rdm parquet 1.9.1 2.0.0
 
-common_rdm pig 0.15.1 1.0.0
+common_rdm pig 0.17.0 1.0.0
 
 common_rdm ranger 0.7.2 1.0.0
 
