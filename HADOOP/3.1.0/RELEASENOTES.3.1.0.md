@@ -152,4 +152,18 @@ Support multi-thread pre-read in AliyunOSSInputStream to improve the sequential 
 MapReduce jobs that output to filesystems without direct support for recursive delete can set mapreduce.fileoutputcommitter.task.cleanup.enabled=true to have each task delete their intermediate work directory rather than waiting for the ApplicationMaster to clean up at the end of the job. This can significantly speed up the cleanup phase for large jobs on such filesystems.
 
 
+---
+
+* [HDFS-12528](https://issues.apache.org/jira/browse/HDFS-12528) | *Major* | **Add an option to not disable short-circuit reads on failures**
+
+Added an option to not disables short-circuit reads on failures, by setting dfs.domain.socket.disable.interval.seconds to 0.
+
+
+---
+
+* [HDFS-13083](https://issues.apache.org/jira/browse/HDFS-13083) | *Major* | **RBF: Fix doc error setting up client**
+
+**WARNING: No release note provided for this change.**
+
+
 

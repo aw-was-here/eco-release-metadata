@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Removed Incorrect Schema Definition from BagToTuple
 
 
+---
+
+* [PIG-5328](https://issues.apache.org/jira/browse/PIG-5328) | *Major* | **expressionOperator Divide.equalsZero(DataType.BIGDECIMAL) is invalid**
+
+the division operator checks for a zero denominator to prevent a divide-by-zero exception. Unlike other numeric types, BigDecimal has multiple representations of zero with different scales ... 0, 0.0, 0.00, etc. Previous versions of pig were were not properly detecting zero values with non-zero scales when performing denominator check prior to division.
+
+
 

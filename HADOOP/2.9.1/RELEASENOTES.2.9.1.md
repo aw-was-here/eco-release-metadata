@@ -64,4 +64,18 @@ Mount tables support ACL, The users won't be able to modify their own entries (w
 [WASB] Fix Azure implementation of Filesystem.rename to ensure that at most one operation succeeds when there are multiple, concurrent rename operations targeting the same destination file.
 
 
+---
+
+* [HADOOP-15027](https://issues.apache.org/jira/browse/HADOOP-15027) | *Major* | **AliyunOSS: Support multi-thread pre-read to improve sequential read from Hadoop to Aliyun OSS performance**
+
+Support multi-thread pre-read in AliyunOSSInputStream to improve the sequential read performance from Hadoop to Aliyun OSS.
+
+
+---
+
+* [HDFS-13083](https://issues.apache.org/jira/browse/HDFS-13083) | *Major* | **RBF: Fix doc error setting up client**
+
+**WARNING: No release note provided for this change.**
+
+
 

@@ -51,7 +51,7 @@ function common_rdm
 	"${PYTHON}" "${RDM}" --project "${cap}" --outputdir "${cap}" \
           --projecttitle "Apache ${title}" \
           --version "${v1}" --version "${v2}" \
-          --range --index --license
+          --range --index --license --fileversions --dirversions
 }
 
 
@@ -113,6 +113,7 @@ big_console_header Hadoop
 # in active development, so this range is huge. :(
 print_and_run \
 	"${PYTHON}" "${RDM}" --project HADOOP --project HDFS \
+        --fileversions --dirversions \
         --project YARN --project MAPREDUCE \
         --projecttitle "Apache Hadoop" \
         --version 2.6.6 --version 2.6.10 \
@@ -121,6 +122,7 @@ print_and_run \
 
 print_and_run \
 	"${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --fileversions --dirversions \
         --projecttitle "Apache Hadoop" \
         --range --version 2.7.6 --version 2.7.9 \
         --index --license \
@@ -128,6 +130,7 @@ print_and_run \
 
 print_and_run \
         "${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --fileversions --dirversions \
         --projecttitle "Apache Hadoop" \
         --range --version 2.8.4 --version 2.8.9 \
         --index --license \
@@ -135,6 +138,7 @@ print_and_run \
 
 print_and_run \
 	"${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --fileversions --dirversions \
         --projecttitle "Apache Hadoop" \
         --range --version 2.9.1 --version 2.9.9 \
         --index --license \
@@ -142,6 +146,7 @@ print_and_run \
 
 print_and_run \
         "${PYTHON}" "${RDM}" --project HADOOP --project HDFS --project YARN --project MAPREDUCE \
+        --fileversions --dirversions \
         --projecttitle "Apache Hadoop" \
         --range --version 3.0.1 --version 4 \
         --index --license \

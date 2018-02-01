@@ -5764,7 +5764,7 @@ CompactionType, CompactionState and MasterSwitchType Enums have been moved out o
 
 * [HBASE-18142](https://issues.apache.org/jira/browse/HBASE-18142) | *Major* | **Deletion of a cell deletes the previous versions too**
 
-**WARNING: No release note provided for this change.**
+Now, delete.rb won't delete all versions of the specified column. It only delete the specified version (if user assigns a timestamp) or the latest version (default behavior)
 
 
 ---
