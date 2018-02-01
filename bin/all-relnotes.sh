@@ -2,6 +2,9 @@
 
 export PYTHON=/usr/local/bin/python2
 
+export RDM=${HOME}/shared-vmware/yetus/release-doc-maker/releasedocmaker.py
+
+
 function print_and_run
 {
   echo "${*}"
@@ -58,7 +61,6 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 #
 # This is a good test for Yetus...
 #
-RDM=${HOME}/shared-vmware/yetus/release-doc-maker/releasedocmaker.py
 
 common_rdm yetus 0.7.0 1.0.0
 
