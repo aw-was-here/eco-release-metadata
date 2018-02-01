@@ -72,6 +72,8 @@ common_rdm kudu 1.0.0 2.0.0
 
 common_rdm impala "Impala 2.0.0" "Impala 3.0.0"
 
+common_rdm knox 0.12 1
+
 common_rdm mahout 0.13.0 2.0.0
 
 common_rdm oozie 4.3.0 5.0.0
