@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.1 - Unreleased (as of 2018-02-01)
+## Release 3.0.1 - Unreleased (as of 2018-02-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -67,6 +67,7 @@
 | [HADOOP-15189](https://issues.apache.org/jira/browse/HADOOP-15189) | backport HADOOP-15039 to branch-2 and branch-3 |  Blocker | . | Genmao Yu | Genmao Yu |
 | [HADOOP-15186](https://issues.apache.org/jira/browse/HADOOP-15186) | Allow Azure Data Lake SDK dependency version to be set on the command line |  Major | build, fs/adl | Vishwajeet Dusane | Vishwajeet Dusane |
 | [HDFS-13092](https://issues.apache.org/jira/browse/HDFS-13092) | Reduce verbosity for ThrottledAsyncChecker.java:schedule |  Minor | datanode | Mukul Kumar Singh | Mukul Kumar Singh |
+| [HDFS-13062](https://issues.apache.org/jira/browse/HDFS-13062) | Provide support for JN to use separate journal disk per namespace |  Major | . | Bharat Viswanadham | Bharat Viswanadham |
 
 
 ### BUG FIXES:
@@ -156,6 +157,11 @@
 | [HDFS-12528](https://issues.apache.org/jira/browse/HDFS-12528) | Add an option to not disable short-circuit reads on failures |  Major | hdfs-client, performance | Andre Araujo | Xiao Chen |
 | [HDFS-12897](https://issues.apache.org/jira/browse/HDFS-12897) | getErasureCodingPolicy should handle .snapshot dir better |  Major | erasure-coding, hdfs, snapshots | Harshakiran Reddy | LiXin Ge |
 | [MAPREDUCE-7033](https://issues.apache.org/jira/browse/MAPREDUCE-7033) | Map outputs implicitly rely on permissive umask for shuffle |  Critical | mrv2 | Jason Lowe | Jason Lowe |
+| [HDFS-12942](https://issues.apache.org/jira/browse/HDFS-12942) | Synchronization issue in FSDataSetImpl#moveBlock |  Major | . | Ajay Kumar | Ajay Kumar |
+| [HDFS-13048](https://issues.apache.org/jira/browse/HDFS-13048) | LowRedundancyReplicatedBlocks metric can be negative |  Major | metrics | Akira Ajisaka | Akira Ajisaka |
+| [HDFS-13100](https://issues.apache.org/jira/browse/HDFS-13100) | Handle IllegalArgumentException when GETSERVERDEFAULTS is not implemented in webhdfs. |  Critical | hdfs, webhdfs | Yongjun Zhang | Yongjun Zhang |
+| [YARN-7849](https://issues.apache.org/jira/browse/YARN-7849) | TestMiniYarnClusterNodeUtilization#testUpdateNodeUtilization fails due to heartbeat sync error |  Major | test | Jason Lowe | Botong Huang |
+| [YARN-7801](https://issues.apache.org/jira/browse/YARN-7801) | AmFilterInitializer should addFilter after fill all parameters |  Critical | . | Sumana Sathish | Wangda Tan |
 
 
 ### TESTS:
@@ -201,6 +207,8 @@
 | [HDFS-12574](https://issues.apache.org/jira/browse/HDFS-12574) | Add CryptoInputStream to WebHdfsFileSystem read call. |  Major | encryption, kms, webhdfs | Rushabh S Shah | Rushabh S Shah |
 | [HDFS-13044](https://issues.apache.org/jira/browse/HDFS-13044) | RBF: Add a safe mode for the Router |  Major | . | Íñigo Goiri | Íñigo Goiri |
 | [HDFS-13043](https://issues.apache.org/jira/browse/HDFS-13043) | RBF: Expose the state of the Routers in the federation |  Major | . | Íñigo Goiri | Íñigo Goiri |
+| [HDFS-12997](https://issues.apache.org/jira/browse/HDFS-12997) | Move logging to slf4j in BlockPoolSliceStorage and Storage |  Major | . | Ajay Kumar | Ajay Kumar |
+| [HDFS-13068](https://issues.apache.org/jira/browse/HDFS-13068) | RBF: Add router admin option to manage safe mode |  Major | . | Íñigo Goiri | Yiqun Lin |
 
 
 ### OTHER:
@@ -210,5 +218,6 @@
 | [HADOOP-15149](https://issues.apache.org/jira/browse/HADOOP-15149) | CryptoOutputStream should implement StreamCapabilities |  Major | fs | Mike Drob | Xiao Chen |
 | [YARN-7691](https://issues.apache.org/jira/browse/YARN-7691) | Add Unit Tests for ContainersLauncher |  Major | . | Sampada Dehankar | Sampada Dehankar |
 | [HADOOP-15177](https://issues.apache.org/jira/browse/HADOOP-15177) | Update the release year to 2018 |  Blocker | build | Akira Ajisaka | Bharat Viswanadham |
+| [HADOOP-15197](https://issues.apache.org/jira/browse/HADOOP-15197) | Remove tomcat from the Hadoop-auth test bundle |  Major | . | Xiao Chen | Xiao Chen |
 
 

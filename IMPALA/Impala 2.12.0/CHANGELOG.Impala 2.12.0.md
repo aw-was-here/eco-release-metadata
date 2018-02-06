@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.12.0 - Unreleased (as of 2018-02-01)
+## Release Impala 2.12.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-2248](https://issues.apache.org/jira/browse/IMPALA-2248) | Make idle\_session\_timeout a query option |  Major | . | Matthew Jacobs | Zoltán Borók-Nagy |
 | [IMPALA-3282](https://issues.apache.org/jira/browse/IMPALA-3282) | Add build-in regex\_escape() |  Minor | Backend | Huaisi Xu | Jinchul Kim |
+| [IMPALA-5300](https://issues.apache.org/jira/browse/IMPALA-5300) | Implement TABLESAMPLE |  Critical | Frontend | Alexander Behm | Alexander Behm |
 
 
 ### IMPROVEMENTS:
@@ -47,6 +48,8 @@
 | [IMPALA-3998](https://issues.apache.org/jira/browse/IMPALA-3998) | Remove refresh\_after\_connect option from impala-shell |  Critical | Clients | Tim Armstrong | Tim Armstrong |
 | [IMPALA-5654](https://issues.apache.org/jira/browse/IMPALA-5654) | Disallow managed Kudu table to explicitly set Kudu tbl name in CREATE TABLE |  Major | Frontend | Matthew Jacobs | Gabor Kaszab |
 | [IMPALA-6128](https://issues.apache.org/jira/browse/IMPALA-6128) | Spill-to-disk Encryption(AES-CFB + SHA256) can be a performance bottleneck while IO is getting faster |  Major | Backend | Xianda Ke |  |
+| [IMPALA-5990](https://issues.apache.org/jira/browse/IMPALA-5990) | End-to-end compression of metadata |  Critical | Catalog, Frontend | Alexander Behm | Tianyi Wang |
+| [IMPALA-6113](https://issues.apache.org/jira/browse/IMPALA-6113) | Skip row groups with predicates on NULL columns |  Major | Backend | Lars Volker | Gabor Kaszab |
 
 
 ### BUG FIXES:
@@ -91,6 +94,10 @@
 | [IMPALA-6377](https://issues.apache.org/jira/browse/IMPALA-6377) | Bump breakpad version to include the fix for Breakpad #752 |  Critical | Backend | Lars Volker | Lars Volker |
 | [IMPALA-6334](https://issues.apache.org/jira/browse/IMPALA-6334) | test\_compute\_stats\_tablesample failing on Isilon builds |  Critical | . | David Knupp | Alexander Behm |
 | [IMPALA-6455](https://issues.apache.org/jira/browse/IMPALA-6455) | test\_partition\_metadata\_compatibility flaky failures |  Blocker | Infrastructure | Sailesh Mukil | Tim Armstrong |
+| [IMPALA-6450](https://issues.apache.org/jira/browse/IMPALA-6450) | Hit DCHECK in RuntimeProfile::EventSequence::Start() |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
+| [IMPALA-6383](https://issues.apache.org/jira/browse/IMPALA-6383) | Memory from previous row groups can accumulate in Parquet scanner |  Major | Backend | Tim Armstrong | Tim Armstrong |
+| [IMPALA-6242](https://issues.apache.org/jira/browse/IMPALA-6242) | Flaky test: TimerCounterTest.CountersTestOneThread |  Critical | Backend | Tianyi Wang | Tianyi Wang |
+| [IMPALA-6476](https://issues.apache.org/jira/browse/IMPALA-6476) | TestKrpcMemUsage.test\_krpc\_deferred\_memory\_usage fails on release build |  Blocker | Infrastructure | Alexander Behm | Lars Volker |
 
 
 ### SUB-TASKS:
@@ -109,5 +116,11 @@
 | [IMPALA-5054](https://issues.apache.org/jira/browse/IMPALA-5054) | Enable KRPC TLS in Impala |  Major | Distributed Exec, Security | Henry Robinson | Sailesh Mukil |
 | [IMPALA-6024](https://issues.apache.org/jira/browse/IMPALA-6024) | Add minimum sample size for COMPUTE STATS TABLESAMPLE |  Major | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-6193](https://issues.apache.org/jira/browse/IMPALA-6193) | Track RPC allocated memory in a memtracker |  Major | Backend | Lars Volker | Lars Volker |
+| [IMPALA-6430](https://issues.apache.org/jira/browse/IMPALA-6430) | Log a detailed error message on failure of MetricVerifier |  Major | Backend | Bikramjeet Vig | Bikramjeet Vig |
+| [IMPALA-3562](https://issues.apache.org/jira/browse/IMPALA-3562) | Extend "compute stats" syntax to support a list of columns |  Minor | Frontend | Mostafa Mokhtar | Vuk Ercegovac |
+| [IMPALA-6346](https://issues.apache.org/jira/browse/IMPALA-6346) | Potential deadlock in KrpcDataStreamMgr |  Major | Distributed Exec | Lars Volker | Sailesh Mukil |
+| [IMPALA-6228](https://issues.apache.org/jira/browse/IMPALA-6228) | More flexible configuration of stats extrapolation |  Major | Frontend | Alexander Behm | Alexander Behm |
+| [IMPALA-6448](https://issues.apache.org/jira/browse/IMPALA-6448) | Re-enable kerberized testing with KRPC |  Critical | . | Sailesh Mukil | Sailesh Mukil |
+| [IMPALA-6219](https://issues.apache.org/jira/browse/IMPALA-6219) | Use AES-GCM for spill-to-disk encryption when CLMUL instruction is present and performant |  Major | Backend | Jim Apple |  |
 
 

@@ -232,4 +232,22 @@ The LockManager which is installed automatically when enabling Acid (hive.txn.ma
 n/a
 
 
+---
+
+* [HIVE-18606](https://issues.apache.org/jira/browse/HIVE-18606) | *Major* | **CTAS on empty table throws NPE from org.apache.hadoop.hive.ql.exec.MoveTask**
+
+N/A
+
+
+---
+
+* [HIVE-18552](https://issues.apache.org/jira/browse/HIVE-18552) | *Major* | **Split hive.strict.checks.large.query into two configs**
+
+This change splits {{hive.strict.checks.large.query}} into two new configs: {{hive.strict.checks.no.partition.filter}} and {{hive.strict.checks.orderby.no.limit}}
+
+Previously, {{hive.strict.checks.large.query}} controlled whether or not (1) order bys were allowed without limits, and (2) scans on partitioned tables were allowed without filters.
+
+After this change, {{hive.strict.checks.no.partition.filter}} controls the partitioned table check and {{hive.strict.checks.orderby.no.limit}} controls the order by check.
+
+
 

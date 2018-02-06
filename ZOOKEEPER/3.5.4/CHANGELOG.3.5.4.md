@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.4 - Unreleased (as of 2018-02-01)
+## Release 3.5.4 - Unreleased (as of 2018-02-06)
 
 
 
@@ -63,6 +63,7 @@
 | [ZOOKEEPER-2904](https://issues.apache.org/jira/browse/ZOOKEEPER-2904) | Remove unused imports from org.apache.zookeeper.server.quorum.WatchLeakTest |  Trivial | . | Nikhil Bhide | Nikhil Bhide |
 | [ZOOKEEPER-2915](https://issues.apache.org/jira/browse/ZOOKEEPER-2915) | Use "strict" conflict management in ivy |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2950](https://issues.apache.org/jira/browse/ZOOKEEPER-2950) | Add keys for the Zxid from the stat command to check\_zookeeper.py |  Trivial | scripts | Alex Bame | Alex Bame |
+| [ZOOKEEPER-2824](https://issues.apache.org/jira/browse/ZOOKEEPER-2824) | \`FileChannel#size\` info should be added to \`FileTxnLog#commit\` to solve the confuse that reason is too large log or too busy disk I/O |  Minor | server | Benedict Jin | Benedict Jin |
 
 
 ### BUG FIXES:

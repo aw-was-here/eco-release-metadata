@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.1 - Unreleased (as of 2018-02-01)
+## Release 4.3.1 - Unreleased (as of 2018-02-06)
 
 
 
@@ -34,6 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2786](https://issues.apache.org/jira/browse/OOZIE-2786) | Pass Oozie workflow ID and settings to Spark application configuration |  Critical | action | Xiaobin Zheng | Xiaobin Zheng |
+| [OOZIE-2888](https://issues.apache.org/jira/browse/OOZIE-2888) | Upgrade commons-io to 2.4 |  Minor | core | Artem Ervits | Artem Ervits |
 | [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923) | Improve Spark options parsing |  Major | action | Andras Piros | Andras Piros |
 | [OOZIE-3126](https://issues.apache.org/jira/browse/OOZIE-3126) | Add option to allow list of users to access system config |  Major | . | Rohini Palaniswamy | Satish Subhashrao Saley |
 

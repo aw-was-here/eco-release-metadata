@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-02-01)
+## Release 1.3.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -70,6 +70,7 @@
 | [BIGTOP-2698](https://issues.apache.org/jira/browse/BIGTOP-2698) | Build/install protobuf-2.5 from source |  Minor | toolchain | Sahil Aggarwal | Sahil Aggarwal |
 | [BIGTOP-2959](https://issues.apache.org/jira/browse/BIGTOP-2959) | Add SPARK\_DIST\_CLASSPATH to include libraries for HDFS and YARN |  Minor | build, spark | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2974](https://issues.apache.org/jira/browse/BIGTOP-2974) | Add puppet code to deploy SparkR package |  Major | deployment | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2882](https://issues.apache.org/jira/browse/BIGTOP-2882) | Bump Hadoop and all dependencies to actual releases |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
 
 
 ### BUG FIXES:
@@ -130,6 +131,9 @@
 | [BIGTOP-2980](https://issues.apache.org/jira/browse/BIGTOP-2980) | Hama does not build on DEB type systems |  Major | build | Olaf Flebbe | Jun He |
 | [BIGTOP-2909](https://issues.apache.org/jira/browse/BIGTOP-2909) | ppc64le: Zeppelin 0.7.2 build is failing |  Major | build | Amir Sanjar | Amir Sanjar |
 | [BIGTOP-2881](https://issues.apache.org/jira/browse/BIGTOP-2881) | Greenpulm 5.0 got released - lets switch the Bigtop to it |  Major | build | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-2990](https://issues.apache.org/jira/browse/BIGTOP-2990) | Upgrade Phoenix version to 4.13.1-HBase-1.3 |  Major | . | YoungWoo Kim | YoungWoo Kim |
+| [BIGTOP-2984](https://issues.apache.org/jira/browse/BIGTOP-2984) | Rat check failed after BIGTOP-2698 |  Major | . | Evans Ye | Evans Ye |
+| [BIGTOP-2912](https://issues.apache.org/jira/browse/BIGTOP-2912) | Intialize dataset for solr smoke test |  Major | solr, tests | Jun He | Jun He |
 
 
 ### TESTS:
@@ -148,6 +152,8 @@
 | [BIGTOP-2895](https://issues.apache.org/jira/browse/BIGTOP-2895) | Bump Pig to 0.17.0 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
 | [BIGTOP-2899](https://issues.apache.org/jira/browse/BIGTOP-2899) | Bug: regression in Oozie build after BIGTOP-2895 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
 | [BIGTOP-2898](https://issues.apache.org/jira/browse/BIGTOP-2898) | Bug: regression in Phoenix build after BIGTOP-2895 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2894](https://issues.apache.org/jira/browse/BIGTOP-2894) | Bump HBASE to 1.3.1 |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2949](https://issues.apache.org/jira/browse/BIGTOP-2949) | Add gradle task which leverage bigtop-ci/build.sh to build packages |  Major | build | Evans Ye | Evans Ye |
 
 
 ### OTHER:

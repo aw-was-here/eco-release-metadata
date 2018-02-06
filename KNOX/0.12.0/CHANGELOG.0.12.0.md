@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 0.12.0 - Unreleased (as of 2018-02-01)
+## Release 0.12.0 - 2017-03-20
 
 
 
@@ -92,6 +92,7 @@
 | [KNOX-897](https://issues.apache.org/jira/browse/KNOX-897) | X-Forwarded-Port is incorrectly determined |  Major | . | Attila Kanto |  |
 | [KNOX-906](https://issues.apache.org/jira/browse/KNOX-906) | Log WARN of Removed Impersonation Params |  Major | Server | Larry McCay | Larry McCay |
 | [KNOX-907](https://issues.apache.org/jira/browse/KNOX-907) | Knox Proxy - Ambari HIVE2.0 view doesn't showup due to Servicecheck issues |  Critical | Server | SuryaKranthi Koneru | Larry McCay |
+| [KNOX-905](https://issues.apache.org/jira/browse/KNOX-905) | Add httpclient properties to knoxshell log4j properties file |  Major | KnoxShell | Sumit Gupta | Sumit Gupta |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.3 - Unreleased (as of 2018-02-01)
+## Release 1.4.3 - Unreleased (as of 2018-02-06)
 
 
 
@@ -27,5 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-285](https://issues.apache.org/jira/browse/ORC-285) | Empty vector batches of floats or doubles get  java.io.EOFException |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-296](https://issues.apache.org/jira/browse/ORC-296) | work around HADOOP-15171; also fix stream contract |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 

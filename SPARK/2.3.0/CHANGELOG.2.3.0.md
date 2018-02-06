@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.0 - Unreleased (as of 2018-02-01)
+## Release 2.3.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -517,6 +517,11 @@
 | [SPARK-23279](https://issues.apache.org/jira/browse/SPARK-23279) | Avoid triggering distributed job for Console sink |  Minor | Structured Streaming | Saisai Shao | Saisai Shao |
 | [SPARK-23249](https://issues.apache.org/jira/browse/SPARK-23249) | Improve partition bin-filling algorithm to have less skew and fewer partitions |  Major | SQL | Glen Takahashi | Glen Takahashi |
 | [SPARK-21396](https://issues.apache.org/jira/browse/SPARK-21396) | Spark Hive Thriftserver doesn't return UDT field |  Major | SQL | Haopu Wang | Ken Tore Tallakstad |
+| [SPARK-23296](https://issues.apache.org/jira/browse/SPARK-23296) | Diagnostics message for user code exceptions should include the stacktrace |  Trivial | YARN | Gera Shegalov | Gera Shegalov |
+| [SPARK-23284](https://issues.apache.org/jira/browse/SPARK-23284) | Document several get API of ColumnVector's behavior when accessing null slot |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
+| [SPARK-23312](https://issues.apache.org/jira/browse/SPARK-23312) | add a config to turn off vectorized cache reader |  Blocker | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-23317](https://issues.apache.org/jira/browse/SPARK-23317) | rename ContinuousReader.setOffset to setStartOffset |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-23305](https://issues.apache.org/jira/browse/SPARK-23305) | Test \`spark.sql.files.ignoreMissingFiles\` for all file-based data sources |  Minor | SQL, Tests | Dongjoon Hyun | Dongjoon Hyun |
 
 
 ### BUG FIXES:
@@ -720,7 +725,6 @@
 | [SPARK-19122](https://issues.apache.org/jira/browse/SPARK-19122) | Unnecessary shuffle+sort added if join predicates ordering differ from bucketing and sorting order |  Major | SQL | Tejas Patil | Tejas Patil |
 | [SPARK-12559](https://issues.apache.org/jira/browse/SPARK-12559) | Cluster mode doesn't work with --packages |  Major | Spark Submit | Andrew Or | Stavros Kontopoulos |
 | [SPARK-21563](https://issues.apache.org/jira/browse/SPARK-21563) | Race condition when serializing TaskDescriptions and adding jars |  Major | Scheduler, Spark Core | Andrew Ash | Andrew Ash |
-| [SPARK-21658](https://issues.apache.org/jira/browse/SPARK-21658) | Adds the default None for value in na.replace in PySpark to match |  Minor | PySpark | Hyukjin Kwon | Chin Han Yu |
 | [SPARK-19471](https://issues.apache.org/jira/browse/SPARK-19471) | A confusing NullPointerException when creating table |  Critical | SQL | StanZhai | Feng Zhu |
 | [SPARK-21721](https://issues.apache.org/jira/browse/SPARK-21721) | Memory leak in org.apache.spark.sql.hive.execution.InsertIntoHiveTable |  Critical | SQL | yzheng616 | Liang-Chi Hsieh |
 | [SPARK-21422](https://issues.apache.org/jira/browse/SPARK-21422) | Depend on Apache ORC 1.4.0 |  Major | Build | Dongjoon Hyun | Dongjoon Hyun |
@@ -911,7 +915,7 @@
 | [SPARK-22535](https://issues.apache.org/jira/browse/SPARK-22535) | PythonRunner.MonitorThread should give the task a little time to finish before killing the python worker |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-22479](https://issues.apache.org/jira/browse/SPARK-22479) | SaveIntoDataSourceCommand logs jdbc credentials |  Major | SQL | Onur Satici | Onur Satici |
 | [SPARK-22540](https://issues.apache.org/jira/browse/SPARK-22540) | HighlyCompressedMapStatus's avgSize is incorrect |  Major | Spark Core | yucai | yucai |
-| [SPARK-22538](https://issues.apache.org/jira/browse/SPARK-22538) | SQLTransformer.transform(inputDataFrame) uncaches inputDataFrame |  Major | ML, PySpark, SQL, Web UI | MBA Learns to Code | Liang-Chi Hsieh |
+| [SPARK-22538](https://issues.apache.org/jira/browse/SPARK-22538) | SQLTransformer.transform(inputDataFrame) uncaches inputDataFrame |  Major | ML, PySpark, SQL, Web UI | V Luong | Liang-Chi Hsieh |
 | [SPARK-22544](https://issues.apache.org/jira/browse/SPARK-22544) | FileStreamSource should use its own hadoop conf to call globPathIfNecessary |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-22557](https://issues.apache.org/jira/browse/SPARK-22557) | Use ThreadSignaler explicitly |  Minor | Tests | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-22533](https://issues.apache.org/jira/browse/SPARK-22533) | SparkConfigProvider does not handle deprecated config keys |  Minor | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
@@ -1091,6 +1095,13 @@
 | [SPARK-23289](https://issues.apache.org/jira/browse/SPARK-23289) | OneForOneBlockFetcher.DownloadCallback.onData may write just a part of data |  Major | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-13983](https://issues.apache.org/jira/browse/SPARK-13983) | HiveThriftServer2 can not get "--hiveconf" or ''--hivevar" variables since 1.6 version (both multi-session and single session) |  Major | SQL | Teng Qiu | Yuming Wang |
 | [SPARK-23301](https://issues.apache.org/jira/browse/SPARK-23301) | data source v2 column pruning with arbitrary expressions is broken |  Blocker | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-23293](https://issues.apache.org/jira/browse/SPARK-23293) | data source v2 self join fails |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-23307](https://issues.apache.org/jira/browse/SPARK-23307) | Spark UI should sort jobs/stages with the completed timestamp before cleaning up them |  Blocker | Web UI | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-23330](https://issues.apache.org/jira/browse/SPARK-23330) | Spark UI SQL executions page throws NPE |  Blocker | Web UI | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-23326](https://issues.apache.org/jira/browse/SPARK-23326) | "Scheduler Delay" of a task is confusing |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-23290](https://issues.apache.org/jira/browse/SPARK-23290) | inadvertent change in handling of DateType when converting to pandas dataframe |  Blocker | PySpark | Andre Menck | Takuya Ueshin |
+| [SPARK-23334](https://issues.apache.org/jira/browse/SPARK-23334) | Fix pandas\_udf with return type StringType() to handle str type properly in Python 2. |  Blocker | PySpark, SQL | Takuya Ueshin | Takuya Ueshin |
+| [SPARK-23315](https://issues.apache.org/jira/browse/SPARK-23315) | failed to get output from canonicalized data source v2 related plans |  Major | SQL | Wenchen Fan | Wenchen Fan |
 
 
 ### TESTS:
@@ -1128,6 +1139,7 @@
 | [SPARK-23072](https://issues.apache.org/jira/browse/SPARK-23072) | Add a Unicode schema test for file-based data sources |  Minor | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-23132](https://issues.apache.org/jira/browse/SPARK-23132) | Run ml.image doctests in tests |  Minor | ML, PySpark | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-23197](https://issues.apache.org/jira/browse/SPARK-23197) | Flaky test: spark.streaming.ReceiverSuite."receiver\_life\_cycle" |  Major | DStreams | Tathagata Das | Tathagata Das |
+| [SPARK-23311](https://issues.apache.org/jira/browse/SPARK-23311) | add FilterFunction test case for test CombineTypedFilters |  Minor | SQL | caoxuewen | caoxuewen |
 
 
 ### SUB-TASKS:
@@ -1367,7 +1379,7 @@
 | [SPARK-22993](https://issues.apache.org/jira/browse/SPARK-22993) | checkpointInterval param doc should be clearer |  Trivial | ML | Seth Hendrickson | Seth Hendrickson |
 | [SPARK-23127](https://issues.apache.org/jira/browse/SPARK-23127) | Update FeatureHasher user guide for catCols parameter |  Minor | Documentation, ML | Nick Pentreath | Nick Pentreath |
 | [SPARK-23048](https://issues.apache.org/jira/browse/SPARK-23048) | Update mllib docs to replace OneHotEncoder with OneHotEncoderEstimator |  Major | Documentation, ML | Bago Amirbekian | Liang-Chi Hsieh |
-| [SPARK-18085](https://issues.apache.org/jira/browse/SPARK-18085) | SPIP: Better History Server scalability for many / large applications |  Major | Spark Core, Web UI | Marcelo Vanzin |  |
+| [SPARK-18085](https://issues.apache.org/jira/browse/SPARK-18085) | SPIP: Better History Server scalability for many / large applications |  Major | Spark Core, Web UI | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-21293](https://issues.apache.org/jira/browse/SPARK-21293) | R document update structured streaming |  Major | SparkR | Felix Cheung | Felix Cheung |
 | [SPARK-22735](https://issues.apache.org/jira/browse/SPARK-22735) | Add VectorSizeHint to ML features documentation |  Major | Documentation, ML | Bago Amirbekian | Bago Amirbekian |
 | [SPARK-23163](https://issues.apache.org/jira/browse/SPARK-23163) | Sync Python ML API docs with Scala |  Trivial | ML, PySpark | Bryan Cutler | Bryan Cutler |

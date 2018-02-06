@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.11 - Unreleased (as of 2018-02-01)
+## Release 0.11 - Unreleased (as of 2018-02-06)
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 2.0.0 - Unreleased (as of 2018-02-01)
+## Release 2.0.0 - Unreleased (as of 2018-02-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -3974,5 +3974,6 @@
 | [HBASE-18991](https://issues.apache.org/jira/browse/HBASE-18991) | Remove RegionMergeRequest |  Trivial | . | Chia-Ping Tsai | Jan Hentschel |
 | [HBASE-19217](https://issues.apache.org/jira/browse/HBASE-19217) | Update supplemental-models.xml for jetty-sslengine |  Major | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-15042](https://issues.apache.org/jira/browse/HBASE-15042) | refactor so that site materials are in the Standard Maven Place |  Minor | build, website | Sean Busbey | Jan Hentschel |
+| [HBASE-19720](https://issues.apache.org/jira/browse/HBASE-19720) | Rename WALKey#getTabnename to WALKey#getTableName |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
 
 

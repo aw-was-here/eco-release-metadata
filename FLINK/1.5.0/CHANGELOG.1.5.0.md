@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-02-01)
+## Release 1.5.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -39,6 +39,7 @@
 | [FLINK-7918](https://issues.apache.org/jira/browse/FLINK-7918) | Run AbstractTestBase tests on Flip-6 MiniCluster |  Major | Tests | Till Rohrmann | Till Rohrmann |
 | [FLINK-8317](https://issues.apache.org/jira/browse/FLINK-8317) | Enable Triggering of Savepoints via RestfulGateway |  Major | Distributed Coordination, REST | Gary Yao | Gary Yao |
 | [FLINK-8240](https://issues.apache.org/jira/browse/FLINK-8240) | Create unified interfaces to configure and instatiate TableSources |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-7923](https://issues.apache.org/jira/browse/FLINK-7923) | Support accessing subfields of a Composite element in an Object Array type column |  Major | Table API & SQL | Rong Rong | Shuyi Chen |
 
 
 ### IMPROVEMENTS:
@@ -127,6 +128,16 @@
 | [FLINK-4765](https://issues.apache.org/jira/browse/FLINK-4765) | Migrate ConfigConstants to ConfigOptions |  Major | Local Runtime | Stephan Ewen |  |
 | [FLINK-8422](https://issues.apache.org/jira/browse/FLINK-8422) | Checkstyle for org.apache.flink.api.java.tuple |  Trivial | Core | Greg Hogan | Greg Hogan |
 | [FLINK-5820](https://issues.apache.org/jira/browse/FLINK-5820) | Extend State Backend Abstraction to support Global Cleanup Hooks |  Blocker | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4812](https://issues.apache.org/jira/browse/FLINK-4812) | Report Watermark metrics in all operators |  Critical | Metrics | Robert Metzger | Chesnay Schepler |
+| [FLINK-7984](https://issues.apache.org/jira/browse/FLINK-7984) | Bump snappy-java to 1.1.4 |  Major | Build System | Hai Zhou UTC+8 | Hai Zhou UTC+8 |
+| [FLINK-8384](https://issues.apache.org/jira/browse/FLINK-8384) | Session Window Assigner with Dynamic Gaps |  Minor | Streaming | Dyana Rose | Dyana Rose |
+| [FLINK-8243](https://issues.apache.org/jira/browse/FLINK-8243) | OrcTableSource should recursively read all files in nested directories of the input path. |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
+| [FLINK-8555](https://issues.apache.org/jira/browse/FLINK-8555) | Fix TableFunction varargs length exceeds 254 for SQL |  Major | Table API & SQL | Ruidong Li | Ruidong Li |
+| [FLINK-8493](https://issues.apache.org/jira/browse/FLINK-8493) | Integrate queryable state with Flip-6 |  Major | Distributed Coordination, Queryable State | Till Rohrmann | Till Rohrmann |
+| [FLINK-8471](https://issues.apache.org/jira/browse/FLINK-8471) | Add Flip-6 configuration switch |  Major | Configuration | Till Rohrmann | Till Rohrmann |
+| [FLINK-8502](https://issues.apache.org/jira/browse/FLINK-8502) | Remove LibraryCacheManager from JobMaster |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-8501](https://issues.apache.org/jira/browse/FLINK-8501) | Use single BlobCacheService per TaskExecutor |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-6004](https://issues.apache.org/jira/browse/FLINK-6004) | Allow FlinkKinesisConsumer to skip corrupted messages |  Major | Streaming Connectors | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### BUG FIXES:
@@ -234,6 +245,15 @@
 | [FLINK-8492](https://issues.apache.org/jira/browse/FLINK-8492) | Improve cost estimation for Calcs |  Major | Table API & SQL | Hequn Cheng | Hequn Cheng |
 | [FLINK-8496](https://issues.apache.org/jira/browse/FLINK-8496) | WebUI does not display TM MemorySegment metrics |  Major | Metrics, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8230](https://issues.apache.org/jira/browse/FLINK-8230) | NPE in OrcRowInputFormat on nested structs |  Blocker | Batch Connectors and Input/Output Formats | Sebastian Klemke | Fabian Hueske |
+| [FLINK-8489](https://issues.apache.org/jira/browse/FLINK-8489) | Data is not emitted by second ElasticSearch connector |  Critical | ElasticSearch Connector | Fabian Hueske | Chesnay Schepler |
+| [FLINK-8242](https://issues.apache.org/jira/browse/FLINK-8242) | ClassCastException in OrcTableSource.toOrcPredicate |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
+| [FLINK-8561](https://issues.apache.org/jira/browse/FLINK-8561) | SharedBuffer line 573 uses == to compare BufferEntries instead of .equals. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-8398](https://issues.apache.org/jira/browse/FLINK-8398) | Stabilize flaky KinesisDataFetcherTests |  Major | Kinesis Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8409](https://issues.apache.org/jira/browse/FLINK-8409) | Race condition in KafkaConsumerThread leads to potential NPE |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8419](https://issues.apache.org/jira/browse/FLINK-8419) | Kafka consumer's offset metrics are not registered for dynamically discovered partitions |  Blocker | Kafka Connector, Metrics | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8484](https://issues.apache.org/jira/browse/FLINK-8484) | Kinesis consumer re-reads closed shards on job restart |  Blocker | Kinesis Connector | Philip Luppens | Philip Luppens |
+| [FLINK-8421](https://issues.apache.org/jira/browse/FLINK-8421) | HeapInternalTimerService should reconfigure compatible key / namespace serializers on restore |  Blocker | . | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8275](https://issues.apache.org/jira/browse/FLINK-8275) | Flink YARN deployment with Kerberos enabled not working |  Blocker | Security | Shuyi Chen | Shuyi Chen |
 
 
 ### TESTS:
@@ -241,6 +261,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-8251](https://issues.apache.org/jira/browse/FLINK-8251) | Add network (micro) benchmarks in Flink |  Major | Network, Tests | Nico Kruber |  |
+| [FLINK-8472](https://issues.apache.org/jira/browse/FLINK-8472) | Extend migration tests for Flink 1.4 |  Blocker | Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### SUB-TASKS:
@@ -326,6 +347,11 @@
 | [FLINK-8531](https://issues.apache.org/jira/browse/FLINK-8531) | Support separation of "Exclusive", "Shared" and "Task owned" state |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-8539](https://issues.apache.org/jira/browse/FLINK-8539) | Introduce "CompletedCheckpointStorageLocation" to explicitly handle disposal of checkpoint storage locations |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
 | [FLINK-8540](https://issues.apache.org/jira/browse/FLINK-8540) | FileStateHandles must not attempt to delete their parent directory. |  Major | State Backends, Checkpointing | Stephan Ewen | Stephan Ewen |
+| [FLINK-4809](https://issues.apache.org/jira/browse/FLINK-4809) | Operators should tolerate checkpoint failures |  Major | State Backends, Checkpointing | Stephan Ewen | Stefan Richter |
+| [FLINK-7797](https://issues.apache.org/jira/browse/FLINK-7797) | Add support for windowed outer joins for streaming tables |  Major | Table API & SQL | Fabian Hueske | Xingcan Cui |
+| [FLINK-8495](https://issues.apache.org/jira/browse/FLINK-8495) | Serve main cluster components log and stdout file |  Major | REST, Webfrontend | Till Rohrmann | Till Rohrmann |
+| [FLINK-7856](https://issues.apache.org/jira/browse/FLINK-7856) | Port JobVertexBackPressureHandler to REST endpoint |  Major | Distributed Coordination, REST, Webfrontend | Fang Yong | Gary Yao |
+| [FLINK-8503](https://issues.apache.org/jira/browse/FLINK-8503) | Port TaskManagerLogHandler to new REST endpoint |  Major | REST | Till Rohrmann | Till Rohrmann |
 
 
 ### OTHER:

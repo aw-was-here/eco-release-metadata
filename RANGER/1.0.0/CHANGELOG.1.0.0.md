@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 1.0.0 - Unreleased (as of 2018-02-01)
+## Release 1.0.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -160,6 +160,9 @@
 | [RANGER-1938](https://issues.apache.org/jira/browse/RANGER-1938) | Solr for Audit setup doesn't use DocValues effectively |  Major | audit | Kevin Risden | Kevin Risden |
 | [RANGER-689](https://issues.apache.org/jira/browse/RANGER-689) | For Solr plugin, use resources folders for adding Ranger properties |  Major | plugins | Don Bosco Durai | Colm O hEigeartaigh |
 | [RANGER-1954](https://issues.apache.org/jira/browse/RANGER-1954) | Specify a version for the native-maven-plugin |  Trivial | Ranger | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1969](https://issues.apache.org/jira/browse/RANGER-1969) | Fix failing Kafka tests with latest maven/JVM |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1971](https://issues.apache.org/jira/browse/RANGER-1971) | Switch to use for-each loops |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1941](https://issues.apache.org/jira/browse/RANGER-1941) | Use already defined methods and optimized log printing in RangerScriptExecutionContext class |  Minor | Ranger | peng.jianhua | peng.jianhua |
 
 
 ### BUG FIXES:
@@ -422,6 +425,8 @@
 | [RANGER-1962](https://issues.apache.org/jira/browse/RANGER-1962) | Simplify Ranger API for reporting results of access authorization |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953) | improvement on user-group page listing |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1965](https://issues.apache.org/jira/browse/RANGER-1965) | Prevent NPE on decrypting a null password |  Minor | admin | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1966](https://issues.apache.org/jira/browse/RANGER-1966) | Policy engine initialization does not create context enrichers in some cases |  Major | Ranger | Abhay Kulkarni | Nigel Jones |
+| [RANGER-1970](https://issues.apache.org/jira/browse/RANGER-1970) | Build fails - rat issues with storm-agent |  Major | Ranger | Nigel Jones | Colm O hEigeartaigh |
 
 
 ### TESTS:

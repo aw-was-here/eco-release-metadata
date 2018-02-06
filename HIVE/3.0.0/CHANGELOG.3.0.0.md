@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 3.0.0 - Unreleased (as of 2018-02-01)
+## Release 3.0.0 - Unreleased (as of 2018-02-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -40,6 +40,7 @@
 | [HIVE-17652](https://issues.apache.org/jira/browse/HIVE-17652) | retire ANALYZE TABLE ... PARTIALSCAN |  Major | . | Zoltan Haindrich | Zoltan Haindrich |
 | [HIVE-17812](https://issues.apache.org/jira/browse/HIVE-17812) | Move remaining classes that HiveMetaStore depends on |  Major | Standalone Metastore | Alan Gates | Alan Gates |
 | [HIVE-6590](https://issues.apache.org/jira/browse/HIVE-6590) | Hive does not work properly with boolean partition columns (wrong results and inserts to incorrect HDFS path) |  Major | Database/Schema, Metastore | Lenni Kuff | Zoltan Haindrich |
+| [HIVE-18552](https://issues.apache.org/jira/browse/HIVE-18552) | Split hive.strict.checks.large.query into two configs |  Major | Hive | Sahil Takiar | Sahil Takiar |
 
 
 ### NEW FEATURES:
@@ -196,7 +197,6 @@
 | [HIVE-17740](https://issues.apache.org/jira/browse/HIVE-17740) | HiveConf - Use SLF4J Parameterization |  Trivial | Configuration, Hive | BELUGA BEHR | BELUGA BEHR |
 | [HIVE-17742](https://issues.apache.org/jira/browse/HIVE-17742) | AccumuloIndexedOutputFormat Use SLF4J |  Trivial | Accumulo Storage Handler | BELUGA BEHR | BELUGA BEHR |
 | [HIVE-17609](https://issues.apache.org/jira/browse/HIVE-17609) | Tool to manipulate delegation tokens |  Major | Metastore, Security | Mithun Radhakrishnan | Mithun Radhakrishnan |
-| [HIVE-17139](https://issues.apache.org/jira/browse/HIVE-17139) | Conditional expressions optimization: skip the expression evaluation if the condition is not satisfied for vectorization engine. |  Major | . | Ke Jia | Ke Jia |
 | [HIVE-17669](https://issues.apache.org/jira/browse/HIVE-17669) | Cache to optimize SearchArgument deserialization |  Major | ORC, Query Processor | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-17747](https://issues.apache.org/jira/browse/HIVE-17747) | HMS DropTableMessage should include the full table object |  Major | HCatalog, Metastore | Dan Burkert | Dan Burkert |
 | [HIVE-17787](https://issues.apache.org/jira/browse/HIVE-17787) | Apply more filters on the BeeLine test output files (follow-up on HIVE-17569) |  Minor | Testing Infrastructure | Marta Kuczora | Marta Kuczora |
@@ -248,6 +248,8 @@
 | [HIVE-18061](https://issues.apache.org/jira/browse/HIVE-18061) | q.outs: be more selective with masking hdfs paths |  Major | . | Zoltan Haindrich | Laszlo Bodor |
 | [HIVE-18510](https://issues.apache.org/jira/browse/HIVE-18510) | Enable running checkstyle on test sources as well |  Minor | . | Adam Szita | Adam Szita |
 | [HIVE-15631](https://issues.apache.org/jira/browse/HIVE-15631) | Optimize for hive client logs , you can filter the log for each session itself. |  Major | CLI, Clients, Hive | tartarus | tartarus |
+| [HIVE-16805](https://issues.apache.org/jira/browse/HIVE-16805) | Utilities isEmptyPath Logging Too Chatty and Uses Bad Format |  Minor | Query Processor | BELUGA BEHR | BELUGA BEHR |
+| [HIVE-18048](https://issues.apache.org/jira/browse/HIVE-18048) | Vectorization: Support Struct type with vectorization |  Major | . | Colin Ma | Colin Ma |
 
 
 ### BUG FIXES:
@@ -906,6 +908,20 @@
 | [HIVE-18585](https://issues.apache.org/jira/browse/HIVE-18585) | Return type for udfs should be determined using Hive inference rules instead of Calcite |  Major | Query Planning | Ashutosh Chauhan | Ashutosh Chauhan |
 | [HIVE-17331](https://issues.apache.org/jira/browse/HIVE-17331) | Path must be used as key type of the pathToAlises |  Minor | . | Oleg Danilov | Oleg Danilov |
 | [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587) | insert DML event may attempt to calculate a checksum on directories |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-18590](https://issues.apache.org/jira/browse/HIVE-18590) | Assertion error on transitive join inference in the presence of NOT NULL constraint |  Major | Logical Optimizer | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-18518](https://issues.apache.org/jira/browse/HIVE-18518) | Upgrade druid version to 0.11.0 |  Major | . | Nishant Bangarwa | Nishant Bangarwa |
+| [HIVE-18606](https://issues.apache.org/jira/browse/HIVE-18606) | CTAS on empty table throws NPE from org.apache.hadoop.hive.ql.exec.MoveTask |  Major | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-18589](https://issues.apache.org/jira/browse/HIVE-18589) | java.io.IOException: Not enough history available |  Critical | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-18599](https://issues.apache.org/jira/browse/HIVE-18599) | Transactions: Fix CTAS on Micromanaged tables |  Major | Transactions | Steve Yeom | Steve Yeom |
+| [HIVE-18546](https://issues.apache.org/jira/browse/HIVE-18546) | Remove unnecessary code introduced in HIVE-14498 |  Major | Materialized views | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [HIVE-18578](https://issues.apache.org/jira/browse/HIVE-18578) | Some class has missed the ASF header |  Trivial | . | Saijin Huang | Saijin Huang |
+| [HIVE-18601](https://issues.apache.org/jira/browse/HIVE-18601) | Support Power platform by updating protoc-jar-maven-plugin version |  Major | Standalone Metastore | Pravin Dsilva | Pravin Dsilva |
+| [HIVE-18616](https://issues.apache.org/jira/browse/HIVE-18616) | work around HADOOP-15171 p2 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597) | LLAP: Always package the log4j2 API jar for org.apache.log4j |  Major | . | Gopal V | Gopal V |
+| [HIVE-18631](https://issues.apache.org/jira/browse/HIVE-18631) | Hive metastore schema initialization failing on mysql |  Blocker | Metastore | Deepesh Khandelwal | Deepesh Khandelwal |
+| [HIVE-18617](https://issues.apache.org/jira/browse/HIVE-18617) | Workload management Action parser does not generate the correct pool path. |  Major | . | Harish Jaiprakash | Harish Jaiprakash |
+| [HIVE-18612](https://issues.apache.org/jira/browse/HIVE-18612) | Build subprocesses under Yetus in Ptest use 1.7 jre instead of 1.8 |  Major | Testing Infrastructure | Adam Szita | Adam Szita |
+| [HIVE-18613](https://issues.apache.org/jira/browse/HIVE-18613) | Extend JsonSerDe to support BINARY type |  Major | Serializers/Deserializers | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 
 
 ### TESTS:
@@ -1249,6 +1265,9 @@
 | [HIVE-18542](https://issues.apache.org/jira/browse/HIVE-18542) | Create tests to cover getTableMeta method |  Major | . | Adam Szita | Adam Szita |
 | [HIVE-18566](https://issues.apache.org/jira/browse/HIVE-18566) | Create tests to cover adding partitions from PartitionSpec |  Major | Test | Marta Kuczora | Marta Kuczora |
 | [HIVE-18478](https://issues.apache.org/jira/browse/HIVE-18478) | Data files deleted from temp table should not be recycled to CM path |  Minor | Hive, HiveServer2 | mahesh kumar behera | mahesh kumar behera |
+| [HIVE-18125](https://issues.apache.org/jira/browse/HIVE-18125) | Support arbitrary file names in input to Load Data |  Major | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-18596](https://issues.apache.org/jira/browse/HIVE-18596) | Synchronize value of hive.spark.client.connect.timeout across unit tests |  Major | Spark | Sahil Takiar | Sahil Takiar |
+| [HIVE-18536](https://issues.apache.org/jira/browse/HIVE-18536) | IOW + DP is broken for insert-only ACID |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### OTHER:

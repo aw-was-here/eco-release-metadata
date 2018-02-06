@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-02-01)
+## Release 2.1.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -50,6 +50,7 @@
 | [SENTRY-2123](https://issues.apache.org/jira/browse/SENTRY-2123) | Specify code path of auth-generated thrift files for Javadoc and exclude them from Javadoc generation |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2127](https://issues.apache.org/jira/browse/SENTRY-2127) | Fix unstable unit test TestColumnEndToEnd.testCrossDbTableOperations |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2124](https://issues.apache.org/jira/browse/SENTRY-2124) | LeaderStatusMonitor.toString() throws IllegalFormatConversionException with AtomicLong |  Minor | Sentry | Sergio Peña | Xinran Tinney |
+| [SENTRY-2109](https://issues.apache.org/jira/browse/SENTRY-2109) | Fix the logic of identifying HMS out of Sync and handle gaps and out-of-sequence notifications. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### TESTS:

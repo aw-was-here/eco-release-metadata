@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2018-02-01)
+## Release 5.0.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -44,6 +44,7 @@
 | [OOZIE-2775](https://issues.apache.org/jira/browse/OOZIE-2775) | Oozie server does not stop if there is an exception during service initalization at startup |  Major | . | Attila Sasvari | Attila Sasvari |
 | [OOZIE-3166](https://issues.apache.org/jira/browse/OOZIE-3166) | Remove tomcat alias from AG\_Install.twiki: To use a Self-Signed Certificate part |  Minor | docs | Julia Kinga Marton | Julia Kinga Marton |
 | [OOZIE-3157](https://issues.apache.org/jira/browse/OOZIE-3157) | Setup truststore so that it also works in HTTP only mode |  Blocker | . | Attila Sasvari | Julia Kinga Marton |
+| [OOZIE-2847](https://issues.apache.org/jira/browse/OOZIE-2847) | Oozie Ha timing issue |  Minor | HA | Péter Gergő Barna | Denes Bodo |
 
 
 ### SUB-TASKS:
@@ -53,5 +54,12 @@
 | [OOZIE-2996](https://issues.apache.org/jira/browse/OOZIE-2996) | Add options for GC overhead limit error to maven.test.java.opts |  Major | build | Artem Ervits | Artem Ervits |
 | [OOZIE-3017](https://issues.apache.org/jira/browse/OOZIE-3017) | API for workflows: other action types |  Major | client | Daniel Becker | Andras Piros |
 | [OOZIE-3154](https://issues.apache.org/jira/browse/OOZIE-3154) | CLI: generate, check, submit and run workflow definitions based on API jars |  Major | client | Andras Piros | Andras Piros |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-3163](https://issues.apache.org/jira/browse/OOZIE-3163) | Improve documentation rendering: use fluido skin and better config |  Major | docs | Hervé Boutemy | Hervé Boutemy |
 
 

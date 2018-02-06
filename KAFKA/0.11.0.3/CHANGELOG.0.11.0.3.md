@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.11.0.3 - Unreleased (as of 2018-02-01)
+## Release 0.11.0.3 - Unreleased (as of 2018-02-06)
 
 
 
@@ -31,6 +31,7 @@
 | [KAFKA-6277](https://issues.apache.org/jira/browse/KAFKA-6277) | Make loadClass thread-safe for class loaders of Connect plugins |  Blocker | KafkaConnect | Konstantine Karantasis | Konstantine Karantasis |
 | [KAFKA-6467](https://issues.apache.org/jira/browse/KAFKA-6467) | Enforce layout of dependencies within a Connect plugin to be deterministic |  Blocker | KafkaConnect | Konstantine Karantasis | Konstantine Karantasis |
 | [KAFKA-6148](https://issues.apache.org/jira/browse/KAFKA-6148) | ClassCastException in BigQuery connector |  Major | KafkaConnect | Eugene Burd | Konstantine Karantasis |
+| [KAFKA-6288](https://issues.apache.org/jira/browse/KAFKA-6288) | Broken symlink interrupts scanning the plugin path |  Major | KafkaConnect | Yeva Byzek | Konstantine Karantasis |
 
 
 ### SUB-TASKS:

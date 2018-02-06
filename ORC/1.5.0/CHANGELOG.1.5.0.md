@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-02-01)
+## Release 1.5.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -97,6 +97,7 @@
 | [ORC-286](https://issues.apache.org/jira/browse/ORC-286) | setting default value for isSchemaEvolutionCaseAware |  Major | . | piyush mukati | piyush mukati |
 | [ORC-289](https://issues.apache.org/jira/browse/ORC-289) | Adaptor.hh is not installed |  Blocker | C++ | rip.nsk | rip.nsk |
 | [ORC-285](https://issues.apache.org/jira/browse/ORC-285) | Empty vector batches of floats or doubles get  java.io.EOFException |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-296](https://issues.apache.org/jira/browse/ORC-296) | work around HADOOP-15171; also fix stream contract |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.1.3 - Unreleased (as of 2018-02-01)
+## Release 2.1.3 - Unreleased (as of 2018-02-06)
 
 
 

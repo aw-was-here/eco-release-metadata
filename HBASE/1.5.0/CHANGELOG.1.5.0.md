@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-02-01)
+## Release 1.5.0 - Unreleased (as of 2018-02-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -35,6 +35,7 @@
 | [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | Push entries to peer clusters serially |  Critical | regionserver, Replication | Honghua Feng | Phil Yang |
 | [HBASE-19189](https://issues.apache.org/jira/browse/HBASE-19189) | Ad-hoc test job for running a subset of tests lots of times |  Major | build | Sean Busbey | Sean Busbey |
 | [HBASE-15321](https://issues.apache.org/jira/browse/HBASE-15321) | Ability to open a HRegion from hdfs snapshot. |  Major | . | churro morales | churro morales |
+| [HBASE-19528](https://issues.apache.org/jira/browse/HBASE-19528) | Major Compaction Tool |  Major | . | churro morales | churro morales |
 
 
 ### IMPROVEMENTS:
@@ -86,6 +87,8 @@
 | [HBASE-19871](https://issues.apache.org/jira/browse/HBASE-19871) | delete.rb should require user to provide the column |  Major | shell | Romil Choksi | Chia-Ping Tsai |
 | [HBASE-19892](https://issues.apache.org/jira/browse/HBASE-19892) | Checking 'patch attach' and yetus 0.7.0 and move to Yetus 0.7.0 |  Major | . | stack | stack |
 | [HBASE-19728](https://issues.apache.org/jira/browse/HBASE-19728) | Add lock to filesCompacting in all place. |  Major | . | binlijin | binlijin |
+| [HBASE-19901](https://issues.apache.org/jira/browse/HBASE-19901) | Up yetus proclimit on nightlies |  Major | . | stack | stack |
+| [HBASE-19905](https://issues.apache.org/jira/browse/HBASE-19905) | ReplicationSyncUp tool will not exit if a peer replication is disabled |  Major | Replication | Ashish Singhi | Ashish Singhi |
 
 
 ### TESTS:
@@ -105,6 +108,7 @@
 | [HBASE-19468](https://issues.apache.org/jira/browse/HBASE-19468) | FNFE during scans and flushes |  Critical | regionserver, Scanners | Thiruvel Thirumoolan | ramkrishna.s.vasudevan |
 | [HBASE-19631](https://issues.apache.org/jira/browse/HBASE-19631) | Allow building HBase 1.5.x against Hadoop 3.0.0 |  Major | . | Lars Hofhansl | Lars Hofhansl |
 | [HBASE-19877](https://issues.apache.org/jira/browse/HBASE-19877) | hbase-common and hbase-zookeeper don't add the log4j.properties to the resource path for testing |  Critical | test | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-19932](https://issues.apache.org/jira/browse/HBASE-19932) | TestSecureIPC in branch-1 fails with NoSuchMethodError against hadoop 3 |  Major | . | Ted Yu | Ted Yu |
 
 
 ### OTHER:
@@ -113,5 +117,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-16459](https://issues.apache.org/jira/browse/HBASE-16459) | Remove unused hbase shell --format option |  Trivial | shell | Dima Spivak | Dima Spivak |
 | [HBASE-19637](https://issues.apache.org/jira/browse/HBASE-19637) | Add .checkstyle to gitignore |  Major | build | Duo Zhang | Duo Zhang |
+| [HBASE-19858](https://issues.apache.org/jira/browse/HBASE-19858) | Backport HBASE-14061 (Support CF-level Storage Policy) to branch-1 |  Major | . | Andrew Purtell | Andrew Purtell |
 
 

@@ -22,6 +22,13 @@
 
 
 
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-2104](https://issues.apache.org/jira/browse/TEZ-2104) | A CrossProductEdge which produces synthetic cross-product parallelism |  Major | . | Gopal V | Zhiyuan Yang |
+
+
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

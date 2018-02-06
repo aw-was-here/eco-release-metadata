@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.4.1 - Unreleased (as of 2018-02-01)
+## Release 1.4.1 - Unreleased (as of 2018-02-06)
 
 
 
@@ -42,6 +42,7 @@
 | [FLINK-8455](https://issues.apache.org/jira/browse/FLINK-8455) | Add Hadoop to the parent-first loading patterns |  Blocker | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-8473](https://issues.apache.org/jira/browse/FLINK-8473) | JarListHandler may fail with NPE if directory is deleted |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8079](https://issues.apache.org/jira/browse/FLINK-8079) | Skip remaining E2E tests if one failed |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-8243](https://issues.apache.org/jira/browse/FLINK-8243) | OrcTableSource should recursively read all files in nested directories of the input path. |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
 
 
 ### BUG FIXES:
@@ -75,6 +76,22 @@
 | [FLINK-8485](https://issues.apache.org/jira/browse/FLINK-8485) | Running Flink inside Intellij no longer works after upgrading from 1.3.2 to 1.4.0 |  Blocker | Core | Xuan Nguyen | Till Rohrmann |
 | [FLINK-8496](https://issues.apache.org/jira/browse/FLINK-8496) | WebUI does not display TM MemorySegment metrics |  Major | Metrics, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8230](https://issues.apache.org/jira/browse/FLINK-8230) | NPE in OrcRowInputFormat on nested structs |  Blocker | Batch Connectors and Input/Output Formats | Sebastian Klemke | Fabian Hueske |
+| [FLINK-8489](https://issues.apache.org/jira/browse/FLINK-8489) | Data is not emitted by second ElasticSearch connector |  Critical | ElasticSearch Connector | Fabian Hueske | Chesnay Schepler |
+| [FLINK-8242](https://issues.apache.org/jira/browse/FLINK-8242) | ClassCastException in OrcTableSource.toOrcPredicate |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
+| [FLINK-8561](https://issues.apache.org/jira/browse/FLINK-8561) | SharedBuffer line 573 uses == to compare BufferEntries instead of .equals. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-8398](https://issues.apache.org/jira/browse/FLINK-8398) | Stabilize flaky KinesisDataFetcherTests |  Major | Kinesis Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8409](https://issues.apache.org/jira/browse/FLINK-8409) | Race condition in KafkaConsumerThread leads to potential NPE |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8419](https://issues.apache.org/jira/browse/FLINK-8419) | Kafka consumer's offset metrics are not registered for dynamically discovered partitions |  Blocker | Kafka Connector, Metrics | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8484](https://issues.apache.org/jira/browse/FLINK-8484) | Kinesis consumer re-reads closed shards on job restart |  Blocker | Kinesis Connector | Philip Luppens | Philip Luppens |
+| [FLINK-8421](https://issues.apache.org/jira/browse/FLINK-8421) | HeapInternalTimerService should reconfigure compatible key / namespace serializers on restore |  Blocker | . | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8275](https://issues.apache.org/jira/browse/FLINK-8275) | Flink YARN deployment with Kerberos enabled not working |  Blocker | Security | Shuyi Chen | Shuyi Chen |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-8472](https://issues.apache.org/jira/browse/FLINK-8472) | Extend migration tests for Flink 1.4 |  Blocker | Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### SUB-TASKS:

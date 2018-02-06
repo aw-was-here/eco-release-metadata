@@ -203,7 +203,7 @@
 | [SPARK-22535](https://issues.apache.org/jira/browse/SPARK-22535) | PythonRunner.MonitorThread should give the task a little time to finish before killing the python worker |  Major | PySpark | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-22479](https://issues.apache.org/jira/browse/SPARK-22479) | SaveIntoDataSourceCommand logs jdbc credentials |  Major | SQL | Onur Satici | Onur Satici |
 | [SPARK-22540](https://issues.apache.org/jira/browse/SPARK-22540) | HighlyCompressedMapStatus's avgSize is incorrect |  Major | Spark Core | yucai | yucai |
-| [SPARK-22538](https://issues.apache.org/jira/browse/SPARK-22538) | SQLTransformer.transform(inputDataFrame) uncaches inputDataFrame |  Major | ML, PySpark, SQL, Web UI | MBA Learns to Code | Liang-Chi Hsieh |
+| [SPARK-22538](https://issues.apache.org/jira/browse/SPARK-22538) | SQLTransformer.transform(inputDataFrame) uncaches inputDataFrame |  Major | ML, PySpark, SQL, Web UI | V Luong | Liang-Chi Hsieh |
 | [SPARK-22544](https://issues.apache.org/jira/browse/SPARK-22544) | FileStreamSource should use its own hadoop conf to call globPathIfNecessary |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-22548](https://issues.apache.org/jira/browse/SPARK-22548) | Incorrect nested AND expression pushed down to JDBC data source |  Major | SQL | Jia Li | Jia Li |
 | [SPARK-17920](https://issues.apache.org/jira/browse/SPARK-17920) | HiveWriterContainer passes null configuration to serde.initialize, causing NullPointerException in AvroSerde when using avro.schema.url |  Minor | SQL | James Norvell | Vinod KC |

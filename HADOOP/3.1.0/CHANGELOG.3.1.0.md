@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.1.0 - Unreleased (as of 2018-02-01)
+## Release 3.1.0 - Unreleased (as of 2018-02-06)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -154,6 +154,11 @@
 | [MAPREDUCE-7022](https://issues.apache.org/jira/browse/MAPREDUCE-7022) | Fast fail rogue jobs based on task scratch dir size |  Major | task | Johan Gustavsson | Johan Gustavsson |
 | [YARN-2185](https://issues.apache.org/jira/browse/YARN-2185) | Use pipes when localizing archives |  Major | nodemanager | Jason Lowe | Miklos Szegedi |
 | [HDFS-13092](https://issues.apache.org/jira/browse/HDFS-13092) | Reduce verbosity for ThrottledAsyncChecker.java:schedule |  Minor | datanode | Mukul Kumar Singh | Mukul Kumar Singh |
+| [HDFS-13062](https://issues.apache.org/jira/browse/HDFS-13062) | Provide support for JN to use separate journal disk per namespace |  Major | . | Bharat Viswanadham | Bharat Viswanadham |
+| [HADOOP-15170](https://issues.apache.org/jira/browse/HADOOP-15170) | Add symlink support to FileUtil#unTarUsingJava |  Minor | util | Jason Lowe | Ajay Kumar |
+| [HADOOP-15168](https://issues.apache.org/jira/browse/HADOOP-15168) | Add kdiag tool to hadoop command |  Minor | . | Bharat Viswanadham | Bharat Viswanadham |
+| [HDFS-13073](https://issues.apache.org/jira/browse/HDFS-13073) | Cleanup code in InterQJournalProtocol.proto |  Minor | . | Bharat Viswanadham | Bharat Viswanadham |
+| [HDFS-11187](https://issues.apache.org/jira/browse/HDFS-11187) | Optimize disk access for last partial chunk checksum of Finalized replica |  Major | datanode | Wei-Chiu Chuang | Wei-Chiu Chuang |
 
 
 ### BUG FIXES:
@@ -410,6 +415,17 @@
 | [HDFS-13060](https://issues.apache.org/jira/browse/HDFS-13060) | Adding a BlacklistBasedTrustedChannelResolver for TrustedChannelResolver |  Major | datanode, security | Xiaoyu Yao | Ajay Kumar |
 | [HDFS-12897](https://issues.apache.org/jira/browse/HDFS-12897) | getErasureCodingPolicy should handle .snapshot dir better |  Major | erasure-coding, hdfs, snapshots | Harshakiran Reddy | LiXin Ge |
 | [MAPREDUCE-7033](https://issues.apache.org/jira/browse/MAPREDUCE-7033) | Map outputs implicitly rely on permissive umask for shuffle |  Critical | mrv2 | Jason Lowe | Jason Lowe |
+| [HDFS-13048](https://issues.apache.org/jira/browse/HDFS-13048) | LowRedundancyReplicatedBlocks metric can be negative |  Major | metrics | Akira Ajisaka | Akira Ajisaka |
+| [HADOOP-15198](https://issues.apache.org/jira/browse/HADOOP-15198) | Correct the spelling in CopyFilter.java |  Major | tools/distcp | Mukul Kumar Singh | Mukul Kumar Singh |
+| [YARN-7831](https://issues.apache.org/jira/browse/YARN-7831) | YARN Service CLI should use hadoop.http.authentication.type to determine authentication method |  Major | . | Eric Yang | Eric Yang |
+| [YARN-7879](https://issues.apache.org/jira/browse/YARN-7879) | NM user is unable to access the application filecache due to permissions |  Critical | . | Shane Kumpf | Jason Lowe |
+| [HDFS-13100](https://issues.apache.org/jira/browse/HDFS-13100) | Handle IllegalArgumentException when GETSERVERDEFAULTS is not implemented in webhdfs. |  Critical | hdfs, webhdfs | Yongjun Zhang | Yongjun Zhang |
+| [YARN-7876](https://issues.apache.org/jira/browse/YARN-7876) | Localized jars that are expanded after localization are not fully copied |  Blocker | . | Miklos Szegedi | Miklos Szegedi |
+| [YARN-7849](https://issues.apache.org/jira/browse/YARN-7849) | TestMiniYarnClusterNodeUtilization#testUpdateNodeUtilization fails due to heartbeat sync error |  Major | test | Jason Lowe | Botong Huang |
+| [YARN-7801](https://issues.apache.org/jira/browse/YARN-7801) | AmFilterInitializer should addFilter after fill all parameters |  Critical | . | Sumana Sathish | Wangda Tan |
+| [YARN-7889](https://issues.apache.org/jira/browse/YARN-7889) | Missing kerberos token when check for RM REST API availability |  Major | yarn-native-services | Eric Yang | Eric Yang |
+| [YARN-7850](https://issues.apache.org/jira/browse/YARN-7850) | [UI2] Log Aggregation status to be displayed in Application Page |  Major | yarn-ui-v2 | Yesha Vora | Gergely Novák |
+| [YARN-7866](https://issues.apache.org/jira/browse/YARN-7866) | [UI2] Error to be displayed correctly while accessing kerberized cluster without kinit |  Major | yarn-ui-v2 | Sumana Sathish | Sunil G |
 
 
 ### TESTS:
@@ -714,6 +730,12 @@
 | [HDFS-13044](https://issues.apache.org/jira/browse/HDFS-13044) | RBF: Add a safe mode for the Router |  Major | . | Íñigo Goiri | Íñigo Goiri |
 | [YARN-7816](https://issues.apache.org/jira/browse/YARN-7816) | YARN Service - Two different users are unable to launch a service of the same name |  Major | applications | Gour Saha | Gour Saha |
 | [HDFS-13043](https://issues.apache.org/jira/browse/HDFS-13043) | RBF: Expose the state of the Routers in the federation |  Major | . | Íñigo Goiri | Íñigo Goiri |
+| [HDFS-12997](https://issues.apache.org/jira/browse/HDFS-12997) | Move logging to slf4j in BlockPoolSliceStorage and Storage |  Major | . | Ajay Kumar | Ajay Kumar |
+| [HDFS-13068](https://issues.apache.org/jira/browse/HDFS-13068) | RBF: Add router admin option to manage safe mode |  Major | . | Íñigo Goiri | Yiqun Lin |
+| [YARN-7839](https://issues.apache.org/jira/browse/YARN-7839) | Modify PlacementAlgorithm to Check node capacity before placing request on node |  Major | . | Arun Suresh | Panagiotis Garefalakis |
+| [YARN-7868](https://issues.apache.org/jira/browse/YARN-7868) | Provide improved error message when YARN service is disabled |  Major | yarn-native-services | Eric Yang | Eric Yang |
+| [YARN-7778](https://issues.apache.org/jira/browse/YARN-7778) | Merging of placement constraints defined at different levels |  Major | . | Konstantinos Karanasos | Weiwei Yang |
+| [YARN-7860](https://issues.apache.org/jira/browse/YARN-7860) | Fix UT failure TestRMWebServiceAppsNodelabel#testAppsRunning |  Major | . | Weiwei Yang | Sunil G |
 
 
 ### OTHER:
@@ -729,5 +751,6 @@
 | [YARN-7468](https://issues.apache.org/jira/browse/YARN-7468) | Provide means for container network policy control |  Major | nodemanager | Clay B. | Xuan Gong |
 | [YARN-6486](https://issues.apache.org/jira/browse/YARN-6486) | FairScheduler: Deprecate continuous scheduling |  Major | fairscheduler | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
 | [HADOOP-15177](https://issues.apache.org/jira/browse/HADOOP-15177) | Update the release year to 2018 |  Blocker | build | Akira Ajisaka | Bharat Viswanadham |
+| [HADOOP-15197](https://issues.apache.org/jira/browse/HADOOP-15197) | Remove tomcat from the Hadoop-auth test bundle |  Major | . | Xiao Chen | Xiao Chen |
 
 

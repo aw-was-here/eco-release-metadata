@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.0.1 - Unreleased (as of 2018-02-01)
+## Release 1.0.1 - Unreleased (as of 2018-02-06)
 
 
 
@@ -33,6 +33,7 @@
 | [KAFKA-6102](https://issues.apache.org/jira/browse/KAFKA-6102) | Consolidate MockTime implementations between connect and clients |  Minor | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-6258](https://issues.apache.org/jira/browse/KAFKA-6258) | SSLTransportLayer should keep reading from socket until either the buffer is full or the socket has no more data |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-6205](https://issues.apache.org/jira/browse/KAFKA-6205) | Have State Stores Restore Before Initializing Toplogy |  Major | streams | Bill Bejeck | Bill Bejeck |
+| [KAFKA-5987](https://issues.apache.org/jira/browse/KAFKA-5987) | Kafka metrics templates used in document generation should maintain order of tags |  Blocker | clients | Randall Hauch | Randall Hauch |
 
 
 ### BUG FIXES:
@@ -72,6 +73,8 @@
 | [KAFKA-6166](https://issues.apache.org/jira/browse/KAFKA-6166) | Streams configuration requires consumer. and producer. in order to be read |  Minor | streams | Justin Manchester | Filipe Agapito |
 | [KAFKA-6323](https://issues.apache.org/jira/browse/KAFKA-6323) | punctuate with WALL\_CLOCK\_TIME triggered immediately |  Major | streams | Frederic Arno | Frederic Arno |
 | [KAFKA-6378](https://issues.apache.org/jira/browse/KAFKA-6378) | NullPointerException on KStream-GlobalKTable leftJoin when KeyValueMapper returns null |  Major | streams | Andy Bryant | Andy Bryant |
+| [KAFKA-6354](https://issues.apache.org/jira/browse/KAFKA-6354) | Update KStream JavaDoc with regard to KIP-182 |  Minor | streams | Matthias J. Sax | Yu LIU |
+| [KAFKA-6288](https://issues.apache.org/jira/browse/KAFKA-6288) | Broken symlink interrupts scanning the plugin path |  Major | KafkaConnect | Yeva Byzek | Konstantine Karantasis |
 
 
 ### TESTS:

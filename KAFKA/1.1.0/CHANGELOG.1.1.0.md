@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.1.0 - Unreleased (as of 2018-02-01)
+## Release 1.1.0 - Unreleased (as of 2018-02-06)
 
 
 
@@ -66,6 +66,9 @@
 | [KAFKA-4029](https://issues.apache.org/jira/browse/KAFKA-4029) | SSL support for Connect REST API |  Major | KafkaConnect | Ewen Cheslack-Postava | Jakub Scholz |
 | [KAFKA-6275](https://issues.apache.org/jira/browse/KAFKA-6275) | Extend consumer offset reset tool to support deletion (KIP-229) |  Major | . | Jason Gustafson | Vahid Hashemian |
 | [KAFKA-6499](https://issues.apache.org/jira/browse/KAFKA-6499) | Avoid creating dummy checkpoint files with no state stores |  Major | streams | Guozhang Wang | Guozhang Wang |
+| [KAFKA-5228](https://issues.apache.org/jira/browse/KAFKA-5228) | Revisit Streams DSL JavaDocs |  Trivial | streams | Matthias J. Sax | Jeyhun Karimov |
+| [KAFKA-6254](https://issues.apache.org/jira/browse/KAFKA-6254) | Introduce Incremental FetchRequests to Increase Partition Scalability |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-5987](https://issues.apache.org/jira/browse/KAFKA-5987) | Kafka metrics templates used in document generation should maintain order of tags |  Blocker | clients | Randall Hauch | Randall Hauch |
 
 
 ### BUG FIXES:
@@ -161,6 +164,13 @@
 | [KAFKA-4930](https://issues.apache.org/jira/browse/KAFKA-4930) | Connect Rest API allows creating connectors with an empty name - KIP-212 |  Minor | KafkaConnect | Sönke Liebau | Sönke Liebau |
 | [KAFKA-6138](https://issues.apache.org/jira/browse/KAFKA-6138) | Simplify StreamsBuilder#addGlobalStore |  Major | streams | Matthias J. Sax | Panuwat Anawatmongkhon |
 | [KAFKA-6489](https://issues.apache.org/jira/browse/KAFKA-6489) | Fetcher.retrieveOffsetsByTimes() should add all the topics to the metadata refresh topics set. |  Major | clients, consumer | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-6487](https://issues.apache.org/jira/browse/KAFKA-6487) | ChangeLoggingKeyValueBytesStore.all() returns null |  Major | streams | Bill Bejeck | Bart De Vylder |
+| [KAFKA-6492](https://issues.apache.org/jira/browse/KAFKA-6492) | LogSemgent.truncateTo() should always resize the index file |  Major | core | Jiangjie Qin | Jason Gustafson |
+| [KAFKA-6354](https://issues.apache.org/jira/browse/KAFKA-6354) | Update KStream JavaDoc with regard to KIP-182 |  Minor | streams | Matthias J. Sax | Yu LIU |
+| [KAFKA-6288](https://issues.apache.org/jira/browse/KAFKA-6288) | Broken symlink interrupts scanning the plugin path |  Major | KafkaConnect | Yeva Byzek | Konstantine Karantasis |
+| [KAFKA-6253](https://issues.apache.org/jira/browse/KAFKA-6253) | Improve sink connector topic regex validation |  Major | KafkaConnect | Ewen Cheslack-Postava | Jeff Klukas |
+| [KAFKA-6528](https://issues.apache.org/jira/browse/KAFKA-6528) | Transient failure in DynamicBrokerReconfigurationTest.testThreadPoolResize |  Major | . | Jason Gustafson | Rajini Sivaram |
+| [KAFKA-4750](https://issues.apache.org/jira/browse/KAFKA-4750) | KeyValueIterator returns null values |  Major | streams | Michal Borowiecki | Evgeny Veretennikov |
 
 
 ### TESTS:
@@ -206,5 +216,8 @@
 | [KAFKA-6245](https://issues.apache.org/jira/browse/KAFKA-6245) | Enable reconfiguration of default topic configs used by brokers |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6242](https://issues.apache.org/jira/browse/KAFKA-6242) | Enable resizing various broker thread pools |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6243](https://issues.apache.org/jira/browse/KAFKA-6243) | Enable reconfiguration of metrics reporters and their custom configs |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6494](https://issues.apache.org/jira/browse/KAFKA-6494) | Extend ConfigCommand to update broker config using new AdminClient |  Major | . | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6246](https://issues.apache.org/jira/browse/KAFKA-6246) | Enable  reconfiguration of listeners and security configs |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6452](https://issues.apache.org/jira/browse/KAFKA-6452) | Add documentation for delegation token authentication mechanism |  Major | documentation | Manikumar | Manikumar |
 
 

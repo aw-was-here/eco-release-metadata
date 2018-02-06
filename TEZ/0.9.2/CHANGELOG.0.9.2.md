@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.2 - Unreleased (as of 2018-02-01)
+## Release 0.9.2 - Unreleased (as of 2018-02-06)
 
 
 
@@ -27,6 +27,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3770](https://issues.apache.org/jira/browse/TEZ-3770) | DAG-aware YARN task scheduler |  Major | . | Jason Lowe | Jason Lowe |
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3895](https://issues.apache.org/jira/browse/TEZ-3895) | Missing name for local mode task scheduler service async request handler thread |  Major | . | Jonathan Eagles | Jonathan Eagles |
 
 
 ### BUG FIXES:

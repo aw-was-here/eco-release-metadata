@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.2.8 - Unreleased (as of 2018-02-01)
+## Release 1.2.8 - Unreleased (as of 2018-02-06)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-17513](https://issues.apache.org/jira/browse/HBASE-17513) | Thrift Server 1 uses different QOP settings than RPC and Thrift Server 2 and can easily be misconfigured so there is no encryption when the operator expects it. |  Critical | documentation, security, Thrift, Usability | Sean Busbey | Reid Chan |
 | [HBASE-18891](https://issues.apache.org/jira/browse/HBASE-18891) | Upgrade netty-all jar |  Critical | . | Josh Elser | Josh Elser |
+| [HBASE-19901](https://issues.apache.org/jira/browse/HBASE-19901) | Up yetus proclimit on nightlies |  Major | . | stack | stack |
 
 
 ### OTHER:
