@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.9.1 - Unreleased (as of 2018-02-06)
+## Release 1.9.1 - Unreleased (as of 2018-03-22)
 
 
 
@@ -39,6 +39,7 @@
 | [PARQUET-1024](https://issues.apache.org/jira/browse/PARQUET-1024) | allow for case insensitive parquet-xxx prefix in PR title |  Major | . | Julien Le Dem | Julien Le Dem |
 | [PARQUET-1115](https://issues.apache.org/jira/browse/PARQUET-1115) | Warn users when misusing parquet-tools merge |  Major | . | Zoltan Ivanfi | Nandor Kollar |
 | [PARQUET-1149](https://issues.apache.org/jira/browse/PARQUET-1149) | Upgrade Avro dependancy to 1.8.2 |  Major | . | Fokko Driesprong |  |
+| [PARQUET-1135](https://issues.apache.org/jira/browse/PARQUET-1135) | upgrade thrift and protobuf dependencies |  Major | parquet-mr | Julien Le Dem | Julien Le Dem |
 
 
 ### BUG FIXES:

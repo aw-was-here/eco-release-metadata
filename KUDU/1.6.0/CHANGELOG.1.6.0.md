@@ -46,6 +46,7 @@
 | [KUDU-2198](https://issues.apache.org/jira/browse/KUDU-2198) | Allow disregarding system-wide auth-to-local mapping |  Major | security | Todd Lipcon | Todd Lipcon |
 | [KUDU-2136](https://issues.apache.org/jira/browse/KUDU-2136) | Add a "crashed"/"failed" mode to tablets |  Major | . | Andrew Wong | Andrew Wong |
 | [KUDU-2187](https://issues.apache.org/jira/browse/KUDU-2187) | Don't hold threadpool lock when creating additional workers |  Major | perf, util | Todd Lipcon | Todd Lipcon |
+| [KUDU-1334](https://issues.apache.org/jira/browse/KUDU-1334) | Support pid\_max \> 16 bits in the mini cluster |  Major | test | Jean-Daniel Cryans | Alexey Serbin |
 
 
 ### BUG FIXES:
@@ -97,5 +98,6 @@
 | [KUDU-1807](https://issues.apache.org/jira/browse/KUDU-1807) | GetTableSchema() is O(n) in the number of tablets |  Critical | master, perf | Todd Lipcon | Adar Dembo |
 | [KUDU-501](https://issues.apache.org/jira/browse/KUDU-501) | Web UI and metrics support for replicated master |  Major | ops-tooling | Todd Lipcon | Will Berkeley |
 | [KUDU-1125](https://issues.apache.org/jira/browse/KUDU-1125) | Reduce impact of enabling fsync on the master |  Major | master | Jean-Daniel Cryans | Adar Dembo |
+| [KUDU-616](https://issues.apache.org/jira/browse/KUDU-616) | Mitigate tablet damage when disks are lost |  Major | fs | Adar Dembo | Andrew Wong |
 
 

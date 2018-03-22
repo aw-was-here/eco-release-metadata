@@ -54,7 +54,7 @@ Mount tables support ACL, The users won't be able to modify their own entries (w
 
 * [YARN-7190](https://issues.apache.org/jira/browse/YARN-7190) | *Major* | **Ensure only NM classpath in 2.x gets TSv2 related hbase jars, not the user classpath**
 
-**WARNING: No release note provided for this change.**
+Ensure only NM classpath in 2.x gets TSv2 related hbase jars, not the user classpath.
 
 
 ---
@@ -75,7 +75,14 @@ Support multi-thread pre-read in AliyunOSSInputStream to improve the sequential 
 
 * [HDFS-13083](https://issues.apache.org/jira/browse/HDFS-13083) | *Major* | **RBF: Fix doc error setting up client**
 
-**WARNING: No release note provided for this change.**
+Fix the document error of setting up HFDS Router Federation
+
+
+---
+
+* [HDFS-13099](https://issues.apache.org/jira/browse/HDFS-13099) | *Minor* | **RBF: Use the ZooKeeper as the default State Store**
+
+Change default State Store from local file to ZooKeeper. This will require additional zk address to be configured.
 
 
 

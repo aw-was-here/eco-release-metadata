@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.4.1 - Unreleased (as of 2018-02-06)
+## Release 1.4.1 - 2018-02-15
 
 
 
@@ -43,6 +43,8 @@
 | [FLINK-8473](https://issues.apache.org/jira/browse/FLINK-8473) | JarListHandler may fail with NPE if directory is deleted |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8079](https://issues.apache.org/jira/browse/FLINK-8079) | Skip remaining E2E tests if one failed |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8243](https://issues.apache.org/jira/browse/FLINK-8243) | OrcTableSource should recursively read all files in nested directories of the input path. |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
+| [FLINK-8362](https://issues.apache.org/jira/browse/FLINK-8362) | Shade Elasticsearch dependencies away |  Major | Build System, ElasticSearch Connector | Nico Kruber | Nico Kruber |
+| [FLINK-8571](https://issues.apache.org/jira/browse/FLINK-8571) | Provide an enhanced KeyedStream implementation to use ForwardPartitioner |  Major | . | Nagarjun Guraja | Stefan Richter |
 
 
 ### BUG FIXES:
@@ -80,11 +82,15 @@
 | [FLINK-8242](https://issues.apache.org/jira/browse/FLINK-8242) | ClassCastException in OrcTableSource.toOrcPredicate |  Critical | Batch Connectors and Input/Output Formats | Fabian Hueske | Fabian Hueske |
 | [FLINK-8561](https://issues.apache.org/jira/browse/FLINK-8561) | SharedBuffer line 573 uses == to compare BufferEntries instead of .equals. |  Major | CEP | Kostas Kloudas | Kostas Kloudas |
 | [FLINK-8398](https://issues.apache.org/jira/browse/FLINK-8398) | Stabilize flaky KinesisDataFetcherTests |  Major | Kinesis Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
-| [FLINK-8409](https://issues.apache.org/jira/browse/FLINK-8409) | Race condition in KafkaConsumerThread leads to potential NPE |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-8419](https://issues.apache.org/jira/browse/FLINK-8419) | Kafka consumer's offset metrics are not registered for dynamically discovered partitions |  Blocker | Kafka Connector, Metrics | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
-| [FLINK-8484](https://issues.apache.org/jira/browse/FLINK-8484) | Kinesis consumer re-reads closed shards on job restart |  Blocker | Kinesis Connector | Philip Luppens | Philip Luppens |
-| [FLINK-8421](https://issues.apache.org/jira/browse/FLINK-8421) | HeapInternalTimerService should reconfigure compatible key / namespace serializers on restore |  Blocker | . | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-8275](https://issues.apache.org/jira/browse/FLINK-8275) | Flink YARN deployment with Kerberos enabled not working |  Blocker | Security | Shuyi Chen | Shuyi Chen |
+| [FLINK-8559](https://issues.apache.org/jira/browse/FLINK-8559) | Exceptions in RocksDBIncrementalSnapshotOperation#takeSnapshot cause job to get stuck |  Blocker | State Backends, Checkpointing, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-8522](https://issues.apache.org/jira/browse/FLINK-8522) | DefaultOperatorStateBackend writes data in checkpoint that is never read. |  Major | State Backends, Checkpointing | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-8318](https://issues.apache.org/jira/browse/FLINK-8318) | Conflict jackson library with ElasticSearch connector |  Blocker | ElasticSearch Connector, Startup Shell Scripts | Jihyun Cho | Nico Kruber |
+| [FLINK-8270](https://issues.apache.org/jira/browse/FLINK-8270) | TaskManagers do not use correct local path for shipped Keytab files in Yarn deployment modes |  Blocker | Security | Tzu-Li (Gordon) Tai | Shuyi Chen |
+| [FLINK-8409](https://issues.apache.org/jira/browse/FLINK-8409) | Race condition in KafkaConsumerThread leads to potential NPE |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8421](https://issues.apache.org/jira/browse/FLINK-8421) | HeapInternalTimerService should reconfigure compatible key / namespace serializers on restore |  Blocker | . | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-8484](https://issues.apache.org/jira/browse/FLINK-8484) | Kinesis consumer re-reads closed shards on job restart |  Blocker | Kinesis Connector | Philip Luppens | Philip Luppens |
 
 
 ### TESTS:
@@ -100,6 +106,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-8323](https://issues.apache.org/jira/browse/FLINK-8323) | Fix Mod scala function bug |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-7499](https://issues.apache.org/jira/browse/FLINK-7499) | double buffer release in SpillableSubpartitionView |  Blocker | Network | Nico Kruber | Nico Kruber |
+| [FLINK-7760](https://issues.apache.org/jira/browse/FLINK-7760) | Restore failing from external checkpointing metadata. |  Blocker | CEP, State Backends, Checkpointing | Shashank Agarwal |  |
+| [FLINK-7756](https://issues.apache.org/jira/browse/FLINK-7756) | RocksDB state backend Checkpointing (Async and Incremental)  is not working with CEP. |  Blocker | CEP, State Backends, Checkpointing, Streaming | Shashank Agarwal | Aljoscha Krettek |
+| [FLINK-6321](https://issues.apache.org/jira/browse/FLINK-6321) | RocksDB state backend Checkpointing is not working with KeyedCEP. |  Blocker | CEP | Shashank Agarwal | Kostas Kloudas |
 
 
 ### OTHER:

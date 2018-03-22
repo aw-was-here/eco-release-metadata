@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.2 - Unreleased (as of 2018-02-06)
+## Release 2.2.2 - Unreleased (as of 2018-03-22)
 
 
 
@@ -41,7 +41,8 @@
 | [SPARK-22653](https://issues.apache.org/jira/browse/SPARK-22653) | executorAddress registered in CoarseGrainedSchedulerBackend.executorDataMap is null |  Major | Scheduler | Thomas Graves | Thomas Graves |
 | [SPARK-22162](https://issues.apache.org/jira/browse/SPARK-22162) | Executors and the driver use inconsistent Job IDs during the new RDD commit protocol |  Major | Spark Core | Reza Safi | Reza Safi |
 | [SPARK-22686](https://issues.apache.org/jira/browse/SPARK-22686) | DROP TABLE IF EXISTS should not show AnalysisException |  Major | SQL | Dongjoon Hyun | Dongjoon Hyun |
-| [SPARK-22289](https://issues.apache.org/jira/browse/SPARK-22289) | Cannot save LogisticRegressionClassificationModel with bounds on coefficients |  Major | ML | Nic Eggert | yuhao yang |
+| [SPARK-22289](https://issues.apache.org/jira/browse/SPARK-22289) | Cannot save LogisticRegressionModel with bounds on coefficients |  Major | ML | Nic Eggert | yuhao yang |
+| [SPARK-22700](https://issues.apache.org/jira/browse/SPARK-22700) | Bucketizer.transform incorrectly drops row containing NaN |  Major | ML | zhengruifeng | zhengruifeng |
 | [SPARK-22574](https://issues.apache.org/jira/browse/SPARK-22574) | Wrong request causing Spark Dispatcher going inactive |  Minor | Mesos, Spark Submit | German Schiavon Matteo | German Schiavon Matteo |
 | [SPARK-22817](https://issues.apache.org/jira/browse/SPARK-22817) | Use fixed testthat version for SparkR tests in AppVeyor |  Major | SparkR | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-22862](https://issues.apache.org/jira/browse/SPARK-22862) | Docs on lazy elimination of columns missing from an encoder. |  Major | SQL | Michael Armbrust | Michael Armbrust |
@@ -54,6 +55,16 @@
 | [SPARK-22975](https://issues.apache.org/jira/browse/SPARK-22975) | MetricsReporter producing NullPointerException when there was no progress reported |  Major | Structured Streaming | Yuriy Bondaruk | Marco Gaido |
 | [SPARK-23038](https://issues.apache.org/jira/browse/SPARK-23038) | Update docker/spark-test (JDK/OS) |  Minor | Tests | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-23281](https://issues.apache.org/jira/browse/SPARK-23281) | Query produces results in incorrect order when a composite order by clause refers to both original columns and aliases |  Major | SQL | Dilip Biswal | Dilip Biswal |
+| [SPARK-23186](https://issues.apache.org/jira/browse/SPARK-23186) | Initialize DriverManager first before loading Drivers |  Major | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-23358](https://issues.apache.org/jira/browse/SPARK-23358) | When the number of partitions is greater than 2^28, it will result in an error result |  Minor | Spark Core | liuxian | liuxian |
+| [SPARK-23376](https://issues.apache.org/jira/browse/SPARK-23376) | creating UnsafeKVExternalSorter with BytesToBytesMap may fail |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-23391](https://issues.apache.org/jira/browse/SPARK-23391) | It may lead to overflow for some integer multiplication |  Minor | Spark Core | liuxian | liuxian |
+| [SPARK-23230](https://issues.apache.org/jira/browse/SPARK-23230) | When hive.default.fileformat is other kinds of file types, create textfile table cause a serde error |  Minor | SQL | dzcxzl | dzcxzl |
+| [SPARK-23053](https://issues.apache.org/jira/browse/SPARK-23053) | taskBinarySerialization and task partitions calculate in DagScheduler.submitMissingTasks should keep the same RDD checkpoint status |  Major | Scheduler, Spark Core | huangtengfei | huangtengfei |
+| [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434) | Spark should not warn \`metadata directory\` for a HDFS file path |  Major | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-23438](https://issues.apache.org/jira/browse/SPARK-23438) | DStreams could lose blocks with WAL enabled when driver crashes |  Critical | DStreams | Gabor Somogyi | Gabor Somogyi |
+| [SPARK-23508](https://issues.apache.org/jira/browse/SPARK-23508) | blockManagerIdCache in BlockManagerId may cause oom |  Major | Deploy, Spark Core | zhoukang | zhoukang |
+| [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525) | ALTER TABLE CHANGE COLUMN doesn't work for external hive table |  Major | SQL | Pavlo Skliar | Jiang Xingbo |
 
 
 ### SUB-TASKS:

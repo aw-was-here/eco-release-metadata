@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 0.15.0 - Unreleased (as of 2018-02-06)
+## Release 0.15.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KNOX-1146](https://issues.apache.org/jira/browse/KNOX-1146) | Document KNOX CLI Commands For Listing Provider Configs and Descriptors in Remote Registries |  Major | Site | Phil Zampino | Phil Zampino |
+| [KNOX-1006](https://issues.apache.org/jira/browse/KNOX-1006) | Service Discovery and Topology Generation |  Major | Server | Phil Zampino | Phil Zampino |
 
 
 ### SUB-TASKS:
@@ -34,5 +35,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KNOX-1010](https://issues.apache.org/jira/browse/KNOX-1010) | Remote Discovery of Knox Topology Configuration |  Major | Server | Phil Zampino | Phil Zampino |
+| [KNOX-1040](https://issues.apache.org/jira/browse/KNOX-1040) | Knox Admin UI for Simple Descriptors and Provider Configurations |  Major | AdminUI | Phil Zampino | Phil Zampino |
 
 

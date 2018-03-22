@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.0.1 - Unreleased (as of 2018-02-06)
+## Release 1.0.1 - 2018-03-02
 
 
 
@@ -49,7 +49,6 @@
 | [KAFKA-6167](https://issues.apache.org/jira/browse/KAFKA-6167) | Timestamp on streams directory contains a colon, which is an illegal character |  Blocker | streams | Justin Manchester | Matthias J. Sax |
 | [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214) | Using standby replicas with an in memory state store causes Streams to crash |  Major | streams | Matt Farmer | Damian Guy |
 | [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827) | Kafka connect: error with special characters in connector name |  Minor | KafkaConnect | Aymeric Bouvet | Arjun Satish |
-| [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238) | Issues with protocol version when applying a rolling upgrade to 1.0.0 |  Major | documentation | Diego Louzán | Jason Gustafson |
 | [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261) | Request logging throws exception if acks=0 |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260) | AbstractCoordinator not clearly handles NULL Exception |  Major | . | Seweryn Habdank-Wojewodzki | Jason Gustafson |
 | [KAFKA-6174](https://issues.apache.org/jira/browse/KAFKA-6174) | Add methods in Options classes to keep binary compatibility with 0.11 |  Major | . | Dong Lin | Dong Lin |
@@ -75,6 +74,11 @@
 | [KAFKA-6378](https://issues.apache.org/jira/browse/KAFKA-6378) | NullPointerException on KStream-GlobalKTable leftJoin when KeyValueMapper returns null |  Major | streams | Andy Bryant | Andy Bryant |
 | [KAFKA-6354](https://issues.apache.org/jira/browse/KAFKA-6354) | Update KStream JavaDoc with regard to KIP-182 |  Minor | streams | Matthias J. Sax | Yu LIU |
 | [KAFKA-6288](https://issues.apache.org/jira/browse/KAFKA-6288) | Broken symlink interrupts scanning the plugin path |  Major | KafkaConnect | Yeva Byzek | Konstantine Karantasis |
+| [KAFKA-6367](https://issues.apache.org/jira/browse/KAFKA-6367) | Fix StateRestoreListener To Use Correct Batch Ending Offset |  Major | streams | Bill Bejeck | Bill Bejeck |
+| [KAFKA-6504](https://issues.apache.org/jira/browse/KAFKA-6504) | Connect: Some per-task-metrics not working |  Minor | KafkaConnect | Per Steffensen | Robert Yokota |
+| [KAFKA-6529](https://issues.apache.org/jira/browse/KAFKA-6529) | Broker leaks memory and file descriptors after sudden client disconnects |  Major | network | Graham Campbell |  |
+| [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238) | Issues with protocol version when applying a rolling upgrade to 1.0.0 |  Major | documentation | Diego Louzán | Jason Gustafson |
+| [KAFKA-6663](https://issues.apache.org/jira/browse/KAFKA-6663) | Expression for GlobalKTable is not correct |  Minor | documentation, streams | huxihx | huxihx |
 
 
 ### TESTS:

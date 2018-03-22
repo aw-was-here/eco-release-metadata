@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.0.3 - Unreleased (as of 2018-02-06)
+## Release 2.0.3 - Unreleased (as of 2018-03-22)
 
 
 
@@ -197,6 +197,7 @@
 | [SPARK-21950](https://issues.apache.org/jira/browse/SPARK-21950) | pyspark.sql.tests.SQLTests2 should stop SparkContext. |  Major | PySpark, SQL, Tests | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-21991](https://issues.apache.org/jira/browse/SPARK-21991) | [LAUNCHER] LauncherServer acceptConnections thread sometime dies if machine has very high load |  Minor | Spark Submit | Andrea Zito | Andrea Zito |
 | [SPARK-22327](https://issues.apache.org/jira/browse/SPARK-22327) | R CRAN check fails on non-latest branches |  Major | SparkR | Felix Cheung | Felix Cheung |
+| [SPARK-23438](https://issues.apache.org/jira/browse/SPARK-23438) | DStreams could lose blocks with WAL enabled when driver crashes |  Critical | DStreams | Gabor Somogyi | Gabor Somogyi |
 
 
 ### TESTS:

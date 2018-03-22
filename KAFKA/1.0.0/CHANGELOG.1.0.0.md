@@ -240,6 +240,7 @@
 | [KAFKA-6119](https://issues.apache.org/jira/browse/KAFKA-6119) | Silent Data Loss in Kafka011 Transactional Producer |  Blocker | core, producer | Gary Y. | Apurva Mehta |
 | [KAFKA-5318](https://issues.apache.org/jira/browse/KAFKA-5318) | Streams state may be misleading |  Major | streams | Joao |  |
 | [KAFKA-6334](https://issues.apache.org/jira/browse/KAFKA-6334) | Minor documentation typo |  Trivial | documentation | Andrew Olson | Andrew Olson |
+| [KAFKA-6613](https://issues.apache.org/jira/browse/KAFKA-6613) | The controller shouldn't stop partition reassignment after an exception is being thrown |  Major | admin, config, controller, core | chandra kasiraju |  |
 
 
 ### TESTS:

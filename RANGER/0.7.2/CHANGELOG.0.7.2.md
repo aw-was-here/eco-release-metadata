@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 0.7.2 - Unreleased (as of 2018-02-06)
+## Release 0.7.2 - Unreleased (as of 2018-03-22)
 
 
 
@@ -45,6 +45,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [RANGER-1697](https://issues.apache.org/jira/browse/RANGER-1697) | Update NiFi service def |  Minor | plugins | Matt Gilman | Nikhil Purbhe |
 | [RANGER-1938](https://issues.apache.org/jira/browse/RANGER-1938) | Solr for Audit setup doesn't use DocValues effectively |  Major | audit | Kevin Risden | Kevin Risden |
+| [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953) | improvement on user-group page listing |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
+| [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805) | Code improvement to follow best practices in js |  Minor | Ranger | Nitin Galave | Nitin Galave |
 
 
 ### BUG FIXES:
@@ -94,7 +96,7 @@
 | [RANGER-1853](https://issues.apache.org/jira/browse/RANGER-1853) | Masking functions based on custom masking of string types fails to unescape quotes properly. |  Major | Ranger | Srikanth Venkat | Nitin Galave |
 | [RANGER-1828](https://issues.apache.org/jira/browse/RANGER-1828) | Good coding practice-add additional headers in ranger |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1868](https://issues.apache.org/jira/browse/RANGER-1868) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
-| [RANGER-1897](https://issues.apache.org/jira/browse/RANGER-1897) | TagSync should replace use of V1 Atlas APIs with V2 APIs for efficient tag-download from Atlas |  Major | tagsync | Madhan Neethiraj | Madhan Neethiraj |
+| [RANGER-1897](https://issues.apache.org/jira/browse/RANGER-1897) | TagSync should replace use of V1 Atlas APIs with V2 APIs for efficient tag-download from Atlas |  Major | tagsync | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1937](https://issues.apache.org/jira/browse/RANGER-1937) | Ranger tagsync should process ENTITY\_CREATE notification, to support Atlas import feature |  Major | tagsync | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1943](https://issues.apache.org/jira/browse/RANGER-1943) | Ranger Solr authorization is skipped when collection is empty or null |  Critical | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1952](https://issues.apache.org/jira/browse/RANGER-1952) | Allow user's email Address to be blank on emailchange API as per RANGER-978 |  Minor | Ranger | Pradeep Agrawal | Pradeep Agrawal |
@@ -102,8 +104,8 @@
 | [RANGER-1825](https://issues.apache.org/jira/browse/RANGER-1825) | Ranger Tagsync is giving  NoClassDefFoundError |  Critical | Ranger | suja s | Nikhil Purbhe |
 | [RANGER-1956](https://issues.apache.org/jira/browse/RANGER-1956) | Update CredentialBuilder module |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960) | HBase auth does not take table namespace into consideration for deleting snapshot |  Major | plugins | Tomas Sokorai |  |
-| [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953) | improvement on user-group page listing |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1966](https://issues.apache.org/jira/browse/RANGER-1966) | Policy engine initialization does not create context enrichers in some cases |  Major | Ranger | Abhay Kulkarni | Nigel Jones |
+| [RANGER-1980](https://issues.apache.org/jira/browse/RANGER-1980) | Build failure for Ranger 0.7 branch |  Major | build-infra | Don Bosco Durai | Pradeep Agrawal |
 
 
 ### SUB-TASKS:

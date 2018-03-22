@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 3.0.0 - Unreleased (as of 2018-02-06)
+## Release 3.0.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -31,6 +31,7 @@
 | [SPARK-23143](https://issues.apache.org/jira/browse/SPARK-23143) | Add Python support for continuous trigger |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-23144](https://issues.apache.org/jira/browse/SPARK-23144) | Add console sink for continuous queries |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-23142](https://issues.apache.org/jira/browse/SPARK-23142) | Add documentation for Continuous Processing |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-23454](https://issues.apache.org/jira/browse/SPARK-23454) | Add Trigger information to the Structured Streaming programming guide |  Minor | Documentation, Structured Streaming | Tathagata Das | Tathagata Das |
 
 
 ### BUG FIXES:
@@ -43,6 +44,8 @@
 | [SPARK-22018](https://issues.apache.org/jira/browse/SPARK-22018) | Catalyst Optimizer does not preserve top-level metadata while collapsing projects |  Major | Optimizer, Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-22017](https://issues.apache.org/jira/browse/SPARK-22017) | watermark evaluation with multi-input stream operators is unspecified |  Major | Structured Streaming | Jose Torres |  |
 | [SPARK-22238](https://issues.apache.org/jira/browse/SPARK-22238) | EnsureStatefulOpPartitioning shouldn't ask for the child RDD before planning is completed |  Major | Structured Streaming | Burak Yavuz | Burak Yavuz |
+| [SPARK-23484](https://issues.apache.org/jira/browse/SPARK-23484) | Fix possible race condition in KafkaContinuousReader |  Minor | Structured Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-23408](https://issues.apache.org/jira/browse/SPARK-23408) | Flaky test: StreamingOuterJoinSuite.left outer early state exclusion on right |  Minor | SQL, Tests | Marcelo Vanzin | Tathagata Das |
 
 
 ### TESTS:
@@ -60,6 +63,10 @@
 | [SPARK-22908](https://issues.apache.org/jira/browse/SPARK-22908) | add basic continuous kafka source |  Major | Structured Streaming | Jose Torres | Jose Torres |
 | [SPARK-23033](https://issues.apache.org/jira/browse/SPARK-23033) | disable task-level retry for continuous execution |  Major | Structured Streaming | Jose Torres | Jose Torres |
 | [SPARK-23052](https://issues.apache.org/jira/browse/SPARK-23052) | Migrate Microbatch ConsoleSink to v2 |  Major | Structured Streaming | Jose Torres | Jose Torres |
+| [SPARK-23362](https://issues.apache.org/jira/browse/SPARK-23362) | Migrate Kafka microbatch source to v2 |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
+| [SPARK-23491](https://issues.apache.org/jira/browse/SPARK-23491) | continuous symptom |  Major | Structured Streaming | Jose Torres | Jose Torres |
+| [SPARK-23097](https://issues.apache.org/jira/browse/SPARK-23097) | Migrate text socket source to v2 |  Major | Structured Streaming | Jose Torres | Saisai Shao |
+| [SPARK-23559](https://issues.apache.org/jira/browse/SPARK-23559) | add epoch ID to data writer factory |  Major | Structured Streaming | Jose Torres | Jose Torres |
 
 
 ### OTHER:
@@ -67,5 +74,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-21925](https://issues.apache.org/jira/browse/SPARK-21925) | Update trigger interval documentation in docs with behavior change in Spark 2.2 |  Major | Documentation, Structured Streaming | Burak Yavuz |  |
+| [SPARK-23092](https://issues.apache.org/jira/browse/SPARK-23092) | Migrate MemoryStream to DataSource V2 |  Major | Structured Streaming | Burak Yavuz | Tathagata Das |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 1.0.0 - Unreleased (as of 2018-02-06)
+## Release 1.0.0 - 2018-03-20
 
 
 
@@ -55,6 +55,8 @@
 | [RANGER-1848](https://issues.apache.org/jira/browse/RANGER-1848) | Implement getLinkList/getJobList in SqoopClient for Ranger Sqoop2 plugin |  Major | admin | Qiang Zhang | Qiang Zhang |
 | [RANGER-1797](https://issues.apache.org/jira/browse/RANGER-1797) | Tomcat Security Vulnerability Alert. The version of the tomcat for ranger should upgrade to 7.0.82. |  Major | admin | peng.jianhua | peng.jianhua |
 | [RANGER-1905](https://issues.apache.org/jira/browse/RANGER-1905) | NoClassDefFoundError from the built zip/tar.gz, created by the maven-assembly-plugin |  Blocker | admin | Zsombor Gegesy | Zsombor Gegesy |
+| [RANGER-1932](https://issues.apache.org/jira/browse/RANGER-1932) | After create the service of yarndev,the policy named 'all-queue' created for the default user should have all the permissions.However, this policy does't take effect. |  Major | plugins | Qiang Zhang | Qiang Zhang |
+| [RANGER-1967](https://issues.apache.org/jira/browse/RANGER-1967) | The Ranger support the Kafka 1.0.0 |  Major | plugins | Qiang Zhang | Zsombor Gegesy |
 
 
 ### NEW FEATURES:
@@ -74,6 +76,8 @@
 | [RANGER-1647](https://issues.apache.org/jira/browse/RANGER-1647) | Allow Ranger policy conditions to use tag attributes and values in Ranger |  Major | Ranger | Sailaja Polavarapu | Sailaja Polavarapu |
 | [RANGER-1844](https://issues.apache.org/jira/browse/RANGER-1844) | Ranger admin support hdfs HA configuration when creating hdfs service. |  Major | plugins, Ranger | Qiang Zhang | Qiang Zhang |
 | [RANGER-1929](https://issues.apache.org/jira/browse/RANGER-1929) | The ranger should support the View policy. |  Major | admin | peng.jianhua | peng.jianhua |
+| [RANGER-1972](https://issues.apache.org/jira/browse/RANGER-1972) | Ability to label policies, filter/search and show policies by labels |  Major | Ranger | bhavik patel | bhavik patel |
+| [RANGER-1963](https://issues.apache.org/jira/browse/RANGER-1963) | Show actual hive query on ranger audit UI. |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 
 
 ### IMPROVEMENTS:
@@ -142,6 +146,7 @@
 | [RANGER-1877](https://issues.apache.org/jira/browse/RANGER-1877) | The ranger policies json file should be formatted when exported  at ranger service manager. |  Minor | admin, Ranger | WangYuan | WangYuan |
 | [RANGER-1895](https://issues.apache.org/jira/browse/RANGER-1895) | Simplify Storm dependencies |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1910](https://issues.apache.org/jira/browse/RANGER-1910) | Simplify the maven dependency management of the Yarn plugin for Ranger .solr-solrj can be removed from the pom.xml file of the plugin-yarn |  Minor | plugins | Qiang Zhang | Qiang Zhang |
+| [RANGER-1907](https://issues.apache.org/jira/browse/RANGER-1907) | The solr-solrj jar is not need for hive-agent. So it should be removed from the pom.xml file of the hive-agent |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1916](https://issues.apache.org/jira/browse/RANGER-1916) | Remove duplicate code and optimize code in AtlasClient.class |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1915](https://issues.apache.org/jira/browse/RANGER-1915) | Optimize the code and keep the code style consistent in the RangerAdminRESTClient class |  Major | admin | peng.jianhua | peng.jianhua |
 | [RANGER-1906](https://issues.apache.org/jira/browse/RANGER-1906) | Simplify Atlas plugin dependency management |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
@@ -156,13 +161,24 @@
 | [RANGER-1924](https://issues.apache.org/jira/browse/RANGER-1924) | Simplify ranger-hdfs plugin remove gson.jar in ranger/src/main/assembly/hdfs-agent.xml |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1927](https://issues.apache.org/jira/browse/RANGER-1927) | Upgrade Hive to 2.3.2 |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1926](https://issues.apache.org/jira/browse/RANGER-1926) | Upgrade Storm dependency to 1.1.1 |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1933](https://issues.apache.org/jira/browse/RANGER-1933) | Improvement on Ranger-usersync log configuration |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1936](https://issues.apache.org/jira/browse/RANGER-1936) | Upgrade Ranger to use Java 1.8 |  Major | admin, plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1938](https://issues.apache.org/jira/browse/RANGER-1938) | Solr for Audit setup doesn't use DocValues effectively |  Major | audit | Kevin Risden | Kevin Risden |
 | [RANGER-689](https://issues.apache.org/jira/browse/RANGER-689) | For Solr plugin, use resources folders for adding Ranger properties |  Major | plugins | Don Bosco Durai | Colm O hEigeartaigh |
 | [RANGER-1954](https://issues.apache.org/jira/browse/RANGER-1954) | Specify a version for the native-maven-plugin |  Trivial | Ranger | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953) | improvement on user-group page listing |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1969](https://issues.apache.org/jira/browse/RANGER-1969) | Fix failing Kafka tests with latest maven/JVM |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1971](https://issues.apache.org/jira/browse/RANGER-1971) | Switch to use for-each loops |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1941](https://issues.apache.org/jira/browse/RANGER-1941) | Use already defined methods and optimized log printing in RangerScriptExecutionContext class |  Minor | Ranger | peng.jianhua | peng.jianhua |
+| [RANGER-1940](https://issues.apache.org/jira/browse/RANGER-1940) | Upgrade to Knox 1.0.0 |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805) | Code improvement to follow best practices in js |  Minor | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-1976](https://issues.apache.org/jira/browse/RANGER-1976) | Upgrade Apache POI to 3.15 |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1977](https://issues.apache.org/jira/browse/RANGER-1977) | Upgrade Apache commons-beanutils to 1.9.3 |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1979](https://issues.apache.org/jira/browse/RANGER-1979) | Upgrade Spring-LDAP to 2.3.2 |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990) | Add One-way SSL MySQL support in Ranger Admin |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1987](https://issues.apache.org/jira/browse/RANGER-1987) | Upgrade to Storm 1.2.0 |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1889](https://issues.apache.org/jira/browse/RANGER-1889) | List Users belonging to Group in Group tab |  Major | admin | Hari Sekhon | Nitin Galave |
+| [RANGER-1760](https://issues.apache.org/jira/browse/RANGER-1760) | test\_resourcematcher\_default.json is invalid |  Major | Ranger | Deepak Sharma | Deepak Sharma |
 
 
 ### BUG FIXES:
@@ -225,6 +241,7 @@
 | [RANGER-1489](https://issues.apache.org/jira/browse/RANGER-1489) | Solr plugin fails to get client address |  Minor | plugins | Yan | Yan |
 | [RANGER-1482](https://issues.apache.org/jira/browse/RANGER-1482) | 'Ranger KMS' repo is not getting created in manual installation |  Major | Ranger | Mehul Parikh | Abhay Kulkarni |
 | [RANGER-1484](https://issues.apache.org/jira/browse/RANGER-1484) | RangerUI: Escape of policy condition text entered in the policy form. |  Major | Ranger | Madhan Neethiraj | Nitin Galave |
+| [RANGER-1495](https://issues.apache.org/jira/browse/RANGER-1495) | Good coding practices recommendation by static code analysis |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1455](https://issues.apache.org/jira/browse/RANGER-1455) | Incorrect conf dir in scripts for Hadoop |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1369](https://issues.apache.org/jira/browse/RANGER-1369) | There is invalid group error when install Solr for Ranger Audits |  Major | admin | Qiang Zhang | Qiang Zhang |
 | [RANGER-1506](https://issues.apache.org/jira/browse/RANGER-1506) | Some directorys were created repeatedly in code segment that all ownership is given to $SOLR\_USER. |  Minor | admin | Qiang Zhang | Qiang Zhang |
@@ -250,6 +267,8 @@
 | [RANGER-1557](https://issues.apache.org/jira/browse/RANGER-1557) | Add Nifi as default in supported component list |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1500](https://issues.apache.org/jira/browse/RANGER-1500) | Add support to exclude/disable SSL protocols. |  Critical | Ranger | Ayub Pathan | bhavik patel |
 | [RANGER-1560](https://issues.apache.org/jira/browse/RANGER-1560) | Code Improvement To Follow Best Practices |  Major | Ranger | Ankita Sinha | Ankita Sinha |
+| [RANGER-1513](https://issues.apache.org/jira/browse/RANGER-1513) | Add Support for S3 authorization in Ranger Hive Plugin |  Major | plugins | Ramesh Mani | Ramesh Mani |
+| [RANGER-1561](https://issues.apache.org/jira/browse/RANGER-1561) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1544](https://issues.apache.org/jira/browse/RANGER-1544) | Misaligned input boxes and cleanup on Reports Search |  Trivial | admin | Anna Shaverdian | Anna Shaverdian |
 | [RANGER-1554](https://issues.apache.org/jira/browse/RANGER-1554) | Ranger AD search filter is not get honored when logging into admin UI |  Major | Ranger | Sailaja Polavarapu | Sailaja Polavarapu |
 | [RANGER-1562](https://issues.apache.org/jira/browse/RANGER-1562) | HDFS test connection is failing due to null pointer exception |  Major | Ranger | Deepak Sharma | Ankita Sinha |
@@ -258,6 +277,7 @@
 | [RANGER-1547](https://issues.apache.org/jira/browse/RANGER-1547) | The XmlConfigChanger does not have any error messages when some exceptions occur. |  Minor | plugins | Qiang Zhang | Qiang Zhang |
 | [RANGER-1571](https://issues.apache.org/jira/browse/RANGER-1571) | Code Improvement To Follow Best Practices |  Major | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1574](https://issues.apache.org/jira/browse/RANGER-1574) | The XAAUDIT.DB.PASSWORD property had been deleted in RANGER-900. The related redundant code should be deleted for plugin installer. |  Minor | plugins | peng.jianhua | peng.jianhua |
+| [RANGER-1578](https://issues.apache.org/jira/browse/RANGER-1578) | Ranger plugins should use default service-def when it fails to obtain from Ranger Admin or cache |  Major | plugins | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1576](https://issues.apache.org/jira/browse/RANGER-1576) | Show attribute values to tags column in audit log |  Major | admin, Ranger | Gautam Borad | Gautam Borad |
 | [RANGER-1577](https://issues.apache.org/jira/browse/RANGER-1577) | Update Ranger-WASB servicedefinition to remove Execute permission and disallow policies with a trailing slash |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1579](https://issues.apache.org/jira/browse/RANGER-1579) | WASB policy edit page is not opening |  Major | Ranger | Deepak Sharma | Nitin Galave |
@@ -303,6 +323,7 @@
 | [RANGER-1652](https://issues.apache.org/jira/browse/RANGER-1652) | Clean invalid code for kms installer to improve code clarity and execution efficiency. |  Minor | kms | peng.jianhua | peng.jianhua |
 | [RANGER-1657](https://issues.apache.org/jira/browse/RANGER-1657) | Like ranger admin and usersync, the password should be set after the user is created by installer during installing kms. |  Major | kms | Qiang Zhang | Qiang Zhang |
 | [RANGER-1646](https://issues.apache.org/jira/browse/RANGER-1646) | Error messages in RangerRESTClient aren't helpful |  Major | plugins | Zsombor Gegesy | Zsombor Gegesy |
+| [RANGER-1665](https://issues.apache.org/jira/browse/RANGER-1665) | Ranger needs to provide a way to get list of policies associated with given resource |  Major | admin | Srikanth Venkat | Abhay Kulkarni |
 | [RANGER-1658](https://issues.apache.org/jira/browse/RANGER-1658) | Solr  gives NPE while printing the AuthorizationContext in INFO and DEBUG log |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-813](https://issues.apache.org/jira/browse/RANGER-813) | Script to install Solr for Ranger Audits doesn't work in Suse |  Major | . | Don Bosco Durai | Don Bosco Durai |
 | [RANGER-1653](https://issues.apache.org/jira/browse/RANGER-1653) | Proxying Ranger UI does not work with Ranger-KnoxSSO |  Major | Ranger | Ankita Sinha | Ankita Sinha |
@@ -314,10 +335,12 @@
 | [RANGER-1683](https://issues.apache.org/jira/browse/RANGER-1683) | Fix the failing Kerberos tests on Jenkins |  Minor | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1679](https://issues.apache.org/jira/browse/RANGER-1679) | Export Policy not working when Knox proxy is Enabled |  Major | Ranger | Nitin Galave | Nitin Galave |
 | [RANGER-1689](https://issues.apache.org/jira/browse/RANGER-1689) | Add support for defining recursive policies for WASB service def |  Major | Ranger | Ramesh Mani |  |
+| [RANGER-1678](https://issues.apache.org/jira/browse/RANGER-1678) | In different places to achieve the same function using repeat codes, new issue is perhaps generated when these functions are modified. |  Major | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1686](https://issues.apache.org/jira/browse/RANGER-1686) | Log file name format of usersync and security admin should be consistent. |  Minor | usersync | peng.jianhua | peng.jianhua |
 | [RANGER-1688](https://issues.apache.org/jira/browse/RANGER-1688) | The version file did not exist in ranger-1.0.0-SNAPSHOT-kms.tar.gz. The result was that the VERSION variable can only get a fixed 0.5.0 value when installed ranger kms. |  Major | kms | peng.jianhua | peng.jianhua |
 | [RANGER-1638](https://issues.apache.org/jira/browse/RANGER-1638) | Improve the password validation from Ranger API |  Major | admin | Mehul Parikh | Ankita Sinha |
 | [RANGER-1696](https://issues.apache.org/jira/browse/RANGER-1696) | Request to get all policies for hive or hbase service-type does not include policies that apply to specific child resource(such as table in hive/column family in hbase) |  Major | Ranger | Deepak Sharma | Abhay Kulkarni |
+| [RANGER-1695](https://issues.apache.org/jira/browse/RANGER-1695) | Optimize Ranger code for authorization of HDFS 'getContentSummary' and 'delete' commands |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1709](https://issues.apache.org/jira/browse/RANGER-1709) | kms test case write logs to log file |  Minor | kms | peng.jianhua | peng.jianhua |
 | [RANGER-1690](https://issues.apache.org/jira/browse/RANGER-1690) | Ranger usersync created error users. Ranger usersync got System Virtual User Group Name instead of real group name when built the unix user list. |  Major | usersync | peng.jianhua | Ankita Sinha |
 | [RANGER-1714](https://issues.apache.org/jira/browse/RANGER-1714) | Disable dynamic sorting of policies when trie pre-filter is enabled |  Major | plugins | Madhan Neethiraj |  |
@@ -337,14 +360,17 @@
 | [RANGER-1741](https://issues.apache.org/jira/browse/RANGER-1741) | The initd ran repeatedly when ranger-usersync-services.sh was running |  Major | usersync | peng.jianhua | peng.jianhua |
 | [RANGER-1743](https://issues.apache.org/jira/browse/RANGER-1743) | Comment lines have not been filtered out when the populate\_global\_dict function parsed install.properties in security-admin/scripts/restrict\_permissions.py. Like RANGER-1284, we should modify it. |  Major | admin | peng.jianhua | peng.jianhua |
 | [RANGER-1742](https://issues.apache.org/jira/browse/RANGER-1742) | Like setup.sh, the set\_globals.sh should check whether the user group exists before created user group in security admin. |  Minor | admin | peng.jianhua | peng.jianhua |
+| [RANGER-1705](https://issues.apache.org/jira/browse/RANGER-1705) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Ankita Sinha | Ankita Sinha |
 | [RANGER-1747](https://issues.apache.org/jira/browse/RANGER-1747) | Usersync: LDAP Paged results seems to be ignored in Ranger |  Major | Ranger, usersync | Endre Kovacs | Sailaja Polavarapu |
 | [RANGER-1744](https://issues.apache.org/jira/browse/RANGER-1744) | Similar to RANGER-1541, the assignment logic is inconsistent for the value of the RANGER\_ADMIN\_HOME variable in changeusernameutil.py and changepasswordutil.py. It will cause a serious failure. |  Major | admin | Qiang Zhang | Qiang Zhang |
+| [RANGER-1736](https://issues.apache.org/jira/browse/RANGER-1736) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
 | [RANGER-1746](https://issues.apache.org/jira/browse/RANGER-1746) | The prompt message is incorrect when test hdfs connection and check 'dfs.ha.namenodes.[nameservice ID]' to be mandatory. |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1751](https://issues.apache.org/jira/browse/RANGER-1751) | The importJCEKSKeys.sh and DBMK2HSM.sh will throw an exception when the JAVA\_HOME is equal to null. |  Minor | kms | peng.jianhua | peng.jianhua |
 | [RANGER-1726](https://issues.apache.org/jira/browse/RANGER-1726) | Users are not getting deleted when Knox proxy is Enabled. |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1753](https://issues.apache.org/jira/browse/RANGER-1753) | Fix error message spelling mistake in XKeyREST.java |  Trivial | kms | Willie Engelbrecht |  |
 | [RANGER-1755](https://issues.apache.org/jira/browse/RANGER-1755) | hbase system tablename is old version in ranger-hbase-plugin |  Major | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1754](https://issues.apache.org/jira/browse/RANGER-1754) | group deletion message is wrong , it give User deleted successfully instead of group |  Major | admin | Deepak Sharma | Deepak Sharma |
+| [RANGER-1739](https://issues.apache.org/jira/browse/RANGER-1739) | build\_ranger\_using\_docker script cannot download jdk8 |  Trivial | Ranger | Endre Kovacs | Don Bosco Durai |
 | [RANGER-1763](https://issues.apache.org/jira/browse/RANGER-1763) | The logic of the expansion button in the Edit Policy page is error. The user must click twice to collapse Conditions. |  Minor | admin | peng.jianhua | peng.jianhua |
 | [RANGER-1752](https://issues.apache.org/jira/browse/RANGER-1752) | When "dfs.nameservices" configures multiple nameservice id and then test hdfs connection, verifying "dfs.client.failover.proxy.provider.[dfs.nameservices]" is incorrect |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1771](https://issues.apache.org/jira/browse/RANGER-1771) | Improve performance of merging lists of policyEvaluators returned by Trie |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
@@ -367,6 +393,7 @@
 | [RANGER-1800](https://issues.apache.org/jira/browse/RANGER-1800) | Usersync fails to update users and groups during incremental sync with nested groups and group first search enabled |  Major | Ranger, usersync | Sailaja Polavarapu | Sailaja Polavarapu |
 | [RANGER-1801](https://issues.apache.org/jira/browse/RANGER-1801) | group user mapping updates to ranger admin fail when the mapping is already existed in ranger DB. |  Major | admin, Ranger | Sailaja Polavarapu | Sailaja Polavarapu |
 | [RANGER-1748](https://issues.apache.org/jira/browse/RANGER-1748) | User is unable to update existing policy while importing policy from file |  Major | Ranger | bhavik patel | bhavik patel |
+| [RANGER-1806](https://issues.apache.org/jira/browse/RANGER-1806) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
 | [RANGER-1727](https://issues.apache.org/jira/browse/RANGER-1727) | Ranger allows user to change an external user's password with 'null' old password |  Major | Ranger | Pradeep Agrawal | Fatima Amjad Khan |
 | [RANGER-1802](https://issues.apache.org/jira/browse/RANGER-1802) | Here is a error in getStatusResponse() when post data exception for AtlasClient class |  Minor | plugins | Qiang Zhang | peng.jianhua |
 | [RANGER-1790](https://issues.apache.org/jira/browse/RANGER-1790) | From the ease of use point of view, Select / Deselect All and other checkbox should be associated in add/edit permissions pop window. |  Minor | Ranger | peng.jianhua | peng.jianhua |
@@ -376,6 +403,7 @@
 | [RANGER-1765](https://issues.apache.org/jira/browse/RANGER-1765) | Add unique key constraint in x\_group and x\_group\_users table |  Critical | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1814](https://issues.apache.org/jira/browse/RANGER-1814) | Static code analyser suggest to ensure closing Reader |  Minor | plugins | Zsombor Gegesy | Zsombor Gegesy |
 | [RANGER-1818](https://issues.apache.org/jira/browse/RANGER-1818) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
+| [RANGER-1817](https://issues.apache.org/jira/browse/RANGER-1817) | Audit to Solr fails to log when the number of columns are in large number |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
 | [RANGER-1819](https://issues.apache.org/jira/browse/RANGER-1819) | Not able to delete group that is having special character(ampersand) from ranger admin |  Major | Ranger | Deepak Sharma | Nitin Galave |
 | [RANGER-1816](https://issues.apache.org/jira/browse/RANGER-1816) | When the error occurs, the system does not record the error message |  Trivial | Ranger | Qiang Zhang | Qiang Zhang |
 | [RANGER-1813](https://issues.apache.org/jira/browse/RANGER-1813) | The drop-down box name "database" is not showing full when edit hive policy |  Minor | admin | Qiang Zhang | Qiang Zhang |
@@ -386,16 +414,19 @@
 | [RANGER-1835](https://issues.apache.org/jira/browse/RANGER-1835) | The installer of the security admin should not repeatedly add a user to the same group. |  Minor | admin | peng.jianhua | peng.jianhua |
 | [RANGER-1832](https://issues.apache.org/jira/browse/RANGER-1832) | Export REST API should return exact matching results if polResource param is provided |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1838](https://issues.apache.org/jira/browse/RANGER-1838) | Refactor Jisql dependencies |  Major | Ranger | Velmurugan Periasamy | Pradeep Agrawal |
+| [RANGER-1795](https://issues.apache.org/jira/browse/RANGER-1795) | Service should not be renamed if tagged service resources exist for it |  Major | admin | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1820](https://issues.apache.org/jira/browse/RANGER-1820) | Duplicate entries should be deleted before creation of unique index on x\_group and x\_group\_users table |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1853](https://issues.apache.org/jira/browse/RANGER-1853) | Masking functions based on custom masking of string types fails to unescape quotes properly. |  Major | Ranger | Srikanth Venkat | Nitin Galave |
 | [RANGER-1828](https://issues.apache.org/jira/browse/RANGER-1828) | Good coding practice-add additional headers in ranger |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1857](https://issues.apache.org/jira/browse/RANGER-1857) | The value of RANGER\_KMS\_HOME logic is not correct in dba\_script.py and db\_setup.py, Like db\_setup.py in admin, we should optimize them. |  Minor | kms | peng.jianhua | peng.jianhua |
+| [RANGER-1833](https://issues.apache.org/jira/browse/RANGER-1833) | Update Ranger to use 0.8.1 Atlas version |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1862](https://issues.apache.org/jira/browse/RANGER-1862) | generalName.get(1)  cause IndexOutOfBoundsException in NiFiClient |  Minor | plugins | Qiang Zhang | Qiang Zhang |
 | [RANGER-1863](https://issues.apache.org/jira/browse/RANGER-1863) | Optimize the code and keep the code style consistent, remove the invalid code in the RemoteUnixLoginModule class |  Minor | usersync | peng.jianhua | peng.jianhua |
 | [RANGER-1870](https://issues.apache.org/jira/browse/RANGER-1870) | Modify the logic for buildUnixUserList and parseMembers  method in UnixUserGroupBuilder class |  Minor | usersync | Qiang Zhang | Qiang Zhang |
 | [RANGER-1876](https://issues.apache.org/jira/browse/RANGER-1876) | Incorrect conf dir location for Yarn install script |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1875](https://issues.apache.org/jira/browse/RANGER-1875) | The installer of the kms should not repeatedly add a user to the same group. |  Minor | kms | peng.jianhua | peng.jianhua |
 | [RANGER-1879](https://issues.apache.org/jira/browse/RANGER-1879) | Yarn disable plugin script doesn't work |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [RANGER-1880](https://issues.apache.org/jira/browse/RANGER-1880) | TagSync update to process TRAIT\_UPDATE notification from Atlas |  Major | tagsync | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1868](https://issues.apache.org/jira/browse/RANGER-1868) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1884](https://issues.apache.org/jira/browse/RANGER-1884) | Default Policy is not created for Ranger KMS and Tag service |  Critical | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1864](https://issues.apache.org/jira/browse/RANGER-1864) | Resources are not rendering correctly in policy create/edit page. |  Major | Ranger | Madhan Neethiraj | Nitin Galave |
@@ -411,22 +442,41 @@
 | [RANGER-1921](https://issues.apache.org/jira/browse/RANGER-1921) | Fix coverity warnings in RangerHdfsAuthorizer |  Major | plugins | Zsombor Gegesy | Zsombor Gegesy |
 | [RANGER-1912](https://issues.apache.org/jira/browse/RANGER-1912) | Ranger setup fails with mariadb/mysql when binary logging is enabled |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1931](https://issues.apache.org/jira/browse/RANGER-1931) | Remove use of maven-shade-plugin from Ranger build scripts |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
-| [RANGER-1933](https://issues.apache.org/jira/browse/RANGER-1933) | Improvement on Ranger-usersync log configuration |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
-| [RANGER-1897](https://issues.apache.org/jira/browse/RANGER-1897) | TagSync should replace use of V1 Atlas APIs with V2 APIs for efficient tag-download from Atlas |  Major | tagsync | Madhan Neethiraj | Madhan Neethiraj |
+| [RANGER-1897](https://issues.apache.org/jira/browse/RANGER-1897) | TagSync should replace use of V1 Atlas APIs with V2 APIs for efficient tag-download from Atlas |  Major | tagsync | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1781](https://issues.apache.org/jira/browse/RANGER-1781) | RangerUI :Policy create/edit form should display only relevant accesses based on the user-selected resource. |  Major | Ranger | Nitin Galave | Nitin Galave |
 | [RANGER-1934](https://issues.apache.org/jira/browse/RANGER-1934) | Optimize the init method in BaseAuditHandler class to avoid ArrayIndexOutOfBoundsException |  Minor | audit | peng.jianhua | peng.jianhua |
+| [RANGER-1943](https://issues.apache.org/jira/browse/RANGER-1943) | Ranger Solr authorization is skipped when collection is empty or null |  Critical | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1878](https://issues.apache.org/jira/browse/RANGER-1878) | The exception infomation print error for RangerPolicyServiceBase.java |  Minor | admin, Ranger | WangYuan | WangYuan |
 | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944) | Action filter for Admin Audit is not working |  Major | Ranger | Nitin Galave | Nitin Galave |
 | [RANGER-1952](https://issues.apache.org/jira/browse/RANGER-1952) | Allow user's email Address to be blank on emailchange API as per RANGER-978 |  Minor | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1930](https://issues.apache.org/jira/browse/RANGER-1930) | Add consolidated db schema script for all supported DB flavor |  Major | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1957](https://issues.apache.org/jira/browse/RANGER-1957) | Ranger Usersync is not syncing users or groups periodically when incremental sync is enabled. |  Major | Ranger, usersync | David Villarreal | Sailaja Polavarapu |
 | [RANGER-1825](https://issues.apache.org/jira/browse/RANGER-1825) | Ranger Tagsync is giving  NoClassDefFoundError |  Critical | Ranger | suja s | Nikhil Purbhe |
 | [RANGER-1956](https://issues.apache.org/jira/browse/RANGER-1956) | Update CredentialBuilder module |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960) | HBase auth does not take table namespace into consideration for deleting snapshot |  Major | plugins | Tomas Sokorai |  |
 | [RANGER-1962](https://issues.apache.org/jira/browse/RANGER-1962) | Simplify Ranger API for reporting results of access authorization |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
-| [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953) | improvement on user-group page listing |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-1965](https://issues.apache.org/jira/browse/RANGER-1965) | Prevent NPE on decrypting a null password |  Minor | admin | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1966](https://issues.apache.org/jira/browse/RANGER-1966) | Policy engine initialization does not create context enrichers in some cases |  Major | Ranger | Abhay Kulkarni | Nigel Jones |
 | [RANGER-1970](https://issues.apache.org/jira/browse/RANGER-1970) | Build fails - rat issues with storm-agent |  Major | Ranger | Nigel Jones | Colm O hEigeartaigh |
+| [RANGER-1975](https://issues.apache.org/jira/browse/RANGER-1975) | Address Ranger Website checks flagged by Whimsy |  Major | Ranger | Velmurugan Periasamy | Selvamohan Neethiraj |
+| [RANGER-1980](https://issues.apache.org/jira/browse/RANGER-1980) | Build failure for Ranger 0.7 branch |  Major | build-infra | Don Bosco Durai | Pradeep Agrawal |
+| [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984) | Hbase audit log records may not show all tags associated with accessed column |  Major | plugins, Ranger | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988) | Fix insecure randomness |  Major | plugins | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-1981](https://issues.apache.org/jira/browse/RANGER-1981) | Error in constructing base path for UI API when accessing Ranger via knox proxy without "/" at the end |  Critical | Ranger | Deepak Sharma | Nitin Galave |
+| [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982) | Error Improvement for Analytics Metric of Ranger Admin and Ranger Kms |  Major | kms, Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
+| [RANGER-1961](https://issues.apache.org/jira/browse/RANGER-1961) | Fixed spelling error "condtion" |  Trivial | tagsync | Willie Engelbrecht |  |
+| [RANGER-2007](https://issues.apache.org/jira/browse/RANGER-2007) | ranger-tagsync's Kerberos ticket fails to renew |  Major | tagsync | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-1993](https://issues.apache.org/jira/browse/RANGER-1993) | Improvement on permission module for listing modules |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
+| [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008) | Policy evaluation is failing for multiline policy conditions. |  Major | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-2003](https://issues.apache.org/jira/browse/RANGER-2003) | On Report page 'User, Group and Access' details are not shown for policyItem exceeding more than 25 policies |  Major | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-2011](https://issues.apache.org/jira/browse/RANGER-2011) | Level 20 resource value is not set on UI in Ranger Edit Policy. |  Major | Ranger | Nixon Rodrigues | Nitin Galave |
+| [RANGER-1512](https://issues.apache.org/jira/browse/RANGER-1512) | Ranger installer fails if hostname contains upper case letter |  Minor | Ranger | Attila Csoma |  |
+| [RANGER-1998](https://issues.apache.org/jira/browse/RANGER-1998) | Add ability to specify passwords for admin accounts during ranger install only. |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
+| [RANGER-1326](https://issues.apache.org/jira/browse/RANGER-1326) | Fix remaining licensing issues |  Major | . | Colm O hEigeartaigh | Velmurugan Periasamy |
+| [RANGER-1983](https://issues.apache.org/jira/browse/RANGER-1983) | Remove LZ4.\*jar from ranger admin dependency |  Major | Ranger | Ramesh Mani | Ramesh Mani |
+| [RANGER-2014](https://issues.apache.org/jira/browse/RANGER-2014) | Unable to see policy detail in view policy mode after updating recursive flag |  Major | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-1991](https://issues.apache.org/jira/browse/RANGER-1991) | Fix problems detected by static code analysis |  Blocker | admin | Zsombor Gegesy | Zsombor Gegesy |
+| [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006) | Fix problems detected by static code analysis in ranger usersync for ldap sync source |  Minor | Ranger, usersync | Sailaja Polavarapu | Sailaja Polavarapu |
 
 
 ### TESTS:
@@ -464,5 +514,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [RANGER-1491](https://issues.apache.org/jira/browse/RANGER-1491) | Automatically map group of external users to Administrator Role |  Major | Ranger | Attila Kanto | bhavik patel |
 | [RANGER-1157](https://issues.apache.org/jira/browse/RANGER-1157) | Handle the review suggestions from Josh Elser - during IPMC vote for ranger-0.6.1 (incubating) release |  Major | documentation | Selvamohan Neethiraj | Colm O hEigeartaigh |
+| [RANGER-1995](https://issues.apache.org/jira/browse/RANGER-1995) | Ranger Release of 1.0.0 |  Blocker | Ranger | Velmurugan Periasamy | Sailaja Polavarapu |
 
 

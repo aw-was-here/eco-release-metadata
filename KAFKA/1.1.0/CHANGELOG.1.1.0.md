@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.1.0 - Unreleased (as of 2018-02-06)
+## Release 1.1.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -28,6 +28,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-6170](https://issues.apache.org/jira/browse/KAFKA-6170) | Add the AdminClient in Streams' KafkaClientSupplier |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-5142](https://issues.apache.org/jira/browse/KAFKA-5142) | KIP-145 - Expose Record Headers in Kafka Connect |  Major | clients | Michael Andre Pearce | Michael Andre Pearce |
+| [KAFKA-6240](https://issues.apache.org/jira/browse/KAFKA-6240) | Support dynamic updates of frequently updated broker configs |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-1689](https://issues.apache.org/jira/browse/KAFKA-1689) | automatic migration of log dirs to new locations |  Minor | config, core | Javier Alba |  |
 
 
 ### IMPROVEMENTS:
@@ -69,6 +71,9 @@
 | [KAFKA-5228](https://issues.apache.org/jira/browse/KAFKA-5228) | Revisit Streams DSL JavaDocs |  Trivial | streams | Matthias J. Sax | Jeyhun Karimov |
 | [KAFKA-6254](https://issues.apache.org/jira/browse/KAFKA-6254) | Introduce Incremental FetchRequests to Increase Partition Scalability |  Major | . | Colin P. McCabe | Colin P. McCabe |
 | [KAFKA-5987](https://issues.apache.org/jira/browse/KAFKA-5987) | Kafka metrics templates used in document generation should maintain order of tags |  Blocker | clients | Randall Hauch | Randall Hauch |
+| [KAFKA-6519](https://issues.apache.org/jira/browse/KAFKA-6519) | Change log level from ERROR to WARN for not leader for this partition exception |  Major | core | Antony Stubbs | Jason Gustafson |
+| [KAFKA-6430](https://issues.apache.org/jira/browse/KAFKA-6430) | Improve Kafka GZip compression performance |  Major | clients, compression, core | Ying Zheng | Ying Zheng |
+| [KAFKA-6634](https://issues.apache.org/jira/browse/KAFKA-6634) | Delay initiating the txn on producers until initializeTopology with EOS turned on |  Major | streams | Guozhang Wang | Guozhang Wang |
 
 
 ### BUG FIXES:
@@ -171,6 +176,38 @@
 | [KAFKA-6253](https://issues.apache.org/jira/browse/KAFKA-6253) | Improve sink connector topic regex validation |  Major | KafkaConnect | Ewen Cheslack-Postava | Jeff Klukas |
 | [KAFKA-6528](https://issues.apache.org/jira/browse/KAFKA-6528) | Transient failure in DynamicBrokerReconfigurationTest.testThreadPoolResize |  Major | . | Jason Gustafson | Rajini Sivaram |
 | [KAFKA-4750](https://issues.apache.org/jira/browse/KAFKA-4750) | KeyValueIterator returns null values |  Major | streams | Michal Borowiecki | Evgeny Veretennikov |
+| [KAFKA-6532](https://issues.apache.org/jira/browse/KAFKA-6532) | Delegation token internals should not impact public interfaces |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6367](https://issues.apache.org/jira/browse/KAFKA-6367) | Fix StateRestoreListener To Use Correct Batch Ending Offset |  Major | streams | Bill Bejeck | Bill Bejeck |
+| [KAFKA-6504](https://issues.apache.org/jira/browse/KAFKA-6504) | Connect: Some per-task-metrics not working |  Minor | KafkaConnect | Per Steffensen | Robert Yokota |
+| [KAFKA-6362](https://issues.apache.org/jira/browse/KAFKA-6362) | auto commit not work since coordinatorUnknown() is always true. |  Major | clients, consumer | Renkai Ge | huxihx |
+| [KAFKA-6345](https://issues.apache.org/jira/browse/KAFKA-6345) | NetworkClient.inFlightRequestCount() is not thread safe, causing ConcurrentModificationExceptions when sensors are read |  Major | clients | radai rosenblatt | Sean McCauliff |
+| [KAFKA-6390](https://issues.apache.org/jira/browse/KAFKA-6390) | Update ZooKeeper to 3.4.11, Gradle and other minor updates |  Major | . | Ismael Juma | Ismael Juma |
+| [KAFKA-6529](https://issues.apache.org/jira/browse/KAFKA-6529) | Broker leaks memory and file descriptors after sudden client disconnects |  Major | network | Graham Campbell |  |
+| [KAFKA-6513](https://issues.apache.org/jira/browse/KAFKA-6513) | New Connect header support doesn't define \`converter.type\` property correctly |  Blocker | KafkaConnect | Randall Hauch | Randall Hauch |
+| [KAFKA-5550](https://issues.apache.org/jira/browse/KAFKA-5550) | Struct.put() should include the field name if validation fails |  Minor | KafkaConnect | Jeremy Custenborder | Jeremy Custenborder |
+| [KAFKA-6511](https://issues.apache.org/jira/browse/KAFKA-6511) | Connect header parser incorrectly parses arrays |  Blocker | KafkaConnect | Arjun Satish | Randall Hauch |
+| [KAFKA-5996](https://issues.apache.org/jira/browse/KAFKA-5996) | JsonConverter generates "Mismatching schema" DataException |  Major | KafkaConnect | Yuqi Li |  |
+| [KAFKA-6397](https://issues.apache.org/jira/browse/KAFKA-6397) | Consumer should not block setting initial positions of unavailable partitions |  Major | . | Jason Gustafson | Jason Gustafson |
+| [KAFKA-6503](https://issues.apache.org/jira/browse/KAFKA-6503) | Connect: Plugin scan is very slow |  Critical | KafkaConnect | Per Steffensen | Robert Yokota |
+| [KAFKA-6512](https://issues.apache.org/jira/browse/KAFKA-6512) | Java Producer: Excessive memory usage with compression enabled |  Major | clients | Lothsahn | Rajini Sivaram |
+| [KAFKA-6517](https://issues.apache.org/jira/browse/KAFKA-6517) | ZooKeeperClient holds a lock while waiting for responses, blocking shutdown |  Blocker | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6549](https://issues.apache.org/jira/browse/KAFKA-6549) | Deadlock while processing Controller Events |  Blocker | core | Manikumar | Manikumar |
+| [KAFKA-6536](https://issues.apache.org/jira/browse/KAFKA-6536) | Streams quickstart pom.xml is missing versions for a bunch of plugins |  Major | streams | Ewen Cheslack-Postava | Yaswanth Kumar |
+| [KAFKA-6568](https://issues.apache.org/jira/browse/KAFKA-6568) | LogCleanerManager.doneDeleting() should check the partition state before deleting the in progress partition |  Blocker | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-6554](https://issues.apache.org/jira/browse/KAFKA-6554) | Broker doesn't reject Produce request with inconsistent state |  Minor | producer | Simon Fell | Jason Gustafson |
+| [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238) | Issues with protocol version when applying a rolling upgrade to 1.0.0 |  Major | documentation | Diego Louzán | Jason Gustafson |
+| [KAFKA-6573](https://issues.apache.org/jira/browse/KAFKA-6573) | KafkaController.brokerInfo not updated on dynamic update |  Major | controller | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6577](https://issues.apache.org/jira/browse/KAFKA-6577) | Connect standalone SASL file source and sink test fails without explanation |  Blocker | KafkaConnect, system tests | Randall Hauch | Randall Hauch |
+| [KAFKA-6578](https://issues.apache.org/jira/browse/KAFKA-6578) | Connect distributed and standalone worker 'main()' methods should catch and log all exceptions |  Critical | KafkaConnect | Randall Hauch |  |
+| [KAFKA-6328](https://issues.apache.org/jira/browse/KAFKA-6328) | Exclude node groups belonging to global stores in InternalTopologyBuilder#makeNodeGroups |  Major | streams | Guozhang Wang | Richard Yu |
+| [KAFKA-6590](https://issues.apache.org/jira/browse/KAFKA-6590) | Consumer bytes-fetched and records-fetched metrics are not aggregated correctly |  Major | . | Jason Gustafson |  |
+| [KAFKA-6593](https://issues.apache.org/jira/browse/KAFKA-6593) | Coordinator disconnect in heartbeat thread can cause commitSync to block indefinitely |  Critical | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-6606](https://issues.apache.org/jira/browse/KAFKA-6606) | Regression in consumer auto-commit backoff behavior |  Blocker | consumer | Jason Gustafson | Jason Gustafson |
+| [KAFKA-6622](https://issues.apache.org/jira/browse/KAFKA-6622) | GroupMetadataManager.loadGroupsAndOffsets decompresses record batch needlessly |  Major | . | radai rosenblatt | radai rosenblatt |
+| [KAFKA-6624](https://issues.apache.org/jira/browse/KAFKA-6624) | log segment deletion could cause a disk to be marked offline incorrectly |  Major | core | Jun Rao | Dong Lin |
+| [KAFKA-3978](https://issues.apache.org/jira/browse/KAFKA-3978) | Cannot truncate to a negative offset (-1) exception at broker startup |  Critical | . | Juho Mäkinen | Dong Lin |
+| [KAFKA-6653](https://issues.apache.org/jira/browse/KAFKA-6653) | Delayed operations may not be completed when there is lock contention |  Major | core | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6663](https://issues.apache.org/jira/browse/KAFKA-6663) | Expression for GlobalKTable is not correct |  Minor | documentation, streams | huxihx | huxihx |
 
 
 ### TESTS:
@@ -219,5 +256,8 @@
 | [KAFKA-6494](https://issues.apache.org/jira/browse/KAFKA-6494) | Extend ConfigCommand to update broker config using new AdminClient |  Major | . | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6246](https://issues.apache.org/jira/browse/KAFKA-6246) | Enable  reconfiguration of listeners and security configs |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6452](https://issues.apache.org/jira/browse/KAFKA-6452) | Add documentation for delegation token authentication mechanism |  Major | documentation | Manikumar | Manikumar |
+| [KAFKA-6501](https://issues.apache.org/jira/browse/KAFKA-6501) | Add test to verify markPartitionsForTruncation after fetcher thread pool resize |  Major | . | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6476](https://issues.apache.org/jira/browse/KAFKA-6476) | Document dynamic config update |  Major | core, documentation | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-6111](https://issues.apache.org/jira/browse/KAFKA-6111) | Tests for KafkaZkClient |  Major | . | Ismael Juma | Sandor Murakozi |
 
 

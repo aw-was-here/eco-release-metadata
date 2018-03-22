@@ -18,23 +18,30 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.2.8 - Unreleased (as of 2018-02-06)
+## Release 1.2.8 - Unreleased (as of 2018-03-22)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-18467](https://issues.apache.org/jira/browse/HBASE-18467) | nightly job needs to run all stages and then comment on jira |  Critical | community, test | Sean Busbey | Sean Busbey |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-17513](https://issues.apache.org/jira/browse/HBASE-17513) | Thrift Server 1 uses different QOP settings than RPC and Thrift Server 2 and can easily be misconfigured so there is no encryption when the operator expects it. |  Critical | documentation, security, Thrift, Usability | Sean Busbey | Reid Chan |
-| [HBASE-18891](https://issues.apache.org/jira/browse/HBASE-18891) | Upgrade netty-all jar |  Critical | . | Josh Elser | Josh Elser |
-| [HBASE-19901](https://issues.apache.org/jira/browse/HBASE-19901) | Up yetus proclimit on nightlies |  Major | . | stack | stack |
+| [HBASE-20164](https://issues.apache.org/jira/browse/HBASE-20164) | failed hadoopcheck should add footer link |  Major | community | Mike Drob | Mike Drob |
+| [HBASE-20162](https://issues.apache.org/jira/browse/HBASE-20162) | [nightly] depending on pipeline execution we sometimes refer to the wrong workspace |  Critical | test | Sean Busbey | Sean Busbey |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-18690](https://issues.apache.org/jira/browse/HBASE-18690) | Replace o.a.h.c.InterfaceAudience by o.a.h.h.c.InterfaceAudience |  Minor | . | Chia-Ping Tsai | Chia-Ping Tsai |
+| [HBASE-20075](https://issues.apache.org/jira/browse/HBASE-20075) | remove logic for branch-1.1 nightly testing |  Minor | test | Sean Busbey | Sean Busbey |
+| [HBASE-15151](https://issues.apache.org/jira/browse/HBASE-15151) | Rely on nightly tests for findbugs compliance on existing branch |  Critical | build, test | Sean Busbey | Sean Busbey |
 
 

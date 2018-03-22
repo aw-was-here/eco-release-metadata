@@ -115,7 +115,7 @@
 | [IMPALA-5386](https://issues.apache.org/jira/browse/IMPALA-5386) | disk-io-mgr-handle-cache.inline.h:124] Check failed: release\_it != range.second |  Blocker | Backend | Michael Ho | Joe McDonnell |
 | [IMPALA-5423](https://issues.apache.org/jira/browse/IMPALA-5423) | test\_file\_modifications fails on local filesystem and isilon |  Blocker | Backend | Thomas Tauber-Marshall | Joe McDonnell |
 | [IMPALA-5469](https://issues.apache.org/jira/browse/IMPALA-5469) | IllegalStateException while processing catalog update in the Impalad |  Major | Catalog | Dimitris Tsirogiannis | Taras Bobrovytsky |
-| [IMPALA-5221](https://issues.apache.org/jira/browse/IMPALA-5221) | Fix TSaslTransport negotiation order |  Critical | Distributed Exec | Mostafa Mokhtar | Sailesh Mukil |
+| [IMPALA-5221](https://issues.apache.org/jira/browse/IMPALA-5221) | Fix TSaslTransport negotiation order leading to crash in SaslMutexLock(void\*) |  Critical | Distributed Exec | Mostafa Mokhtar | Sailesh Mukil |
 | [IMPALA-4965](https://issues.apache.org/jira/browse/IMPALA-4965) | EXPLAIN output blocked by Sentry but appears in query profile |  Critical | Clients, Frontend, Security | Dave Beech | Dimitris Tsirogiannis |
 | [IMPALA-5479](https://issues.apache.org/jira/browse/IMPALA-5479) | Propagate the argument 'type' for RawValue::Compare() |  Minor | Backend | Michael Ho | Michael Ho |
 | [IMPALA-5482](https://issues.apache.org/jira/browse/IMPALA-5482) | single\_node\_perf\_run.py can fail to checkout when testing a patch that modifies testdata/workloads |  Minor | Infrastructure | Jim Apple | Jim Apple |

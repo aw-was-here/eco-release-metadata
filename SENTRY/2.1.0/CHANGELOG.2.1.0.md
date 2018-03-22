@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-02-06)
+## Release 2.1.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -28,6 +28,10 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SENTRY-2076](https://issues.apache.org/jira/browse/SENTRY-2076) | Some test artifacts are not defined at test scope |  Minor | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [SENTRY-1951](https://issues.apache.org/jira/browse/SENTRY-1951) | Old SentryStore.retrieveFullPathsImage() should be removed |  Major | Sentry | Alexander Kolbasov | Arjun Mishra |
+| [SENTRY-1572](https://issues.apache.org/jira/browse/SENTRY-1572) | SentryMain() shouldn't dynamically load tool class |  Major | Sentry | Alexander Kolbasov | Xinran Tinney |
+| [SENTRY-853](https://issues.apache.org/jira/browse/SENTRY-853) | Handle show grant on \<auth\> failure correctly |  Major | . | Sravya Tirukkovalur | Steve Moist |
+| [SENTRY-2147](https://issues.apache.org/jira/browse/SENTRY-2147) | Fix Javadoc for SentryHiveAuthorizerFactory |  Trivial | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [SENTRY-2150](https://issues.apache.org/jira/browse/SENTRY-2150) | Update Apache parent pom version |  Trivial | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
 
 
 ### BUG FIXES:
@@ -50,7 +54,11 @@
 | [SENTRY-2123](https://issues.apache.org/jira/browse/SENTRY-2123) | Specify code path of auth-generated thrift files for Javadoc and exclude them from Javadoc generation |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2127](https://issues.apache.org/jira/browse/SENTRY-2127) | Fix unstable unit test TestColumnEndToEnd.testCrossDbTableOperations |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2124](https://issues.apache.org/jira/browse/SENTRY-2124) | LeaderStatusMonitor.toString() throws IllegalFormatConversionException with AtomicLong |  Minor | Sentry | Sergio Peña | Xinran Tinney |
-| [SENTRY-2109](https://issues.apache.org/jira/browse/SENTRY-2109) | Fix the logic of identifying HMS out of Sync and handle gaps and out-of-sequence notifications. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2136](https://issues.apache.org/jira/browse/SENTRY-2136) | Bump metrics dependency to new namespace and version used by the rest of Hadoop |  Minor | Sentry | Liam Sargent | Liam Sargent |
+| [SENTRY-2115](https://issues.apache.org/jira/browse/SENTRY-2115) |  Incorrect behavior of HMsFollower when HDFSSync feature is disabled. |  Critical | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2164](https://issues.apache.org/jira/browse/SENTRY-2164) | Convert uses of TransactionBlock to lambdas |  Major | Sentry | Alexander Kolbasov | Alexander Kolbasov |
+| [SENTRY-2178](https://issues.apache.org/jira/browse/SENTRY-2178) | Sentry permissions for Solr are deleted as part of migration process |  Critical | Solr Plugin | Hrishikesh Gadre | Hrishikesh Gadre |
+| [SENTRY-2184](https://issues.apache.org/jira/browse/SENTRY-2184) | Performance Issue: MPath is queried for each MAuthzPathsMapping in full snapshot |  Critical | Sentry | Na Li | Na Li |
 
 
 ### TESTS:

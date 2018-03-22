@@ -156,4 +156,11 @@ zk\_zxid\_epoch - the upper 32 bits, AKA the epoch
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [ZOOKEEPER-2967](https://issues.apache.org/jira/browse/ZOOKEEPER-2967) | *Major* | **Add check to validate dataDir and dataLogDir parameters at startup**
+
+**WARNING: No release note provided for this change.**
+
+
 

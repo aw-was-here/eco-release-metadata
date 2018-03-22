@@ -250,4 +250,11 @@ Previously, {{hive.strict.checks.large.query}} controlled whether or not (1) ord
 After this change, {{hive.strict.checks.no.partition.filter}} controls the partitioned table check and {{hive.strict.checks.orderby.no.limit}} controls the order by check.
 
 
+---
+
+* [HIVE-18693](https://issues.apache.org/jira/browse/HIVE-18693) | *Major* | **Snapshot Isolation does not work for Micromanaged table when a insert transaction is aborted**
+
+n/a
+
+
 

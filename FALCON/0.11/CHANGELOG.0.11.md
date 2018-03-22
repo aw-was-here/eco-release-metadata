@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.11 - Unreleased (as of 2018-02-06)
+## Release 0.11 - Unreleased (as of 2018-03-22)
 
 
 
@@ -125,6 +125,8 @@
 | [FALCON-2303](https://issues.apache.org/jira/browse/FALCON-2303) | Backloginmins is not getting updated |  Major | metrics | Praveen Adlakha | Praveen Adlakha |
 | [FALCON-2305](https://issues.apache.org/jira/browse/FALCON-2305) | workflow metrics thread failures |  Major | metrics | Praveen Adlakha | Praveen Adlakha |
 | [FALCON-2319](https://issues.apache.org/jira/browse/FALCON-2319) | Falcon Build is failing on a clean state machine |  Major | common | sandeep samudrala | sandeep samudrala |
+| [FALCON-2326](https://issues.apache.org/jira/browse/FALCON-2326) | Falcon Pull Request Builds failing |  Major | . | Pallavi Rao | Pallavi Rao |
+| [FALCON-2330](https://issues.apache.org/jira/browse/FALCON-2330) | Update Notice copyright period to 2018 |  Major | . | sandeep samudrala | sandeep samudrala |
 
 
 ### SUB-TASKS:

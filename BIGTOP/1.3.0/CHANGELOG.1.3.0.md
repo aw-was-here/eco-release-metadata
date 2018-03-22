@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-02-06)
+## Release 1.3.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [BIGTOP-2868](https://issues.apache.org/jira/browse/BIGTOP-2868) | Travis integration for Jar files. |  Major | ci | jay vyas | Ryan O'Meara |
+| [BIGTOP-3007](https://issues.apache.org/jira/browse/BIGTOP-3007) | expose hive config options for zookeeper |  Major | hive | James Beedy | Kevin W Monroe |
 
 
 ### IMPROVEMENTS:
@@ -71,6 +72,12 @@
 | [BIGTOP-2959](https://issues.apache.org/jira/browse/BIGTOP-2959) | Add SPARK\_DIST\_CLASSPATH to include libraries for HDFS and YARN |  Minor | build, spark | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2974](https://issues.apache.org/jira/browse/BIGTOP-2974) | Add puppet code to deploy SparkR package |  Major | deployment | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2882](https://issues.apache.org/jira/browse/BIGTOP-2882) | Bump Hadoop and all dependencies to actual releases |  Major | hadoop, hbase, pig | Anton Chevychalov | Anton Chevychalov |
+| [BIGTOP-2989](https://issues.apache.org/jira/browse/BIGTOP-2989) | Building Hadoop with a pre-downloaded Tomcat |  Major | build, hadoop | Hari Krishna Dara | Hari Krishna Dara |
+| [BIGTOP-2992](https://issues.apache.org/jira/browse/BIGTOP-2992) | Building Pig with pre-arranged Forrest |  Major | build, pig | Hari Krishna Dara | Hari Krishna Dara |
+| [BIGTOP-2922](https://issues.apache.org/jira/browse/BIGTOP-2922) | Drop arch specific bigtop-\* images |  Major | build, docker, tests | Jun He | Jun He |
+| [BIGTOP-3002](https://issues.apache.org/jira/browse/BIGTOP-3002) | For Kafka, it should be possible to set the broker.id config and log.dirs config. |  Trivial | deployment | Gregory Van Seghbroeck | Gregory Van Seghbroeck |
+| [BIGTOP-3010](https://issues.apache.org/jira/browse/BIGTOP-3010) | juju bundle refresh (feb 2018) |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-3005](https://issues.apache.org/jira/browse/BIGTOP-3005) | Add zkpeer-relation-changed hook to zookeeper charm. |  Minor | deployment | José Pekkarinen | Kevin W Monroe |
 
 
 ### BUG FIXES:
@@ -134,6 +141,9 @@
 | [BIGTOP-2990](https://issues.apache.org/jira/browse/BIGTOP-2990) | Upgrade Phoenix version to 4.13.1-HBase-1.3 |  Major | . | YoungWoo Kim | YoungWoo Kim |
 | [BIGTOP-2984](https://issues.apache.org/jira/browse/BIGTOP-2984) | Rat check failed after BIGTOP-2698 |  Major | . | Evans Ye | Evans Ye |
 | [BIGTOP-2912](https://issues.apache.org/jira/browse/BIGTOP-2912) | Intialize dataset for solr smoke test |  Major | solr, tests | Jun He | Jun He |
+| [BIGTOP-3001](https://issues.apache.org/jira/browse/BIGTOP-3001) | Change uid and gid for jenkins user in bigtop-toolchain |  Major | toolchain | Akira Ajisaka | Akira Ajisaka |
+| [BIGTOP-3004](https://issues.apache.org/jira/browse/BIGTOP-3004) | Fix HBase build failure on Debian/Fedora |  Major | build, hbase | Jun He | Jun He |
+| [BIGTOP-3003](https://issues.apache.org/jira/browse/BIGTOP-3003) | Ant-1.9.9 tarball is removed from Apache mirrors |  Major | toolchain | Jun He | Jun He |
 
 
 ### TESTS:

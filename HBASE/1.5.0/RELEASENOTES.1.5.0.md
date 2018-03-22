@@ -37,10 +37,14 @@ Sets a log length max of 1000 characters.
 
 ---
 
-* [HBASE-9465](https://issues.apache.org/jira/browse/HBASE-9465) | *Critical* | **Push entries to peer clusters serially**
+* [HBASE-18731](https://issues.apache.org/jira/browse/HBASE-18731) | *Major* | **[compat 1-2] Mark protected methods of QuotaSettings that touch Protobuf internals as IA.Private**
 
-Now in replication we can make sure the order of pushing logs is same as the order of requests from client. Set REPLICATION\_SCOPE=2 at one cf's configuration to enable this feature.
-This feature relies on zk-less assignment, and conflicts with distributed log replay. So users must set hbase.assignment.usezk and hbase.master.distributed.log.replay to false to support this feature.
+The following methods in QuotaSettings were annotated InterfaceAudience.Private; they are for internal use only in hbase-2.0.0
+
+buildSetQuotaRequestProto(final QuotaSettings settings)
+setupSetQuotaRequest(SetQuotaRequest.Builder builder)
+
+Note that there were versions of these methods in HBase 1.y that used classes in the {{org.apache.hadoop.hbase.protobuf.generated}} package. That package no longer exists as a part of our cleanup of protobufs from our public facing API and the related methods have been removed.
 
 
 ---
@@ -95,6 +99,13 @@ This JIRA aims at refactoring AccessController, using ACL as core library in CPs
 
 ---
 
+* [HBASE-19769](https://issues.apache.org/jira/browse/HBASE-19769) | *Critical* | **IllegalAccessError on package-private Hadoop metrics2 classes in MapReduce jobs**
+
+Client-side ZooKeeper metrics which were added to 2.0.0 alpha/beta releases cause issues when launching MapReduce jobs via {{yarn jar}} on the command line. This stems from ClassLoader separation issues that YARN implements. It was chosen that the easiest solution was to remove these ZooKeeper metrics entirely.
+
+
+---
+
 * [HBASE-11409](https://issues.apache.org/jira/browse/HBASE-11409) | *Major* | **Add more flexibility for input directory structure to LoadIncrementalHFiles**
 
 Allows for users to bulk load entire tables from hdfs by specifying the parameter -loadTable.  This allows you to pass in a table level directory and have all regions column families bulk loaded, if you do not specify the -loadTable parameter LoadIncrementalHFiles will work as before. Note: you must have a pre-created table to run with -loadTable it will not create one for you.
@@ -122,6 +133,13 @@ HRegion.openReadOnlyFileSystemHRegion() provides the ability to open HRegion fro
 
 ---
 
+* [HBASE-19770](https://issues.apache.org/jira/browse/HBASE-19770) | *Critical* | **Add '--return-values' option to Shell to print return values of commands in interactive mode**
+
+Introduces a new option to the HBase shell: -r, --return-values. When the shell is in "interactive" mode (default), the return value of shell commands are not returned to the user as they dirty the console output. For those who desire this functionality, the "--return-values" option restores the old functionality of the commands passing their return value to the user.
+
+
+---
+
 * [HBASE-19892](https://issues.apache.org/jira/browse/HBASE-19892) | *Major* | **Checking 'patch attach' and yetus 0.7.0 and move to Yetus 0.7.0**
 
 Moved our internal yetus reference from 0.6.0 to 0.7.0. Concurrently, I changed hadoopqa to run with 0.7.0 (by editing the config in jenkins).
@@ -139,6 +157,50 @@ Pass to yetus a dockermemlimit of 20G and a proclimit of 10000. Defaults are 4G 
 * [HBASE-19528](https://issues.apache.org/jira/browse/HBASE-19528) | *Major* | **Major Compaction Tool**
 
 Tool allows you to compact a cluster with given concurrency of regionservers compacting at a given time.  If tool completes successfully everything requested for compaction will be compacted, regardless of region moves, splits and merges.
+
+
+---
+
+* [HBASE-19900](https://issues.apache.org/jira/browse/HBASE-19900) | *Critical* | **Region-level exception destroy the result of batch**
+
+This fix makes the following changes to how client handle the both of action result and region exception.
+1) honor the action result rather than region exception. If the action have both of true result and region exception, the action is fine as the exception is caused by other actions which are in the same region.
+2) honor the action exception rather than region exception. If the action have both of action exception and region exception, we deal with the action exception only. If we also handle the region exception for the same action, it will introduce the negative count of actions in progress. The AsyncRequestFuture#waitUntilDone will block forever.
+
+
+---
+
+* [HBASE-20017](https://issues.apache.org/jira/browse/HBASE-20017) | *Blocker* | **BufferedMutatorImpl submit the same mutation repeatedly**
+
+This change fixes multithreading issues in the implementation of BufferedMutator. BufferedMutator should not be used with 1.4 releases prior to 1.4.2.
+
+
+---
+
+* [HBASE-20048](https://issues.apache.org/jira/browse/HBASE-20048) | *Blocker* | **Revert serial replication feature**
+
+Revert the serial replication feature from all branches. Plan to reimplement it soon and land onto 2.1 release line.
+
+
+---
+
+* [HBASE-20087](https://issues.apache.org/jira/browse/HBASE-20087) | *Major* | **Periodically attempt redeploy of regions in FAILED\_OPEN state**
+
+The AssignmentManager will attempt to assign regions in FAILED\_OPEN state at an interval specified by the configuration setting "hbase.assignment.failed.open.retry.period", defaulting to 300000 (5 minutes). If a transient condition leads a region to repeatedly fail to open sufficient to transition into FAILED\_OPEN state, such as the temporary inability to satisfy a RSGroups assignment constraint after server failures, the retries may automatically redeploy the region without operator intervention. Set to 0 to disable and keep the old behavior where regions in FAILED\_OPEN state are left to operators to manually reassign.
+
+
+---
+
+* [HBASE-18864](https://issues.apache.org/jira/browse/HBASE-18864) | *Major* | **NullPointerException thrown when adding rows to a table from peer cluster, table with replication factor other than 0 or 1**
+
+The only currently legal values for REPLICATION\_SCOPE in column schema are 0 (local) and 1 (global). This change enforces selection of only either of these values when setting the attribute using HColumnDescriptor.
+
+
+---
+
+* [HBASE-19024](https://issues.apache.org/jira/browse/HBASE-19024) | *Critical* | **Configurable default durability for synchronous WAL**
+
+The default durability setting for the synchronous WAL is Durability.SYNC\_WAL, which triggers HDFS hflush() to flush edits to the datanodes. We also support Durability.FSYNC\_WAL, which instead triggers HDFS hsync() to flush \_and\_ fsync edits. This change introduces the new configuration setting "hbase.wal.hsync", defaulting to FALSE, that if set to TRUE changes the default durability setting for the synchronous WAL to  FSYNC\_WAL.
 
 
 

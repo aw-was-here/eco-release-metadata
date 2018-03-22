@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.3.3 - Unreleased (as of 2018-02-06)
+## Release 2.3.3 - Unreleased (as of 2018-03-22)
 
 
 
@@ -27,5 +27,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-16939](https://issues.apache.org/jira/browse/HIVE-16939) | metastore error: 'export: -Dproc\_metastore : not a valid identifier' |  Major | Metastore | Fei Hui | Fei Hui |
+| [HIVE-18788](https://issues.apache.org/jira/browse/HIVE-18788) | Clean up inputs in JDBC PreparedStatement |  Major | . | Daniel Dai | Daniel Dai |
+| [HIVE-18815](https://issues.apache.org/jira/browse/HIVE-18815) | Remove unused feature in HPL/SQL |  Major | hpl/sql | Daniel Dai | Daniel Dai |
+| [HIVE-18879](https://issues.apache.org/jira/browse/HIVE-18879) | Disallow embedded element in UDFXPathUtil needs to work if xercesImpl.jar in classpath |  Major | . | Daniel Dai | Daniel Dai |
 
 

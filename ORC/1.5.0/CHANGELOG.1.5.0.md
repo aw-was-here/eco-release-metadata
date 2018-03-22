@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-02-06)
+## Release 1.5.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-199](https://issues.apache.org/jira/browse/ORC-199) | Include a CSV to ORC converter |  Major | . | Carter Shanklin | Owen O'Malley |
+| [ORC-308](https://issues.apache.org/jira/browse/ORC-308) | Add function to get subtypes by name |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### IMPROVEMENTS:
@@ -54,6 +55,7 @@
 | [ORC-280](https://issues.apache.org/jira/browse/ORC-280) | use Z\_PREFIX if zlib requires it |  Major | C++ | rip.nsk | rip.nsk |
 | [ORC-271](https://issues.apache.org/jira/browse/ORC-271) | Improve HAS\_PRE\_1970 |  Minor | C++ | rip.nsk | rip.nsk |
 | [ORC-290](https://issues.apache.org/jira/browse/ORC-290) | [C++] Update Readme to include C++ writer info |  Major | . | Xiening Dai | Xiening Dai |
+| [ORC-300](https://issues.apache.org/jira/browse/ORC-300) | Permit use of external transformation during JSON import step |  Minor | Java, tools | Thomas Krüger | Thomas Krüger |
 
 
 ### BUG FIXES:
@@ -98,6 +100,19 @@
 | [ORC-289](https://issues.apache.org/jira/browse/ORC-289) | Adaptor.hh is not installed |  Blocker | C++ | rip.nsk | rip.nsk |
 | [ORC-285](https://issues.apache.org/jira/browse/ORC-285) | Empty vector batches of floats or doubles get  java.io.EOFException |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-296](https://issues.apache.org/jira/browse/ORC-296) | work around HADOOP-15171; also fix stream contract |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [ORC-301](https://issues.apache.org/jira/browse/ORC-301) | \`extractFileTail\` should open a file in \`try\` statement |  Major | Java | Dongjoon Hyun | Dongjoon Hyun |
+| [ORC-293](https://issues.apache.org/jira/browse/ORC-293) | RleEncoderV1::writeVulong works incorrectly if (sizeof(long) \< sizeof(int64\_t)) |  Blocker | C++ | rip.nsk | rip.nsk |
+| [ORC-310](https://issues.apache.org/jira/browse/ORC-310) | better error handling and lifecycle management for codecs |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [ORC-321](https://issues.apache.org/jira/browse/ORC-321) | Add a pretty print option to the JSON schema finder. |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-324](https://issues.apache.org/jira/browse/ORC-324) | Add support for ARM and PPC arch |  Major | build | Vi On | Vi On |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-304](https://issues.apache.org/jira/browse/ORC-304) | Fix TestRecordReaderImpl to not fail with new storage-api |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-306](https://issues.apache.org/jira/browse/ORC-306) | Fix incorrect workaround for bug in java.sql.Timestamp |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### SUB-TASKS:
@@ -119,6 +134,7 @@
 | [ORC-256](https://issues.apache.org/jira/browse/ORC-256) | Add unmasked ranges option for redact mask |  Major | . | Owen O'Malley | Sandeep More |
 | [ORC-276](https://issues.apache.org/jira/browse/ORC-276) | [C++] Create a simple tool to import CSV files |  Major | C++, tools | Gang Wu | Gang Wu |
 | [ORC-250](https://issues.apache.org/jira/browse/ORC-250) | Create sha256 mask |  Major | . | Owen O'Malley | Sandeep More |
+| [ORC-278](https://issues.apache.org/jira/browse/ORC-278) | Create in memory KeyProvider class |  Major | . | Owen O'Malley | Sandeep More |
 
 
 ### OTHER:
@@ -126,5 +142,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-267](https://issues.apache.org/jira/browse/ORC-267) | Restore NOTICES and LICENSE to binary tarball |  Major | . | Owen O'Malley | Deepak Majeti |
+| [ORC-298](https://issues.apache.org/jira/browse/ORC-298) | Move the benchmark code base to non-Apache repository |  Blocker | . | Owen O'Malley | Owen O'Malley |
 
 

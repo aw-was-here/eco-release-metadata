@@ -18,7 +18,7 @@
 -->
 # Apache Oozie Changelog
 
-## Release 4.3.1 - Unreleased (as of 2018-02-06)
+## Release 4.3.1 - 2018-02-13
 
 
 

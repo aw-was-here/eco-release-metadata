@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.11.0.3 - Unreleased (as of 2018-02-06)
+## Release 0.11.0.3 - Unreleased (as of 2018-03-22)
 
 
 
@@ -32,6 +32,10 @@
 | [KAFKA-6467](https://issues.apache.org/jira/browse/KAFKA-6467) | Enforce layout of dependencies within a Connect plugin to be deterministic |  Blocker | KafkaConnect | Konstantine Karantasis | Konstantine Karantasis |
 | [KAFKA-6148](https://issues.apache.org/jira/browse/KAFKA-6148) | ClassCastException in BigQuery connector |  Major | KafkaConnect | Eugene Burd | Konstantine Karantasis |
 | [KAFKA-6288](https://issues.apache.org/jira/browse/KAFKA-6288) | Broken symlink interrupts scanning the plugin path |  Major | KafkaConnect | Yeva Byzek | Konstantine Karantasis |
+| [KAFKA-6529](https://issues.apache.org/jira/browse/KAFKA-6529) | Broker leaks memory and file descriptors after sudden client disconnects |  Major | network | Graham Campbell |  |
+| [KAFKA-6536](https://issues.apache.org/jira/browse/KAFKA-6536) | Streams quickstart pom.xml is missing versions for a bunch of plugins |  Major | streams | Ewen Cheslack-Postava | Yaswanth Kumar |
+| [KAFKA-6568](https://issues.apache.org/jira/browse/KAFKA-6568) | LogCleanerManager.doneDeleting() should check the partition state before deleting the in progress partition |  Blocker | . | Jiangjie Qin | Jiangjie Qin |
+| [KAFKA-6661](https://issues.apache.org/jira/browse/KAFKA-6661) | Sink connectors that explicitly 'resume' topic partitions can resume a paused task |  Critical | KafkaConnect | Randall Hauch | Randall Hauch |
 
 
 ### SUB-TASKS:

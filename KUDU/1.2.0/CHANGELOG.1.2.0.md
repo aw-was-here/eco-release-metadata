@@ -104,5 +104,6 @@
 | [KUDU-798](https://issues.apache.org/jira/browse/KUDU-798) | Proper safe time advancement by leaders and replicas |  Critical | consensus, tserver | David Alves | David Alves |
 | [KUDU-1127](https://issues.apache.org/jira/browse/KUDU-1127) | Avoid holding RPC handler threads on replicas that are part of a degraded tablet |  Major | tserver | Todd Lipcon | David Alves |
 | [KUDU-1733](https://issues.apache.org/jira/browse/KUDU-1733) | Document Consistency Semantics |  Critical | client, tablet, tserver | David Alves | Todd Lipcon |
+| [KUDU-258](https://issues.apache.org/jira/browse/KUDU-258) | Create an integration test that performs writes with multiple consistency modes |  Major | tserver | David Alves | David Alves |
 
 

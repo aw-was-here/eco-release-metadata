@@ -36,7 +36,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-5317](https://issues.apache.org/jira/browse/IMPALA-5317) | add DATE\_TRUNC() function |  Major | Frontend | Greg Rahn | sandeep akinapelli |
 | [IMPALA-1767](https://issues.apache.org/jira/browse/IMPALA-1767) | Boolean type does not include ISO-SQL is true, unknown or false predicate |  Minor | Frontend | Henry Robinson | Vuk Ercegovac |
-| [IMPALA-4252](https://issues.apache.org/jira/browse/IMPALA-4252) | Add RuntimeFilters for "in list" and/or min/max at KuduScanNode |  Major | Backend | Matthew Jacobs | Greg Rahn |
+| [IMPALA-4252](https://issues.apache.org/jira/browse/IMPALA-4252) | Add RuntimeFilters for min/max at KuduScanNode |  Major | Backend | Matthew Jacobs | Greg Rahn |
 
 
 ### IMPROVEMENTS:
@@ -81,6 +81,7 @@
 | [IMPALA-6210](https://issues.apache.org/jira/browse/IMPALA-6210) | Add query id to lineage graph logging |  Trivial | Infrastructure | Tianyi Wang | Tianyi Wang |
 | [IMPALA-3804](https://issues.apache.org/jira/browse/IMPALA-3804) | Re-enable per-scan filtering for sequence-based scanners |  Minor | Backend | Henry Robinson | Zoltán Borók-Nagy |
 | [IMPALA-6067](https://issues.apache.org/jira/browse/IMPALA-6067) | S3: Impala should be able to use IAM roles to access s3 storage |  Major | Infrastructure | Laszlo Gaal | Laszlo Gaal |
+| [IMPALA-6461](https://issues.apache.org/jira/browse/IMPALA-6461) | \*DataStreamSender::Channel::AddRow needs some micro-optimizations to remove per row function call and data dependency |  Minor | Distributed Exec | Mostafa Mokhtar | Mostafa Mokhtar |
 
 
 ### BUG FIXES:
@@ -226,6 +227,7 @@
 | [IMPALA-6155](https://issues.apache.org/jira/browse/IMPALA-6155) | TPC-DS Q77A is not deterministic |  Major | Infrastructure | Tim Armstrong | Tim Wood |
 | [IMPALA-6278](https://issues.apache.org/jira/browse/IMPALA-6278) | Set up release notes for Impala 2.11 |  Major | Docs | John Russell | John Russell |
 | [IMPALA-6092](https://issues.apache.org/jira/browse/IMPALA-6092) | Flaky test: query\_test/test\_udfs.py still happening |  Critical | Infrastructure | Tim Armstrong | Vuk Ercegovac |
+| [IMPALA-6499](https://issues.apache.org/jira/browse/IMPALA-6499) | Impala Doc: Formatting error in the String Functions doc |  Major | Docs | Alex Rodoni | Alex Rodoni |
 
 
 ### TESTS:

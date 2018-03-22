@@ -46,9 +46,47 @@ The return type of the jobs overview handler is now a list of job details instea
 
 ---
 
+* [FLINK-8668](https://issues.apache.org/jira/browse/FLINK-8668) | *Major* | **Remove "hadoop classpath" from config.sh**
+
+We removed the automatic hadoop classpath discovery via the hadoop binary. If you want Flink to pick up the Hadoop classpath you have to export HADOOP\_CLASSPATH. On cloud environments and most Hadoop distributions you would do {{export HADOOP\_CLASSPATH=\`hadoop classpath\`}}.
+
+
+---
+
+* [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | *Blocker* | **KafkaFetcher09/010/011 uses wrong user code classloader**
+
+Merged.
+
+1.5.0: 2886a41728c0c13b3d01221c502a3e2a7014605d
+1.4.2: 0396fc8c03a64f1281f2a535b2702188c5234f5c
+
+
+---
+
+* [FLINK-8859](https://issues.apache.org/jira/browse/FLINK-8859) | *Major* | **RocksDB backend should pass WriteOption to Rocks.put() when restoring**
+
+Merged in 131daa28bf.
+
+
+---
+
+* [FLINK-8922](https://issues.apache.org/jira/browse/FLINK-8922) | *Major* | **Revert FLINK-8859 because it causes segfaults in testing**
+
+Merged in a389b43581.
+
+
+---
+
 * [FLINK-6951](https://issues.apache.org/jira/browse/FLINK-6951) | *Critical* | **Incompatible versions of httpcomponents jars for Flink kinesis connector**
 
 **WARNING: No release note provided for this change.**
+
+
+---
+
+* [FLINK-8459](https://issues.apache.org/jira/browse/FLINK-8459) | *Blocker* | **Implement cancelWithSavepoint in RestClusterClient**
+
+The REST API to trigger the "cancel with savepoint" action has changed, and is not backwards compatible.
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.4 - Unreleased (as of 2018-02-06)
+## Release 3.5.4 - Unreleased (as of 2018-03-22)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2890](https://issues.apache.org/jira/browse/ZOOKEEPER-2890) | Local automatic variable is left uninitialized and then freed. |  Critical | c client | Alexander A. Strelets | Alexander A. Strelets |
 | [ZOOKEEPER-2952](https://issues.apache.org/jira/browse/ZOOKEEPER-2952) | Upgrade third party libraries to address vulnerabilities |  Critical | server | Andor Molnar | Andor Molnar |
+| [ZOOKEEPER-2967](https://issues.apache.org/jira/browse/ZOOKEEPER-2967) | Add check to validate dataDir and dataLogDir parameters at startup |  Major | server | Andor Molnar | Mark Fenes |
 
 
 ### NEW FEATURES:
@@ -118,6 +119,10 @@
 | [ZOOKEEPER-2964](https://issues.apache.org/jira/browse/ZOOKEEPER-2964) | "Conf" command returns dataDir and dataLogDir opposingly |  Minor | server | Qihong Xu |  |
 | [ZOOKEEPER-1580](https://issues.apache.org/jira/browse/ZOOKEEPER-1580) | QuorumPeer.setRunning is not used |  Minor | . | Flavio Junqueira | maoling |
 | [ZOOKEEPER-2949](https://issues.apache.org/jira/browse/ZOOKEEPER-2949) | SSL ServerName not set when using hostname, some proxies may failed to proxy the request. |  Major | java client | Feng Shaobao |  |
+| [ZOOKEEPER-2978](https://issues.apache.org/jira/browse/ZOOKEEPER-2978) | fix potential null pointer exception when deleting node |  Trivial | java client | achimbab |  |
+| [ZOOKEEPER-2845](https://issues.apache.org/jira/browse/ZOOKEEPER-2845) | Data inconsistency issue due to retain database in leader election |  Critical | quorum | Fangmin Lv | Robert Joseph Evans |
+| [ZOOKEEPER-2936](https://issues.apache.org/jira/browse/ZOOKEEPER-2936) | Duplicate Keys in log4j.properties config files |  Trivial | contrib, other | Hari Sekhon |  |
+| [ZOOKEEPER-2992](https://issues.apache.org/jira/browse/ZOOKEEPER-2992) | The eclipse build target fails due to protocol redirection: http-\>https |  Major | build | Shawn Heisey | Shawn Heisey |
 
 
 ### TESTS:
@@ -136,6 +141,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2754](https://issues.apache.org/jira/browse/ZOOKEEPER-2754) | Set up Apache Jenkins job that runs the flaky test analyzer script. |  Major | tests | Michael Han | Michael Han |
 | [ZOOKEEPER-2792](https://issues.apache.org/jira/browse/ZOOKEEPER-2792) | [QP MutualAuth]: Port ZOOKEEPER-1045 implementation from branch-3.4 to branch-3.5 |  Major | quorum, security | Rakesh R | Michael Han |
+| [ZOOKEEPER-2939](https://issues.apache.org/jira/browse/ZOOKEEPER-2939) | Deal with maxbuffer as it relates to proposals |  Major | jute, server | Andor Molnar | Andor Molnar |
+| [ZOOKEEPER-2981](https://issues.apache.org/jira/browse/ZOOKEEPER-2981) | Fix build on branch-3.5 for ZOOKEEPER-2939 |  Major | build | Andor Molnar | Andor Molnar |
 
 
 ### OTHER:

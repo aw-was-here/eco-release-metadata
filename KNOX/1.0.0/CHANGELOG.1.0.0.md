@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.0.0 - Unreleased (as of 2018-02-06)
+## Release 1.0.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -43,6 +43,7 @@
 | [KNOX-1137](https://issues.apache.org/jira/browse/KNOX-1137) | KnoxCLI For Listing Provider Configurations and Descriptors in a Remote Configuration Registry |  Major | KnoxCLI | Phil Zampino | Phil Zampino |
 | [KNOX-1144](https://issues.apache.org/jira/browse/KNOX-1144) | Provider Configuration Reference Relationships Aren't Established For Existing Descriptors at Gateway Startup |  Major | Server | Phil Zampino | Phil Zampino |
 | [KNOX-1168](https://issues.apache.org/jira/browse/KNOX-1168) | ClassNotFoundException exception because of package restructuring |  Major | Server | Sandeep More | Sandeep More |
+| [KNOX-1175](https://issues.apache.org/jira/browse/KNOX-1175) | -Prelease doesn't build a release |  Trivial | Build | Allen Wittenauer | Jack Bearden |
 
 
 ### SUB-TASKS:

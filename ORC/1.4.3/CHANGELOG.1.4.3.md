@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.3 - Unreleased (as of 2018-02-06)
+## Release 1.4.3 - 2018-02-09
 
 
 
@@ -26,7 +26,16 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-217](https://issues.apache.org/jira/browse/ORC-217) | Duplicate rat plugins in pom.xml |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [ORC-240](https://issues.apache.org/jira/browse/ORC-240) | fix warnings from Maven |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-285](https://issues.apache.org/jira/browse/ORC-285) | Empty vector batches of floats or doubles get  java.io.EOFException |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-296](https://issues.apache.org/jira/browse/ORC-296) | work around HADOOP-15171; also fix stream contract |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-298](https://issues.apache.org/jira/browse/ORC-298) | Move the benchmark code base to non-Apache repository |  Blocker | . | Owen O'Malley | Owen O'Malley |
 
 

@@ -16,9 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Hadoop v3.2.0
+    * [Changes](3.2.0/CHANGES.3.2.0.html)
+    * [Release Notes](3.2.0/RELEASENOTES.3.2.0.html)
+* Apache Hadoop v3.1.1
+    * [Changes](3.1.1/CHANGES.3.1.1.html)
+    * [Release Notes](3.1.1/RELEASENOTES.3.1.1.html)
 * Apache Hadoop v3.1.0
     * [Changes](3.1.0/CHANGES.3.1.0.html)
     * [Release Notes](3.1.0/RELEASENOTES.3.1.0.html)
+* Apache Hadoop v3.0.2
+    * [Changes](3.0.2/CHANGES.3.0.2.html)
+    * [Release Notes](3.0.2/RELEASENOTES.3.0.2.html)
 * Apache Hadoop v3.0.1
     * [Changes](3.0.1/CHANGES.3.0.1.html)
     * [Release Notes](3.0.1/RELEASENOTES.3.0.1.html)

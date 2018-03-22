@@ -156,7 +156,7 @@
 | [SPARK-22146](https://issues.apache.org/jira/browse/SPARK-22146) | FileNotFoundException while reading ORC files containing '%' |  Major | SQL | Marco Gaido | Marco Gaido |
 | [SPARK-22129](https://issues.apache.org/jira/browse/SPARK-22129) | Spark release scripts ignore the GPG\_KEY and always sign with your default key |  Blocker | Build | holdenk | holdenk |
 | [SPARK-22167](https://issues.apache.org/jira/browse/SPARK-22167) | Spark Packaging w/R distro issues |  Blocker | Build, SparkR | holdenk | holdenk |
-| [SPARK-22158](https://issues.apache.org/jira/browse/SPARK-22158) | convertMetastore should not ignore table properties |  Major | SQL | Dongjoon Hyun | Dongjoon Hyun |
+| [SPARK-22158](https://issues.apache.org/jira/browse/SPARK-22158) | convertMetastore should not ignore storage properties |  Major | SQL | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-20466](https://issues.apache.org/jira/browse/SPARK-20466) | HadoopRDD#addLocalConfiguration throws NPE |  Minor | YARN | liyunzhang | Sahil Takiar |
 | [SPARK-22206](https://issues.apache.org/jira/browse/SPARK-22206) | gapply in R can't work on empty grouping columns |  Major | SparkR, SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
 | [SPARK-21549](https://issues.apache.org/jira/browse/SPARK-21549) | Spark fails to complete job correctly in case of OutputFormat which do not write into hdfs |  Major | Spark Core | Sergey Zhemzhitsky | Sergey Zhemzhitsky |
@@ -212,6 +212,7 @@
 | [SPARK-22591](https://issues.apache.org/jira/browse/SPARK-22591) | GenerateOrdering shouldn't change ctx.INPUT\_ROW |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
 | [SPARK-22755](https://issues.apache.org/jira/browse/SPARK-22755) | Expression (946-885)\*1.0/946 \< 0.1 and (946-885)\*1.000/946 \< 0.1 return different results |  Major | SQL | Kevin Zhang |  |
 | [SPARK-22406](https://issues.apache.org/jira/browse/SPARK-22406) | pyspark version tag is wrong on PyPi |  Minor | PySpark | Kerrick Staley | holdenk |
+| [SPARK-23351](https://issues.apache.org/jira/browse/SPARK-23351) | checkpoint corruption in long running application |  Major | Structured Streaming | David Ahern |  |
 
 
 ### TESTS:

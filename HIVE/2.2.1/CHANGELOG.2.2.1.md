@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.1 - Unreleased (as of 2018-02-06)
+## Release 2.2.1 - Unreleased (as of 2018-03-22)
 
 
 
@@ -54,6 +54,7 @@
 | [HIVE-17791](https://issues.apache.org/jira/browse/HIVE-17791) | Temp dirs under the staging directory should honour \`inheritPerms\` |  Major | Authorization | Mithun Radhakrishnan | Chris Drome |
 | [HIVE-18198](https://issues.apache.org/jira/browse/HIVE-18198) | TablePropertyEnrichmentOptimizer.java is missing the Apache license header |  Major | . | Deepesh Khandelwal | Deepesh Khandelwal |
 | [HIVE-17853](https://issues.apache.org/jira/browse/HIVE-17853) | RetryingMetaStoreClient loses UGI impersonation-context when reconnecting after timeout |  Critical | Metastore | Mithun Radhakrishnan | Chris Drome |
+| [HIVE-14792](https://issues.apache.org/jira/browse/HIVE-14792) | AvroSerde reads the remote schema-file at least once per mapper, per table reference. |  Major | . | Mithun Radhakrishnan | Aihua Xu |
 
 
 ### SUB-TASKS:

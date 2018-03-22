@@ -55,13 +55,6 @@ The first version of Resource Estimator service, a tool that captures the histor
 
 ---
 
-* [YARN-5326](https://issues.apache.org/jira/browse/YARN-5326) | *Major* | **Support for recurring reservations in the YARN ReservationSystem**
-
-Add native support for recurring reservations (good till cancelled) to enable  periodic allocations of the same resources.
-
-
----
-
 * [YARN-5079](https://issues.apache.org/jira/browse/YARN-5079) | *Major* | **[Umbrella] Native YARN framework layer for services and beyond**
 
 A framework is implemented to orchestrate containers on YARN
@@ -114,7 +107,7 @@ Mount tables support ACL, The users won't be able to modify their own entries (w
 
 * [YARN-7190](https://issues.apache.org/jira/browse/YARN-7190) | *Major* | **Ensure only NM classpath in 2.x gets TSv2 related hbase jars, not the user classpath**
 
-**WARNING: No release note provided for this change.**
+Ensure only NM classpath in 2.x gets TSv2 related hbase jars, not the user classpath.
 
 
 ---
@@ -122,6 +115,15 @@ Mount tables support ACL, The users won't be able to modify their own entries (w
 * [HDFS-9806](https://issues.apache.org/jira/browse/HDFS-9806) | *Major* | **Allow HDFS block replicas to be provided by an external storage system**
 
 Provided storage allows data stored outside HDFS to be mapped to and addressed from HDFS. It builds on heterogeneous storage by introducing a new storage type, PROVIDED, to the set of media in a datanode. Clients accessing data in PROVIDED storages can cache replicas in local media, enforce HDFS invariants (e.g., security, quotas), and address more data than the cluster could persist in the storage attached to DataNodes.
+
+
+---
+
+* [HADOOP-13282](https://issues.apache.org/jira/browse/HADOOP-13282) | *Minor* | **S3 blob etags to be made visible in S3A status/getFileChecksum() calls**
+
+now that S3A has a checksum, you need to explicitly disable checksums when uploading from HDFS : use -skipCrc
+
+checksum verification does work between s3a buckets, provided the block size on uploads was identical
 
 
 ---
@@ -163,7 +165,35 @@ Added an option to not disables short-circuit reads on failures, by setting dfs.
 
 * [HDFS-13083](https://issues.apache.org/jira/browse/HDFS-13083) | *Major* | **RBF: Fix doc error setting up client**
 
-**WARNING: No release note provided for this change.**
+Fix the document error of setting up HFDS Router Federation
+
+
+---
+
+* [HDFS-13099](https://issues.apache.org/jira/browse/HDFS-13099) | *Minor* | **RBF: Use the ZooKeeper as the default State Store**
+
+Change default State Store from local file to ZooKeeper. This will require additional zk address to be configured.
+
+
+---
+
+* [HADOOP-15252](https://issues.apache.org/jira/browse/HADOOP-15252) | *Major* | **Checkstyle version is not compatible with IDEA's checkstyle plugin**
+
+Updated checkstyle to 8.8 and updated maven-checkstyle-plugin to 3.0.0.
+
+
+---
+
+* [YARN-7919](https://issues.apache.org/jira/browse/YARN-7919) | *Major* | **Refactor timelineservice-hbase module into submodules**
+
+HBase integration module was mixed up with for hbase-server and hbase-client dependencies. This JIRA split into sub modules such that hbase-client dependent modules and hbase-server dependent modules are separated. This allows to make conditional compilation with different version of Hbase.
+
+
+---
+
+* [YARN-7677](https://issues.apache.org/jira/browse/YARN-7677) | *Major* | **Docker image cannot set HADOOP\_CONF\_DIR**
+
+The HADOOP\_CONF\_DIR environment variable is no longer unconditionally inherited by containers even if it does not appear in the nodemanager whitelist variables specified by the yarn.nodemanager.env-whitelist property. If the whitelist property has been modified from the default to not include HADOOP\_CONF\_DIR yet containers need it to be inherited from the nodemanager's environment then the whitelist settings need to be updated to include HADOOP\_CONF\_DIR.
 
 
 

@@ -21,18 +21,4 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
----
-
-* [HBASE-17513](https://issues.apache.org/jira/browse/HBASE-17513) | *Critical* | **Thrift Server 1 uses different QOP settings than RPC and Thrift Server 2 and can easily be misconfigured so there is no encryption when the operator expects it.**
-
-This change fixes an issue where users could have unintentionally configured the HBase Thrift1 server to run without wire-encryption, when they believed they had configured the Thrift1 server to do so.
-
-
----
-
-* [HBASE-19901](https://issues.apache.org/jira/browse/HBASE-19901) | *Major* | **Up yetus proclimit on nightlies**
-
-Pass to yetus a dockermemlimit of 20G and a proclimit of 10000. Defaults are 4G and 1G respectively.
-
-
 

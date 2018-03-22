@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.10.0 - Unreleased (as of 2018-02-06)
+## Release 1.10.0 - Unreleased (as of 2018-03-22)
 
 
 
@@ -37,6 +37,8 @@
 | [PARQUET-1197](https://issues.apache.org/jira/browse/PARQUET-1197) | Log rat failures |  Minor | . | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-1170](https://issues.apache.org/jira/browse/PARQUET-1170) | Logical-type-based toString for proper representeation in tools/logs |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-1198](https://issues.apache.org/jira/browse/PARQUET-1198) | Bump java source and target to java8 |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
+| [PARQUET-1215](https://issues.apache.org/jira/browse/PARQUET-1215) | Add accessor for footer after a file is closed |  Major | parquet-mr | Ryan Blue | Ryan Blue |
+| [PARQUET-787](https://issues.apache.org/jira/browse/PARQUET-787) | Add a size limit for heap allocations when reading |  Major | parquet-mr | Ryan Blue | Ryan Blue |
 
 
 ### BUG FIXES:
@@ -53,6 +55,9 @@
 | [PARQUET-1185](https://issues.apache.org/jira/browse/PARQUET-1185) | TestBinary#testBinary unit test fails after PARQUET-1141 |  Major | . | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1191](https://issues.apache.org/jira/browse/PARQUET-1191) | Type.hashCode() takes originalType into account but Type.equals() does not |  Major | . | Gabor Szadovszky | Nandor Kollar |
 | [PARQUET-1065](https://issues.apache.org/jira/browse/PARQUET-1065) | Deprecate type-defined sort ordering for INT96 type |  Major | . | Zoltan Ivanfi | Zoltan Ivanfi |
+| [PARQUET-1208](https://issues.apache.org/jira/browse/PARQUET-1208) | Occasional endless loop in unit test |  Major | . | Zoltan Ivanfi | Zoltan Ivanfi |
+| [PARQUET-1217](https://issues.apache.org/jira/browse/PARQUET-1217) | Incorrect handling of missing values in Statistics |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
+| [PARQUET-1246](https://issues.apache.org/jira/browse/PARQUET-1246) | Ignore float/double statistics in case of NaN |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 
 
 ### OTHER:

@@ -23,28 +23,6 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HDFS-12883](https://issues.apache.org/jira/browse/HDFS-12883) | *Major* | **RBF: Document Router and State Store metrics**
-
-This JIRA makes following change:
-Change Router metrics context from 'router' to 'dfs'.
-
-
----
-
-* [HDFS-12895](https://issues.apache.org/jira/browse/HDFS-12895) | *Major* | **RBF: Add ACL support for mount table**
-
-Mount tables support ACL, The users won't be able to modify their own entries (we are assuming these old (no-permissions before) mount table with owner:superuser, group:supergroup, permission:755 as the default permissions).  The fix way is login as superuser to modify these mount table entries.
-
-
----
-
-* [YARN-7190](https://issues.apache.org/jira/browse/YARN-7190) | *Major* | **Ensure only NM classpath in 2.x gets TSv2 related hbase jars, not the user classpath**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HADOOP-15027](https://issues.apache.org/jira/browse/HADOOP-15027) | *Major* | **AliyunOSS: Support multi-thread pre-read to improve sequential read from Hadoop to Aliyun OSS performance**
 
 Support multi-thread pre-read in AliyunOSSInputStream to improve the sequential read performance from Hadoop to Aliyun OSS.
@@ -61,7 +39,16 @@ Added an option to not disables short-circuit reads on failures, by setting dfs.
 
 * [HDFS-13083](https://issues.apache.org/jira/browse/HDFS-13083) | *Major* | **RBF: Fix doc error setting up client**
 
-**WARNING: No release note provided for this change.**
+Fix the document error of setting up HFDS Router Federation
+
+
+---
+
+* [HDFS-12990](https://issues.apache.org/jira/browse/HDFS-12990) | *Critical* | **Change default NameNode RPC port back to 8020**
+
+HDFS NameNode default RPC port is changed back to 8020. The only official release that has this differently is 3.0.0, which used 9820.
+
+It is recommended for 2.x users to upgrade to 3.0.1+, to reduce the burden on changing default NN RPC port.
 
 
 

@@ -19,6 +19,9 @@
 * Apache Yetus v0.99.99
     * [Changes](0.99.99/CHANGES.0.99.99.md)
     * [Release Notes](0.99.99/RELEASENOTES.0.99.99.md)
+* Apache Yetus v0.8.0
+    * [Changes](0.8.0/CHANGES.0.8.0.md)
+    * [Release Notes](0.8.0/RELEASENOTES.0.8.0.md)
 * Apache Yetus v0.7.0
     * [Changes](0.7.0/CHANGES.0.7.0.md)
     * [Release Notes](0.7.0/RELEASENOTES.0.7.0.md)

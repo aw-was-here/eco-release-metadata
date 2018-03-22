@@ -109,6 +109,7 @@
 | [KAFKA-5446](https://issues.apache.org/jira/browse/KAFKA-5446) | Annoying braces showed on log.error using streams |  Trivial | streams | Paolo Patierno | Paolo Patierno |
 | [KAFKA-4829](https://issues.apache.org/jira/browse/KAFKA-4829) | Improve logging of StreamTask commits |  Minor | streams | Steven Schlansker | Guozhang Wang |
 | [KAFKA-4520](https://issues.apache.org/jira/browse/KAFKA-4520) | Kafka broker fails with not so user-friendly error msg when log.dirs is not set |  Trivial | . | Buchi Reddy B |  |
+| [KAFKA-4921](https://issues.apache.org/jira/browse/KAFKA-4921) | AssignedPartition should implement equals |  Minor | streams | Marc Juchli |  |
 
 
 ### BUG FIXES:

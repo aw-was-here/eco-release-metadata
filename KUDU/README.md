@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kudu v1.8.0
+    * [Changes](1.8.0/CHANGES.1.8.0.md)
+    * [Release Notes](1.8.0/RELEASENOTES.1.8.0.md)
+* Apache Kudu v1.7.x
+    * [Changes](1.7.x/CHANGES.1.7.x.md)
+    * [Release Notes](1.7.x/RELEASENOTES.1.7.x.md)
 * Apache Kudu v1.7.0
     * [Changes](1.7.0/CHANGES.1.7.0.md)
     * [Release Notes](1.7.0/RELEASENOTES.1.7.0.md)
