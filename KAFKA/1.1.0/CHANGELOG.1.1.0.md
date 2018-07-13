@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.1.0 - Unreleased (as of 2018-03-22)
+## Release 1.1.0 - 2018-03-28
 
 
 
@@ -181,7 +181,6 @@
 | [KAFKA-6504](https://issues.apache.org/jira/browse/KAFKA-6504) | Connect: Some per-task-metrics not working |  Minor | KafkaConnect | Per Steffensen | Robert Yokota |
 | [KAFKA-6362](https://issues.apache.org/jira/browse/KAFKA-6362) | auto commit not work since coordinatorUnknown() is always true. |  Major | clients, consumer | Renkai Ge | huxihx |
 | [KAFKA-6345](https://issues.apache.org/jira/browse/KAFKA-6345) | NetworkClient.inFlightRequestCount() is not thread safe, causing ConcurrentModificationExceptions when sensors are read |  Major | clients | radai rosenblatt | Sean McCauliff |
-| [KAFKA-6390](https://issues.apache.org/jira/browse/KAFKA-6390) | Update ZooKeeper to 3.4.11, Gradle and other minor updates |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-6529](https://issues.apache.org/jira/browse/KAFKA-6529) | Broker leaks memory and file descriptors after sudden client disconnects |  Major | network | Graham Campbell |  |
 | [KAFKA-6513](https://issues.apache.org/jira/browse/KAFKA-6513) | New Connect header support doesn't define \`converter.type\` property correctly |  Blocker | KafkaConnect | Randall Hauch | Randall Hauch |
 | [KAFKA-5550](https://issues.apache.org/jira/browse/KAFKA-5550) | Struct.put() should include the field name if validation fails |  Minor | KafkaConnect | Jeremy Custenborder | Jeremy Custenborder |
@@ -208,6 +207,16 @@
 | [KAFKA-3978](https://issues.apache.org/jira/browse/KAFKA-3978) | Cannot truncate to a negative offset (-1) exception at broker startup |  Critical | . | Juho Mäkinen | Dong Lin |
 | [KAFKA-6653](https://issues.apache.org/jira/browse/KAFKA-6653) | Delayed operations may not be completed when there is lock contention |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6663](https://issues.apache.org/jira/browse/KAFKA-6663) | Expression for GlobalKTable is not correct |  Minor | documentation, streams | huxihx | huxihx |
+| [KAFKA-6683](https://issues.apache.org/jira/browse/KAFKA-6683) | ReplicaFetcher crashes with "Attempted to complete a transaction which was not started" |  Critical | replication | Chema Sanchez | Jason Gustafson |
+| [KAFKA-6680](https://issues.apache.org/jira/browse/KAFKA-6680) | Fix config initialization in DynamicBrokerConfig |  Major | . | Manikumar | Manikumar |
+| [KAFKA-6676](https://issues.apache.org/jira/browse/KAFKA-6676) | System tests do not handle ZK chroot properly with SCRAM |  Major | . | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
+| [KAFKA-6732](https://issues.apache.org/jira/browse/KAFKA-6732) | 404 on streams/developer-guide/write-streams.html for processor topology |  Major | . | robin m |  |
+| [KAFKA-6790](https://issues.apache.org/jira/browse/KAFKA-6790) | Broken link in documentation for processor nodes |  Major | documentation, streams | robin m |  |
+| [KAFKA-6107](https://issues.apache.org/jira/browse/KAFKA-6107) | SCRAM user add appears to fail if Kafka has never been started |  Minor | tools, zkclient | Dustin Cote |  |
+| [KAFKA-6815](https://issues.apache.org/jira/browse/KAFKA-6815) | "default.production.exception.handler" default value is not specified correctly in KafkaStream doc |  Minor | documentation | taekyung kim |  |
+| [KAFKA-6199](https://issues.apache.org/jira/browse/KAFKA-6199) | Single broker with fast growing heap usage |  Major | . | Robin Tweedie |  |
+| [KAFKA-6907](https://issues.apache.org/jira/browse/KAFKA-6907) | Not able to delete topic |  Minor | config | praveen |  |
+| [KAFKA-6666](https://issues.apache.org/jira/browse/KAFKA-6666) | OffsetOutOfRangeException: Replica Thread Stopped Resulting in Underreplicated Partitions |  Critical | core | Srinivas Dhruvakumar |  |
 
 
 ### TESTS:

@@ -21,4 +21,20 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [SPARK-24021](https://issues.apache.org/jira/browse/SPARK-24021) | *Major* | **Fix bug in BlacklistTracker's updateBlacklistForFetchFailure**
+
+There's a miswrite in BlacklistTracker's updateBlacklistForFetchFailure:
+
+ 
+{code:java}
+val blacklistedExecsOnNode =
+    nodeToBlacklistedExecs.getOrElseUpdate(exec, HashSet[String]())
+blacklistedExecsOnNode += exec{code}
+ 
+
+where first \*exec\* should be \*host\*.
+
+
 

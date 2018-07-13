@@ -17,32 +17,32 @@
 # limitations under the License.
 -->
 * Apache Yetus v0.99.99
-    * [Changes](0.99.99/CHANGES.0.99.99.html)
+    * [Changelog](0.99.99/CHANGELOG.0.99.99.html)
     * [Release Notes](0.99.99/RELEASENOTES.0.99.99.html)
 * Apache Yetus v0.8.0
-    * [Changes](0.8.0/CHANGES.0.8.0.html)
+    * [Changelog](0.8.0/CHANGELOG.0.8.0.html)
     * [Release Notes](0.8.0/RELEASENOTES.0.8.0.html)
 * Apache Yetus v0.7.0
-    * [Changes](0.7.0/CHANGES.0.7.0.html)
+    * [Changelog](0.7.0/CHANGELOG.0.7.0.html)
     * [Release Notes](0.7.0/RELEASENOTES.0.7.0.html)
 * Apache Yetus v0.6.0
-    * [Changes](0.6.0/CHANGES.0.6.0.html)
+    * [Changelog](0.6.0/CHANGELOG.0.6.0.html)
     * [Release Notes](0.6.0/RELEASENOTES.0.6.0.html)
 * Apache Yetus v0.5.0
-    * [Changes](0.5.0/CHANGES.0.5.0.html)
+    * [Changelog](0.5.0/CHANGELOG.0.5.0.html)
     * [Release Notes](0.5.0/RELEASENOTES.0.5.0.html)
 * Apache Yetus v0.4.0
-    * [Changes](0.4.0/CHANGES.0.4.0.html)
+    * [Changelog](0.4.0/CHANGELOG.0.4.0.html)
     * [Release Notes](0.4.0/RELEASENOTES.0.4.0.html)
 * Apache Yetus v0.3.0
-    * [Changes](0.3.0/CHANGES.0.3.0.html)
+    * [Changelog](0.3.0/CHANGELOG.0.3.0.html)
     * [Release Notes](0.3.0/RELEASENOTES.0.3.0.html)
 * Apache Yetus v0.2.1
-    * [Changes](0.2.1/CHANGES.0.2.1.html)
+    * [Changelog](0.2.1/CHANGELOG.0.2.1.html)
     * [Release Notes](0.2.1/RELEASENOTES.0.2.1.html)
 * Apache Yetus v0.2.0
-    * [Changes](0.2.0/CHANGES.0.2.0.html)
+    * [Changelog](0.2.0/CHANGELOG.0.2.0.html)
     * [Release Notes](0.2.0/RELEASENOTES.0.2.0.html)
 * Apache Yetus v0.1.0
-    * [Changes](0.1.0/CHANGES.0.1.0.html)
+    * [Changelog](0.1.0/CHANGELOG.0.1.0.html)
     * [Release Notes](0.1.0/RELEASENOTES.0.1.0.html)

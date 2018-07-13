@@ -283,7 +283,7 @@
 | [IMPALA-5331](https://issues.apache.org/jira/browse/IMPALA-5331) | Use new libHDFS API to address "Unknown Error 255" |  Critical | Backend | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-1972](https://issues.apache.org/jira/browse/IMPALA-1972) | Queries that take a long time to plan can cause webserver to block other queries |  Major | Backend | Henry Robinson | bharath v |
 | [IMPALA-5342](https://issues.apache.org/jira/browse/IMPALA-5342) | GetTables() Thrift call does not fill up the table comments field |  Major | Frontend | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
-| [IMPALA-4923](https://issues.apache.org/jira/browse/IMPALA-4923) | Operators running on top of selective Hdfs scan nodes spend a lot of time calling impala::MemPool::FreeAll on empty batches |  Major | Backend | Mostafa Mokhtar | Tim Armstrong |
+| [IMPALA-4923](https://issues.apache.org/jira/browse/IMPALA-4923) | Operators running on top of selective Parquet scans spend a lot of time calling impala::MemPool::FreeAll on empty batches |  Major | Backend | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-5358](https://issues.apache.org/jira/browse/IMPALA-5358) | Off-by-one error in testTableSample |  Critical | Frontend | Henry Robinson | Alexander Behm |
 | [IMPALA-5302](https://issues.apache.org/jira/browse/IMPALA-5302) | tcmalloc contention limits CPU utilization on machines with \>40 logical processors |  Critical | Backend | Mostafa Mokhtar | Mostafa Mokhtar |
 | [IMPALA-5150](https://issues.apache.org/jira/browse/IMPALA-5150) | Uneven load distribution of work across NUMA nodes |  Major | Backend | Mostafa Mokhtar | Mostafa Mokhtar |

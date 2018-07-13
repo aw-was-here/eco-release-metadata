@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.4.3 - Unreleased (as of 2018-03-22)
+## Release 1.4.3 - 2018-03-30
 
 ### INCOMPATIBLE CHANGES:
 
@@ -61,10 +61,10 @@
 | [HBASE-20153](https://issues.apache.org/jira/browse/HBASE-20153) | enable error-prone analysis in precommit |  Major | community | Mike Drob | Mike Drob |
 | [HBASE-19802](https://issues.apache.org/jira/browse/HBASE-19802) | Wrong usage messages on shell commands (grant/revoke namespace syntax) |  Minor | shell | Csaba Skrabak | Csaba Skrabak |
 | [HBASE-20189](https://issues.apache.org/jira/browse/HBASE-20189) | Typo in Required Java Version error message while building HBase. |  Trivial | build | Sakthi | Sakthi |
-| [HBASE-18864](https://issues.apache.org/jira/browse/HBASE-18864) | NullPointerException thrown when adding rows to a table from peer cluster, table with replication factor other than 0 or 1 |  Major | Client, Replication | smita | Sakthi |
 | [HBASE-20146](https://issues.apache.org/jira/browse/HBASE-20146) | Regions are stuck while opening when WAL is disabled |  Critical | wal | Ashish Singhi | Ashish Singhi |
 | [HBASE-20141](https://issues.apache.org/jira/browse/HBASE-20141) | Fix TooManyFiles exception when RefreshingChannels in FileIOEngine |  Major | BucketCache | Zach York | Zach York |
 | [HBASE-19364](https://issues.apache.org/jira/browse/HBASE-19364) | Truncate\_preserve fails with table when replica region \> 1 |  Major | master | Pankaj Kumar | Pankaj Kumar |
+| [HBASE-18864](https://issues.apache.org/jira/browse/HBASE-18864) | NullPointerException thrown when adding rows to a table from peer cluster, table with replication factor other than 0 or 1 |  Major | Client, Replication | smita | Sakthi |
 
 
 ### TESTS:
@@ -72,6 +72,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HBASE-20052](https://issues.apache.org/jira/browse/HBASE-20052) | TestRegionOpen#testNonExistentRegionReplica fails due to NPE |  Major | . | Ted Yu | Ted Yu |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-16848](https://issues.apache.org/jira/browse/HBASE-16848) | Usage for show\_peer\_tableCFs command doesn't include peer |  Minor | . | Ted Yu | Peter Somogyi |
 
 
 ### OTHER:

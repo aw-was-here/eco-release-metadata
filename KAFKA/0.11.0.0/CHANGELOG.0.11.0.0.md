@@ -328,7 +328,7 @@
 | [KAFKA-5498](https://issues.apache.org/jira/browse/KAFKA-5498) | Connect validation API stops returning recommendations for some fields after the right sequence of requests |  Major | KafkaConnect | Ewen Cheslack-Postava | Ewen Cheslack-Postava |
 | [KAFKA-5577](https://issues.apache.org/jira/browse/KAFKA-5577) | WindowedStreamPartitioner does not provide topic name to serializer |  Major | streams | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-5154](https://issues.apache.org/jira/browse/KAFKA-5154) | Kafka Streams throws NPE during rebalance |  Major | streams | Lukas Gemela | Damian Guy |
-| [KAFKA-4840](https://issues.apache.org/jira/browse/KAFKA-4840) | There are are still cases where producer buffer pool will not remove waiters. |  Major | clients | Sean McCauliff | Sean McCauliff |
+| [KAFKA-4840](https://issues.apache.org/jira/browse/KAFKA-4840) | There are still cases where producer buffer pool will not remove waiters. |  Major | clients | Sean McCauliff | Sean McCauliff |
 | [KAFKA-5961](https://issues.apache.org/jira/browse/KAFKA-5961) | NullPointerException when consumer restore read messages with null key. |  Major | streams | Andres Gomez Ferrer |  |
 | [KAFKA-6088](https://issues.apache.org/jira/browse/KAFKA-6088) | Kafka Consumer slows down when reading from highly compacted topics |  Major | clients | James Cheng |  |
 | [KAFKA-4](https://issues.apache.org/jira/browse/KAFKA-4) | Confusing Error mesage from producer when no kafka brokers are available |  Minor | . |  |  |

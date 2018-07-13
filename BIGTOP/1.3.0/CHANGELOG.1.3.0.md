@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-03-22)
+## Release 1.3.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -78,6 +78,7 @@
 | [BIGTOP-3002](https://issues.apache.org/jira/browse/BIGTOP-3002) | For Kafka, it should be possible to set the broker.id config and log.dirs config. |  Trivial | deployment | Gregory Van Seghbroeck | Gregory Van Seghbroeck |
 | [BIGTOP-3010](https://issues.apache.org/jira/browse/BIGTOP-3010) | juju bundle refresh (feb 2018) |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-3005](https://issues.apache.org/jira/browse/BIGTOP-3005) | Add zkpeer-relation-changed hook to zookeeper charm. |  Minor | deployment | José Pekkarinen | Kevin W Monroe |
+| [BIGTOP-3038](https://issues.apache.org/jira/browse/BIGTOP-3038) | Add rollingupgrade option in hadoop-hdfs-namenode.svc |  Minor | hadoop | Sahil Aggarwal | Sahil Aggarwal |
 
 
 ### BUG FIXES:
@@ -144,6 +145,31 @@
 | [BIGTOP-3001](https://issues.apache.org/jira/browse/BIGTOP-3001) | Change uid and gid for jenkins user in bigtop-toolchain |  Major | toolchain | Akira Ajisaka | Akira Ajisaka |
 | [BIGTOP-3004](https://issues.apache.org/jira/browse/BIGTOP-3004) | Fix HBase build failure on Debian/Fedora |  Major | build, hbase | Jun He | Jun He |
 | [BIGTOP-3003](https://issues.apache.org/jira/browse/BIGTOP-3003) | Ant-1.9.9 tarball is removed from Apache mirrors |  Major | toolchain | Jun He | Jun He |
+| [BIGTOP-3013](https://issues.apache.org/jira/browse/BIGTOP-3013) | kafka charm: fail to deploy using Bigtop-trunk-repos |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-3014](https://issues.apache.org/jira/browse/BIGTOP-3014) | juju: use charm-env for shebangs |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-2723](https://issues.apache.org/jira/browse/BIGTOP-2723) | Fix asciidoctor-maven-plugin for HBase build on AArch64 |  Major | . | Ganesh Raju | Yuqi Gu |
+| [BIGTOP-3018](https://issues.apache.org/jira/browse/BIGTOP-3018) | detect-javahome script has a typo in variable name |  Minor | Init scripts | Heting Zhang | Heting Zhang |
+| [BIGTOP-2991](https://issues.apache.org/jira/browse/BIGTOP-2991) | Bump up Spark version to 2.2.1 |  Major | spark | YoungWoo Kim | Jun He |
+| [BIGTOP-3023](https://issues.apache.org/jira/browse/BIGTOP-3023) | Bump qfs to 2.0.0 |  Major | qfs | Jun He | Jun He |
+| [BIGTOP-2953](https://issues.apache.org/jira/browse/BIGTOP-2953) | qfs is not buildable under Debian 9 |  Blocker | qfs | Marcin Juszkiewicz |  |
+| [BIGTOP-3025](https://issues.apache.org/jira/browse/BIGTOP-3025) | ci.bigtop.apache.org certificate is expired and causes errors |  Critical | ci | Alexandre Syenchuk | Evans Ye |
+| [BIGTOP-3024](https://issues.apache.org/jira/browse/BIGTOP-3024) | Zeppelin build is failed after Spark is bumpped to 2.2.1 |  Major | build | Jun He | Jun He |
+| [BIGTOP-3026](https://issues.apache.org/jira/browse/BIGTOP-3026) | 404 error: http://ci.bigtop.apache.org/view/Packages/job/Bigtop-trunk-packages/ |  Major | . | Guodong Xu | Evans Ye |
+| [BIGTOP-3030](https://issues.apache.org/jira/browse/BIGTOP-3030) | Fix Ambari build failure on non-x86 platforms |  Major | build | Jun He | Jun He |
+| [BIGTOP-3033](https://issues.apache.org/jira/browse/BIGTOP-3033) | Spark build on OpenSUSE is failed |  Major | build, spark | Jun He | Jun He |
+| [BIGTOP-3036](https://issues.apache.org/jira/browse/BIGTOP-3036) | Download gradle and groovy via TLS and do signature checking on ant |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-3027](https://issues.apache.org/jira/browse/BIGTOP-3027) | Wrong Leveldbjni native binary for aarch64 |  Major | build, hadoop | Jun He | Jun He |
+| [BIGTOP-3041](https://issues.apache.org/jira/browse/BIGTOP-3041) | Failed to init hadoop hdfs using init-hdfs.sh |  Major | hadoop | Jun He | Jun He |
+| [BIGTOP-3037](https://issues.apache.org/jira/browse/BIGTOP-3037) | Download maven securely |  Major | toolchain | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2818](https://issues.apache.org/jira/browse/BIGTOP-2818) | Ambari downloads jdk |  Blocker | . | Olaf Flebbe | Jun He |
+| [BIGTOP-3040](https://issues.apache.org/jira/browse/BIGTOP-3040) | Solr's default configsets doesn't work with smoke test cases |  Major | solr, tests | Jun He | Jun He |
+| [BIGTOP-3042](https://issues.apache.org/jira/browse/BIGTOP-3042) | HDFS TestHDFSQuota doesn't match Hadoop's definition |  Major | hadoop, tests | Jun He | Jun He |
+| [BIGTOP-3035](https://issues.apache.org/jira/browse/BIGTOP-3035) | Provisioner failed because init is missed in Debian-9 |  Major | provisioner, tests | Jun He | Jun He |
+| [BIGTOP-3045](https://issues.apache.org/jira/browse/BIGTOP-3045) | Remove insecure maven repository URL from gradle config |  Major | . | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-3046](https://issues.apache.org/jira/browse/BIGTOP-3046) | Not correct auto find latest maven dist |  Major | toolchain | Artem Eluferev |  |
+| [BIGTOP-3050](https://issues.apache.org/jira/browse/BIGTOP-3050) | cgroups: cannot found cgroup mount destination: unknown |  Major | ci, docker | Evans Ye | Evans Ye |
+| [BIGTOP-3052](https://issues.apache.org/jira/browse/BIGTOP-3052) | Maven version is fixed in security verification code |  Major | toolchain | Evans Ye | Evans Ye |
+| [BIGTOP-3048](https://issues.apache.org/jira/browse/BIGTOP-3048) | Revert BIGTOP-3001 to bring packaging CI back |  Major | ci | Evans Ye | Evans Ye |
 
 
 ### TESTS:

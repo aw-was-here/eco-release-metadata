@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [HIVE-17429](https://issues.apache.org/jira/browse/HIVE-17429) | *Major* | **Hive JDBC doesn't return rows when querying Impala**
+
+Check for resultSet returned by TExecuteRequest in Hive JDBC.  This preserves compatibility when fetching data from Impala.
+
+
 

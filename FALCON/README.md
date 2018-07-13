@@ -17,35 +17,35 @@
 # limitations under the License.
 -->
 * Apache Falcon v1.0
-    * [Changes](1.0/CHANGES.1.0.md)
+    * [Changelog](1.0/CHANGELOG.1.0.md)
     * [Release Notes](1.0/RELEASENOTES.1.0.md)
 * Apache Falcon v0.11
-    * [Changes](0.11/CHANGES.0.11.md)
+    * [Changelog](0.11/CHANGELOG.0.11.md)
     * [Release Notes](0.11/RELEASENOTES.0.11.md)
 * Apache Falcon v0.10
-    * [Changes](0.10/CHANGES.0.10.md)
+    * [Changelog](0.10/CHANGELOG.0.10.md)
     * [Release Notes](0.10/RELEASENOTES.0.10.md)
 * Apache Falcon v0.9
-    * [Changes](0.9/CHANGES.0.9.md)
+    * [Changelog](0.9/CHANGELOG.0.9.md)
     * [Release Notes](0.9/RELEASENOTES.0.9.md)
 * Apache Falcon v0.8
-    * [Changes](0.8/CHANGES.0.8.md)
+    * [Changelog](0.8/CHANGELOG.0.8.md)
     * [Release Notes](0.8/RELEASENOTES.0.8.md)
 * Apache Falcon v0.7
-    * [Changes](0.7/CHANGES.0.7.md)
+    * [Changelog](0.7/CHANGELOG.0.7.md)
     * [Release Notes](0.7/RELEASENOTES.0.7.md)
 * Apache Falcon v0.6.1
-    * [Changes](0.6.1/CHANGES.0.6.1.md)
+    * [Changelog](0.6.1/CHANGELOG.0.6.1.md)
     * [Release Notes](0.6.1/RELEASENOTES.0.6.1.md)
 * Apache Falcon v0.6
-    * [Changes](0.6/CHANGES.0.6.md)
+    * [Changelog](0.6/CHANGELOG.0.6.md)
     * [Release Notes](0.6/RELEASENOTES.0.6.md)
 * Apache Falcon v0.5
-    * [Changes](0.5/CHANGES.0.5.md)
+    * [Changelog](0.5/CHANGELOG.0.5.md)
     * [Release Notes](0.5/RELEASENOTES.0.5.md)
 * Apache Falcon v0.4
-    * [Changes](0.4/CHANGES.0.4.md)
+    * [Changelog](0.4/CHANGELOG.0.4.md)
     * [Release Notes](0.4/RELEASENOTES.0.4.md)
 * Apache Falcon v0.3
-    * [Changes](0.3/CHANGES.0.3.md)
+    * [Changelog](0.3/CHANGELOG.0.3.md)
     * [Release Notes](0.3/RELEASENOTES.0.3.md)

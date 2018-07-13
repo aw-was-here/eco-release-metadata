@@ -231,6 +231,7 @@
 | [SENTRY-2084](https://issues.apache.org/jira/browse/SENTRY-2084) | Exclude javax.jms:jms from sentry distribution |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2081](https://issues.apache.org/jira/browse/SENTRY-2081) | Automate the generation LICENSE.txt based on distributed jars |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2086](https://issues.apache.org/jira/browse/SENTRY-2086) | Sentry distribution source does not build due to missing modules |  Major | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [SENTRY-1982](https://issues.apache.org/jira/browse/SENTRY-1982) | Release sentry 2.0.0 upstream |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### TESTS:
@@ -422,6 +423,9 @@
 | [SENTRY-2005](https://issues.apache.org/jira/browse/SENTRY-2005) | Run vote on Release-2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2004](https://issues.apache.org/jira/browse/SENTRY-2004) | Create Release-2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2093](https://issues.apache.org/jira/browse/SENTRY-2093) | Close JIRA version for 2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
+| [SENTRY-2007](https://issues.apache.org/jira/browse/SENTRY-2007) | Finish Release-2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2006](https://issues.apache.org/jira/browse/SENTRY-2006) | Release artifacts for 2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2061](https://issues.apache.org/jira/browse/SENTRY-2061) | Prepare release notes for 2.0.0 release |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

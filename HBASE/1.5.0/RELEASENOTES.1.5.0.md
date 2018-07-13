@@ -191,6 +191,74 @@ The AssignmentManager will attempt to assign regions in FAILED\_OPEN state at an
 
 ---
 
+* [HBASE-19024](https://issues.apache.org/jira/browse/HBASE-19024) | *Critical* | **Configurable default durability for synchronous WAL**
+
+The default durability setting for the synchronous WAL is Durability.SYNC\_WAL, which triggers HDFS hflush() to flush edits to the datanodes. We also support Durability.FSYNC\_WAL, which instead triggers HDFS hsync() to flush \_and\_ fsync edits. This change introduces the new configuration setting "hbase.wal.hsync", defaulting to FALSE, that if set to TRUE changes the default durability setting for the synchronous WAL to  FSYNC\_WAL.
+
+
+---
+
+* [HBASE-16459](https://issues.apache.org/jira/browse/HBASE-16459) | *Trivial* | **Remove unused hbase shell --format option**
+
+<!-- markdown -->
+
+The HBase `shell` command no longer recognizes the option `--format`. Previously this option only recognized the default value of 'console'. The default value is now always used.
+
+
+---
+
+* [HBASE-20352](https://issues.apache.org/jira/browse/HBASE-20352) | *Major* | **[Chore] Backport HBASE-18309 to branch-1**
+
+HBASE-20352 aims to speed up process of cleaning oldWALs in two aspects,
+1. Use multiple threads to scan oldWALs directories through config hbase.cleaner.scan.dir.concurrent.size, which supports both integer (meaning the concrete size, but no more than available cpu cores) and double (between \>0.0 and \<=1.0, meaning ratio of available cpu cores) value, 0.25 by default. Pay attention that 1.0 is different from 1, the former indicates it will use 100% of cores, while the latter will use only 1 thread for chore to scan dir. 
+2. Use multiple threads to clean wals under oldWALs directory through hbase.oldwals.cleaner.thread.size, 2 by default.
+3. In addition, two configs, hbase.cleaner.scan.dir.concurrent.size and hbase.oldwals.cleaner.thread.size both support online re-configuration.
+
+
+---
+
+* [HBASE-20406](https://issues.apache.org/jira/browse/HBASE-20406) | *Major* | **HBase Thrift HTTP - Shouldn't handle TRACE/OPTIONS methods**
+
+<!-- markdown -->
+When configured to do thrift-over-http, the HBase Thrift API Server no longer accepts the HTTP methods TRACE nor OPTIONS.
+
+
+---
+
+* [HBASE-18842](https://issues.apache.org/jira/browse/HBASE-18842) | *Minor* | **The hbase shell clone\_snaphost command returns bad error message**
+
+<!-- markdown -->
+
+When attempting to clone a snapshot but using a namespace that does not exist, the HBase shell will now correctly report the exception as caused by the passed namespace. Previously, the shell would report that the problem was an unknown namespace but it would claim the user provided table name was not found as a namespace. Both before and after this change the shell properly used the passed namespace to attempt to handle the request.
+
+
+---
+
+* [HBASE-20493](https://issues.apache.org/jira/browse/HBASE-20493) | *Minor* | **Port HBASE-19994 (Create a new class for RPC throttling exception, make it retryable) to branch-1**
+
+Before this change when RPC quotas are exceeded the server will throw ThrottlingException to the client, which is unfriendly, because ThrottlingException is derived from DoNotRetryIOException. The application must specially handle error conditions caused by throttling. With this change we introduce a new exception type for RPC quotas, RpcThrottlingException, which is retryable. If the configuration parameter 'hbase.quota.retryable.throttlingexception' (default: 'false') is set to 'true' the server will throw RpcThrottlingException back to the client instead, and the client will handle this exception like any other transient condition, retrying using the configured retry policy until exhausted. The application will still need to handle the case where, because of throttling, all retries have been exhausted, but this is the normal RetriesExhaustedException that applications have to deal with anyway. Throttling will no longer demand special handling.
+
+
+---
+
+* [HBASE-20004](https://issues.apache.org/jira/browse/HBASE-20004) | *Minor* | **Client is not able to execute REST queries in a secure cluster**
+
+Added 'hbase.rest.http.allow.options.method' configuration property to allow user to decide whether Rest Server HTTP should allow OPTIONS method or not. By default it is enabled in HBase 2.1.0+ versions and in other versions it is disabled.
+Similarly 'hbase.thrift.http.allow.options.method' is added HBase 1.5, 2.1.0 and 3.0.0 versions. It is disabled by default.
+
+
+---
+
+* [HBASE-20501](https://issues.apache.org/jira/browse/HBASE-20501) | *Blocker* | **Change the Hadoop minimum version to 2.7.1**
+
+<!-- markdown -->
+HBase is no longer able to maintain compatibility with Apache Hadoop versions that are no longer receiving updates. This release raises the minimum supported version to Hadoop 2.7.1. Downstream users are strongly advised to upgrade to the latest Hadoop 2.7 maintenance release.
+
+Downstream users of earlier HBase versions are similarly advised to upgrade to Hadoop 2.7.1+. When doing so, it is especially important to follow the guidance from [the HBase Reference Guide's Hadoop section](http://hbase.apache.org/book.html#hadoop) on replacing the Hadoop artifacts bundled with HBase.
+
+
+---
+
 * [HBASE-18864](https://issues.apache.org/jira/browse/HBASE-18864) | *Major* | **NullPointerException thrown when adding rows to a table from peer cluster, table with replication factor other than 0 or 1**
 
 The only currently legal values for REPLICATION\_SCOPE in column schema are 0 (local) and 1 (global). This change enforces selection of only either of these values when setting the attribute using HColumnDescriptor.
@@ -198,9 +266,23 @@ The only currently legal values for REPLICATION\_SCOPE in column schema are 0 (l
 
 ---
 
-* [HBASE-19024](https://issues.apache.org/jira/browse/HBASE-19024) | *Critical* | **Configurable default durability for synchronous WAL**
+* [HBASE-18116](https://issues.apache.org/jira/browse/HBASE-18116) | *Major* | **Replication source in-memory accounting should not include bulk transfer hfiles**
 
-The default durability setting for the synchronous WAL is Durability.SYNC\_WAL, which triggers HDFS hflush() to flush edits to the datanodes. We also support Durability.FSYNC\_WAL, which instead triggers HDFS hsync() to flush \_and\_ fsync edits. This change introduces the new configuration setting "hbase.wal.hsync", defaulting to FALSE, that if set to TRUE changes the default durability setting for the synchronous WAL to  FSYNC\_WAL.
+Before this change we would incorrectly include the size of enqueued store files for bulk replication in the calculation for determining whether or not to rate limit the transfer of WAL edits. Because bulk replication uses a separate and asynchronous mechanism for file transfer this could incorrectly limit the batch sizes for WAL replication if bulk replication in progress, with negative impact on latency and throughput.
+
+
+---
+
+* [HBASE-20590](https://issues.apache.org/jira/browse/HBASE-20590) | *Critical* | **REST Java client is not able to negotiate with the server in the secure mode**
+
+Adds a negotiation logic between a secure java REST client and server. After this jira the Java REST client will start responding to the Negotiate challenge sent by the server. Adds RESTDemoClient which can be used to verify whether the secure Java REST client works against secure REST server or not.
+
+
+---
+
+* [HBASE-20691](https://issues.apache.org/jira/browse/HBASE-20691) | *Blocker* | **Storage policy should allow deferring to HDFS**
+
+After HBASE-20691 we have changed the default setting of hbase.wal.storage.policy from "HOT" back to "NONE" which means we defer the policy to HDFS. This fixes the problem of release 2.0.0 that the storage policy of WAL directory will defer to HDFS and may not be "HOT" even if you explicitly set hbase.wal.storage.policy to "HOT"
 
 
 

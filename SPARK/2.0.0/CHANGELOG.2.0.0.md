@@ -1089,7 +1089,7 @@
 | [SPARK-12732](https://issues.apache.org/jira/browse/SPARK-12732) | Fix LinearRegression.train for the case when label is constant and fitIntercept=false |  Minor | MLlib | Imran Younus | Imran Younus |
 | [SPARK-13157](https://issues.apache.org/jira/browse/SPARK-13157) | ADD JAR command cannot handle path with @ character |  Blocker | SQL | Cheng Lian | Herman van Hovell |
 | [SPARK-12739](https://issues.apache.org/jira/browse/SPARK-12739) | Details of batch in Streaming tab uses two Duration columns |  Minor | DStreams, Web UI | Jacek Laskowski | Mario Briggs |
-| [SPARK-12330](https://issues.apache.org/jira/browse/SPARK-12330) | Mesos coarse executor does not cleanup blockmgr properly on termination if data is stored on disk |  Major | Block Manager, Mesos | Charles Allen | Apache Spark |
+| [SPARK-12330](https://issues.apache.org/jira/browse/SPARK-12330) | Mesos coarse executor does not cleanup blockmgr properly on termination if data is stored on disk |  Major | Block Manager, Mesos | Charles R Allen | Apache Spark |
 | [SPARK-13162](https://issues.apache.org/jira/browse/SPARK-13162) | Standalone mode does not respect \`spark.dynamicAllocation.initialExecutors\` |  Major | Deploy, Spark Core | Andrew Or | Andrew Or |
 | [SPARK-13053](https://issues.apache.org/jira/browse/SPARK-13053) | Rectify ignored tests in InternalAccumulatorSuite |  Major | Spark Core, Tests | Andrew Or | Andrew Or |
 | [SPARK-13052](https://issues.apache.org/jira/browse/SPARK-13052) | waitingApps metric doesn't show the number of apps currently in the WAITING state |  Minor | Web UI | Raafat Akkad | Raafat Akkad |
@@ -1335,7 +1335,7 @@
 | [SPARK-14363](https://issues.apache.org/jira/browse/SPARK-14363) | Executor OOM due to a memory leak in Sorter |  Major | Shuffle | Sital Kedia | Sital Kedia |
 | [SPARK-14578](https://issues.apache.org/jira/browse/SPARK-14578) | Can't load a json dataset with nested wide schema |  Major | SQL | Davies Liu | Davies Liu |
 | [SPARK-13982](https://issues.apache.org/jira/browse/SPARK-13982) | SparkR - KMeans predict: Output column name of features is an unclear, automatic generated text |  Minor | SparkR | Narine Kokhlikyan | Yanbo Liang |
-| [SPARK-14537](https://issues.apache.org/jira/browse/SPARK-14537) | [CORE] SparkContext init hangs if master removes application before backend is ready. |  Major | Scheduler | Charles Allen | Charles Allen |
+| [SPARK-14537](https://issues.apache.org/jira/browse/SPARK-14537) | [CORE] SparkContext init hangs if master removes application before backend is ready. |  Major | Scheduler | Charles R Allen | Charles R Allen |
 | [SPARK-14607](https://issues.apache.org/jira/browse/SPARK-14607) | Partition pruning is case sensitive even with HiveContext |  Major | . | Davies Liu | Davies Liu |
 | [SPARK-12133](https://issues.apache.org/jira/browse/SPARK-12133) | Support dynamic allocation in Spark Streaming |  Major | DStreams, Spark Core | Andrew Or | Tathagata Das |
 | [SPARK-14573](https://issues.apache.org/jira/browse/SPARK-14573) | Python docs Makefile overrides shell environment variables breaking linting |  Minor | Build, PySpark | holdenk | holdenk |

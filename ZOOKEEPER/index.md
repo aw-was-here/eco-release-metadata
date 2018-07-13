@@ -22,6 +22,9 @@
 * Apache Zookeeper v3.6.0
     * [Changes](3.6.0/CHANGES.3.6.0.html)
     * [Release Notes](3.6.0/RELEASENOTES.3.6.0.html)
+* Apache Zookeeper v3.5.5
+    * [Changes](3.5.5/CHANGES.3.5.5.html)
+    * [Release Notes](3.5.5/RELEASENOTES.3.5.5.html)
 * Apache Zookeeper v3.5.4
     * [Changes](3.5.4/CHANGES.3.5.4.html)
     * [Release Notes](3.5.4/RELEASENOTES.3.5.4.html)

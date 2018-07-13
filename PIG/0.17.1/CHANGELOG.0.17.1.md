@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.1 - Unreleased (as of 2018-03-22)
+## Release 0.17.1 - Unreleased (as of 2018-07-13)
 
 
 
@@ -30,5 +30,6 @@
 | [PIG-4548](https://issues.apache.org/jira/browse/PIG-4548) | Records Lost With Specific Combination of Commands and Streaming Function |  Major | . | Steve T | Koji Noguchi |
 | [PIG-5254](https://issues.apache.org/jira/browse/PIG-5254) | Hit Ctrl-D to quit grunt shell fail |  Major | impl | Daniel Dai | Weijun Qian |
 | [PIG-5299](https://issues.apache.org/jira/browse/PIG-5299) | PartitionFilterOptimizer failing at compile time |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5341](https://issues.apache.org/jira/browse/PIG-5341) | PigStorage with -tagFile/-tagPath produces incorrect results with column pruning |  Critical | . | Koji Noguchi | Koji Noguchi |
 
 

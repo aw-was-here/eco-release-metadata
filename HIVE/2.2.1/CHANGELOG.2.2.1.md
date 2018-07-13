@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.1 - Unreleased (as of 2018-03-22)
+## Release 2.2.1 - Unreleased (as of 2018-07-13)
 
 
 
@@ -37,6 +37,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-17429](https://issues.apache.org/jira/browse/HIVE-17429) | Hive JDBC doesn't return rows when querying Impala |  Major | JDBC | Zach Amsden | Zach Amsden |
 | [HIVE-13989](https://issues.apache.org/jira/browse/HIVE-13989) | Extended ACLs are not handled according to specification |  Major | HCatalog | Chris Drome | Chris Drome |
 | [HIVE-17275](https://issues.apache.org/jira/browse/HIVE-17275) | Auto-merge fails on writes of UNION ALL output to ORC file with dynamic partitioning |  Major | Query Processor | Chris Drome | Chris Drome |
 | [HIVE-17472](https://issues.apache.org/jira/browse/HIVE-17472) | Drop-partition for multi-level partition fails, if data does not exist. |  Major | Metastore | Mithun Radhakrishnan | Chris Drome |

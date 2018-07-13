@@ -31,6 +31,15 @@
 * Apache HBase v1.5.0
     * [Changes](1.5.0/CHANGES.1.5.0.md)
     * [Release Notes](1.5.0/RELEASENOTES.1.5.0.md)
+* Apache HBase v1.4.6
+    * [Changes](1.4.6/CHANGES.1.4.6.md)
+    * [Release Notes](1.4.6/RELEASENOTES.1.4.6.md)
+* Apache HBase v1.4.5
+    * [Changes](1.4.5/CHANGES.1.4.5.md)
+    * [Release Notes](1.4.5/RELEASENOTES.1.4.5.md)
+* Apache HBase v1.4.4
+    * [Changes](1.4.4/CHANGES.1.4.4.md)
+    * [Release Notes](1.4.4/RELEASENOTES.1.4.4.md)
 * Apache HBase v1.4.3
     * [Changes](1.4.3/CHANGES.1.4.3.md)
     * [Release Notes](1.4.3/RELEASENOTES.1.4.3.md)

@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.11 - Unreleased (as of 2018-03-22)
+## Release 0.11 - Unreleased (as of 2018-07-13)
 
 
 
@@ -188,6 +188,7 @@
 | [FALCON-2205](https://issues.apache.org/jira/browse/FALCON-2205) | describe for non trusted extension |  Major | extensions | Praveen Adlakha | Praveen Adlakha |
 | [FALCON-2196](https://issues.apache.org/jira/browse/FALCON-2196) | Extensions User documentation |  Major | extensions | Pallavi Rao | sandeep samudrala |
 | [FALCON-2308](https://issues.apache.org/jira/browse/FALCON-2308) | Create Change log |  Major | . | Pallavi Rao | Pallavi Rao |
+| [FALCON-2309](https://issues.apache.org/jira/browse/FALCON-2309) | Create Release Notes |  Major | . | Pallavi Rao | Pallavi Rao |
 
 
 ### OTHER:

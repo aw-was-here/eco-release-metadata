@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 0.15.0 - Unreleased (as of 2018-03-22)
+## Release 0.15.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KNOX-1146](https://issues.apache.org/jira/browse/KNOX-1146) | Document KNOX CLI Commands For Listing Provider Configs and Descriptors in Remote Registries |  Major | Site | Phil Zampino | Phil Zampino |
 | [KNOX-1006](https://issues.apache.org/jira/browse/KNOX-1006) | Service Discovery and Topology Generation |  Major | Server | Phil Zampino | Phil Zampino |
+| [KNOX-1153](https://issues.apache.org/jira/browse/KNOX-1153) | Dynamic HaProvider Configuration for Generated Topologies |  Major | Server | Phil Zampino | Phil Zampino |
 
 
 ### SUB-TASKS:

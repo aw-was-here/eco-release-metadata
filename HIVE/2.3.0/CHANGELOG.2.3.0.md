@@ -163,6 +163,8 @@
 | [HIVE-15880](https://issues.apache.org/jira/browse/HIVE-15880) | Allow insert overwrite and truncate table query to use auto.purge table property |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-16164](https://issues.apache.org/jira/browse/HIVE-16164) | Provide mechanism for passing HMS notification ID between transactional and non-transactional listeners. |  Major | Metastore | Sergio Peña | Sergio Peña |
 | [HIVE-16933](https://issues.apache.org/jira/browse/HIVE-16933) | ORA-00060: deadlock detected while waiting on commit |  Major | Transactions | Eugene Koifman | Eugene Koifman |
+| [HIVE-1947](https://issues.apache.org/jira/browse/HIVE-1947) | ORDER BY should support column position expressions |  Major | Query Processor | Carl Steinbach |  |
+| [HIVE-14256](https://issues.apache.org/jira/browse/HIVE-14256) | CBO: Rewrite aggregate + distinct as 3-stage DAG |  Major | CBO | Gopal V |  |
 
 
 ### BUG FIXES:
@@ -382,7 +384,7 @@
 | [HIVE-13864](https://issues.apache.org/jira/browse/HIVE-13864) | Beeline ignores the command that follows a semicolon and comment |  Major | . | Muthu Manickam | Yongzhi Chen |
 | [HIVE-7517](https://issues.apache.org/jira/browse/HIVE-7517) | RecordIdentifier overrides equals() but not hashCode() |  Major | Query Processor, Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-16047](https://issues.apache.org/jira/browse/HIVE-16047) | Shouldn't try to get KeyProvider unless encryption is enabled |  Minor | . | Rui Li | Rui Li |
-| [HIVE-16074](https://issues.apache.org/jira/browse/HIVE-16074) | Parser can not deal with complex sql |  Major | Parser | 靳峥 | Pengcheng Xiong |
+| [HIVE-16074](https://issues.apache.org/jira/browse/HIVE-16074) | Parser can not deal with complex sql |  Major | Parser | jinzheng | Pengcheng Xiong |
 | [HIVE-16043](https://issues.apache.org/jira/browse/HIVE-16043) | TezConfiguration.TEZ\_QUEUE\_NAME instead of tez.queue.name |  Major | Tez | Fei Hui | Fei Hui |
 | [HIVE-15844](https://issues.apache.org/jira/browse/HIVE-15844) | Make ReduceSinkOperator independent of Acid |  Major | Transactions | Eugene Koifman | Eugene Koifman |
 | [HIVE-13335](https://issues.apache.org/jira/browse/HIVE-13335) | tune TxnHandler.performTimeOuts() batch size |  Major | Transactions | Eugene Koifman | Eugene Koifman |
@@ -459,7 +461,6 @@
 | [HIVE-15644](https://issues.apache.org/jira/browse/HIVE-15644) | Collect LLAP's JVM metrics via Hive's JvmPauseMonitor |  Major | Hive | Wei Zheng | Wei Zheng |
 | [HIVE-16273](https://issues.apache.org/jira/browse/HIVE-16273) | Vectorization: Make non-column key expressions work in MERGEPARTIAL mode |  Critical | Hive | Matt McCline | Matt McCline |
 | [HIVE-14801](https://issues.apache.org/jira/browse/HIVE-14801) | improve TestPartitionNameWhitelistValidation stability |  Major | . | Thejas M Nair | Thejas M Nair |
-| [HIVE-16282](https://issues.apache.org/jira/browse/HIVE-16282) | Semijoin: Disable slow-start for the bloom filter aggregate task |  Major | . | Gopal V | Deepak Jaiswal |
 | [HIVE-16274](https://issues.apache.org/jira/browse/HIVE-16274) | Support tuning of NDV of columns using lower/upper bounds |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-9815](https://issues.apache.org/jira/browse/HIVE-9815) | Metastore column"SERDE\_PARAMS"."PARAM\_VALUE"  limited to 4000 bytes |  Critical | Metastore | Naveen Gangam | Naveen Gangam |
 | [HIVE-15249](https://issues.apache.org/jira/browse/HIVE-15249) | HIve 2.1.0 is throwing InvalidObjectException(message:Invalid column type name is too long |  Major | Hive | vishal.rajan | Naveen Gangam |

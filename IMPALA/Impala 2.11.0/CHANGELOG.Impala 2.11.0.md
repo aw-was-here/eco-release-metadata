@@ -77,6 +77,7 @@
 | [IMPALA-4985](https://issues.apache.org/jira/browse/IMPALA-4985) | Evaluate parquet::Statistics to skip data in nested types |  Major | Backend, Frontend | Lars Volker | Vuk Ercegovac |
 | [IMPALA-2250](https://issues.apache.org/jira/browse/IMPALA-2250) | Make multiple COUNT(DISTINCT) message state workarounds |  Minor | Frontend | John Russell | Jinchul Kim |
 | [IMPALA-2181](https://issues.apache.org/jira/browse/IMPALA-2181) | Add a flag for hidden query options |  Minor | Clients | Ippokratis Pandis | Gabor Kaszab |
+| [IMPALA-5243](https://issues.apache.org/jira/browse/IMPALA-5243) | Slow codegen for wide Avro tables |  Major | Backend | Alexander Behm | Philip Zeyliger |
 | [IMPALA-4506](https://issues.apache.org/jira/browse/IMPALA-4506) | Make "tip of the day" message respect --quiet option |  Minor | Clients | John Russell | Jinchul Kim |
 | [IMPALA-6210](https://issues.apache.org/jira/browse/IMPALA-6210) | Add query id to lineage graph logging |  Trivial | Infrastructure | Tianyi Wang | Tianyi Wang |
 | [IMPALA-3804](https://issues.apache.org/jira/browse/IMPALA-3804) | Re-enable per-scan filtering for sequence-based scanners |  Minor | Backend | Henry Robinson | Zoltán Borók-Nagy |
@@ -226,8 +227,10 @@
 | [IMPALA-3703](https://issues.apache.org/jira/browse/IMPALA-3703) | Store query context in thread-local variables and use in crash reports |  Minor | Backend | Tim Armstrong | Zoltán Borók-Nagy |
 | [IMPALA-6155](https://issues.apache.org/jira/browse/IMPALA-6155) | TPC-DS Q77A is not deterministic |  Major | Infrastructure | Tim Armstrong | Tim Wood |
 | [IMPALA-6278](https://issues.apache.org/jira/browse/IMPALA-6278) | Set up release notes for Impala 2.11 |  Major | Docs | John Russell | John Russell |
-| [IMPALA-6092](https://issues.apache.org/jira/browse/IMPALA-6092) | Flaky test: query\_test/test\_udfs.py still happening |  Critical | Infrastructure | Tim Armstrong | Vuk Ercegovac |
 | [IMPALA-6499](https://issues.apache.org/jira/browse/IMPALA-6499) | Impala Doc: Formatting error in the String Functions doc |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6274](https://issues.apache.org/jira/browse/IMPALA-6274) | Impala daemon crashing in Coordinator::Wait() or some of its callees |  Blocker | Backend | Zoram Thanga |  |
+| [IMPALA-6936](https://issues.apache.org/jira/browse/IMPALA-6936) |  LLVM generates toxic x86 assembly for StringFunctions::Trim() |  Critical | Backend | Zoram Thanga | Zoram Thanga |
+| [IMPALA-3267](https://issues.apache.org/jira/browse/IMPALA-3267) | Docs about nan/inf are incorrect |  Trivial | Docs | Todd Lipcon | Alex Rodoni |
 
 
 ### TESTS:
@@ -269,6 +272,7 @@
 | [IMPALA-6251](https://issues.apache.org/jira/browse/IMPALA-6251) | Document DATE\_TRUNC() function |  Major | Docs | John Russell | John Russell |
 | [IMPALA-6339](https://issues.apache.org/jira/browse/IMPALA-6339) | Document changes to SET output and new SET ALL syntax |  Major | Clients | John Russell | John Russell |
 | [IMPALA-6379](https://issues.apache.org/jira/browse/IMPALA-6379) | Document Kudu filter improvements |  Major | Backend | John Russell | John Russell |
+| [IMPALA-6612](https://issues.apache.org/jira/browse/IMPALA-6612) | Impala Doc: New TRIM function |  Major | Docs | Alex Rodoni | Alex Rodoni |
 
 
 ### OTHER:

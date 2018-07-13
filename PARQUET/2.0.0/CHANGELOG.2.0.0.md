@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 2.0.0 - Unreleased (as of 2018-03-22)
+## Release 2.0.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -27,7 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PARQUET-376](https://issues.apache.org/jira/browse/PARQUET-376) | Tolerate square brackets in PR titles |  Minor | . | Alex Levenson | Alex Levenson |
-| [PARQUET-381](https://issues.apache.org/jira/browse/PARQUET-381) | It should be possible to merge summary files, and control which files are generated |  Major | parquet-mr | Alex Levenson | Alex Levenson |
 
 
 ### BUG FIXES:

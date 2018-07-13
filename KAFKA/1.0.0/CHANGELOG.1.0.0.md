@@ -241,6 +241,9 @@
 | [KAFKA-5318](https://issues.apache.org/jira/browse/KAFKA-5318) | Streams state may be misleading |  Major | streams | Joao |  |
 | [KAFKA-6334](https://issues.apache.org/jira/browse/KAFKA-6334) | Minor documentation typo |  Trivial | documentation | Andrew Olson | Andrew Olson |
 | [KAFKA-6613](https://issues.apache.org/jira/browse/KAFKA-6613) | The controller shouldn't stop partition reassignment after an exception is being thrown |  Major | admin, config, controller, core | chandra kasiraju |  |
+| [KAFKA-6792](https://issues.apache.org/jira/browse/KAFKA-6792) | Wrong pointer in the link for stream dsl |  Major | documentation, streams | robin m |  |
+| [KAFKA-6815](https://issues.apache.org/jira/browse/KAFKA-6815) | "default.production.exception.handler" default value is not specified correctly in KafkaStream doc |  Minor | documentation | taekyung kim |  |
+| [KAFKA-6861](https://issues.apache.org/jira/browse/KAFKA-6861) | Missing ')' in Kafka Streams documentation |  Trivial | documentation, streams | Ravi Raj Singh |  |
 
 
 ### TESTS:

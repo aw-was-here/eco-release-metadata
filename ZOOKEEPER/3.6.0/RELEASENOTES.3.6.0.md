@@ -163,4 +163,11 @@ zk\_zxid\_epoch - the upper 32 bits, AKA the epoch
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [ZOOKEEPER-761](https://issues.apache.org/jira/browse/ZOOKEEPER-761) | *Blocker* | **Remove \*synchronous\* calls from the \*single-threaded\* C clieant API, since they are documented not to work**
+
+Removed synchronous calls from the single-threaded API as they are not implemented and documented as such.
+
+
 

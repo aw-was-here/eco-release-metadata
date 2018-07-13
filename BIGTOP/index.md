@@ -17,20 +17,20 @@
 # limitations under the License.
 -->
 * Apache BigTop v1.3.0
-    * [Changes](1.3.0/CHANGES.1.3.0.html)
+    * [Changelog](1.3.0/CHANGELOG.1.3.0.html)
     * [Release Notes](1.3.0/RELEASENOTES.1.3.0.html)
 * Apache BigTop v1.2.1
-    * [Changes](1.2.1/CHANGES.1.2.1.html)
+    * [Changelog](1.2.1/CHANGELOG.1.2.1.html)
     * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
 * Apache BigTop v1.2.0
-    * [Changes](1.2.0/CHANGES.1.2.0.html)
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache BigTop v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.html)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.html)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)
 * Apache BigTop v1.0.1
-    * [Changes](1.0.1/CHANGES.1.0.1.html)
+    * [Changelog](1.0.1/CHANGELOG.1.0.1.html)
     * [Release Notes](1.0.1/RELEASENOTES.1.0.1.html)
 * Apache BigTop v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)

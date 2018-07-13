@@ -19,6 +19,9 @@
 * Apache Sentry v2.1.0
     * [Changes](2.1.0/CHANGES.2.1.0.md)
     * [Release Notes](2.1.0/RELEASENOTES.2.1.0.md)
+* Apache Sentry v2.0.1
+    * [Changes](2.0.1/CHANGES.2.0.1.md)
+    * [Release Notes](2.0.1/RELEASENOTES.2.0.1.md)
 * Apache Sentry v2.0.0
     * [Changes](2.0.0/CHANGES.2.0.0.md)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.md)

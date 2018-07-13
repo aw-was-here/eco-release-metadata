@@ -127,7 +127,6 @@
 | [IMPALA-5223](https://issues.apache.org/jira/browse/IMPALA-5223) | HBase/Zookeeper continues to be flaky on RHEL7 |  Major | Infrastructure | Taras Bobrovytsky | Lars Volker |
 | [IMPALA-5487](https://issues.apache.org/jira/browse/IMPALA-5487) | Race in runtime-profile.cc::toThrift() can lead to corrupt profiles being generated while query is running |  Blocker | Backend | Lars Volker | Lars Volker |
 | [IMPALA-5492](https://issues.apache.org/jira/browse/IMPALA-5492) | There is an error in impala-shell introduction when using LDAP |  Minor | Clients | Donghui Xu | Donghui Xu |
-| [IMPALA-5499](https://issues.apache.org/jira/browse/IMPALA-5499) | session-expiry-test failed because of conflicting ephemeral ports |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4418](https://issues.apache.org/jira/browse/IMPALA-4418) | Extra blank lines in query result |  Major | Clients | Matyas Orhidi | Vincent Tran |
 | [IMPALA-4483](https://issues.apache.org/jira/browse/IMPALA-4483) | run-backend-tests.sh does not work with ninja |  Minor | Infrastructure | Jim Apple | Jim Apple |
 | [IMPALA-5494](https://issues.apache.org/jira/browse/IMPALA-5494) | NOT IN predicate shares the same selectivity as IN predicate |  Minor | Frontend | Vincent Tran | Vincent Tran |
@@ -261,6 +260,8 @@
 | [IMPALA-5894](https://issues.apache.org/jira/browse/IMPALA-5894) | Placement of straight\_join hint wrong in documentation |  Major | Docs | Alexander Behm | John Russell |
 | [IMPALA-2636](https://issues.apache.org/jira/browse/IMPALA-2636) | HS2 GetTables() returns TABLE\_TYPE as TABLE for VIEW |  Minor | Catalog | Jenny Kim | sandeep akinapelli |
 | [IMPALA-6028](https://issues.apache.org/jira/browse/IMPALA-6028) | Document max\_row\_size for upgrade awareness |  Blocker | Docs | Balazs Jeszenszky | John Russell |
+| [IMPALA-5499](https://issues.apache.org/jira/browse/IMPALA-5499) | session-expiry-test failed because of conflicting ephemeral ports |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
+| [IMPALA-6873](https://issues.apache.org/jira/browse/IMPALA-6873) | Crash in Expr::GetConstVal() due to NULL dereference |  Blocker | Backend | bharath v |  |
 
 
 ### TESTS:

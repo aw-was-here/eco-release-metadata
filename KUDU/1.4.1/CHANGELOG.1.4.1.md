@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.4.1 - Unreleased (as of 2018-03-22)
+## Release 1.4.1 - Unreleased (as of 2018-07-13)
 
 
 
@@ -38,5 +38,6 @@
 | [KUDU-2209](https://issues.apache.org/jira/browse/KUDU-2209) | HybridClock doesn't handle changes STA\_NANO status flag |  Critical | server | Todd Lipcon | Todd Lipcon |
 | [KUDU-2173](https://issues.apache.org/jira/browse/KUDU-2173) | Partitions are pruned incorrectly when range-partitioned on a PK prefix |  Blocker | client | Todd Lipcon | Dan Burkert |
 | [KUDU-2218](https://issues.apache.org/jira/browse/KUDU-2218) | SSL3\_WRITE\_PENDING TlsSocket error |  Major | rpc, security | Alexey Serbin | Todd Lipcon |
+| [KUDU-2416](https://issues.apache.org/jira/browse/KUDU-2416) | Incorrect fallthrough in Java PartialRow.setMin for DECIMAL times |  Critical | java | Todd Lipcon | Grant Henke |
 
 

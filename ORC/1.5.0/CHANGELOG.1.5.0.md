@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-03-22)
+## Release 1.5.0 - 2018-05-14
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-199](https://issues.apache.org/jira/browse/ORC-199) | Include a CSV to ORC converter |  Major | . | Carter Shanklin | Owen O'Malley |
 | [ORC-308](https://issues.apache.org/jira/browse/ORC-308) | Add function to get subtypes by name |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-331](https://issues.apache.org/jira/browse/ORC-331) | Add support for Windows/MSVC |  Major | C++ | rip.nsk | rip.nsk |
 
 
 ### IMPROVEMENTS:
@@ -56,6 +57,22 @@
 | [ORC-271](https://issues.apache.org/jira/browse/ORC-271) | Improve HAS\_PRE\_1970 |  Minor | C++ | rip.nsk | rip.nsk |
 | [ORC-290](https://issues.apache.org/jira/browse/ORC-290) | [C++] Update Readme to include C++ writer info |  Major | . | Xiening Dai | Xiening Dai |
 | [ORC-300](https://issues.apache.org/jira/browse/ORC-300) | Permit use of external transformation during JSON import step |  Minor | Java, tools | Thomas Krüger | Thomas Krüger |
+| [ORC-332](https://issues.apache.org/jira/browse/ORC-332) | Add syntax version to orc\_proto.proto |  Trivial | . | rip.nsk | rip.nsk |
+| [ORC-337](https://issues.apache.org/jira/browse/ORC-337) | Move to storage-api 2.5.0 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-344](https://issues.apache.org/jira/browse/ORC-344) | Support using the new Decimal64ColumnVector for reading and writing decimal |  Major | Java | Owen O'Malley | Owen O'Malley |
+| [ORC-333](https://issues.apache.org/jira/browse/ORC-333) | Minor changes to avoid warnings from MSVC |  Minor | C++ | rip.nsk | rip.nsk |
+| [ORC-339](https://issues.apache.org/jira/browse/ORC-339) | Reorganize ORC specification |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-355](https://issues.apache.org/jira/browse/ORC-355) | Upgrade storage-api to 2.6.0 |  Major | . | Owen O'Malley | Jesus Camacho Rodriguez |
+| [ORC-353](https://issues.apache.org/jira/browse/ORC-353) | Change C++ csv reader to handle formatted timestamps |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-323](https://issues.apache.org/jira/browse/ORC-323) | Predicate push down for nested fields |  Minor | Java | Ashish Sharma | Ashish Sharma |
+| [ORC-354](https://issues.apache.org/jira/browse/ORC-354) | Restore the benchmarks after clarification from apache legal |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-356](https://issues.apache.org/jira/browse/ORC-356) | fix and extend Adaptor (.cc/.hh) |  Major | C++ | rip.nsk | rip.nsk |
+| [ORC-352](https://issues.apache.org/jira/browse/ORC-352) | Update, cleanup and add support of MSVC to ThirdpartyToolchain |  Major | C++ | rip.nsk | rip.nsk |
+| [ORC-357](https://issues.apache.org/jira/browse/ORC-357) | Use orc::InputStream in getTimezoneByFilename |  Minor | C++ | rip.nsk | rip.nsk |
+| [ORC-358](https://issues.apache.org/jira/browse/ORC-358) | windows/msvc version of OrcFile/pread() |  Major | C++ | rip.nsk | rip.nsk |
+| [ORC-345](https://issues.apache.org/jira/browse/ORC-345) | Create a Decimal64StatisticsImpl |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-341](https://issues.apache.org/jira/browse/ORC-341) | Add ability to use timestamp in UTC rather than local timezone. |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
+| [ORC-360](https://issues.apache.org/jira/browse/ORC-360) | Implement error checking on subtype fields in Java |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -105,6 +122,18 @@
 | [ORC-310](https://issues.apache.org/jira/browse/ORC-310) | better error handling and lifecycle management for codecs |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [ORC-321](https://issues.apache.org/jira/browse/ORC-321) | Add a pretty print option to the JSON schema finder. |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-324](https://issues.apache.org/jira/browse/ORC-324) | Add support for ARM and PPC arch |  Major | build | Vi On | Vi On |
+| [ORC-317](https://issues.apache.org/jira/browse/ORC-317) | C++ reader crash on reading corrupt types |  Major | C++, Java | Quanlong Huang | Quanlong Huang |
+| [ORC-313](https://issues.apache.org/jira/browse/ORC-313) | Missing checks on SubType count of LIST, MAP and UNION types |  Major | C++, Java, Reader | Quanlong Huang | Quanlong Huang |
+| [ORC-328](https://issues.apache.org/jira/browse/ORC-328) | Add option to allow custom timestamp format for CSV to ORC conversion |  Major | . | Bill Warshaw | Bill Warshaw |
+| [ORC-326](https://issues.apache.org/jira/browse/ORC-326) | Fix HadoopShimsFactory to create pre2.6 shims |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-327](https://issues.apache.org/jira/browse/ORC-327) | Fix java test cases to run correctly in other timezones. |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-329](https://issues.apache.org/jira/browse/ORC-329) | [C++] Fix error: zero as null pointer constant |  Minor | C++ | Gang Wu | Gang Wu |
+| [ORC-322](https://issues.apache.org/jira/browse/ORC-322) | c++ writer should not adjust gmtOffset when writing timestamps |  Major | C++ | Quanlong Huang | Gang Wu |
+| [ORC-336](https://issues.apache.org/jira/browse/ORC-336) | Remove avro and parquet dependency management entries |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-338](https://issues.apache.org/jira/browse/ORC-338) | Workaround C++ compiler bug in newest clang including xcode 9.3 |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-351](https://issues.apache.org/jira/browse/ORC-351) | Decimal64ColumnWriter buffer has not enough size to encode decimals with precision \> 16 |  Blocker | C++ | rip.nsk | rip.nsk |
+| [ORC-346](https://issues.apache.org/jira/browse/ORC-346) | Bug in TimestampColumnReader (or Writer) |  Blocker | C++ | rip.nsk | rip.nsk |
+| [ORC-248](https://issues.apache.org/jira/browse/ORC-248) | The new padStream method can throw a NegativeArraySizeException. |  Blocker | . | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:
@@ -113,6 +142,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-304](https://issues.apache.org/jira/browse/ORC-304) | Fix TestRecordReaderImpl to not fail with new storage-api |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-306](https://issues.apache.org/jira/browse/ORC-306) | Fix incorrect workaround for bug in java.sql.Timestamp |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-305](https://issues.apache.org/jira/browse/ORC-305) | Add column statistics for the size on disk |  Major | . | Owen O'Malley | Sandeep More |
 
 
 ### SUB-TASKS:
@@ -135,6 +165,8 @@
 | [ORC-276](https://issues.apache.org/jira/browse/ORC-276) | [C++] Create a simple tool to import CSV files |  Major | C++, tools | Gang Wu | Gang Wu |
 | [ORC-250](https://issues.apache.org/jira/browse/ORC-250) | Create sha256 mask |  Major | . | Owen O'Malley | Sandeep More |
 | [ORC-278](https://issues.apache.org/jira/browse/ORC-278) | Create in memory KeyProvider class |  Major | . | Owen O'Malley | Sandeep More |
+| [ORC-318](https://issues.apache.org/jira/browse/ORC-318) | Change HadoopShims.KeyProvider to separate createLocalKey and decryptLocalKey |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-49](https://issues.apache.org/jira/browse/ORC-49) | Improve decimal encoding to use RLE |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### OTHER:
@@ -143,5 +175,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-267](https://issues.apache.org/jira/browse/ORC-267) | Restore NOTICES and LICENSE to binary tarball |  Major | . | Owen O'Malley | Deepak Majeti |
 | [ORC-298](https://issues.apache.org/jira/browse/ORC-298) | Move the benchmark code base to non-Apache repository |  Blocker | . | Owen O'Malley | Owen O'Malley |
+| [ORC-179](https://issues.apache.org/jira/browse/ORC-179) | ORC C++ Writer Umbrella |  Major | C++ | Gang Wu | Gang Wu |
+| [ORC-330](https://issues.apache.org/jira/browse/ORC-330) | Remove unnecessary Hive artifacts from root pom |  Minor | Java | Daniel Voros | Daniel Voros |
 
 

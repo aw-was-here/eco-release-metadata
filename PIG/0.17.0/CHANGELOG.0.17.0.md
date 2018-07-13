@@ -169,6 +169,7 @@
 | [PIG-5188](https://issues.apache.org/jira/browse/PIG-5188) | Review pig-index.xml |  Major | documentation | Daniel Dai | Adam Szita |
 | [PIG-5244](https://issues.apache.org/jira/browse/PIG-5244) | Several unit tests are failing in Tez mode after merging spark branch |  Major | tez | Nandor Kollar | Nandor Kollar |
 | [PIG-5245](https://issues.apache.org/jira/browse/PIG-5245) | TestGrunt.testStopOnFailure is flaky |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
+| [PIG-5162](https://issues.apache.org/jira/browse/PIG-5162) | Fix failing e2e tests with spark exec type |  Major | spark | Nandor Kollar |  |
 
 
 ### TESTS:

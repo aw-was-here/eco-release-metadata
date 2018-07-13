@@ -70,7 +70,7 @@
 | [FLINK-8355](https://issues.apache.org/jira/browse/FLINK-8355) | DataSet Should not union a NULL row for AGG without GROUP BY clause. |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-8325](https://issues.apache.org/jira/browse/FLINK-8325) | Add COUNT AGG support constant parameter, i.e. COUNT(\*), COUNT(1) |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-8248](https://issues.apache.org/jira/browse/FLINK-8248) | RocksDB state backend Checkpointing is not working with KeyedCEP in 1.4 |  Major | CEP, State Backends, Checkpointing | jia liu |  |
-| [FLINK-8433](https://issues.apache.org/jira/browse/FLINK-8433) | Update code example for "Managed Operator State" documentation |  Major | Documentation, State Backends, Checkpointing | Fabian Hueske | mingleizhang |
+| [FLINK-8433](https://issues.apache.org/jira/browse/FLINK-8433) | Update code example for "Managed Operator State" documentation |  Major | Documentation, State Backends, Checkpointing | Fabian Hueske | zhangminglei |
 | [FLINK-8499](https://issues.apache.org/jira/browse/FLINK-8499) | Kryo must not be child-first loaded |  Blocker | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-8466](https://issues.apache.org/jira/browse/FLINK-8466) | ErrorInfo needs to hold Exception as SerializedThrowable |  Blocker | Local Runtime | Jelmer Kuperus | Stephan Ewen |
 | [FLINK-8406](https://issues.apache.org/jira/browse/FLINK-8406) | BucketingSink does not detect hadoop file systems |  Blocker | FileSystem | Chesnay Schepler | Stephan Ewen |

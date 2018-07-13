@@ -19,6 +19,12 @@
 * Apache Parquet v2.0.0
     * [Changes](2.0.0/CHANGES.2.0.0.md)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.md)
+* Apache Parquet v1.11.0
+    * [Changes](1.11.0/CHANGES.1.11.0.md)
+    * [Release Notes](1.11.0/RELEASENOTES.1.11.0.md)
+* Apache Parquet v1.10.1
+    * [Changes](1.10.1/CHANGES.1.10.1.md)
+    * [Release Notes](1.10.1/RELEASENOTES.1.10.1.md)
 * Apache Parquet v1.10.0
     * [Changes](1.10.0/CHANGES.1.10.0.md)
     * [Release Notes](1.10.0/RELEASENOTES.1.10.0.md)

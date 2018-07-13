@@ -18,16 +18,26 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.4.4 - Unreleased (as of 2018-03-22)
+## Release 1.4.4 - 2018-05-14
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-332](https://issues.apache.org/jira/browse/ORC-332) | Add syntax version to orc\_proto.proto |  Trivial | . | rip.nsk | rip.nsk |
+| [ORC-360](https://issues.apache.org/jira/browse/ORC-360) | Implement error checking on subtype fields in Java |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-281](https://issues.apache.org/jira/browse/ORC-281) | Fix compiler warnings from clang 5.0 |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-301](https://issues.apache.org/jira/browse/ORC-301) | \`extractFileTail\` should open a file in \`try\` statement |  Major | Java | Dongjoon Hyun | Dongjoon Hyun |
 | [ORC-324](https://issues.apache.org/jira/browse/ORC-324) | Add support for ARM and PPC arch |  Major | build | Vi On | Vi On |
+| [ORC-336](https://issues.apache.org/jira/browse/ORC-336) | Remove avro and parquet dependency management entries |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### TESTS:
@@ -35,5 +45,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-304](https://issues.apache.org/jira/browse/ORC-304) | Fix TestRecordReaderImpl to not fail with new storage-api |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-306](https://issues.apache.org/jira/browse/ORC-306) | Fix incorrect workaround for bug in java.sql.Timestamp |  Major | . | Owen O'Malley | Owen O'Malley |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-330](https://issues.apache.org/jira/browse/ORC-330) | Remove unnecessary Hive artifacts from root pom |  Minor | Java | Daniel Voros | Daniel Voros |
 
 

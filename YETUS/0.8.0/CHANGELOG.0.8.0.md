@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.8.0 - Unreleased (as of 2018-03-22)
+## Release 0.8.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -37,5 +37,13 @@
 | [YETUS-614](https://issues.apache.org/jira/browse/YETUS-614) | github\_jira\_bridge is not working after the update of ASF JIRA |  Critical | Test Patch | Akira Ajisaka | Akira Ajisaka |
 | [YETUS-616](https://issues.apache.org/jira/browse/YETUS-616) | mvn dep ordering should use -fae |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-618](https://issues.apache.org/jira/browse/YETUS-618) | Update release process to replace md5 with  sha512 |  Blocker | build | Allen Wittenauer | Akira Ajisaka |
+| [YETUS-619](https://issues.apache.org/jira/browse/YETUS-619) | audience-annotations-jdiff doclet does not work on Java 9 |  Minor | Audience Annotations | Grant Henke | Akira Ajisaka |
+| [YETUS-621](https://issues.apache.org/jira/browse/YETUS-621) | docker-cleanup doesn't support robot or sentinel correctly |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-622](https://issues.apache.org/jira/browse/YETUS-622) | docker-cleanup removes non-Yetus docker images even if not in sentinel mode |  Blocker | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-623](https://issues.apache.org/jira/browse/YETUS-623) | docker-cleanup doesn't support options which start with docker correctly |  Major | Test Patch | Kengo Seki | Kengo Seki |
+| [YETUS-630](https://issues.apache.org/jira/browse/YETUS-630) | Add HDDS subproject to the Hadoop personality |  Major | Test Patch | Elek, Marton | Elek, Marton |
+| [YETUS-620](https://issues.apache.org/jira/browse/YETUS-620) | reject patches if they contain files with names/paths over a certain length |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-634](https://issues.apache.org/jira/browse/YETUS-634) | maven plugin dropping '--batch-mode' maven argument |  Minor | Test Patch | Sean Busbey | Sean Busbey |
+| [YETUS-615](https://issues.apache.org/jira/browse/YETUS-615) | Fix a typo in smart-apply-patch.sh |  Trivial | Test Patch | Akira Ajisaka | abipc |
 
 

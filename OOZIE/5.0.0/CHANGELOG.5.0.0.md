@@ -18,8 +18,15 @@
 -->
 # Apache Oozie Changelog
 
-## Release 5.0.0 - Unreleased (as of 2018-03-22)
+## Release 5.0.0 - 2018-04-09
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [OOZIE-3056](https://issues.apache.org/jira/browse/OOZIE-3056) | Implement new mechanism to specify ShareLibs for workflow actions |  Critical | core | Attila Sasvari | Peter Cseh |
 
 
 ### IMPROVEMENTS:
@@ -33,6 +40,8 @@
 | [OOZIE-3172](https://issues.apache.org/jira/browse/OOZIE-3172) | Upgrade non-transitive Jackson dependencies from org.codehaus.jackson to com.fasterxml.jackson |  Major | core | Andras Piros | Andras Piros |
 | [OOZIE-3183](https://issues.apache.org/jira/browse/OOZIE-3183) | Better logging for SshActionExecutor and extended HA capability when calling to remote host |  Major | action | Andras Piros | Andras Piros |
 | [OOZIE-3189](https://issues.apache.org/jira/browse/OOZIE-3189) | Update the release script and wiki page to use sha512 instead of md5 |  Blocker | scripts | Robert Kanter | Robert Kanter |
+| [OOZIE-3201](https://issues.apache.org/jira/browse/OOZIE-3201) | Typo in TestCoordActionInputCheckXCommand |  Minor | core | gongchuanjie | gongchuanjie |
+| [OOZIE-2645](https://issues.apache.org/jira/browse/OOZIE-2645) | Deprecate Instrumentation in favor of Metrics |  Blocker | monitoring | Robert Kanter | Andras Piros |
 
 
 ### BUG FIXES:
@@ -53,6 +62,8 @@
 | [OOZIE-3182](https://issues.apache.org/jira/browse/OOZIE-3182) | Oozie components fail with checkstyle errors |  Major | client, examples | Alisha Prabhu | Alisha Prabhu |
 | [OOZIE-2957](https://issues.apache.org/jira/browse/OOZIE-2957) | Documentation states that starting a coordinator is possible |  Major | coordinator, docs | Jan Hentschel | Jan Hentschel |
 | [OOZIE-3195](https://issues.apache.org/jira/browse/OOZIE-3195) | Typo in WebServicesAPI.twiki: Proxy Hive Job Submission |  Minor | docs | Julia Kinga Marton | Julia Kinga Marton |
+| [OOZIE-3150](https://issues.apache.org/jira/browse/OOZIE-3150) | Remove references to not present dependencies within NOTICE.txt |  Blocker | . | Robert Kanter | Peter Cseh |
+| [OOZIE-3176](https://issues.apache.org/jira/browse/OOZIE-3176) | Oozie-core fails with checkstyle errors |  Blocker | core | Alisha Prabhu | Alisha Prabhu |
 
 
 ### SUB-TASKS:
@@ -60,11 +71,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2996](https://issues.apache.org/jira/browse/OOZIE-2996) | Add options for GC overhead limit error to maven.test.java.opts |  Major | build | Artem Ervits | Artem Ervits |
-| [OOZIE-3017](https://issues.apache.org/jira/browse/OOZIE-3017) | API for workflows: other action types |  Major | client | Daniel Becker | Andras Piros |
-| [OOZIE-3154](https://issues.apache.org/jira/browse/OOZIE-3154) | CLI: generate, check, submit and run workflow definitions based on API jars |  Major | client | Andras Piros | Andras Piros |
 | [OOZIE-2585](https://issues.apache.org/jira/browse/OOZIE-2585) | Remove test case TestPartitionDependencyManagerEhcache.testMemoryUsageAndSpeedOverflowToDisk and testMemoryUsageAndSpeed |  Minor | . | Peter Bacsko | Peter Bacsko |
 | [OOZIE-2814](https://issues.apache.org/jira/browse/OOZIE-2814) | OYA: Update example workflows to newest schemas |  Blocker | . | Robert Kanter | Attila Sasvari |
 | [OOZIE-2600](https://issues.apache.org/jira/browse/OOZIE-2600) | OYA: Update Documentation |  Blocker | . | Robert Kanter | Andras Piros |
+| [OOZIE-2726](https://issues.apache.org/jira/browse/OOZIE-2726) | Flaky test due to daylight saving changes |  Blocker | . | Satish Subhashrao Saley | Andras Piros |
 
 
 ### OTHER:

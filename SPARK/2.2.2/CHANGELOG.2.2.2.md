@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.2 - Unreleased (as of 2018-03-22)
+## Release 2.2.2 - 2018-07-02
 
 
 
@@ -27,12 +27,15 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-22688](https://issues.apache.org/jira/browse/SPARK-22688) | Upgrade Janino version to 3.0.8 |  Major | SQL | Kazuaki Ishizaki | Kazuaki Ishizaki |
+| [SPARK-22897](https://issues.apache.org/jira/browse/SPARK-22897) | Expose  stageAttemptId in TaskContext |  Minor | Spark Core | Xianjin YE | Xianjin YE |
+| [SPARK-23963](https://issues.apache.org/jira/browse/SPARK-23963) | Queries on text-based Hive tables grow disproportionately slower as the number of columns increase |  Minor | SQL | Bruce Robbins | Bruce Robbins |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-21278](https://issues.apache.org/jira/browse/SPARK-21278) | Upgrade to Py4J 0.10.6 |  Major | PySpark | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-22607](https://issues.apache.org/jira/browse/SPARK-22607) | Set large stack size consistently for tests to avoid StackOverflowError |  Minor | Build, Tests | Sean Owen | Sean Owen |
 | [SPARK-22637](https://issues.apache.org/jira/browse/SPARK-22637) | CatalogImpl.refresh() has quadratic complexity for a view |  Minor | SQL | Herman van Hovell | Herman van Hovell |
 | [SPARK-22654](https://issues.apache.org/jira/browse/SPARK-22654) | Retry download of Spark from ASF mirror in HiveExternalCatalogVersionsSuite |  Minor | SQL, Tests | Sean Owen | Sean Owen |
@@ -65,6 +68,23 @@
 | [SPARK-23438](https://issues.apache.org/jira/browse/SPARK-23438) | DStreams could lose blocks with WAL enabled when driver crashes |  Critical | DStreams | Gabor Somogyi | Gabor Somogyi |
 | [SPARK-23508](https://issues.apache.org/jira/browse/SPARK-23508) | blockManagerIdCache in BlockManagerId may cause oom |  Major | Deploy, Spark Core | zhoukang | zhoukang |
 | [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525) | ALTER TABLE CHANGE COLUMN doesn't work for external hive table |  Major | SQL | Pavlo Skliar | Jiang Xingbo |
+| [SPARK-23759](https://issues.apache.org/jira/browse/SPARK-23759) | Unable to bind Spark UI to specific host name / IP |  Major | Spark Core, Web UI | Felix Albani | Felix Albani |
+| [SPARK-23788](https://issues.apache.org/jira/browse/SPARK-23788) | Race condition in StreamingQuerySuite |  Minor | Structured Streaming | Jose Torres | Jose Torres |
+| [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816) | FetchFailedException when killing speculative task |  Major | SQL | chen xiao | Imran Rashid |
+| [SPARK-24007](https://issues.apache.org/jira/browse/SPARK-24007) | EqualNullSafe for FloatType and DoubleType might generate a wrong result by codegen. |  Major | SQL | Takuya Ueshin | Takuya Ueshin |
+| [SPARK-23941](https://issues.apache.org/jira/browse/SPARK-23941) | Mesos task failed on specific spark app name |  Major | Mesos, Spark Submit | bounkong khamphousone | bounkong khamphousone |
+| [SPARK-23489](https://issues.apache.org/jira/browse/SPARK-23489) | Flaky Test: HiveExternalCatalogVersionsSuite |  Major | SQL, Tests | Marco Gaido | Dongjoon Hyun |
+| [SPARK-23433](https://issues.apache.org/jira/browse/SPARK-23433) | java.lang.IllegalStateException: more than one active taskSet for stage |  Major | Spark Core | Shixiong Zhu | Imran Rashid |
+| [SPARK-23697](https://issues.apache.org/jira/browse/SPARK-23697) | Accumulators of Spark 1.x no longer work with Spark 2.x |  Major | Spark Core | Sergey Zhemzhitsky | Wenchen Fan |
+| [SPARK-23850](https://issues.apache.org/jira/browse/SPARK-23850) | We should not redact username\|user\|url from UI by default |  Major | Web UI | Thomas Graves | Marcelo Vanzin |
+| [SPARK-24257](https://issues.apache.org/jira/browse/SPARK-24257) | LongToUnsafeRowMap calculate the new size may be wrong |  Blocker | SQL | dzcxzl | dzcxzl |
+| [SPARK-23649](https://issues.apache.org/jira/browse/SPARK-23649) | CSV schema inferring fails on some UTF-8 chars |  Major | SQL | Maxim Gekk |  |
+| [SPARK-23732](https://issues.apache.org/jira/browse/SPARK-23732) | Broken link to scala source code in Spark Scala api Scaladoc |  Trivial | Build, Documentation, Project Infra | Yogesh Tewari | Marcelo Vanzin |
+| [SPARK-24506](https://issues.apache.org/jira/browse/SPARK-24506) | Spark.ui.filters not applied to /sqlserver/ url |  Major | Web UI | t oo | Marco Gaido |
+| [SPARK-24531](https://issues.apache.org/jira/browse/SPARK-24531) | HiveExternalCatalogVersionsSuite failing due to missing 2.2.0 version |  Blocker | Tests | Marco Gaido | Marco Gaido |
+| [SPARK-24589](https://issues.apache.org/jira/browse/SPARK-24589) | OutputCommitCoordinator may allow duplicate commits |  Blocker | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
+| [SPARK-24552](https://issues.apache.org/jira/browse/SPARK-24552) | Task attempt numbers are reused when stages are retried |  Blocker | Spark Core | Ryan Blue | Ryan Blue |
+| [SPARK-24603](https://issues.apache.org/jira/browse/SPARK-24603) | Typo in comments |  Trivial | Spark Core | Fokko Driesprong | Fokko Driesprong |
 
 
 ### SUB-TASKS:

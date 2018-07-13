@@ -23,9 +23,9 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HDFS-13099](https://issues.apache.org/jira/browse/HDFS-13099) | *Minor* | **RBF: Use the ZooKeeper as the default State Store**
+* [HADOOP-15368](https://issues.apache.org/jira/browse/HADOOP-15368) | *Major* | **Apache Hadoop release 3.0.2 to fix deploying shaded jars in artifacts.**
 
-Change default State Store from local file to ZooKeeper. This will require additional zk address to be configured.
+Release Apache Hadoop 3.0.2 on the same code base as Hadoop 3.0.1, but deploy with shaded jars.
 
 
 

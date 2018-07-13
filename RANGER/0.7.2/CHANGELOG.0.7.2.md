@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 0.7.2 - Unreleased (as of 2018-03-22)
+## Release 0.7.2 - Unreleased (as of 2018-07-13)
 
 
 
@@ -61,7 +61,7 @@
 | [RANGER-1696](https://issues.apache.org/jira/browse/RANGER-1696) | Request to get all policies for hive or hbase service-type does not include policies that apply to specific child resource(such as table in hive/column family in hbase) |  Major | Ranger | Deepak Sharma | Abhay Kulkarni |
 | [RANGER-1695](https://issues.apache.org/jira/browse/RANGER-1695) | Optimize Ranger code for authorization of HDFS 'getContentSummary' and 'delete' commands |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1714](https://issues.apache.org/jira/browse/RANGER-1714) | Disable dynamic sorting of policies when trie pre-filter is enabled |  Major | plugins | Madhan Neethiraj |  |
-| [RANGER-1708](https://issues.apache.org/jira/browse/RANGER-1708) | Remove tag services from service type and service name filters under Access Audit. |  Major | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-1708](https://issues.apache.org/jira/browse/RANGER-1708) | Remove tag services from service type and service name filters under Access Audit. |  Major | Ranger | suja s | Nitin Galave |
 | [RANGER-1674](https://issues.apache.org/jira/browse/RANGER-1674) | IMPORT START audit is not appearing on audit page |  Major | Ranger | Deepak Sharma | bhavik patel |
 | [RANGER-1661](https://issues.apache.org/jira/browse/RANGER-1661) | Default policy for KMS audits is pointing to incorrect location |  Major | Ranger | Ali Bajwa |  |
 | [RANGER-1676](https://issues.apache.org/jira/browse/RANGER-1676) | Policy Details popup from Access audit page not displaying details of masking policy |  Major | Ranger | suja s | Nitin Galave |
@@ -106,6 +106,10 @@
 | [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960) | HBase auth does not take table namespace into consideration for deleting snapshot |  Major | plugins | Tomas Sokorai |  |
 | [RANGER-1966](https://issues.apache.org/jira/browse/RANGER-1966) | Policy engine initialization does not create context enrichers in some cases |  Major | Ranger | Abhay Kulkarni | Nigel Jones |
 | [RANGER-1980](https://issues.apache.org/jira/browse/RANGER-1980) | Build failure for Ranger 0.7 branch |  Major | build-infra | Don Bosco Durai | Pradeep Agrawal |
+| [RANGER-2035](https://issues.apache.org/jira/browse/RANGER-2035) | Errors accessing servicedefs with empty implClass with Oracle backend |  Major | admin | Zsombor Gegesy | Zsombor Gegesy |
+| [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066) | Hbase column family access is authorized by a tagged column in the column family |  Major | Ranger | Anuja Leekha | Abhay Kulkarni |
+| [RANGER-2090](https://issues.apache.org/jira/browse/RANGER-2090) | Empty start and end time Strings should be interpreted same as NULL in Ranger |  Major | Ranger | Anuja Leekha | Abhay Kulkarni |
+| [RANGER-2104](https://issues.apache.org/jira/browse/RANGER-2104) | Ranger tagsync should ignore ENTITY\_UPDATE events if the updated entity does not have associated traits |  Major | tagsync | Abhay Kulkarni | Abhay Kulkarni |
 
 
 ### SUB-TASKS:

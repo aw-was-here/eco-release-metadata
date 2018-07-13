@@ -198,7 +198,7 @@
 | [SPARK-12370](https://issues.apache.org/jira/browse/SPARK-12370) | Documentation should link to examples from its own release version |  Minor | Documentation | Brian London | Jagadeesan A S |
 | [SPARK-16968](https://issues.apache.org/jira/browse/SPARK-16968) | Allow to add additional options when creating a new table in DF's JDBC writer. |  Minor | SQL | Jie Huang | Jie Huang |
 | [SPARK-17023](https://issues.apache.org/jira/browse/SPARK-17023) | Update Kafka connetor to use Kafka 0.10.0.1 |  Trivial | Build | Luciano Resende | Luciano Resende |
-| [SPARK-11714](https://issues.apache.org/jira/browse/SPARK-11714) | Make Spark on Mesos honor port restrictions |  Major | Mesos | Charles Allen | Stavros Kontopoulos |
+| [SPARK-11714](https://issues.apache.org/jira/browse/SPARK-11714) | Make Spark on Mesos honor port restrictions |  Major | Mesos | Charles R Allen | Stavros Kontopoulos |
 | [SPARK-16934](https://issues.apache.org/jira/browse/SPARK-16934) | Update LogisticCostAggregator serialization code to make it consistent with LinearRegression |  Major | ML, MLlib | Weichen Xu | Weichen Xu |
 | [SPARK-17033](https://issues.apache.org/jira/browse/SPARK-17033) | GaussianMixture should use treeAggregate to improve performance |  Minor | ML, MLlib | Yanbo Liang | Yanbo Liang |
 | [SPARK-16671](https://issues.apache.org/jira/browse/SPARK-16671) | Merge variable substitution code in core and SQL |  Minor | Spark Core, SQL | Marcelo Vanzin | Marcelo Vanzin |
@@ -375,7 +375,7 @@
 | [SPARK-17219](https://issues.apache.org/jira/browse/SPARK-17219) | QuantileDiscretizer should handle NaN values gracefully |  Major | ML | Barry Becker | Vincent |
 | [SPARK-3261](https://issues.apache.org/jira/browse/SPARK-3261) | KMeans clusterer can return duplicate cluster centers |  Minor | MLlib | Derrick Burns | Sean Owen |
 | [SPARK-18103](https://issues.apache.org/jira/browse/SPARK-18103) | Rename \*FileCatalog to \*FileProvider |  Minor | SQL | Eric Liang | Eric Liang |
-| [SPARK-15994](https://issues.apache.org/jira/browse/SPARK-15994) | Allow enabling Mesos fetch cache in coarse executor backend |  Minor | Mesos | Charles Allen | Charles Allen |
+| [SPARK-15994](https://issues.apache.org/jira/browse/SPARK-15994) | Allow enabling Mesos fetch cache in coarse executor backend |  Minor | Mesos | Charles R Allen | Charles R Allen |
 | [SPARK-17848](https://issues.apache.org/jira/browse/SPARK-17848) | Move LabelCol datatype cast into Predictor.fit |  Major | ML | zhengruifeng | zhengruifeng |
 | [SPARK-18088](https://issues.apache.org/jira/browse/SPARK-18088) | ChiSqSelector FPR PR cleanups |  Minor | ML | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-16411](https://issues.apache.org/jira/browse/SPARK-16411) | Add textFile API to structured streaming. |  Minor | Structured Streaming | Prashant Sharma | Prashant Sharma |
@@ -565,7 +565,7 @@
 | [SPARK-17016](https://issues.apache.org/jira/browse/SPARK-17016) | group-by/order-by ordinal should throw AnalysisException instead of UnresolvedException |  Major | SQL | Peter Lee | Peter Lee |
 | [SPARK-16941](https://issues.apache.org/jira/browse/SPARK-16941) | SparkSQLOperationManager should use synchronized Map to store SessionHandle |  Minor | SQL | carlmartin | carlmartin |
 | [SPARK-16886](https://issues.apache.org/jira/browse/SPARK-16886) | StructuredNetworkWordCount code comment incorrectly refers to DataFrame instead of Dataset |  Minor | Examples | Ganesh Chand | Hyukjin Kwon |
-| [SPARK-16952](https://issues.apache.org/jira/browse/SPARK-16952) | [MESOS] MesosCoarseGrainedSchedulerBackend requires spark.mesos.executor.home even if spark.executor.uri is set |  Minor | Mesos, Scheduler | Charles Allen | Michael Gummelt |
+| [SPARK-16952](https://issues.apache.org/jira/browse/SPARK-16952) | [MESOS] MesosCoarseGrainedSchedulerBackend requires spark.mesos.executor.home even if spark.executor.uri is set |  Minor | Mesos, Scheduler | Charles R Allen | Michael Gummelt |
 | [SPARK-13602](https://issues.apache.org/jira/browse/SPARK-13602) | o.a.s.deploy.worker.DriverRunner may leak the driver processes |  Major | Spark Core | Shixiong Zhu | Bryan Cutler |
 | [SPARK-16868](https://issues.apache.org/jira/browse/SPARK-16868) | Executor will be both dead and alive when this executor reregister itself to driver. |  Minor | Web UI | carlmartin | carlmartin |
 | [SPARK-17022](https://issues.apache.org/jira/browse/SPARK-17022) | Potential deadlock in driver handling message |  Critical | YARN | Tao Wang | Tao Wang |

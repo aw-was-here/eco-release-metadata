@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.0.0 - Unreleased (as of 2018-03-22)
+## Release 1.0.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -44,6 +44,9 @@
 | [KNOX-1144](https://issues.apache.org/jira/browse/KNOX-1144) | Provider Configuration Reference Relationships Aren't Established For Existing Descriptors at Gateway Startup |  Major | Server | Phil Zampino | Phil Zampino |
 | [KNOX-1168](https://issues.apache.org/jira/browse/KNOX-1168) | ClassNotFoundException exception because of package restructuring |  Major | Server | Sandeep More | Sandeep More |
 | [KNOX-1175](https://issues.apache.org/jira/browse/KNOX-1175) | -Prelease doesn't build a release |  Trivial | Build | Allen Wittenauer | Jack Bearden |
+| [KNOX-1287](https://issues.apache.org/jira/browse/KNOX-1287) | [NN Federation] Incase of providing invalid Nameservice as param, then service is created with invalid endpoint url |  Critical | . | J.Andreina | Phil Zampino |
+| [KNOX-1289](https://issues.apache.org/jira/browse/KNOX-1289) | [Service Discovery] Deletion of generated topology , deletes descriptor file too |  Critical | . | J.Andreina | Phil Zampino |
+| [KNOX-1331](https://issues.apache.org/jira/browse/KNOX-1331) | [Admin-UI] Unabled to update XML format provider file from admin ui |  Critical | AdminUI | J.Andreina | Phil Zampino |
 
 
 ### SUB-TASKS:

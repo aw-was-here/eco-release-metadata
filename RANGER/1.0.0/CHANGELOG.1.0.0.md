@@ -177,7 +177,6 @@
 | [RANGER-1979](https://issues.apache.org/jira/browse/RANGER-1979) | Upgrade Spring-LDAP to 2.3.2 |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990) | Add One-way SSL MySQL support in Ranger Admin |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1987](https://issues.apache.org/jira/browse/RANGER-1987) | Upgrade to Storm 1.2.0 |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
-| [RANGER-1889](https://issues.apache.org/jira/browse/RANGER-1889) | List Users belonging to Group in Group tab |  Major | admin | Hari Sekhon | Nitin Galave |
 | [RANGER-1760](https://issues.apache.org/jira/browse/RANGER-1760) | test\_resourcematcher\_default.json is invalid |  Major | Ranger | Deepak Sharma | Deepak Sharma |
 
 
@@ -260,7 +259,7 @@
 | [RANGER-1535](https://issues.apache.org/jira/browse/RANGER-1535) | Add tag attributes to audit log record |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1522](https://issues.apache.org/jira/browse/RANGER-1522) | Update consolidated db schema script for SQLServer DB flavor to reduce execution time |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 | [RANGER-1499](https://issues.apache.org/jira/browse/RANGER-1499) | Upgrade Tomcat version |  Major | Ranger | Velmurugan Periasamy | bhavik patel |
-| [RANGER-1550](https://issues.apache.org/jira/browse/RANGER-1550) | HDFS test connection and resource lookup failing |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
+| [RANGER-1550](https://issues.apache.org/jira/browse/RANGER-1550) | HDFS test connection and resource lookup failing |  Major | Ranger | suja s | Pradeep Agrawal |
 | [RANGER-1553](https://issues.apache.org/jira/browse/RANGER-1553) | Audit log record for 'show databases' hive command contains all tags |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1556](https://issues.apache.org/jira/browse/RANGER-1556) | Provide keyadmin user with privileges to read ranger kms audits |  Major | Ranger | Ankita Sinha | Ankita Sinha |
 | [RANGER-1475](https://issues.apache.org/jira/browse/RANGER-1475) | some users missed to be sync if they are syncd from openldap If deltasync is enabled |  Major | Ranger | Deepak Sharma | Deepak Sharma |
@@ -278,7 +277,7 @@
 | [RANGER-1571](https://issues.apache.org/jira/browse/RANGER-1571) | Code Improvement To Follow Best Practices |  Major | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1574](https://issues.apache.org/jira/browse/RANGER-1574) | The XAAUDIT.DB.PASSWORD property had been deleted in RANGER-900. The related redundant code should be deleted for plugin installer. |  Minor | plugins | peng.jianhua | peng.jianhua |
 | [RANGER-1578](https://issues.apache.org/jira/browse/RANGER-1578) | Ranger plugins should use default service-def when it fails to obtain from Ranger Admin or cache |  Major | plugins | Madhan Neethiraj | Abhay Kulkarni |
-| [RANGER-1576](https://issues.apache.org/jira/browse/RANGER-1576) | Show attribute values to tags column in audit log |  Major | admin, Ranger | Gautam Borad | Gautam Borad |
+| [RANGER-1576](https://issues.apache.org/jira/browse/RANGER-1576) | Show attribute values to tags column in audit log |  Major | admin, Ranger | suja s | Gautam Borad |
 | [RANGER-1577](https://issues.apache.org/jira/browse/RANGER-1577) | Update Ranger-WASB servicedefinition to remove Execute permission and disallow policies with a trailing slash |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1579](https://issues.apache.org/jira/browse/RANGER-1579) | WASB policy edit page is not opening |  Major | Ranger | Deepak Sharma | Nitin Galave |
 | [RANGER-1581](https://issues.apache.org/jira/browse/RANGER-1581) | Ranger plugins need to support additional date formats for tag attribute values |  Major | plugins | Abhay Kulkarni | Abhay Kulkarni |
@@ -347,7 +346,7 @@
 | [RANGER-1713](https://issues.apache.org/jira/browse/RANGER-1713) | Hive testConnection failed after used ldap authentication in Hive. |  Major | plugins | Qiang Zhang | Qiang Zhang |
 | [RANGER-1502](https://issues.apache.org/jira/browse/RANGER-1502) | Solr shutdown does not cause the audit log file to be flushed and closed. |  Major | audit, plugins | Yan | Yan |
 | [RANGER-1501](https://issues.apache.org/jira/browse/RANGER-1501) | Audit Flush to HDFS does not actually cause the audit logs to be flushed to HDFS |  Major | audit | Yan | Yan |
-| [RANGER-1708](https://issues.apache.org/jira/browse/RANGER-1708) | Remove tag services from service type and service name filters under Access Audit. |  Major | Ranger | Nitin Galave | Nitin Galave |
+| [RANGER-1708](https://issues.apache.org/jira/browse/RANGER-1708) | Remove tag services from service type and service name filters under Access Audit. |  Major | Ranger | suja s | Nitin Galave |
 | [RANGER-1723](https://issues.apache.org/jira/browse/RANGER-1723) | The Ranger doesn't support solr6. In the HttpSolrClient class of solr6, the setMaxRetries function has been removed, which causes ranger to fail to compile. |  Major | Ranger | peng.jianhua | peng.jianhua |
 | [RANGER-1649](https://issues.apache.org/jira/browse/RANGER-1649) | Ranger Solr Plugin fails to refresh policy due to failure in ticket renewal mechanism |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-1734](https://issues.apache.org/jira/browse/RANGER-1734) | Close the connection in the HIVERangerAuthorizerTest |  Trivial | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
@@ -460,7 +459,7 @@
 | [RANGER-1970](https://issues.apache.org/jira/browse/RANGER-1970) | Build fails - rat issues with storm-agent |  Major | Ranger | Nigel Jones | Colm O hEigeartaigh |
 | [RANGER-1975](https://issues.apache.org/jira/browse/RANGER-1975) | Address Ranger Website checks flagged by Whimsy |  Major | Ranger | Velmurugan Periasamy | Selvamohan Neethiraj |
 | [RANGER-1980](https://issues.apache.org/jira/browse/RANGER-1980) | Build failure for Ranger 0.7 branch |  Major | build-infra | Don Bosco Durai | Pradeep Agrawal |
-| [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984) | Hbase audit log records may not show all tags associated with accessed column |  Major | plugins, Ranger | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984) | Hbase audit log records may not show all tags associated with accessed column |  Major | plugins, Ranger | Deepak Sharma | Abhay Kulkarni |
 | [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988) | Fix insecure randomness |  Major | plugins | Abhay Kulkarni | Abhay Kulkarni |
 | [RANGER-1981](https://issues.apache.org/jira/browse/RANGER-1981) | Error in constructing base path for UI API when accessing Ranger via knox proxy without "/" at the end |  Critical | Ranger | Deepak Sharma | Nitin Galave |
 | [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982) | Error Improvement for Analytics Metric of Ranger Admin and Ranger Kms |  Major | kms, Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
@@ -477,6 +476,10 @@
 | [RANGER-2014](https://issues.apache.org/jira/browse/RANGER-2014) | Unable to see policy detail in view policy mode after updating recursive flag |  Major | Ranger | Nitin Galave | Nitin Galave |
 | [RANGER-1991](https://issues.apache.org/jira/browse/RANGER-1991) | Fix problems detected by static code analysis |  Blocker | admin | Zsombor Gegesy | Zsombor Gegesy |
 | [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006) | Fix problems detected by static code analysis in ranger usersync for ldap sync source |  Minor | Ranger, usersync | Sailaja Polavarapu | Sailaja Polavarapu |
+| [RANGER-2045](https://issues.apache.org/jira/browse/RANGER-2045) | Hive table columns with no explicit allow policy are listed with 'desc table' command |  Major | Ranger | Anuja Leekha | Abhay Kulkarni |
+| [RANGER-2105](https://issues.apache.org/jira/browse/RANGER-2105) | Ranger HiveAuthorization for INSERT OVERWRITE DIRECTORY |  Major | Ranger | Ramesh Mani | Ramesh Mani |
+| [RANGER-2120](https://issues.apache.org/jira/browse/RANGER-2120) | Include protobuf-java.jar to Ranger Kafka plugin dependencies |  Major | Ranger | Ramesh Mani | Ramesh Mani |
+| [RANGER-2117](https://issues.apache.org/jira/browse/RANGER-2117) | RangerKafkaAuthorizer to support new resources and operations which are in Apache Kafka 1.0.0 |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 
 
 ### TESTS:

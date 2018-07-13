@@ -104,8 +104,8 @@
 | [FLINK-6788](https://issues.apache.org/jira/browse/FLINK-6788) | Remove unused GenericFlatTypePostPass/AbstractSchema class |  Trivial | Optimizer | Chesnay Schepler | Miao Wang |
 | [FLINK-6967](https://issues.apache.org/jira/browse/FLINK-6967) | Fully separate batch and storm examples |  Minor | Examples, Storm Compatibility | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6786](https://issues.apache.org/jira/browse/FLINK-6786) | Remove duplicate QueryScopeInfoTest |  Major | Metrics, Tests | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-6389](https://issues.apache.org/jira/browse/FLINK-6389) | Upgrade hbase dependency to 1.3.1 |  Minor | Batch Connectors and Input/Output Formats | Ted Yu | mingleizhang |
-| [FLINK-6682](https://issues.apache.org/jira/browse/FLINK-6682) | Improve error message in case parallelism exceeds maxParallelism |  Major | State Backends, Checkpointing | Chesnay Schepler | mingleizhang |
+| [FLINK-6389](https://issues.apache.org/jira/browse/FLINK-6389) | Upgrade hbase dependency to 1.3.1 |  Minor | Batch Connectors and Input/Output Formats | Ted Yu | zhangminglei |
+| [FLINK-6682](https://issues.apache.org/jira/browse/FLINK-6682) | Improve error message in case parallelism exceeds maxParallelism |  Major | State Backends, Checkpointing | Chesnay Schepler | zhangminglei |
 | [FLINK-6418](https://issues.apache.org/jira/browse/FLINK-6418) | Support for dynamic state changes in CEP patterns |  Major | CEP | Elias Levy | Dawid Wysakowicz |
 | [FLINK-6920](https://issues.apache.org/jira/browse/FLINK-6920) | Remove minor guava usages in several modules |  Major | Batch Connectors and Input/Output Formats, Build System, ElasticSearch Connector, Gelly, Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7014](https://issues.apache.org/jira/browse/FLINK-7014) | Expose isDeterministic interface to ScalarFunction and TableFunction |  Major | Table API & SQL | Ruidong Li | Ruidong Li |
@@ -121,7 +121,7 @@
 | [FLINK-7030](https://issues.apache.org/jira/browse/FLINK-7030) | Build with scala-2.11 by default |  Major | Build System | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-7048](https://issues.apache.org/jira/browse/FLINK-7048) | Define javadoc skipping in travis watchdog script |  Trivial | Travis | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7046](https://issues.apache.org/jira/browse/FLINK-7046) | Hide logging about downloaded artifacts on travis |  Trivial | Travis | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-6789](https://issues.apache.org/jira/browse/FLINK-6789) | Remove duplicated test utility reducer in optimizer |  Major | Optimizer, Tests | Chesnay Schepler | mingleizhang |
+| [FLINK-6789](https://issues.apache.org/jira/browse/FLINK-6789) | Remove duplicated test utility reducer in optimizer |  Major | Optimizer, Tests | Chesnay Schepler | zhangminglei |
 | [FLINK-6575](https://issues.apache.org/jira/browse/FLINK-6575) | Disable all tests on Windows that use HDFS |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7032](https://issues.apache.org/jira/browse/FLINK-7032) | Intellij is constantly changing language level of sub projects back to 1.6 |  Major | Build System | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-7070](https://issues.apache.org/jira/browse/FLINK-7070) | Rework ScalaShellITCase#testSubmissionOfExternalLibraryStream |  Critical | Scala Shell, Tests | Chesnay Schepler | Aljoscha Krettek |
@@ -144,7 +144,7 @@
 | [FLINK-7017](https://issues.apache.org/jira/browse/FLINK-7017) | Remove netty usages in flink-tests |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7047](https://issues.apache.org/jira/browse/FLINK-7047) | Reorganize build profiles |  Major | Tests, Travis | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6865](https://issues.apache.org/jira/browse/FLINK-6865) | Expand checkstyle docs to include import in intellij |  Major | Checkstyle | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-6934](https://issues.apache.org/jira/browse/FLINK-6934) | Consider moving LRUCache and it's test classes |  Major | Local Runtime | mingleizhang | mingleizhang |
+| [FLINK-6934](https://issues.apache.org/jira/browse/FLINK-6934) | Consider moving LRUCache and it's test classes |  Major | Local Runtime | zhangminglei | zhangminglei |
 | [FLINK-6617](https://issues.apache.org/jira/browse/FLINK-6617) | Improve JAVA and SCALA logical plans consistent test |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-7186](https://issues.apache.org/jira/browse/FLINK-7186) | Activate checkstyle flink-java/sampling |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-7189](https://issues.apache.org/jira/browse/FLINK-7189) | Activate checkstyle flink-java/utils |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
@@ -152,7 +152,7 @@
 | [FLINK-6550](https://issues.apache.org/jira/browse/FLINK-6550) | Calling ctx.collect with a null OutputTag should log a warning or throw an exception |  Minor | DataStream API | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7183](https://issues.apache.org/jira/browse/FLINK-7183) | Activate checkstyle flink-java/aggregation |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-7184](https://issues.apache.org/jira/browse/FLINK-7184) | Activate checkstyle flink-java/hadoop |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
-| [FLINK-7162](https://issues.apache.org/jira/browse/FLINK-7162) | Tests should not write outside 'target' directory. |  Major | Local Runtime | mingleizhang | mingleizhang |
+| [FLINK-7162](https://issues.apache.org/jira/browse/FLINK-7162) | Tests should not write outside 'target' directory. |  Major | Local Runtime | zhangminglei | zhangminglei |
 | [FLINK-7232](https://issues.apache.org/jira/browse/FLINK-7232) | Update checkstyle docs regarding test inclusion |  Major | Checkstyle, Documentation | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7224](https://issues.apache.org/jira/browse/FLINK-7224) | Incorrect Javadoc description in all Kafka consumer versions |  Major | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-7211](https://issues.apache.org/jira/browse/FLINK-7211) | Exclude Gelly javadoc jar from release |  Trivial | Build System | Greg Hogan | Greg Hogan |
@@ -162,7 +162,7 @@
 | [FLINK-6940](https://issues.apache.org/jira/browse/FLINK-6940) | Clarify the effect of configuring per-job state backend |  Minor | Documentation | Bowen Li | Bowen Li |
 | [FLINK-7228](https://issues.apache.org/jira/browse/FLINK-7228) | Harden HistoryServerStaticFileHandlerTest |  Minor | Tests, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7256](https://issues.apache.org/jira/browse/FLINK-7256) | End-to-end tests should only be run after successful compilation |  Major | Tests, Travis | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-5987](https://issues.apache.org/jira/browse/FLINK-5987) | Upgrade zookeeper dependency to 3.4.10 |  Major | Build System | Ted Yu | mingleizhang |
+| [FLINK-5987](https://issues.apache.org/jira/browse/FLINK-5987) | Upgrade zookeeper dependency to 3.4.10 |  Major | Build System | Ted Yu | zhangminglei |
 | [FLINK-7141](https://issues.apache.org/jira/browse/FLINK-7141) | enable travis cache again |  Major | Build System, Travis | Nico Kruber | Nico Kruber |
 | [FLINK-7181](https://issues.apache.org/jira/browse/FLINK-7181) | Activate checkstyle flink-java/operators/\* |  Trivial | Java API | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-7187](https://issues.apache.org/jira/browse/FLINK-7187) | Activate checkstyle flink-java/sca |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
@@ -171,8 +171,8 @@
 | [FLINK-7220](https://issues.apache.org/jira/browse/FLINK-7220) | Update RocksDB dependency to 5.5.5 |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 | [FLINK-6998](https://issues.apache.org/jira/browse/FLINK-6998) | Kafka connector needs to expose metrics for failed/successful offset commits in the Kafka Consumer callback |  Major | Kafka Connector | Zhenzhong Xu | Zhenzhong Xu |
 | [FLINK-7287](https://issues.apache.org/jira/browse/FLINK-7287) | test instability in Kafka010ITCase.testCommitOffsetsToKafka |  Major | Kafka Connector, Tests | Nico Kruber | Nico Kruber |
-| [FLINK-7134](https://issues.apache.org/jira/browse/FLINK-7134) | Remove hadoop1.x code in mapreduce.utils.HadoopUtils |  Major | Java API | mingleizhang | mingleizhang |
-| [FLINK-7118](https://issues.apache.org/jira/browse/FLINK-7118) | Remove hadoop1.x code in HadoopUtils |  Major | Java API | mingleizhang | mingleizhang |
+| [FLINK-7134](https://issues.apache.org/jira/browse/FLINK-7134) | Remove hadoop1.x code in mapreduce.utils.HadoopUtils |  Major | Java API | zhangminglei | zhangminglei |
+| [FLINK-7118](https://issues.apache.org/jira/browse/FLINK-7118) | Remove hadoop1.x code in HadoopUtils |  Major | Java API | zhangminglei | zhangminglei |
 | [FLINK-7290](https://issues.apache.org/jira/browse/FLINK-7290) | Make release scripts modular |  Major | Build System | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-7188](https://issues.apache.org/jira/browse/FLINK-7188) | Activate checkstyle flink-java/summarize |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-7192](https://issues.apache.org/jira/browse/FLINK-7192) | Activate checkstyle flink-java/test/operator |  Trivial | Build System | Dawid Wysakowicz | Dawid Wysakowicz |
@@ -286,7 +286,7 @@
 | [FLINK-7149](https://issues.apache.org/jira/browse/FLINK-7149) | Add checkpoint ID to 'sendValues()' in GenericWriteAheadSink |  Major | Streaming Connectors | Stephan Ewen | Stephan Ewen |
 | [FLINK-7136](https://issues.apache.org/jira/browse/FLINK-7136) | Docs search can be customized to be more useful |  Major | Documentation | David Anderson | David Anderson |
 | [FLINK-7105](https://issues.apache.org/jira/browse/FLINK-7105) | Make ActorSystem creation per default non-daemonic |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
-| [FLINK-5851](https://issues.apache.org/jira/browse/FLINK-5851) | Renaming AsyncCollector into ResultPromise/ResultFuture |  Major | DataStream API | Till Rohrmann | mingleizhang |
+| [FLINK-5851](https://issues.apache.org/jira/browse/FLINK-5851) | Renaming AsyncCollector into ResultPromise/ResultFuture |  Major | DataStream API | Till Rohrmann | zhangminglei |
 | [FLINK-6163](https://issues.apache.org/jira/browse/FLINK-6163) | Document per-window state in ProcessWindowFunction |  Blocker | DataStream API, Documentation | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-8053](https://issues.apache.org/jira/browse/FLINK-8053) | Default to asynchronous snapshots for FsStateBackend |  Major | State Backends, Checkpointing | Aljoscha Krettek | Stefan Richter |
 | [FLINK-8011](https://issues.apache.org/jira/browse/FLINK-8011) | Set dist flink-python dependency to provided |  Trivial | Build System | Chesnay Schepler | Chesnay Schepler |
@@ -317,6 +317,7 @@
 | [FLINK-7382](https://issues.apache.org/jira/browse/FLINK-7382) | Broken links in \`Apache Flink Documentation\`  page |  Minor | Documentation | Hai Zhou | Hai Zhou |
 | [FLINK-6100](https://issues.apache.org/jira/browse/FLINK-6100) | Add documentation for Projectable and Filterable TableSource |  Major | Documentation, Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-6979](https://issues.apache.org/jira/browse/FLINK-6979) | Add documentation for Aggregation Functions in Tables/UDF doc |  Major | Documentation, Table API & SQL | sunjincheng | Shaoxuan Wang |
+| [FLINK-7726](https://issues.apache.org/jira/browse/FLINK-7726) | Move marshalling testbases out of legacy namespace |  Major | REST, Tests | Chesnay Schepler | Chesnay Schepler |
 
 
 ### BUG FIXES:
@@ -432,8 +433,8 @@
 | [FLINK-7025](https://issues.apache.org/jira/browse/FLINK-7025) | Using NullByteKeySelector for Unbounded ProcTime NonPartitioned Over |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-5488](https://issues.apache.org/jira/browse/FLINK-5488) | yarnClient should be closed in AbstractYarnClusterDescriptor for error conditions |  Major | YARN | Ted Yu | Fang Yong |
 | [FLINK-6742](https://issues.apache.org/jira/browse/FLINK-6742) | Improve error message when savepoint migration fails due to task removal |  Minor | State Backends, Checkpointing | Gyula Fora | Chesnay Schepler |
-| [FLINK-6987](https://issues.apache.org/jira/browse/FLINK-6987) | TextInputFormatTest fails when run in path containing spaces |  Major | Build System | Timo Walther | mingleizhang |
-| [FLINK-6655](https://issues.apache.org/jira/browse/FLINK-6655) | Misleading error message when HistoryServer path is empty |  Minor | History Server | Timo Walther | mingleizhang |
+| [FLINK-6987](https://issues.apache.org/jira/browse/FLINK-6987) | TextInputFormatTest fails when run in path containing spaces |  Major | Build System | Timo Walther | zhangminglei |
+| [FLINK-6655](https://issues.apache.org/jira/browse/FLINK-6655) | Misleading error message when HistoryServer path is empty |  Minor | History Server | Timo Walther | zhangminglei |
 | [FLINK-6785](https://issues.apache.org/jira/browse/FLINK-6785) | Ineffective checks in MetricRegistryTest |  Major | Metrics, Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7011](https://issues.apache.org/jira/browse/FLINK-7011) | Instable Kafka testStartFromKafkaCommitOffsets failures on Travis |  Major | Kafka Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-6867](https://issues.apache.org/jira/browse/FLINK-6867) | Elasticsearch 1.x ITCase still instable due to embedded node instability |  Major | ElasticSearch Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
@@ -444,7 +445,7 @@
 | [FLINK-7039](https://issues.apache.org/jira/browse/FLINK-7039) | Increase forkCountTestPackage for sudo-enabled TravisCI |  Trivial | Build System | Greg Hogan | Greg Hogan |
 | [FLINK-7037](https://issues.apache.org/jira/browse/FLINK-7037) | Remove scala suffix from flink-examples module |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6759](https://issues.apache.org/jira/browse/FLINK-6759) | storm-examples cannot be built without cached dependencies |  Major | Build System | Chesnay Schepler |  |
-| [FLINK-7038](https://issues.apache.org/jira/browse/FLINK-7038) | Several misused "KeyedDataStream" term in docs and Javadocs |  Trivial | Documentation | Tzu-Li (Gordon) Tai | mingleizhang |
+| [FLINK-7038](https://issues.apache.org/jira/browse/FLINK-7038) | Several misused "KeyedDataStream" term in docs and Javadocs |  Trivial | Documentation | Tzu-Li (Gordon) Tai | zhangminglei |
 | [FLINK-7041](https://issues.apache.org/jira/browse/FLINK-7041) | Deserialize StateBackend from JobCheckpointingSettings with user classloader |  Blocker | DataStream API, Distributed Coordination, State Backends, Checkpointing | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-7042](https://issues.apache.org/jira/browse/FLINK-7042) | Fix jar file discovery in YARN tests |  Critical | YARN | Greg Hogan | Greg Hogan |
 | [FLINK-6302](https://issues.apache.org/jira/browse/FLINK-6302) | Documentation build error on ruby 2.4 |  Trivial | Documentation | Tao Meng | Tao Meng |
@@ -465,7 +466,7 @@
 | [FLINK-7102](https://issues.apache.org/jira/browse/FLINK-7102) | improve ClassLoaderITCase |  Major | Tests | Nico Kruber | Nico Kruber |
 | [FLINK-7222](https://issues.apache.org/jira/browse/FLINK-7222) | Kafka010ITCase fails on windows |  Major | Kafka Connector | Fang Yong | Fang Yong |
 | [FLINK-7197](https://issues.apache.org/jira/browse/FLINK-7197) | Missing call to GraphAlgorithmWrappingBase#canMergeConfigurationWith() |  Minor | Gelly | Ted Yu | Greg Hogan |
-| [FLINK-5541](https://issues.apache.org/jira/browse/FLINK-5541) | Missing null check for localJar in FlinkSubmitter#submitTopology() |  Minor | Storm Compatibility | Ted Yu | mingleizhang |
+| [FLINK-5541](https://issues.apache.org/jira/browse/FLINK-5541) | Missing null check for localJar in FlinkSubmitter#submitTopology() |  Minor | Storm Compatibility | Ted Yu | zhangminglei |
 | [FLINK-7230](https://issues.apache.org/jira/browse/FLINK-7230) | Travis sometimes fails due to downloaded snapshot artifacts |  Critical | Tests, Travis | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7176](https://issues.apache.org/jira/browse/FLINK-7176) | Failed builds (due to compilation) don't upload logs |  Major | Travis | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-7058](https://issues.apache.org/jira/browse/FLINK-7058) | flink-scala-shell unintended dependencies for scala 2.11 |  Blocker | Build System | Piotr Nowojski | Piotr Nowojski |
@@ -520,7 +521,7 @@
 | [FLINK-7571](https://issues.apache.org/jira/browse/FLINK-7571) | Execution of TableSources with Time Indicators fails |  Critical | Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-7655](https://issues.apache.org/jira/browse/FLINK-7655) | Revisit default non-leader id for FencedRpcEndpoints |  Minor | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-7567](https://issues.apache.org/jira/browse/FLINK-7567) | DataStream#iterate() on env.fromElements() / env.fromCollection() does not work |  Major | DataStream API | Peter Ertl | Mikhail Lipkovich |
-| [FLINK-4047](https://issues.apache.org/jira/browse/FLINK-4047) | Fix documentation about determinism of KeySelectors |  Blocker | Documentation | Fabian Hueske | mingleizhang |
+| [FLINK-4047](https://issues.apache.org/jira/browse/FLINK-4047) | Fix documentation about determinism of KeySelectors |  Blocker | Documentation | Fabian Hueske | zhangminglei |
 | [FLINK-4048](https://issues.apache.org/jira/browse/FLINK-4048) | Remove Hadoop dependencies from ExecutionEnvironment |  Major | DataSet API | Robert Metzger | Aljoscha Krettek |
 | [FLINK-7663](https://issues.apache.org/jira/browse/FLINK-7663) | Allow AbstractRestHandler to handle bad requests |  Major | REST | Till Rohrmann | Till Rohrmann |
 | [FLINK-7487](https://issues.apache.org/jira/browse/FLINK-7487) | test instability in ClassLoaderITCase (no resources available) |  Critical | Tests | Nico Kruber | Nico Kruber |
@@ -686,7 +687,7 @@
 | [FLINK-7922](https://issues.apache.org/jira/browse/FLINK-7922) | leastRestrictive in FlinkTypeFactory does not resolve composite type correctly |  Major | Table API & SQL | Rong Rong | Rong Rong |
 | [FLINK-7939](https://issues.apache.org/jira/browse/FLINK-7939) | DataStream of atomic type cannot be converted to Table with time attributes |  Major | Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-7971](https://issues.apache.org/jira/browse/FLINK-7971) | Fix potential NPE with inconsistent state |  Major | Table API & SQL | Ruidong Li | Ruidong Li |
-| [FLINK-6493](https://issues.apache.org/jira/browse/FLINK-6493) | Ineffective null check in RegisteredOperatorBackendStateMetaInfo#equals() |  Minor | State Backends, Checkpointing | Ted Yu | mingleizhang |
+| [FLINK-6493](https://issues.apache.org/jira/browse/FLINK-6493) | Ineffective null check in RegisteredOperatorBackendStateMetaInfo#equals() |  Minor | State Backends, Checkpointing | Ted Yu | zhangminglei |
 | [FLINK-7453](https://issues.apache.org/jira/browse/FLINK-7453) | FlinkKinesisProducer logs empty aws region |  Minor | . | Bowen Li | Bowen Li |
 | [FLINK-7495](https://issues.apache.org/jira/browse/FLINK-7495) | AbstractUdfStreamOperator#initializeState() should be called in AsyncWaitOperator#initializeState() |  Minor | DataStream API | Ted Yu | Fang Yong |
 | [FLINK-7600](https://issues.apache.org/jira/browse/FLINK-7600) | shorten delay of KinesisProducerConfiguration.setCredentialsRefreshDelay() to avoid updateCredentials Exception |  Minor | Kinesis Connector | Bowen Li | Bowen Li |
@@ -748,7 +749,7 @@
 | [FLINK-6746](https://issues.apache.org/jira/browse/FLINK-6746) | Table API / SQL Docs: Common Page |  Major | Documentation, Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-6661](https://issues.apache.org/jira/browse/FLINK-6661) | Merge "Subtasks" and "TaskManagers" view |  Major | Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-6723](https://issues.apache.org/jira/browse/FLINK-6723) | Activate strict checkstyle for flink-libraries |  Trivial | CEP, Gelly, Machine Learning Library, Python API, Table API & SQL | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-6488](https://issues.apache.org/jira/browse/FLINK-6488) | Mark deprecated for 'start-local.sh' and 'stop-local' scripts |  Major | Startup Shell Scripts | Stephan Ewen | mingleizhang |
+| [FLINK-6488](https://issues.apache.org/jira/browse/FLINK-6488) | Mark deprecated for 'start-local.sh' and 'stop-local' scripts |  Major | Startup Shell Scripts | Stephan Ewen | zhangminglei |
 | [FLINK-6798](https://issues.apache.org/jira/browse/FLINK-6798) | Remove/update documentation about network buffer tuning |  Major | Documentation, Network | Robert Metzger | Nico Kruber |
 | [FLINK-6784](https://issues.apache.org/jira/browse/FLINK-6784) | Add some notes about externalized checkpoints and the difference to savepoints |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
 | [FLINK-6782](https://issues.apache.org/jira/browse/FLINK-6782) | Update savepoint documentation |  Major | Documentation, State Backends, Checkpointing | Nico Kruber | Nico Kruber |
@@ -777,7 +778,7 @@
 | [FLINK-7135](https://issues.apache.org/jira/browse/FLINK-7135) | Pass in proper Configuration to Dispatcher component |  Major | Cluster Management, Mesos | Till Rohrmann | Till Rohrmann |
 | [FLINK-7110](https://issues.apache.org/jira/browse/FLINK-7110) | Allow ClusterDescriptor to deploy per-job cluster |  Major | Cluster Management | Till Rohrmann | Till Rohrmann |
 | [FLINK-7098](https://issues.apache.org/jira/browse/FLINK-7098) | Start standalone cluster entry point via start-up script |  Minor | Startup Shell Scripts | Till Rohrmann | Till Rohrmann |
-| [FLINK-7092](https://issues.apache.org/jira/browse/FLINK-7092) | Shutdown ResourceManager components properly |  Minor | Mesos | Till Rohrmann | mingleizhang |
+| [FLINK-7092](https://issues.apache.org/jira/browse/FLINK-7092) | Shutdown ResourceManager components properly |  Minor | Mesos | Till Rohrmann | zhangminglei |
 | [FLINK-7295](https://issues.apache.org/jira/browse/FLINK-7295) | Add callback for proper RpcEndpoint shut down |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-7253](https://issues.apache.org/jira/browse/FLINK-7253) | Remove all 'assume Java 8' code in tests |  Major | Build System | Stephan Ewen | Chesnay Schepler |
 | [FLINK-7250](https://issues.apache.org/jira/browse/FLINK-7250) | Drop the jdk8 build profile |  Major | Build System | Stephan Ewen | Chesnay Schepler |

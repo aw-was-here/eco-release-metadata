@@ -21,14 +21,4 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
----
-
-* [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | *Blocker* | **KafkaFetcher09/010/011 uses wrong user code classloader**
-
-Merged.
-
-1.5.0: 2886a41728c0c13b3d01221c502a3e2a7014605d
-1.4.2: 0396fc8c03a64f1281f2a535b2702188c5234f5c
-
-
 

@@ -23,9 +23,26 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285) | *Critical* | **Add per-table latency histograms**
+* [HBASE-18842](https://issues.apache.org/jira/browse/HBASE-18842) | *Minor* | **The hbase shell clone\_snaphost command returns bad error message**
 
-Per-RegionServer table latency histograms have been returned to HBase (after being removed due to impacting performance). These metrics are exposed via a new JMX bean "TableLatencies" with the typical naming conventions: namespace, table, and histogram component.
+<!-- markdown -->
+
+When attempting to clone a snapshot but using a namespace that does not exist, the HBase shell will now correctly report the exception as caused by the passed namespace. Previously, the shell would report that the problem was an unknown namespace but it would claim the user provided table name was not found as a namespace. Both before and after this change the shell properly used the passed namespace to attempt to handle the request.
+
+
+---
+
+* [HBASE-20004](https://issues.apache.org/jira/browse/HBASE-20004) | *Minor* | **Client is not able to execute REST queries in a secure cluster**
+
+Added 'hbase.rest.http.allow.options.method' configuration property to allow user to decide whether Rest Server HTTP should allow OPTIONS method or not. By default it is enabled in HBase 2.1.0+ versions and in other versions it is disabled.
+Similarly 'hbase.thrift.http.allow.options.method' is added HBase 1.5, 2.1.0 and 3.0.0 versions. It is disabled by default.
+
+
+---
+
+* [HBASE-20590](https://issues.apache.org/jira/browse/HBASE-20590) | *Critical* | **REST Java client is not able to negotiate with the server in the secure mode**
+
+Adds a negotiation logic between a secure java REST client and server. After this jira the Java REST client will start responding to the Negotiate challenge sent by the server. Adds RESTDemoClient which can be used to verify whether the secure Java REST client works against secure REST server or not.
 
 
 

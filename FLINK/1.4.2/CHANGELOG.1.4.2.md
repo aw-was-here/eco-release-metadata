@@ -35,17 +35,17 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-8423](https://issues.apache.org/jira/browse/FLINK-8423) | OperatorChain#pushToOperator catch block may fail with NPE |  Critical | Streaming | Chesnay Schepler | mingleizhang |
+| [FLINK-8423](https://issues.apache.org/jira/browse/FLINK-8423) | OperatorChain#pushToOperator catch block may fail with NPE |  Critical | Streaming | Chesnay Schepler | zhangminglei |
 | [FLINK-8520](https://issues.apache.org/jira/browse/FLINK-8520) | CassandraConnectorITCase.testCassandraTableSink unstable on Travis |  Blocker | Cassandra Connector, Table API & SQL, Tests | Till Rohrmann | Chesnay Schepler |
 | [FLINK-8692](https://issues.apache.org/jira/browse/FLINK-8692) | Mistake in MyMapFunction code snippet |  Trivial | Documentation | Matt Hagen | Chesnay Schepler |
 | [FLINK-8621](https://issues.apache.org/jira/browse/FLINK-8621) | PrometheusReporterTest.endpointIsUnavailableAfterReporterIsClosed unstable on Travis |  Blocker | Metrics, Tests | Till Rohrmann | Chesnay Schepler |
 | [FLINK-8735](https://issues.apache.org/jira/browse/FLINK-8735) | Add savepoint migration ITCase that covers operator state |  Blocker | Tests | Aljoscha Krettek | Aljoscha Krettek |
-| [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | KafkaFetcher09/010/011 uses wrong user code classloader |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 | [FLINK-8772](https://issues.apache.org/jira/browse/FLINK-8772) | FlinkKafkaConsumerBase partitions discover missing a log parameter |  Trivial | Kafka Connector | Matrix42 | Matrix42 |
 | [FLINK-8791](https://issues.apache.org/jira/browse/FLINK-8791) | Fix documentation on how to link dependencies |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 | [FLINK-8451](https://issues.apache.org/jira/browse/FLINK-8451) | CaseClassSerializer is not backwards compatible in 1.4 |  Blocker | Type Serialization System | Timo Walther | Timo Walther |
 | [FLINK-8849](https://issues.apache.org/jira/browse/FLINK-8849) | Wrong link from concepts/runtime to doc on chaining |  Minor | Documentation | Ken Krugler | Ken Krugler |
 | [FLINK-8798](https://issues.apache.org/jira/browse/FLINK-8798) | Make commons-logging a parent-first pattern |  Blocker | Core | Stephan Ewen | Stephan Ewen |
+| [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | KafkaFetcher09/010/011 uses wrong user code classloader |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
 
 
 ### SUB-TASKS:
@@ -60,6 +60,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-9237](https://issues.apache.org/jira/browse/FLINK-9237) | Some description about The FsStateBackend in the Docs。 |  Minor | Documentation | liuzhixin | yuqi |
 | [FLINK-8308](https://issues.apache.org/jira/browse/FLINK-8308) | Update yajl-ruby dependency to 1.3.1 or higher |  Critical | Project Website | Fabian Hueske | Steven Langbroek |
 
 

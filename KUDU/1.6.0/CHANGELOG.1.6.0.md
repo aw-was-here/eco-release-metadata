@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KUDU-2062](https://issues.apache.org/jira/browse/KUDU-2062) | Tool to add and configure a data dir to an existing server |  Major | fs | Andrew Wong |  |
+| [KUDU-2399](https://issues.apache.org/jira/browse/KUDU-2399) | Support IS NULL / IS NOT NULL predicates in Python |  Major | client, python | Todd Lipcon | Jordan Birdsell |
 
 
 ### IMPROVEMENTS:
@@ -99,5 +100,12 @@
 | [KUDU-501](https://issues.apache.org/jira/browse/KUDU-501) | Web UI and metrics support for replicated master |  Major | ops-tooling | Todd Lipcon | Will Berkeley |
 | [KUDU-1125](https://issues.apache.org/jira/browse/KUDU-1125) | Reduce impact of enabling fsync on the master |  Major | master | Jean-Daniel Cryans | Adar Dembo |
 | [KUDU-616](https://issues.apache.org/jira/browse/KUDU-616) | Mitigate tablet damage when disks are lost |  Major | fs | Adar Dembo | Andrew Wong |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KUDU-2250](https://issues.apache.org/jira/browse/KUDU-2250) | Document odd interaction between upserts and Spark Datasets |  Major | spark | Jean-Daniel Cryans | Fengling Wang |
 
 

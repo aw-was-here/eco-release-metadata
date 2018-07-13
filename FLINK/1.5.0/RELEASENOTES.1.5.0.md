@@ -53,30 +53,6 @@ We removed the automatic hadoop classpath discovery via the hadoop binary. If yo
 
 ---
 
-* [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | *Blocker* | **KafkaFetcher09/010/011 uses wrong user code classloader**
-
-Merged.
-
-1.5.0: 2886a41728c0c13b3d01221c502a3e2a7014605d
-1.4.2: 0396fc8c03a64f1281f2a535b2702188c5234f5c
-
-
----
-
-* [FLINK-8859](https://issues.apache.org/jira/browse/FLINK-8859) | *Major* | **RocksDB backend should pass WriteOption to Rocks.put() when restoring**
-
-Merged in 131daa28bf.
-
-
----
-
-* [FLINK-8922](https://issues.apache.org/jira/browse/FLINK-8922) | *Major* | **Revert FLINK-8859 because it causes segfaults in testing**
-
-Merged in a389b43581.
-
-
----
-
 * [FLINK-6951](https://issues.apache.org/jira/browse/FLINK-6951) | *Critical* | **Incompatible versions of httpcomponents jars for Flink kinesis connector**
 
 **WARNING: No release note provided for this change.**
@@ -87,6 +63,27 @@ Merged in a389b43581.
 * [FLINK-8459](https://issues.apache.org/jira/browse/FLINK-8459) | *Blocker* | **Implement cancelWithSavepoint in RestClusterClient**
 
 The REST API to trigger the "cancel with savepoint" action has changed, and is not backwards compatible.
+
+
+---
+
+* [FLINK-9266](https://issues.apache.org/jira/browse/FLINK-9266) | *Minor* | **Upgrade AWS Kinesis Client version to 1.9.0 to reduce Kinesis describe streams calls**
+
+The default versions for AWS SDKs used in the Flink Kinesis connector has been upgraded. {{aws-java-sdk-kinesis}} has been upgraded to version '1.11.139', {{amazon-kinesis-client}} has been upgraded to version '1.9.0', and {{amazon-kinesis-producer}} to version '0.12.9'.
+
+
+---
+
+* [FLINK-8910](https://issues.apache.org/jira/browse/FLINK-8910) | *Blocker* | **Introduce automated end-to-end test for local recovery (including sticky scheduling)**
+
+We changed the default SLOT\_IDLE\_TIMEOUT to the HEARTBEAT\_TIMEOUT in the course of this work (commit in master is b17be26711).
+
+
+---
+
+* [FLINK-9310](https://issues.apache.org/jira/browse/FLINK-9310) | *Major* | **Update default cyphersuites**
+
+Due to a limitation in Netty's SsLHandler (v4.0.27), it does not work well together with GCM enabled cypher suites. It can cause transmission failures between Flink TaskManager's which manifest in a LocalTransportException.  Therefore, it is highly recommended to set the {{security.ssl.algorithms}} configuration to TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA when enabling ssl encryption between TaskManagers.
 
 
 

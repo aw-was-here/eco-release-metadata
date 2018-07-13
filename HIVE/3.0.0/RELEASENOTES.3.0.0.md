@@ -153,6 +153,13 @@ Document the new configuration.
 
 ---
 
+* [HIVE-17429](https://issues.apache.org/jira/browse/HIVE-17429) | *Major* | **Hive JDBC doesn't return rows when querying Impala**
+
+Check for resultSet returned by TExecuteRequest in Hive JDBC.  This preserves compatibility when fetching data from Impala.
+
+
+---
+
 * [HIVE-17483](https://issues.apache.org/jira/browse/HIVE-17483) | *Major* | **HS2 kill command to kill queries using query id**
 
 In HiveConnection - 
@@ -253,6 +260,69 @@ After this change, {{hive.strict.checks.no.partition.filter}} controls the parti
 ---
 
 * [HIVE-18693](https://issues.apache.org/jira/browse/HIVE-18693) | *Major* | **Snapshot Isolation does not work for Micromanaged table when a insert transaction is aborted**
+
+n/a
+
+
+---
+
+* [HIVE-18963](https://issues.apache.org/jira/browse/HIVE-18963) | *Major* | **JDBC: Provide an option to simplify beeline usage by supporting default and named URL for beeline**
+
+https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Usingbeeline-site.xmltoautomaticallyconnecttoHiveServer2
+
+
+---
+
+* [HIVE-19100](https://issues.apache.org/jira/browse/HIVE-19100) | *Major* | **investigate TestStreaming failures**
+
+n/a
+
+
+---
+
+* [HIVE-19014](https://issues.apache.org/jira/browse/HIVE-19014) | *Major* | **utilize YARN-8028 (queue ACL check) in Hive Tez session pool**
+
+This feature will only work with YARN 3.2+; there's no compile time dependency thanks to the REST API usage, so Hive may release this before YARN 3.2 is even available.
+
+
+---
+
+* [HIVE-18739](https://issues.apache.org/jira/browse/HIVE-18739) | *Major* | **Add support for Import/Export from Acid table**
+
+n/a
+
+
+---
+
+* [HIVE-19137](https://issues.apache.org/jira/browse/HIVE-19137) | *Major* | **orcfiledump doesn't print hive.acid.version value**
+
+n/a
+
+
+---
+
+* [HIVE-19315](https://issues.apache.org/jira/browse/HIVE-19315) | *Major* | **Test failure org.apache.hadoop.hive.ql.lockmgr.TestDbTxnManager2#testWriteSetTracking3**
+
+n/a
+
+
+---
+
+* [HIVE-17457](https://issues.apache.org/jira/browse/HIVE-17457) | *Major* | **IOW Acid Insert Overwrite when the transaction fails**
+
+n/a
+
+
+---
+
+* [HIVE-18131](https://issues.apache.org/jira/browse/HIVE-18131) | *Major* | **Truncate table for Acid tables**
+
+n/a
+
+
+---
+
+* [HIVE-18380](https://issues.apache.org/jira/browse/HIVE-18380) | *Minor* | **ALTER TABLE CONCATENATE is not supported on Micro-managed table**
 
 n/a
 

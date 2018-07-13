@@ -291,6 +291,7 @@
 | [IMPALA-4630](https://issues.apache.org/jira/browse/IMPALA-4630) | Remove suspicious (but harmless) base64-encoded javascript in common-footer.tmpl |  Major | Distributed Exec | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4739](https://issues.apache.org/jira/browse/IMPALA-4739) | ExprRewriter fails on HAVING clauses |  Critical | Frontend | Henry Robinson | Marcel Kornacker |
 | [IMPALA-4579](https://issues.apache.org/jira/browse/IMPALA-4579) | SHOW CREATE VIEW fails for view containing WHERE clause on an unsecure cluster |  Major | Frontend | Mala Chikka Kempanna | Dimitris Tsirogiannis |
+| [IMPALA-4172](https://issues.apache.org/jira/browse/IMPALA-4172) | Switch from using getFileBlockLocations to BlockLocation methods (Potential 50% speedup in metadata loading) |  Critical | Catalog | Mostafa Mokhtar | bharath v |
 | [IMPALA-4517](https://issues.apache.org/jira/browse/IMPALA-4517) | Stress test crash: impala::LlvmCodeGen::FinalizeModule |  Blocker | Backend | Taras Bobrovytsky | Michael Ho |
 | [IMPALA-4929](https://issues.apache.org/jira/browse/IMPALA-4929) | Unsafe concurrent access to LlvmCodeGen::fn\_refs\_map\_ can lead to unresolved symbols in LLVM |  Blocker | Backend | fishing | Michael Ho |
 | [IMPALA-4778](https://issues.apache.org/jira/browse/IMPALA-4778) | Document web page non-responsivness while planning |  Major | Docs | Jim Apple | John Russell |

@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-03-22)
+## Release 1.7.0 - 2018-03-23
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KUDU-2279](https://issues.apache.org/jira/browse/KUDU-2279) | Enable metrics logging by default |  Major | ops-tooling | Todd Lipcon | Todd Lipcon |
 | [KUDU-721](https://issues.apache.org/jira/browse/KUDU-721) | Support for DECIMAL type |  Critical | client, tablet | Todd Lipcon | Grant Henke |
+| [KUDU-1676](https://issues.apache.org/jira/browse/KUDU-1676) | Spark DDL needs elegant way to specify range partitioning |  Major | spark | Mladen Kovacevic | Mladen Kovacevic |
 
 
 ### IMPROVEMENTS:
@@ -46,6 +47,7 @@
 | [KUDU-2129](https://issues.apache.org/jira/browse/KUDU-2129) | Improve ksck 'under-replicated' message |  Major | . | Hao Hao | Andrew Wong |
 | [KUDU-2331](https://issues.apache.org/jira/browse/KUDU-2331) | Use tablet\_id filter for 'move\_replica' while running ksck-based pre-flight consistency check |  Major | ksck, supportability | Alexey Serbin | Will Berkeley |
 | [KUDU-2297](https://issues.apache.org/jira/browse/KUDU-2297) | Expand metrics logging into a general purpose diagnostics log |  Major | ops-tooling, supportability | Todd Lipcon | Todd Lipcon |
+| [KUDU-1737](https://issues.apache.org/jira/browse/KUDU-1737) | Allow KuduContext to create table with column encodings |  Minor | api | Jeffrey Shmain | Saketa Chalamchala |
 
 
 ### BUG FIXES:
@@ -82,10 +84,12 @@
 | [KUDU-2330](https://issues.apache.org/jira/browse/KUDU-2330) | Exceptions thrown by Java client have inappropriate stack traces |  Major | client, java | Todd Lipcon |  |
 | [KUDU-2322](https://issues.apache.org/jira/browse/KUDU-2322) | Leader spews logs when follower falls behind log GC |  Critical | consensus | Todd Lipcon | Alexey Serbin |
 | [KUDU-2338](https://issues.apache.org/jira/browse/KUDU-2338) | Java decimal predicates are not coerced to match the column scale |  Critical | . | Grant Henke | Grant Henke |
+| [KUDU-2153](https://issues.apache.org/jira/browse/KUDU-2153) | Servers delete tmp files before obtaining directory lock |  Critical | fs | Todd Lipcon | Todd Lipcon |
 | [KUDU-2342](https://issues.apache.org/jira/browse/KUDU-2342) | Non-voter replicas can be promoted and get stuck |  Blocker | tablet | Mostafa Mokhtar | Alexey Serbin |
 | [KUDU-2343](https://issues.apache.org/jira/browse/KUDU-2343) | Java client doesn't properly reconnect to leader master when old leader is online |  Critical | client, java | Todd Lipcon | Todd Lipcon |
 | [KUDU-2259](https://issues.apache.org/jira/browse/KUDU-2259) | kudu-spark imports authentication token into client multiple times |  Blocker | spark | Will Berkeley | Dan Burkert |
 | [KUDU-2309](https://issues.apache.org/jira/browse/KUDU-2309) | /masters can show the wrong list of masters |  Major | ops-tooling | Will Berkeley | Will Berkeley |
+| [KUDU-2157](https://issues.apache.org/jira/browse/KUDU-2157) | 1.5 -\> 1.4 -\> 1.5 downgrade/re-upgrade can result in non-startable tservers |  Major | fs, tserver | Todd Lipcon |  |
 
 
 ### SUB-TASKS:
@@ -95,6 +99,7 @@
 | [KUDU-869](https://issues.apache.org/jira/browse/KUDU-869) | Support PRE\_VOTER config membership type |  Critical | consensus | Mike Percy | Mike Percy |
 | [KUDU-1913](https://issues.apache.org/jira/browse/KUDU-1913) | Tablet server runs out of threads when creating lots of tablets |  Major | consensus, log | Juan Yu | Adar Dembo |
 | [KUDU-1704](https://issues.apache.org/jira/browse/KUDU-1704) | Add a new read mode to perform bounded staleness snapshot reads |  Major | client | David Alves | Hao Hao |
+| [KUDU-1097](https://issues.apache.org/jira/browse/KUDU-1097) | Higher availability re-replication support |  Critical | consensus | Mike Percy | Mike Percy |
 
 
 ### OTHER:

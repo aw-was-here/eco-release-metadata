@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.18.0 - Unreleased (as of 2018-03-22)
+## Release 0.18.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -38,6 +38,7 @@
 | [PIG-5272](https://issues.apache.org/jira/browse/PIG-5272) | BagToTuple output schema is incorrect |  Minor | . | Joshua Juen | Joshua Juen |
 | [PIG-5302](https://issues.apache.org/jira/browse/PIG-5302) | Remove HttpClient dependency |  Major | . | Nandor Kollar | Nandor Kollar |
 | [PIG-5316](https://issues.apache.org/jira/browse/PIG-5316) | Initialize mapred.task.id property for PoS jobs |  Major | spark | Adam Szita | Nandor Kollar |
+| [PIG-5344](https://issues.apache.org/jira/browse/PIG-5344) | Update Apache HTTPD LogParser to latest version |  Major | . | Niels Basjes | Niels Basjes |
 
 
 ### BUG FIXES:
@@ -79,6 +80,8 @@
 | [PIG-5327](https://issues.apache.org/jira/browse/PIG-5327) | Check for DAG status before trying to kill |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5320](https://issues.apache.org/jira/browse/PIG-5320) | TestCubeOperator#testRollupBasic is flaky on Spark 2.2 |  Major | spark | Nandor Kollar | Nandor Kollar |
 | [PIG-5328](https://issues.apache.org/jira/browse/PIG-5328) | expressionOperator Divide.equalsZero(DataType.BIGDECIMAL) is invalid |  Major | impl | Michael Howard | Michael Howard |
+| [PIG-5333](https://issues.apache.org/jira/browse/PIG-5333) | LoadCaster sometimes not set for complex type |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5335](https://issues.apache.org/jira/browse/PIG-5335) | Error message from range projection completely misleading |  Major | . | Koji Noguchi | Koji Noguchi |
 
 
 ### SUB-TASKS:
@@ -87,5 +90,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4120](https://issues.apache.org/jira/browse/PIG-4120) | Broadcast the index file in case of POMergeCoGroup and POMergeJoin |  Major | tez | Rohini Palaniswamy | Satish Subhashrao Saley |
 | [PIG-5305](https://issues.apache.org/jira/browse/PIG-5305) | Enable yarn-client mode execution of tests in Spark (1) mode |  Major | spark | Adam Szita | Adam Szita |
+| [PIG-4092](https://issues.apache.org/jira/browse/PIG-4092) | Predicate pushdown for Parquet |  Major | . | Rohini Palaniswamy | Nandor Kollar |
 
 

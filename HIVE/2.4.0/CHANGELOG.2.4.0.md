@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-03-22)
+## Release 2.4.0 - Unreleased (as of 2018-07-13)
 
 
 
@@ -45,6 +45,11 @@
 | [HIVE-17747](https://issues.apache.org/jira/browse/HIVE-17747) | HMS DropTableMessage should include the full table object |  Major | HCatalog, Metastore | Dan Burkert | Dan Burkert |
 | [HIVE-17805](https://issues.apache.org/jira/browse/HIVE-17805) | SchemaTool validate locations should not return exit 1 |  Minor | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-18654](https://issues.apache.org/jira/browse/HIVE-18654) | Add Hiveserver2 specific HADOOP\_OPTS environment variable |  Minor | HiveServer2 | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-18743](https://issues.apache.org/jira/browse/HIVE-18743) | CREATE TABLE on S3 data can be extremely slow. DO\_NOT\_UPDATE\_STATS workaround is buggy. |  Major | Metastore | Alexander Behm | Alexander Kolbasov |
+| [HIVE-17824](https://issues.apache.org/jira/browse/HIVE-17824) | msck repair table should drop the missing partitions from metastore |  Major | . | Vihang Karajgaonkar | Janaki Lahorani |
+| [HIVE-19344](https://issues.apache.org/jira/browse/HIVE-19344) | Change default value of msck.repair.batch.size |  Minor | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-19041](https://issues.apache.org/jira/browse/HIVE-19041) | Thrift deserialization of Partition objects should intern fields |  Major | Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-19942](https://issues.apache.org/jira/browse/HIVE-19942) | Hive Notification: All events for indexes should have table name |  Major | Hive | Bharathkrishna Guruvayoor Murali | Bharathkrishna Guruvayoor Murali |
 
 
 ### BUG FIXES:
@@ -53,6 +58,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-16335](https://issues.apache.org/jira/browse/HIVE-16335) | Beeline user HS2 connection file should use /etc/hive/conf instead of /etc/conf/hive |  Major | Beeline | Tim Harsch | Vihang Karajgaonkar |
 | [HIVE-16380](https://issues.apache.org/jira/browse/HIVE-16380) | removing global test dependency of jsonassert |  Minor | HiveServer2 | anishek | anishek |
+| [HIVE-16307](https://issues.apache.org/jira/browse/HIVE-16307) | add IO memory usage report to LLAP UI |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-16459](https://issues.apache.org/jira/browse/HIVE-16459) | Forward channelInactive to RpcDispatcher |  Major | Spark | Rui Li | Rui Li |
 | [HIVE-16287](https://issues.apache.org/jira/browse/HIVE-16287) | Alter table partition rename with location - moves partition back to hive warehouse |  Minor | Metastore | Ying Chen | Vihang Karajgaonkar |
 | [HIVE-15761](https://issues.apache.org/jira/browse/HIVE-15761) | ObjectStore.getNextNotification could return an empty NotificationEventResponse causing TProtocolException |  Major | . | Hao Hao | Sergio Peña |
@@ -143,6 +149,20 @@
 | [HIVE-18671](https://issues.apache.org/jira/browse/HIVE-18671) | lock not released after Hive on Spark query was cancelled |  Major | . | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-18710](https://issues.apache.org/jira/browse/HIVE-18710) | extend inheritPerms to ACID in Hive 2.X |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14792](https://issues.apache.org/jira/browse/HIVE-14792) | AvroSerde reads the remote schema-file at least once per mapper, per table reference. |  Major | . | Mithun Radhakrishnan | Aihua Xu |
+| [HIVE-18863](https://issues.apache.org/jira/browse/HIVE-18863) | trunc() calls itself trunk() in an error message |  Minor | UDF | Tim Armstrong | Bharathkrishna Guruvayoor Murali |
+| [HIVE-18885](https://issues.apache.org/jira/browse/HIVE-18885) | DbNotificationListener has a deadlock between Java and DB locks (2.x line) |  Major | Hive, Metastore | Alexander Kolbasov | Vihang Karajgaonkar |
+| [HIVE-19047](https://issues.apache.org/jira/browse/HIVE-19047) | Only the first init file is interpreted |  Major | Beeline | Zoltan Haindrich | Bharathkrishna Guruvayoor Murali |
+| [HIVE-18877](https://issues.apache.org/jira/browse/HIVE-18877) | HiveSchemaTool.validateSchemaTables() should wrap a SQLException when rethrowing |  Major | . | Andrew Sherman | Andrew Sherman |
+| [HIVE-19050](https://issues.apache.org/jira/browse/HIVE-19050) | DBNotificationListener does not catch exceptions in the cleaner thread |  Minor | Metastore, Standalone Metastore | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-18783](https://issues.apache.org/jira/browse/HIVE-18783) | ALTER TABLE post-commit listener does not include the transactional listener responses |  Major | . | Na Li | Sergio Peña |
+| [HIVE-19388](https://issues.apache.org/jira/browse/HIVE-19388) | ClassCastException during VectorMapJoinCommonOperator initialization |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
+| [HIVE-19642](https://issues.apache.org/jira/browse/HIVE-19642) | add cache dump when LLAP cache is full on branch-2 (and fix retry issues) |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-19527](https://issues.apache.org/jira/browse/HIVE-19527) | Preparing for 2.4 development |  Major | Hive | Sergio Peña | Sergio Peña |
+| [HIVE-19666](https://issues.apache.org/jira/browse/HIVE-19666) | SQL standard auth for create fn may make an impossible privilege check (branch-2) |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-19704](https://issues.apache.org/jira/browse/HIVE-19704) | LLAP IO retries on branch-2 should be stoppable |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-19726](https://issues.apache.org/jira/browse/HIVE-19726) | ORC date PPD is broken |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [HIVE-19700](https://issues.apache.org/jira/browse/HIVE-19700) | Workaround for JLine issue with UnsupportedTerminal |  Major | . | Naveen Gangam | Naveen Gangam |
+| [HIVE-19605](https://issues.apache.org/jira/browse/HIVE-19605) | TAB\_COL\_STATS table has no index on db/table name |  Major | Metastore | Todd Lipcon | Vihang Karajgaonkar |
 
 
 ### TESTS:
@@ -178,5 +198,13 @@
 | [HIVE-17961](https://issues.apache.org/jira/browse/HIVE-17961) | NPE during initialization of VectorizedParquetRecordReader when input split is null |  Major | Hive | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-18323](https://issues.apache.org/jira/browse/HIVE-18323) | Vectorization: add the support of timestamp in VectorizedPrimitiveColumnReader for parquet |  Major | Vectorization | Aihua Xu | Vihang Karajgaonkar |
 | [HIVE-18526](https://issues.apache.org/jira/browse/HIVE-18526) | Backport HIVE-16886 to Hive 2 |  Major | Hive | Alexander Kolbasov | Alexander Kolbasov |
+| [HIVE-19702](https://issues.apache.org/jira/browse/HIVE-19702) | Backport ALTER TABLE SET OWNER patches to branch-2 |  Major | Hive | Sergio Peña | Sergio Peña |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-19736](https://issues.apache.org/jira/browse/HIVE-19736) | Backport part of HIVE-18031: Support alter database events to branch-2 |  Major | Hive | Sergio Peña | Sergio Peña |
 
 
