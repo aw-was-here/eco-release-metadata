@@ -17,89 +17,89 @@
 # limitations under the License.
 -->
 * Apache Tez v0.10.0
-    * [Changes](0.10.0/CHANGES.0.10.0.md)
+    * [Changelog](0.10.0/CHANGELOG.0.10.0.md)
     * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)
 * Apache Tez v0.9.next
-    * [Changes](0.9.next/CHANGES.0.9.next.md)
+    * [Changelog](0.9.next/CHANGELOG.0.9.next.md)
     * [Release Notes](0.9.next/RELEASENOTES.0.9.next.md)
 * Apache Tez v0.9.2
-    * [Changes](0.9.2/CHANGES.0.9.2.md)
+    * [Changelog](0.9.2/CHANGELOG.0.9.2.md)
     * [Release Notes](0.9.2/RELEASENOTES.0.9.2.md)
 * Apache Tez v0.9.1
-    * [Changes](0.9.1/CHANGES.0.9.1.md)
+    * [Changelog](0.9.1/CHANGELOG.0.9.1.md)
     * [Release Notes](0.9.1/RELEASENOTES.0.9.1.md)
 * Apache Tez v0.9.0
-    * [Changes](0.9.0/CHANGES.0.9.0.md)
+    * [Changelog](0.9.0/CHANGELOG.0.9.0.md)
     * [Release Notes](0.9.0/RELEASENOTES.0.9.0.md)
 * Apache Tez v0.8.6
-    * [Changes](0.8.6/CHANGES.0.8.6.md)
+    * [Changelog](0.8.6/CHANGELOG.0.8.6.md)
     * [Release Notes](0.8.6/RELEASENOTES.0.8.6.md)
 * Apache Tez v0.8.5
-    * [Changes](0.8.5/CHANGES.0.8.5.md)
+    * [Changelog](0.8.5/CHANGELOG.0.8.5.md)
     * [Release Notes](0.8.5/RELEASENOTES.0.8.5.md)
 * Apache Tez v0.8.4
-    * [Changes](0.8.4/CHANGES.0.8.4.md)
+    * [Changelog](0.8.4/CHANGELOG.0.8.4.md)
     * [Release Notes](0.8.4/RELEASENOTES.0.8.4.md)
 * Apache Tez v0.8.3
-    * [Changes](0.8.3/CHANGES.0.8.3.md)
+    * [Changelog](0.8.3/CHANGELOG.0.8.3.md)
     * [Release Notes](0.8.3/RELEASENOTES.0.8.3.md)
 * Apache Tez v0.8.2
-    * [Changes](0.8.2/CHANGES.0.8.2.md)
+    * [Changelog](0.8.2/CHANGELOG.0.8.2.md)
     * [Release Notes](0.8.2/RELEASENOTES.0.8.2.md)
 * Apache Tez v0.8.1-alpha
-    * [Changes](0.8.1-alpha/CHANGES.0.8.1-alpha.md)
+    * [Changelog](0.8.1-alpha/CHANGELOG.0.8.1-alpha.md)
     * [Release Notes](0.8.1-alpha/RELEASENOTES.0.8.1-alpha.md)
 * Apache Tez v0.8.1
-    * [Changes](0.8.1/CHANGES.0.8.1.md)
+    * [Changelog](0.8.1/CHANGELOG.0.8.1.md)
     * [Release Notes](0.8.1/RELEASENOTES.0.8.1.md)
 * Apache Tez v0.8.0-alpha
-    * [Changes](0.8.0-alpha/CHANGES.0.8.0-alpha.md)
+    * [Changelog](0.8.0-alpha/CHANGELOG.0.8.0-alpha.md)
     * [Release Notes](0.8.0-alpha/RELEASENOTES.0.8.0-alpha.md)
 * Apache Tez v0.8.0
-    * [Changes](0.8.0/CHANGES.0.8.0.md)
+    * [Changelog](0.8.0/CHANGELOG.0.8.0.md)
     * [Release Notes](0.8.0/RELEASENOTES.0.8.0.md)
 * Apache Tez v0.7.2
-    * [Changes](0.7.2/CHANGES.0.7.2.md)
+    * [Changelog](0.7.2/CHANGELOG.0.7.2.md)
     * [Release Notes](0.7.2/RELEASENOTES.0.7.2.md)
 * Apache Tez v0.7.1
-    * [Changes](0.7.1/CHANGES.0.7.1.md)
+    * [Changelog](0.7.1/CHANGELOG.0.7.1.md)
     * [Release Notes](0.7.1/RELEASENOTES.0.7.1.md)
 * Apache Tez v0.7.0
-    * [Changes](0.7.0/CHANGES.0.7.0.md)
+    * [Changelog](0.7.0/CHANGELOG.0.7.0.md)
     * [Release Notes](0.7.0/RELEASENOTES.0.7.0.md)
 * Apache Tez v0.6.3
-    * [Changes](0.6.3/CHANGES.0.6.3.md)
+    * [Changelog](0.6.3/CHANGELOG.0.6.3.md)
     * [Release Notes](0.6.3/RELEASENOTES.0.6.3.md)
 * Apache Tez v0.6.2
-    * [Changes](0.6.2/CHANGES.0.6.2.md)
+    * [Changelog](0.6.2/CHANGELOG.0.6.2.md)
     * [Release Notes](0.6.2/RELEASENOTES.0.6.2.md)
 * Apache Tez v0.6.1
-    * [Changes](0.6.1/CHANGES.0.6.1.md)
+    * [Changelog](0.6.1/CHANGELOG.0.6.1.md)
     * [Release Notes](0.6.1/RELEASENOTES.0.6.1.md)
 * Apache Tez v0.6.0
-    * [Changes](0.6.0/CHANGES.0.6.0.md)
+    * [Changelog](0.6.0/CHANGELOG.0.6.0.md)
     * [Release Notes](0.6.0/RELEASENOTES.0.6.0.md)
 * Apache Tez v0.5.5
-    * [Changes](0.5.5/CHANGES.0.5.5.md)
+    * [Changelog](0.5.5/CHANGELOG.0.5.5.md)
     * [Release Notes](0.5.5/RELEASENOTES.0.5.5.md)
 * Apache Tez v0.5.4
-    * [Changes](0.5.4/CHANGES.0.5.4.md)
+    * [Changelog](0.5.4/CHANGELOG.0.5.4.md)
     * [Release Notes](0.5.4/RELEASENOTES.0.5.4.md)
 * Apache Tez v0.5.3
-    * [Changes](0.5.3/CHANGES.0.5.3.md)
+    * [Changelog](0.5.3/CHANGELOG.0.5.3.md)
     * [Release Notes](0.5.3/RELEASENOTES.0.5.3.md)
 * Apache Tez v0.5.2
-    * [Changes](0.5.2/CHANGES.0.5.2.md)
+    * [Changelog](0.5.2/CHANGELOG.0.5.2.md)
     * [Release Notes](0.5.2/RELEASENOTES.0.5.2.md)
 * Apache Tez v0.5.1
-    * [Changes](0.5.1/CHANGES.0.5.1.md)
+    * [Changelog](0.5.1/CHANGELOG.0.5.1.md)
     * [Release Notes](0.5.1/RELEASENOTES.0.5.1.md)
 * Apache Tez v0.5.0
-    * [Changes](0.5.0/CHANGES.0.5.0.md)
+    * [Changelog](0.5.0/CHANGELOG.0.5.0.md)
     * [Release Notes](0.5.0/RELEASENOTES.0.5.0.md)
 * Apache Tez v0.4.1
-    * [Changes](0.4.1/CHANGES.0.4.1.md)
+    * [Changelog](0.4.1/CHANGELOG.0.4.1.md)
     * [Release Notes](0.4.1/RELEASENOTES.0.4.1.md)
 * Apache Tez v0.4.0
-    * [Changes](0.4.0/CHANGES.0.4.0.md)
+    * [Changelog](0.4.0/CHANGELOG.0.4.0.md)
     * [Release Notes](0.4.0/RELEASENOTES.0.4.0.md)

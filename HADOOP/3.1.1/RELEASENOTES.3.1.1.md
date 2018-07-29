@@ -79,4 +79,11 @@ Mover could have fail after 20+ minutes if a block move was enqueued for this lo
 The internal constant can be configured with the dfs.balancer.max-iteration-time parameter after the patch, and affects only the Balancer. Default is 20 minutes.
 
 
+---
+
+* [HADOOP-15547](https://issues.apache.org/jira/browse/HADOOP-15547) | *Major* | **WASB: improve listStatus performance**
+
+WASB: listStatus 10x performance improvement for listing 700,000 files
+
+
 

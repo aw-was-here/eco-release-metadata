@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.2 - Unreleased (as of 2018-07-13)
+## Release 0.9.2 - Unreleased (as of 2018-07-29)
 
 
 
@@ -74,6 +74,8 @@
 | [TEZ-3912](https://issues.apache.org/jira/browse/TEZ-3912) | Fetchers should be more robust to corrupted inputs |  Major | . | Jason Lowe | Kuhu Shukla |
 | [TEZ-3964](https://issues.apache.org/jira/browse/TEZ-3964) | Inflater not closed in some places |  Major | . | Jaume M | Jaume M |
 | [TEZ-3970](https://issues.apache.org/jira/browse/TEZ-3970) | NullPointerException in Tez ShuffleHandler Ranged Fetch |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3942](https://issues.apache.org/jira/browse/TEZ-3942) | RPC getTask writable optimization invalid in hadoop 2.8+ |  Major | . | Jonathan Eagles | Nishant Dash |
+| [TEZ-3934](https://issues.apache.org/jira/browse/TEZ-3934) | LegacySpeculator sometime issues wrong number of speculative attempts |  Major | . | Jonathan Eagles | Nishant Dash |
 
 
 ### SUB-TASKS:

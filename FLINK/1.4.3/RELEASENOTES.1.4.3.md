@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [FLINK-9935](https://issues.apache.org/jira/browse/FLINK-9935) | *Critical* | **Batch Table API: grouping by window and attribute causes java.lang.ClassCastException:**
+
+**WARNING: No release note provided for this change.**
+
+
 

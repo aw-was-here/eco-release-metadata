@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.2.0 - Unreleased (as of 2018-07-13)
+## Release 3.2.0 - Unreleased (as of 2018-07-29)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -44,6 +44,7 @@
 | [YARN-5764](https://issues.apache.org/jira/browse/YARN-5764) | NUMA awareness support for launching containers |  Major | nodemanager, yarn | Olasoji | Devaraj K |
 | [HDFS-13056](https://issues.apache.org/jira/browse/HDFS-13056) | Expose file-level composite CRCs in HDFS which are comparable across different instances/layouts |  Major | datanode, distcp, erasure-coding, federation, hdfs | Dennis Huo | Dennis Huo |
 | [HDFS-13283](https://issues.apache.org/jira/browse/HDFS-13283) | Percentage based Reserved Space Calculation for DataNode |  Major | datanode, hdfs | Lukas Majercak | Lukas Majercak |
+| [HDFS-13448](https://issues.apache.org/jira/browse/HDFS-13448) | HDFS Block Placement - Ignore Locality for First Block Replica |  Minor | block placement, hdfs-client | BELUGA BEHR | BELUGA BEHR |
 
 
 ### IMPROVEMENTS:
@@ -145,6 +146,22 @@
 | [HADOOP-15581](https://issues.apache.org/jira/browse/HADOOP-15581) | Set default jetty log level to INFO in KMS |  Major | . | Kitti Nanasi | Kitti Nanasi |
 | [HADOOP-15568](https://issues.apache.org/jira/browse/HADOOP-15568) | fix some typos in the .sh comments |  Trivial | bin | Steve Loughran | Steve Loughran |
 | [YARN-8502](https://issues.apache.org/jira/browse/YARN-8502) | Use path strings consistently for webservice endpoints in RMWebServices |  Major | . | Szilard Nemeth | Szilard Nemeth |
+| [HADOOP-15531](https://issues.apache.org/jira/browse/HADOOP-15531) | Use commons-text instead of commons-lang in some classes to fix deprecation warnings |  Major | . | Takanobu Asanuma | Takanobu Asanuma |
+| [HADOOP-15598](https://issues.apache.org/jira/browse/HADOOP-15598) | DataChecksum calculate checksum is contented on hashtable synchronization |  Major | common | Prasanth Jayachandran | Prasanth Jayachandran |
+| [YARN-8524](https://issues.apache.org/jira/browse/YARN-8524) | Single parameter Resource / LightWeightResource constructor looks confusing |  Major | api | Szilard Nemeth | Szilard Nemeth |
+| [YARN-8361](https://issues.apache.org/jira/browse/YARN-8361) | Change App Name Placement Rule to use App Name instead of App Id for configuration |  Major | yarn | Zian Chen | Zian Chen |
+| [HDFS-13690](https://issues.apache.org/jira/browse/HDFS-13690) | Improve error message when creating encryption zone while KMS is unreachable |  Minor | encryption, hdfs, kms | Kitti Nanasi | Kitti Nanasi |
+| [YARN-8501](https://issues.apache.org/jira/browse/YARN-8501) | Reduce complexity of RMWebServices' getApps method |  Major | restapi | Szilard Nemeth | Szilard Nemeth |
+| [YARN-7300](https://issues.apache.org/jira/browse/YARN-7300) | DiskValidator is not used in LocalDirAllocator |  Major | . | Haibo Chen | Szilard Nemeth |
+| [HADOOP-15596](https://issues.apache.org/jira/browse/HADOOP-15596) | Stack trace should not be printed out when running hadoop key commands |  Minor | common | Kitti Nanasi | Kitti Nanasi |
+| [YARN-7133](https://issues.apache.org/jira/browse/YARN-7133) | Clean up lock-try order in fair scheduler |  Major | fairscheduler | Daniel Templeton | Szilard Nemeth |
+| [HDFS-13761](https://issues.apache.org/jira/browse/HDFS-13761) | Add toString Method to AclFeature Class |  Minor | . | Shweta | Shweta |
+| [HADOOP-15612](https://issues.apache.org/jira/browse/HADOOP-15612) | Improve exception when tfile fails to load LzoCodec |  Major | . | Gera Shegalov | Gera Shegalov |
+| [HDFS-11060](https://issues.apache.org/jira/browse/HDFS-11060) | make DEFAULT\_MAX\_CORRUPT\_FILEBLOCKS\_RETURNED configurable |  Minor | hdfs | Lantao Jin | Lantao Jin |
+| [HADOOP-15611](https://issues.apache.org/jira/browse/HADOOP-15611) | Log more details for FairCallQueue |  Minor | . | Ryan Wu |  |
+| [HDFS-13727](https://issues.apache.org/jira/browse/HDFS-13727) | Log full stack trace if DiskBalancer exits with an unhandled exception |  Minor | diskbalancer | Stephen O'Donnell | Gabor Bota |
+| [YARN-8517](https://issues.apache.org/jira/browse/YARN-8517) | getContainer and getContainers ResourceManager REST API methods are not documented |  Major | resourcemanager | Szilard Nemeth | Antal Bálint Steinbach |
+| [YARN-8566](https://issues.apache.org/jira/browse/YARN-8566) | Add diagnostic message for unschedulable containers |  Major | resourcemanager | Szilard Nemeth | Szilard Nemeth |
 
 
 ### BUG FIXES:
@@ -419,6 +436,36 @@
 | [HADOOP-15316](https://issues.apache.org/jira/browse/HADOOP-15316) | GenericTestUtils can exceed maxSleepTime |  Trivial | . | Sean Mackrory | Adam Antal |
 | [HDFS-13729](https://issues.apache.org/jira/browse/HDFS-13729) | Fix broken links to RBF documentation |  Minor | documentation | jwhitter | Gabor Bota |
 | [YARN-8518](https://issues.apache.org/jira/browse/YARN-8518) | test-container-executor test\_is\_empty() is broken |  Major | . | Jim Brennan | Jim Brennan |
+| [HDFS-13663](https://issues.apache.org/jira/browse/HDFS-13663) | Should throw exception when incorrect block size is set |  Major | . | Yongjun Zhang | Shweta |
+| [YARN-8515](https://issues.apache.org/jira/browse/YARN-8515) | container-executor can crash with SIGPIPE after nodemanager restart |  Major | . | Jim Brennan | Jim Brennan |
+| [YARN-8421](https://issues.apache.org/jira/browse/YARN-8421) | when moving app, activeUsers is increased, even though app does not have outstanding request |  Major | . | kyungwan nam |  |
+| [YARN-8511](https://issues.apache.org/jira/browse/YARN-8511) | When AM releases a container, RM removes allocation tags before it is released by NM |  Major | capacity scheduler | Weiwei Yang | Weiwei Yang |
+| [HDFS-13524](https://issues.apache.org/jira/browse/HDFS-13524) | Occasional "All datanodes are bad" error in TestLargeBlock#testLargeBlockSize |  Major | . | Wei-Chiu Chuang | Siyao Meng |
+| [YARN-8538](https://issues.apache.org/jira/browse/YARN-8538) | Fix valgrind leak check on container executor |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [HDFS-13485](https://issues.apache.org/jira/browse/HDFS-13485) | DataNode WebHDFS endpoint throws NPE |  Minor | datanode, webhdfs | Wei-Chiu Chuang | Siyao Meng |
+| [HADOOP-15610](https://issues.apache.org/jira/browse/HADOOP-15610) | Hadoop Docker Image Pip Install Fails |  Critical | . | Jack Bearden | Jack Bearden |
+| [HADOOP-15614](https://issues.apache.org/jira/browse/HADOOP-15614) | TestGroupsCaching.testExceptionOnBackgroundRefreshHandled reliably fails |  Major | . | Kihwal Lee | Weiwei Yang |
+| [YARN-8436](https://issues.apache.org/jira/browse/YARN-8436) | FSParentQueue: Comparison method violates its general contract |  Minor | fairscheduler | Wilfred Spiegelenburg | Wilfred Spiegelenburg |
+| [MAPREDUCE-7118](https://issues.apache.org/jira/browse/MAPREDUCE-7118) | Distributed cache conflicts breaks backwards compatability |  Blocker | mrv2 | Jason Lowe | Jason Lowe |
+| [YARN-8528](https://issues.apache.org/jira/browse/YARN-8528) | Final states in ContainerAllocation might be modified externally causing unexpected allocation results |  Major | capacity scheduler | Xintong Song | Xintong Song |
+| [YARN-6964](https://issues.apache.org/jira/browse/YARN-6964) | Fair scheduler misuses Resources operations |  Major | fairscheduler | Daniel Templeton | Szilard Nemeth |
+| [YARN-8360](https://issues.apache.org/jira/browse/YARN-8360) | Yarn service conflict between restart policy and NM configuration |  Critical | yarn | Chandni Singh | Suma Shivaprasad |
+| [YARN-8380](https://issues.apache.org/jira/browse/YARN-8380) | Support bind propagation options for mounts in docker runtime |  Major | . | Billie Rinaldi | Billie Rinaldi |
+| [YARN-8544](https://issues.apache.org/jira/browse/YARN-8544) | [DS] AM registration fails when hadoop authorization is enabled |  Blocker | . | Bibin A Chundatt | Bibin A Chundatt |
+| [YARN-8548](https://issues.apache.org/jira/browse/YARN-8548) | AllocationRespose proto setNMToken initBuilder not done |  Major | . | Bibin A Chundatt | Bilwa S T |
+| [YARN-7748](https://issues.apache.org/jira/browse/YARN-7748) | TestContainerResizing.testIncreaseContainerUnreservedWhenApplicationCompleted fails due to multiple container fail events |  Major | capacityscheduler | Haibo Chen | Weiwei Yang |
+| [YARN-8541](https://issues.apache.org/jira/browse/YARN-8541) | RM startup failure on recovery after user deletion |  Blocker | resourcemanager | yimeng | Bibin A Chundatt |
+| [YARN-8577](https://issues.apache.org/jira/browse/YARN-8577) | Fix the broken anchor in SLS site-doc |  Minor | documentation | Weiwei Yang | Weiwei Yang |
+| [HADOOP-15395](https://issues.apache.org/jira/browse/HADOOP-15395) | DefaultImpersonationProvider fails to parse proxy user config if username has . in it |  Major | . | Ajay Kumar | Ajay Kumar |
+| [YARN-4606](https://issues.apache.org/jira/browse/YARN-4606) | CapacityScheduler: applications could get starved because computation of #activeUsers considers pending apps |  Critical | capacity scheduler, capacityscheduler | Karam Singh | Manikandan R |
+| [YARN-8330](https://issues.apache.org/jira/browse/YARN-8330) | An extra container got launched by RM for yarn-service |  Critical | yarn-native-services | Yesha Vora | Suma Shivaprasad |
+| [HDFS-13622](https://issues.apache.org/jira/browse/HDFS-13622) | mkdir should print the parent directory in the error message when parent directories do not exist |  Major | . | Zoltan Haindrich | Shweta |
+| [HADOOP-15593](https://issues.apache.org/jira/browse/HADOOP-15593) | UserGroupInformation TGT renewer throws NPE |  Blocker | security | Wei-Chiu Chuang | Gabor Bota |
+| [YARN-8429](https://issues.apache.org/jira/browse/YARN-8429) | Improve diagnostic message when artifact is not set properly |  Major | . | Yesha Vora | Gour Saha |
+| [HDFS-13765](https://issues.apache.org/jira/browse/HDFS-13765) | Fix javadoc for FSDirMkdirOp#createParentDirectories |  Minor | documentation | Lokesh Jain | Lokesh Jain |
+| [YARN-8571](https://issues.apache.org/jira/browse/YARN-8571) | Validate service principal format prior to launching yarn service |  Major | security, yarn | Eric Yang | Eric Yang |
+| [YARN-8596](https://issues.apache.org/jira/browse/YARN-8596) | Allow SQLFederationStateStore to submit the same app in the same subcluster |  Major | federation | Íñigo Goiri | Giovanni Matteo Fumarola |
+| [YARN-8508](https://issues.apache.org/jira/browse/YARN-8508) | GPU  does not get released even though the container is killed |  Major | . | Sumana Sathish | Chandni Singh |
 
 
 ### TESTS:
@@ -607,6 +654,14 @@
 | [HDFS-13710](https://issues.apache.org/jira/browse/HDFS-13710) | RBF:  setQuota and getQuotaUsage should check the dfs.federation.router.quota.enable |  Major | federation, hdfs | yanghuafeng | yanghuafeng |
 | [YARN-7899](https://issues.apache.org/jira/browse/YARN-7899) | [AMRMProxy] Stateful FederationInterceptor for pending requests |  Major | . | Botong Huang | Botong Huang |
 | [HDFS-13726](https://issues.apache.org/jira/browse/HDFS-13726) | RBF: Fix RBF configuration links |  Minor | documentation | Takanobu Asanuma | Takanobu Asanuma |
+| [HDFS-13475](https://issues.apache.org/jira/browse/HDFS-13475) | RBF: Admin cannot enforce Router enter SafeMode |  Major | . | Wei Yan | Chao Sun |
+| [YARN-8299](https://issues.apache.org/jira/browse/YARN-8299) | Yarn Service Upgrade: Add GET APIs that returns instances matching query params |  Major | . | Chandni Singh | Chandni Singh |
+| [HDFS-13733](https://issues.apache.org/jira/browse/HDFS-13733) | RBF: Add Web UI configurations and descriptions to RBF document |  Minor | documentation | Takanobu Asanuma | Takanobu Asanuma |
+| [YARN-6995](https://issues.apache.org/jira/browse/YARN-6995) | Improve use of ResourceNotFoundException in resource types code |  Minor | nodemanager, resourcemanager | Daniel Templeton | Szilard Nemeth |
+| [HDFS-13743](https://issues.apache.org/jira/browse/HDFS-13743) | RBF: Router throws NullPointerException due to the invalid initialization of MountTableResolver |  Major | . | Takanobu Asanuma | Takanobu Asanuma |
+| [YARN-8301](https://issues.apache.org/jira/browse/YARN-8301) | Yarn Service Upgrade: Add documentation |  Major | . | Chandni Singh | Chandni Singh |
+| [HDFS-13583](https://issues.apache.org/jira/browse/HDFS-13583) | RBF: Router admin clrQuota is not synchronized with nameservice |  Major | . | Dibyendu Karmakar | Dibyendu Karmakar |
+| [YARN-8546](https://issues.apache.org/jira/browse/YARN-8546) | Resource leak caused by a reserved container being released more than once under async scheduling |  Major | capacity scheduler | Weiwei Yang | Tao Yang |
 
 
 ### OTHER:
@@ -622,5 +677,6 @@
 | [YARN-8412](https://issues.apache.org/jira/browse/YARN-8412) | Move ResourceRequest.clone logic everywhere into a proper API |  Minor | . | Botong Huang | Botong Huang |
 | [HADOOP-15483](https://issues.apache.org/jira/browse/HADOOP-15483) | Upgrade jquery to version 3.3.1 |  Major | . | Lokesh Jain | Lokesh Jain |
 | [YARN-8506](https://issues.apache.org/jira/browse/YARN-8506) | Make GetApplicationsRequestPBImpl thread safe |  Critical | . | Wangda Tan | Wangda Tan |
+| [YARN-8545](https://issues.apache.org/jira/browse/YARN-8545) | YARN native service should return container if launch failed |  Critical | . | Wangda Tan | Chandni Singh |
 
 

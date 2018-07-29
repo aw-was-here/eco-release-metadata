@@ -770,7 +770,7 @@
 | [SPARK-15414](https://issues.apache.org/jira/browse/SPARK-15414) | Make the mllib,ml linalg type conversion APIs public |  Major | ML, MLlib | Joseph K. Bradley | Sandeep Singh |
 | [SPARK-15416](https://issues.apache.org/jira/browse/SPARK-15416) | Display a better message for not finding classes removed in Spark 2.0 |  Major | SQL | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-15296](https://issues.apache.org/jira/browse/SPARK-15296) | Refactor All Java Tests that use SparkSession |  Minor | ML, MLlib, Tests | Sandeep Singh | Sandeep Singh |
-| [SPARK-11827](https://issues.apache.org/jira/browse/SPARK-11827) | Support java.math.BigInteger in Type-Inference utilities for POJOs |  Minor | SQL | Abhilash Srimat Tirumala Pallerlamudi | kevin yu |
+| [SPARK-11827](https://issues.apache.org/jira/browse/SPARK-11827) | Support java.math.BigInteger in Type-Inference utilities for POJOs |  Minor | SQL | Abhilash Pallerlamudi | kevin yu |
 | [SPARK-15335](https://issues.apache.org/jira/browse/SPARK-15335) | Implement TRUNCATE TABLE Command |  Minor | SQL | Weizhong | Lianhui Wang |
 | [SPARK-15363](https://issues.apache.org/jira/browse/SPARK-15363) | Example code shouldn't use VectorImplicits.\_, asML/fromML |  Major | Documentation, ML | Xiangrui Meng | Miao Wang |
 | [SPARK-15398](https://issues.apache.org/jira/browse/SPARK-15398) | Update the warning message to recommend ML usage |  Minor | ML | zhengruifeng | zhengruifeng |
@@ -1985,7 +1985,6 @@
 | [SPARK-13079](https://issues.apache.org/jira/browse/SPARK-13079) | Provide an in-memory implementation of the catalog API |  Major | SQL | Reynold Xin | Andrew Or |
 | [SPARK-10814](https://issues.apache.org/jira/browse/SPARK-10814) | API design: convergence of batch and streaming DataFrame |  Major | Structured Streaming | Reynold Xin | Reynold Xin |
 | [SPARK-13164](https://issues.apache.org/jira/browse/SPARK-13164) | Replace deprecated synchronizedBuffer in core |  Minor | Spark Core | holdenk | holdenk |
-| [SPARK-12850](https://issues.apache.org/jira/browse/SPARK-12850) | Support bucket pruning (predicate pushdown for bucketed tables) |  Major | SQL | Reynold Xin | Xiao Li |
 | [SPARK-13208](https://issues.apache.org/jira/browse/SPARK-13208) | Replace Pair with tuples |  Trivial | DStreams, Examples, Spark Core, SQL | Jakob Odersky | Jakob Odersky |
 | [SPARK-13171](https://issues.apache.org/jira/browse/SPARK-13171) | Update promise & future to Promise and Future as the old ones are deprecated |  Trivial | . | holdenk | Jakob Odersky |
 | [SPARK-13176](https://issues.apache.org/jira/browse/SPARK-13176) | Ignore deprecation warning for ProcessBuilder lines\_! |  Trivial | Spark Core | holdenk | Jakob Odersky |

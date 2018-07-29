@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2018-07-13)
+## Release 3.6.0 - Unreleased (as of 2018-07-29)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -141,6 +141,12 @@
 | [ZOOKEEPER-2368](https://issues.apache.org/jira/browse/ZOOKEEPER-2368) | Client watches are not disconnected on close |  Major | . | Timothy Ward | Timothy Ward |
 | [ZOOKEEPER-3078](https://issues.apache.org/jira/browse/ZOOKEEPER-3078) | Remove unused print\_completion\_queue function |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
 | [ZOOKEEPER-3084](https://issues.apache.org/jira/browse/ZOOKEEPER-3084) | Exit when ZooKeeper cannot bind to the leader election port |  Minor | quorum, server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3083](https://issues.apache.org/jira/browse/ZOOKEEPER-3083) | Remove some redundant and noisy log lines |  Trivial | server | Brian Nixon | Brian Nixon |
+| [ZOOKEEPER-3077](https://issues.apache.org/jira/browse/ZOOKEEPER-3077) | Build native C library outside of source directory |  Trivial | build | Kent R. Spillner | Kent R. Spillner |
+| [ZOOKEEPER-3068](https://issues.apache.org/jira/browse/ZOOKEEPER-3068) | Improve C client logging of IPv6 hosts |  Trivial | c client | Brian Nixon | Brian Nixon |
+| [ZOOKEEPER-3097](https://issues.apache.org/jira/browse/ZOOKEEPER-3097) | Use Runnable instead of Thread for working items in WorkerService to improve the throughput of CommitProcessor |  Minor | server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3094](https://issues.apache.org/jira/browse/ZOOKEEPER-3094) | Make BufferSizeTest reliable |  Minor | tests | Mohamed Jeelani | Mohamed Jeelani |
+| [ZOOKEEPER-3095](https://issues.apache.org/jira/browse/ZOOKEEPER-3095) | Connect string fix for non-existent hosts |  Minor | other | Mohamed Jeelani | Mohamed Jeelani |
 
 
 ### BUG FIXES:
@@ -363,9 +369,13 @@
 | [ZOOKEEPER-2920](https://issues.apache.org/jira/browse/ZOOKEEPER-2920) | Upgrade OWASP Dependency Check to 3.2.1 |  Major | build | Abraham Fine | Patrick Hunt |
 | [ZOOKEEPER-3009](https://issues.apache.org/jira/browse/ZOOKEEPER-3009) | Potential NPE in NIOServerCnxnFactory |  Major | . | lujie | lujie |
 | [ZOOKEEPER-2319](https://issues.apache.org/jira/browse/ZOOKEEPER-2319) | UnresolvedAddressException cause the QuorumCnxManager.Listener exit |  Major | . | Zhaohui Yu | Michael Han |
+| [ZOOKEEPER-2184](https://issues.apache.org/jira/browse/ZOOKEEPER-2184) | Zookeeper Client should re-resolve hosts when connection attempts fail |  Blocker | java client | Robert P. Thille | Andor Molnar |
 | [ZOOKEEPER-3059](https://issues.apache.org/jira/browse/ZOOKEEPER-3059) | EventThread leak in case of Sasl AuthFailed |  Critical | . | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
 | [ZOOKEEPER-2886](https://issues.apache.org/jira/browse/ZOOKEEPER-2886) | Permanent session moved error in multi-op only connections |  Major | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-3079](https://issues.apache.org/jira/browse/ZOOKEEPER-3079) | Fix unsafe use of sprintf(3) for creating IP address strings |  Minor | c client | Kent R. Spillner | Kent R. Spillner |
+| [ZOOKEEPER-3093](https://issues.apache.org/jira/browse/ZOOKEEPER-3093) | sync zerror(int rc) with newest error definitions |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
+| [ZOOKEEPER-2251](https://issues.apache.org/jira/browse/ZOOKEEPER-2251) | Add Client side packet response timeout to avoid infinite wait. |  Critical | java client | nijel | Mohammad Arshad |
+| [ZOOKEEPER-3072](https://issues.apache.org/jira/browse/ZOOKEEPER-3072) | Race condition in throttling |  Major | server | Botond Hejj |  |
 
 
 ### TESTS:
@@ -388,6 +398,7 @@
 | [ZOOKEEPER-2415](https://issues.apache.org/jira/browse/ZOOKEEPER-2415) | SessionTest is using Thread deprecated API. |  Major | tests | Flavio Junqueira | Andor Molnar |
 | [ZOOKEEPER-2955](https://issues.apache.org/jira/browse/ZOOKEEPER-2955) | Enable Clover code coverage report |  Major | tests | Mark Fenes | Mark Fenes |
 | [ZOOKEEPER-2968](https://issues.apache.org/jira/browse/ZOOKEEPER-2968) | Add C client code coverage tests |  Major | tests | Mark Fenes | Mark Fenes |
+| [ZOOKEEPER-3074](https://issues.apache.org/jira/browse/ZOOKEEPER-3074) | Flaky test:org.apache.zookeeper.server.ServerStatsTest.testLatencyMetrics |  Minor | tests | maoling | maoling |
 
 
 ### SUB-TASKS:
@@ -417,6 +428,7 @@
 | [ZOOKEEPER-2939](https://issues.apache.org/jira/browse/ZOOKEEPER-2939) | Deal with maxbuffer as it relates to proposals |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-3022](https://issues.apache.org/jira/browse/ZOOKEEPER-3022) | Step 1.1 - Create docs and it maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
+| [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 
 
 ### OTHER:
@@ -430,5 +442,8 @@
 | [ZOOKEEPER-2709](https://issues.apache.org/jira/browse/ZOOKEEPER-2709) | Clarify documentation around "auth" ACL scheme |  Minor | documentation | Josh Elser | Josh Elser |
 | [ZOOKEEPER-3017](https://issues.apache.org/jira/browse/ZOOKEEPER-3017) | Link libm in CMake on FreeBSD |  Minor | . | David Forsythe | David Forsythe |
 | [ZOOKEEPER-3002](https://issues.apache.org/jira/browse/ZOOKEEPER-3002) | Upgrade branches 3.5 and trunk to Java 1.8 |  Major | java client, server | Andor Molnar | Norbert Kalmar |
+| [ZOOKEEPER-3087](https://issues.apache.org/jira/browse/ZOOKEEPER-3087) | Fix findbug warning introduced by ZOOKEEPER-3084. |  Major | tests | Michael Han | Michael Han |
+| [ZOOKEEPER-3067](https://issues.apache.org/jira/browse/ZOOKEEPER-3067) | Optionally suppress client environment logging. |  Minor | c client | James Peach |  |
+| [ZOOKEEPER-3061](https://issues.apache.org/jira/browse/ZOOKEEPER-3061) | add more details to 'Unhandled scenario for peer' log.warn message |  Minor | . | Christine Poerschke |  |
 
 

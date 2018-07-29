@@ -19,9 +19,15 @@
 * Apache Flink v2.0.0
     * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
+* Apache Flink v1.7.0
+    * [Changelog](1.7.0/CHANGELOG.1.7.0.html)
+    * [Release Notes](1.7.0/RELEASENOTES.1.7.0.html)
 * Apache Flink v1.6.0
     * [Changelog](1.6.0/CHANGELOG.1.6.0.html)
     * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)
+* Apache Flink v1.5.3
+    * [Changelog](1.5.3/CHANGELOG.1.5.3.html)
+    * [Release Notes](1.5.3/RELEASENOTES.1.5.3.html)
 * Apache Flink v1.5.2
     * [Changelog](1.5.2/CHANGELOG.1.5.2.html)
     * [Release Notes](1.5.2/RELEASENOTES.1.5.2.html)

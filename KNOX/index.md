@@ -16,24 +16,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Knox v1.2.0
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache Knox v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.html)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.html)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)
 * Apache Knox v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
 * Apache Knox v0.15.0
-    * [Changes](0.15.0/CHANGES.0.15.0.html)
+    * [Changelog](0.15.0/CHANGELOG.0.15.0.html)
     * [Release Notes](0.15.0/RELEASENOTES.0.15.0.html)
 * Apache Knox v0.14.1
-    * [Changes](0.14.1/CHANGES.0.14.1.html)
+    * [Changelog](0.14.1/CHANGELOG.0.14.1.html)
     * [Release Notes](0.14.1/RELEASENOTES.0.14.1.html)
 * Apache Knox v0.14.0
-    * [Changes](0.14.0/CHANGES.0.14.0.html)
+    * [Changelog](0.14.0/CHANGELOG.0.14.0.html)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.html)
 * Apache Knox v0.13.0
-    * [Changes](0.13.0/CHANGES.0.13.0.html)
+    * [Changelog](0.13.0/CHANGELOG.0.13.0.html)
     * [Release Notes](0.13.0/RELEASENOTES.0.13.0.html)
 * Apache Knox v0.12.0
-    * [Changes](0.12.0/CHANGES.0.12.0.html)
+    * [Changelog](0.12.0/CHANGELOG.0.12.0.html)
     * [Release Notes](0.12.0/RELEASENOTES.0.12.0.html)

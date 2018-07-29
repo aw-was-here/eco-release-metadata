@@ -18,7 +18,7 @@
 -->
 # Apache Falcon Changelog
 
-## Release 0.10 - Unreleased (as of 2018-07-13)
+## Release 0.10 - Unreleased (as of 2018-07-29)
 
 ### INCOMPATIBLE CHANGES:
 

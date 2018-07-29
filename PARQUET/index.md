@@ -17,35 +17,35 @@
 # limitations under the License.
 -->
 * Apache Parquet v2.0.0
-    * [Changes](2.0.0/CHANGES.2.0.0.html)
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
 * Apache Parquet v1.11.0
-    * [Changes](1.11.0/CHANGES.1.11.0.html)
+    * [Changelog](1.11.0/CHANGELOG.1.11.0.html)
     * [Release Notes](1.11.0/RELEASENOTES.1.11.0.html)
 * Apache Parquet v1.10.1
-    * [Changes](1.10.1/CHANGES.1.10.1.html)
+    * [Changelog](1.10.1/CHANGELOG.1.10.1.html)
     * [Release Notes](1.10.1/RELEASENOTES.1.10.1.html)
 * Apache Parquet v1.10.0
-    * [Changes](1.10.0/CHANGES.1.10.0.html)
+    * [Changelog](1.10.0/CHANGELOG.1.10.0.html)
     * [Release Notes](1.10.0/RELEASENOTES.1.10.0.html)
 * Apache Parquet v1.9.1
-    * [Changes](1.9.1/CHANGES.1.9.1.html)
+    * [Changelog](1.9.1/CHANGELOG.1.9.1.html)
     * [Release Notes](1.9.1/RELEASENOTES.1.9.1.html)
 * Apache Parquet v1.9.0
-    * [Changes](1.9.0/CHANGES.1.9.0.html)
+    * [Changelog](1.9.0/CHANGELOG.1.9.0.html)
     * [Release Notes](1.9.0/RELEASENOTES.1.9.0.html)
 * Apache Parquet v1.8.1
-    * [Changes](1.8.1/CHANGES.1.8.1.html)
+    * [Changelog](1.8.1/CHANGELOG.1.8.1.html)
     * [Release Notes](1.8.1/RELEASENOTES.1.8.1.html)
 * Apache Parquet v1.8.0
-    * [Changes](1.8.0/CHANGES.1.8.0.html)
+    * [Changelog](1.8.0/CHANGELOG.1.8.0.html)
     * [Release Notes](1.8.0/RELEASENOTES.1.8.0.html)
 * Apache Parquet v1.7.0
-    * [Changes](1.7.0/CHANGES.1.7.0.html)
+    * [Changelog](1.7.0/CHANGELOG.1.7.0.html)
     * [Release Notes](1.7.0/RELEASENOTES.1.7.0.html)
 * Apache Parquet v1.6.1
-    * [Changes](1.6.1/CHANGES.1.6.1.html)
+    * [Changelog](1.6.1/CHANGELOG.1.6.1.html)
     * [Release Notes](1.6.1/RELEASENOTES.1.6.1.html)
 * Apache Parquet v1.6.0
-    * [Changes](1.6.0/CHANGES.1.6.0.html)
+    * [Changelog](1.6.0/CHANGELOG.1.6.0.html)
     * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)

@@ -17,467 +17,470 @@
 # limitations under the License.
 -->
 * Apache HBase v2.0.0
-    * [Changes](2.0.0/CHANGES.2.0.0.md)
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.md)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.md)
 * Apache HBase v2.0
-    * [Changes](2.0/CHANGES.2.0.md)
+    * [Changelog](2.0/CHANGELOG.2.0.md)
     * [Release Notes](2.0/RELEASENOTES.2.0.md)
 * Apache HBase v2.0..
-    * [Changes](2.0../CHANGES.2.0...md)
+    * [Changelog](2.0../CHANGELOG.2.0...md)
     * [Release Notes](2.0../RELEASENOTES.2.0...md)
 * Apache HBase v1.31
-    * [Changes](1.31/CHANGES.1.31.md)
+    * [Changelog](1.31/CHANGELOG.1.31.md)
     * [Release Notes](1.31/RELEASENOTES.1.31.md)
 * Apache HBase v1.5.0
-    * [Changes](1.5.0/CHANGES.1.5.0.md)
+    * [Changelog](1.5.0/CHANGELOG.1.5.0.md)
     * [Release Notes](1.5.0/RELEASENOTES.1.5.0.md)
+* Apache HBase v1.4.7
+    * [Changelog](1.4.7/CHANGELOG.1.4.7.md)
+    * [Release Notes](1.4.7/RELEASENOTES.1.4.7.md)
 * Apache HBase v1.4.6
-    * [Changes](1.4.6/CHANGES.1.4.6.md)
+    * [Changelog](1.4.6/CHANGELOG.1.4.6.md)
     * [Release Notes](1.4.6/RELEASENOTES.1.4.6.md)
 * Apache HBase v1.4.5
-    * [Changes](1.4.5/CHANGES.1.4.5.md)
+    * [Changelog](1.4.5/CHANGELOG.1.4.5.md)
     * [Release Notes](1.4.5/RELEASENOTES.1.4.5.md)
 * Apache HBase v1.4.4
-    * [Changes](1.4.4/CHANGES.1.4.4.md)
+    * [Changelog](1.4.4/CHANGELOG.1.4.4.md)
     * [Release Notes](1.4.4/RELEASENOTES.1.4.4.md)
 * Apache HBase v1.4.3
-    * [Changes](1.4.3/CHANGES.1.4.3.md)
+    * [Changelog](1.4.3/CHANGELOG.1.4.3.md)
     * [Release Notes](1.4.3/RELEASENOTES.1.4.3.md)
 * Apache HBase v1.4.2
-    * [Changes](1.4.2/CHANGES.1.4.2.md)
+    * [Changelog](1.4.2/CHANGELOG.1.4.2.md)
     * [Release Notes](1.4.2/RELEASENOTES.1.4.2.md)
 * Apache HBase v1.4.1
-    * [Changes](1.4.1/CHANGES.1.4.1.md)
+    * [Changelog](1.4.1/CHANGELOG.1.4.1.md)
     * [Release Notes](1.4.1/RELEASENOTES.1.4.1.md)
 * Apache HBase v1.4.0
-    * [Changes](1.4.0/CHANGES.1.4.0.md)
+    * [Changelog](1.4.0/CHANGELOG.1.4.0.md)
     * [Release Notes](1.4.0/RELEASENOTES.1.4.0.md)
 * Apache HBase v1.3.3
-    * [Changes](1.3.3/CHANGES.1.3.3.md)
+    * [Changelog](1.3.3/CHANGELOG.1.3.3.md)
     * [Release Notes](1.3.3/RELEASENOTES.1.3.3.md)
 * Apache HBase v1.3.2
-    * [Changes](1.3.2/CHANGES.1.3.2.md)
+    * [Changelog](1.3.2/CHANGELOG.1.3.2.md)
     * [Release Notes](1.3.2/RELEASENOTES.1.3.2.md)
 * Apache HBase v1.3.1
-    * [Changes](1.3.1/CHANGES.1.3.1.md)
+    * [Changelog](1.3.1/CHANGELOG.1.3.1.md)
     * [Release Notes](1.3.1/RELEASENOTES.1.3.1.md)
 * Apache HBase v1.3.0
-    * [Changes](1.3.0/CHANGES.1.3.0.md)
+    * [Changelog](1.3.0/CHANGELOG.1.3.0.md)
     * [Release Notes](1.3.0/RELEASENOTES.1.3.0.md)
 * Apache HBase v1.3
-    * [Changes](1.3/CHANGES.1.3.md)
+    * [Changelog](1.3/CHANGELOG.1.3.md)
     * [Release Notes](1.3/RELEASENOTES.1.3.md)
 * Apache HBase v1.2.8
-    * [Changes](1.2.8/CHANGES.1.2.8.md)
+    * [Changelog](1.2.8/CHANGELOG.1.2.8.md)
     * [Release Notes](1.2.8/RELEASENOTES.1.2.8.md)
 * Apache HBase v1.2.7
-    * [Changes](1.2.7/CHANGES.1.2.7.md)
+    * [Changelog](1.2.7/CHANGELOG.1.2.7.md)
     * [Release Notes](1.2.7/RELEASENOTES.1.2.7.md)
 * Apache HBase v1.2.6
-    * [Changes](1.2.6/CHANGES.1.2.6.md)
+    * [Changelog](1.2.6/CHANGELOG.1.2.6.md)
     * [Release Notes](1.2.6/RELEASENOTES.1.2.6.md)
 * Apache HBase v1.2.5
-    * [Changes](1.2.5/CHANGES.1.2.5.md)
+    * [Changelog](1.2.5/CHANGELOG.1.2.5.md)
     * [Release Notes](1.2.5/RELEASENOTES.1.2.5.md)
 * Apache HBase v1.2.4
-    * [Changes](1.2.4/CHANGES.1.2.4.md)
+    * [Changelog](1.2.4/CHANGELOG.1.2.4.md)
     * [Release Notes](1.2.4/RELEASENOTES.1.2.4.md)
 * Apache HBase v1.2.3
-    * [Changes](1.2.3/CHANGES.1.2.3.md)
+    * [Changelog](1.2.3/CHANGELOG.1.2.3.md)
     * [Release Notes](1.2.3/RELEASENOTES.1.2.3.md)
 * Apache HBase v1.2.2
-    * [Changes](1.2.2/CHANGES.1.2.2.md)
+    * [Changelog](1.2.2/CHANGELOG.1.2.2.md)
     * [Release Notes](1.2.2/RELEASENOTES.1.2.2.md)
 * Apache HBase v1.2.1
-    * [Changes](1.2.1/CHANGES.1.2.1.md)
+    * [Changelog](1.2.1/CHANGELOG.1.2.1.md)
     * [Release Notes](1.2.1/RELEASENOTES.1.2.1.md)
 * Apache HBase v1.2.0
-    * [Changes](1.2.0/CHANGES.1.2.0.md)
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.md)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.md)
 * Apache HBase v1.2
-    * [Changes](1.2/CHANGES.1.2.md)
+    * [Changelog](1.2/CHANGELOG.1.2.md)
     * [Release Notes](1.2/RELEASENOTES.1.2.md)
 * Apache HBase v1.1.13
-    * [Changes](1.1.13/CHANGES.1.1.13.md)
+    * [Changelog](1.1.13/CHANGELOG.1.1.13.md)
     * [Release Notes](1.1.13/RELEASENOTES.1.1.13.md)
 * Apache HBase v1.1.12
-    * [Changes](1.1.12/CHANGES.1.1.12.md)
+    * [Changelog](1.1.12/CHANGELOG.1.1.12.md)
     * [Release Notes](1.1.12/RELEASENOTES.1.1.12.md)
 * Apache HBase v1.1.11
-    * [Changes](1.1.11/CHANGES.1.1.11.md)
+    * [Changelog](1.1.11/CHANGELOG.1.1.11.md)
     * [Release Notes](1.1.11/RELEASENOTES.1.1.11.md)
 * Apache HBase v1.1.10
-    * [Changes](1.1.10/CHANGES.1.1.10.md)
+    * [Changelog](1.1.10/CHANGELOG.1.1.10.md)
     * [Release Notes](1.1.10/RELEASENOTES.1.1.10.md)
 * Apache HBase v1.1.9
-    * [Changes](1.1.9/CHANGES.1.1.9.md)
+    * [Changelog](1.1.9/CHANGELOG.1.1.9.md)
     * [Release Notes](1.1.9/RELEASENOTES.1.1.9.md)
 * Apache HBase v1.1.8
-    * [Changes](1.1.8/CHANGES.1.1.8.md)
+    * [Changelog](1.1.8/CHANGELOG.1.1.8.md)
     * [Release Notes](1.1.8/RELEASENOTES.1.1.8.md)
 * Apache HBase v1.1.7
-    * [Changes](1.1.7/CHANGES.1.1.7.md)
+    * [Changelog](1.1.7/CHANGELOG.1.1.7.md)
     * [Release Notes](1.1.7/RELEASENOTES.1.1.7.md)
 * Apache HBase v1.1.6
-    * [Changes](1.1.6/CHANGES.1.1.6.md)
+    * [Changelog](1.1.6/CHANGELOG.1.1.6.md)
     * [Release Notes](1.1.6/RELEASENOTES.1.1.6.md)
 * Apache HBase v1.1.5
-    * [Changes](1.1.5/CHANGES.1.1.5.md)
+    * [Changelog](1.1.5/CHANGELOG.1.1.5.md)
     * [Release Notes](1.1.5/RELEASENOTES.1.1.5.md)
 * Apache HBase v1.1.4
-    * [Changes](1.1.4/CHANGES.1.1.4.md)
+    * [Changelog](1.1.4/CHANGELOG.1.1.4.md)
     * [Release Notes](1.1.4/RELEASENOTES.1.1.4.md)
 * Apache HBase v1.1.3
-    * [Changes](1.1.3/CHANGES.1.1.3.md)
+    * [Changelog](1.1.3/CHANGELOG.1.1.3.md)
     * [Release Notes](1.1.3/RELEASENOTES.1.1.3.md)
 * Apache HBase v1.1.2
-    * [Changes](1.1.2/CHANGES.1.1.2.md)
+    * [Changelog](1.1.2/CHANGELOG.1.1.2.md)
     * [Release Notes](1.1.2/RELEASENOTES.1.1.2.md)
 * Apache HBase v1.1.1
-    * [Changes](1.1.1/CHANGES.1.1.1.md)
+    * [Changelog](1.1.1/CHANGELOG.1.1.1.md)
     * [Release Notes](1.1.1/RELEASENOTES.1.1.1.md)
 * Apache HBase v1.1.0.1
-    * [Changes](1.1.0.1/CHANGES.1.1.0.1.md)
+    * [Changelog](1.1.0.1/CHANGELOG.1.1.0.1.md)
     * [Release Notes](1.1.0.1/RELEASENOTES.1.1.0.1.md)
 * Apache HBase v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.md)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.md)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
 * Apache HBase v1.0.5
-    * [Changes](1.0.5/CHANGES.1.0.5.md)
+    * [Changelog](1.0.5/CHANGELOG.1.0.5.md)
     * [Release Notes](1.0.5/RELEASENOTES.1.0.5.md)
 * Apache HBase v1.0.4
-    * [Changes](1.0.4/CHANGES.1.0.4.md)
+    * [Changelog](1.0.4/CHANGELOG.1.0.4.md)
     * [Release Notes](1.0.4/RELEASENOTES.1.0.4.md)
 * Apache HBase v1.0.3
-    * [Changes](1.0.3/CHANGES.1.0.3.md)
+    * [Changelog](1.0.3/CHANGELOG.1.0.3.md)
     * [Release Notes](1.0.3/RELEASENOTES.1.0.3.md)
 * Apache HBase v1.0.2
-    * [Changes](1.0.2/CHANGES.1.0.2.md)
+    * [Changelog](1.0.2/CHANGELOG.1.0.2.md)
     * [Release Notes](1.0.2/RELEASENOTES.1.0.2.md)
 * Apache HBase v1.0.1.1
-    * [Changes](1.0.1.1/CHANGES.1.0.1.1.md)
+    * [Changelog](1.0.1.1/CHANGELOG.1.0.1.1.md)
     * [Release Notes](1.0.1.1/RELEASENOTES.1.0.1.1.md)
 * Apache HBase v1.0.1
-    * [Changes](1.0.1/CHANGES.1.0.1.md)
+    * [Changelog](1.0.1/CHANGELOG.1.0.1.md)
     * [Release Notes](1.0.1/RELEASENOTES.1.0.1.md)
 * Apache HBase v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
 * Apache HBase v0.99.2
-    * [Changes](0.99.2/CHANGES.0.99.2.md)
+    * [Changelog](0.99.2/CHANGELOG.0.99.2.md)
     * [Release Notes](0.99.2/RELEASENOTES.0.99.2.md)
 * Apache HBase v0.99.1
-    * [Changes](0.99.1/CHANGES.0.99.1.md)
+    * [Changelog](0.99.1/CHANGELOG.0.99.1.md)
     * [Release Notes](0.99.1/RELEASENOTES.0.99.1.md)
 * Apache HBase v0.99.0
-    * [Changes](0.99.0/CHANGES.0.99.0.md)
+    * [Changelog](0.99.0/CHANGELOG.0.99.0.md)
     * [Release Notes](0.99.0/RELEASENOTES.0.99.0.md)
 * Apache HBase v0.98.23
-    * [Changes](0.98.23/CHANGES.0.98.23.md)
+    * [Changelog](0.98.23/CHANGELOG.0.98.23.md)
     * [Release Notes](0.98.23/RELEASENOTES.0.98.23.md)
 * Apache HBase v0.98.22
-    * [Changes](0.98.22/CHANGES.0.98.22.md)
+    * [Changelog](0.98.22/CHANGELOG.0.98.22.md)
     * [Release Notes](0.98.22/RELEASENOTES.0.98.22.md)
 * Apache HBase v0.98.21
-    * [Changes](0.98.21/CHANGES.0.98.21.md)
+    * [Changelog](0.98.21/CHANGELOG.0.98.21.md)
     * [Release Notes](0.98.21/RELEASENOTES.0.98.21.md)
 * Apache HBase v0.98.20
-    * [Changes](0.98.20/CHANGES.0.98.20.md)
+    * [Changelog](0.98.20/CHANGELOG.0.98.20.md)
     * [Release Notes](0.98.20/RELEASENOTES.0.98.20.md)
 * Apache HBase v0.98.19
-    * [Changes](0.98.19/CHANGES.0.98.19.md)
+    * [Changelog](0.98.19/CHANGELOG.0.98.19.md)
     * [Release Notes](0.98.19/RELEASENOTES.0.98.19.md)
 * Apache HBase v0.98.18
-    * [Changes](0.98.18/CHANGES.0.98.18.md)
+    * [Changelog](0.98.18/CHANGELOG.0.98.18.md)
     * [Release Notes](0.98.18/RELEASENOTES.0.98.18.md)
 * Apache HBase v0.98.17
-    * [Changes](0.98.17/CHANGES.0.98.17.md)
+    * [Changelog](0.98.17/CHANGELOG.0.98.17.md)
     * [Release Notes](0.98.17/RELEASENOTES.0.98.17.md)
 * Apache HBase v0.98.16
-    * [Changes](0.98.16/CHANGES.0.98.16.md)
+    * [Changelog](0.98.16/CHANGELOG.0.98.16.md)
     * [Release Notes](0.98.16/RELEASENOTES.0.98.16.md)
 * Apache HBase v0.98.15
-    * [Changes](0.98.15/CHANGES.0.98.15.md)
+    * [Changelog](0.98.15/CHANGELOG.0.98.15.md)
     * [Release Notes](0.98.15/RELEASENOTES.0.98.15.md)
 * Apache HBase v0.98.14
-    * [Changes](0.98.14/CHANGES.0.98.14.md)
+    * [Changelog](0.98.14/CHANGELOG.0.98.14.md)
     * [Release Notes](0.98.14/RELEASENOTES.0.98.14.md)
 * Apache HBase v0.98.13
-    * [Changes](0.98.13/CHANGES.0.98.13.md)
+    * [Changelog](0.98.13/CHANGELOG.0.98.13.md)
     * [Release Notes](0.98.13/RELEASENOTES.0.98.13.md)
 * Apache HBase v0.98.12.1
-    * [Changes](0.98.12.1/CHANGES.0.98.12.1.md)
+    * [Changelog](0.98.12.1/CHANGELOG.0.98.12.1.md)
     * [Release Notes](0.98.12.1/RELEASENOTES.0.98.12.1.md)
 * Apache HBase v0.98.12
-    * [Changes](0.98.12/CHANGES.0.98.12.md)
+    * [Changelog](0.98.12/CHANGELOG.0.98.12.md)
     * [Release Notes](0.98.12/RELEASENOTES.0.98.12.md)
 * Apache HBase v0.98.11
-    * [Changes](0.98.11/CHANGES.0.98.11.md)
+    * [Changelog](0.98.11/CHANGELOG.0.98.11.md)
     * [Release Notes](0.98.11/RELEASENOTES.0.98.11.md)
 * Apache HBase v0.98.10.1
-    * [Changes](0.98.10.1/CHANGES.0.98.10.1.md)
+    * [Changelog](0.98.10.1/CHANGELOG.0.98.10.1.md)
     * [Release Notes](0.98.10.1/RELEASENOTES.0.98.10.1.md)
 * Apache HBase v0.98.10
-    * [Changes](0.98.10/CHANGES.0.98.10.md)
+    * [Changelog](0.98.10/CHANGELOG.0.98.10.md)
     * [Release Notes](0.98.10/RELEASENOTES.0.98.10.md)
 * Apache HBase v0.98.9
-    * [Changes](0.98.9/CHANGES.0.98.9.md)
+    * [Changelog](0.98.9/CHANGELOG.0.98.9.md)
     * [Release Notes](0.98.9/RELEASENOTES.0.98.9.md)
 * Apache HBase v0.98.8
-    * [Changes](0.98.8/CHANGES.0.98.8.md)
+    * [Changelog](0.98.8/CHANGELOG.0.98.8.md)
     * [Release Notes](0.98.8/RELEASENOTES.0.98.8.md)
 * Apache HBase v0.98.7
-    * [Changes](0.98.7/CHANGES.0.98.7.md)
+    * [Changelog](0.98.7/CHANGELOG.0.98.7.md)
     * [Release Notes](0.98.7/RELEASENOTES.0.98.7.md)
 * Apache HBase v0.98.6.1
-    * [Changes](0.98.6.1/CHANGES.0.98.6.1.md)
+    * [Changelog](0.98.6.1/CHANGELOG.0.98.6.1.md)
     * [Release Notes](0.98.6.1/RELEASENOTES.0.98.6.1.md)
 * Apache HBase v0.98.6
-    * [Changes](0.98.6/CHANGES.0.98.6.md)
+    * [Changelog](0.98.6/CHANGELOG.0.98.6.md)
     * [Release Notes](0.98.6/RELEASENOTES.0.98.6.md)
 * Apache HBase v0.98.5
-    * [Changes](0.98.5/CHANGES.0.98.5.md)
+    * [Changelog](0.98.5/CHANGELOG.0.98.5.md)
     * [Release Notes](0.98.5/RELEASENOTES.0.98.5.md)
 * Apache HBase v0.98.4
-    * [Changes](0.98.4/CHANGES.0.98.4.md)
+    * [Changelog](0.98.4/CHANGELOG.0.98.4.md)
     * [Release Notes](0.98.4/RELEASENOTES.0.98.4.md)
 * Apache HBase v0.98.3
-    * [Changes](0.98.3/CHANGES.0.98.3.md)
+    * [Changelog](0.98.3/CHANGELOG.0.98.3.md)
     * [Release Notes](0.98.3/RELEASENOTES.0.98.3.md)
 * Apache HBase v0.98.2
-    * [Changes](0.98.2/CHANGES.0.98.2.md)
+    * [Changelog](0.98.2/CHANGELOG.0.98.2.md)
     * [Release Notes](0.98.2/RELEASENOTES.0.98.2.md)
 * Apache HBase v0.98.1
-    * [Changes](0.98.1/CHANGES.0.98.1.md)
+    * [Changelog](0.98.1/CHANGELOG.0.98.1.md)
     * [Release Notes](0.98.1/RELEASENOTES.0.98.1.md)
 * Apache HBase v0.98.0
-    * [Changes](0.98.0/CHANGES.0.98.0.md)
+    * [Changelog](0.98.0/CHANGELOG.0.98.0.md)
     * [Release Notes](0.98.0/RELEASENOTES.0.98.0.md)
 * Apache HBase v0.96.3
-    * [Changes](0.96.3/CHANGES.0.96.3.md)
+    * [Changelog](0.96.3/CHANGELOG.0.96.3.md)
     * [Release Notes](0.96.3/RELEASENOTES.0.96.3.md)
 * Apache HBase v0.96.2
-    * [Changes](0.96.2/CHANGES.0.96.2.md)
+    * [Changelog](0.96.2/CHANGELOG.0.96.2.md)
     * [Release Notes](0.96.2/RELEASENOTES.0.96.2.md)
 * Apache HBase v0.96.1.1
-    * [Changes](0.96.1.1/CHANGES.0.96.1.1.md)
+    * [Changelog](0.96.1.1/CHANGELOG.0.96.1.1.md)
     * [Release Notes](0.96.1.1/RELEASENOTES.0.96.1.1.md)
 * Apache HBase v0.96.1
-    * [Changes](0.96.1/CHANGES.0.96.1.md)
+    * [Changelog](0.96.1/CHANGELOG.0.96.1.md)
     * [Release Notes](0.96.1/RELEASENOTES.0.96.1.md)
 * Apache HBase v0.96.0
-    * [Changes](0.96.0/CHANGES.0.96.0.md)
+    * [Changelog](0.96.0/CHANGELOG.0.96.0.md)
     * [Release Notes](0.96.0/RELEASENOTES.0.96.0.md)
 * Apache HBase v0.95.2
-    * [Changes](0.95.2/CHANGES.0.95.2.md)
+    * [Changelog](0.95.2/CHANGELOG.0.95.2.md)
     * [Release Notes](0.95.2/RELEASENOTES.0.95.2.md)
 * Apache HBase v0.95.1
-    * [Changes](0.95.1/CHANGES.0.95.1.md)
+    * [Changelog](0.95.1/CHANGELOG.0.95.1.md)
     * [Release Notes](0.95.1/RELEASENOTES.0.95.1.md)
 * Apache HBase v0.95.0
-    * [Changes](0.95.0/CHANGES.0.95.0.md)
+    * [Changelog](0.95.0/CHANGELOG.0.95.0.md)
     * [Release Notes](0.95.0/RELEASENOTES.0.95.0.md)
 * Apache HBase v0.94.28
-    * [Changes](0.94.28/CHANGES.0.94.28.md)
+    * [Changelog](0.94.28/CHANGELOG.0.94.28.md)
     * [Release Notes](0.94.28/RELEASENOTES.0.94.28.md)
 * Apache HBase v0.94.27
-    * [Changes](0.94.27/CHANGES.0.94.27.md)
+    * [Changelog](0.94.27/CHANGELOG.0.94.27.md)
     * [Release Notes](0.94.27/RELEASENOTES.0.94.27.md)
 * Apache HBase v0.94.26
-    * [Changes](0.94.26/CHANGES.0.94.26.md)
+    * [Changelog](0.94.26/CHANGELOG.0.94.26.md)
     * [Release Notes](0.94.26/RELEASENOTES.0.94.26.md)
 * Apache HBase v0.94.25
-    * [Changes](0.94.25/CHANGES.0.94.25.md)
+    * [Changelog](0.94.25/CHANGELOG.0.94.25.md)
     * [Release Notes](0.94.25/RELEASENOTES.0.94.25.md)
 * Apache HBase v0.94.24
-    * [Changes](0.94.24/CHANGES.0.94.24.md)
+    * [Changelog](0.94.24/CHANGELOG.0.94.24.md)
     * [Release Notes](0.94.24/RELEASENOTES.0.94.24.md)
 * Apache HBase v0.94.23
-    * [Changes](0.94.23/CHANGES.0.94.23.md)
+    * [Changelog](0.94.23/CHANGELOG.0.94.23.md)
     * [Release Notes](0.94.23/RELEASENOTES.0.94.23.md)
 * Apache HBase v0.94.22
-    * [Changes](0.94.22/CHANGES.0.94.22.md)
+    * [Changelog](0.94.22/CHANGELOG.0.94.22.md)
     * [Release Notes](0.94.22/RELEASENOTES.0.94.22.md)
 * Apache HBase v0.94.21
-    * [Changes](0.94.21/CHANGES.0.94.21.md)
+    * [Changelog](0.94.21/CHANGELOG.0.94.21.md)
     * [Release Notes](0.94.21/RELEASENOTES.0.94.21.md)
 * Apache HBase v0.94.20
-    * [Changes](0.94.20/CHANGES.0.94.20.md)
+    * [Changelog](0.94.20/CHANGELOG.0.94.20.md)
     * [Release Notes](0.94.20/RELEASENOTES.0.94.20.md)
 * Apache HBase v0.94.19
-    * [Changes](0.94.19/CHANGES.0.94.19.md)
+    * [Changelog](0.94.19/CHANGELOG.0.94.19.md)
     * [Release Notes](0.94.19/RELEASENOTES.0.94.19.md)
 * Apache HBase v0.94.18
-    * [Changes](0.94.18/CHANGES.0.94.18.md)
+    * [Changelog](0.94.18/CHANGELOG.0.94.18.md)
     * [Release Notes](0.94.18/RELEASENOTES.0.94.18.md)
 * Apache HBase v0.94.17
-    * [Changes](0.94.17/CHANGES.0.94.17.md)
+    * [Changelog](0.94.17/CHANGELOG.0.94.17.md)
     * [Release Notes](0.94.17/RELEASENOTES.0.94.17.md)
 * Apache HBase v0.94.16
-    * [Changes](0.94.16/CHANGES.0.94.16.md)
+    * [Changelog](0.94.16/CHANGELOG.0.94.16.md)
     * [Release Notes](0.94.16/RELEASENOTES.0.94.16.md)
 * Apache HBase v0.94.15
-    * [Changes](0.94.15/CHANGES.0.94.15.md)
+    * [Changelog](0.94.15/CHANGELOG.0.94.15.md)
     * [Release Notes](0.94.15/RELEASENOTES.0.94.15.md)
 * Apache HBase v0.94.14
-    * [Changes](0.94.14/CHANGES.0.94.14.md)
+    * [Changelog](0.94.14/CHANGELOG.0.94.14.md)
     * [Release Notes](0.94.14/RELEASENOTES.0.94.14.md)
 * Apache HBase v0.94.13
-    * [Changes](0.94.13/CHANGES.0.94.13.md)
+    * [Changelog](0.94.13/CHANGELOG.0.94.13.md)
     * [Release Notes](0.94.13/RELEASENOTES.0.94.13.md)
 * Apache HBase v0.94.12
-    * [Changes](0.94.12/CHANGES.0.94.12.md)
+    * [Changelog](0.94.12/CHANGELOG.0.94.12.md)
     * [Release Notes](0.94.12/RELEASENOTES.0.94.12.md)
 * Apache HBase v0.94.11
-    * [Changes](0.94.11/CHANGES.0.94.11.md)
+    * [Changelog](0.94.11/CHANGELOG.0.94.11.md)
     * [Release Notes](0.94.11/RELEASENOTES.0.94.11.md)
 * Apache HBase v0.94.10
-    * [Changes](0.94.10/CHANGES.0.94.10.md)
+    * [Changelog](0.94.10/CHANGELOG.0.94.10.md)
     * [Release Notes](0.94.10/RELEASENOTES.0.94.10.md)
 * Apache HBase v0.94.9
-    * [Changes](0.94.9/CHANGES.0.94.9.md)
+    * [Changelog](0.94.9/CHANGELOG.0.94.9.md)
     * [Release Notes](0.94.9/RELEASENOTES.0.94.9.md)
 * Apache HBase v0.94.8
-    * [Changes](0.94.8/CHANGES.0.94.8.md)
+    * [Changelog](0.94.8/CHANGELOG.0.94.8.md)
     * [Release Notes](0.94.8/RELEASENOTES.0.94.8.md)
 * Apache HBase v0.94.7
-    * [Changes](0.94.7/CHANGES.0.94.7.md)
+    * [Changelog](0.94.7/CHANGELOG.0.94.7.md)
     * [Release Notes](0.94.7/RELEASENOTES.0.94.7.md)
 * Apache HBase v0.94.6.1
-    * [Changes](0.94.6.1/CHANGES.0.94.6.1.md)
+    * [Changelog](0.94.6.1/CHANGELOG.0.94.6.1.md)
     * [Release Notes](0.94.6.1/RELEASENOTES.0.94.6.1.md)
 * Apache HBase v0.94.6
-    * [Changes](0.94.6/CHANGES.0.94.6.md)
+    * [Changelog](0.94.6/CHANGELOG.0.94.6.md)
     * [Release Notes](0.94.6/RELEASENOTES.0.94.6.md)
 * Apache HBase v0.94.5
-    * [Changes](0.94.5/CHANGES.0.94.5.md)
+    * [Changelog](0.94.5/CHANGELOG.0.94.5.md)
     * [Release Notes](0.94.5/RELEASENOTES.0.94.5.md)
 * Apache HBase v0.94.4
-    * [Changes](0.94.4/CHANGES.0.94.4.md)
+    * [Changelog](0.94.4/CHANGELOG.0.94.4.md)
     * [Release Notes](0.94.4/RELEASENOTES.0.94.4.md)
 * Apache HBase v0.94.3
-    * [Changes](0.94.3/CHANGES.0.94.3.md)
+    * [Changelog](0.94.3/CHANGELOG.0.94.3.md)
     * [Release Notes](0.94.3/RELEASENOTES.0.94.3.md)
 * Apache HBase v0.94.2
-    * [Changes](0.94.2/CHANGES.0.94.2.md)
+    * [Changelog](0.94.2/CHANGELOG.0.94.2.md)
     * [Release Notes](0.94.2/RELEASENOTES.0.94.2.md)
 * Apache HBase v0.94.1
-    * [Changes](0.94.1/CHANGES.0.94.1.md)
+    * [Changelog](0.94.1/CHANGELOG.0.94.1.md)
     * [Release Notes](0.94.1/RELEASENOTES.0.94.1.md)
 * Apache HBase v0.94.0
-    * [Changes](0.94.0/CHANGES.0.94.0.md)
+    * [Changelog](0.94.0/CHANGELOG.0.94.0.md)
     * [Release Notes](0.94.0/RELEASENOTES.0.94.0.md)
 * Apache HBase v0.92.3
-    * [Changes](0.92.3/CHANGES.0.92.3.md)
+    * [Changelog](0.92.3/CHANGELOG.0.92.3.md)
     * [Release Notes](0.92.3/RELEASENOTES.0.92.3.md)
 * Apache HBase v0.92.2
-    * [Changes](0.92.2/CHANGES.0.92.2.md)
+    * [Changelog](0.92.2/CHANGELOG.0.92.2.md)
     * [Release Notes](0.92.2/RELEASENOTES.0.92.2.md)
 * Apache HBase v0.92.1
-    * [Changes](0.92.1/CHANGES.0.92.1.md)
+    * [Changelog](0.92.1/CHANGELOG.0.92.1.md)
     * [Release Notes](0.92.1/RELEASENOTES.0.92.1.md)
 * Apache HBase v0.92.0
-    * [Changes](0.92.0/CHANGES.0.92.0.md)
+    * [Changelog](0.92.0/CHANGELOG.0.92.0.md)
     * [Release Notes](0.92.0/RELEASENOTES.0.92.0.md)
 * Apache HBase v0.90.8
-    * [Changes](0.90.8/CHANGES.0.90.8.md)
+    * [Changelog](0.90.8/CHANGELOG.0.90.8.md)
     * [Release Notes](0.90.8/RELEASENOTES.0.90.8.md)
 * Apache HBase v0.90.7
-    * [Changes](0.90.7/CHANGES.0.90.7.md)
+    * [Changelog](0.90.7/CHANGELOG.0.90.7.md)
     * [Release Notes](0.90.7/RELEASENOTES.0.90.7.md)
 * Apache HBase v0.90.6
-    * [Changes](0.90.6/CHANGES.0.90.6.md)
+    * [Changelog](0.90.6/CHANGELOG.0.90.6.md)
     * [Release Notes](0.90.6/RELEASENOTES.0.90.6.md)
 * Apache HBase v0.90.5
-    * [Changes](0.90.5/CHANGES.0.90.5.md)
+    * [Changelog](0.90.5/CHANGELOG.0.90.5.md)
     * [Release Notes](0.90.5/RELEASENOTES.0.90.5.md)
 * Apache HBase v0.90.4
-    * [Changes](0.90.4/CHANGES.0.90.4.md)
+    * [Changelog](0.90.4/CHANGELOG.0.90.4.md)
     * [Release Notes](0.90.4/RELEASENOTES.0.90.4.md)
 * Apache HBase v0.90.3
-    * [Changes](0.90.3/CHANGES.0.90.3.md)
+    * [Changelog](0.90.3/CHANGELOG.0.90.3.md)
     * [Release Notes](0.90.3/RELEASENOTES.0.90.3.md)
 * Apache HBase v0.90.2
-    * [Changes](0.90.2/CHANGES.0.90.2.md)
+    * [Changelog](0.90.2/CHANGELOG.0.90.2.md)
     * [Release Notes](0.90.2/RELEASENOTES.0.90.2.md)
 * Apache HBase v0.90.1
-    * [Changes](0.90.1/CHANGES.0.90.1.md)
+    * [Changelog](0.90.1/CHANGELOG.0.90.1.md)
     * [Release Notes](0.90.1/RELEASENOTES.0.90.1.md)
 * Apache HBase v0.90.0
-    * [Changes](0.90.0/CHANGES.0.90.0.md)
+    * [Changelog](0.90.0/CHANGELOG.0.90.0.md)
     * [Release Notes](0.90.0/RELEASENOTES.0.90.0.md)
 * Apache HBase v0.89-fb
-    * [Changes](0.89-fb/CHANGES.0.89-fb.md)
+    * [Changelog](0.89-fb/CHANGELOG.0.89-fb.md)
     * [Release Notes](0.89-fb/RELEASENOTES.0.89-fb.md)
 * Apache HBase v0.89.20100924
-    * [Changes](0.89.20100924/CHANGES.0.89.20100924.md)
+    * [Changelog](0.89.20100924/CHANGELOG.0.89.20100924.md)
     * [Release Notes](0.89.20100924/RELEASENOTES.0.89.20100924.md)
 * Apache HBase v0.89.20100621
-    * [Changes](0.89.20100621/CHANGES.0.89.20100621.md)
+    * [Changelog](0.89.20100621/CHANGELOG.0.89.20100621.md)
     * [Release Notes](0.89.20100621/RELEASENOTES.0.89.20100621.md)
 * Apache HBase v0.20.6
-    * [Changes](0.20.6/CHANGES.0.20.6.md)
+    * [Changelog](0.20.6/CHANGELOG.0.20.6.md)
     * [Release Notes](0.20.6/RELEASENOTES.0.20.6.md)
 * Apache HBase v0.20.5
-    * [Changes](0.20.5/CHANGES.0.20.5.md)
+    * [Changelog](0.20.5/CHANGELOG.0.20.5.md)
     * [Release Notes](0.20.5/RELEASENOTES.0.20.5.md)
 * Apache HBase v0.20.4
-    * [Changes](0.20.4/CHANGES.0.20.4.md)
+    * [Changelog](0.20.4/CHANGELOG.0.20.4.md)
     * [Release Notes](0.20.4/RELEASENOTES.0.20.4.md)
 * Apache HBase v0.20.3
-    * [Changes](0.20.3/CHANGES.0.20.3.md)
+    * [Changelog](0.20.3/CHANGELOG.0.20.3.md)
     * [Release Notes](0.20.3/RELEASENOTES.0.20.3.md)
 * Apache HBase v0.20.2
-    * [Changes](0.20.2/CHANGES.0.20.2.md)
+    * [Changelog](0.20.2/CHANGELOG.0.20.2.md)
     * [Release Notes](0.20.2/RELEASENOTES.0.20.2.md)
 * Apache HBase v0.20.1
-    * [Changes](0.20.1/CHANGES.0.20.1.md)
+    * [Changelog](0.20.1/CHANGELOG.0.20.1.md)
     * [Release Notes](0.20.1/RELEASENOTES.0.20.1.md)
 * Apache HBase v0.20.0
-    * [Changes](0.20.0/CHANGES.0.20.0.md)
+    * [Changelog](0.20.0/CHANGELOG.0.20.0.md)
     * [Release Notes](0.20.0/RELEASENOTES.0.20.0.md)
 * Apache HBase v0.19.3
-    * [Changes](0.19.3/CHANGES.0.19.3.md)
+    * [Changelog](0.19.3/CHANGELOG.0.19.3.md)
     * [Release Notes](0.19.3/RELEASENOTES.0.19.3.md)
 * Apache HBase v0.19.2
-    * [Changes](0.19.2/CHANGES.0.19.2.md)
+    * [Changelog](0.19.2/CHANGELOG.0.19.2.md)
     * [Release Notes](0.19.2/RELEASENOTES.0.19.2.md)
 * Apache HBase v0.19.1
-    * [Changes](0.19.1/CHANGES.0.19.1.md)
+    * [Changelog](0.19.1/CHANGELOG.0.19.1.md)
     * [Release Notes](0.19.1/RELEASENOTES.0.19.1.md)
 * Apache HBase v0.19.0
-    * [Changes](0.19.0/CHANGES.0.19.0.md)
+    * [Changelog](0.19.0/CHANGELOG.0.19.0.md)
     * [Release Notes](0.19.0/RELEASENOTES.0.19.0.md)
 * Apache HBase v0.18.1
-    * [Changes](0.18.1/CHANGES.0.18.1.md)
+    * [Changelog](0.18.1/CHANGELOG.0.18.1.md)
     * [Release Notes](0.18.1/RELEASENOTES.0.18.1.md)
 * Apache HBase v0.18.0
-    * [Changes](0.18.0/CHANGES.0.18.0.md)
+    * [Changelog](0.18.0/CHANGELOG.0.18.0.md)
     * [Release Notes](0.18.0/RELEASENOTES.0.18.0.md)
 * Apache HBase v0.16.0
-    * [Changes](0.16.0/CHANGES.0.16.0.md)
+    * [Changelog](0.16.0/CHANGELOG.0.16.0.md)
     * [Release Notes](0.16.0/RELEASENOTES.0.16.0.md)
 * Apache HBase v0.2.2
-    * [Changes](0.2.2/CHANGES.0.2.2.md)
+    * [Changelog](0.2.2/CHANGELOG.0.2.2.md)
     * [Release Notes](0.2.2/RELEASENOTES.0.2.2.md)
 * Apache HBase v0.2.1
-    * [Changes](0.2.1/CHANGES.0.2.1.md)
+    * [Changelog](0.2.1/CHANGELOG.0.2.1.md)
     * [Release Notes](0.2.1/RELEASENOTES.0.2.1.md)
 * Apache HBase v0.2.0
-    * [Changes](0.2.0/CHANGES.0.2.0.md)
+    * [Changelog](0.2.0/CHANGELOG.0.2.0.md)
     * [Release Notes](0.2.0/RELEASENOTES.0.2.0.md)
 * Apache HBase v0.1.4
-    * [Changes](0.1.4/CHANGES.0.1.4.md)
+    * [Changelog](0.1.4/CHANGELOG.0.1.4.md)
     * [Release Notes](0.1.4/RELEASENOTES.0.1.4.md)
 * Apache HBase v0.1.3
-    * [Changes](0.1.3/CHANGES.0.1.3.md)
+    * [Changelog](0.1.3/CHANGELOG.0.1.3.md)
     * [Release Notes](0.1.3/RELEASENOTES.0.1.3.md)
 * Apache HBase v0.1.2
-    * [Changes](0.1.2/CHANGES.0.1.2.md)
+    * [Changelog](0.1.2/CHANGELOG.0.1.2.md)
     * [Release Notes](0.1.2/RELEASENOTES.0.1.2.md)
 * Apache HBase v0.1.1
-    * [Changes](0.1.1/CHANGES.0.1.1.md)
+    * [Changelog](0.1.1/CHANGELOG.0.1.1.md)
     * [Release Notes](0.1.1/RELEASENOTES.0.1.1.md)
 * Apache HBase v0.1.0
-    * [Changes](0.1.0/CHANGES.0.1.0.md)
+    * [Changelog](0.1.0/CHANGELOG.0.1.0.md)
     * [Release Notes](0.1.0/RELEASENOTES.0.1.0.md)

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.10.0 - Unreleased (as of 2018-07-13)
+## Release 0.10.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -27,6 +27,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3911](https://issues.apache.org/jira/browse/TEZ-3911) | Optional min/max/avg aggr. task counters reported to HistoryLoggingService at final counter aggr. |  Critical | . | Eric Wohlstadter | Vineet Garg |
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [TEZ-3916](https://issues.apache.org/jira/browse/TEZ-3916) | Add hadoop-azure-datalake jar to azure profile |  Critical | . | Eric Wohlstadter | Eric Wohlstadter |
 
 
 ### BUG FIXES:
@@ -55,6 +62,9 @@
 | [TEZ-3955](https://issues.apache.org/jira/browse/TEZ-3955) | Upgrade hadoop dependency to 3.0.3 |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3964](https://issues.apache.org/jira/browse/TEZ-3964) | Inflater not closed in some places |  Major | . | Jaume M | Jaume M |
 | [TEZ-3970](https://issues.apache.org/jira/browse/TEZ-3970) | NullPointerException in Tez ShuffleHandler Ranged Fetch |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3965](https://issues.apache.org/jira/browse/TEZ-3965) | TestMROutput: Fix the hard-coded "/tmp/output" paths |  Minor | . | Gopal V | Jaume M |
+| [TEZ-3942](https://issues.apache.org/jira/browse/TEZ-3942) | RPC getTask writable optimization invalid in hadoop 2.8+ |  Major | . | Jonathan Eagles | Nishant Dash |
+| [TEZ-3934](https://issues.apache.org/jira/browse/TEZ-3934) | LegacySpeculator sometime issues wrong number of speculative attempts |  Major | . | Jonathan Eagles | Nishant Dash |
 
 
 ### SUB-TASKS:

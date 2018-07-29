@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.5 - Unreleased (as of 2018-07-13)
+## Release 3.5.5 - Unreleased (as of 2018-07-29)
 
 
 
@@ -38,6 +38,10 @@
 | [ZOOKEEPER-3063](https://issues.apache.org/jira/browse/ZOOKEEPER-3063) | Track outstanding changes with ArrayDeque |  Trivial | server | Yisong Yue | Yisong Yue |
 | [ZOOKEEPER-2368](https://issues.apache.org/jira/browse/ZOOKEEPER-2368) | Client watches are not disconnected on close |  Major | . | Timothy Ward | Timothy Ward |
 | [ZOOKEEPER-2873](https://issues.apache.org/jira/browse/ZOOKEEPER-2873) | print error and/or abort on invalid server definition |  Minor | server | Christopher Smith | Norbert Kalmar |
+| [ZOOKEEPER-3083](https://issues.apache.org/jira/browse/ZOOKEEPER-3083) | Remove some redundant and noisy log lines |  Trivial | server | Brian Nixon | Brian Nixon |
+| [ZOOKEEPER-3077](https://issues.apache.org/jira/browse/ZOOKEEPER-3077) | Build native C library outside of source directory |  Trivial | build | Kent R. Spillner | Kent R. Spillner |
+| [ZOOKEEPER-3097](https://issues.apache.org/jira/browse/ZOOKEEPER-3097) | Use Runnable instead of Thread for working items in WorkerService to improve the throughput of CommitProcessor |  Minor | server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3094](https://issues.apache.org/jira/browse/ZOOKEEPER-3094) | Make BufferSizeTest reliable |  Minor | tests | Mohamed Jeelani | Mohamed Jeelani |
 
 
 ### BUG FIXES:
@@ -52,8 +56,11 @@
 | [ZOOKEEPER-2317](https://issues.apache.org/jira/browse/ZOOKEEPER-2317) | Non-OSGi compatible version |  Blocker | build | Markus Tippmann | Sachin |
 | [ZOOKEEPER-2920](https://issues.apache.org/jira/browse/ZOOKEEPER-2920) | Upgrade OWASP Dependency Check to 3.2.1 |  Major | build | Abraham Fine | Patrick Hunt |
 | [ZOOKEEPER-3009](https://issues.apache.org/jira/browse/ZOOKEEPER-3009) | Potential NPE in NIOServerCnxnFactory |  Major | . | lujie | lujie |
+| [ZOOKEEPER-2184](https://issues.apache.org/jira/browse/ZOOKEEPER-2184) | Zookeeper Client should re-resolve hosts when connection attempts fail |  Blocker | java client | Robert P. Thille | Andor Molnar |
 | [ZOOKEEPER-3059](https://issues.apache.org/jira/browse/ZOOKEEPER-3059) | EventThread leak in case of Sasl AuthFailed |  Critical | . | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
 | [ZOOKEEPER-3042](https://issues.apache.org/jira/browse/ZOOKEEPER-3042) | testFailedTxnAsPartOfQuorumLoss is flaky |  Minor | tests | Bogdan Kanivets | Bogdan Kanivets |
+| [ZOOKEEPER-3093](https://issues.apache.org/jira/browse/ZOOKEEPER-3093) | sync zerror(int rc) with newest error definitions |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
+| [ZOOKEEPER-2251](https://issues.apache.org/jira/browse/ZOOKEEPER-2251) | Add Client side packet response timeout to avoid infinite wait. |  Critical | java client | nijel | Mohammad Arshad |
 
 
 ### TESTS:
@@ -62,6 +69,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2955](https://issues.apache.org/jira/browse/ZOOKEEPER-2955) | Enable Clover code coverage report |  Major | tests | Mark Fenes | Mark Fenes |
 | [ZOOKEEPER-2968](https://issues.apache.org/jira/browse/ZOOKEEPER-2968) | Add C client code coverage tests |  Major | tests | Mark Fenes | Mark Fenes |
+| [ZOOKEEPER-3074](https://issues.apache.org/jira/browse/ZOOKEEPER-3074) | Flaky test:org.apache.zookeeper.server.ServerStatsTest.testLatencyMetrics |  Minor | tests | maoling | maoling |
 
 
 ### SUB-TASKS:
@@ -70,5 +78,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-3022](https://issues.apache.org/jira/browse/ZOOKEEPER-3022) | Step 1.1 - Create docs and it maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
+| [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 
 

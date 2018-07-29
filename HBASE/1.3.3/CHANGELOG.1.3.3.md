@@ -18,8 +18,13 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.3 - Unreleased (as of 2018-07-13)
+## Release 1.3.3 - Unreleased (as of 2018-07-29)
 
+### INCOMPATIBLE CHANGES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-20884](https://issues.apache.org/jira/browse/HBASE-20884) | Replace usage of our Base64 implementation with java.util.Base64 |  Major | . | Mike Drob | Mike Drob |
 
 
 ### IMPROVEMENTS:
@@ -70,6 +75,13 @@
 | [HBASE-20575](https://issues.apache.org/jira/browse/HBASE-20575) | Fail to config COMPACTION\_ENABLED by hbase shell |  Major | shell | Chia-Ping Tsai | Mingdao Yang |
 | [HBASE-20769](https://issues.apache.org/jira/browse/HBASE-20769) | getSplits() has a out of bounds problem in TableSnapshotInputFormatImpl |  Major | . | Jingyun Tian | Jingyun Tian |
 | [HBASE-20771](https://issues.apache.org/jira/browse/HBASE-20771) | PUT operation fail with "No server address listed in hbase:meta for region xxxxx" |  Major | Client | Pankaj Kumar | Pankaj Kumar |
+| [HBASE-20697](https://issues.apache.org/jira/browse/HBASE-20697) | Can't cache All region locations of the specify table by calling table.getRegionLocator().getAllRegionLocations() |  Major | meta | zhaoyuan | zhaoyuan |
+| [HBASE-20889](https://issues.apache.org/jira/browse/HBASE-20889) | PE scan is failing with NullPointerException |  Major | . | Vikas Vishwakarma | Ted Yu |
+| [HBASE-20866](https://issues.apache.org/jira/browse/HBASE-20866) | HBase 1.x scan performance degradation compared to 0.98 version |  Critical | Performance | Vikas Vishwakarma | Vikas Vishwakarma |
+| [HBASE-17885](https://issues.apache.org/jira/browse/HBASE-17885) | Backport HBASE-15871 to branch-1 |  Major | Scanners | ramkrishna.s.vasudevan | Toshihiro Suzuki |
+| [HBASE-20908](https://issues.apache.org/jira/browse/HBASE-20908) | Infinite loop on regionserver if region replica are reduced |  Major | read replicas | Ankit Singhal | Ankit Singhal |
+| [HBASE-20230](https://issues.apache.org/jira/browse/HBASE-20230) | Incorrrect log message in RSRpcService |  Minor | . | Vishal Khandelwal | Xu Cang |
+| [HBASE-20895](https://issues.apache.org/jira/browse/HBASE-20895) | NPE in RpcServer#readAndProcess |  Major | rpc | Andrew Purtell | Andrew Purtell |
 
 
 ### TESTS:
@@ -96,5 +108,7 @@
 | [HBASE-20112](https://issues.apache.org/jira/browse/HBASE-20112) | Include test results from nightly hadoop3 tests in jenkins test results |  Critical | test | Sean Busbey | Sean Busbey |
 | [HBASE-19475](https://issues.apache.org/jira/browse/HBASE-19475) | Extend backporting strategy in documentation |  Trivial | documentation | Jan Hentschel | Jan Hentschel |
 | [HBASE-20665](https://issues.apache.org/jira/browse/HBASE-20665) | "Already cached block XXX" message should be DEBUG |  Minor | BlockCache | Sean Busbey | Eric Maynard |
+| [HBASE-20905](https://issues.apache.org/jira/browse/HBASE-20905) | branch-1 docker build fails |  Major | build | Jingyun Tian | Mike Drob |
+| [HBASE-20931](https://issues.apache.org/jira/browse/HBASE-20931) | [branch-1] Add -Dhttps.protocols=TLSv1.2 to Maven command line in make\_rc.sh |  Trivial | . | Andrew Purtell | Andrew Purtell |
 
 

@@ -318,6 +318,7 @@
 | [FLINK-6100](https://issues.apache.org/jira/browse/FLINK-6100) | Add documentation for Projectable and Filterable TableSource |  Major | Documentation, Table API & SQL | Fabian Hueske | Fabian Hueske |
 | [FLINK-6979](https://issues.apache.org/jira/browse/FLINK-6979) | Add documentation for Aggregation Functions in Tables/UDF doc |  Major | Documentation, Table API & SQL | sunjincheng | Shaoxuan Wang |
 | [FLINK-7726](https://issues.apache.org/jira/browse/FLINK-7726) | Move marshalling testbases out of legacy namespace |  Major | REST, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-7369](https://issues.apache.org/jira/browse/FLINK-7369) | Add more information for \`Key group index out of range of key group range\` exception |  Major | Local Runtime | Benedict Jin | Benedict Jin |
 
 
 ### BUG FIXES:

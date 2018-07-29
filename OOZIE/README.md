@@ -17,23 +17,23 @@
 # limitations under the License.
 -->
 * Apache Oozie v5.0.0
-    * [Changes](5.0.0/CHANGES.5.0.0.md)
+    * [Changelog](5.0.0/CHANGELOG.5.0.0.md)
     * [Release Notes](5.0.0/RELEASENOTES.5.0.0.md)
 * Apache Oozie v4.3.1
-    * [Changes](4.3.1/CHANGES.4.3.1.md)
+    * [Changelog](4.3.1/CHANGELOG.4.3.1.md)
     * [Release Notes](4.3.1/RELEASENOTES.4.3.1.md)
 * Apache Oozie v4.3.0
-    * [Changes](4.3.0/CHANGES.4.3.0.md)
+    * [Changelog](4.3.0/CHANGELOG.4.3.0.md)
     * [Release Notes](4.3.0/RELEASENOTES.4.3.0.md)
 * Apache Oozie v4.2.0
-    * [Changes](4.2.0/CHANGES.4.2.0.md)
+    * [Changelog](4.2.0/CHANGELOG.4.2.0.md)
     * [Release Notes](4.2.0/RELEASENOTES.4.2.0.md)
 * Apache Oozie v4.1.0
-    * [Changes](4.1.0/CHANGES.4.1.0.md)
+    * [Changelog](4.1.0/CHANGELOG.4.1.0.md)
     * [Release Notes](4.1.0/RELEASENOTES.4.1.0.md)
 * Apache Oozie v4.0.1
-    * [Changes](4.0.1/CHANGES.4.0.1.md)
+    * [Changelog](4.0.1/CHANGELOG.4.0.1.md)
     * [Release Notes](4.0.1/RELEASENOTES.4.0.1.md)
 * Apache Oozie v4.0.0
-    * [Changes](4.0.0/CHANGES.4.0.0.md)
+    * [Changelog](4.0.0/CHANGELOG.4.0.0.md)
     * [Release Notes](4.0.0/RELEASENOTES.4.0.0.md)

@@ -17,8 +17,8 @@
 # limitations under the License.
 -->
 * Apache Ranger v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
 * Apache Ranger v0.7.2
-    * [Changes](0.7.2/CHANGES.0.7.2.html)
+    * [Changelog](0.7.2/CHANGELOG.0.7.2.html)
     * [Release Notes](0.7.2/RELEASENOTES.0.7.2.html)

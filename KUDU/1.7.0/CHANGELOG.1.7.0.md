@@ -90,6 +90,7 @@
 | [KUDU-2259](https://issues.apache.org/jira/browse/KUDU-2259) | kudu-spark imports authentication token into client multiple times |  Blocker | spark | Will Berkeley | Dan Burkert |
 | [KUDU-2309](https://issues.apache.org/jira/browse/KUDU-2309) | /masters can show the wrong list of masters |  Major | ops-tooling | Will Berkeley | Will Berkeley |
 | [KUDU-2157](https://issues.apache.org/jira/browse/KUDU-2157) | 1.5 -\> 1.4 -\> 1.5 downgrade/re-upgrade can result in non-startable tservers |  Major | fs, tserver | Todd Lipcon |  |
+| [KUDU-2312](https://issues.apache.org/jira/browse/KUDU-2312) | Scan predicate application ordering is possibly buggy |  Major | tserver | Dan Burkert | Dan Burkert |
 
 
 ### SUB-TASKS:

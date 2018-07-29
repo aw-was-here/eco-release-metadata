@@ -46,6 +46,7 @@
 | [FLINK-8849](https://issues.apache.org/jira/browse/FLINK-8849) | Wrong link from concepts/runtime to doc on chaining |  Minor | Documentation | Ken Krugler | Ken Krugler |
 | [FLINK-8798](https://issues.apache.org/jira/browse/FLINK-8798) | Make commons-logging a parent-first pattern |  Blocker | Core | Stephan Ewen | Stephan Ewen |
 | [FLINK-8741](https://issues.apache.org/jira/browse/FLINK-8741) | KafkaFetcher09/010/011 uses wrong user code classloader |  Blocker | Kafka Connector | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-9643](https://issues.apache.org/jira/browse/FLINK-9643) | Flink allowing TLS 1.1 in spite of configuring TLS 1.2 |  Major | Security | Vinay | Viktor Vlasov |
 
 
 ### SUB-TASKS:

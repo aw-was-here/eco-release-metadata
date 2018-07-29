@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.11.0 - Unreleased (as of 2018-07-13)
+## Release 1.11.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -39,6 +39,7 @@
 | [PARQUET-1304](https://issues.apache.org/jira/browse/PARQUET-1304) | Release 1.10 contains breaking changes for Hive |  Major | parquet-mr | Zoltan Ivanfi | Gabor Szadovszky |
 | [PARQUET-1317](https://issues.apache.org/jira/browse/PARQUET-1317) | ParquetMetadataConverter throw NPE |  Major | parquet-mr | Yuming Wang | Yuming Wang |
 | [PARQUET-952](https://issues.apache.org/jira/browse/PARQUET-952) | Avro union with single type fails with 'is not a group' |  Major | parquet-mr | Jarek Jarcec Cecho | Nandor Kollar |
+| [PARQUET-1351](https://issues.apache.org/jira/browse/PARQUET-1351) | Travis builds fail for parquet-format |  Major | parquet-format | Nandor Kollar | Nandor Kollar |
 
 
 ### OTHER:

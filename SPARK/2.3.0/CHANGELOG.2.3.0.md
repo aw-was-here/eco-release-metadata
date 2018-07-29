@@ -311,6 +311,7 @@
 | [SPARK-21891](https://issues.apache.org/jira/browse/SPARK-21891) | Add TBLPROPERTIES to DDL statement: CREATE TABLE USING |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-21897](https://issues.apache.org/jira/browse/SPARK-21897) | Add unionByName API to DataFrame in Python and R |  Major | PySpark, SparkR | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-21903](https://issues.apache.org/jira/browse/SPARK-21903) | Upgrade scalastyle to 1.0.0 |  Trivial | Build | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-21765](https://issues.apache.org/jira/browse/SPARK-21765) | Ensure all leaf nodes that are derived from streaming sources have isStreaming=true |  Major | SQL, Structured Streaming | Jose Torres | Jose Torres |
 | [SPARK-21901](https://issues.apache.org/jira/browse/SPARK-21901) | Define toString for StateOperatorProgress |  Trivial | Structured Streaming | Jacek Laskowski | Jacek Laskowski |
 | [SPARK-13656](https://issues.apache.org/jira/browse/SPARK-13656) | Delete spark.sql.parquet.cacheMetadata |  Major | SQL | Yin Huai | Dongjoon Hyun |
 | [SPARK-19866](https://issues.apache.org/jira/browse/SPARK-19866) | Add local version of Word2Vec findSynonyms for spark.ml: Python API |  Minor | ML, PySpark | Joseph K. Bradley | Xin Ren |
@@ -720,6 +721,7 @@
 | [SPARK-21503](https://issues.apache.org/jira/browse/SPARK-21503) | Spark UI shows incorrect task status for a killed Executor Process |  Minor | Spark Core | Parth Gandhi | Parth Gandhi |
 | [SPARK-21523](https://issues.apache.org/jira/browse/SPARK-21523) | Fix bug of strong wolfe linesearch \`init\` parameter lose effectiveness |  Critical | MLlib | Weichen Xu | Weichen Xu |
 | [SPARK-21596](https://issues.apache.org/jira/browse/SPARK-21596) | Audit the places calling HDFSMetadataLog.get |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-21587](https://issues.apache.org/jira/browse/SPARK-21587) | Filter pushdown for EventTime Watermark Operator |  Major | Structured Streaming | Jose Torres |  |
 | [SPARK-21551](https://issues.apache.org/jira/browse/SPARK-21551) | pyspark's collect fails when getaddrinfo is too slow |  Critical | PySpark | peay | peay |
 | [SPARK-21638](https://issues.apache.org/jira/browse/SPARK-21638) | Warning message of RF is not accurate |  Minor | ML | Peng Meng | Peng Meng |
 | [SPARK-21595](https://issues.apache.org/jira/browse/SPARK-21595) | introduction of spark.sql.windowExec.buffer.spill.threshold in spark 2.2 breaks existing workflow |  Minor | Documentation, PySpark | Stephan Reiling | Tejas Patil |
@@ -727,6 +729,7 @@
 | [SPARK-12559](https://issues.apache.org/jira/browse/SPARK-12559) | Cluster mode doesn't work with --packages |  Major | Spark Submit | Andrew Or | Stavros Kontopoulos |
 | [SPARK-21563](https://issues.apache.org/jira/browse/SPARK-21563) | Race condition when serializing TaskDescriptions and adding jars |  Major | Scheduler, Spark Core | Andrew Ash | Andrew Ash |
 | [SPARK-19471](https://issues.apache.org/jira/browse/SPARK-19471) | A confusing NullPointerException when creating table |  Critical | SQL | StanZhai | Feng Zhu |
+| [SPARK-21696](https://issues.apache.org/jira/browse/SPARK-21696) | State Store can't handle corrupted snapshots |  Critical | Structured Streaming | Alexander Bessonov |  |
 | [SPARK-21721](https://issues.apache.org/jira/browse/SPARK-21721) | Memory leak in org.apache.spark.sql.hive.execution.InsertIntoHiveTable |  Critical | SQL | yzheng616 | Liang-Chi Hsieh |
 | [SPARK-21422](https://issues.apache.org/jira/browse/SPARK-21422) | Depend on Apache ORC 1.4.0 |  Major | Build | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-21723](https://issues.apache.org/jira/browse/SPARK-21723) | Can't write LibSVM - key not found: numFeatures |  Major | Input/Output, ML | Jan Vršovský | Jan Vršovský |
@@ -1146,6 +1149,7 @@
 | [SPARK-21128](https://issues.apache.org/jira/browse/SPARK-21128) | Running R tests multiple times failed due to pre-exiting "spark-warehouse" / "metastore\_db" |  Minor | SparkR | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-21286](https://issues.apache.org/jira/browse/SPARK-21286) | [spark core UT]Modify a error for unit test |  Minor | Spark Core | he.qiao | he.qiao |
 | [SPARK-21370](https://issues.apache.org/jira/browse/SPARK-21370) | Avoid doing anything on HDFSBackedStateStore.abort() when there are no updates to commit |  Minor | Structured Streaming | Burak Yavuz | Burak Yavuz |
+| [SPARK-21464](https://issues.apache.org/jira/browse/SPARK-21464) | Minimize deprecation warnings caused by ProcessingTime class |  Minor | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-21573](https://issues.apache.org/jira/browse/SPARK-21573) | Tests failing with run-tests.py SyntaxError occasionally in Jenkins |  Minor | Tests | Hyukjin Kwon | shane knapp |
 | [SPARK-21663](https://issues.apache.org/jira/browse/SPARK-21663) | MapOutputTrackerSuite case test("remote fetch below max RPC message size") should call stop |  Minor | Tests | wangjiaochun | wangjiaochun |
 | [SPARK-21843](https://issues.apache.org/jira/browse/SPARK-21843) | testNameNote should be "(minNumPostShufflePartitions: " + numPartitions + ")" in ExchangeCoordinatorSuite |  Trivial | Tests | iamhumanbeing | iamhumanbeing |
@@ -1400,6 +1404,7 @@
 | [SPARK-21724](https://issues.apache.org/jira/browse/SPARK-21724) | Missing since information in the documentation of date functions |  Minor | Documentation, SQL | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-21712](https://issues.apache.org/jira/browse/SPARK-21712) | Clarify PySpark Column.substr() type checking error message |  Trivial | PySpark, SQL | Nicholas Chammas | Nicholas Chammas |
 | [SPARK-21469](https://issues.apache.org/jira/browse/SPARK-21469) | Add doc and example for FeatureHasher |  Major | Documentation, ML | Nick Pentreath | Bryan Cutler |
+| [SPARK-21925](https://issues.apache.org/jira/browse/SPARK-21925) | Update trigger interval documentation in docs with behavior change in Spark 2.2 |  Major | Documentation, Structured Streaming | Burak Yavuz |  |
 | [SPARK-21976](https://issues.apache.org/jira/browse/SPARK-21976) | Fix wrong doc about Mean Absolute Error |  Minor | Documentation, MLlib | Favio Vázquez | Favio Vázquez |
 | [SPARK-20448](https://issues.apache.org/jira/browse/SPARK-20448) | Document how FileInputDStream works with object storage |  Minor | Documentation | Steve Loughran | Steve Loughran |
 | [SPARK-22110](https://issues.apache.org/jira/browse/SPARK-22110) | Enhance function description trim string function |  Minor | Documentation, SQL | kevin yu | kevin yu |

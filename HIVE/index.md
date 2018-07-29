@@ -17,92 +17,92 @@
 # limitations under the License.
 -->
 * Apache Hive v3.0.0
-    * [Changes](3.0.0/CHANGES.3.0.0.html)
+    * [Changelog](3.0.0/CHANGELOG.3.0.0.html)
     * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
 * Apache Hive v2.4.0
-    * [Changes](2.4.0/CHANGES.2.4.0.html)
+    * [Changelog](2.4.0/CHANGELOG.2.4.0.html)
     * [Release Notes](2.4.0/RELEASENOTES.2.4.0.html)
 * Apache Hive v2.3.3
-    * [Changes](2.3.3/CHANGES.2.3.3.html)
+    * [Changelog](2.3.3/CHANGELOG.2.3.3.html)
     * [Release Notes](2.3.3/RELEASENOTES.2.3.3.html)
 * Apache Hive v2.3.2
-    * [Changes](2.3.2/CHANGES.2.3.2.html)
+    * [Changelog](2.3.2/CHANGELOG.2.3.2.html)
     * [Release Notes](2.3.2/RELEASENOTES.2.3.2.html)
 * Apache Hive v2.3.1
-    * [Changes](2.3.1/CHANGES.2.3.1.html)
+    * [Changelog](2.3.1/CHANGELOG.2.3.1.html)
     * [Release Notes](2.3.1/RELEASENOTES.2.3.1.html)
 * Apache Hive v2.3.0
-    * [Changes](2.3.0/CHANGES.2.3.0.html)
+    * [Changelog](2.3.0/CHANGELOG.2.3.0.html)
     * [Release Notes](2.3.0/RELEASENOTES.2.3.0.html)
 * Apache Hive v2.2.1
-    * [Changes](2.2.1/CHANGES.2.2.1.html)
+    * [Changelog](2.2.1/CHANGELOG.2.2.1.html)
     * [Release Notes](2.2.1/RELEASENOTES.2.2.1.html)
 * Apache Hive v2.2.0
-    * [Changes](2.2.0/CHANGES.2.2.0.html)
+    * [Changelog](2.2.0/CHANGELOG.2.2.0.html)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
 * Apache Hive v2.1.2
-    * [Changes](2.1.2/CHANGES.2.1.2.html)
+    * [Changelog](2.1.2/CHANGELOG.2.1.2.html)
     * [Release Notes](2.1.2/RELEASENOTES.2.1.2.html)
 * Apache Hive v2.1.1
-    * [Changes](2.1.1/CHANGES.2.1.1.html)
+    * [Changelog](2.1.1/CHANGELOG.2.1.1.html)
     * [Release Notes](2.1.1/RELEASENOTES.2.1.1.html)
 * Apache Hive v2.1.0
-    * [Changes](2.1.0/CHANGES.2.1.0.html)
+    * [Changelog](2.1.0/CHANGELOG.2.1.0.html)
     * [Release Notes](2.1.0/RELEASENOTES.2.1.0.html)
 * Apache Hive v2.0.2
-    * [Changes](2.0.2/CHANGES.2.0.2.html)
+    * [Changelog](2.0.2/CHANGELOG.2.0.2.html)
     * [Release Notes](2.0.2/RELEASENOTES.2.0.2.html)
 * Apache Hive v2.0.1
-    * [Changes](2.0.1/CHANGES.2.0.1.html)
+    * [Changelog](2.0.1/CHANGELOG.2.0.1.html)
     * [Release Notes](2.0.1/RELEASENOTES.2.0.1.html)
 * Apache Hive v2.0.0
-    * [Changes](2.0.0/CHANGES.2.0.0.html)
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
 * Apache Hive v2.00
-    * [Changes](2.00/CHANGES.2.00.html)
+    * [Changelog](2.00/CHANGELOG.2.00.html)
     * [Release Notes](2.00/RELEASENOTES.2.00.html)
 * Apache Hive v1.3.0
-    * [Changes](1.3.0/CHANGES.1.3.0.html)
+    * [Changelog](1.3.0/CHANGELOG.1.3.0.html)
     * [Release Notes](1.3.0/RELEASENOTES.1.3.0.html)
 * Apache Hive v1.2.3
-    * [Changes](1.2.3/CHANGES.1.2.3.html)
+    * [Changelog](1.2.3/CHANGELOG.1.2.3.html)
     * [Release Notes](1.2.3/RELEASENOTES.1.2.3.html)
 * Apache Hive v1.2.2
-    * [Changes](1.2.2/CHANGES.1.2.2.html)
+    * [Changelog](1.2.2/CHANGELOG.1.2.2.html)
     * [Release Notes](1.2.2/RELEASENOTES.1.2.2.html)
 * Apache Hive v1.2.1
-    * [Changes](1.2.1/CHANGES.1.2.1.html)
+    * [Changelog](1.2.1/CHANGELOG.1.2.1.html)
     * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
 * Apache Hive v1.2.0
-    * [Changes](1.2.0/CHANGES.1.2.0.html)
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache Hive v1.1.2
-    * [Changes](1.1.2/CHANGES.1.1.2.html)
+    * [Changelog](1.1.2/CHANGELOG.1.1.2.html)
     * [Release Notes](1.1.2/RELEASENOTES.1.1.2.html)
 * Apache Hive v1.1.1
-    * [Changes](1.1.1/CHANGES.1.1.1.html)
+    * [Changelog](1.1.1/CHANGELOG.1.1.1.html)
     * [Release Notes](1.1.1/RELEASENOTES.1.1.1.html)
 * Apache Hive v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.html)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.html)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)
 * Apache Hive v1.0.1
-    * [Changes](1.0.1/CHANGES.1.0.1.html)
+    * [Changelog](1.0.1/CHANGELOG.1.0.1.html)
     * [Release Notes](1.0.1/RELEASENOTES.1.0.1.html)
 * Apache Hive v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
 * Apache Hive v0.15.0
-    * [Changes](0.15.0/CHANGES.0.15.0.html)
+    * [Changelog](0.15.0/CHANGELOG.0.15.0.html)
     * [Release Notes](0.15.0/RELEASENOTES.0.15.0.html)
 * Apache Hive v0.14.1
-    * [Changes](0.14.1/CHANGES.0.14.1.html)
+    * [Changelog](0.14.1/CHANGELOG.0.14.1.html)
     * [Release Notes](0.14.1/RELEASENOTES.0.14.1.html)
 * Apache Hive v0.14.0
-    * [Changes](0.14.0/CHANGES.0.14.0.html)
+    * [Changelog](0.14.0/CHANGELOG.0.14.0.html)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.html)
 * Apache Hive v0.13.1
-    * [Changes](0.13.1/CHANGES.0.13.1.html)
+    * [Changelog](0.13.1/CHANGELOG.0.13.1.html)
     * [Release Notes](0.13.1/RELEASENOTES.0.13.1.html)
 * Apache Hive v0.13.0
-    * [Changes](0.13.0/CHANGES.0.13.0.html)
+    * [Changelog](0.13.0/CHANGELOG.0.13.0.html)
     * [Release Notes](0.13.0/RELEASENOTES.0.13.0.html)

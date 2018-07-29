@@ -17,92 +17,92 @@
 # limitations under the License.
 -->
 * Apache Kafka v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.md)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.md)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
 * Apache Kafka v1.0.3
-    * [Changes](1.0.3/CHANGES.1.0.3.md)
+    * [Changelog](1.0.3/CHANGELOG.1.0.3.md)
     * [Release Notes](1.0.3/RELEASENOTES.1.0.3.md)
 * Apache Kafka v1.0.2
-    * [Changes](1.0.2/CHANGES.1.0.2.md)
+    * [Changelog](1.0.2/CHANGELOG.1.0.2.md)
     * [Release Notes](1.0.2/RELEASENOTES.1.0.2.md)
 * Apache Kafka v1.0.1
-    * [Changes](1.0.1/CHANGES.1.0.1.md)
+    * [Changelog](1.0.1/CHANGELOG.1.0.1.md)
     * [Release Notes](1.0.1/RELEASENOTES.1.0.1.md)
 * Apache Kafka v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
 * Apache Kafka v0.11.1.0
-    * [Changes](0.11.1.0/CHANGES.0.11.1.0.md)
+    * [Changelog](0.11.1.0/CHANGELOG.0.11.1.0.md)
     * [Release Notes](0.11.1.0/RELEASENOTES.0.11.1.0.md)
 * Apache Kafka v0.11.0.3
-    * [Changes](0.11.0.3/CHANGES.0.11.0.3.md)
+    * [Changelog](0.11.0.3/CHANGELOG.0.11.0.3.md)
     * [Release Notes](0.11.0.3/RELEASENOTES.0.11.0.3.md)
 * Apache Kafka v0.11.0.2
-    * [Changes](0.11.0.2/CHANGES.0.11.0.2.md)
+    * [Changelog](0.11.0.2/CHANGELOG.0.11.0.2.md)
     * [Release Notes](0.11.0.2/RELEASENOTES.0.11.0.2.md)
 * Apache Kafka v0.11.0.1
-    * [Changes](0.11.0.1/CHANGES.0.11.0.1.md)
+    * [Changelog](0.11.0.1/CHANGELOG.0.11.0.1.md)
     * [Release Notes](0.11.0.1/RELEASENOTES.0.11.0.1.md)
 * Apache Kafka v0.11.0.0
-    * [Changes](0.11.0.0/CHANGES.0.11.0.0.md)
+    * [Changelog](0.11.0.0/CHANGELOG.0.11.0.0.md)
     * [Release Notes](0.11.0.0/RELEASENOTES.0.11.0.0.md)
 * Apache Kafka v0.10.2.2
-    * [Changes](0.10.2.2/CHANGES.0.10.2.2.md)
+    * [Changelog](0.10.2.2/CHANGELOG.0.10.2.2.md)
     * [Release Notes](0.10.2.2/RELEASENOTES.0.10.2.2.md)
 * Apache Kafka v0.10.2.1
-    * [Changes](0.10.2.1/CHANGES.0.10.2.1.md)
+    * [Changelog](0.10.2.1/CHANGELOG.0.10.2.1.md)
     * [Release Notes](0.10.2.1/RELEASENOTES.0.10.2.1.md)
 * Apache Kafka v0.10.2.0
-    * [Changes](0.10.2.0/CHANGES.0.10.2.0.md)
+    * [Changelog](0.10.2.0/CHANGELOG.0.10.2.0.md)
     * [Release Notes](0.10.2.0/RELEASENOTES.0.10.2.0.md)
 * Apache Kafka v0.10.1.2
-    * [Changes](0.10.1.2/CHANGES.0.10.1.2.md)
+    * [Changelog](0.10.1.2/CHANGELOG.0.10.1.2.md)
     * [Release Notes](0.10.1.2/RELEASENOTES.0.10.1.2.md)
 * Apache Kafka v0.10.1.1
-    * [Changes](0.10.1.1/CHANGES.0.10.1.1.md)
+    * [Changelog](0.10.1.1/CHANGELOG.0.10.1.1.md)
     * [Release Notes](0.10.1.1/RELEASENOTES.0.10.1.1.md)
 * Apache Kafka v0.10.1.0
-    * [Changes](0.10.1.0/CHANGES.0.10.1.0.md)
+    * [Changelog](0.10.1.0/CHANGELOG.0.10.1.0.md)
     * [Release Notes](0.10.1.0/RELEASENOTES.0.10.1.0.md)
 * Apache Kafka v0.10.0.2
-    * [Changes](0.10.0.2/CHANGES.0.10.0.2.md)
+    * [Changelog](0.10.0.2/CHANGELOG.0.10.0.2.md)
     * [Release Notes](0.10.0.2/RELEASENOTES.0.10.0.2.md)
 * Apache Kafka v0.10.0.1
-    * [Changes](0.10.0.1/CHANGES.0.10.0.1.md)
+    * [Changelog](0.10.0.1/CHANGELOG.0.10.0.1.md)
     * [Release Notes](0.10.0.1/RELEASENOTES.0.10.0.1.md)
 * Apache Kafka v0.10.0.0
-    * [Changes](0.10.0.0/CHANGES.0.10.0.0.md)
+    * [Changelog](0.10.0.0/CHANGELOG.0.10.0.0.md)
     * [Release Notes](0.10.0.0/RELEASENOTES.0.10.0.0.md)
 * Apache Kafka v0.9.1.0
-    * [Changes](0.9.1.0/CHANGES.0.9.1.0.md)
+    * [Changelog](0.9.1.0/CHANGELOG.0.9.1.0.md)
     * [Release Notes](0.9.1.0/RELEASENOTES.0.9.1.0.md)
 * Apache Kafka v0.9.1
-    * [Changes](0.9.1/CHANGES.0.9.1.md)
+    * [Changelog](0.9.1/CHANGELOG.0.9.1.md)
     * [Release Notes](0.9.1/RELEASENOTES.0.9.1.md)
 * Apache Kafka v0.9.0.2
-    * [Changes](0.9.0.2/CHANGES.0.9.0.2.md)
+    * [Changelog](0.9.0.2/CHANGELOG.0.9.0.2.md)
     * [Release Notes](0.9.0.2/RELEASENOTES.0.9.0.2.md)
 * Apache Kafka v0.9.0.1
-    * [Changes](0.9.0.1/CHANGES.0.9.0.1.md)
+    * [Changelog](0.9.0.1/CHANGELOG.0.9.0.1.md)
     * [Release Notes](0.9.0.1/RELEASENOTES.0.9.0.1.md)
 * Apache Kafka v0.9.0.0
-    * [Changes](0.9.0.0/CHANGES.0.9.0.0.md)
+    * [Changelog](0.9.0.0/CHANGELOG.0.9.0.0.md)
     * [Release Notes](0.9.0.0/RELEASENOTES.0.9.0.0.md)
 * Apache Kafka v0.8.2.2
-    * [Changes](0.8.2.2/CHANGES.0.8.2.2.md)
+    * [Changelog](0.8.2.2/CHANGELOG.0.8.2.2.md)
     * [Release Notes](0.8.2.2/RELEASENOTES.0.8.2.2.md)
 * Apache Kafka v0.8.2.1
-    * [Changes](0.8.2.1/CHANGES.0.8.2.1.md)
+    * [Changelog](0.8.2.1/CHANGELOG.0.8.2.1.md)
     * [Release Notes](0.8.2.1/RELEASENOTES.0.8.2.1.md)
 * Apache Kafka v0.8.2.0
-    * [Changes](0.8.2.0/CHANGES.0.8.2.0.md)
+    * [Changelog](0.8.2.0/CHANGELOG.0.8.2.0.md)
     * [Release Notes](0.8.2.0/RELEASENOTES.0.8.2.0.md)
 * Apache Kafka v0.8.1.2
-    * [Changes](0.8.1.2/CHANGES.0.8.1.2.md)
+    * [Changelog](0.8.1.2/CHANGELOG.0.8.1.2.md)
     * [Release Notes](0.8.1.2/RELEASENOTES.0.8.1.2.md)
 * Apache Kafka v0.8.1.1
-    * [Changes](0.8.1.1/CHANGES.0.8.1.1.md)
+    * [Changelog](0.8.1.1/CHANGELOG.0.8.1.1.md)
     * [Release Notes](0.8.1.1/RELEASENOTES.0.8.1.1.md)
 * Apache Kafka v0.8.1
-    * [Changes](0.8.1/CHANGES.0.8.1.md)
+    * [Changelog](0.8.1/CHANGELOG.0.8.1.md)
     * [Release Notes](0.8.1/RELEASENOTES.0.8.1.md)

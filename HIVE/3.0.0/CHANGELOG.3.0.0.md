@@ -1239,6 +1239,7 @@
 | [HIVE-19381](https://issues.apache.org/jira/browse/HIVE-19381) | Function replication in cloud fail when download resource from AWS |  Major | repl | Daniel Dai | Daniel Dai |
 | [HIVE-11105](https://issues.apache.org/jira/browse/HIVE-11105) | NegativeArraySizeException from org.apache.hadoop.io.BytesWritable.setCapacity during serialization phase |  Major | . | Priyesh Raj |  |
 | [HIVE-18762](https://issues.apache.org/jira/browse/HIVE-18762) | Support ALTER TABLE SET OWNER command |  Major | Metastore | kalyan kumar kalvagadda | Sergio Peña |
+| [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251) | ObjectStore.getNextNotification with LIMIT should use less memory |  Major | repl, Standalone Metastore | Daniel Dai | Daniel Dai |
 
 
 ### TESTS:

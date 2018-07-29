@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [YETUS-609](https://issues.apache.org/jira/browse/YETUS-609) | *Blocker* | **releasedocmaker indexer uses wrong filename**
+
+As a follow on to the work done in renaming CHANGES to CHANGELOG, the releasedocmaker readme/index files now expects the CHANGELOG when building.
+
+
 

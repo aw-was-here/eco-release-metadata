@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-07-13)
+## Release 1.6.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -39,6 +39,7 @@
 | [ORC-366](https://issues.apache.org/jira/browse/ORC-366) | Improve TZDIR setup for WIN32 |  Major | . | rip.nsk | rip.nsk |
 | [ORC-372](https://issues.apache.org/jira/browse/ORC-372) | Enable valgrind for C++ travis-ci tests |  Major | . | Deepak Majeti | Deepak Majeti |
 | [ORC-376](https://issues.apache.org/jira/browse/ORC-376) | Add Ubuntu18 docker file |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-386](https://issues.apache.org/jira/browse/ORC-386) | Add new spark file format benchmark |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -52,5 +53,13 @@
 | [ORC-365](https://issues.apache.org/jira/browse/ORC-365) | Only print min and max for timestamp stats once |  Minor | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [ORC-382](https://issues.apache.org/jira/browse/ORC-382) | Apache rat exclusions + add rat check to travis |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [ORC-371](https://issues.apache.org/jira/browse/ORC-371) | [C++] Disable Libhdfspp build when Cyrus SASL is not found |  Major | . | Deepak Majeti | Anatoli Shein |
+| [ORC-384](https://issues.apache.org/jira/browse/ORC-384) | C++ Reader leaks memory when reading a non-ORC file |  Minor | C++ | Martin Rupp | Martin Rupp |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ORC-251](https://issues.apache.org/jira/browse/ORC-251) | Modify InStream and OutStream to optionally encrypt data |  Major | . | Owen O'Malley | Owen O'Malley |
 
 

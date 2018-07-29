@@ -40,3 +40,10 @@
 | [HADOOP-15473](https://issues.apache.org/jira/browse/HADOOP-15473) | Configure serialFilter in KeyProvider to avoid UnrecoverableKeyException caused by JDK-8189997 |  Critical | kms | Gabor Bota | Gabor Bota |
 
 
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-15509](https://issues.apache.org/jira/browse/HADOOP-15509) | Release Hadoop 2.7.7 |  Major | build | Steve Loughran | Steve Loughran |
+
+

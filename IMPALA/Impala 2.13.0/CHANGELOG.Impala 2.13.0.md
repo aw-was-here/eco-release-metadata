@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.13.0 - Unreleased (as of 2018-07-13)
+## Release Impala 2.13.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -181,6 +181,7 @@
 | [IMPALA-7150](https://issues.apache.org/jira/browse/IMPALA-7150) | Crash in Reflection::invoke\_method() |  Critical | Backend, Frontend | Lars Volker | Vuk Ercegovac |
 | [IMPALA-7187](https://issues.apache.org/jira/browse/IMPALA-7187) | Fix test\_group\_impersonation when running inside Docker |  Major | Infrastructure | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-7044](https://issues.apache.org/jira/browse/IMPALA-7044) | int32 overflow in HdfsTableSink::CreateNewTmpFile() |  Critical | Backend | Lars Volker | Lars Volker |
+| [IMPALA-7304](https://issues.apache.org/jira/browse/IMPALA-7304) | Impala shouldn't write column indexes for float columns until PARQUET-1222 is resolved |  Blocker | . | Zoltán Borók-Nagy | Zoltán Borók-Nagy |
 
 
 ### TESTS:

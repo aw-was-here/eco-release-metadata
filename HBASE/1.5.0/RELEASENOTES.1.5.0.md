@@ -280,9 +280,32 @@ Adds a negotiation logic between a secure java REST client and server. After thi
 
 ---
 
+* [HBASE-20723](https://issues.apache.org/jira/browse/HBASE-20723) | *Critical* | **Custom hbase.wal.dir results in data loss because we write recovered edits into a different place than where the recovering region server looks for them**
+
+Previously custom hbase.wal.dir, which is not on the same filesystem as hbase rootdir, results in data loss because we write recovered edits into a different place than where the recovering region server looks for them. This is fixed by retrieving actual recovered edits from the correct location.
+
+
+---
+
 * [HBASE-20691](https://issues.apache.org/jira/browse/HBASE-20691) | *Blocker* | **Storage policy should allow deferring to HDFS**
 
 After HBASE-20691 we have changed the default setting of hbase.wal.storage.policy from "HOT" back to "NONE" which means we defer the policy to HDFS. This fixes the problem of release 2.0.0 that the storage policy of WAL directory will defer to HDFS and may not be "HOT" even if you explicitly set hbase.wal.storage.policy to "HOT"
+
+
+---
+
+* [HBASE-20884](https://issues.apache.org/jira/browse/HBASE-20884) | *Major* | **Replace usage of our Base64 implementation with java.util.Base64**
+
+Class org.apache.hadoop.hbase.util.Base64 has been removed in it's entirety from HBase 2+. In HBase 1, unused methods have been removed from the class and the audience was changed from  Public to Private. This class was originally intended as an internal utility class that could be used externally but thinking since changed; these classes should not have been advertised as public to end-users.
+
+This represents an incompatible change for users who relied on this implementation. An alternative implementation for affected clients is available at java.util.Base64 when using Java 8 or newer; be aware, it may encode/decode differently. For clients seeking to restore this specific implementation, it is available in the public domain for download at http://iharder.sourceforge.net/current/java/base64/
+
+
+---
+
+* [HBASE-20672](https://issues.apache.org/jira/browse/HBASE-20672) | *Minor* | **New metrics ReadRequestRate and WriteRequestRate**
+
+Exposing 2 new metrics in HBase to provide ReadRequestRate and WriteRequestRate at region server level. These metrics give the rate of request handled by the region server and are reset after every monitoring interval.
 
 
 

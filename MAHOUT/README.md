@@ -17,44 +17,44 @@
 # limitations under the License.
 -->
 * Apache Mahout v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.md)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
 * Apache Mahout v0.14.0
-    * [Changes](0.14.0/CHANGES.0.14.0.md)
+    * [Changelog](0.14.0/CHANGELOG.0.14.0.md)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.md)
 * Apache Mahout v0.13.2
-    * [Changes](0.13.2/CHANGES.0.13.2.md)
+    * [Changelog](0.13.2/CHANGELOG.0.13.2.md)
     * [Release Notes](0.13.2/RELEASENOTES.0.13.2.md)
 * Apache Mahout v0.13.1
-    * [Changes](0.13.1/CHANGES.0.13.1.md)
+    * [Changelog](0.13.1/CHANGELOG.0.13.1.md)
     * [Release Notes](0.13.1/RELEASENOTES.0.13.1.md)
 * Apache Mahout v0.13.0
-    * [Changes](0.13.0/CHANGES.0.13.0.md)
+    * [Changelog](0.13.0/CHANGELOG.0.13.0.md)
     * [Release Notes](0.13.0/RELEASENOTES.0.13.0.md)
 * Apache Mahout v0.12.2
-    * [Changes](0.12.2/CHANGES.0.12.2.md)
+    * [Changelog](0.12.2/CHANGELOG.0.12.2.md)
     * [Release Notes](0.12.2/RELEASENOTES.0.12.2.md)
 * Apache Mahout v0.12.1
-    * [Changes](0.12.1/CHANGES.0.12.1.md)
+    * [Changelog](0.12.1/CHANGELOG.0.12.1.md)
     * [Release Notes](0.12.1/RELEASENOTES.0.12.1.md)
 * Apache Mahout v0.12.0
-    * [Changes](0.12.0/CHANGES.0.12.0.md)
+    * [Changelog](0.12.0/CHANGELOG.0.12.0.md)
     * [Release Notes](0.12.0/RELEASENOTES.0.12.0.md)
 * Apache Mahout v0.11.2
-    * [Changes](0.11.2/CHANGES.0.11.2.md)
+    * [Changelog](0.11.2/CHANGELOG.0.11.2.md)
     * [Release Notes](0.11.2/RELEASENOTES.0.11.2.md)
 * Apache Mahout v0.11.1
-    * [Changes](0.11.1/CHANGES.0.11.1.md)
+    * [Changelog](0.11.1/CHANGELOG.0.11.1.md)
     * [Release Notes](0.11.1/RELEASENOTES.0.11.1.md)
 * Apache Mahout v0.11.0
-    * [Changes](0.11.0/CHANGES.0.11.0.md)
+    * [Changelog](0.11.0/CHANGELOG.0.11.0.md)
     * [Release Notes](0.11.0/RELEASENOTES.0.11.0.md)
 * Apache Mahout v0.10.2
-    * [Changes](0.10.2/CHANGES.0.10.2.md)
+    * [Changelog](0.10.2/CHANGELOG.0.10.2.md)
     * [Release Notes](0.10.2/RELEASENOTES.0.10.2.md)
 * Apache Mahout v0.10.1
-    * [Changes](0.10.1/CHANGES.0.10.1.md)
+    * [Changelog](0.10.1/CHANGELOG.0.10.1.md)
     * [Release Notes](0.10.1/RELEASENOTES.0.10.1.md)
 * Apache Mahout v0.10.0
-    * [Changes](0.10.0/CHANGES.0.10.0.md)
+    * [Changelog](0.10.0/CHANGELOG.0.10.0.md)
     * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)

@@ -18,8 +18,15 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-07-13)
+## Release 2.1.0 - Unreleased (as of 2018-07-29)
 
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SENTRY-2220](https://issues.apache.org/jira/browse/SENTRY-2220) | Support all Hive SHOW GRANT commands |  Major | Sentry | Arjun Mishra | Arjun Mishra |
 
 
 ### IMPROVEMENTS:
@@ -82,6 +89,8 @@
 | [SENTRY-2238](https://issues.apache.org/jira/browse/SENTRY-2238) | Explicitly set Database on SentryHivePrivilegeObjectDesc |  Major | . | Arjun Mishra | Arjun Mishra |
 | [SENTRY-2282](https://issues.apache.org/jira/browse/SENTRY-2282) | Remove hive-authzv2 binding and tests modules completely |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2283](https://issues.apache.org/jira/browse/SENTRY-2283) | Multiple versions of metrics on the classpath causes Sentry to not startup |  Major | Sentry | Steve Moist | Steve Moist |
+| [SENTRY-2310](https://issues.apache.org/jira/browse/SENTRY-2310) | Sentry is not be able to fetch full update subsequently,  when there is HMS restart in the snapshot process. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2190](https://issues.apache.org/jira/browse/SENTRY-2190) | Have verbose debug logs in CounterWait class |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### TESTS:
@@ -125,6 +134,7 @@
 | [SENTRY-2274](https://issues.apache.org/jira/browse/SENTRY-2274) | Grant and revoke owner privileges based on HMS updates(server-side) |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2247](https://issues.apache.org/jira/browse/SENTRY-2247) | Add e2e tests to verify owner privileges |  Major | Sentry | kalyan kumar kalvagadda | Na Li |
 | [SENTRY-2159](https://issues.apache.org/jira/browse/SENTRY-2159) | Add e2e tests for granting owner privileges |  Major | Sentry | Na Li | Na Li |
+| [SENTRY-2290](https://issues.apache.org/jira/browse/SENTRY-2290) | Avoid storing the path information for partitions in default location |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

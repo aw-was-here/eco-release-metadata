@@ -117,7 +117,7 @@ The internal constant can be configured with the dfs.balancer.max-iteration-time
 
 * [HADOOP-15495](https://issues.apache.org/jira/browse/HADOOP-15495) | *Major* | **Upgrade common-lang version to 3.7 in hadoop-common-project and hadoop-tools**
 
-commons-lang version 2.6 was removed from Apache Hadoop. If you are using commons-lang 2.6 as transitive dependency of Hadoop, you need to add the dependency directly.
+commons-lang version 2.6 was removed from Apache Hadoop. If you are using commons-lang 2.6 as transitive dependency of Hadoop, you need to add the dependency directly. Note: this also means it is absent from share/hadoop/common/lib/
 
 
 

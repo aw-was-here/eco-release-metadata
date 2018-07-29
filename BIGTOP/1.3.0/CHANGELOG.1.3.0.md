@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-07-13)
+## Release 1.3.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -170,6 +170,7 @@
 | [BIGTOP-3050](https://issues.apache.org/jira/browse/BIGTOP-3050) | cgroups: cannot found cgroup mount destination: unknown |  Major | ci, docker | Evans Ye | Evans Ye |
 | [BIGTOP-3052](https://issues.apache.org/jira/browse/BIGTOP-3052) | Maven version is fixed in security verification code |  Major | toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-3048](https://issues.apache.org/jira/browse/BIGTOP-3048) | Revert BIGTOP-3001 to bring packaging CI back |  Major | ci | Evans Ye | Evans Ye |
+| [BIGTOP-3053](https://issues.apache.org/jira/browse/BIGTOP-3053) | Tez failed to build due to bower version is deprecated |  Major | build, tez | Jun He | Jun He |
 
 
 ### TESTS:

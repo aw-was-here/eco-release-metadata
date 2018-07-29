@@ -57,6 +57,8 @@
 | [FLINK-9109](https://issues.apache.org/jira/browse/FLINK-9109) | Add flink modify command to documentation |  Major | Documentation | Till Rohrmann | Till Rohrmann |
 | [FLINK-9729](https://issues.apache.org/jira/browse/FLINK-9729) | Duplicate lines for "Weekday name (Sunday .. Saturday)" |  Trivial | Documentation, Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
 | [FLINK-9734](https://issues.apache.org/jira/browse/FLINK-9734) | Typo 'field-deleimiter' in SQL client docs |  Trivial | Documentation, Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
+| [FLINK-9276](https://issues.apache.org/jira/browse/FLINK-9276) | Improve error message when TaskManager fails |  Critical | Distributed Coordination | Stephan Ewen | vinoyang |
+| [FLINK-7565](https://issues.apache.org/jira/browse/FLINK-7565) | Add support for HTTP 1.1 (Chunked transfer encoding) to Flink web UI |  Major | Webfrontend | Robert Metzger |  |
 
 
 ### BUG FIXES:
@@ -97,14 +99,12 @@
 | [FLINK-9633](https://issues.apache.org/jira/browse/FLINK-9633) | Flink doesn't use the Savepoint path's filesystem to create the OuptutStream on Task. |  Critical | State Backends, Checkpointing | Sihua Zhou | Sihua Zhou |
 | [FLINK-9654](https://issues.apache.org/jira/browse/FLINK-9654) | Internal error while deserializing custom Scala TypeSerializer instances |  Major | . | Zsolt Donca | Zsolt Donca |
 | [FLINK-9554](https://issues.apache.org/jira/browse/FLINK-9554) | flink scala shell doesn't work in yarn mode |  Blocker | Scala Shell | Jeff Zhang | Jeff Zhang |
-| [FLINK-9646](https://issues.apache.org/jira/browse/FLINK-9646) | ExecutionGraphCoLocationRestartTest.testConstraintsAfterRestart failed on Travis |  Critical | Tests | Till Rohrmann | Till Rohrmann |
 | [FLINK-9676](https://issues.apache.org/jira/browse/FLINK-9676) | Deadlock during canceling task and recycling exclusive buffer |  Critical | Network | zhijiang | Nico Kruber |
 | [FLINK-9581](https://issues.apache.org/jira/browse/FLINK-9581) | Redundant spaces for Collect at sql.md |  Trivial | Documentation, Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
 | [FLINK-9769](https://issues.apache.org/jira/browse/FLINK-9769) | FileUploads may be shared across requests |  Blocker | Job-Submission, REST, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9770](https://issues.apache.org/jira/browse/FLINK-9770) | UI jar list broken |  Blocker | Job-Submission, REST, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9789](https://issues.apache.org/jira/browse/FLINK-9789) | Watermark metrics for an operator&task shadow each other |  Blocker | Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9603](https://issues.apache.org/jira/browse/FLINK-9603) | Incorrect indexing of part files, when part suffix is specified (FileAlreadyExistsException) |  Major | filesystem-connector | Rinat Sharipov | Kostas Kloudas |
-| [FLINK-9693](https://issues.apache.org/jira/browse/FLINK-9693) | Possible memory leak in jobmanager retaining archived checkpoints |  Major | JobManager, State Backends, Checkpointing | Steven Zhen Wu | Till Rohrmann |
 
 
 ### SUB-TASKS:

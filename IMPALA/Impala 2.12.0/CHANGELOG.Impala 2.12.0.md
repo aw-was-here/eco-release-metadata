@@ -213,6 +213,8 @@
 | [IMPALA-6896](https://issues.apache.org/jira/browse/IMPALA-6896) | NullPointerException in DESCRIBE FORMATTED on views |  Blocker | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6475](https://issues.apache.org/jira/browse/IMPALA-6475) | Enable running TPCH on Kudu in our nightly tests |  Major | Infrastructure | Taras Bobrovytsky |  |
 | [IMPALA-5747](https://issues.apache.org/jira/browse/IMPALA-5747) | Crash with --asm\_module\_dir set |  Minor | Backend | Tim Armstrong | Manaswini |
+| [IMPALA-7305](https://issues.apache.org/jira/browse/IMPALA-7305) | membership entry for failed impalad gets stuck in statestore due to race between failure detection and update processing |  Critical | Distributed Exec | Tim Armstrong | Tim Armstrong |
+| [IMPALA-7173](https://issues.apache.org/jira/browse/IMPALA-7173) | [DOCS] load balancer config should add "check" in more places |  Minor | Docs | Laurel Hale | Alex Rodoni |
 
 
 ### SUB-TASKS:

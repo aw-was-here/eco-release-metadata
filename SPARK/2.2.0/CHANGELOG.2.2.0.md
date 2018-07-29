@@ -598,6 +598,7 @@
 | [SPARK-19406](https://issues.apache.org/jira/browse/SPARK-19406) | Function to\_json ignores the user-provided options |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-19409](https://issues.apache.org/jira/browse/SPARK-19409) | Upgrade Parquet to 1.8.2 |  Major | Build | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-19395](https://issues.apache.org/jira/browse/SPARK-19395) | Convert coefficients in summary to matrix |  Major | SparkR | Wayne Zhang | Wayne Zhang |
+| [SPARK-19378](https://issues.apache.org/jira/browse/SPARK-19378) | StateOperator metrics should still return the total number of rows in state even if there was no data for a trigger |  Major | Structured Streaming | Burak Yavuz | Burak Yavuz |
 | [SPARK-19319](https://issues.apache.org/jira/browse/SPARK-19319) | SparkR Kmeans summary returns error when the cluster size doesn't equal to k |  Major | ML, SparkR | Miao Wang | Miao Wang |
 | [SPARK-19347](https://issues.apache.org/jira/browse/SPARK-19347) | ReceiverSupervisorImpl can add block to ReceiverTracker multiple times because of askWithRetry |  Major | DStreams, Spark Core | jin xing | jin xing |
 | [SPARK-19432](https://issues.apache.org/jira/browse/SPARK-19432) | Fix an unexpected failure when connecting timeout |  Minor | Spark Core | Shixiong Zhu | Shixiong Zhu |

@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-07-13)
+## Release 1.8.0 - Unreleased (as of 2018-07-29)
 
 
 
@@ -56,6 +56,7 @@
 | [KUDU-2314](https://issues.apache.org/jira/browse/KUDU-2314) | fs manager checks should list wal and metadata directories along with data dirs |  Major | fs, ops-tooling | Will Berkeley | Fengling Wang |
 | [KUDU-2441](https://issues.apache.org/jira/browse/KUDU-2441) | Unlike C++, Kudu Python API missing "set mutation buffer space" |  Major | api, client, python | Amarnath Ramamoorthi | Jordan Birdsell |
 | [KUDU-2420](https://issues.apache.org/jira/browse/KUDU-2420) | Support parallel java tests |  Major | . | Grant Henke | Grant Henke |
+| [KUDU-2510](https://issues.apache.org/jira/browse/KUDU-2510) | On-disk and provided master list error message is misleading |  Minor | master, supportability | Attila Bukor | Attila Bukor |
 
 
 ### BUG FIXES:
@@ -101,5 +102,15 @@
 | [KUDU-2478](https://issues.apache.org/jira/browse/KUDU-2478) | Failure to run python tests on Cen6 in build-and-test.sh |  Major | build, python | Andrew Wong | Adar Dembo |
 | [KUDU-2260](https://issues.apache.org/jira/browse/KUDU-2260) | Log block manager should handle null bytes in metadata on crash |  Major | fs | Mike Percy | Will Berkeley |
 | [KUDU-2471](https://issues.apache.org/jira/browse/KUDU-2471) | ColumnSchema.equals NPE with non-Decimal columns |  Blocker | java | Dan Burkert | Grant Henke |
+| [KUDU-2492](https://issues.apache.org/jira/browse/KUDU-2492) | Kudu no longer builds on older Linux versions |  Major | build | Thomas Tauber-Marshall |  |
+| [KUDU-2447](https://issues.apache.org/jira/browse/KUDU-2447) | TS crashed with "NONE predicate can not be pushed into key" |  Major | . | Xu Yao | Xu Yao |
+| [KUDU-2509](https://issues.apache.org/jira/browse/KUDU-2509) | In some rare senarios, tserver may crash with SIGSEGV while boostrapping tablets |  Major | tserver | Alexey Serbin | Alexey Serbin |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KUDU-2491](https://issues.apache.org/jira/browse/KUDU-2491) | kudu-admin-test times out |  Major | . | Alexey Serbin | Alexey Serbin |
 
 

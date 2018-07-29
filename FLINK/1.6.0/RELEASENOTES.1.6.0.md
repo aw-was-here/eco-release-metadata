@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 We changed the default SLOT\_IDLE\_TIMEOUT to the HEARTBEAT\_TIMEOUT in the course of this work (commit in master is b17be26711).
 
 
+---
+
+* [FLINK-9935](https://issues.apache.org/jira/browse/FLINK-9935) | *Critical* | **Batch Table API: grouping by window and attribute causes java.lang.ClassCastException:**
+
+**WARNING: No release note provided for this change.**
+
+
 

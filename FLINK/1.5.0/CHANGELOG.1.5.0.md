@@ -54,6 +54,15 @@
 | [FLINK-8360](https://issues.apache.org/jira/browse/FLINK-8360) | Implement task-local state recovery |  Major | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 | [FLINK-8317](https://issues.apache.org/jira/browse/FLINK-8317) | Enable Triggering of Savepoints via RestfulGateway |  Major | Distributed Coordination, REST | Gary Yao | Gary Yao |
 | [FLINK-8743](https://issues.apache.org/jira/browse/FLINK-8743) | Add annotation to override documented default |  Trivial | Configuration, Documentation | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-4343](https://issues.apache.org/jira/browse/FLINK-4343) | Implement new TaskManager |  Major | Cluster Management | Stephan Ewen | Till Rohrmann |
+| [FLINK-4834](https://issues.apache.org/jira/browse/FLINK-4834) | Implement unified High Availability Services Abstraction |  Major | Cluster Management | Stephan Ewen |  |
+| [FLINK-4897](https://issues.apache.org/jira/browse/FLINK-4897) | Implement Dispatcher to support Flink sessions |  Major | Cluster Management, Mesos | Eron Wright | Till Rohrmann |
+| [FLINK-7075](https://issues.apache.org/jira/browse/FLINK-7075) | Implement Flip-6 standalone mode |  Major | Cluster Management, Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-4345](https://issues.apache.org/jira/browse/FLINK-4345) | Implement new ResourceManager |  Major | Cluster Management | Stephan Ewen |  |
+| [FLINK-4344](https://issues.apache.org/jira/browse/FLINK-4344) | Implement new JobManager |  Major | Cluster Management | Stephan Ewen |  |
+| [FLINK-4926](https://issues.apache.org/jira/browse/FLINK-4926) | Implement FLIP-6 Flink-on-YARN jobs |  Major | YARN | Stephan Ewen |  |
+| [FLINK-6378](https://issues.apache.org/jira/browse/FLINK-6378) | Implement FLIP-6 Flink-on-Mesos |  Major | Mesos | Eron Wright | Eron Wright |
+| [FLINK-4346](https://issues.apache.org/jira/browse/FLINK-4346) | Implement basic RPC abstraction |  Major | Distributed Coordination | Stephan Ewen | Till Rohrmann |
 
 
 ### IMPROVEMENTS:
@@ -324,6 +333,7 @@
 | [FLINK-8527](https://issues.apache.org/jira/browse/FLINK-8527) | Making stopping of Flip-6 components non-blocking |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-8796](https://issues.apache.org/jira/browse/FLINK-8796) | Update "Upgrading Applications and Flink Versions" for 1.5 |  Blocker | Documentation | Till Rohrmann | Fabian Hueske |
 | [FLINK-9757](https://issues.apache.org/jira/browse/FLINK-9757) | Typos found in docs after hunspell run |  Trivial | Documentation | Sergey Nuyanzin | Sergey Nuyanzin |
+| [FLINK-4319](https://issues.apache.org/jira/browse/FLINK-4319) | Rework Cluster Management (FLIP-6) |  Major | Cluster Management | Stephan Ewen | Till Rohrmann |
 
 
 ### BUG FIXES:

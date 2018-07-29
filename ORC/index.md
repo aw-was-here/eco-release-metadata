@@ -17,68 +17,71 @@
 # limitations under the License.
 -->
 * Apache Orc v1.6.0
-    * [Changes](1.6.0/CHANGES.1.6.0.html)
+    * [Changelog](1.6.0/CHANGELOG.1.6.0.html)
     * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)
 * Apache Orc v1.5.2
-    * [Changes](1.5.2/CHANGES.1.5.2.html)
+    * [Changelog](1.5.2/CHANGELOG.1.5.2.html)
     * [Release Notes](1.5.2/RELEASENOTES.1.5.2.html)
 * Apache Orc v1.5.1
-    * [Changes](1.5.1/CHANGES.1.5.1.html)
+    * [Changelog](1.5.1/CHANGELOG.1.5.1.html)
     * [Release Notes](1.5.1/RELEASENOTES.1.5.1.html)
 * Apache Orc v1.5.0
-    * [Changes](1.5.0/CHANGES.1.5.0.html)
+    * [Changelog](1.5.0/CHANGELOG.1.5.0.html)
     * [Release Notes](1.5.0/RELEASENOTES.1.5.0.html)
+* Apache Orc v1.5
+    * [Changelog](1.5/CHANGELOG.1.5.html)
+    * [Release Notes](1.5/RELEASENOTES.1.5.html)
 * Apache Orc v1.4.4
-    * [Changes](1.4.4/CHANGES.1.4.4.html)
+    * [Changelog](1.4.4/CHANGELOG.1.4.4.html)
     * [Release Notes](1.4.4/RELEASENOTES.1.4.4.html)
 * Apache Orc v1.4.3
-    * [Changes](1.4.3/CHANGES.1.4.3.html)
+    * [Changelog](1.4.3/CHANGELOG.1.4.3.html)
     * [Release Notes](1.4.3/RELEASENOTES.1.4.3.html)
 * Apache Orc v1.4.2
-    * [Changes](1.4.2/CHANGES.1.4.2.html)
+    * [Changelog](1.4.2/CHANGELOG.1.4.2.html)
     * [Release Notes](1.4.2/RELEASENOTES.1.4.2.html)
 * Apache Orc v1.4.1
-    * [Changes](1.4.1/CHANGES.1.4.1.html)
+    * [Changelog](1.4.1/CHANGELOG.1.4.1.html)
     * [Release Notes](1.4.1/RELEASENOTES.1.4.1.html)
 * Apache Orc v1.4.0
-    * [Changes](1.4.0/CHANGES.1.4.0.html)
+    * [Changelog](1.4.0/CHANGELOG.1.4.0.html)
     * [Release Notes](1.4.0/RELEASENOTES.1.4.0.html)
 * Apache Orc v1.3.4
-    * [Changes](1.3.4/CHANGES.1.3.4.html)
+    * [Changelog](1.3.4/CHANGELOG.1.3.4.html)
     * [Release Notes](1.3.4/RELEASENOTES.1.3.4.html)
 * Apache Orc v1.3.3
-    * [Changes](1.3.3/CHANGES.1.3.3.html)
+    * [Changelog](1.3.3/CHANGELOG.1.3.3.html)
     * [Release Notes](1.3.3/RELEASENOTES.1.3.3.html)
 * Apache Orc v1.3.2
-    * [Changes](1.3.2/CHANGES.1.3.2.html)
+    * [Changelog](1.3.2/CHANGELOG.1.3.2.html)
     * [Release Notes](1.3.2/RELEASENOTES.1.3.2.html)
 * Apache Orc v1.3.1
-    * [Changes](1.3.1/CHANGES.1.3.1.html)
+    * [Changelog](1.3.1/CHANGELOG.1.3.1.html)
     * [Release Notes](1.3.1/RELEASENOTES.1.3.1.html)
 * Apache Orc v1.3.0
-    * [Changes](1.3.0/CHANGES.1.3.0.html)
+    * [Changelog](1.3.0/CHANGELOG.1.3.0.html)
     * [Release Notes](1.3.0/RELEASENOTES.1.3.0.html)
 * Apache Orc v1.2.4
-    * [Changes](1.2.4/CHANGES.1.2.4.html)
+    * [Changelog](1.2.4/CHANGELOG.1.2.4.html)
     * [Release Notes](1.2.4/RELEASENOTES.1.2.4.html)
 * Apache Orc v1.2.3
-    * [Changes](1.2.3/CHANGES.1.2.3.html)
+    * [Changelog](1.2.3/CHANGELOG.1.2.3.html)
     * [Release Notes](1.2.3/RELEASENOTES.1.2.3.html)
 * Apache Orc v1.2.2
-    * [Changes](1.2.2/CHANGES.1.2.2.html)
+    * [Changelog](1.2.2/CHANGELOG.1.2.2.html)
     * [Release Notes](1.2.2/RELEASENOTES.1.2.2.html)
 * Apache Orc v1.2.1
-    * [Changes](1.2.1/CHANGES.1.2.1.html)
+    * [Changelog](1.2.1/CHANGELOG.1.2.1.html)
     * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
 * Apache Orc v1.2.0
-    * [Changes](1.2.0/CHANGES.1.2.0.html)
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
     * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache Orc v1.1.2
-    * [Changes](1.1.2/CHANGES.1.1.2.html)
+    * [Changelog](1.1.2/CHANGELOG.1.1.2.html)
     * [Release Notes](1.1.2/RELEASENOTES.1.1.2.html)
 * Apache Orc v1.1.0
-    * [Changes](1.1.0/CHANGES.1.1.0.html)
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.html)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)
 * Apache Orc v1.0.0
-    * [Changes](1.0.0/CHANGES.1.0.0.html)
+    * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)

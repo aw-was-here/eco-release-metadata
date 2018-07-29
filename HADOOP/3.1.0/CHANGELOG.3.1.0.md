@@ -62,6 +62,7 @@
 | [YARN-5983](https://issues.apache.org/jira/browse/YARN-5983) | [Umbrella] Support for FPGA as a Resource in YARN |  Major | yarn | Zhankun Tang | Zhankun Tang |
 | [YARN-6223](https://issues.apache.org/jira/browse/YARN-6223) | [Umbrella] Natively support GPU configuration/discovery/scheduling/isolation on YARN |  Major | . | Wangda Tan | Wangda Tan |
 | [HADOOP-14898](https://issues.apache.org/jira/browse/HADOOP-14898) | Create official Docker images for development and testing features |  Major | . | Elek, Marton | Elek, Marton |
+| [HDFS-13553](https://issues.apache.org/jira/browse/HDFS-13553) | RBF: Support global quota |  Major | . | Íñigo Goiri | Yiqun Lin |
 
 
 ### IMPROVEMENTS:
