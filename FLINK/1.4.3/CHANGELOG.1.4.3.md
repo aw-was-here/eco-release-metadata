@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.4.3 - Unreleased (as of 2018-07-29)
+## Release 1.4.3 - Unreleased (as of 2018-08-14)
 
 
 
@@ -95,6 +95,8 @@
 | [FLINK-9810](https://issues.apache.org/jira/browse/FLINK-9810) | JarListHandler does not close opened jars |  Major | REST, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9793](https://issues.apache.org/jira/browse/FLINK-9793) | When submitting a flink job with yarn-cluster, flink-dist\*.jar is repeatedly uploaded |  Minor | YARN | linzhongjun | linzhongjun |
 | [FLINK-5750](https://issues.apache.org/jira/browse/FLINK-5750) | Incorrect translation of n-ary Union |  Critical | Table API & SQL | Anton Mushin | Alexander Koltsov |
+| [FLINK-9446](https://issues.apache.org/jira/browse/FLINK-9446) | Compatibility table not up-to-date |  Major | Documentation | Razvan | Chesnay Schepler |
+| [FLINK-9693](https://issues.apache.org/jira/browse/FLINK-9693) | Possible memory leak in jobmanager retaining archived checkpoints |  Major | JobManager, State Backends, Checkpointing | Steven Zhen Wu | Till Rohrmann |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.2 - Unreleased (as of 2018-07-29)
+## Release 1.5.2 - 2018-07-31
 
 
 
@@ -44,6 +44,7 @@
 | [FLINK-9748](https://issues.apache.org/jira/browse/FLINK-9748) | create\_source\_release pollutes flink root directory |  Major | Release System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9888](https://issues.apache.org/jira/browse/FLINK-9888) | Remove unsafe defaults from release scripts |  Major | Release System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9909](https://issues.apache.org/jira/browse/FLINK-9909) | Remove cancellation of input futures from ConjunctFutures |  Major | Core | Till Rohrmann | Till Rohrmann |
+| [FLINK-9691](https://issues.apache.org/jira/browse/FLINK-9691) | Modify run loop in Kinesis ShardConsumer to not sleep for a fixed fetchIntervalMillis |  Major | Kinesis Connector | Lakshmi Rao | Jamie Grier |
 
 
 ### BUG FIXES:
@@ -80,7 +81,6 @@
 | [FLINK-9908](https://issues.apache.org/jira/browse/FLINK-9908) | Inconsistent state of SlotPool after ExecutionGraph cancellation |  Blocker | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-9838](https://issues.apache.org/jira/browse/FLINK-9838) | Slot request failed Exceptions after completing a job |  Major | Distributed Coordination | Nico Kruber | Till Rohrmann |
 | [FLINK-9939](https://issues.apache.org/jira/browse/FLINK-9939) | Mesos: Not setting TMP dirs causes NPE |  Blocker | Mesos | Gary Yao | Gary Yao |
-| [FLINK-9694](https://issues.apache.org/jira/browse/FLINK-9694) | Potentially NPE in CompositeTypeSerializerConfigSnapshot constructor |  Minor | Table API & SQL | vinoyang | Piotr Nowojski |
 
 
 ### SUB-TASKS:

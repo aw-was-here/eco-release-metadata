@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-07-29)
+## Release 1.3.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -79,6 +79,9 @@
 | [BIGTOP-3010](https://issues.apache.org/jira/browse/BIGTOP-3010) | juju bundle refresh (feb 2018) |  Major | deployment | Kevin W Monroe | Kevin W Monroe |
 | [BIGTOP-3005](https://issues.apache.org/jira/browse/BIGTOP-3005) | Add zkpeer-relation-changed hook to zookeeper charm. |  Minor | deployment | José Pekkarinen | Kevin W Monroe |
 | [BIGTOP-3038](https://issues.apache.org/jira/browse/BIGTOP-3038) | Add rollingupgrade option in hadoop-hdfs-namenode.svc |  Minor | hadoop | Sahil Aggarwal | Sahil Aggarwal |
+| [BIGTOP-3011](https://issues.apache.org/jira/browse/BIGTOP-3011) | zookeeper: support autopurge.purgeInterval and autopurge.snapRetainCount. |  Major | deployment | José Pekkarinen | Kevin W Monroe |
+| [BIGTOP-3047](https://issues.apache.org/jira/browse/BIGTOP-3047) | Add nagios monitoring to zookeeper charm. |  Minor | deployment | José Pekkarinen | Kevin W Monroe |
+| [BIGTOP-3060](https://issues.apache.org/jira/browse/BIGTOP-3060) | juju bundle refresh (august 2018) |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
 
 
 ### BUG FIXES:
@@ -171,6 +174,8 @@
 | [BIGTOP-3052](https://issues.apache.org/jira/browse/BIGTOP-3052) | Maven version is fixed in security verification code |  Major | toolchain | Evans Ye | Evans Ye |
 | [BIGTOP-3048](https://issues.apache.org/jira/browse/BIGTOP-3048) | Revert BIGTOP-3001 to bring packaging CI back |  Major | ci | Evans Ye | Evans Ye |
 | [BIGTOP-3053](https://issues.apache.org/jira/browse/BIGTOP-3053) | Tez failed to build due to bower version is deprecated |  Major | build, tez | Jun He | Jun He |
+| [BIGTOP-3054](https://issues.apache.org/jira/browse/BIGTOP-3054) | Missing Spark archive caused Zeppelin build failure |  Major | build | Jun He | Jun He |
+| [BIGTOP-3061](https://issues.apache.org/jira/browse/BIGTOP-3061) | Crunch build failure |  Major | . | Jun He | Jun He |
 
 
 ### TESTS:

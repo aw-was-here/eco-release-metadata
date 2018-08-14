@@ -218,7 +218,7 @@
 | [HADOOP-15311](https://issues.apache.org/jira/browse/HADOOP-15311) | HttpServer2 needs a way to configure the acceptor/selector count |  Major | common | Erik Krogen | Erik Krogen |
 | [HDFS-13235](https://issues.apache.org/jira/browse/HDFS-13235) | DiskBalancer: Update Documentation to add newly added options |  Major | diskbalancer, documentation | Bharat Viswanadham | Bharat Viswanadham |
 | [HDFS-336](https://issues.apache.org/jira/browse/HDFS-336) | dfsadmin -report should report number of blocks from datanode |  Minor | . | Lohit Vijayarenu | Bharat Viswanadham |
-| [HDFS-11600](https://issues.apache.org/jira/browse/HDFS-11600) | Refactor TestDFSStripedOutputStreamWithFailure test classes |  Minor | erasure-coding, test | Andrew Wang | SammiChen |
+| [HDFS-11600](https://issues.apache.org/jira/browse/HDFS-11600) | Refactor TestDFSStripedOutputStreamWithFailure test classes |  Minor | erasure-coding, test | Andrew Wang | Sammi Chen |
 | [HDFS-13257](https://issues.apache.org/jira/browse/HDFS-13257) | Code cleanup: INode never throws QuotaExceededException |  Major | namenode | Tsz Wo Nicholas Sze | Tsz Wo Nicholas Sze |
 | [HDFS-13275](https://issues.apache.org/jira/browse/HDFS-13275) | Adding log for BlockPoolManager#refreshNamenodes failures |  Minor | datanode | Xiaoyu Yao | Ajay Kumar |
 | [HDFS-13246](https://issues.apache.org/jira/browse/HDFS-13246) | FileInputStream redundant closes in readReplicasFromCache |  Minor | datanode | liaoyuxiangqin | liaoyuxiangqin |
@@ -379,7 +379,7 @@
 | [HADOOP-14985](https://issues.apache.org/jira/browse/HADOOP-14985) | Remove subversion related code from VersionInfoMojo.java |  Minor | build | Akira Ajisaka | Ajay Kumar |
 | [YARN-7586](https://issues.apache.org/jira/browse/YARN-7586) | Application Placement should be done before ACL checks in ResourceManager |  Blocker | . | Suma Shivaprasad | Suma Shivaprasad |
 | [HDFS-11751](https://issues.apache.org/jira/browse/HDFS-11751) | DFSZKFailoverController daemon exits with wrong status code |  Major | auto-failover | Doris Gu | Bharat Viswanadham |
-| [HADOOP-15080](https://issues.apache.org/jira/browse/HADOOP-15080) | Aliyun OSS: update oss sdk from 2.8.1 to 2.8.3 to remove its dependency on Cat-x "json-lib" |  Blocker | fs/oss | Chris Douglas | SammiChen |
+| [HADOOP-15080](https://issues.apache.org/jira/browse/HADOOP-15080) | Aliyun OSS: update oss sdk from 2.8.1 to 2.8.3 to remove its dependency on Cat-x "json-lib" |  Blocker | fs/oss | Chris Douglas | Sammi Chen |
 | [HADOOP-15098](https://issues.apache.org/jira/browse/HADOOP-15098) | TestClusterTopology#testChooseRandom fails intermittently |  Major | test | Zsolt Venczel | Zsolt Venczel |
 | [YARN-7608](https://issues.apache.org/jira/browse/YARN-7608) | Incorrect sTarget column causing DataTable warning on RM application and scheduler web page |  Major | resourcemanager, webapp | Weiwei Yang | Gergely Novák |
 | [HDFS-12891](https://issues.apache.org/jira/browse/HDFS-12891) | Do not invalidate blocks if toInvalidate is empty |  Major | . | Zsolt Venczel | Zsolt Venczel |
@@ -778,7 +778,7 @@
 | [YARN-7448](https://issues.apache.org/jira/browse/YARN-7448) | [API] Add SchedulingRequest to the AllocateRequest |  Major | . | Arun Suresh | Panagiotis Garefalakis |
 | [YARN-7529](https://issues.apache.org/jira/browse/YARN-7529) | TestYarnNativeServices#testRecoverComponentsAfterRMRestart() fails intermittently |  Major | . | Chandni Singh | Chandni Singh |
 | [YARN-6128](https://issues.apache.org/jira/browse/YARN-6128) | Add support for AMRMProxy HA |  Major | amrmproxy, nodemanager | Subru Krishnan | Botong Huang |
-| [HADOOP-15024](https://issues.apache.org/jira/browse/HADOOP-15024) | AliyunOSS: support user agent configuration and include that & Hadoop version information to oss server |  Major | fs, fs/oss | SammiChen | SammiChen |
+| [HADOOP-15024](https://issues.apache.org/jira/browse/HADOOP-15024) | AliyunOSS: support user agent configuration and include that & Hadoop version information to oss server |  Major | fs, fs/oss | Sammi Chen | Sammi Chen |
 | [HDFS-12778](https://issues.apache.org/jira/browse/HDFS-12778) | [READ] Report multiple locations for PROVIDED blocks |  Major | . | Virajith Jalaparti | Virajith Jalaparti |
 | [YARN-5534](https://issues.apache.org/jira/browse/YARN-5534) | Allow user provided Docker volume mount list |  Major | yarn | luhuichun | Shane Kumpf |
 | [YARN-7330](https://issues.apache.org/jira/browse/YARN-7330) | Add support to show GPU in UI including metrics |  Blocker | . | Wangda Tan | Wangda Tan |

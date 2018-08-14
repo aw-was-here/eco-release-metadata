@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-07-29)
+## Release 1.6.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -55,6 +55,8 @@
 | [FLINK-9852](https://issues.apache.org/jira/browse/FLINK-9852) | Expose descriptor-based sink creation and introduce update mode |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-9846](https://issues.apache.org/jira/browse/FLINK-9846) | Add a Kafka table sink factory |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-9499](https://issues.apache.org/jira/browse/FLINK-9499) | Allow REST API for running a job to provide job configuration as body of POST request |  Minor | REST | Esteban Serrano | Esteban Serrano |
+| [FLINK-8101](https://issues.apache.org/jira/browse/FLINK-8101) | Elasticsearch 6.x support |  Major | ElasticSearch Connector | Hai Zhou |  |
+| [FLINK-10069](https://issues.apache.org/jira/browse/FLINK-10069) | Add docs for updates SSL model |  Major | Documentation | Stephan Ewen | Stephan Ewen |
 
 
 ### IMPROVEMENTS:
@@ -160,6 +162,19 @@
 | [FLINK-9806](https://issues.apache.org/jira/browse/FLINK-9806) | Add a canonical link element to documentation HTML |  Major | Documentation | Patrick Lucas | Patrick Lucas |
 | [FLINK-9942](https://issues.apache.org/jira/browse/FLINK-9942) | Guard handlers against null fields in requests |  Major | REST | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-8439](https://issues.apache.org/jira/browse/FLINK-8439) | Add Flink shading to AWS credential provider s3 hadoop config |  Critical | Documentation | Dyana Rose | Andrey Zagrebin |
+| [FLINK-9987](https://issues.apache.org/jira/browse/FLINK-9987) | Rework ClassLoader E2E test to not rely on .version.properties file |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9986](https://issues.apache.org/jira/browse/FLINK-9986) | Remove unnecessary information from .version.properties file |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-7386](https://issues.apache.org/jira/browse/FLINK-7386) | Flink Elasticsearch 5 connector is not compatible with Elasticsearch 5.2+ client |  Critical | ElasticSearch Connector | Dawid Wysakowicz | Fang Yong |
+| [FLINK-9897](https://issues.apache.org/jira/browse/FLINK-9897) | Further enhance adaptive reads in Kinesis Connector to depend on run loop time |  Major | Kinesis Connector | Lakshmi Rao | Lakshmi Rao |
+| [FLINK-10016](https://issues.apache.org/jira/browse/FLINK-10016) | Make YARN/Kerberos end-to-end test stricter |  Major | Tests | Aljoscha Krettek | Aljoscha Krettek |
+| [FLINK-9947](https://issues.apache.org/jira/browse/FLINK-9947) | Document unified table sources/sinks/formats |  Major | Documentation, Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-9944](https://issues.apache.org/jira/browse/FLINK-9944) | Cleanup end-to-end test poms |  Major | Build System, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-8192](https://issues.apache.org/jira/browse/FLINK-8192) | Properly annotate APIs of all Flink connectors with @Public / @PublicEvolving / @Internal |  Major | Streaming Connectors | Tzu-Li (Gordon) Tai |  |
+| [FLINK-9691](https://issues.apache.org/jira/browse/FLINK-9691) | Modify run loop in Kinesis ShardConsumer to not sleep for a fixed fetchIntervalMillis |  Major | Kinesis Connector | Lakshmi Rao | Jamie Grier |
+| [FLINK-9938](https://issues.apache.org/jira/browse/FLINK-9938) | State TTL cleanup of full state snapshot upon checkpointing |  Major | State Backends, Checkpointing | Andrey Zagrebin | Andrey Zagrebin |
+| [FLINK-9438](https://issues.apache.org/jira/browse/FLINK-9438) | Add documentation for (Registry)AvroDeserializationSchema |  Critical | Documentation | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-9976](https://issues.apache.org/jira/browse/FLINK-9976) | Odd signatures for streaming file sink format builders |  Major | Streaming Connectors | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9792](https://issues.apache.org/jira/browse/FLINK-9792) | Cannot add html tags in options description |  Major | Documentation | Dawid Wysakowicz | Dawid Wysakowicz |
 
 
 ### BUG FIXES:
@@ -205,7 +220,6 @@
 | [FLINK-9627](https://issues.apache.org/jira/browse/FLINK-9627) | Extending 'KafkaJsonTableSource' according to comments will result in NPE |  Major | . | Dominik Wosiński | vinoyang |
 | [FLINK-9532](https://issues.apache.org/jira/browse/FLINK-9532) | Flink Overview of Jobs Documentation Incorrect |  Trivial | Documentation | Abdul Qadeer | vinoyang |
 | [FLINK-9684](https://issues.apache.org/jira/browse/FLINK-9684) | HistoryServerArchiveFetcher not working properly with secure hdfs cluster |  Major | History Server | Ethan Li | Ethan Li |
-| [FLINK-9655](https://issues.apache.org/jira/browse/FLINK-9655) | Externalized checkpoint E2E test fails on travis |  Major | State Backends, Checkpointing, Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9580](https://issues.apache.org/jira/browse/FLINK-9580) | Potentially unclosed ByteBufInputStream in RestClient#readRawResponse |  Minor | REST | Ted Yu | vinoyang |
 | [FLINK-9677](https://issues.apache.org/jira/browse/FLINK-9677) | RestClient fails for large uploads |  Major | REST | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9567](https://issues.apache.org/jira/browse/FLINK-9567) | Flink does not release resource in Yarn Cluster mode |  Critical | Cluster Management, YARN | Shimin Yang | Shimin Yang |
@@ -220,7 +234,6 @@
 | [FLINK-9554](https://issues.apache.org/jira/browse/FLINK-9554) | flink scala shell doesn't work in yarn mode |  Blocker | Scala Shell | Jeff Zhang | Jeff Zhang |
 | [FLINK-9676](https://issues.apache.org/jira/browse/FLINK-9676) | Deadlock during canceling task and recycling exclusive buffer |  Critical | Network | zhijiang | Nico Kruber |
 | [FLINK-9581](https://issues.apache.org/jira/browse/FLINK-9581) | Redundant spaces for Collect at sql.md |  Trivial | Documentation, Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
-| [FLINK-9101](https://issues.apache.org/jira/browse/FLINK-9101) | HAQueryableStateRocksDBBackendITCase failed on travis |  Blocker | Queryable State | Chesnay Schepler |  |
 | [FLINK-9769](https://issues.apache.org/jira/browse/FLINK-9769) | FileUploads may be shared across requests |  Blocker | Job-Submission, REST, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9770](https://issues.apache.org/jira/browse/FLINK-9770) | UI jar list broken |  Blocker | Job-Submission, REST, Webfrontend | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9772](https://issues.apache.org/jira/browse/FLINK-9772) | Documentation of Hadoop API outdated |  Minor | Documentation | Lorenz Bühmann | vinoyang |
@@ -253,7 +266,6 @@
 | [FLINK-9777](https://issues.apache.org/jira/browse/FLINK-9777) | YARN: JM and TM Memory must be specified with Units |  Blocker | Documentation, YARN | Gary Yao | vinoyang |
 | [FLINK-9658](https://issues.apache.org/jira/browse/FLINK-9658) | Test data output directories are no longer cleaned up |  Major | Tests | Chesnay Schepler | zhangminglei |
 | [FLINK-9866](https://issues.apache.org/jira/browse/FLINK-9866) | Allow passing program arguments to StandaloneJobCluster |  Major | Distributed Coordination | Dawid Wysakowicz | Dawid Wysakowicz |
-| [FLINK-9792](https://issues.apache.org/jira/browse/FLINK-9792) | Cannot add html tags in options description |  Major | Documentation | Dawid Wysakowicz | Dawid Wysakowicz |
 | [FLINK-9575](https://issues.apache.org/jira/browse/FLINK-9575) | Potential race condition when removing JobGraph in HA |  Critical | . | Dominik Wosiński | Dominik Wosiński |
 | [FLINK-9872](https://issues.apache.org/jira/browse/FLINK-9872) | SavepointITCase#testSavepointForJobWithIteration does not properly cancel jobs |  Minor | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9815](https://issues.apache.org/jira/browse/FLINK-9815) | YARNSessionCapacitySchedulerITCase flaky |  Blocker | . | Dawid Wysakowicz | Chesnay Schepler |
@@ -269,11 +281,31 @@
 | [FLINK-9892](https://issues.apache.org/jira/browse/FLINK-9892) | Disable local recovery in Jepsen tests |  Major | Tests | Gary Yao | Gary Yao |
 | [FLINK-9906](https://issues.apache.org/jira/browse/FLINK-9906) | Flink Job not running with no resource |  Major | Scheduler | godfrey johnson |  |
 | [FLINK-5750](https://issues.apache.org/jira/browse/FLINK-5750) | Incorrect translation of n-ary Union |  Critical | Table API & SQL | Anton Mushin | Alexander Koltsov |
-| [FLINK-9923](https://issues.apache.org/jira/browse/FLINK-9923) | OneInputStreamTaskTest.testWatermarkMetrics fails on Travis |  Critical | Tests | Till Rohrmann | Till Rohrmann |
 | [FLINK-9934](https://issues.apache.org/jira/browse/FLINK-9934) | Kafka table source factory produces invalid field mapping |  Major | Table API & SQL | Timo Walther | Timo Walther |
 | [FLINK-9949](https://issues.apache.org/jira/browse/FLINK-9949) | Jepsen: Kill Flink processes when tearing down cluster |  Critical | Tests | Gary Yao | Gary Yao |
 | [FLINK-9939](https://issues.apache.org/jira/browse/FLINK-9939) | Mesos: Not setting TMP dirs causes NPE |  Blocker | Mesos | Gary Yao | Gary Yao |
+| [FLINK-9994](https://issues.apache.org/jira/browse/FLINK-9994) | IntervalJoinOperator#Context#getTimestamp does not return the Max timestamp. |  Major | DataStream API | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-9985](https://issues.apache.org/jira/browse/FLINK-9985) | Incorrect parameter order in document |  Major | Documentation | zhangminglei | zhangminglei |
+| [FLINK-9996](https://issues.apache.org/jira/browse/FLINK-9996) | PrestoS3FileSystemITCase#testConfigKeysForwarding fails on travis |  Major | FileSystem, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9923](https://issues.apache.org/jira/browse/FLINK-9923) | OneInputStreamTaskTest.testWatermarkMetrics fails on Travis |  Critical | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-9159](https://issues.apache.org/jira/browse/FLINK-9159) | Sanity check default timeout values |  Blocker | Distributed Coordination | Till Rohrmann | Gary Yao |
+| [FLINK-9978](https://issues.apache.org/jira/browse/FLINK-9978) | Source release sha contains absolute file path |  Major | Release System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9988](https://issues.apache.org/jira/browse/FLINK-9988) |   job manager does not respect property jobmanager.web.address |  Major | . | Pavlo Petrychenko | Chesnay Schepler |
+| [FLINK-10005](https://issues.apache.org/jira/browse/FLINK-10005) | StreamingFileSink ignores checkpoint/processing time rolling policies |  Blocker | Streaming Connectors | Chesnay Schepler | Kostas Kloudas |
+| [FLINK-9874](https://issues.apache.org/jira/browse/FLINK-9874) | set\_conf\_ssl in E2E tests fails on macOS |  Critical | Tests | Florian Schmidt | Florian Schmidt |
+| [FLINK-9946](https://issues.apache.org/jira/browse/FLINK-9946) | Quickstart E2E test archetype version is hard-coded |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9694](https://issues.apache.org/jira/browse/FLINK-9694) | Potentially NPE in CompositeTypeSerializerConfigSnapshot constructor |  Minor | Table API & SQL | vinoyang | Piotr Nowojski |
+| [FLINK-9655](https://issues.apache.org/jira/browse/FLINK-9655) | Externalized checkpoint E2E test fails on travis |  Major | State Backends, Checkpointing, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10021](https://issues.apache.org/jira/browse/FLINK-10021) | All-round E2E tests query metric with wrong operator name |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9936](https://issues.apache.org/jira/browse/FLINK-9936) | Mesos resource manager unable to connect to master after failover |  Blocker | Mesos, Scheduler | Renjie Liu | Gary Yao |
+| [FLINK-9969](https://issues.apache.org/jira/browse/FLINK-9969) | Unreasonable memory requirements to complete examples/batch/WordCount |  Blocker | ResourceManager | Piotr Nowojski | Till Rohrmann |
+| [FLINK-10033](https://issues.apache.org/jira/browse/FLINK-10033) | Let Task release reference to Invokable on shutdown |  Major | TaskManager | Stephan Ewen | Stephan Ewen |
+| [FLINK-9995](https://issues.apache.org/jira/browse/FLINK-9995) | Jepsen: Clean up Mesos Logs and Working Directory |  Major | Tests | Gary Yao | Gary Yao |
+| [FLINK-10070](https://issues.apache.org/jira/browse/FLINK-10070) | Flink cannot be compiled with maven 3.0.x |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10064](https://issues.apache.org/jira/browse/FLINK-10064) | Fix a typo in ExternalCatalogTable |  Critical | Table API & SQL | Jun Zhang | Jun Zhang |
+| [FLINK-10051](https://issues.apache.org/jira/browse/FLINK-10051) | SQL client E2E test is missing dependencies |  Major | Build System, Table API & SQL, Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-9576](https://issues.apache.org/jira/browse/FLINK-9576) | Wrong contiguity documentation |  Critical | CEP, Documentation | Dawid Wysakowicz | Dawid Wysakowicz |
+| [FLINK-8893](https://issues.apache.org/jira/browse/FLINK-8893) | NPE when netty try to allocate directBuffer |  Blocker | Network | aitozi |  |
 
 
 ### TESTS:
@@ -334,6 +366,20 @@
 | [FLINK-9353](https://issues.apache.org/jira/browse/FLINK-9353) | End-to-end test: Kubernetes integration |  Blocker | Tests | Aljoscha Krettek | Dawid Wysakowicz |
 | [FLINK-8981](https://issues.apache.org/jira/browse/FLINK-8981) | Add end-to-end test for running on YARN with Kerberos |  Blocker | Security, Tests | Till Rohrmann | Aljoscha Krettek |
 | [FLINK-9951](https://issues.apache.org/jira/browse/FLINK-9951) | Update scm developerConnection |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-8974](https://issues.apache.org/jira/browse/FLINK-8974) | End-to-end test: Run general purpose DataSet job with failures in standalone mode |  Blocker | Tests | Till Rohrmann | Tuo Wang |
+| [FLINK-8993](https://issues.apache.org/jira/browse/FLINK-8993) | Add a test operator with keyed state that uses Kryo serializer (registered/unregistered/custom) |  Major | Tests | Stefan Richter | Tzu-Li (Gordon) Tai |
+| [FLINK-8994](https://issues.apache.org/jira/browse/FLINK-8994) | Add a test operator with keyed state that uses Avro serializer (from schema/by reflection) |  Major | Tests | Stefan Richter | Tzu-Li (Gordon) Tai |
+| [FLINK-9790](https://issues.apache.org/jira/browse/FLINK-9790) | Add documentation for UDF in SQL Client |  Major | Table API & SQL | Timo Walther | Xingcan Cui |
+| [FLINK-9877](https://issues.apache.org/jira/browse/FLINK-9877) | Add separate docs page for different join types in DataStream API |  Major | Documentation | Florian Schmidt | Florian Schmidt |
+| [FLINK-9885](https://issues.apache.org/jira/browse/FLINK-9885) | End-to-end test: Elasticsearch 6.x connector |  Blocker | ElasticSearch Connector, Tests | Tzu-Li (Gordon) Tai | Tzu-Li (Gordon) Tai |
+| [FLINK-9979](https://issues.apache.org/jira/browse/FLINK-9979) | Support a custom FlinkKafkaPartitioner for a Kafka table sink factory |  Major | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-9833](https://issues.apache.org/jira/browse/FLINK-9833) | End-to-end test: SQL Client with unified source/sink/format |  Blocker | Table API & SQL | Timo Walther | Timo Walther |
+| [FLINK-10027](https://issues.apache.org/jira/browse/FLINK-10027) | Add logging to the StreamingFileSink |  Major | filesystem-connector | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-9861](https://issues.apache.org/jira/browse/FLINK-9861) | Add end-to-end test for reworked BucketingSink |  Blocker | Streaming Connectors | Till Rohrmann | Chesnay Schepler |
+| [FLINK-8480](https://issues.apache.org/jira/browse/FLINK-8480) | Implement Java API to expose join functionality of TimeBoundedStreamJoinOperator |  Major | . | Florian Schmidt | Florian Schmidt |
+| [FLINK-8479](https://issues.apache.org/jira/browse/FLINK-8479) | Implement time-bounded inner join of streams as a TwoInputStreamOperator |  Major | . | Florian Schmidt | Florian Schmidt |
+| [FLINK-10029](https://issues.apache.org/jira/browse/FLINK-10029) | Refactor Streaming File Sink for better separation of concerns. |  Major | filesystem-connector | Kostas Kloudas | Kostas Kloudas |
+| [FLINK-10071](https://issues.apache.org/jira/browse/FLINK-10071) | Document usage of INSERT INTO in SQL Client |  Major | Documentation, Table API & SQL | Timo Walther | Timo Walther |
 
 
 ### OTHER:
@@ -342,5 +388,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-9292](https://issues.apache.org/jira/browse/FLINK-9292) | Remove TypeInfoParser |  Major | Core | Stephan Ewen | vinoyang |
 | [FLINK-7775](https://issues.apache.org/jira/browse/FLINK-7775) | Remove unreferenced method PermanentBlobCache#getNumberOfCachedJobs |  Minor | Local Runtime | Ted Yu | vinoyang |
+| [FLINK-9926](https://issues.apache.org/jira/browse/FLINK-9926) | Allow for ShardConsumer override in Kinesis consumer |  Minor | Kinesis Connector | Thomas Weise | Thomas Weise |
 
 

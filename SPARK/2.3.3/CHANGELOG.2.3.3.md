@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.3 - Unreleased (as of 2018-07-29)
+## Release 2.3.3 - Unreleased (as of 2018-08-14)
 
 
 
@@ -28,5 +28,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24677](https://issues.apache.org/jira/browse/SPARK-24677) | TaskSetManager not updating successfulTaskDurations for old stage attempts |  Critical | Spark Core | dzcxzl | dzcxzl |
 | [SPARK-24755](https://issues.apache.org/jira/browse/SPARK-24755) | Executor loss can cause task to not be resubmitted |  Major | Spark Core | Mridul Muralidharan | Hieu Tri Huynh |
+| [SPARK-25081](https://issues.apache.org/jira/browse/SPARK-25081) | Nested spill in ShuffleExternalSorter may access a released memory page |  Blocker | Spark Core | Shixiong Zhu | Shixiong Zhu |
 
 

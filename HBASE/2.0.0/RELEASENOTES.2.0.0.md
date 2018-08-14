@@ -2940,7 +2940,7 @@ For new cluster or cluster upgraded from 1.1.x and newer release, there is no is
 
 * [HBASE-16231](https://issues.apache.org/jira/browse/HBASE-16231) | *Major* | **Integration tests should support client keytab login for secure clusters**
 
-Prior to this change, the integration test clients (IntegrationTest\*) relied on the Kerberos credential cache for authentication against secured clusters.  This could lead to the tests failing due to authentication failures when the tickets in the credential cache expired.  With this change, the integration test clients will make use of the configuration properties for "hbase.client.keytab.file" and "hbase.client.kerberos.principal", when available.  This will perform a login from the configured keytab file and automatically refresh the credentials in the background for the process lifetime.
+Prior to this change, the integration test clients (IntegrationTest\*) relied on the Kerberos credential cache for authentication against secured clusters.  This could lead to the tests failing due to authentication failures when the tickets in the credential cache expired.  With this change, the integration test clients will make use of the configuration properties for "hbase.client.keytab.file" and "hbase.client.kerberos.principal" (They are required).  This will perform a login from the configured keytab file and automatically refresh the credentials in the background for the process lifetime.
 
 
 ---

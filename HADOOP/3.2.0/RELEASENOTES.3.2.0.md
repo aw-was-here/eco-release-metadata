@@ -120,4 +120,18 @@ The internal constant can be configured with the dfs.balancer.max-iteration-time
 commons-lang version 2.6 was removed from Apache Hadoop. If you are using commons-lang 2.6 as transitive dependency of Hadoop, you need to add the dependency directly. Note: this also means it is absent from share/hadoop/common/lib/
 
 
+---
+
+* [HDFS-13322](https://issues.apache.org/jira/browse/HDFS-13322) | *Minor* | **fuse dfs - uid persists when switching between ticket caches**
+
+FUSE lib now recognize the change of the Kerberos ticket cache path if it was changed between two file system access in the same local user session via the KRB5CCNAME environment variable.
+
+
+---
+
+* [HADOOP-15638](https://issues.apache.org/jira/browse/HADOOP-15638) | *Major* | **KMS Accept Queue Size default changed from 500 to 128 in Hadoop 3.x**
+
+Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in Hadoop 2.x.
+
+
 

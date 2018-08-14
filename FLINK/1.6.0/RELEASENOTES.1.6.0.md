@@ -35,4 +35,11 @@ We changed the default SLOT\_IDLE\_TIMEOUT to the HEARTBEAT\_TIMEOUT in the cour
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [FLINK-7386](https://issues.apache.org/jira/browse/FLINK-7386) | *Critical* | **Flink Elasticsearch 5 connector is not compatible with Elasticsearch 5.2+ client**
+
+Previous APIs in the Flink Elasticsearch Sink's RequestIndexer interface has been deprecated in favor of new signatures. When adding requests to the indexer, the requests now must be of type IndexRequest, DeleteRequest, or UpdateRequest, instead of the base ActionRequest.
+
+
 

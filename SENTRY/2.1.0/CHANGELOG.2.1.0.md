@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-07-29)
+## Release 2.1.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -46,6 +46,7 @@
 | [SENTRY-2269](https://issues.apache.org/jira/browse/SENTRY-2269) | Make SentryStore pluggable |  Major | sentrystore | Fahd Siddiqui | Fahd Siddiqui |
 | [SENTRY-2284](https://issues.apache.org/jira/browse/SENTRY-2284) | Add two client API to get all roles or users privileges mapping |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2285](https://issues.apache.org/jira/browse/SENTRY-2285) | Add a profile '-Pdist' to package Sentry binaries |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2335](https://issues.apache.org/jira/browse/SENTRY-2335) | Allow multiple callbacks to be run when a Signal is received. |  Minor | Core | Brian Towles | Brian Towles |
 
 
 ### BUG FIXES:
@@ -91,6 +92,9 @@
 | [SENTRY-2283](https://issues.apache.org/jira/browse/SENTRY-2283) | Multiple versions of metrics on the classpath causes Sentry to not startup |  Major | Sentry | Steve Moist | Steve Moist |
 | [SENTRY-2310](https://issues.apache.org/jira/browse/SENTRY-2310) | Sentry is not be able to fetch full update subsequently,  when there is HMS restart in the snapshot process. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2190](https://issues.apache.org/jira/browse/SENTRY-2190) | Have verbose debug logs in CounterWait class |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2337](https://issues.apache.org/jira/browse/SENTRY-2337) | [REVERT] SENTRY-2295: Owner privileges should not be granted to sentry admin users |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2330](https://issues.apache.org/jira/browse/SENTRY-2330) | Change sentry-service-server to use ${project.version} |  Minor | Sentry | Steve Moist | Steve Moist |
+| [SENTRY-2352](https://issues.apache.org/jira/browse/SENTRY-2352) | User roles with ALTER on a table can not show or describe the table on which they have ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### TESTS:
@@ -135,6 +139,7 @@
 | [SENTRY-2247](https://issues.apache.org/jira/browse/SENTRY-2247) | Add e2e tests to verify owner privileges |  Major | Sentry | kalyan kumar kalvagadda | Na Li |
 | [SENTRY-2159](https://issues.apache.org/jira/browse/SENTRY-2159) | Add e2e tests for granting owner privileges |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2290](https://issues.apache.org/jira/browse/SENTRY-2290) | Avoid storing the path information for partitions in default location |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2157](https://issues.apache.org/jira/browse/SENTRY-2157) | Update audit log to grant/revoke owner privileges |  Major | Sentry | Na Li | Sergio Peña |
 
 
 ### OTHER:

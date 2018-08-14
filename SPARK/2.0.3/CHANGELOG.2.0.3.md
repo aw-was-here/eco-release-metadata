@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.0.3 - Unreleased (as of 2018-07-29)
+## Release 2.0.3 - Unreleased (as of 2018-08-14)
 
 
 
@@ -56,6 +56,7 @@
 | [SPARK-19986](https://issues.apache.org/jira/browse/SPARK-19986) | Make pyspark.streaming.tests.CheckpointTests more stable |  Major | Tests | Shixiong Zhu |  |
 | [SPARK-20475](https://issues.apache.org/jira/browse/SPARK-20475) | Whether use "broadcast join" depends on hive configuration |  Major | SQL | Lijia Liu |  |
 | [SPARK-20868](https://issues.apache.org/jira/browse/SPARK-20868) | UnsafeShuffleWriter should verify the position after FileChannel.transferTo |  Major | Spark Core | Wenchen Fan | Wenchen Fan |
+| [SPARK-25089](https://issues.apache.org/jira/browse/SPARK-25089) | remove lintr checks for 2.0 and 2.1 |  Minor | Build | shane knapp | shane knapp |
 
 
 ### BUG FIXES:

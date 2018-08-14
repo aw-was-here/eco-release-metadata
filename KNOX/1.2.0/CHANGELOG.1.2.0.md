@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.2.0 - Unreleased (as of 2018-07-29)
+## Release 1.2.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -27,6 +27,17 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KNOX-1401](https://issues.apache.org/jira/browse/KNOX-1401) | Add HAL+JSON To the List of JSON Content Types |  Major | . | William Watson |  |
+| [KNOX-1112](https://issues.apache.org/jira/browse/KNOX-1112) | KnoxShell support for managing simple descriptors |  Major | KnoxShell | Phil Zampino | Phil Zampino |
+| [KNOX-1411](https://issues.apache.org/jira/browse/KNOX-1411) | WEBHBASE service discovery references incorrect property for the port |  Major | Server | Phil Zampino | Phil Zampino |
+
+
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KNOX-1415](https://issues.apache.org/jira/browse/KNOX-1415) | Upgrade Jetty to 9.2.25 |  Major | Server | Larry McCay | Larry McCay |
+| [KNOX-1412](https://issues.apache.org/jira/browse/KNOX-1412) | Failure while executing a \`curl\` command using Content-Type: text/xml" "Content-Encoding: gzip" |  Major | Server | Ernani Pereira de Mattos Junior | Sandeep More |
+| [KNOX-1420](https://issues.apache.org/jira/browse/KNOX-1420) | Add app.css path for Zeppelin's style sheet |  Major | Server | Prabhjyot Singh | Prabhjyot Singh |
 
 
 ### OTHER:

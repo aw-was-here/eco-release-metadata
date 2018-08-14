@@ -83,7 +83,6 @@
 | [PARQUET-1246](https://issues.apache.org/jira/browse/PARQUET-1246) | Ignore float/double statistics in case of NaN |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 | [PARQUET-1028](https://issues.apache.org/jira/browse/PARQUET-1028) | [JAVA] When reading old Spark-generated files with INT96, stats are reported as valid when they aren't |  Major | parquet-mr | Jacques Nadeau | Zoltan Ivanfi |
 | [PARQUET-1258](https://issues.apache.org/jira/browse/PARQUET-1258) | Update scm developer connection to github |  Minor | parquet-format, parquet-mr | Gabor Szadovszky | Gabor Szadovszky |
-| [PARQUET-1285](https://issues.apache.org/jira/browse/PARQUET-1285) | [Java] SchemaConverter should not convert from TimeUnit.SECOND AND TimeUnit.NANOSECOND of Arrow |  Minor | parquet-mr | Masayuki Takahashi | Masayuki Takahashi |
 
 
 ### OTHER:

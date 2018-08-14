@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.2 - Unreleased (as of 2018-07-29)
+## Release 2.3.2 - Unreleased (as of 2018-08-14)
 
 
 
@@ -65,9 +65,21 @@
 | [SPARK-24813](https://issues.apache.org/jira/browse/SPARK-24813) | HiveExternalCatalogVersionsSuite still flaky; fall back to Apache archive |  Major | Tests | Sean Owen | Sean Owen |
 | [SPARK-23731](https://issues.apache.org/jira/browse/SPARK-23731) | FileSourceScanExec throws NullPointerException in subexpression elimination |  Major | SQL | Jacek Laskowski | Hyukjin Kwon |
 | [SPARK-24879](https://issues.apache.org/jira/browse/SPARK-24879) | NPE in Hive partition filter pushdown for \`partCol IN (NULL, ....)\` |  Major | SQL | William Sheu | William Sheu |
+| [SPARK-24908](https://issues.apache.org/jira/browse/SPARK-24908) | [R] remove spaces to make lintr happy |  Critical | Build | shane knapp | shane knapp |
 | [SPARK-24891](https://issues.apache.org/jira/browse/SPARK-24891) | Fix HandleNullInputsForUDF rule |  Major | SQL | Maryann Xue | Maryann Xue |
 | [SPARK-24867](https://issues.apache.org/jira/browse/SPARK-24867) | Add AnalysisBarrier to DataFrameWriter |  Blocker | SQL | Xiao Li | Xiao Li |
 | [SPARK-24927](https://issues.apache.org/jira/browse/SPARK-24927) | The hadoop-provided profile doesn't play well with Snappy-compressed Parquet files |  Major | Build | Cheng Lian | Cheng Lian |
+| [SPARK-24809](https://issues.apache.org/jira/browse/SPARK-24809) | Serializing LongHashedRelation in executor may result in data error |  Critical | SQL | Lijia Liu | Lijia Liu |
+| [SPARK-24934](https://issues.apache.org/jira/browse/SPARK-24934) | Complex type and binary type in in-memory partition pruning does not work due to missing upper/lower bounds cases |  Critical | SQL | Hyukjin Kwon | Hyukjin Kwon |
+| [SPARK-24957](https://issues.apache.org/jira/browse/SPARK-24957) | Decimal arithmetic can lead to wrong values using codegen |  Major | SQL | David Vogelbacher | Marco Gaido |
+| [SPARK-24536](https://issues.apache.org/jira/browse/SPARK-24536) | Query with nonsensical LIMIT hits AssertionError |  Trivial | SQL | Alexander Behm |  |
+| [SPARK-24987](https://issues.apache.org/jira/browse/SPARK-24987) | Kafka Cached Consumer Leaking File Descriptors |  Critical | Structured Streaming | Yuval Itzchakov | Yuval Itzchakov |
+| [SPARK-24948](https://issues.apache.org/jira/browse/SPARK-24948) | SHS filters wrongly some applications due to permission check |  Blocker | Web UI | Marco Gaido | Marco Gaido |
+| [SPARK-25076](https://issues.apache.org/jira/browse/SPARK-25076) | SQLConf should not be retrieved from a stopped SparkSession |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-24950](https://issues.apache.org/jira/browse/SPARK-24950) | scala DateTimeUtilsSuite daysToMillis and millisToDays fails w/java 8 181-b13 |  Major | Build, Tests | shane knapp | Chris Martin |
+| [SPARK-25084](https://issues.apache.org/jira/browse/SPARK-25084) | "distribute by" on multiple columns may lead to codegen issue |  Blocker | SQL | yucai | yucai |
+| [SPARK-25028](https://issues.apache.org/jira/browse/SPARK-25028) | AnalyzePartitionCommand failed with NPE if value is null |  Major | Spark Core | Izek Greenfield | Marco Gaido |
+| [SPARK-25051](https://issues.apache.org/jira/browse/SPARK-25051) | where clause on dataset gives AnalysisException |  Blocker | SQL | MIK | Marco Gaido |
 
 
 ### TESTS:
@@ -78,10 +90,18 @@
 | [SPARK-24521](https://issues.apache.org/jira/browse/SPARK-24521) | Fix ineffective test in CachedTableSuite |  Minor | SQL | Li Jin | Li Jin |
 
 
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-24976](https://issues.apache.org/jira/browse/SPARK-24976) | Allow None for Decimal type conversion (specific to PyArrow 0.9.0) |  Major | PySpark | Hyukjin Kwon | Hyukjin Kwon |
+
+
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24507](https://issues.apache.org/jira/browse/SPARK-24507) | Description in "Level of Parallelism in Data Receiving" section of Spark Streaming Programming Guide in is not relevan for the recent Kafka direct apprach |  Minor | Documentation, DStreams | Lev Greenberg | Rekha Joshi |
+| [SPARK-25015](https://issues.apache.org/jira/browse/SPARK-25015) | Update Hadoop 2.7 to 2.7.7 |  Minor | Build | Sean Owen | Sean Owen |
 
 

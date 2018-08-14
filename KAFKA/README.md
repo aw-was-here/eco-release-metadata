@@ -34,6 +34,9 @@
 * Apache Kafka v0.11.1.0
     * [Changelog](0.11.1.0/CHANGELOG.0.11.1.0.md)
     * [Release Notes](0.11.1.0/RELEASENOTES.0.11.1.0.md)
+* Apache Kafka v0.11.0.4
+    * [Changelog](0.11.0.4/CHANGELOG.0.11.0.4.md)
+    * [Release Notes](0.11.0.4/RELEASENOTES.0.11.0.4.md)
 * Apache Kafka v0.11.0.3
     * [Changelog](0.11.0.3/CHANGELOG.0.11.0.3.md)
     * [Release Notes](0.11.0.3/RELEASENOTES.0.11.0.3.md)

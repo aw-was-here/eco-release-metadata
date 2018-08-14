@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.11.0 - Unreleased (as of 2018-07-29)
+## Release 1.11.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -27,6 +27,9 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PARQUET-1253](https://issues.apache.org/jira/browse/PARQUET-1253) | Support for new logical type representation |  Major | parquet-mr | Nandor Kollar | Nandor Kollar |
+| [PARQUET-1321](https://issues.apache.org/jira/browse/PARQUET-1321) | LogicalTypeAnnotation.LogicalTypeAnnotationVisitor#visit methods should have a return value |  Major | parquet-mr | Nandor Kollar | Nandor Kollar |
+| [PARQUET-1335](https://issues.apache.org/jira/browse/PARQUET-1335) | Logical type names in parquet-mr are not consistent with parquet-format |  Minor | parquet-mr | Nandor Kollar | Nandor Kollar |
+| [PARQUET-1336](https://issues.apache.org/jira/browse/PARQUET-1336) | PrimitiveComparator should implements Serializable |  Major | parquet-mr | Yuming Wang | Yuming Wang |
 
 
 ### BUG FIXES:
@@ -34,12 +37,25 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PARQUET-1128](https://issues.apache.org/jira/browse/PARQUET-1128) | [Java] Upgrade the Apache Arrow version to 0.8.0 for SchemaConverter |  Minor | parquet-mr | Masayuki Takahashi | Masayuki Takahashi |
+| [PARQUET-1285](https://issues.apache.org/jira/browse/PARQUET-1285) | [Java] SchemaConverter should not convert from TimeUnit.SECOND AND TimeUnit.NANOSECOND of Arrow |  Minor | parquet-mr | Masayuki Takahashi | Masayuki Takahashi |
 | [PARQUET-1293](https://issues.apache.org/jira/browse/PARQUET-1293) | Build failure when using Java 8 lambda expressions |  Minor | . | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1297](https://issues.apache.org/jira/browse/PARQUET-1297) | [Java] SchemaConverter should not convert from Timestamp(TimeUnit.SECOND) and Timestamp(TimeUnit.NANOSECOND) of Arrow |  Minor | parquet-mr | Masayuki Takahashi | Masayuki Takahashi |
+| [PARQUET-1296](https://issues.apache.org/jira/browse/PARQUET-1296) | Travis kills build after 10 minutes, because "no output was received" |  Major | . | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1304](https://issues.apache.org/jira/browse/PARQUET-1304) | Release 1.10 contains breaking changes for Hive |  Major | parquet-mr | Zoltan Ivanfi | Gabor Szadovszky |
 | [PARQUET-1317](https://issues.apache.org/jira/browse/PARQUET-1317) | ParquetMetadataConverter throw NPE |  Major | parquet-mr | Yuming Wang | Yuming Wang |
+| [PARQUET-1309](https://issues.apache.org/jira/browse/PARQUET-1309) | Parquet Java uses incorrect stats and dictionary filter properties |  Major | parquet-mr | Ryan Blue | Gabor Szadovszky |
+| [PARQUET-1311](https://issues.apache.org/jira/browse/PARQUET-1311) | Update README.md |  Minor | parquet-mr | Nandor Kollar | Nandor Kollar |
 | [PARQUET-952](https://issues.apache.org/jira/browse/PARQUET-952) | Avro union with single type fails with 'is not a group' |  Major | parquet-mr | Jarek Jarcec Cecho | Nandor Kollar |
+| [PARQUET-1344](https://issues.apache.org/jira/browse/PARQUET-1344) | Type builders don't honor new logical types |  Major | parquet-mr | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1351](https://issues.apache.org/jira/browse/PARQUET-1351) | Travis builds fail for parquet-format |  Major | parquet-format | Nandor Kollar | Nandor Kollar |
+| [PARQUET-1341](https://issues.apache.org/jira/browse/PARQUET-1341) | Null count is suppressed when columns have no min or max and use unsigned sort order |  Major | parquet-mr | Ryan Blue | Ryan Blue |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PARQUET-1364](https://issues.apache.org/jira/browse/PARQUET-1364) | Column Indexes: Invalid row indexes for pages starting with nulls |  Major | . | Gabor Szadovszky | Gabor Szadovszky |
 
 
 ### OTHER:

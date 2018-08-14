@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.1.0 - Unreleased (as of 2018-07-29)
+## Release 1.1.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -213,6 +213,7 @@
 | [KNOX-1397](https://issues.apache.org/jira/browse/KNOX-1397) | Admin UI Topologies List needs to Refresh on New or Deleted Topologies |  Major | AdminUI | Larry McCay | Phil Zampino |
 | [KNOX-1398](https://issues.apache.org/jira/browse/KNOX-1398) | WebHDFS and WebHBase APIs listed incorrectly as services that need whitelist enforcement |  Major | Server | Larry McCay | Larry McCay |
 | [KNOX-1399](https://issues.apache.org/jira/browse/KNOX-1399) | Duplicate configuration for gateway.dispatch.whitelist in gateway-site.xml OOTB |  Major | Server | Larry McCay | Larry McCay |
+| [KNOX-1419](https://issues.apache.org/jira/browse/KNOX-1419) | Document global scoped rewrite rule option 'gateway.global.rules.services' |  Major | Site | Sandeep More | Sandeep More |
 
 
 ### TESTS:

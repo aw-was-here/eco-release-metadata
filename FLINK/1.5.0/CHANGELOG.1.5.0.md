@@ -63,6 +63,7 @@
 | [FLINK-4926](https://issues.apache.org/jira/browse/FLINK-4926) | Implement FLIP-6 Flink-on-YARN jobs |  Major | YARN | Stephan Ewen |  |
 | [FLINK-6378](https://issues.apache.org/jira/browse/FLINK-6378) | Implement FLIP-6 Flink-on-Mesos |  Major | Mesos | Eron Wright | Eron Wright |
 | [FLINK-4346](https://issues.apache.org/jira/browse/FLINK-4346) | Implement basic RPC abstraction |  Major | Distributed Coordination | Stephan Ewen | Till Rohrmann |
+| [FLINK-5725](https://issues.apache.org/jira/browse/FLINK-5725) | Support windowed JOIN between two streaming tables |  Major | Table API & SQL | Haohui Mai | hongyuhong |
 
 
 ### IMPROVEMENTS:

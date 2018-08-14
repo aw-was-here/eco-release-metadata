@@ -38,5 +38,6 @@
 | [KUDU-2379](https://issues.apache.org/jira/browse/KUDU-2379) | Spark generates a broken authentication credentials PB |  Blocker | java, spark | Todd Lipcon | Todd Lipcon |
 | [KUDU-2412](https://issues.apache.org/jira/browse/KUDU-2412) | python client fails to compile in EL6 environments |  Major | . | Grant Henke | Grant Henke |
 | [KUDU-2416](https://issues.apache.org/jira/browse/KUDU-2416) | Incorrect fallthrough in Java PartialRow.setMin for DECIMAL times |  Critical | java | Todd Lipcon | Grant Henke |
+| [KUDU-2401](https://issues.apache.org/jira/browse/KUDU-2401) | External TLS certificate with Intermediate CA in server cert file fails |  Major | security | Sailesh Mukil | Sailesh Mukil |
 
 

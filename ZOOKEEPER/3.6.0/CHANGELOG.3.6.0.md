@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2018-07-29)
+## Release 3.6.0 - Unreleased (as of 2018-08-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -147,6 +147,8 @@
 | [ZOOKEEPER-3097](https://issues.apache.org/jira/browse/ZOOKEEPER-3097) | Use Runnable instead of Thread for working items in WorkerService to improve the throughput of CommitProcessor |  Minor | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-3094](https://issues.apache.org/jira/browse/ZOOKEEPER-3094) | Make BufferSizeTest reliable |  Minor | tests | Mohamed Jeelani | Mohamed Jeelani |
 | [ZOOKEEPER-3095](https://issues.apache.org/jira/browse/ZOOKEEPER-3095) | Connect string fix for non-existent hosts |  Minor | other | Mohamed Jeelani | Mohamed Jeelani |
+| [ZOOKEEPER-3085](https://issues.apache.org/jira/browse/ZOOKEEPER-3085) | Define constant exit code and add documents |  Minor | server | Fangmin Lv | Norbert Kalmar |
+| [ZOOKEEPER-3110](https://issues.apache.org/jira/browse/ZOOKEEPER-3110) | Improve the closeSession throughput in PrepRequestProcessor |  Minor | quorum | Fangmin Lv | Fangmin Lv |
 
 
 ### BUG FIXES:
@@ -376,6 +378,9 @@
 | [ZOOKEEPER-3093](https://issues.apache.org/jira/browse/ZOOKEEPER-3093) | sync zerror(int rc) with newest error definitions |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
 | [ZOOKEEPER-2251](https://issues.apache.org/jira/browse/ZOOKEEPER-2251) | Add Client side packet response timeout to avoid infinite wait. |  Critical | java client | nijel | Mohammad Arshad |
 | [ZOOKEEPER-3072](https://issues.apache.org/jira/browse/ZOOKEEPER-3072) | Race condition in throttling |  Major | server | Botond Hejj |  |
+| [ZOOKEEPER-3082](https://issues.apache.org/jira/browse/ZOOKEEPER-3082) | Fix server snapshot behavior when out of disk space |  Minor | server | Brian Nixon | Brian Nixon |
+| [ZOOKEEPER-3104](https://issues.apache.org/jira/browse/ZOOKEEPER-3104) | Potential data inconsistency due to NEWLEADER packet being sent too early during SNAP sync |  Critical | server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-2926](https://issues.apache.org/jira/browse/ZOOKEEPER-2926) | Data inconsistency issue due to the flaw in the session management |  Critical | server | Fangmin Lv | Fangmin Lv |
 
 
 ### TESTS:
@@ -429,6 +434,8 @@
 | [ZOOKEEPER-3022](https://issues.apache.org/jira/browse/ZOOKEEPER-3022) | Step 1.1 - Create docs and it maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3030](https://issues.apache.org/jira/browse/ZOOKEEPER-3030) | Step 1.3 - Create zk-contrib maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3103](https://issues.apache.org/jira/browse/ZOOKEEPER-3103) | Pluggable metrics system for ZooKeeper - MetricsProvider API definition |  Major | metric system | Enrico Olivelli | Enrico Olivelli |
 
 
 ### OTHER:
@@ -445,5 +452,6 @@
 | [ZOOKEEPER-3087](https://issues.apache.org/jira/browse/ZOOKEEPER-3087) | Fix findbug warning introduced by ZOOKEEPER-3084. |  Major | tests | Michael Han | Michael Han |
 | [ZOOKEEPER-3067](https://issues.apache.org/jira/browse/ZOOKEEPER-3067) | Optionally suppress client environment logging. |  Minor | c client | James Peach |  |
 | [ZOOKEEPER-3061](https://issues.apache.org/jira/browse/ZOOKEEPER-3061) | add more details to 'Unhandled scenario for peer' log.warn message |  Minor | . | Christine Poerschke |  |
+| [ZOOKEEPER-3062](https://issues.apache.org/jira/browse/ZOOKEEPER-3062) | introduce fsync.warningthresholdms constant for FileTxnLog LOG.warn message |  Minor | . | Christine Poerschke | Christine Poerschke |
 
 

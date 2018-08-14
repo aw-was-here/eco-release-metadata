@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.8.0 - Unreleased (as of 2018-07-29)
+## Release 0.8.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -27,6 +27,14 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-609](https://issues.apache.org/jira/browse/YETUS-609) | releasedocmaker indexer uses wrong filename |  Blocker | Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-643](https://issues.apache.org/jira/browse/YETUS-643) | default custom maven repo should use workspace when in jenkins mode |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-46](https://issues.apache.org/jira/browse/YETUS-46) | releasedocmaker should support JIRA authentication |  Major | Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:
@@ -63,5 +71,6 @@
 | [YETUS-641](https://issues.apache.org/jira/browse/YETUS-641) | Hardcoded pylint version |  Minor | build | Jack Bearden | Jack Bearden |
 | [YETUS-242](https://issues.apache.org/jira/browse/YETUS-242) | hadoop: add -Drequire.valgrind |  Trivial | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-432](https://issues.apache.org/jira/browse/YETUS-432) | website generation mysteriously fails when releasedocmaker fails |  Major | build, website and documentation | Ajay Yadava | Allen Wittenauer |
+| [YETUS-647](https://issues.apache.org/jira/browse/YETUS-647) | ssh-based git repos do not work correctly under docker |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 

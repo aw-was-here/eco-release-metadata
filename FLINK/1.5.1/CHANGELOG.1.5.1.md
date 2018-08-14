@@ -88,7 +88,6 @@
 | [FLINK-9629](https://issues.apache.org/jira/browse/FLINK-9629) | Datadog metrics reporter does not have shaded dependencies |  Major | Metrics | Georgii Gobozov | Georgii Gobozov |
 | [FLINK-9627](https://issues.apache.org/jira/browse/FLINK-9627) | Extending 'KafkaJsonTableSource' according to comments will result in NPE |  Major | . | Dominik Wosiński | vinoyang |
 | [FLINK-9684](https://issues.apache.org/jira/browse/FLINK-9684) | HistoryServerArchiveFetcher not working properly with secure hdfs cluster |  Major | History Server | Ethan Li | Ethan Li |
-| [FLINK-9655](https://issues.apache.org/jira/browse/FLINK-9655) | Externalized checkpoint E2E test fails on travis |  Major | State Backends, Checkpointing, Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9580](https://issues.apache.org/jira/browse/FLINK-9580) | Potentially unclosed ByteBufInputStream in RestClient#readRawResponse |  Minor | REST | Ted Yu | vinoyang |
 | [FLINK-9677](https://issues.apache.org/jira/browse/FLINK-9677) | RestClient fails for large uploads |  Major | REST | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9567](https://issues.apache.org/jira/browse/FLINK-9567) | Flink does not release resource in Yarn Cluster mode |  Critical | Cluster Management, YARN | Shimin Yang | Shimin Yang |

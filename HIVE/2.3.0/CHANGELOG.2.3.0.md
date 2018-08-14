@@ -476,7 +476,6 @@
 | [HIVE-16301](https://issues.apache.org/jira/browse/HIVE-16301) | Preparing for 2.3 development. |  Blocker | Hive | Naveen Gangam | Naveen Gangam |
 | [HIVE-16315](https://issues.apache.org/jira/browse/HIVE-16315) | Describe table doesn't show num of partitions |  Major | . | Rui Li | Rui Li |
 | [HIVE-16308](https://issues.apache.org/jira/browse/HIVE-16308) | PreExecutePrinter and PostExecutePrinter should log to INFO level instead of ERROR |  Major | Test | Sahil Takiar | Sahil Takiar |
-| [HIVE-16348](https://issues.apache.org/jira/browse/HIVE-16348) | HoS query is canceled but error message shows RPC is closed |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-15923](https://issues.apache.org/jira/browse/HIVE-15923) | Hive default partition causes errors in get partitions |  Blocker | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14348](https://issues.apache.org/jira/browse/HIVE-14348) | Add tests for alter table exchange partition |  Blocker | . | Vaibhav Gumashta | Vaibhav Gumashta |
 | [HIVE-16341](https://issues.apache.org/jira/browse/HIVE-16341) | Tez Task Execution Summary has incorrect input record counts on some operators |  Major | Tez | Jason Dere | Jason Dere |
@@ -702,6 +701,7 @@
 | [HIVE-16178](https://issues.apache.org/jira/browse/HIVE-16178) | corr/covar\_samp UDAF standard compliance |  Minor | SQL | Zoltan Haindrich | Zoltan Haindrich |
 | [HIVE-16246](https://issues.apache.org/jira/browse/HIVE-16246) | Support auto gather column stats for columns with trailing white spaces |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16186](https://issues.apache.org/jira/browse/HIVE-16186) | REPL DUMP shows last event ID of the database even if we use LIMIT option. |  Major | repl | Sankar Hariappan | Sankar Hariappan |
+| [HIVE-16348](https://issues.apache.org/jira/browse/HIVE-16348) | HoS query is canceled but error message shows RPC is closed |  Minor | . | Jimmy Xiang | Jimmy Xiang |
 | [HIVE-16249](https://issues.apache.org/jira/browse/HIVE-16249) | With column stats, mergejoin.q throws NPE |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16293](https://issues.apache.org/jira/browse/HIVE-16293) | Column pruner should continue to work when SEL has more than 1 child |  Major | . | Pengcheng Xiong | Pengcheng Xiong |
 | [HIVE-16387](https://issues.apache.org/jira/browse/HIVE-16387) | Fix failing test org.apache.hive.jdbc.TestJdbcDriver2.testResultSetMetaData |  Major | . | Pengcheng Xiong | Pengcheng Xiong |

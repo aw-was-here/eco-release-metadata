@@ -46,6 +46,9 @@
 * Apache Spark v2.2.0
     * [Changelog](2.2.0/CHANGELOG.2.2.0.md)
     * [Release Notes](2.2.0/RELEASENOTES.2.2.0.md)
+* Apache Spark v2.1.4
+    * [Changelog](2.1.4/CHANGELOG.2.1.4.md)
+    * [Release Notes](2.1.4/RELEASENOTES.2.1.4.md)
 * Apache Spark v2.1.3
     * [Changelog](2.1.3/CHANGELOG.2.1.3.md)
     * [Release Notes](2.1.3/RELEASENOTES.2.1.3.md)

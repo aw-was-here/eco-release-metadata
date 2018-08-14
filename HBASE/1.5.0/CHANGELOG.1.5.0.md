@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-07-29)
+## Release 1.5.0 - Unreleased (as of 2018-08-14)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -86,8 +86,12 @@
 | [HBASE-20826](https://issues.apache.org/jira/browse/HBASE-20826) | Truncate responseInfo attributes on RpcServer WARN messages |  Major | rpc | Sergey Soldatov | Josh Elser |
 | [HBASE-20806](https://issues.apache.org/jira/browse/HBASE-20806) | Split style journal for flushes and compactions |  Minor | . | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
 | [HBASE-20858](https://issues.apache.org/jira/browse/HBASE-20858) | port HBASE-20695 to branch-1 |  Minor | . | Xu Cang | Xu Cang |
-| [HBASE-20651](https://issues.apache.org/jira/browse/HBASE-20651) | Master, prevents hbck or shell command to reassign the split parent region |  Minor | master | huaxiang sun | huaxiang sun |
 | [HBASE-20672](https://issues.apache.org/jira/browse/HBASE-20672) | New metrics ReadRequestRate and WriteRequestRate |  Minor | metrics | Ankit Jain | Ankit Jain |
+| [HBASE-20930](https://issues.apache.org/jira/browse/HBASE-20930) | MetaScanner.metaScan should use passed variable for meta table name rather than TableName.META\_TABLE\_NAME |  Minor | . | Vishal Khandelwal | Vishal Khandelwal |
+| [HBASE-20935](https://issues.apache.org/jira/browse/HBASE-20935) | HStore.removeCompactedFiles should log in case it is unable to delete a file |  Minor | . | Vishal Khandelwal | Vishal Khandelwal |
+| [HBASE-19036](https://issues.apache.org/jira/browse/HBASE-19036) | Add action in Chaos Monkey to restart Active Namenode |  Minor | . | Monani Mihir | Monani Mihir |
+| [HBASE-20651](https://issues.apache.org/jira/browse/HBASE-20651) | Master, prevents hbck or shell command to reassign the split parent region |  Minor | master | huaxiang sun | huaxiang sun |
+| [HBASE-20845](https://issues.apache.org/jira/browse/HBASE-20845) | Support set the consistency for Gets and Scans in thrift2 |  Major | Thrift | Guangxu Cheng | Guangxu Cheng |
 
 
 ### BUG FIXES:
@@ -206,6 +210,8 @@
 | [HBASE-20744](https://issues.apache.org/jira/browse/HBASE-20744) | Address FindBugs warnings in branch-1 |  Major | . | Ted Yu | Xu Cang |
 | [HBASE-20565](https://issues.apache.org/jira/browse/HBASE-20565) | ColumnRangeFilter combined with ColumnPaginationFilter can produce incorrect result since 1.4 |  Major | Filters | Jerry He | Zheng Hu |
 | [HBASE-20895](https://issues.apache.org/jira/browse/HBASE-20895) | NPE in RpcServer#readAndProcess |  Major | rpc | Andrew Purtell | Andrew Purtell |
+| [HBASE-20997](https://issues.apache.org/jira/browse/HBASE-20997) | rebuildUserRegions() does not build ReplicaMapping during master switchover |  Major | master | huaxiang sun | huaxiang sun |
+| [HBASE-21007](https://issues.apache.org/jira/browse/HBASE-21007) | Memory leak in HBase rest server |  Critical | REST | Bosko Devetak | Bosko Devetak |
 
 
 ### TESTS:
@@ -242,6 +248,7 @@
 | [HBASE-20557](https://issues.apache.org/jira/browse/HBASE-20557) | Backport HBASE-17215 to branch-1 |  Major | HFile, master | Tak Lon (Stephen) Wu | Tak Lon (Stephen) Wu |
 | [HBASE-20558](https://issues.apache.org/jira/browse/HBASE-20558) | Backport HBASE-17854 to branch-1 |  Major | HFile | Tak Lon (Stephen) Wu | Tak Lon (Stephen) Wu |
 | [HBASE-20559](https://issues.apache.org/jira/browse/HBASE-20559) | Backport HBASE-18083 to branch-1 |  Major | HFile | Tak Lon (Stephen) Wu | Tak Lon (Stephen) Wu |
+| [HBASE-20974](https://issues.apache.org/jira/browse/HBASE-20974) | Backport HBASE-20583 (SplitLogWorker should handle FileNotFoundException when split a wal) to branch-1 |  Major | . | Pankaj Kumar | Pankaj Kumar |
 
 
 ### OTHER:

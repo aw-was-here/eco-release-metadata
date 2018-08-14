@@ -28,4 +28,24 @@ These release notes cover new developer and user-facing incompatibilities, impor
 As a follow on to the work done in renaming CHANGES to CHANGELOG, the releasedocmaker readme/index files now expects the CHANGELOG when building.
 
 
+---
+
+* [YETUS-46](https://issues.apache.org/jira/browse/YETUS-46) | *Major* | **releasedocmaker should support JIRA authentication**
+
+Support JIRA authentication in case of a 401 Unauthorized error
+
+
+---
+
+* [YETUS-643](https://issues.apache.org/jira/browse/YETUS-643) | *Critical* | **default custom maven repo should use workspace when in jenkins mode**
+
+<!-- markdown -->
+The default maven repo when:
+
+* custom maven repos are enabled
+* precommit is in jenkins mode
+
+has been moved from the home directory to the workspace.
+
+
 

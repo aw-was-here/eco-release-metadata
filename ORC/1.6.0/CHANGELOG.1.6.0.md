@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-07-29)
+## Release 1.6.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -40,6 +40,7 @@
 | [ORC-372](https://issues.apache.org/jira/browse/ORC-372) | Enable valgrind for C++ travis-ci tests |  Major | . | Deepak Majeti | Deepak Majeti |
 | [ORC-376](https://issues.apache.org/jira/browse/ORC-376) | Add Ubuntu18 docker file |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-386](https://issues.apache.org/jira/browse/ORC-386) | Add new spark file format benchmark |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-393](https://issues.apache.org/jira/browse/ORC-393) | Add ORC snapcraft definition |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:
@@ -54,6 +55,7 @@
 | [ORC-382](https://issues.apache.org/jira/browse/ORC-382) | Apache rat exclusions + add rat check to travis |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
 | [ORC-371](https://issues.apache.org/jira/browse/ORC-371) | [C++] Disable Libhdfspp build when Cyrus SASL is not found |  Major | . | Deepak Majeti | Anatoli Shein |
 | [ORC-384](https://issues.apache.org/jira/browse/ORC-384) | C++ Reader leaks memory when reading a non-ORC file |  Minor | C++ | Martin Rupp | Martin Rupp |
+| [ORC-391](https://issues.apache.org/jira/browse/ORC-391) | [C++]  parseType does not accept underscore in the field name |  Minor | . | Zherui Cao |  |
 
 
 ### SUB-TASKS:

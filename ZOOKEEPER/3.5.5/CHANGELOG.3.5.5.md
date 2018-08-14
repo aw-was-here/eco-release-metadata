@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.5 - Unreleased (as of 2018-07-29)
+## Release 3.5.5 - Unreleased (as of 2018-08-14)
 
 
 
@@ -42,6 +42,7 @@
 | [ZOOKEEPER-3077](https://issues.apache.org/jira/browse/ZOOKEEPER-3077) | Build native C library outside of source directory |  Trivial | build | Kent R. Spillner | Kent R. Spillner |
 | [ZOOKEEPER-3097](https://issues.apache.org/jira/browse/ZOOKEEPER-3097) | Use Runnable instead of Thread for working items in WorkerService to improve the throughput of CommitProcessor |  Minor | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-3094](https://issues.apache.org/jira/browse/ZOOKEEPER-3094) | Make BufferSizeTest reliable |  Minor | tests | Mohamed Jeelani | Mohamed Jeelani |
+| [ZOOKEEPER-3110](https://issues.apache.org/jira/browse/ZOOKEEPER-3110) | Improve the closeSession throughput in PrepRequestProcessor |  Minor | quorum | Fangmin Lv | Fangmin Lv |
 
 
 ### BUG FIXES:
@@ -79,5 +80,13 @@
 | [ZOOKEEPER-3022](https://issues.apache.org/jira/browse/ZOOKEEPER-3022) | Step 1.1 - Create docs and it maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3030](https://issues.apache.org/jira/browse/ZOOKEEPER-3030) | Step 1.3 - Create zk-contrib maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [ZOOKEEPER-3062](https://issues.apache.org/jira/browse/ZOOKEEPER-3062) | introduce fsync.warningthresholdms constant for FileTxnLog LOG.warn message |  Minor | . | Christine Poerschke | Christine Poerschke |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-07-29)
+## Release 2.4.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -146,7 +146,6 @@
 | [HIVE-18422](https://issues.apache.org/jira/browse/HIVE-18422) | Vectorized input format should not be used when vectorized input format is excluded and row.serde is enabled |  Minor | Vectorization | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-15680](https://issues.apache.org/jira/browse/HIVE-15680) | Incorrect results when hive.optimize.index.filter=true and same ORC table is referenced twice in query |  Major | . | Anthony Hsu | Anthony Hsu |
 | [HIVE-18472](https://issues.apache.org/jira/browse/HIVE-18472) | Beeline gives log4j warnings |  Major | . | Janaki Lahorani | Janaki Lahorani |
-| [HIVE-18671](https://issues.apache.org/jira/browse/HIVE-18671) | lock not released after Hive on Spark query was cancelled |  Major | . | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-18710](https://issues.apache.org/jira/browse/HIVE-18710) | extend inheritPerms to ACID in Hive 2.X |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [HIVE-14792](https://issues.apache.org/jira/browse/HIVE-14792) | AvroSerde reads the remote schema-file at least once per mapper, per table reference. |  Major | . | Mithun Radhakrishnan | Aihua Xu |
 | [HIVE-18863](https://issues.apache.org/jira/browse/HIVE-18863) | trunc() calls itself trunk() in an error message |  Minor | UDF | Tim Armstrong | Bharathkrishna Guruvayoor Murali |
@@ -198,6 +197,7 @@
 | [HIVE-17874](https://issues.apache.org/jira/browse/HIVE-17874) | Parquet vectorization fails on tables with complex columns when there are no projected columns |  Major | . | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-17961](https://issues.apache.org/jira/browse/HIVE-17961) | NPE during initialization of VectorizedParquetRecordReader when input split is null |  Major | Hive | Vihang Karajgaonkar | Vihang Karajgaonkar |
 | [HIVE-18323](https://issues.apache.org/jira/browse/HIVE-18323) | Vectorization: add the support of timestamp in VectorizedPrimitiveColumnReader for parquet |  Major | Vectorization | Aihua Xu | Vihang Karajgaonkar |
+| [HIVE-18671](https://issues.apache.org/jira/browse/HIVE-18671) | lock not released after Hive on Spark query was cancelled |  Major | . | Yongzhi Chen | Yongzhi Chen |
 | [HIVE-18526](https://issues.apache.org/jira/browse/HIVE-18526) | Backport HIVE-16886 to Hive 2 |  Major | Hive | Alexander Kolbasov | Alexander Kolbasov |
 | [HIVE-19702](https://issues.apache.org/jira/browse/HIVE-19702) | Backport ALTER TABLE SET OWNER patches to branch-2 |  Major | Hive | Sergio Peña | Sergio Peña |
 

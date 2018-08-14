@@ -43,4 +43,11 @@ Mover could have fail after 20+ minutes if a block move was enqueued for this lo
 The internal constant can be configured with the dfs.balancer.max-iteration-time parameter after the patch, and affects only the Balancer. Default is 20 minutes.
 
 
+---
+
+* [HADOOP-15638](https://issues.apache.org/jira/browse/HADOOP-15638) | *Major* | **KMS Accept Queue Size default changed from 500 to 128 in Hadoop 3.x**
+
+Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in Hadoop 2.x.
+
+
 

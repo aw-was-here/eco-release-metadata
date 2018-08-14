@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.0.1 - Unreleased (as of 2018-07-29)
+## Release 2.0.1 - Unreleased (as of 2018-08-14)
 
 
 
@@ -27,6 +27,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SENTRY-2309](https://issues.apache.org/jira/browse/SENTRY-2309) | Add relevant full snapshot timeline messages to std.out |  Major | . | Arjun Mishra | Arjun Mishra |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SENTRY-2343](https://issues.apache.org/jira/browse/SENTRY-2343) | create a jira release version 2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

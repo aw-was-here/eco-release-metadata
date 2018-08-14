@@ -1104,7 +1104,6 @@
 | [SPARK-23330](https://issues.apache.org/jira/browse/SPARK-23330) | Spark UI SQL executions page throws NPE |  Blocker | Web UI | Jiang Xingbo | Jiang Xingbo |
 | [SPARK-23326](https://issues.apache.org/jira/browse/SPARK-23326) | "Scheduler Delay" of a task is confusing |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-23290](https://issues.apache.org/jira/browse/SPARK-23290) | inadvertent change in handling of DateType when converting to pandas dataframe |  Blocker | PySpark | Andre Menck | Takuya Ueshin |
-| [SPARK-23334](https://issues.apache.org/jira/browse/SPARK-23334) | Fix pandas\_udf with return type StringType() to handle str type properly in Python 2. |  Blocker | PySpark, SQL | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-23315](https://issues.apache.org/jira/browse/SPARK-23315) | failed to get output from canonicalized data source v2 related plans |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23345](https://issues.apache.org/jira/browse/SPARK-23345) | Flaky test: FileBasedDataSourceSuite |  Major | SQL, Tests | Marcelo Vanzin | Liang-Chi Hsieh |
 | [SPARK-23348](https://issues.apache.org/jira/browse/SPARK-23348) | append data using saveAsTable should adjust the data types |  Major | SQL | Wenchen Fan | Wenchen Fan |
@@ -1376,6 +1375,7 @@
 | [SPARK-23280](https://issues.apache.org/jira/browse/SPARK-23280) | add map type support to ColumnVector |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23268](https://issues.apache.org/jira/browse/SPARK-23268) | Reorganize packages in data source V2 |  Major | SQL | Gengliang Wang | Gengliang Wang |
 | [SPARK-23107](https://issues.apache.org/jira/browse/SPARK-23107) | ML, Graph 2.3 QA: API: New Scala APIs, docs |  Blocker | Documentation, GraphX, ML, MLlib | Joseph K. Bradley | Yanbo Liang |
+| [SPARK-23334](https://issues.apache.org/jira/browse/SPARK-23334) | Fix pandas\_udf with return type StringType() to handle str type properly in Python 2. |  Blocker | PySpark, SQL | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-23314](https://issues.apache.org/jira/browse/SPARK-23314) | Pandas grouped udf on dataset with timestamp column error |  Major | PySpark | Felix Cheung | Li Jin |
 | [SPARK-23352](https://issues.apache.org/jira/browse/SPARK-23352) | Explicitly specify supported types in Pandas UDFs |  Major | PySpark | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-23446](https://issues.apache.org/jira/browse/SPARK-23446) | Explicitly check supported types in toPandas |  Major | PySpark | Hyukjin Kwon | Hyukjin Kwon |
@@ -1411,7 +1411,6 @@
 | [SPARK-20992](https://issues.apache.org/jira/browse/SPARK-20992) | Link to Nomad scheduler backend in docs |  Trivial | Scheduler | Ben Barnard | Ben Barnard |
 | [SPARK-22335](https://issues.apache.org/jira/browse/SPARK-22335) | Union for DataSet uses column order instead of types for union |  Major | SQL | Carlos Bribiescas | Liang-Chi Hsieh |
 | [SPARK-22399](https://issues.apache.org/jira/browse/SPARK-22399) | reference in mllib-clustering.html is out of date |  Minor | MLlib | Nathan Kronenfeld | Bo Meng |
-| [SPARK-22347](https://issues.apache.org/jira/browse/SPARK-22347) | UDF is evaluated when 'F.when' condition is false |  Minor | PySpark | Nicolas Porter | Liang-Chi Hsieh |
 | [SPARK-22369](https://issues.apache.org/jira/browse/SPARK-22369) | PySpark: Document methods of spark.catalog interface |  Major | PySpark | Andreas Maier | Hyukjin Kwon |
 | [SPARK-22412](https://issues.apache.org/jira/browse/SPARK-22412) | Fix incorrect comment in DataSourceScanExec |  Trivial | SQL | Vinitha Reddy Gankidi | Vinitha Reddy Gankidi |
 | [SPARK-7146](https://issues.apache.org/jira/browse/SPARK-7146) | Should ML sharedParams be a public API? |  Major | ML | Joseph K. Bradley | holdenk |

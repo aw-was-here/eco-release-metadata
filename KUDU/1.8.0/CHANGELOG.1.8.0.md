@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-07-29)
+## Release 1.8.0 - Unreleased (as of 2018-08-14)
 
 
 
@@ -105,6 +105,15 @@
 | [KUDU-2492](https://issues.apache.org/jira/browse/KUDU-2492) | Kudu no longer builds on older Linux versions |  Major | build | Thomas Tauber-Marshall |  |
 | [KUDU-2447](https://issues.apache.org/jira/browse/KUDU-2447) | TS crashed with "NONE predicate can not be pushed into key" |  Major | . | Xu Yao | Xu Yao |
 | [KUDU-2509](https://issues.apache.org/jira/browse/KUDU-2509) | In some rare senarios, tserver may crash with SIGSEGV while boostrapping tablets |  Major | tserver | Alexey Serbin | Alexey Serbin |
+| [KUDU-2511](https://issues.apache.org/jira/browse/KUDU-2511) | The SingleReplicasStayOrMove scenario of the kudu-admin-test is a bit flaky |  Minor | test | Alexey Serbin | Alexey Serbin |
+| [KUDU-2459](https://issues.apache.org/jira/browse/KUDU-2459) | Impala 'Create Table' Statement under Web UI doesn't account for non-Impala conforming tablenames |  Major | ui | Shriya Gupta | Shriya Gupta |
+| [KUDU-2234](https://issues.apache.org/jira/browse/KUDU-2234) | kudu-tool-test fails when environment has GLOG\_colorlogtostderr=1 |  Major | test | Mike Percy | Alexey Serbin |
+| [KUDU-2350](https://issues.apache.org/jira/browse/KUDU-2350) | Kudu C++ client application might fail with SIGPIPE if TLS connection aborted from the tablet server side |  Major | client | Alexey Serbin | Alexey Serbin |
+| [KUDU-2335](https://issues.apache.org/jira/browse/KUDU-2335) | Leader can report unknown health for itself during lifecycle transitions |  Major | consensus, master, tserver | Alexey Serbin | Alexey Serbin |
+| [KUDU-2460](https://issues.apache.org/jira/browse/KUDU-2460) | parse\_test\_failure.py doesn't handle errors outside of test cases |  Major | test | Adar Dembo | Todd Lipcon |
+| [KUDU-2525](https://issues.apache.org/jira/browse/KUDU-2525) | KuduTableInputFormat may end scan even though more rows remain |  Major | . | zhangqianqiong | zhangqianqiong |
+| [KUDU-2151](https://issues.apache.org/jira/browse/KUDU-2151) | ConsensusMetadata IO does not retry on EINTR |  Major | consensus | Mike Percy | Adar Dembo |
+| [KUDU-2528](https://issues.apache.org/jira/browse/KUDU-2528) | thirdparty downloads aren't always retried |  Major | build | Adar Dembo | Adar Dembo |
 
 
 ### TESTS:

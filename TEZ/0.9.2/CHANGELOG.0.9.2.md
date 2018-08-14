@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.2 - Unreleased (as of 2018-07-29)
+## Release 0.9.2 - Unreleased (as of 2018-08-14)
 
 
 
@@ -76,6 +76,7 @@
 | [TEZ-3970](https://issues.apache.org/jira/browse/TEZ-3970) | NullPointerException in Tez ShuffleHandler Ranged Fetch |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3942](https://issues.apache.org/jira/browse/TEZ-3942) | RPC getTask writable optimization invalid in hadoop 2.8+ |  Major | . | Jonathan Eagles | Nishant Dash |
 | [TEZ-3934](https://issues.apache.org/jira/browse/TEZ-3934) | LegacySpeculator sometime issues wrong number of speculative attempts |  Major | . | Jonathan Eagles | Nishant Dash |
+| [TEZ-3974](https://issues.apache.org/jira/browse/TEZ-3974) | Tez: Correctness regression of TEZ-955 in TEZ-2937 |  Critical | . | Gopal V | Jaume M |
 
 
 ### SUB-TASKS:

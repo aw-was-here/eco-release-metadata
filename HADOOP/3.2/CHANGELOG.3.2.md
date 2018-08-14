@@ -18,14 +18,14 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.2 - Unreleased (as of 2018-07-29)
+## Release 3.2 - Unreleased (as of 2018-08-14)
 
 
 
-### IMPROVEMENTS:
+### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HADOOP-15609](https://issues.apache.org/jira/browse/HADOOP-15609) | Retry KMS calls when SSLHandshakeException occurs |  Major | common, kms | Kitti Nanasi | Kitti Nanasi |
+| [HADOOP-15576](https://issues.apache.org/jira/browse/HADOOP-15576) | S3A  Multipart Uploader to work with S3Guard and encryption |  Blocker | fs/s3 | Steve Loughran | Ewan Higgs |
 
 
