@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-08-14)
+## Release 2.1.0 - Unreleased (as of 2018-08-15)
 
 
 

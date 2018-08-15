@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-08-14)
+## Release 1.8.0 - Unreleased (as of 2018-08-15)
 
 
 
@@ -114,6 +114,7 @@
 | [KUDU-2525](https://issues.apache.org/jira/browse/KUDU-2525) | KuduTableInputFormat may end scan even though more rows remain |  Major | . | zhangqianqiong | zhangqianqiong |
 | [KUDU-2151](https://issues.apache.org/jira/browse/KUDU-2151) | ConsensusMetadata IO does not retry on EINTR |  Major | consensus | Mike Percy | Adar Dembo |
 | [KUDU-2528](https://issues.apache.org/jira/browse/KUDU-2528) | thirdparty downloads aren't always retried |  Major | build | Adar Dembo | Adar Dembo |
+| [KUDU-2540](https://issues.apache.org/jira/browse/KUDU-2540) | Authorization failures on exactly-once RPCs cause FATAL |  Major | rpc, security | Todd Lipcon | Dan Burkert |
 
 
 ### TESTS:

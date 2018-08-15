@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.9.2 - Unreleased (as of 2018-08-14)
+## Release 2.9.2 - Unreleased (as of 2018-08-15)
 
 
 

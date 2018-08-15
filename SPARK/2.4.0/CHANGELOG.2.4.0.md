@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-08-14)
+## Release 2.4.0 - Unreleased (as of 2018-08-15)
 
 
 
@@ -365,6 +365,10 @@
 | [SPARK-25069](https://issues.apache.org/jira/browse/SPARK-25069) | Using UnsafeAlignedOffset to make the entire record of 8 byte Items aligned like which is used in UnsafeExternalSorter |  Major | Shuffle | eaton | eaton |
 | [SPARK-25088](https://issues.apache.org/jira/browse/SPARK-25088) | Rest Server default & doc updates |  Major | Deploy, Spark Core | Imran Rashid | Imran Rashid |
 | [SPARK-25043](https://issues.apache.org/jira/browse/SPARK-25043) | spark-sql should print the appId and master on startup |  Trivial | SQL | Alessandro Bellina | Alessandro Bellina |
+| [SPARK-25113](https://issues.apache.org/jira/browse/SPARK-25113) | Add logging to CodeGenerator when any generated method's bytecode size goes above HugeMethodLimit |  Major | SQL | Kris Mok | Kris Mok |
+| [SPARK-25115](https://issues.apache.org/jira/browse/SPARK-25115) |     Eliminate extra memory copy done when a ByteBuf is used that is backed by \> 1 ByteBuffer. |  Major | Input/Output | Norman Maurer | Norman Maurer |
+| [SPARK-23874](https://issues.apache.org/jira/browse/SPARK-23874) | Upgrade apache/arrow to 0.10.0 |  Major | PySpark | Xiao Li | Bryan Cutler |
+| [SPARK-24505](https://issues.apache.org/jira/browse/SPARK-24505) | Convert strings in codegen to blocks: Cast and BoundAttribute |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
 
 
 ### BUG FIXES:
@@ -685,7 +689,7 @@
 | [SPARK-24950](https://issues.apache.org/jira/browse/SPARK-24950) | scala DateTimeUtilsSuite daysToMillis and millisToDays fails w/java 8 181-b13 |  Major | Build, Tests | shane knapp | Chris Martin |
 | [SPARK-25081](https://issues.apache.org/jira/browse/SPARK-25081) | Nested spill in ShuffleExternalSorter may access a released memory page |  Blocker | Spark Core | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-25084](https://issues.apache.org/jira/browse/SPARK-25084) | "distribute by" on multiple columns may lead to codegen issue |  Blocker | SQL | yucai | yucai |
-| [SPARK-25092](https://issues.apache.org/jira/browse/SPARK-25092) | Add RewriteExceptAll and RewriteIntersectAll in the list of nonExcludableRules |  Major | SQL | Dilip Biswal | Dilip Biswal |
+| [SPARK-25092](https://issues.apache.org/jira/browse/SPARK-25092) | Add RewriteExceptAll, RewriteIntersectAll and RewriteCorrelatedScalarSubquery in the list of nonExcludableRules |  Major | SQL | Dilip Biswal | Dilip Biswal |
 | [SPARK-25090](https://issues.apache.org/jira/browse/SPARK-25090) | java.lang.ClassCastException when using a CrossValidator |  Major | ML | Mark Morrisson | Marco Gaido |
 | [SPARK-25033](https://issues.apache.org/jira/browse/SPARK-25033) | Bump Apache commons.{httpclient, httpcore} |  Major | Spark Core | Fokko Driesprong | Fokko Driesprong |
 | [SPARK-25096](https://issues.apache.org/jira/browse/SPARK-25096) | Loosen nullability if the cast is force-nullable. |  Major | SQL | Takuya Ueshin | Takuya Ueshin |

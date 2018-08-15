@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-08-14)
+## Release 1.6.0 - Unreleased (as of 2018-08-15)
 
 
 

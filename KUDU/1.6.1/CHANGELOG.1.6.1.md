@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.6.1 - Unreleased (as of 2018-08-14)
+## Release 1.6.1 - Unreleased (as of 2018-08-15)
 
 
 
@@ -30,5 +30,6 @@
 | [KUDU-2251](https://issues.apache.org/jira/browse/KUDU-2251) | rowset size can overflow int in RowSetInfo |  Critical | tablet | Dan Burkert | Dan Burkert |
 | [KUDU-2343](https://issues.apache.org/jira/browse/KUDU-2343) | Java client doesn't properly reconnect to leader master when old leader is online |  Critical | client, java | Todd Lipcon | Todd Lipcon |
 | [KUDU-2416](https://issues.apache.org/jira/browse/KUDU-2416) | Incorrect fallthrough in Java PartialRow.setMin for DECIMAL times |  Critical | java | Todd Lipcon | Grant Henke |
+| [KUDU-2540](https://issues.apache.org/jira/browse/KUDU-2540) | Authorization failures on exactly-once RPCs cause FATAL |  Major | rpc, security | Todd Lipcon | Dan Burkert |
 
 

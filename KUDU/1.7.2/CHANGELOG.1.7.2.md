@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.7.2 - Unreleased (as of 2018-08-14)
+## Release 1.7.2 - Unreleased (as of 2018-08-15)
 
 
 
@@ -28,5 +28,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KUDU-2478](https://issues.apache.org/jira/browse/KUDU-2478) | Failure to run python tests on Cen6 in build-and-test.sh |  Major | build, python | Andrew Wong | Adar Dembo |
 | [KUDU-2447](https://issues.apache.org/jira/browse/KUDU-2447) | TS crashed with "NONE predicate can not be pushed into key" |  Major | . | Xu Yao | Xu Yao |
+| [KUDU-2540](https://issues.apache.org/jira/browse/KUDU-2540) | Authorization failures on exactly-once RPCs cause FATAL |  Major | rpc, security | Todd Lipcon | Dan Burkert |
 
 

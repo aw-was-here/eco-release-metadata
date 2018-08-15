@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.4.7 - Unreleased (as of 2018-08-14)
+## Release 1.4.7 - Unreleased (as of 2018-08-15)
 
 
 

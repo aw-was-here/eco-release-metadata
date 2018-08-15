@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.3 - Unreleased (as of 2018-08-14)
+## Release 1.3.3 - Unreleased (as of 2018-08-15)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -43,7 +43,7 @@
 | [HBASE-20930](https://issues.apache.org/jira/browse/HBASE-20930) | MetaScanner.metaScan should use passed variable for meta table name rather than TableName.META\_TABLE\_NAME |  Minor | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-20935](https://issues.apache.org/jira/browse/HBASE-20935) | HStore.removeCompactedFiles should log in case it is unable to delete a file |  Minor | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-20651](https://issues.apache.org/jira/browse/HBASE-20651) | Master, prevents hbck or shell command to reassign the split parent region |  Minor | master | huaxiang sun | huaxiang sun |
-| [HBASE-21028](https://issues.apache.org/jira/browse/HBASE-21028) | Backport HBASE-18633 to branch-1.3 |  Minor | regionserver | Daniel Wong |  |
+| [HBASE-21028](https://issues.apache.org/jira/browse/HBASE-21028) | Backport HBASE-18633 to branch-1.3 |  Minor | regionserver | Daniel Wong | Daniel Wong |
 
 
 ### BUG FIXES:

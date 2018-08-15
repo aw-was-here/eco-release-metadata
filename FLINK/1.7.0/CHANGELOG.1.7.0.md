@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-08-14)
+## Release 1.7.0 - Unreleased (as of 2018-08-15)
 
 
 
@@ -60,6 +60,12 @@
 | [FLINK-9977](https://issues.apache.org/jira/browse/FLINK-9977) | Refine the docs for Table/SQL built-in functions |  Minor | Documentation | Xingcan Cui | Xingcan Cui |
 | [FLINK-8135](https://issues.apache.org/jira/browse/FLINK-8135) | Add description to MessageParameter |  Major | Documentation, REST | Chesnay Schepler | Andrei |
 | [FLINK-9853](https://issues.apache.org/jira/browse/FLINK-9853) | add hex support in table api and sql |  Major | Table API & SQL | xueyu | xueyu |
+| [FLINK-10123](https://issues.apache.org/jira/browse/FLINK-10123) | Use ExecutorThreadFactory instead of DefaultThreadFactory in RestServer/Client |  Major | REST | Till Rohrmann | Till Rohrmann |
+| [FLINK-10056](https://issues.apache.org/jira/browse/FLINK-10056) | Add testRequestNextInputSplit |  Major | JobManager, Tests | 陈梓立 | 陈梓立 |
+| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
+| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config |  Major | Local Runtime | 陈梓立 | 陈梓立 |
+| [FLINK-9013](https://issues.apache.org/jira/browse/FLINK-9013) | Document yarn.containers.vcores only being effective when adapting YARN config |  Major | Documentation, YARN | Nico Kruber | Dawid Wysakowicz |
+| [FLINK-8290](https://issues.apache.org/jira/browse/FLINK-8290) | Allow setting clientId in flink-connector-kafka-0.8 |  Major | . | xymaqingxiang | xymaqingxiang |
 
 
 ### BUG FIXES:
@@ -105,5 +111,6 @@
 | [FLINK-10092](https://issues.apache.org/jira/browse/FLINK-10092) | Update StatefulJobSavepointMigrationITCase |  Major | State Backends, Checkpointing | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10109](https://issues.apache.org/jira/browse/FLINK-10109) | Add documentation for StreamingFileSink |  Major | Streaming Connectors | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-7205](https://issues.apache.org/jira/browse/FLINK-7205) | Add UUID supported in TableAPI/SQL |  Major | Table API & SQL | sunjincheng | buptljy |
+| [FLINK-5232](https://issues.apache.org/jira/browse/FLINK-5232) | Add a Thread default uncaught exception handler on the JobManager |  Major | JobManager | Stephan Ewen | vinoyang |
 
 

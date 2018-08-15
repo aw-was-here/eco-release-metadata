@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.0.x - Unreleased (as of 2018-08-14)
+## Release 3.0.x - Unreleased (as of 2018-08-15)
 
 
 

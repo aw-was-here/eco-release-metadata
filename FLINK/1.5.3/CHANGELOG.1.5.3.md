@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.3 - Unreleased (as of 2018-08-14)
+## Release 1.5.3 - Unreleased (as of 2018-08-15)
 
 
 
@@ -40,6 +40,8 @@
 | [FLINK-9986](https://issues.apache.org/jira/browse/FLINK-9986) | Remove unnecessary information from .version.properties file |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10016](https://issues.apache.org/jira/browse/FLINK-10016) | Make YARN/Kerberos end-to-end test stricter |  Major | Tests | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-10006](https://issues.apache.org/jira/browse/FLINK-10006) | Improve logging in BarrierBuffer |  Major | Logging, Network | Nico Kruber | Nico Kruber |
+| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
+| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config |  Major | Local Runtime | 陈梓立 | 陈梓立 |
 
 
 ### BUG FIXES:

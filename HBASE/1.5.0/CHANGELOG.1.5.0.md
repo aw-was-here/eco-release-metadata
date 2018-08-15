@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-08-14)
+## Release 1.5.0 - Unreleased (as of 2018-08-15)
 
 ### INCOMPATIBLE CHANGES:
 
