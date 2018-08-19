@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.4.1 - Unreleased (as of 2018-08-15)
+## Release 1.4.1 - Unreleased (as of 2018-08-19)
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-08-15)
+## Release 1.8.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -122,5 +122,12 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KUDU-2491](https://issues.apache.org/jira/browse/KUDU-2491) | kudu-admin-test times out |  Major | . | Alexey Serbin | Alexey Serbin |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [KUDU-2538](https://issues.apache.org/jira/browse/KUDU-2538) | [docs] Document how to manually recover from a Cfile checksum issue |  Major | documentation | Grant Henke | Grant Henke |
 
 

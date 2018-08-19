@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-08-15)
+## Release 2.1.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -95,6 +95,7 @@
 | [SENTRY-2337](https://issues.apache.org/jira/browse/SENTRY-2337) | [REVERT] SENTRY-2295: Owner privileges should not be granted to sentry admin users |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2330](https://issues.apache.org/jira/browse/SENTRY-2330) | Change sentry-service-server to use ${project.version} |  Minor | Sentry | Steve Moist | Steve Moist |
 | [SENTRY-2352](https://issues.apache.org/jira/browse/SENTRY-2352) | User roles with ALTER on a table can not show or describe the table on which they have ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2308](https://issues.apache.org/jira/browse/SENTRY-2308) | Create privilege on table has no use case |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### TESTS:
@@ -140,6 +141,10 @@
 | [SENTRY-2159](https://issues.apache.org/jira/browse/SENTRY-2159) | Add e2e tests for granting owner privileges |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2290](https://issues.apache.org/jira/browse/SENTRY-2290) | Avoid storing the path information for partitions in default location |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2157](https://issues.apache.org/jira/browse/SENTRY-2157) | Update audit log to grant/revoke owner privileges |  Major | Sentry | Na Li | Sergio Peña |
+| [SENTRY-2169](https://issues.apache.org/jira/browse/SENTRY-2169) | Make sure that the implicit privileges for a role are synced with HDFS |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2312](https://issues.apache.org/jira/browse/SENTRY-2312) | Update owner privileges for table when owner is changed. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2296](https://issues.apache.org/jira/browse/SENTRY-2296) | Add PermissionsUpdate for adding owner privilege on owner transfer |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2339](https://issues.apache.org/jira/browse/SENTRY-2339) | Support transfer of ownership for database/table to roles |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.2.0 - Unreleased (as of 2018-08-15)
+## Release 1.2.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -38,6 +38,7 @@
 | [KNOX-1415](https://issues.apache.org/jira/browse/KNOX-1415) | Upgrade Jetty to 9.2.25 |  Major | Server | Larry McCay | Larry McCay |
 | [KNOX-1412](https://issues.apache.org/jira/browse/KNOX-1412) | Failure while executing a \`curl\` command using Content-Type: text/xml" "Content-Encoding: gzip" |  Major | Server | Ernani Pereira de Mattos Junior | Sandeep More |
 | [KNOX-1420](https://issues.apache.org/jira/browse/KNOX-1420) | Add app.css path for Zeppelin's style sheet |  Major | Server | Prabhjyot Singh | Prabhjyot Singh |
+| [KNOX-1422](https://issues.apache.org/jira/browse/KNOX-1422) | Whitelisting not working as expected for knoxauth redirects |  Major | Server | Sandeep More | Sandeep More |
 
 
 ### OTHER:

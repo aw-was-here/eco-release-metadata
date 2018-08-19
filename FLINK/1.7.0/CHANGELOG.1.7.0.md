@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-08-15)
+## Release 1.7.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -36,6 +36,8 @@
 | [FLINK-9688](https://issues.apache.org/jira/browse/FLINK-9688) | ATAN2 Sql Function support |  Minor | Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
 | [FLINK-9928](https://issues.apache.org/jira/browse/FLINK-9928) | Add LOG2 function for table/sql API |  Minor | Table API & SQL | vinoyang | vinoyang |
 | [FLINK-7812](https://issues.apache.org/jira/browse/FLINK-7812) | Log system resources as metrics |  Major | Metrics | Piotr Nowojski | Piotr Nowojski |
+| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
+| [FLINK-9850](https://issues.apache.org/jira/browse/FLINK-9850) | Add a string to the print method to identify output for DataStream |  Major | DataStream API | Hequn Cheng | vinoyang |
 
 
 ### IMPROVEMENTS:
@@ -62,10 +64,14 @@
 | [FLINK-9853](https://issues.apache.org/jira/browse/FLINK-9853) | add hex support in table api and sql |  Major | Table API & SQL | xueyu | xueyu |
 | [FLINK-10123](https://issues.apache.org/jira/browse/FLINK-10123) | Use ExecutorThreadFactory instead of DefaultThreadFactory in RestServer/Client |  Major | REST | Till Rohrmann | Till Rohrmann |
 | [FLINK-10056](https://issues.apache.org/jira/browse/FLINK-10056) | Add testRequestNextInputSplit |  Major | JobManager, Tests | 陈梓立 | 陈梓立 |
-| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
-| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config |  Major | Local Runtime | 陈梓立 | 陈梓立 |
-| [FLINK-9013](https://issues.apache.org/jira/browse/FLINK-9013) | Document yarn.containers.vcores only being effective when adapting YARN config |  Major | Documentation, YARN | Nico Kruber | Dawid Wysakowicz |
 | [FLINK-8290](https://issues.apache.org/jira/browse/FLINK-8290) | Allow setting clientId in flink-connector-kafka-0.8 |  Major | . | xymaqingxiang | xymaqingxiang |
+| [FLINK-10110](https://issues.apache.org/jira/browse/FLINK-10110) | Harden e2e Kafka shutdown |  Major | Tests | Till Rohrmann | Till Rohrmann |
+| [FLINK-9013](https://issues.apache.org/jira/browse/FLINK-9013) | Document yarn.containers.vcores only being effective when adapting YARN config |  Major | Documentation, YARN | Nico Kruber | Dawid Wysakowicz |
+| [FLINK-9446](https://issues.apache.org/jira/browse/FLINK-9446) | Compatibility table not up-to-date |  Major | Documentation | Razvan | Chesnay Schepler |
+| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config options |  Major | Local Runtime | 陈梓立 | 陈梓立 |
+| [FLINK-10020](https://issues.apache.org/jira/browse/FLINK-10020) | Kinesis Consumer listShards should support more recoverable exceptions |  Major | Kinesis Connector | Thomas Weise | Thomas Weise |
+| [FLINK-9899](https://issues.apache.org/jira/browse/FLINK-9899) | Add more metrics to the Kinesis source connector |  Major | Kinesis Connector | Lakshmi Rao | Lakshmi Rao |
+| [FLINK-10001](https://issues.apache.org/jira/browse/FLINK-10001) | Improve Kubernetes documentation |  Major | Documentation, Kubernetes | Till Rohrmann | Till Rohrmann |
 
 
 ### BUG FIXES:
@@ -77,12 +83,18 @@
 | [FLINK-9914](https://issues.apache.org/jira/browse/FLINK-9914) | Flink docker information in official website is out of date and should be update |  Minor | . | vinoyang | vinoyang |
 | [FLINK-9927](https://issues.apache.org/jira/browse/FLINK-9927) | Error in Python Stream API example on website |  Minor | Documentation | Joe Malt |  |
 | [FLINK-9562](https://issues.apache.org/jira/browse/FLINK-9562) | Wrong wording in flink-optimizer module |  Trivial | Optimizer | Alexandr Arkhipov | Alexandr Arkhipov |
-| [FLINK-9446](https://issues.apache.org/jira/browse/FLINK-9446) | Compatibility table not up-to-date |  Major | Documentation | Razvan | Chesnay Schepler |
 | [FLINK-9972](https://issues.apache.org/jira/browse/FLINK-9972) | Debug memory logging not working |  Critical | TaskManager | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-10063](https://issues.apache.org/jira/browse/FLINK-10063) | Jepsen: Automatically restart Mesos Processes |  Critical | Tests | Gary Yao | Gary Yao |
 | [FLINK-10105](https://issues.apache.org/jira/browse/FLINK-10105) | Test failure because of jobmanager.execution.failover-strategy is outdated |  Major | Tests | vinoyang | Dawid Wysakowicz |
 | [FLINK-9693](https://issues.apache.org/jira/browse/FLINK-9693) | Possible memory leak in jobmanager retaining archived checkpoints |  Major | JobManager, State Backends, Checkpointing | Steven Zhen Wu | Till Rohrmann |
 | [FLINK-9664](https://issues.apache.org/jira/browse/FLINK-9664) | FlinkML Quickstart Loading Data section example doesn't work as described |  Major | Documentation, Machine Learning Library | Mano Swerts | Rong Rong |
+| [FLINK-9546](https://issues.apache.org/jira/browse/FLINK-9546) | The heartbeatTimeoutIntervalMs of HeartbeatMonitor should be larger than 0 |  Minor | Core | Sihua Zhou | Sihua Zhou |
+| [FLINK-9289](https://issues.apache.org/jira/browse/FLINK-9289) | Parallelism of generated operators should have max parallism of input |  Major | DataSet API | Fabian Hueske | Xingcan Cui |
+| [FLINK-10101](https://issues.apache.org/jira/browse/FLINK-10101) | Mesos web ui url is missing. |  Major | Mesos | Renjie Liu | Renjie Liu |
+| [FLINK-10154](https://issues.apache.org/jira/browse/FLINK-10154) | Make sure we always read at least one record in KinesisConnector |  Minor | Kinesis Connector | Jamie Grier | Jamie Grier |
+| [FLINK-10116](https://issues.apache.org/jira/browse/FLINK-10116) | createComparator fails on case class with Unit type fields prior to the join-key |  Major | DataSet API | Will | Fabian Hueske |
+| [FLINK-10159](https://issues.apache.org/jira/browse/FLINK-10159) | TestHarness#initializeState(xyz) calls after TestHarness#open() are being silently ignored |  Critical | Tests | Piotr Nowojski | Piotr Nowojski |
+| [FLINK-10169](https://issues.apache.org/jira/browse/FLINK-10169) | RowtimeValidator fails with custom TimestampExtractor |  Major | Table API & SQL | Timo Walther |  |
 
 
 ### TESTS:

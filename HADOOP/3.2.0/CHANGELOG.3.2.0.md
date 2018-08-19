@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.2.0 - Unreleased (as of 2018-08-15)
+## Release 3.2.0 - Unreleased (as of 2018-08-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -160,7 +160,7 @@
 | [HADOOP-15609](https://issues.apache.org/jira/browse/HADOOP-15609) | Retry KMS calls when SSLHandshakeException occurs |  Major | common, kms | Kitti Nanasi | Kitti Nanasi |
 | [HADOOP-15612](https://issues.apache.org/jira/browse/HADOOP-15612) | Improve exception when tfile fails to load LzoCodec |  Major | . | Gera Shegalov | Gera Shegalov |
 | [HDFS-11060](https://issues.apache.org/jira/browse/HDFS-11060) | make DEFAULT\_MAX\_CORRUPT\_FILEBLOCKS\_RETURNED configurable |  Minor | hdfs | Lantao Jin | Lantao Jin |
-| [HADOOP-15611](https://issues.apache.org/jira/browse/HADOOP-15611) | Log more details for FairCallQueue |  Minor | . | Ryan Wu |  |
+| [HADOOP-15611](https://issues.apache.org/jira/browse/HADOOP-15611) | Log more details for FairCallQueue |  Minor | . | Ryan Wu | Ryan Wu |
 | [HDFS-13727](https://issues.apache.org/jira/browse/HDFS-13727) | Log full stack trace if DiskBalancer exits with an unhandled exception |  Minor | diskbalancer | Stephen O'Donnell | Gabor Bota |
 | [YARN-8517](https://issues.apache.org/jira/browse/YARN-8517) | getContainer and getContainers ResourceManager REST API methods are not documented |  Major | resourcemanager | Szilard Nemeth | Antal Bálint Steinbach |
 | [YARN-8566](https://issues.apache.org/jira/browse/YARN-8566) | Add diagnostic message for unschedulable containers |  Major | resourcemanager | Szilard Nemeth | Szilard Nemeth |
@@ -181,6 +181,11 @@
 | [YARN-8559](https://issues.apache.org/jira/browse/YARN-8559) | Expose mutable-conf scheduler's configuration in RM /scheduler-conf endpoint |  Major | resourcemanager | Anna Savarin | Weiwei Yang |
 | [HDFS-13813](https://issues.apache.org/jira/browse/HDFS-13813) | Exit NameNode if dangling child inode is detected when saving FsImage |  Major | hdfs, namenode | Siyao Meng | Siyao Meng |
 | [HADOOP-14212](https://issues.apache.org/jira/browse/HADOOP-14212) | Expose SecurityEnabled boolean field in JMX for other services besides NameNode |  Minor | . | Ray Burgemeestre | Adam Antal |
+| [HDFS-13217](https://issues.apache.org/jira/browse/HDFS-13217) | Audit log all EC policy names during addErasureCodingPolicies |  Major | erasure-coding | liaoyuxiangqin | liaoyuxiangqin |
+| [HDFS-13732](https://issues.apache.org/jira/browse/HDFS-13732) | ECAdmin should print the policy name when an EC policy is set |  Trivial | erasure-coding, tools | Soumyapn | Zsolt Venczel |
+| [HDFS-13829](https://issues.apache.org/jira/browse/HDFS-13829) | Remove redundant condition judgement in DirectoryScanner#scan |  Minor | datanode | liaoyuxiangqin | liaoyuxiangqin |
+| [HDFS-13822](https://issues.apache.org/jira/browse/HDFS-13822) | speedup libhdfs++ build (enable parallel build) |  Minor | . | Pradeep Ambati | Allen Wittenauer |
+| [HADOOP-9214](https://issues.apache.org/jira/browse/HADOOP-9214) | Create a new touch command to allow modifying atime and mtime |  Minor | tools | Brian Burton | Hrishikesh Gadre |
 
 
 ### BUG FIXES:
@@ -527,6 +532,17 @@
 | [HDFS-13738](https://issues.apache.org/jira/browse/HDFS-13738) | fsck -list-corruptfileblocks has infinite loop if user is not privileged. |  Major | tools | Wei-Chiu Chuang | Yuen-Kuei Hsueh |
 | [HDFS-13758](https://issues.apache.org/jira/browse/HDFS-13758) | DatanodeManager should throw exception if it has BlockRecoveryCommand but the block is not under construction |  Major | namenode | Wei-Chiu Chuang | chencan |
 | [YARN-8614](https://issues.apache.org/jira/browse/YARN-8614) | Fix few annotation typos in YarnConfiguration |  Trivial | . | Sen Zhao | Sen Zhao |
+| [HDFS-13819](https://issues.apache.org/jira/browse/HDFS-13819) | TestDirectoryScanner#testDirectoryScannerInFederatedCluster is flaky |  Minor | hdfs | Daniel Templeton | Daniel Templeton |
+| [YARN-8656](https://issues.apache.org/jira/browse/YARN-8656) | container-executor should not write cgroup tasks files for docker containers |  Major | . | Jim Brennan | Jim Brennan |
+| [YARN-8474](https://issues.apache.org/jira/browse/YARN-8474) | sleeper service fails to launch with "Authentication Required" |  Critical | yarn | Sumana Sathish | Billie Rinaldi |
+| [HDFS-13746](https://issues.apache.org/jira/browse/HDFS-13746) | Still occasional "Should be different group" failure in TestRefreshUserMappings#testGroupMappingRefresh |  Major | . | Siyao Meng | Siyao Meng |
+| [YARN-8667](https://issues.apache.org/jira/browse/YARN-8667) | Cleanup symlinks when container restarted by NM to solve issue "find: File system loop detected;" for tar ball artifacts. |  Critical | . | Rohith Sharma K S | Chandni Singh |
+| [HDFS-10240](https://issues.apache.org/jira/browse/HDFS-10240) | Race between close/recoverLease leads to missing block |  Major | . | zhouyingchao | Jinglun |
+| [YARN-8612](https://issues.apache.org/jira/browse/YARN-8612) | Fix NM Collector Service Port issue in YarnConfiguration |  Major | ATSv2 | Prabha Manepalli | Prabha Manepalli |
+| [HDFS-13747](https://issues.apache.org/jira/browse/HDFS-13747) | Statistic for list\_located\_status is incremented incorrectly by listStatusIterator |  Minor | hdfs-client | Todd Lipcon | Antal Mihalyi |
+| [HADOOP-8807](https://issues.apache.org/jira/browse/HADOOP-8807) | Update README and website to reflect HADOOP-8662 |  Trivial | documentation | Eli Collins | Andras Bokor |
+| [YARN-8640](https://issues.apache.org/jira/browse/YARN-8640) | Restore previous state in container-executor after failure |  Major | . | Jim Brennan | Jim Brennan |
+| [YARN-8679](https://issues.apache.org/jira/browse/YARN-8679) | [ATSv2] If HBase cluster is down for long time, high chances that NM ContainerManager dispatcher get blocked |  Major | . | Rohith Sharma K S | Wangda Tan |
 
 
 ### TESTS:
@@ -799,6 +815,10 @@
 | [HADOOP-15645](https://issues.apache.org/jira/browse/HADOOP-15645) | ITestS3GuardToolLocal.testDiffCommand fails if bucket has per-bucket binding to DDB |  Blocker | fs/s3 | Steve Loughran | Steve Loughran |
 | [YARN-7417](https://issues.apache.org/jira/browse/YARN-7417) | re-factory IndexedFileAggregatedLogsBlock and TFileAggregatedLogsBlock to remove duplicate codes |  Major | . | Xuan Gong | Zian Chen |
 | [YARN-8160](https://issues.apache.org/jira/browse/YARN-8160) | Yarn Service Upgrade: Support upgrade of service that use docker containers |  Major | . | Chandni Singh | Chandni Singh |
+| [HADOOP-15552](https://issues.apache.org/jira/browse/HADOOP-15552) | Move logging APIs over to slf4j in hadoop-tools - Part2 |  Major | . | Giovanni Matteo Fumarola | Ian Pickering |
+| [HADOOP-15642](https://issues.apache.org/jira/browse/HADOOP-15642) | Update aws-sdk version to 1.11.375 |  Blocker | build, fs/s3 | Steve Loughran | Steve Loughran |
+| [HADOOP-14154](https://issues.apache.org/jira/browse/HADOOP-14154) | Persist isAuthoritative bit in DynamoDBMetaStore (authoritative mode support) |  Minor | fs/s3 | Rajesh Balamohan | Gabor Bota |
+| [HADOOP-14624](https://issues.apache.org/jira/browse/HADOOP-14624) | Add GenericTestUtils.DelayAnswer that accept slf4j logger API |  Major | . | Wenxin He | Wenxin He |
 
 
 ### OTHER:

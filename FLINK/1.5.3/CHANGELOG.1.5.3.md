@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.3 - Unreleased (as of 2018-08-15)
+## Release 1.5.3 - Unreleased (as of 2018-08-19)
 
 
 
@@ -27,6 +27,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-9935](https://issues.apache.org/jira/browse/FLINK-9935) | Batch Table API: grouping by window and attribute causes java.lang.ClassCastException: |  Critical | Table API & SQL | Roman Wozniak | Fabian Hueske |
+
+
+### NEW FEATURES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
 
 
 ### IMPROVEMENTS:
@@ -40,8 +47,8 @@
 | [FLINK-9986](https://issues.apache.org/jira/browse/FLINK-9986) | Remove unnecessary information from .version.properties file |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10016](https://issues.apache.org/jira/browse/FLINK-10016) | Make YARN/Kerberos end-to-end test stricter |  Major | Tests | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-10006](https://issues.apache.org/jira/browse/FLINK-10006) | Improve logging in BarrierBuffer |  Major | Logging, Network | Nico Kruber | Nico Kruber |
-| [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
-| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config |  Major | Local Runtime | 陈梓立 | 陈梓立 |
+| [FLINK-9446](https://issues.apache.org/jira/browse/FLINK-9446) | Compatibility table not up-to-date |  Major | Documentation | Razvan | Chesnay Schepler |
+| [FLINK-9859](https://issues.apache.org/jira/browse/FLINK-9859) | More Akka config options |  Major | Local Runtime | 陈梓立 | 陈梓立 |
 
 
 ### BUG FIXES:
@@ -61,9 +68,10 @@
 | [FLINK-9969](https://issues.apache.org/jira/browse/FLINK-9969) | Unreasonable memory requirements to complete examples/batch/WordCount |  Blocker | ResourceManager | Piotr Nowojski | Till Rohrmann |
 | [FLINK-10033](https://issues.apache.org/jira/browse/FLINK-10033) | Let Task release reference to Invokable on shutdown |  Major | TaskManager | Stephan Ewen | Stephan Ewen |
 | [FLINK-10070](https://issues.apache.org/jira/browse/FLINK-10070) | Flink cannot be compiled with maven 3.0.x |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-9446](https://issues.apache.org/jira/browse/FLINK-9446) | Compatibility table not up-to-date |  Major | Documentation | Razvan | Chesnay Schepler |
 | [FLINK-9972](https://issues.apache.org/jira/browse/FLINK-9972) | Debug memory logging not working |  Critical | TaskManager | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-9693](https://issues.apache.org/jira/browse/FLINK-9693) | Possible memory leak in jobmanager retaining archived checkpoints |  Major | JobManager, State Backends, Checkpointing | Steven Zhen Wu | Till Rohrmann |
+| [FLINK-9546](https://issues.apache.org/jira/browse/FLINK-9546) | The heartbeatTimeoutIntervalMs of HeartbeatMonitor should be larger than 0 |  Minor | Core | Sihua Zhou | Sihua Zhou |
+| [FLINK-9289](https://issues.apache.org/jira/browse/FLINK-9289) | Parallelism of generated operators should have max parallism of input |  Major | DataSet API | Fabian Hueske | Xingcan Cui |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.8.0 - Unreleased (as of 2018-08-15)
+## Release 0.8.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -72,5 +72,14 @@
 | [YETUS-242](https://issues.apache.org/jira/browse/YETUS-242) | hadoop: add -Drequire.valgrind |  Trivial | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-432](https://issues.apache.org/jira/browse/YETUS-432) | website generation mysteriously fails when releasedocmaker fails |  Major | build, website and documentation | Ajay Yadava | Allen Wittenauer |
 | [YETUS-647](https://issues.apache.org/jira/browse/YETUS-647) | ssh-based git repos do not work correctly under docker |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-661](https://issues.apache.org/jira/browse/YETUS-661) | ant/gradle/maven assumes container $HOME and host $HOME are the same |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-646](https://issues.apache.org/jira/browse/YETUS-646) | curl grabbed the wrong patch |  Critical | Test Patch | Allen Wittenauer | Sean Busbey |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [YETUS-662](https://issues.apache.org/jira/browse/YETUS-662) | integration test runner |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 

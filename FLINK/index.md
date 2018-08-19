@@ -28,6 +28,9 @@
 * Apache Flink v1.6.0
     * [Changelog](1.6.0/CHANGELOG.1.6.0.html)
     * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)
+* Apache Flink v1.5.4
+    * [Changelog](1.5.4/CHANGELOG.1.5.4.html)
+    * [Release Notes](1.5.4/RELEASENOTES.1.5.4.html)
 * Apache Flink v1.5.3
     * [Changelog](1.5.3/CHANGELOG.1.5.3.html)
     * [Release Notes](1.5.3/RELEASENOTES.1.5.3.html)

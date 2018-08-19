@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.11.0 - Unreleased (as of 2018-08-15)
+## Release 1.11.0 - Unreleased (as of 2018-08-19)
 
 
 
@@ -30,6 +30,7 @@
 | [PARQUET-1321](https://issues.apache.org/jira/browse/PARQUET-1321) | LogicalTypeAnnotation.LogicalTypeAnnotationVisitor#visit methods should have a return value |  Major | parquet-mr | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1335](https://issues.apache.org/jira/browse/PARQUET-1335) | Logical type names in parquet-mr are not consistent with parquet-format |  Minor | parquet-mr | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1336](https://issues.apache.org/jira/browse/PARQUET-1336) | PrimitiveComparator should implements Serializable |  Major | parquet-mr | Yuming Wang | Yuming Wang |
+| [PARQUET-1390](https://issues.apache.org/jira/browse/PARQUET-1390) | [Java] Upgrade to Arrow 0.10.0 |  Minor | parquet-mr | Andy Grove | Andy Grove |
 
 
 ### BUG FIXES:

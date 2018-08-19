@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2018-08-15)
+## Release 3.6.0 - Unreleased (as of 2018-08-19)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -381,6 +381,7 @@
 | [ZOOKEEPER-3082](https://issues.apache.org/jira/browse/ZOOKEEPER-3082) | Fix server snapshot behavior when out of disk space |  Minor | server | Brian Nixon | Brian Nixon |
 | [ZOOKEEPER-3104](https://issues.apache.org/jira/browse/ZOOKEEPER-3104) | Potential data inconsistency due to NEWLEADER packet being sent too early during SNAP sync |  Critical | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-2926](https://issues.apache.org/jira/browse/ZOOKEEPER-2926) | Data inconsistency issue due to the flaw in the session management |  Critical | server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3117](https://issues.apache.org/jira/browse/ZOOKEEPER-3117) |  Correct the LeaderBean.followerInfo to only return the followers list |  Minor | quorum | Fangmin Lv | Fangmin Lv |
 
 
 ### TESTS:
@@ -435,6 +436,7 @@
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-3030](https://issues.apache.org/jira/browse/ZOOKEEPER-3030) | Step 1.3 - Create zk-contrib maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-3103](https://issues.apache.org/jira/browse/ZOOKEEPER-3103) | Pluggable metrics system for ZooKeeper - MetricsProvider API definition |  Major | metric system | Enrico Olivelli | Enrico Olivelli |
+| [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 
 
 ### OTHER:
@@ -452,5 +454,6 @@
 | [ZOOKEEPER-3067](https://issues.apache.org/jira/browse/ZOOKEEPER-3067) | Optionally suppress client environment logging. |  Minor | c client | James Peach |  |
 | [ZOOKEEPER-3061](https://issues.apache.org/jira/browse/ZOOKEEPER-3061) | add more details to 'Unhandled scenario for peer' log.warn message |  Minor | . | Christine Poerschke |  |
 | [ZOOKEEPER-3062](https://issues.apache.org/jira/browse/ZOOKEEPER-3062) | introduce fsync.warningthresholdms constant for FileTxnLog LOG.warn message |  Minor | . | Christine Poerschke | Christine Poerschke |
+| [ZOOKEEPER-3120](https://issues.apache.org/jira/browse/ZOOKEEPER-3120) | add NetBeans nbproject directory to .gitignore |  Minor | . | Enrico Olivelli | Enrico Olivelli |
 
 

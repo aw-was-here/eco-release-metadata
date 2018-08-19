@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.0.1 - Unreleased (as of 2018-08-15)
+## Release 2.0.1 - Unreleased (as of 2018-08-19)
 
 
 
@@ -34,6 +34,13 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SENTRY-2343](https://issues.apache.org/jira/browse/SENTRY-2343) | create a jira release version 2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2351](https://issues.apache.org/jira/browse/SENTRY-2351) | update the version in pom file to 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2345](https://issues.apache.org/jira/browse/SENTRY-2345) | Update CHANGELOG on 2.0.1 to reflect the changes |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2344](https://issues.apache.org/jira/browse/SENTRY-2344) | create a branch for 2.0.1 based on 2.0.0 branch |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2346](https://issues.apache.org/jira/browse/SENTRY-2346) | Create tag Release-2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2347](https://issues.apache.org/jira/browse/SENTRY-2347) | create release 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2348](https://issues.apache.org/jira/browse/SENTRY-2348) | Run vote on Release 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2349](https://issues.apache.org/jira/browse/SENTRY-2349) | Release artifacts for 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

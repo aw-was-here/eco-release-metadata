@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 0.14.1 - Unreleased (as of 2018-08-15)
+## Release 0.14.1 - Unreleased (as of 2018-08-19)
 
 
 
