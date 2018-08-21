@@ -18,8 +18,15 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.4 - Unreleased (as of 2018-08-19)
+## Release 1.5.4 - Unreleased (as of 2018-08-21)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [FLINK-10082](https://issues.apache.org/jira/browse/FLINK-10082) | Initialize StringBuilder in Slf4jReporter with estimated size |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
 
 
 ### BUG FIXES:

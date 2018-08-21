@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-08-19)
+## Release 1.3.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -176,6 +176,10 @@
 | [BIGTOP-3053](https://issues.apache.org/jira/browse/BIGTOP-3053) | Tez failed to build due to bower version is deprecated |  Major | build, tez | Jun He | Jun He |
 | [BIGTOP-3054](https://issues.apache.org/jira/browse/BIGTOP-3054) | Missing Spark archive caused Zeppelin build failure |  Major | build | Jun He | Jun He |
 | [BIGTOP-3061](https://issues.apache.org/jira/browse/BIGTOP-3061) | Crunch build failure |  Major | . | Jun He | Jun He |
+| [BIGTOP-2213](https://issues.apache.org/jira/browse/BIGTOP-2213) | tez build downloads amd64 nodejs executable |  Major | build, ppc64le, tez | Olaf Flebbe | Amir Sanjar |
+| [BIGTOP-2503](https://issues.apache.org/jira/browse/BIGTOP-2503) | Solr packaging is broken on both DEB and RPM |  Major | . | Roman Shaposhnik | Roman Shaposhnik |
+| [BIGTOP-3044](https://issues.apache.org/jira/browse/BIGTOP-3044) | Fix docker build command for simple sh |  Major | docker | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2944](https://issues.apache.org/jira/browse/BIGTOP-2944) | Update hbase and fix compilation issue |  Major | hbase | Olaf Flebbe | Olaf Flebbe |
 
 
 ### TESTS:

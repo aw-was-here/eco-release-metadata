@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.0.3 - Unreleased (as of 2018-08-19)
+## Release 1.0.3 - Unreleased (as of 2018-08-21)
 
 
 
@@ -37,5 +37,6 @@
 | [KAFKA-7255](https://issues.apache.org/jira/browse/KAFKA-7255) | Timing issue in SimpleAclAuthorizer with concurrent create/update |  Blocker | security | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-7261](https://issues.apache.org/jira/browse/KAFKA-7261) | Request and response total metrics record bytes instead of request count |  Major | metrics | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-7119](https://issues.apache.org/jira/browse/KAFKA-7119) | Intermittent test failure with GSSAPI authentication failure |  Major | security | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-5891](https://issues.apache.org/jira/browse/KAFKA-5891) | Cast transformation fails if record schema contains timestamp field |  Major | KafkaConnect | Artem Plotnikov |  |
 
 

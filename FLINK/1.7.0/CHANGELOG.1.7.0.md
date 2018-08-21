@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-08-19)
+## Release 1.7.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -72,6 +72,9 @@
 | [FLINK-10020](https://issues.apache.org/jira/browse/FLINK-10020) | Kinesis Consumer listShards should support more recoverable exceptions |  Major | Kinesis Connector | Thomas Weise | Thomas Weise |
 | [FLINK-9899](https://issues.apache.org/jira/browse/FLINK-9899) | Add more metrics to the Kinesis source connector |  Major | Kinesis Connector | Lakshmi Rao | Lakshmi Rao |
 | [FLINK-10001](https://issues.apache.org/jira/browse/FLINK-10001) | Improve Kubernetes documentation |  Major | Documentation, Kubernetes | Till Rohrmann | Till Rohrmann |
+| [FLINK-6670](https://issues.apache.org/jira/browse/FLINK-6670) | Remove CommonTestUtils.createTempDirectory() |  Minor | Tests | Nico Kruber | Chesnay Schepler |
+| [FLINK-10082](https://issues.apache.org/jira/browse/FLINK-10082) | Initialize StringBuilder in Slf4jReporter with estimated size |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10181](https://issues.apache.org/jira/browse/FLINK-10181) | Add anchor link to individual rest requests |  Major | Documentation, REST | Chesnay Schepler | Chesnay Schepler |
 
 
 ### BUG FIXES:
@@ -95,6 +98,8 @@
 | [FLINK-10116](https://issues.apache.org/jira/browse/FLINK-10116) | createComparator fails on case class with Unit type fields prior to the join-key |  Major | DataSet API | Will | Fabian Hueske |
 | [FLINK-10159](https://issues.apache.org/jira/browse/FLINK-10159) | TestHarness#initializeState(xyz) calls after TestHarness#open() are being silently ignored |  Critical | Tests | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-10169](https://issues.apache.org/jira/browse/FLINK-10169) | RowtimeValidator fails with custom TimestampExtractor |  Major | Table API & SQL | Timo Walther |  |
+| [FLINK-10072](https://issues.apache.org/jira/browse/FLINK-10072) | Syntax and consistency issues in "The Broadcast State Pattern" |  Trivial | Documentation, Streaming | Rick Hofstede | Rick Hofstede |
+| [FLINK-10151](https://issues.apache.org/jira/browse/FLINK-10151) | [State TTL] Fix false recursion call in TransformingStateTableKeyGroupPartitioner.tryAddToSource |  Major | State Backends, Checkpointing | Andrey Zagrebin | Andrey Zagrebin |
 
 
 ### TESTS:
@@ -103,6 +108,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-5860](https://issues.apache.org/jira/browse/FLINK-5860) | Replace all the file creating from java.io.tmpdir with TemporaryFolder |  Major | Tests | shijinkui | Mahesh Senniappan |
 | [FLINK-10084](https://issues.apache.org/jira/browse/FLINK-10084) | Migration tests weren't updated for 1.5 |  Critical | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10139](https://issues.apache.org/jira/browse/FLINK-10139) | Update migration tests for 1.6 |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
 
 
 ### SUB-TASKS:
@@ -124,5 +130,7 @@
 | [FLINK-10109](https://issues.apache.org/jira/browse/FLINK-10109) | Add documentation for StreamingFileSink |  Major | Streaming Connectors | Aljoscha Krettek | Aljoscha Krettek |
 | [FLINK-7205](https://issues.apache.org/jira/browse/FLINK-7205) | Add UUID supported in TableAPI/SQL |  Major | Table API & SQL | sunjincheng | buptljy |
 | [FLINK-5232](https://issues.apache.org/jira/browse/FLINK-5232) | Add a Thread default uncaught exception handler on the JobManager |  Major | JobManager | Stephan Ewen | vinoyang |
+| [FLINK-10059](https://issues.apache.org/jira/browse/FLINK-10059) | Add LTRIM supported in Table API and SQL |  Minor | Table API & SQL | vinoyang | vinoyang |
+| [FLINK-10060](https://issues.apache.org/jira/browse/FLINK-10060) | Add RTRIM supported in Table API and SQL |  Minor | . | vinoyang | vinoyang |
 
 

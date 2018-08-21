@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.2 - Unreleased (as of 2018-08-19)
+## Release 2.3.2 - Unreleased (as of 2018-08-21)
 
 
 
@@ -80,6 +80,7 @@
 | [SPARK-25084](https://issues.apache.org/jira/browse/SPARK-25084) | "distribute by" on multiple columns may lead to codegen issue |  Blocker | SQL | yucai | yucai |
 | [SPARK-25028](https://issues.apache.org/jira/browse/SPARK-25028) | AnalyzePartitionCommand failed with NPE if value is null |  Major | Spark Core | Izek Greenfield | Marco Gaido |
 | [SPARK-25051](https://issues.apache.org/jira/browse/SPARK-25051) | where clause on dataset gives AnalysisException |  Blocker | SQL | MIK | Marco Gaido |
+| [SPARK-25144](https://issues.apache.org/jira/browse/SPARK-25144) | distinct on Dataset leads to exception due to Managed memory leak detected |  Major | SQL | Ayoub Benali | Dongjoon Hyun |
 
 
 ### TESTS:

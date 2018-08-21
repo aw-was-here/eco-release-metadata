@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-08-19)
+## Release 2.4.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -709,6 +709,9 @@
 | [SPARK-23042](https://issues.apache.org/jira/browse/SPARK-23042) | Use OneHotEncoderModel to encode labels in MultilayerPerceptronClassifier |  Major | ML | Liang-Chi Hsieh | Liang-Chi Hsieh |
 | [SPARK-25116](https://issues.apache.org/jira/browse/SPARK-25116) | Fix the "exit code 1" error when terminating Kafka tests |  Major | Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-25137](https://issues.apache.org/jira/browse/SPARK-25137) | NumberFormatException\` when starting spark-shell  from Mac terminal |  Trivial | Spark Shell | Vinod KC | Vinod KC |
+| [SPARK-25134](https://issues.apache.org/jira/browse/SPARK-25134) | Csv column pruning with checking of headers throws incorrect error |  Major | SQL | koert kuipers | Koert Kuipers |
+| [SPARK-25132](https://issues.apache.org/jira/browse/SPARK-25132) | Case-insensitive field resolution when reading from Parquet/ORC |  Major | SQL | Chenxiao Mao | Chenxiao Mao |
+| [SPARK-25161](https://issues.apache.org/jira/browse/SPARK-25161) | Fix several bugs in failure handling of barrier execution mode |  Major | Spark Core | Jiang Xingbo | Jiang Xingbo |
 
 
 ### TESTS:
@@ -922,6 +925,7 @@
 | [SPARK-23940](https://issues.apache.org/jira/browse/SPARK-23940) | High-order function: transform\_values(map\<K, V1\>, function\<K, V1, V2\>) → map\<K, V2\> |  Major | SQL | Xiao Li | Neha Patil |
 | [SPARK-23555](https://issues.apache.org/jira/browse/SPARK-23555) | Add BinaryType support for Arrow in PySpark |  Major | PySpark | Bryan Cutler | Bryan Cutler |
 | [SPARK-24863](https://issues.apache.org/jira/browse/SPARK-24863) | Report offset lag as a custom metrics for Kafka structured streaming source |  Major | Structured Streaming | Arun Mahadevan | Arun Mahadevan |
+| [SPARK-25160](https://issues.apache.org/jira/browse/SPARK-25160) | Remove sql configuration spark.sql.avro.outputTimestampType |  Major | SQL | Gengliang Wang | Gengliang Wang |
 
 
 ### OTHER:

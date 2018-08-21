@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.2.0 - Unreleased (as of 2018-08-19)
+## Release 3.2.0 - Unreleased (as of 2018-08-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -186,6 +186,8 @@
 | [HDFS-13829](https://issues.apache.org/jira/browse/HDFS-13829) | Remove redundant condition judgement in DirectoryScanner#scan |  Minor | datanode | liaoyuxiangqin | liaoyuxiangqin |
 | [HDFS-13822](https://issues.apache.org/jira/browse/HDFS-13822) | speedup libhdfs++ build (enable parallel build) |  Minor | . | Pradeep Ambati | Allen Wittenauer |
 | [HADOOP-9214](https://issues.apache.org/jira/browse/HADOOP-9214) | Create a new touch command to allow modifying atime and mtime |  Minor | tools | Brian Burton | Hrishikesh Gadre |
+| [YARN-8242](https://issues.apache.org/jira/browse/YARN-8242) | YARN NM: OOM error while reading back the state store on recovery |  Critical | yarn | Kanwaljeet Sachdev | Pradeep Ambati |
+| [YARN-8683](https://issues.apache.org/jira/browse/YARN-8683) | Support to display pending scheduling requests in RM app attempt page |  Major | webapp | Tao Yang | Tao Yang |
 
 
 ### BUG FIXES:
@@ -543,6 +545,7 @@
 | [HADOOP-8807](https://issues.apache.org/jira/browse/HADOOP-8807) | Update README and website to reflect HADOOP-8662 |  Trivial | documentation | Eli Collins | Andras Bokor |
 | [YARN-8640](https://issues.apache.org/jira/browse/YARN-8640) | Restore previous state in container-executor after failure |  Major | . | Jim Brennan | Jim Brennan |
 | [YARN-8679](https://issues.apache.org/jira/browse/YARN-8679) | [ATSv2] If HBase cluster is down for long time, high chances that NM ContainerManager dispatcher get blocked |  Major | . | Rohith Sharma K S | Wangda Tan |
+| [HDFS-13772](https://issues.apache.org/jira/browse/HDFS-13772) | Erasure coding: Unnecessary NameNode Logs displaying for Enabling/Disabling Erasure coding policies which are already enabled/disabled |  Trivial | erasure-coding | Souryakanta Dwivedy | Ayush Saxena |
 
 
 ### TESTS:
@@ -819,6 +822,8 @@
 | [HADOOP-15642](https://issues.apache.org/jira/browse/HADOOP-15642) | Update aws-sdk version to 1.11.375 |  Blocker | build, fs/s3 | Steve Loughran | Steve Loughran |
 | [HADOOP-14154](https://issues.apache.org/jira/browse/HADOOP-14154) | Persist isAuthoritative bit in DynamoDBMetaStore (authoritative mode support) |  Minor | fs/s3 | Rajesh Balamohan | Gabor Bota |
 | [HADOOP-14624](https://issues.apache.org/jira/browse/HADOOP-14624) | Add GenericTestUtils.DelayAnswer that accept slf4j logger API |  Major | . | Wenxin He | Wenxin He |
+| [HDFS-13750](https://issues.apache.org/jira/browse/HDFS-13750) | RBF: Router ID in RouterRpcClient is always null |  Major | . | Takanobu Asanuma | Takanobu Asanuma |
+| [YARN-8129](https://issues.apache.org/jira/browse/YARN-8129) | Improve error message for invalid value in fields attribute |  Minor | ATSv2 | Charan Hebri | Abhishek Modi |
 
 
 ### OTHER:

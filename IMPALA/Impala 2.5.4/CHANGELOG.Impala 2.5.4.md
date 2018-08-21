@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.5.4 - Unreleased (as of 2018-08-18)
+## Release Impala 2.5.4 - Unreleased (as of 2018-08-21)
 
 
 

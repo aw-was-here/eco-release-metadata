@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.8.0 - Unreleased (as of 2018-08-19)
+## Release 0.8.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -28,6 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-609](https://issues.apache.org/jira/browse/YETUS-609) | releasedocmaker indexer uses wrong filename |  Blocker | Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-643](https://issues.apache.org/jira/browse/YETUS-643) | default custom maven repo should use workspace when in jenkins mode |  Critical | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-657](https://issues.apache.org/jira/browse/YETUS-657) | volumes on non-existent files creates a directory |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### NEW FEATURES:
@@ -35,6 +36,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-46](https://issues.apache.org/jira/browse/YETUS-46) | releasedocmaker should support JIRA authentication |  Major | Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-45](https://issues.apache.org/jira/browse/YETUS-45) | the test patch script should check for filenames that differ only in case |  Major | Test Patch | Owen O'Malley | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:

@@ -48,4 +48,19 @@ The default maven repo when:
 has been moved from the home directory to the workspace.
 
 
+---
+
+* [YETUS-657](https://issues.apache.org/jira/browse/YETUS-657) | *Blocker* | **volumes on non-existent files creates a directory**
+
+<!-- markdown -->
+In addition to fixing issues with Docker containers not creating certain reports if the files didn't previous exist, the brief report mode has had some internal and external code cleanup to make it consistent.  As a result, the plugin is now called as 'briefreport' instead of 'brieftext'.
+
+
+---
+
+* [YETUS-45](https://issues.apache.org/jira/browse/YETUS-45) | *Major* | **the test patch script should check for filenames that differ only in case**
+
+Apache Yetus will no longer process patches that have filenames or directories that only differ by case.
+
+
 

@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [HBASE-17861](https://issues.apache.org/jira/browse/HBASE-17861) | *Major* | **Regionserver down when checking the permission of staging dir if hbase.rootdir is on S3**
+
+Some object store does not support unix style permission, this jira fix the permission check issue when specify staging dir in different file system. Currently it covers s3, wasb, swift.
+
+
+---
+
 * [HBASE-18842](https://issues.apache.org/jira/browse/HBASE-18842) | *Minor* | **The hbase shell clone\_snaphost command returns bad error message**
 
 <!-- markdown -->

@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.5 - Unreleased (as of 2018-08-19)
+## Release 3.5.5 - Unreleased (as of 2018-08-21)
 
 
 

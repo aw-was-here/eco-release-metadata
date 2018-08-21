@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.3 - Unreleased (as of 2018-08-19)
+## Release 1.3.3 - Unreleased (as of 2018-08-21)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -51,6 +51,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-17861](https://issues.apache.org/jira/browse/HBASE-17861) | Regionserver down when checking the permission of staging dir if hbase.rootdir is on S3 |  Major | . | Yi Liang | Yi Liang |
+| [HBASE-18512](https://issues.apache.org/jira/browse/HBASE-18512) | Region Server will abort with IllegalStateException if HDFS umask has limited scope |  Major | regionserver, security | Pankaj Kumar | Pankaj Kumar |
 | [HBASE-20292](https://issues.apache.org/jira/browse/HBASE-20292) | Wrong URLs in the descriptions for update\_all\_config and update\_config commands in shell |  Trivial | shell | Toshihiro Suzuki | Toshihiro Suzuki |
 | [HBASE-20302](https://issues.apache.org/jira/browse/HBASE-20302) | CatalogJanitor should log the reason why it is disabled |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-17631](https://issues.apache.org/jira/browse/HBASE-17631) | Canary interval too low |  Major | canary | Lars George | Jan Hentschel |
@@ -90,6 +92,9 @@
 | [HBASE-21007](https://issues.apache.org/jira/browse/HBASE-21007) | Memory leak in HBase rest server |  Critical | REST | Bosko Devetak | Bosko Devetak |
 | [HBASE-21047](https://issues.apache.org/jira/browse/HBASE-21047) | Object creation of StoreFileScanner thru constructor and close may leave refCount to -1 |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-20940](https://issues.apache.org/jira/browse/HBASE-20940) | HStore.cansplit should not allow split to happen if it has references |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
+| [HBASE-21042](https://issues.apache.org/jira/browse/HBASE-21042) | processor.getRowsToLock() always assumes there is some row being locked in HRegion#processRowsWithLocks |  Major | . | Thomas D'Silva | Ted Yu |
+| [HBASE-21074](https://issues.apache.org/jira/browse/HBASE-21074) | JDK7 branches need to pass "-Dhttps.protocols=TLSv1.2" to maven when building |  Major | build, community, test | Sean Busbey | Sean Busbey |
+| [HBASE-21058](https://issues.apache.org/jira/browse/HBASE-21058) | Nightly tests for branches 1 fail to build ref guide |  Major | documentation | Sean Busbey | Sean Busbey |
 
 
 ### TESTS:
@@ -108,6 +113,7 @@
 | [HBASE-16848](https://issues.apache.org/jira/browse/HBASE-16848) | Usage for show\_peer\_tableCFs command doesn't include peer |  Minor | . | Ted Yu | Peter Somogyi |
 | [HBASE-20316](https://issues.apache.org/jira/browse/HBASE-20316) | Backport HBASE-20229 "ConnectionImplementation.locateRegions() returns duplicated entries when region replication is on" to branch-1 |  Major | backport | stack | Toshihiro Suzuki |
 | [HBASE-20974](https://issues.apache.org/jira/browse/HBASE-20974) | Backport HBASE-20583 (SplitLogWorker should handle FileNotFoundException when split a wal) to branch-1 |  Major | . | Pankaj Kumar | Pankaj Kumar |
+| [HBASE-21060](https://issues.apache.org/jira/browse/HBASE-21060) | fix dead store in SecureBulkLoadEndpoint |  Minor | Coprocessors | Sean Busbey | Sean Busbey |
 
 
 ### OTHER:

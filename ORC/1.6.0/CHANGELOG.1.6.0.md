@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-08-19)
+## Release 1.6.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -56,6 +56,7 @@
 | [ORC-371](https://issues.apache.org/jira/browse/ORC-371) | [C++] Disable Libhdfspp build when Cyrus SASL is not found |  Major | . | Deepak Majeti | Anatoli Shein |
 | [ORC-384](https://issues.apache.org/jira/browse/ORC-384) | C++ Reader leaks memory when reading a non-ORC file |  Minor | C++ | Martin Rupp | Martin Rupp |
 | [ORC-391](https://issues.apache.org/jira/browse/ORC-391) | [C++]  parseType does not accept underscore in the field name |  Minor | . | Zherui Cao |  |
+| [ORC-396](https://issues.apache.org/jira/browse/ORC-396) | ORC build fails to find LZ4 lib directory on some platforms |  Major | C++ | Tim Armstrong | Tim Armstrong |
 
 
 ### SUB-TASKS:

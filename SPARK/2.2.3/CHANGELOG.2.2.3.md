@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.2.3 - Unreleased (as of 2018-08-19)
+## Release 2.2.3 - Unreleased (as of 2018-08-21)
 
 
 
@@ -34,5 +34,6 @@
 | [SPARK-24948](https://issues.apache.org/jira/browse/SPARK-24948) | SHS filters wrongly some applications due to permission check |  Blocker | Web UI | Marco Gaido | Marco Gaido |
 | [SPARK-24950](https://issues.apache.org/jira/browse/SPARK-24950) | scala DateTimeUtilsSuite daysToMillis and millisToDays fails w/java 8 181-b13 |  Major | Build, Tests | shane knapp | Chris Martin |
 | [SPARK-25081](https://issues.apache.org/jira/browse/SPARK-25081) | Nested spill in ShuffleExternalSorter may access a released memory page |  Blocker | Spark Core | Shixiong Zhu | Shixiong Zhu |
+| [SPARK-25144](https://issues.apache.org/jira/browse/SPARK-25144) | distinct on Dataset leads to exception due to Managed memory leak detected |  Major | SQL | Ayoub Benali | Dongjoon Hyun |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-08-19)
+## Release 2.1.0 - Unreleased (as of 2018-08-21)
 
 
 
@@ -145,6 +145,8 @@
 | [SENTRY-2312](https://issues.apache.org/jira/browse/SENTRY-2312) | Update owner privileges for table when owner is changed. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2296](https://issues.apache.org/jira/browse/SENTRY-2296) | Add PermissionsUpdate for adding owner privilege on owner transfer |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2339](https://issues.apache.org/jira/browse/SENTRY-2339) | Support transfer of ownership for database/table to roles |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2358](https://issues.apache.org/jira/browse/SENTRY-2358) | Close JIRA version for 2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
+| [SENTRY-2355](https://issues.apache.org/jira/browse/SENTRY-2355) | Merge the DB owner privileges configurations into one enum configuration |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### OTHER:
