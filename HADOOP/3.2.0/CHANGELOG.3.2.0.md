@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.2.0 - Unreleased (as of 2018-08-21)
+## Release 3.2.0 - Unreleased (as of 2018-08-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -188,6 +188,7 @@
 | [HADOOP-9214](https://issues.apache.org/jira/browse/HADOOP-9214) | Create a new touch command to allow modifying atime and mtime |  Minor | tools | Brian Burton | Hrishikesh Gadre |
 | [YARN-8242](https://issues.apache.org/jira/browse/YARN-8242) | YARN NM: OOM error while reading back the state store on recovery |  Critical | yarn | Kanwaljeet Sachdev | Pradeep Ambati |
 | [YARN-8683](https://issues.apache.org/jira/browse/YARN-8683) | Support to display pending scheduling requests in RM app attempt page |  Major | webapp | Tao Yang | Tao Yang |
+| [HDFS-13821](https://issues.apache.org/jira/browse/HDFS-13821) | RBF: Add dfs.federation.router.mount-table.cache.enable so that users can disable cache |  Major | hdfs | Fei Hui | Fei Hui |
 
 
 ### BUG FIXES:
@@ -824,6 +825,9 @@
 | [HADOOP-14624](https://issues.apache.org/jira/browse/HADOOP-14624) | Add GenericTestUtils.DelayAnswer that accept slf4j logger API |  Major | . | Wenxin He | Wenxin He |
 | [HDFS-13750](https://issues.apache.org/jira/browse/HDFS-13750) | RBF: Router ID in RouterRpcClient is always null |  Major | . | Takanobu Asanuma | Takanobu Asanuma |
 | [YARN-8129](https://issues.apache.org/jira/browse/YARN-8129) | Improve error message for invalid value in fields attribute |  Minor | ATSv2 | Charan Hebri | Abhishek Modi |
+| [YARN-7494](https://issues.apache.org/jira/browse/YARN-7494) | Add muti-node lookup mechanism and pluggable nodes sorting policies to optimize placement decision |  Major | capacity scheduler | Sunil Govindan | Sunil Govindan |
+| [YARN-8298](https://issues.apache.org/jira/browse/YARN-8298) | Yarn Service Upgrade: Support express upgrade of a service |  Major | . | Chandni Singh | Chandni Singh |
+| [YARN-8015](https://issues.apache.org/jira/browse/YARN-8015) | Support all types of placement constraint support for Capacity Scheduler |  Critical | capacity scheduler | Weiwei Yang | Weiwei Yang |
 
 
 ### OTHER:

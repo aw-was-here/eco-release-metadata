@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.13.0 - Unreleased (as of 2018-08-21)
+## Release Impala 2.13.0 - Unreleased (as of 2018-08-23)
 
 
 
@@ -206,7 +206,7 @@
 | [IMPALA-6916](https://issues.apache.org/jira/browse/IMPALA-6916) | Implement COMMENT ON DATABASE |  Minor | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6909](https://issues.apache.org/jira/browse/IMPALA-6909) | Impala 2.13 Doc: SET ROW FORMAT in ALTER TABLE |  Major | Docs | Alex Rodoni | Alex Rodoni |
 | [IMPALA-5216](https://issues.apache.org/jira/browse/IMPALA-5216) | Admission control queuing should be asynchronous |  Major | Backend | Dan Hecht | Bikramjeet Vig |
-| [IMPALA-7016](https://issues.apache.org/jira/browse/IMPALA-7016) | Statement to allow setting ownership for database |  Major | Frontend | Adam Holley | Fredy Wijaya |
+| [IMPALA-7016](https://issues.apache.org/jira/browse/IMPALA-7016) | Implement ALTER DATABASE SET OWNER |  Major | Frontend | Adam Holley | Fredy Wijaya |
 | [IMPALA-6917](https://issues.apache.org/jira/browse/IMPALA-6917) | Implement COMMENT ON TABLE/VIEW |  Minor | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6035](https://issues.apache.org/jira/browse/IMPALA-6035) | Add query option that rejects queries based on query complexity |  Major | Distributed Exec | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-5587](https://issues.apache.org/jira/browse/IMPALA-5587) | ReleaseResources() should not destroy control structures |  Major | Backend | Dan Hecht |  |

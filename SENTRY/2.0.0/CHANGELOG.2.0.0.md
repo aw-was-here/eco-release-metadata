@@ -426,6 +426,7 @@
 | [SENTRY-2007](https://issues.apache.org/jira/browse/SENTRY-2007) | Finish Release-2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2006](https://issues.apache.org/jira/browse/SENTRY-2006) | Release artifacts for 2.0.0 |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2061](https://issues.apache.org/jira/browse/SENTRY-2061) | Prepare release notes for 2.0.0 release |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2360](https://issues.apache.org/jira/browse/SENTRY-2360) | Update the pom file in 2.0 branch |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:

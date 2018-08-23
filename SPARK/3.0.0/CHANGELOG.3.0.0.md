@@ -18,8 +18,15 @@
 -->
 # Apache Spark Changelog
 
-## Release 3.0.0 - Unreleased (as of 2018-08-21)
+## Release 3.0.0 - Unreleased (as of 2018-08-23)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-24441](https://issues.apache.org/jira/browse/SPARK-24441) | Expose total estimated size of states in HDFSBackedStateStoreProvider |  Major | Structured Streaming | Jungtaek Lim | Jungtaek Lim |
 
 
 ### BUG FIXES:
@@ -28,6 +35,13 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24717](https://issues.apache.org/jira/browse/SPARK-24717) | Split out min retain version of state for memory in HDFSBackedStateStoreProvider |  Major | Structured Streaming | Jungtaek Lim | Jungtaek Lim |
 | [SPARK-24699](https://issues.apache.org/jira/browse/SPARK-24699) | Watermark / Append mode should work with Trigger.Once |  Major | Structured Streaming | Chris Horn | Tathagata Das |
+
+
+### TESTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SPARK-25184](https://issues.apache.org/jira/browse/SPARK-25184) | Flaky test: FlatMapGroupsWithState "streaming with processing time timeout" |  Minor | Structured Streaming | Tathagata Das | Tathagata Das |
 
 
 ### SUB-TASKS:

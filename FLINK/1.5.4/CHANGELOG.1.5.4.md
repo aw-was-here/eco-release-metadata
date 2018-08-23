@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.5.4 - Unreleased (as of 2018-08-21)
+## Release 1.5.4 - Unreleased (as of 2018-08-23)
 
 
 
@@ -35,5 +35,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-10101](https://issues.apache.org/jira/browse/FLINK-10101) | Mesos web ui url is missing. |  Major | Mesos | Renjie Liu | Renjie Liu |
 | [FLINK-10116](https://issues.apache.org/jira/browse/FLINK-10116) | createComparator fails on case class with Unit type fields prior to the join-key |  Major | DataSet API | Will | Fabian Hueske |
+| [FLINK-10172](https://issues.apache.org/jira/browse/FLINK-10172) | Inconsistentcy in ExpressionParser and ExpressionDsl for order by asc/desc |  Major | Table API & SQL | Rong Rong | Rong Rong |
 
 

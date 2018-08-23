@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.3 - Unreleased (as of 2018-08-21)
+## Release 1.3.3 - Unreleased (as of 2018-08-23)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -95,6 +95,7 @@
 | [HBASE-21042](https://issues.apache.org/jira/browse/HBASE-21042) | processor.getRowsToLock() always assumes there is some row being locked in HRegion#processRowsWithLocks |  Major | . | Thomas D'Silva | Ted Yu |
 | [HBASE-21074](https://issues.apache.org/jira/browse/HBASE-21074) | JDK7 branches need to pass "-Dhttps.protocols=TLSv1.2" to maven when building |  Major | build, community, test | Sean Busbey | Sean Busbey |
 | [HBASE-21058](https://issues.apache.org/jira/browse/HBASE-21058) | Nightly tests for branches 1 fail to build ref guide |  Major | documentation | Sean Busbey | Sean Busbey |
+| [HBASE-21069](https://issues.apache.org/jira/browse/HBASE-21069) | NPE in StoreScanner.updateReaders causes RS to crash |  Major | . | Thomas D'Silva | Andrew Purtell |
 
 
 ### TESTS:
@@ -104,6 +105,7 @@
 | [HBASE-20513](https://issues.apache.org/jira/browse/HBASE-20513) | Collect and emit ScanMetrics in PerformanceEvaluation |  Minor | test | Andrew Purtell | Andrew Purtell |
 | [HBASE-20505](https://issues.apache.org/jira/browse/HBASE-20505) | PE should support multi column family read and write cases |  Minor | . | Andrew Purtell | Andrew Purtell |
 | [HBASE-20619](https://issues.apache.org/jira/browse/HBASE-20619) | TestWeakObjectPool occasionally times out |  Trivial | test | Andrew Purtell | Andrew Purtell |
+| [HBASE-21076](https://issues.apache.org/jira/browse/HBASE-21076) | TestTableResource fails with NPE |  Major | REST, test | Ted Yu | Sean Busbey |
 
 
 ### SUB-TASKS:

@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-08-21)
+## Release 1.7.0 - Unreleased (as of 2018-08-23)
 
 
 
@@ -75,6 +75,7 @@
 | [FLINK-6670](https://issues.apache.org/jira/browse/FLINK-6670) | Remove CommonTestUtils.createTempDirectory() |  Minor | Tests | Nico Kruber | Chesnay Schepler |
 | [FLINK-10082](https://issues.apache.org/jira/browse/FLINK-10082) | Initialize StringBuilder in Slf4jReporter with estimated size |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10181](https://issues.apache.org/jira/browse/FLINK-10181) | Add anchor link to individual rest requests |  Major | Documentation, REST | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10164](https://issues.apache.org/jira/browse/FLINK-10164) | Add support for resuming from savepoints to StandaloneJobClusterEntrypoint |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 
 
 ### BUG FIXES:
@@ -100,6 +101,9 @@
 | [FLINK-10169](https://issues.apache.org/jira/browse/FLINK-10169) | RowtimeValidator fails with custom TimestampExtractor |  Major | Table API & SQL | Timo Walther |  |
 | [FLINK-10072](https://issues.apache.org/jira/browse/FLINK-10072) | Syntax and consistency issues in "The Broadcast State Pattern" |  Trivial | Documentation, Streaming | Rick Hofstede | Rick Hofstede |
 | [FLINK-10151](https://issues.apache.org/jira/browse/FLINK-10151) | [State TTL] Fix false recursion call in TransformingStateTableKeyGroupPartitioner.tryAddToSource |  Major | State Backends, Checkpointing | Andrey Zagrebin | Andrey Zagrebin |
+| [FLINK-10187](https://issues.apache.org/jira/browse/FLINK-10187) | Fix LogicalUnnestRule to match Correlate/Uncollect correctly |  Major | Table API & SQL | Shuyi Chen | Shuyi Chen |
+| [FLINK-10172](https://issues.apache.org/jira/browse/FLINK-10172) | Inconsistentcy in ExpressionParser and ExpressionDsl for order by asc/desc |  Major | Table API & SQL | Rong Rong | Rong Rong |
+| [FLINK-10175](https://issues.apache.org/jira/browse/FLINK-10175) | Fix concurrent access to shared buffer in map state / querable state |  Critical | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
 
 
 ### TESTS:

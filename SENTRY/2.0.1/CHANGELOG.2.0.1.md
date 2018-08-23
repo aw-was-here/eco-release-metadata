@@ -29,6 +29,13 @@
 | [SENTRY-2309](https://issues.apache.org/jira/browse/SENTRY-2309) | Add relevant full snapshot timeline messages to std.out |  Major | . | Arjun Mishra | Arjun Mishra |
 
 
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SENTRY-2226](https://issues.apache.org/jira/browse/SENTRY-2226) | Support Hive operation ALTER TABLE EXCHANGE |  Major | Sentry | Na Li | Na Li |
+
+
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
@@ -41,12 +48,7 @@
 | [SENTRY-2347](https://issues.apache.org/jira/browse/SENTRY-2347) | create release 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2348](https://issues.apache.org/jira/browse/SENTRY-2348) | Run vote on Release 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2349](https://issues.apache.org/jira/browse/SENTRY-2349) | Release artifacts for 2.0.1 |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-
-
-### OTHER:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [SENTRY-2226](https://issues.apache.org/jira/browse/SENTRY-2226) | Support Hive operation ALTER TABLE EXCHANGE |  Major | Sentry | Na Li | Na Li |
+| [SENTRY-2350](https://issues.apache.org/jira/browse/SENTRY-2350) | Prepare release notes for 2.0.1 release |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2362](https://issues.apache.org/jira/browse/SENTRY-2362) | Update the website |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 

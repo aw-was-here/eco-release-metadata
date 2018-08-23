@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 0.11.0.4 - Unreleased (as of 2018-08-21)
+## Release 0.11.0.4 - Unreleased (as of 2018-08-23)
 
 
 
@@ -27,5 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-7255](https://issues.apache.org/jira/browse/KAFKA-7255) | Timing issue in SimpleAclAuthorizer with concurrent create/update |  Blocker | security | Rajini Sivaram | Rajini Sivaram |
+| [KAFKA-7284](https://issues.apache.org/jira/browse/KAFKA-7284) | Producer getting fenced may cause Streams to shut down |  Critical | streams | John Roesler | John Roesler |
 
 

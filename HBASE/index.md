@@ -31,6 +31,9 @@
 * Apache HBase v1.5.0
     * [Changelog](1.5.0/CHANGELOG.1.5.0.html)
     * [Release Notes](1.5.0/RELEASENOTES.1.5.0.html)
+* Apache HBase v1.4.8
+    * [Changelog](1.4.8/CHANGELOG.1.4.8.html)
+    * [Release Notes](1.4.8/RELEASENOTES.1.4.8.html)
 * Apache HBase v1.4.7
     * [Changelog](1.4.7/CHANGELOG.1.4.7.html)
     * [Release Notes](1.4.7/RELEASENOTES.1.4.7.html)

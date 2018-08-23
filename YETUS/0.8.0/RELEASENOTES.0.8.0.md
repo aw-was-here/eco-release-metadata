@@ -23,6 +23,13 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
+* [YETUS-620](https://issues.apache.org/jira/browse/YETUS-620) | *Major* | **reject patches if they contain files with names/paths over a certain length**
+
+The pathlen plugin has been added to precommit to flag file paths that are over a certain length (default is 240 characters).  This is to help projects that build on file systems such as FAT32 that have severe limits on such paths.
+
+
+---
+
 * [YETUS-609](https://issues.apache.org/jira/browse/YETUS-609) | *Blocker* | **releasedocmaker indexer uses wrong filename**
 
 As a follow on to the work done in renaming CHANGES to CHANGELOG, the releasedocmaker readme/index files now expects the CHANGELOG when building.

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-08-21)
+## Release 2.4.0 - Unreleased (as of 2018-08-23)
 
 
 
@@ -377,6 +377,10 @@
 | [SPARK-25122](https://issues.apache.org/jira/browse/SPARK-25122) | Deduplication of supports equals code |  Trivial | SQL | Marek Novotny | Marek Novotny |
 | [SPARK-25142](https://issues.apache.org/jira/browse/SPARK-25142) | Add error messages when Python worker could not open socket in \`\_load\_from\_socket\`. |  Major | PySpark | Takuya Ueshin | Takuya Ueshin |
 | [SPARK-24959](https://issues.apache.org/jira/browse/SPARK-24959) | Do not invoke the CSV/JSON parser for empty schema |  Major | SQL | Maxim Gekk | Maxim Gekk |
+| [SPARK-25140](https://issues.apache.org/jira/browse/SPARK-25140) | Add optional logging to UnsafeProjection.create when it falls back to interpreted mode |  Minor | SQL | Kris Mok | Takeshi Yamamuro |
+| [SPARK-25093](https://issues.apache.org/jira/browse/SPARK-25093) | CodeFormatter could avoid creating regex object again and again |  Minor | Spark Core | Izek Greenfield | Marco Gaido |
+| [SPARK-24882](https://issues.apache.org/jira/browse/SPARK-24882) | data source v2 API improvement |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-25105](https://issues.apache.org/jira/browse/SPARK-25105) | Importing all of pyspark.sql.functions should bring PandasUDFType in as well |  Trivial | PySpark | holdenk | kevin yu |
 
 
 ### BUG FIXES:
@@ -710,8 +714,14 @@
 | [SPARK-25116](https://issues.apache.org/jira/browse/SPARK-25116) | Fix the "exit code 1" error when terminating Kafka tests |  Major | Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-25137](https://issues.apache.org/jira/browse/SPARK-25137) | NumberFormatException\` when starting spark-shell  from Mac terminal |  Trivial | Spark Shell | Vinod KC | Vinod KC |
 | [SPARK-25134](https://issues.apache.org/jira/browse/SPARK-25134) | Csv column pruning with checking of headers throws incorrect error |  Major | SQL | koert kuipers | Koert Kuipers |
-| [SPARK-25132](https://issues.apache.org/jira/browse/SPARK-25132) | Case-insensitive field resolution when reading from Parquet/ORC |  Major | SQL | Chenxiao Mao | Chenxiao Mao |
+| [SPARK-25132](https://issues.apache.org/jira/browse/SPARK-25132) | Case-insensitive field resolution when reading from Parquet |  Major | SQL | Chenxiao Mao | Chenxiao Mao |
 | [SPARK-25161](https://issues.apache.org/jira/browse/SPARK-25161) | Fix several bugs in failure handling of barrier execution mode |  Major | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-25149](https://issues.apache.org/jira/browse/SPARK-25149) | Personalized PageRank raises an error if vertexIDs are \> MaxInt |  Major | GraphX | Bago Amirbekian | Bago Amirbekian |
+| [SPARK-25114](https://issues.apache.org/jira/browse/SPARK-25114) | RecordBinaryComparator may return wrong result when subtraction between two words is divisible by Integer.MAX\_VALUE |  Blocker | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-25159](https://issues.apache.org/jira/browse/SPARK-25159) | json schema inference should only trigger one job |  Major | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-25181](https://issues.apache.org/jira/browse/SPARK-25181) | Block Manager master and slave thread pools are unbounded |  Major | Spark Core | Mukul Murthy | Mukul Murthy |
+| [SPARK-25163](https://issues.apache.org/jira/browse/SPARK-25163) | Flaky test: o.a.s.util.collection.ExternalAppendOnlyMapSuite.spilling with compression |  Major | Tests | Shixiong Zhu | Liang-Chi Hsieh |
+| [SPARK-25167](https://issues.apache.org/jira/browse/SPARK-25167) | Minor fixes for R sql tests (tests that fail in development environment) |  Minor | SparkR | Dilip Biswal | Dilip Biswal |
 
 
 ### TESTS:
@@ -926,6 +936,9 @@
 | [SPARK-23555](https://issues.apache.org/jira/browse/SPARK-23555) | Add BinaryType support for Arrow in PySpark |  Major | PySpark | Bryan Cutler | Bryan Cutler |
 | [SPARK-24863](https://issues.apache.org/jira/browse/SPARK-24863) | Report offset lag as a custom metrics for Kafka structured streaming source |  Major | Structured Streaming | Arun Mahadevan | Arun Mahadevan |
 | [SPARK-25160](https://issues.apache.org/jira/browse/SPARK-25160) | Remove sql configuration spark.sql.avro.outputTimestampType |  Major | SQL | Gengliang Wang | Gengliang Wang |
+| [SPARK-24296](https://issues.apache.org/jira/browse/SPARK-24296) | Support replicating blocks larger than 2 GB |  Major | Block Manager, Spark Core | Imran Rashid | Imran Rashid |
+| [SPARK-6236](https://issues.apache.org/jira/browse/SPARK-6236) | Support caching blocks larger than 2G |  Major | Shuffle, Spark Core | Reynold Xin |  |
+| [SPARK-25127](https://issues.apache.org/jira/browse/SPARK-25127) | DataSourceV2: Remove SupportsPushDownCatalystFilters |  Major | SQL | Ryan Blue | Reynold Xin |
 
 
 ### OTHER:
@@ -962,5 +975,6 @@
 | [SPARK-23451](https://issues.apache.org/jira/browse/SPARK-23451) | Deprecate KMeans computeCost |  Trivial | ML | Marco Gaido | Marco Gaido |
 | [SPARK-25015](https://issues.apache.org/jira/browse/SPARK-25015) | Update Hadoop 2.7 to 2.7.7 |  Minor | Build | Sean Owen | Sean Owen |
 | [SPARK-25063](https://issues.apache.org/jira/browse/SPARK-25063) | Rename class KnowNotNull to KnownNotNull |  Trivial | SQL | Maryann Xue | Maryann Xue |
+| [SPARK-25095](https://issues.apache.org/jira/browse/SPARK-25095) | Python support for BarrierTaskContext |  Major | PySpark | Jiang Xingbo | Jiang Xingbo |
 
 

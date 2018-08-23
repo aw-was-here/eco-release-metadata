@@ -16,23 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Hadoop Changelog
+# Apache HBase Changelog
 
-## Release 3.0.x - Unreleased (as of 2018-08-23)
-
-
-
-### BUG FIXES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-8382](https://issues.apache.org/jira/browse/YARN-8382) | cgroup file leak in NM |  Major | nodemanager | Hu Ziqian | Hu Ziqian |
+## Release 1.4.8 - Unreleased (as of 2018-08-23)
 
 
-### SUB-TASKS:
+
+### TESTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YARN-4677](https://issues.apache.org/jira/browse/YARN-4677) | RMNodeResourceUpdateEvent update from scheduler can lead to race condition |  Major | graceful, resourcemanager, scheduler | Brook Zhou | Wilfred Spiegelenburg |
+| [HBASE-21076](https://issues.apache.org/jira/browse/HBASE-21076) | TestTableResource fails with NPE |  Major | REST, test | Ted Yu | Sean Busbey |
 
 

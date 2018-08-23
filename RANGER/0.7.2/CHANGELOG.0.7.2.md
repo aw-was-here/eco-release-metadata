@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 0.7.2 - Unreleased (as of 2018-08-21)
+## Release 0.7.2 - Unreleased (as of 2018-08-23)
 
 
 

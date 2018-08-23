@@ -1237,6 +1237,7 @@
 | [HIVE-18762](https://issues.apache.org/jira/browse/HIVE-18762) | Support ALTER TABLE SET OWNER command |  Major | Metastore | kalyan kumar kalvagadda | Sergio Peña |
 | [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251) | ObjectStore.getNextNotification with LIMIT should use less memory |  Major | repl, Standalone Metastore | Daniel Dai | Daniel Dai |
 | [HIVE-18427](https://issues.apache.org/jira/browse/HIVE-18427) | stackoverflow in calcite |  Major | . | Sergey Shelukhin | Jesus Camacho Rodriguez |
+| [HIVE-18768](https://issues.apache.org/jira/browse/HIVE-18768) | Use Datanucleus to serialize notification updates |  Major | Metastore | Alexander Kolbasov | Alexander Kolbasov |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.1.2 - Unreleased (as of 2018-08-21)
+## Release 3.1.2 - Unreleased (as of 2018-08-23)
 
 
 
@@ -52,6 +52,7 @@
 | [HDFS-13732](https://issues.apache.org/jira/browse/HDFS-13732) | ECAdmin should print the policy name when an EC policy is set |  Trivial | erasure-coding, tools | Soumyapn | Zsolt Venczel |
 | [HADOOP-9214](https://issues.apache.org/jira/browse/HADOOP-9214) | Create a new touch command to allow modifying atime and mtime |  Minor | tools | Brian Burton | Hrishikesh Gadre |
 | [YARN-8242](https://issues.apache.org/jira/browse/YARN-8242) | YARN NM: OOM error while reading back the state store on recovery |  Critical | yarn | Kanwaljeet Sachdev | Pradeep Ambati |
+| [HDFS-13821](https://issues.apache.org/jira/browse/HDFS-13821) | RBF: Add dfs.federation.router.mount-table.cache.enable so that users can disable cache |  Major | hdfs | Fei Hui | Fei Hui |
 
 
 ### BUG FIXES:

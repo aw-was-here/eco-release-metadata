@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-08-21)
+## Release 2.1.0 - Unreleased (as of 2018-08-23)
 
 
 
@@ -80,6 +80,7 @@
 | [SENTRY-2200](https://issues.apache.org/jira/browse/SENTRY-2200) | Migrate 3.x Datanucleus unsupported configurations to 4.1 Datanucleus |  Major | Sentry | Na Li | Xinran Tinney |
 | [SENTRY-2212](https://issues.apache.org/jira/browse/SENTRY-2212) | smart-apply-patch.sh isn't so smart, won't apply changes when files have been moved or renamed |  Major | Build | Steve Moist | Steve Moist |
 | [SENTRY-2214](https://issues.apache.org/jira/browse/SENTRY-2214) | Sentry should not allow URI grants to EMPTY or NULL locations |  Major | . | Arjun Mishra | Arjun Mishra |
+| [SENTRY-2226](https://issues.apache.org/jira/browse/SENTRY-2226) | Support Hive operation ALTER TABLE EXCHANGE |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2262](https://issues.apache.org/jira/browse/SENTRY-2262) | Sentry client is not compatible when connecting to Sentry 2.0 |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2267](https://issues.apache.org/jira/browse/SENTRY-2267) | Listing user privileges fails because roleName field is required on Thrift |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2270](https://issues.apache.org/jira/browse/SENTRY-2270) | Illegal privileges on columns can be granted on Hive |  Major | Sentry | Sergio Peña | Sergio Peña |
@@ -96,6 +97,7 @@
 | [SENTRY-2330](https://issues.apache.org/jira/browse/SENTRY-2330) | Change sentry-service-server to use ${project.version} |  Minor | Sentry | Steve Moist | Steve Moist |
 | [SENTRY-2352](https://issues.apache.org/jira/browse/SENTRY-2352) | User roles with ALTER on a table can not show or describe the table on which they have ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2308](https://issues.apache.org/jira/browse/SENTRY-2308) | Create privilege on table has no use case |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2359](https://issues.apache.org/jira/browse/SENTRY-2359) | Object owner is unable to grant privileges: SentryAccessDeniedException |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### TESTS:
@@ -147,6 +149,9 @@
 | [SENTRY-2339](https://issues.apache.org/jira/browse/SENTRY-2339) | Support transfer of ownership for database/table to roles |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2358](https://issues.apache.org/jira/browse/SENTRY-2358) | Close JIRA version for 2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
 | [SENTRY-2355](https://issues.apache.org/jira/browse/SENTRY-2355) | Merge the DB owner privileges configurations into one enum configuration |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2363](https://issues.apache.org/jira/browse/SENTRY-2363) | Update the wiki "How to release sentry" |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2364](https://issues.apache.org/jira/browse/SENTRY-2364) | Make an announcement for 2.0.1 release |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2307](https://issues.apache.org/jira/browse/SENTRY-2307) | Avoid HMS event synchronization while sentry is fetching full snapshot. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
 ### OTHER:
@@ -156,7 +161,6 @@
 | [SENTRY-2096](https://issues.apache.org/jira/browse/SENTRY-2096) | Fail unit tests at end during test-patch.py execution |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2118](https://issues.apache.org/jira/browse/SENTRY-2118) | Document Configuration required to make Column authentication work |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2215](https://issues.apache.org/jira/browse/SENTRY-2215) | Remove unused SentryGrantRevokeTask class |  Minor | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2226](https://issues.apache.org/jira/browse/SENTRY-2226) | Support Hive operation ALTER TABLE EXCHANGE |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2199](https://issues.apache.org/jira/browse/SENTRY-2199) | Bump Hive version from 2.3.2 to 2.3.3 |  Major | Sentry | Sergio Peña | Arjun Mishra |
 | [SENTRY-2056](https://issues.apache.org/jira/browse/SENTRY-2056) | Display test-patch.py output on the standard console to see progress on Jenkins |  Major | Sentry | Sergio Peña | kalyan kumar kalvagadda |
 | [SENTRY-2277](https://issues.apache.org/jira/browse/SENTRY-2277) | Add to SentryStore testURI test case testing with multiple URI privileges |  Major | Sentry | Arjun Mishra | Arjun Mishra |
