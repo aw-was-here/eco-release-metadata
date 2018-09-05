@@ -70,4 +70,11 @@ In addition to fixing issues with Docker containers not creating certain reports
 Apache Yetus will no longer process patches that have filenames or directories that only differ by case.
 
 
+---
+
+* [YETUS-591](https://issues.apache.org/jira/browse/YETUS-591) | *Major* | **Match git SHA1 with github pull request #**
+
+test-patch now supports the 'GHSHA:' string to use a way to locate the GitHub pull request to use.  This allows for various continuous integration systems that only expose the SHA rather than the pull request number ('GH:') to be used with test-patch.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.9.2 - Unreleased (as of 2018-08-23)
+## Release 0.9.2 - Unreleased (as of 2018-09-05)
 
 
 
@@ -78,6 +78,7 @@
 | [TEZ-3934](https://issues.apache.org/jira/browse/TEZ-3934) | LegacySpeculator sometime issues wrong number of speculative attempts |  Major | . | Jonathan Eagles | Nishant Dash |
 | [TEZ-3974](https://issues.apache.org/jira/browse/TEZ-3974) | Tez: Correctness regression of TEZ-955 in TEZ-2937 |  Critical | . | Gopal V | Jaume M |
 | [TEZ-3978](https://issues.apache.org/jira/browse/TEZ-3978) | DAGClientServer Socket exception when localhost name lookup failures |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3980](https://issues.apache.org/jira/browse/TEZ-3980) | ShuffleRunner: the wake loop needs to check for shutdown |  Major | . | Gopal V | Gopal V |
 
 
 ### SUB-TASKS:
@@ -96,5 +97,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3880](https://issues.apache.org/jira/browse/TEZ-3880) | do not count rejected tasks as killed in vertex progress |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [TEZ-3905](https://issues.apache.org/jira/browse/TEZ-3905) | Change BUILDING.TXT to minimum JDK 1.8 |  Trivial | . | Eric Wohlstadter | Eric Wohlstadter |
+| [TEZ-3977](https://issues.apache.org/jira/browse/TEZ-3977) | Add Eric Wohlstadter's public key to KEYS |  Major | . | Eric Wohlstadter | Eric Wohlstadter |
 
 

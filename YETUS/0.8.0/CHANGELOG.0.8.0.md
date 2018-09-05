@@ -18,7 +18,7 @@
 -->
 # Apache Yetus Changelog
 
-## Release 0.8.0 - Unreleased (as of 2018-08-23)
+## Release 0.8.0 - 2018-08-24
 
 
 
@@ -39,6 +39,8 @@
 | [YETUS-46](https://issues.apache.org/jira/browse/YETUS-46) | releasedocmaker should support JIRA authentication |  Major | Release Doc Maker | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-45](https://issues.apache.org/jira/browse/YETUS-45) | the test patch script should check for filenames that differ only in case |  Major | Test Patch | Owen O'Malley | Allen Wittenauer |
 | [YETUS-658](https://issues.apache.org/jira/browse/YETUS-658) | Built-in Support For Unit Test Excluding |  Critical | Test Patch | Jack Bearden | Jack Bearden |
+| [YETUS-591](https://issues.apache.org/jira/browse/YETUS-591) | Match git SHA1 with github pull request # |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-640](https://issues.apache.org/jira/browse/YETUS-640) | add hadolint (Dockerfile linter) support |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### IMPROVEMENTS:
@@ -79,6 +81,8 @@
 | [YETUS-661](https://issues.apache.org/jira/browse/YETUS-661) | ant/gradle/maven assumes container $HOME and host $HOME are the same |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 | [YETUS-646](https://issues.apache.org/jira/browse/YETUS-646) | curl grabbed the wrong patch |  Critical | Test Patch | Allen Wittenauer | Sean Busbey |
 | [YETUS-660](https://issues.apache.org/jira/browse/YETUS-660) | checkstyle should report when it fails to execute |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-671](https://issues.apache.org/jira/browse/YETUS-671) | Remove 0.4.0 and 0.5.0 symlinks |  Major | website and documentation | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-672](https://issues.apache.org/jira/browse/YETUS-672) | unit-test-filter-file.example and javadoc's script.js need an asf license exception |  Major | Test Patch | Allen Wittenauer | Allen Wittenauer |
 
 
 ### TESTS:
@@ -94,5 +98,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YETUS-630](https://issues.apache.org/jira/browse/YETUS-630) | Add HDDS subproject to the Hadoop personality |  Major | Test Patch | Elek, Marton | Elek, Marton |
 | [YETUS-668](https://issues.apache.org/jira/browse/YETUS-668) | EOL 0.4.0 and 0.5.0 |  Major | build, website and documentation | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-669](https://issues.apache.org/jira/browse/YETUS-669) | 0.8.0 Release |  Major | build | Allen Wittenauer | Allen Wittenauer |
 
 

@@ -120,6 +120,7 @@
 | [SENTRY-1812](https://issues.apache.org/jira/browse/SENTRY-1812) | Provide interactive Sentry CLI |  Major | Sentry | Alexander Kolbasov | Colm O hEigeartaigh |
 | [SENTRY-2062](https://issues.apache.org/jira/browse/SENTRY-2062) | Support the new Hive 2.3.2 DbNotificationListener |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2076](https://issues.apache.org/jira/browse/SENTRY-2076) | Some test artifacts are not defined at test scope |  Minor | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
+| [SENTRY-1896](https://issues.apache.org/jira/browse/SENTRY-1896) | Optimize retrieving entities by other entity types |  Major | Sentry | Arjun Mishra | Arjun Mishra |
 
 
 ### BUG FIXES:

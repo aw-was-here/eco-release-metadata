@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-08-23)
+## Release 2.4.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -164,6 +164,7 @@
 | [HIVE-19605](https://issues.apache.org/jira/browse/HIVE-19605) | TAB\_COL\_STATS table has no index on db/table name |  Major | Metastore | Todd Lipcon | Vihang Karajgaonkar |
 | [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251) | ObjectStore.getNextNotification with LIMIT should use less memory |  Major | repl, Standalone Metastore | Daniel Dai | Daniel Dai |
 | [HIVE-18624](https://issues.apache.org/jira/browse/HIVE-18624) | Parsing time is extremely high (~10 min) for queries with complex select expressions |  Major | Hive, Parser | Amruth S | Zoltan Haindrich |
+| [HIVE-20453](https://issues.apache.org/jira/browse/HIVE-20453) | backport HIVE-16233 (LLAP cache defragmentation) to branch-2 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 
 
 ### TESTS:

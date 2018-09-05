@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-08-23)
+## Release 1.7.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -34,10 +34,10 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [FLINK-9688](https://issues.apache.org/jira/browse/FLINK-9688) | ATAN2 Sql Function support |  Minor | Table API & SQL | Sergey Nuyanzin | Sergey Nuyanzin |
-| [FLINK-9928](https://issues.apache.org/jira/browse/FLINK-9928) | Add LOG2 function for table/sql API |  Minor | Table API & SQL | vinoyang | vinoyang |
 | [FLINK-7812](https://issues.apache.org/jira/browse/FLINK-7812) | Log system resources as metrics |  Major | Metrics | Piotr Nowojski | Piotr Nowojski |
 | [FLINK-10022](https://issues.apache.org/jira/browse/FLINK-10022) | Add metrics for input/output buffers |  Major | Metrics, Network | Nico Kruber | Nico Kruber |
 | [FLINK-9850](https://issues.apache.org/jira/browse/FLINK-9850) | Add a string to the print method to identify output for DataStream |  Major | DataStream API | Hequn Cheng | vinoyang |
+| [FLINK-10163](https://issues.apache.org/jira/browse/FLINK-10163) | Support CREATE VIEW in SQL Client |  Major | Table API & SQL | Timo Walther | Timo Walther |
 
 
 ### IMPROVEMENTS:
@@ -76,6 +76,12 @@
 | [FLINK-10082](https://issues.apache.org/jira/browse/FLINK-10082) | Initialize StringBuilder in Slf4jReporter with estimated size |  Major | Metrics | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10181](https://issues.apache.org/jira/browse/FLINK-10181) | Add anchor link to individual rest requests |  Major | Documentation, REST | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10164](https://issues.apache.org/jira/browse/FLINK-10164) | Add support for resuming from savepoints to StandaloneJobClusterEntrypoint |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
+| [FLINK-10233](https://issues.apache.org/jira/browse/FLINK-10233) | Undeprecate ConfigOption#withDescription(String) |  Major | Configuration, Core | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10137](https://issues.apache.org/jira/browse/FLINK-10137) | YARN: Log completed Containers |  Major | Distributed Coordination, ResourceManager, YARN | Gary Yao | Gary Yao |
+| [FLINK-9642](https://issues.apache.org/jira/browse/FLINK-9642) | Add caching layer to SharedBuffer |  Major | CEP | aitozi | aitozi |
+| [FLINK-10270](https://issues.apache.org/jira/browse/FLINK-10270) | Delete LegacyRestHandlerAdapter |  Major | REST | Gary Yao | Gary Yao |
+| [FLINK-7551](https://issues.apache.org/jira/browse/FLINK-7551) | Add VERSION to the REST urls. |  Critical | REST | Kostas Kloudas | Chesnay Schepler |
+| [FLINK-10186](https://issues.apache.org/jira/browse/FLINK-10186) | Use ThreadLocalRandom in BufferSpiller constructor |  Major | Streaming | Hiroaki Yoshida | Hiroaki Yoshida |
 
 
 ### BUG FIXES:
@@ -104,6 +110,14 @@
 | [FLINK-10187](https://issues.apache.org/jira/browse/FLINK-10187) | Fix LogicalUnnestRule to match Correlate/Uncollect correctly |  Major | Table API & SQL | Shuyi Chen | Shuyi Chen |
 | [FLINK-10172](https://issues.apache.org/jira/browse/FLINK-10172) | Inconsistentcy in ExpressionParser and ExpressionDsl for order by asc/desc |  Major | Table API & SQL | Rong Rong | Rong Rong |
 | [FLINK-10175](https://issues.apache.org/jira/browse/FLINK-10175) | Fix concurrent access to shared buffer in map state / querable state |  Critical | State Backends, Checkpointing | Stefan Richter | Stefan Richter |
+| [FLINK-10204](https://issues.apache.org/jira/browse/FLINK-10204) | StreamElementSerializer#copy broken for LatencyMarkers |  Major | Metrics, Streaming | Ben La Monica | Ben La Monica |
+| [FLINK-10192](https://issues.apache.org/jira/browse/FLINK-10192) | SQL Client table visualization mode does not update correctly |  Major | Table API & SQL | Fabian Hueske | Timo Walther |
+| [FLINK-10189](https://issues.apache.org/jira/browse/FLINK-10189) | FindBugs warnings: Inefficient use of keySet iterator instead of entrySet iterator |  Major | Streaming, Streaming Connectors | Hiroaki Yoshida | Hiroaki Yoshida |
+| [FLINK-10138](https://issues.apache.org/jira/browse/FLINK-10138) | Queryable state (rocksdb) end-to-end test failed on Travis |  Blocker | Queryable State, Tests | Till Rohrmann |  |
+| [FLINK-10142](https://issues.apache.org/jira/browse/FLINK-10142) | Reduce synchronization overhead for credit notifications |  Major | Network | Nico Kruber | Nico Kruber |
+| [FLINK-10141](https://issues.apache.org/jira/browse/FLINK-10141) | Reduce lock contention introduced with 1.5 |  Major | Network | Nico Kruber | Nico Kruber |
+| [FLINK-10115](https://issues.apache.org/jira/browse/FLINK-10115) | Content-length limit is also applied to FileUploads |  Major | REST, Webfrontend | Yazdan Shirvany | Chesnay Schepler |
+| [FLINK-10150](https://issues.apache.org/jira/browse/FLINK-10150) | Chained batch operators interfere with each other other |  Blocker | Metrics, Webfrontend | Helmut Zechmann | Chesnay Schepler |
 
 
 ### TESTS:
@@ -113,6 +127,7 @@
 | [FLINK-5860](https://issues.apache.org/jira/browse/FLINK-5860) | Replace all the file creating from java.io.tmpdir with TemporaryFolder |  Major | Tests | shijinkui | Mahesh Senniappan |
 | [FLINK-10084](https://issues.apache.org/jira/browse/FLINK-10084) | Migration tests weren't updated for 1.5 |  Critical | Tests | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10139](https://issues.apache.org/jira/browse/FLINK-10139) | Update migration tests for 1.6 |  Major | Tests | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10201](https://issues.apache.org/jira/browse/FLINK-10201) | The batchTestUtil was mistakenly used in some stream sql tests |  Minor | Table API & SQL | Xingcan Cui | Xingcan Cui |
 
 
 ### SUB-TASKS:
@@ -123,6 +138,7 @@
 | [FLINK-6846](https://issues.apache.org/jira/browse/FLINK-6846) | Add TIMESTAMPADD supported in TableAPI |  Major | Table API & SQL | sunjincheng | sunjincheng |
 | [FLINK-9915](https://issues.apache.org/jira/browse/FLINK-9915) | Add TO\_BASE64 function for table/sql API |  Minor | Table API & SQL | vinoyang | vinoyang |
 | [FLINK-9916](https://issues.apache.org/jira/browse/FLINK-9916) | Add FROM\_BASE64 function for table/sql API |  Minor | . | vinoyang | vinoyang |
+| [FLINK-9928](https://issues.apache.org/jira/browse/FLINK-9928) | Add LOG2 function for table/sql API |  Minor | Table API & SQL | vinoyang | vinoyang |
 | [FLINK-9135](https://issues.apache.org/jira/browse/FLINK-9135) | Remove AggregateReduceFunctionsRule once CALCITE-2216 is fixed |  Major | Table API & SQL | Fabian Hueske | Shuyi Chen |
 | [FLINK-9637](https://issues.apache.org/jira/browse/FLINK-9637) | Add public user documentation for TTL feature |  Major | State Backends, Checkpointing | Andrey Zagrebin | Andrey Zagrebin |
 | [FLINK-10087](https://issues.apache.org/jira/browse/FLINK-10087) | Update BucketingSinkMigrationTest |  Major | filesystem-connector | Chesnay Schepler | Chesnay Schepler |
@@ -132,9 +148,11 @@
 | [FLINK-10091](https://issues.apache.org/jira/browse/FLINK-10091) | Update WindowOperatorMigrationTest |  Major | Streaming | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10092](https://issues.apache.org/jira/browse/FLINK-10092) | Update StatefulJobSavepointMigrationITCase |  Major | State Backends, Checkpointing | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10109](https://issues.apache.org/jira/browse/FLINK-10109) | Add documentation for StreamingFileSink |  Major | Streaming Connectors | Aljoscha Krettek | Aljoscha Krettek |
-| [FLINK-7205](https://issues.apache.org/jira/browse/FLINK-7205) | Add UUID supported in TableAPI/SQL |  Major | Table API & SQL | sunjincheng | buptljy |
+| [FLINK-7205](https://issues.apache.org/jira/browse/FLINK-7205) | Add UUID supported in TableAPI/SQL |  Major | Table API & SQL | sunjincheng | Jiayi Liao |
 | [FLINK-5232](https://issues.apache.org/jira/browse/FLINK-5232) | Add a Thread default uncaught exception handler on the JobManager |  Major | JobManager | Stephan Ewen | vinoyang |
 | [FLINK-10059](https://issues.apache.org/jira/browse/FLINK-10059) | Add LTRIM supported in Table API and SQL |  Minor | Table API & SQL | vinoyang | vinoyang |
 | [FLINK-10060](https://issues.apache.org/jira/browse/FLINK-10060) | Add RTRIM supported in Table API and SQL |  Minor | . | vinoyang | vinoyang |
+| [FLINK-9781](https://issues.apache.org/jira/browse/FLINK-9781) | scala-maven-plugin fails on java 9 |  Major | Build System, Scala API | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10207](https://issues.apache.org/jira/browse/FLINK-10207) | Bump checkstyle-plugin to 8.9 |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
 
 

@@ -19,9 +19,6 @@
 * Apache Hadoop v3.2.0
     * [Changelog](3.2.0/CHANGELOG.3.2.0.html)
     * [Release Notes](3.2.0/RELEASENOTES.3.2.0.html)
-* Apache Hadoop v3.2
-    * [Changelog](3.2/CHANGELOG.3.2.html)
-    * [Release Notes](3.2/RELEASENOTES.3.2.html)
 * Apache Hadoop v3.1.2
     * [Changelog](3.1.2/CHANGELOG.3.1.2.html)
     * [Release Notes](3.1.2/RELEASENOTES.3.1.2.html)
@@ -31,9 +28,6 @@
 * Apache Hadoop v3.1.0
     * [Changelog](3.1.0/CHANGELOG.3.1.0.html)
     * [Release Notes](3.1.0/RELEASENOTES.3.1.0.html)
-* Apache Hadoop v3.0.x
-    * [Changelog](3.0.x/CHANGELOG.3.0.x.html)
-    * [Release Notes](3.0.x/RELEASENOTES.3.0.x.html)
 * Apache Hadoop v3.0.4
     * [Changelog](3.0.4/CHANGELOG.3.0.4.html)
     * [Release Notes](3.0.4/RELEASENOTES.3.0.4.html)

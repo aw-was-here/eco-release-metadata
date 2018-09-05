@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-08-23)
+## Release 1.6.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -320,7 +320,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-6924](https://issues.apache.org/jira/browse/FLINK-6924) | ADD LOG(X) supported in TableAPI |  Major | Table API & SQL | sunjincheng | buptljy |
+| [FLINK-6924](https://issues.apache.org/jira/browse/FLINK-6924) | ADD LOG(X) supported in TableAPI |  Major | Table API & SQL | sunjincheng | Jiayi Liao |
 | [FLINK-8537](https://issues.apache.org/jira/browse/FLINK-8537) | Add a Kafka table source factory with Avro format support |  Major | Table API & SQL | Timo Walther | Xingcan Cui |
 | [FLINK-8978](https://issues.apache.org/jira/browse/FLINK-8978) | End-to-end test: Job upgrade |  Blocker | Tests | Till Rohrmann | Andrey Zagrebin |
 | [FLINK-9181](https://issues.apache.org/jira/browse/FLINK-9181) | Add SQL Client documentation page |  Major | Table API & SQL | Timo Walther | Timo Walther |

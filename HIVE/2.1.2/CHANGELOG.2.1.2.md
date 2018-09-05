@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.1.2 - Unreleased (as of 2018-08-23)
+## Release 2.1.2 - Unreleased (as of 2018-09-05)
 
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.10.0 - Unreleased (as of 2018-08-23)
+## Release 0.10.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -34,6 +34,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3916](https://issues.apache.org/jira/browse/TEZ-3916) | Add hadoop-azure-datalake jar to azure profile |  Critical | . | Eric Wohlstadter | Eric Wohlstadter |
+| [TEZ-3958](https://issues.apache.org/jira/browse/TEZ-3958) | Add internal vertex priority information into the tez dag.dot debug information |  Major | . | Gopal V | Jaume M |
 
 
 ### BUG FIXES:
@@ -67,6 +68,7 @@
 | [TEZ-3934](https://issues.apache.org/jira/browse/TEZ-3934) | LegacySpeculator sometime issues wrong number of speculative attempts |  Major | . | Jonathan Eagles | Nishant Dash |
 | [TEZ-3974](https://issues.apache.org/jira/browse/TEZ-3974) | Tez: Correctness regression of TEZ-955 in TEZ-2937 |  Critical | . | Gopal V | Jaume M |
 | [TEZ-3978](https://issues.apache.org/jira/browse/TEZ-3978) | DAGClientServer Socket exception when localhost name lookup failures |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3980](https://issues.apache.org/jira/browse/TEZ-3980) | ShuffleRunner: the wake loop needs to check for shutdown |  Major | . | Gopal V | Gopal V |
 
 
 ### SUB-TASKS:
@@ -90,5 +92,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [TEZ-3923](https://issues.apache.org/jira/browse/TEZ-3923) | Move master to Hadoop 3+ and create separate 0.9.x line |  Major | . | Eric Wohlstadter | Jonathan Eagles |
+| [TEZ-3977](https://issues.apache.org/jira/browse/TEZ-3977) | Add Eric Wohlstadter's public key to KEYS |  Major | . | Eric Wohlstadter | Eric Wohlstadter |
 
 

@@ -427,6 +427,7 @@
 | [RANGER-1879](https://issues.apache.org/jira/browse/RANGER-1879) | Yarn disable plugin script doesn't work |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1880](https://issues.apache.org/jira/browse/RANGER-1880) | TagSync update to process TRAIT\_UPDATE notification from Atlas |  Major | tagsync | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1868](https://issues.apache.org/jira/browse/RANGER-1868) | Good coding practice in Ranger recommended by static code analysis |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
+| [RANGER-1883](https://issues.apache.org/jira/browse/RANGER-1883) | TagSync should reuse kerberos ticket in REST calls to Ranger Admin |  Major | tagsync | Madhan Neethiraj | Abhay Kulkarni |
 | [RANGER-1884](https://issues.apache.org/jira/browse/RANGER-1884) | Default Policy is not created for Ranger KMS and Tag service |  Critical | Ranger | bhavik patel | bhavik patel |
 | [RANGER-1864](https://issues.apache.org/jira/browse/RANGER-1864) | Resources are not rendering correctly in policy create/edit page. |  Major | Ranger | Madhan Neethiraj | Nitin Galave |
 | [RANGER-1861](https://issues.apache.org/jira/browse/RANGER-1861) | There are errors when the "ranger-kms start" command was executed. |  Major | kms | peng.jianhua | peng.jianhua |
@@ -480,6 +481,7 @@
 | [RANGER-2105](https://issues.apache.org/jira/browse/RANGER-2105) | Ranger HiveAuthorization for INSERT OVERWRITE DIRECTORY |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-2120](https://issues.apache.org/jira/browse/RANGER-2120) | Include protobuf-java.jar to Ranger Kafka plugin dependencies |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-2117](https://issues.apache.org/jira/browse/RANGER-2117) | RangerKafkaAuthorizer to support new resources and operations which are in Apache Kafka 1.0.0 |  Major | Ranger | Ramesh Mani | Ramesh Mani |
+| [RANGER-1886](https://issues.apache.org/jira/browse/RANGER-1886) | TagSync updates for the changes in Atlas API |  Major | tagsync | Madhan Neethiraj | Madhan Neethiraj |
 
 
 ### TESTS:

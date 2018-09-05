@@ -262,6 +262,7 @@
 | [IMPALA-6028](https://issues.apache.org/jira/browse/IMPALA-6028) | Document max\_row\_size for upgrade awareness |  Blocker | Docs | Balazs Jeszenszky | John Russell |
 | [IMPALA-5499](https://issues.apache.org/jira/browse/IMPALA-5499) | session-expiry-test failed because of conflicting ephemeral ports |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
 | [IMPALA-6873](https://issues.apache.org/jira/browse/IMPALA-6873) | Crash in Expr::GetConstVal() due to NULL dereference |  Blocker | Backend | bharath v |  |
+| [IMPALA-6065](https://issues.apache.org/jira/browse/IMPALA-6065) | Document IMPALA-5743 |  Major | Docs | Tim Armstrong | Alex Rodoni |
 
 
 ### TESTS:

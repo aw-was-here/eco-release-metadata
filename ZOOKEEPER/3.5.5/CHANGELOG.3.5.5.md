@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.5 - Unreleased (as of 2018-08-23)
+## Release 3.5.5 - Unreleased (as of 2018-09-05)
 
 
 
@@ -62,6 +62,7 @@
 | [ZOOKEEPER-3042](https://issues.apache.org/jira/browse/ZOOKEEPER-3042) | testFailedTxnAsPartOfQuorumLoss is flaky |  Minor | tests | Bogdan Kanivets | Bogdan Kanivets |
 | [ZOOKEEPER-3093](https://issues.apache.org/jira/browse/ZOOKEEPER-3093) | sync zerror(int rc) with newest error definitions |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
 | [ZOOKEEPER-2251](https://issues.apache.org/jira/browse/ZOOKEEPER-2251) | Add Client side packet response timeout to avoid infinite wait. |  Critical | java client | nijel | Mohammad Arshad |
+| [ZOOKEEPER-2913](https://issues.apache.org/jira/browse/ZOOKEEPER-2913) | testEphemeralNodeDeletion is flaky |  Major | tests | Patrick Hunt | maoling |
 
 
 ### TESTS:
@@ -81,6 +82,8 @@
 | [ZOOKEEPER-2940](https://issues.apache.org/jira/browse/ZOOKEEPER-2940) | Deal with maxbuffer as it relates to large requests from clients |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-3030](https://issues.apache.org/jira/browse/ZOOKEEPER-3030) | Step 1.3 - Create zk-contrib maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3031](https://issues.apache.org/jira/browse/ZOOKEEPER-3031) | Step 1.4 - Create zk-client maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3080](https://issues.apache.org/jira/browse/ZOOKEEPER-3080) | Step 1.5 - Separate jute structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 
 
 ### OTHER:

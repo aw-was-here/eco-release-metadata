@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.13.0 - Unreleased (as of 2018-08-23)
+## Release Impala 2.13.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -82,7 +82,6 @@
 | [IMPALA-6719](https://issues.apache.org/jira/browse/IMPALA-6719) | refresh function case sensitivity |  Major | Frontend | Vuk Ercegovac | Fredy Wijaya |
 | [IMPALA-6571](https://issues.apache.org/jira/browse/IMPALA-6571) | NullPointerException in SHOW CREATE TABLE for HBase tables |  Major | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6771](https://issues.apache.org/jira/browse/IMPALA-6771) | Incorrect results introduced by IMPALA-6621 |  Blocker | Backend | Mostafa Mokhtar | Bikramjeet Vig |
-| [IMPALA-6389](https://issues.apache.org/jira/browse/IMPALA-6389) | Crash when querying table with "\\0" as a row delimiter |  Blocker | Backend | Tim Armstrong | Zach Amsden |
 | [IMPALA-6761](https://issues.apache.org/jira/browse/IMPALA-6761) | delimited-text-parser-test fails in ASAN build |  Blocker | Backend | Michael Ho | Zach Amsden |
 | [IMPALA-6711](https://issues.apache.org/jira/browse/IMPALA-6711) | Flaky test: TestImpalaShellInteractive.test\_multiline\_queries\_in\_history |  Critical | Infrastructure | Taras Bobrovytsky | Tim Armstrong |
 | [IMPALA-2717](https://issues.apache.org/jira/browse/IMPALA-2717) | impala-shell breaks on non-ascii characters in the resultset |  Minor | Clients | Marcell Szabo | Tim Armstrong |
@@ -119,7 +118,6 @@
 | [IMPALA-6337](https://issues.apache.org/jira/browse/IMPALA-6337) | Infinite loop in impala\_shell.py |  Major | Clients | Jinchul Kim | Fredy Wijaya |
 | [IMPALA-6907](https://issues.apache.org/jira/browse/IMPALA-6907) | ImpalaServer::MembershipCallback() may not remove all stale connections to disconnected Impalad nodes |  Major | Distributed Exec | Michael Ho | Michael Ho |
 | [IMPALA-6221](https://issues.apache.org/jira/browse/IMPALA-6221) | Kudu partition clause doc is wrong |  Major | Docs | Thomas Tauber-Marshall | Alex Rodoni |
-| [IMPALA-3813](https://issues.apache.org/jira/browse/IMPALA-3813) | How to handle replication factor while creating KUDU table through impala |  Major | Docs, Frontend | Ravi sharma | Alex Rodoni |
 | [IMPALA-7022](https://issues.apache.org/jira/browse/IMPALA-7022) | TestQueries.test\_subquery: Subquery must not return more than one row |  Blocker | Frontend | Joe McDonnell | Zoltán Borók-Nagy |
 | [IMPALA-6995](https://issues.apache.org/jira/browse/IMPALA-6995) | False-positive DCHECK when converting whitespace-only strings to timestamp |  Critical | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-7025](https://issues.apache.org/jira/browse/IMPALA-7025) | PlannerTest.testTableSample has wrong mem-reservation |  Critical | Frontend | Joe McDonnell | Tim Armstrong |
@@ -182,6 +180,8 @@
 | [IMPALA-7187](https://issues.apache.org/jira/browse/IMPALA-7187) | Fix test\_group\_impersonation when running inside Docker |  Major | Infrastructure | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-7044](https://issues.apache.org/jira/browse/IMPALA-7044) | int32 overflow in HdfsTableSink::CreateNewTmpFile() |  Critical | Backend | Lars Volker | Lars Volker |
 | [IMPALA-7304](https://issues.apache.org/jira/browse/IMPALA-7304) | Impala shouldn't write column indexes for float columns until PARQUET-1222 is resolved |  Blocker | . | Zoltán Borók-Nagy | Zoltán Borók-Nagy |
+| [IMPALA-3813](https://issues.apache.org/jira/browse/IMPALA-3813) | How to handle replication factor while creating KUDU table through impala |  Major | Docs, Frontend | Ravi sharma | Alex Rodoni |
+| [IMPALA-6389](https://issues.apache.org/jira/browse/IMPALA-6389) | Crash when querying table with "\\0" as a row delimiter |  Blocker | Backend | Tim Armstrong | Zach Amsden |
 
 
 ### TESTS:

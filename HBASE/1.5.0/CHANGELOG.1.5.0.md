@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.5.0 - Unreleased (as of 2018-08-23)
+## Release 1.5.0 - Unreleased (as of 2018-09-05)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -94,6 +94,7 @@
 | [HBASE-20845](https://issues.apache.org/jira/browse/HBASE-20845) | Support set the consistency for Gets and Scans in thrift2 |  Major | Thrift | Guangxu Cheng | Guangxu Cheng |
 | [HBASE-20469](https://issues.apache.org/jira/browse/HBASE-20469) | Directory used for sidelining old recovered edits files should be made configurable |  Minor | . | Nihal Jain | Nihal Jain |
 | [HBASE-20387](https://issues.apache.org/jira/browse/HBASE-20387) | flaky infrastructure should work for all branches |  Critical | test | Sean Busbey | Sean Busbey |
+| [HBASE-21126](https://issues.apache.org/jira/browse/HBASE-21126) | Add ability for HBase Canary to ignore a configurable number of ZooKeeper down nodes |  Minor | canary, Zookeeper | David Manning | David Manning |
 
 
 ### BUG FIXES:
@@ -159,6 +160,7 @@
 | [HBASE-20141](https://issues.apache.org/jira/browse/HBASE-20141) | Fix TooManyFiles exception when RefreshingChannels in FileIOEngine |  Major | BucketCache | Zach York | Zach York |
 | [HBASE-19364](https://issues.apache.org/jira/browse/HBASE-19364) | Truncate\_preserve fails with table when replica region \> 1 |  Major | master | Pankaj Kumar | Pankaj Kumar |
 | [HBASE-20292](https://issues.apache.org/jira/browse/HBASE-20292) | Wrong URLs in the descriptions for update\_all\_config and update\_config commands in shell |  Trivial | shell | Toshihiro Suzuki | Toshihiro Suzuki |
+| [HBASE-20261](https://issues.apache.org/jira/browse/HBASE-20261) | Table page (table.jsp) in Master UI does not show replicaIds for hbase meta table |  Minor | UI | Toshihiro Suzuki | Toshihiro Suzuki |
 | [HBASE-20302](https://issues.apache.org/jira/browse/HBASE-20302) | CatalogJanitor should log the reason why it is disabled |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-17631](https://issues.apache.org/jira/browse/HBASE-17631) | Canary interval too low |  Major | canary | Lars George | Jan Hentschel |
 | [HBASE-20322](https://issues.apache.org/jira/browse/HBASE-20322) | CME in StoreScanner causes region server crash |  Major | . | Thiruvel Thirumoolan | Thiruvel Thirumoolan |
@@ -215,11 +217,15 @@
 | [HBASE-20997](https://issues.apache.org/jira/browse/HBASE-20997) | rebuildUserRegions() does not build ReplicaMapping during master switchover |  Major | master | huaxiang sun | huaxiang sun |
 | [HBASE-21007](https://issues.apache.org/jira/browse/HBASE-21007) | Memory leak in HBase rest server |  Critical | REST | Bosko Devetak | Bosko Devetak |
 | [HBASE-21047](https://issues.apache.org/jira/browse/HBASE-21047) | Object creation of StoreFileScanner thru constructor and close may leave refCount to -1 |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
-| [HBASE-20940](https://issues.apache.org/jira/browse/HBASE-20940) | HStore.cansplit should not allow split to happen if it has references |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-21042](https://issues.apache.org/jira/browse/HBASE-21042) | processor.getRowsToLock() always assumes there is some row being locked in HRegion#processRowsWithLocks |  Major | . | Thomas D'Silva | Ted Yu |
 | [HBASE-21074](https://issues.apache.org/jira/browse/HBASE-21074) | JDK7 branches need to pass "-Dhttps.protocols=TLSv1.2" to maven when building |  Major | build, community, test | Sean Busbey | Sean Busbey |
 | [HBASE-21058](https://issues.apache.org/jira/browse/HBASE-21058) | Nightly tests for branches 1 fail to build ref guide |  Major | documentation | Sean Busbey | Sean Busbey |
 | [HBASE-21069](https://issues.apache.org/jira/browse/HBASE-21069) | NPE in StoreScanner.updateReaders causes RS to crash |  Major | . | Thomas D'Silva | Andrew Purtell |
+| [HBASE-20890](https://issues.apache.org/jira/browse/HBASE-20890) | PE filterScan seems to be stuck forever |  Minor | . | Vikas Vishwakarma | Abhishek Goyal |
+| [HBASE-21030](https://issues.apache.org/jira/browse/HBASE-21030) | Correct javadoc for append operation |  Minor | documentation | Nihal Jain | Subrat Mishra |
+| [HBASE-20940](https://issues.apache.org/jira/browse/HBASE-20940) | HStore.cansplit should not allow split to happen if it has references |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
+| [HBASE-21132](https://issues.apache.org/jira/browse/HBASE-21132) | return wrong result in rest multiget |  Major | . | Guangxu Cheng | Guangxu Cheng |
+| [HBASE-21127](https://issues.apache.org/jira/browse/HBASE-21127) | TableRecordReader need to handle cursor result too |  Major | . | Guanghao Zhang | Guanghao Zhang |
 
 
 ### TESTS:
@@ -258,6 +264,7 @@
 | [HBASE-20558](https://issues.apache.org/jira/browse/HBASE-20558) | Backport HBASE-17854 to branch-1 |  Major | HFile | Tak Lon (Stephen) Wu | Tak Lon (Stephen) Wu |
 | [HBASE-20559](https://issues.apache.org/jira/browse/HBASE-20559) | Backport HBASE-18083 to branch-1 |  Major | HFile | Tak Lon (Stephen) Wu | Tak Lon (Stephen) Wu |
 | [HBASE-20974](https://issues.apache.org/jira/browse/HBASE-20974) | Backport HBASE-20583 (SplitLogWorker should handle FileNotFoundException when split a wal) to branch-1 |  Major | . | Pankaj Kumar | Pankaj Kumar |
+| [HBASE-15728](https://issues.apache.org/jira/browse/HBASE-15728) | Add remaining per-table region / store / flush / compaction related metrics |  Major | metrics | Enis Soztutar | Xu Cang |
 
 
 ### OTHER:
@@ -279,5 +286,6 @@
 | [HBASE-19475](https://issues.apache.org/jira/browse/HBASE-19475) | Extend backporting strategy in documentation |  Trivial | documentation | Jan Hentschel | Jan Hentschel |
 | [HBASE-20905](https://issues.apache.org/jira/browse/HBASE-20905) | branch-1 docker build fails |  Major | build | Jingyun Tian | Mike Drob |
 | [HBASE-20931](https://issues.apache.org/jira/browse/HBASE-20931) | [branch-1] Add -Dhttps.protocols=TLSv1.2 to Maven command line in make\_rc.sh |  Trivial | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-20942](https://issues.apache.org/jira/browse/HBASE-20942) | Improve RpcServer TRACE logging |  Major | Operability | Esteban Gutierrez | Krish Dey |
 
 

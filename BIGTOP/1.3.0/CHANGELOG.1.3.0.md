@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-08-23)
+## Release 1.3.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -82,6 +82,7 @@
 | [BIGTOP-3011](https://issues.apache.org/jira/browse/BIGTOP-3011) | zookeeper: support autopurge.purgeInterval and autopurge.snapRetainCount. |  Major | deployment | José Pekkarinen | Kevin W Monroe |
 | [BIGTOP-3047](https://issues.apache.org/jira/browse/BIGTOP-3047) | Add nagios monitoring to zookeeper charm. |  Minor | deployment | José Pekkarinen | Kevin W Monroe |
 | [BIGTOP-3060](https://issues.apache.org/jira/browse/BIGTOP-3060) | juju bundle refresh (august 2018) |  Minor | deployment | Kevin W Monroe | Kevin W Monroe |
+| [BIGTOP-3039](https://issues.apache.org/jira/browse/BIGTOP-3039) | Change git browse link to Github |  Minor | website | Evans Ye | Evans Ye |
 
 
 ### BUG FIXES:

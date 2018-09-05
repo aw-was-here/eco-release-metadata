@@ -215,6 +215,7 @@
 | [IMPALA-5747](https://issues.apache.org/jira/browse/IMPALA-5747) | Crash with --asm\_module\_dir set |  Minor | Backend | Tim Armstrong | Manaswini |
 | [IMPALA-7305](https://issues.apache.org/jira/browse/IMPALA-7305) | membership entry for failed impalad gets stuck in statestore due to race between failure detection and update processing |  Critical | Distributed Exec | Tim Armstrong | Tim Armstrong |
 | [IMPALA-7173](https://issues.apache.org/jira/browse/IMPALA-7173) | [DOCS] load balancer config should add "check" in more places |  Minor | Docs | Laurel Hale | Alex Rodoni |
+| [IMPALA-7513](https://issues.apache.org/jira/browse/IMPALA-7513) | Fix Sentry compilation error in Impala 2.x branch |  Major | Infrastructure | Fredy Wijaya | Fredy Wijaya |
 
 
 ### SUB-TASKS:

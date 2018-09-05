@@ -18,14 +18,29 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.4.8 - Unreleased (as of 2018-08-23)
+## Release 1.4.8 - Unreleased (as of 2018-09-05)
 
 
 
-### TESTS:
+### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-21076](https://issues.apache.org/jira/browse/HBASE-21076) | TestTableResource fails with NPE |  Major | REST, test | Ted Yu | Sean Busbey |
+| [HBASE-21147](https://issues.apache.org/jira/browse/HBASE-21147) | (1.4) Add ability for HBase Canary to ignore a configurable number of ZooKeeper down nodes |  Minor | canary, Zookeeper | David Manning | David Manning |
+
+
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-21030](https://issues.apache.org/jira/browse/HBASE-21030) | Correct javadoc for append operation |  Minor | documentation | Nihal Jain | Subrat Mishra |
+| [HBASE-21127](https://issues.apache.org/jira/browse/HBASE-21127) | TableRecordReader need to handle cursor result too |  Major | . | Guanghao Zhang | Guanghao Zhang |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-20317](https://issues.apache.org/jira/browse/HBASE-20317) | Backport HBASE-20261 "Table page (table.jsp) in Master UI does not show replicaIds for hbase meta table" to branch-1 |  Major | backport | stack | Toshihiro Suzuki |
 
 

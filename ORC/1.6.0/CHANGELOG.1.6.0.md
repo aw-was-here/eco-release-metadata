@@ -18,7 +18,7 @@
 -->
 # Apache Orc Changelog
 
-## Release 1.6.0 - Unreleased (as of 2018-08-23)
+## Release 1.6.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ORC-383](https://issues.apache.org/jira/browse/ORC-383) | Parallel builds fails with ConcurrentModificationException |  Major | . | Prasanth Jayachandran | Prasanth Jayachandran |
+| [ORC-397](https://issues.apache.org/jira/browse/ORC-397) | ORC should allow selectively disabling dictionary-encoding on specified columns |  Major | . | Mithun Radhakrishnan | Mithun Radhakrishnan |
 
 
 ### IMPROVEMENTS:
@@ -41,6 +42,7 @@
 | [ORC-376](https://issues.apache.org/jira/browse/ORC-376) | Add Ubuntu18 docker file |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-386](https://issues.apache.org/jira/browse/ORC-386) | Add new spark file format benchmark |  Major | . | Owen O'Malley | Owen O'Malley |
 | [ORC-393](https://issues.apache.org/jira/browse/ORC-393) | Add ORC snapcraft definition |  Major | . | Owen O'Malley | Owen O'Malley |
+| [ORC-399](https://issues.apache.org/jira/browse/ORC-399) | Move Java compiler to version 8. |  Major | . | Owen O'Malley | Owen O'Malley |
 
 
 ### BUG FIXES:

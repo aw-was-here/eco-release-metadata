@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2018-08-23)
+## Release 3.6.0 - Unreleased (as of 2018-09-05)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -149,6 +149,8 @@
 | [ZOOKEEPER-3095](https://issues.apache.org/jira/browse/ZOOKEEPER-3095) | Connect string fix for non-existent hosts |  Minor | other | Mohamed Jeelani | Mohamed Jeelani |
 | [ZOOKEEPER-3085](https://issues.apache.org/jira/browse/ZOOKEEPER-3085) | Define constant exit code and add documents |  Minor | server | Fangmin Lv | Norbert Kalmar |
 | [ZOOKEEPER-3110](https://issues.apache.org/jira/browse/ZOOKEEPER-3110) | Improve the closeSession throughput in PrepRequestProcessor |  Minor | quorum | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3109](https://issues.apache.org/jira/browse/ZOOKEEPER-3109) | Avoid long unavailable time due to voter changed mind when activating the leader during election |  Major | quorum, server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3116](https://issues.apache.org/jira/browse/ZOOKEEPER-3116) | Make the DataTree.approximateDataSize more efficient |  Minor | server | Fangmin Lv | Fangmin Lv |
 
 
 ### BUG FIXES:
@@ -382,6 +384,7 @@
 | [ZOOKEEPER-3104](https://issues.apache.org/jira/browse/ZOOKEEPER-3104) | Potential data inconsistency due to NEWLEADER packet being sent too early during SNAP sync |  Critical | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-2926](https://issues.apache.org/jira/browse/ZOOKEEPER-2926) | Data inconsistency issue due to the flaw in the session management |  Critical | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-3117](https://issues.apache.org/jira/browse/ZOOKEEPER-3117) |  Correct the LeaderBean.followerInfo to only return the followers list |  Minor | quorum | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-2913](https://issues.apache.org/jira/browse/ZOOKEEPER-2913) | testEphemeralNodeDeletion is flaky |  Major | tests | Patrick Hunt | maoling |
 
 
 ### TESTS:
@@ -437,6 +440,8 @@
 | [ZOOKEEPER-3030](https://issues.apache.org/jira/browse/ZOOKEEPER-3030) | Step 1.3 - Create zk-contrib maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-3103](https://issues.apache.org/jira/browse/ZOOKEEPER-3103) | Pluggable metrics system for ZooKeeper - MetricsProvider API definition |  Major | metric system | Enrico Olivelli | Enrico Olivelli |
 | [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3031](https://issues.apache.org/jira/browse/ZOOKEEPER-3031) | Step 1.4 - Create zk-client maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3080](https://issues.apache.org/jira/browse/ZOOKEEPER-3080) | Step 1.5 - Separate jute structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 
 
 ### OTHER:

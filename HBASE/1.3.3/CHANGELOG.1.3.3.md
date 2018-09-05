@@ -18,7 +18,7 @@
 -->
 # Apache HBase Changelog
 
-## Release 1.3.3 - Unreleased (as of 2018-08-23)
+## Release 1.3.3 - Unreleased (as of 2018-09-05)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -91,11 +91,14 @@
 | [HBASE-20997](https://issues.apache.org/jira/browse/HBASE-20997) | rebuildUserRegions() does not build ReplicaMapping during master switchover |  Major | master | huaxiang sun | huaxiang sun |
 | [HBASE-21007](https://issues.apache.org/jira/browse/HBASE-21007) | Memory leak in HBase rest server |  Critical | REST | Bosko Devetak | Bosko Devetak |
 | [HBASE-21047](https://issues.apache.org/jira/browse/HBASE-21047) | Object creation of StoreFileScanner thru constructor and close may leave refCount to -1 |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
-| [HBASE-20940](https://issues.apache.org/jira/browse/HBASE-20940) | HStore.cansplit should not allow split to happen if it has references |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
 | [HBASE-21042](https://issues.apache.org/jira/browse/HBASE-21042) | processor.getRowsToLock() always assumes there is some row being locked in HRegion#processRowsWithLocks |  Major | . | Thomas D'Silva | Ted Yu |
 | [HBASE-21074](https://issues.apache.org/jira/browse/HBASE-21074) | JDK7 branches need to pass "-Dhttps.protocols=TLSv1.2" to maven when building |  Major | build, community, test | Sean Busbey | Sean Busbey |
 | [HBASE-21058](https://issues.apache.org/jira/browse/HBASE-21058) | Nightly tests for branches 1 fail to build ref guide |  Major | documentation | Sean Busbey | Sean Busbey |
 | [HBASE-21069](https://issues.apache.org/jira/browse/HBASE-21069) | NPE in StoreScanner.updateReaders causes RS to crash |  Major | . | Thomas D'Silva | Andrew Purtell |
+| [HBASE-20890](https://issues.apache.org/jira/browse/HBASE-20890) | PE filterScan seems to be stuck forever |  Minor | . | Vikas Vishwakarma | Abhishek Goyal |
+| [HBASE-21030](https://issues.apache.org/jira/browse/HBASE-21030) | Correct javadoc for append operation |  Minor | documentation | Nihal Jain | Subrat Mishra |
+| [HBASE-20940](https://issues.apache.org/jira/browse/HBASE-20940) | HStore.cansplit should not allow split to happen if it has references |  Major | . | Vishal Khandelwal | Vishal Khandelwal |
+| [HBASE-21104](https://issues.apache.org/jira/browse/HBASE-21104) | client.TestRestoreSnapshotFromClientWithRegionReplicas failing on branch-1.3, branch-1.2 |  Major | read replicas, snapshots | Sean Busbey | Toshihiro Suzuki |
 
 
 ### TESTS:
@@ -116,6 +119,7 @@
 | [HBASE-20316](https://issues.apache.org/jira/browse/HBASE-20316) | Backport HBASE-20229 "ConnectionImplementation.locateRegions() returns duplicated entries when region replication is on" to branch-1 |  Major | backport | stack | Toshihiro Suzuki |
 | [HBASE-20974](https://issues.apache.org/jira/browse/HBASE-20974) | Backport HBASE-20583 (SplitLogWorker should handle FileNotFoundException when split a wal) to branch-1 |  Major | . | Pankaj Kumar | Pankaj Kumar |
 | [HBASE-21060](https://issues.apache.org/jira/browse/HBASE-21060) | fix dead store in SecureBulkLoadEndpoint |  Minor | Coprocessors | Sean Busbey | Sean Busbey |
+| [HBASE-20317](https://issues.apache.org/jira/browse/HBASE-20317) | Backport HBASE-20261 "Table page (table.jsp) in Master UI does not show replicaIds for hbase meta table" to branch-1 |  Major | backport | stack | Toshihiro Suzuki |
 
 
 ### OTHER:
@@ -127,5 +131,6 @@
 | [HBASE-20665](https://issues.apache.org/jira/browse/HBASE-20665) | "Already cached block XXX" message should be DEBUG |  Minor | BlockCache | Sean Busbey | Eric Maynard |
 | [HBASE-20905](https://issues.apache.org/jira/browse/HBASE-20905) | branch-1 docker build fails |  Major | build | Jingyun Tian | Mike Drob |
 | [HBASE-20931](https://issues.apache.org/jira/browse/HBASE-20931) | [branch-1] Add -Dhttps.protocols=TLSv1.2 to Maven command line in make\_rc.sh |  Trivial | . | Andrew Purtell | Andrew Purtell |
+| [HBASE-20942](https://issues.apache.org/jira/browse/HBASE-20942) | Improve RpcServer TRACE logging |  Major | Operability | Esteban Gutierrez | Krish Dey |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.2 - Unreleased (as of 2018-08-23)
+## Release 2.3.2 - Unreleased (as of 2018-09-05)
 
 
 
@@ -58,6 +58,7 @@
 | [SPARK-24552](https://issues.apache.org/jira/browse/SPARK-24552) | Task attempt numbers are reused when stages are retried |  Blocker | Spark Core | Ryan Blue | Ryan Blue |
 | [SPARK-24603](https://issues.apache.org/jira/browse/SPARK-24603) | Typo in comments |  Trivial | Spark Core | Fokko Driesprong | Fokko Driesprong |
 | [SPARK-24385](https://issues.apache.org/jira/browse/SPARK-24385) | Trivially-true EqualNullSafe should be handled like EqualTo in Dataset.join |  Major | SQL | Daniel Shields | Marco Gaido |
+| [SPARK-24704](https://issues.apache.org/jira/browse/SPARK-24704) | The order of stages in the DAG graph is incorrect |  Minor | Web UI | StanZhai | StanZhai |
 | [SPARK-24535](https://issues.apache.org/jira/browse/SPARK-24535) | Fix java version parsing in SparkR on Windows |  Blocker | SparkR | Shivaram Venkataraman | Felix Cheung |
 | [SPARK-24739](https://issues.apache.org/jira/browse/SPARK-24739) | PySpark does not work with Python 3.7.0 |  Critical | PySpark | Hyukjin Kwon | Hyukjin Kwon |
 | [SPARK-24530](https://issues.apache.org/jira/browse/SPARK-24530) | Sphinx doesn't render autodoc\_docstring\_signature correctly (with Python 2?) and pyspark.ml docs are broken |  Critical | ML, PySpark | Xiangrui Meng | Hyukjin Kwon |
@@ -82,6 +83,10 @@
 | [SPARK-25051](https://issues.apache.org/jira/browse/SPARK-25051) | where clause on dataset gives AnalysisException |  Blocker | SQL | MIK | Marco Gaido |
 | [SPARK-25144](https://issues.apache.org/jira/browse/SPARK-25144) | distinct on Dataset leads to exception due to Managed memory leak detected |  Major | SQL | Ayoub Benali | Dongjoon Hyun |
 | [SPARK-25114](https://issues.apache.org/jira/browse/SPARK-25114) | RecordBinaryComparator may return wrong result when subtraction between two words is divisible by Integer.MAX\_VALUE |  Blocker | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-25164](https://issues.apache.org/jira/browse/SPARK-25164) | Parquet reader builds entire list of columns once for each column |  Minor | SQL | Bruce Robbins | Bruce Robbins |
+| [SPARK-25205](https://issues.apache.org/jira/browse/SPARK-25205) | typo in spark.network.crypto.keyFactoryIteration |  Trivial | Spark Core | Imran Rashid | Imran Rashid |
+| [SPARK-25124](https://issues.apache.org/jira/browse/SPARK-25124) | VectorSizeHint.size is buggy, breaking streaming pipeline |  Major | ML | Timothy Hunter | Huaxin Gao |
+| [SPARK-24909](https://issues.apache.org/jira/browse/SPARK-24909) | Spark scheduler can hang when fetch failures, executor lost, task running on lost executor, and multiple stage attempts |  Critical | Scheduler | Thomas Graves | Thomas Graves |
 
 
 ### TESTS:
@@ -90,6 +95,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24502](https://issues.apache.org/jira/browse/SPARK-24502) | flaky test: UnsafeRowSerializerSuite |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-24521](https://issues.apache.org/jira/browse/SPARK-24521) | Fix ineffective test in CachedTableSuite |  Minor | SQL | Li Jin | Li Jin |
+| [SPARK-24564](https://issues.apache.org/jira/browse/SPARK-24564) | Add test suite for RecordBinaryComparator |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
 
 
 ### SUB-TASKS:
@@ -104,6 +110,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24507](https://issues.apache.org/jira/browse/SPARK-24507) | Description in "Level of Parallelism in Data Receiving" section of Spark Streaming Programming Guide in is not relevan for the recent Kafka direct apprach |  Minor | Documentation, DStreams | Lev Greenberg | Rekha Joshi |
+| [SPARK-25234](https://issues.apache.org/jira/browse/SPARK-25234) | SparkR:::parallelize doesn't handle integer overflow properly |  Major | SparkR | Xiangrui Meng | Xiangrui Meng |
+| [SPARK-25273](https://issues.apache.org/jira/browse/SPARK-25273) | How to install testthat v1.0.2 |  Major | Documentation | Maxim Gekk | Maxim Gekk |
 | [SPARK-25015](https://issues.apache.org/jira/browse/SPARK-25015) | Update Hadoop 2.7 to 2.7.7 |  Minor | Build | Sean Owen | Sean Owen |
 
 

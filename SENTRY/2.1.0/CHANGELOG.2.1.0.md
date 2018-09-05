@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-08-23)
+## Release 2.1.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SENTRY-2220](https://issues.apache.org/jira/browse/SENTRY-2220) | Support all Hive SHOW GRANT commands |  Major | Sentry | Arjun Mishra | Arjun Mishra |
+| [SENTRY-2151](https://issues.apache.org/jira/browse/SENTRY-2151) | Automatically derive owner privileges from Hive Object Ownership |  Major | Sentry | Na Li | Na Li |
 
 
 ### IMPROVEMENTS:
@@ -47,6 +48,8 @@
 | [SENTRY-2284](https://issues.apache.org/jira/browse/SENTRY-2284) | Add two client API to get all roles or users privileges mapping |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2285](https://issues.apache.org/jira/browse/SENTRY-2285) | Add a profile '-Pdist' to package Sentry binaries |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2335](https://issues.apache.org/jira/browse/SENTRY-2335) | Allow multiple callbacks to be run when a Signal is received. |  Minor | Core | Brian Towles | Brian Towles |
+| [SENTRY-2366](https://issues.apache.org/jira/browse/SENTRY-2366) | Exclude jackson transitive dependencies |  Minor | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2376](https://issues.apache.org/jira/browse/SENTRY-2376) | Bump Jackson libraries versions to 1.9.13 and 2.9.6 |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### BUG FIXES:
@@ -152,6 +155,8 @@
 | [SENTRY-2363](https://issues.apache.org/jira/browse/SENTRY-2363) | Update the wiki "How to release sentry" |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2364](https://issues.apache.org/jira/browse/SENTRY-2364) | Make an announcement for 2.0.1 release |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2307](https://issues.apache.org/jira/browse/SENTRY-2307) | Avoid HMS event synchronization while sentry is fetching full snapshot. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2233](https://issues.apache.org/jira/browse/SENTRY-2233) | Add e2e tests for testing HDFS sync for owner privileges. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2374](https://issues.apache.org/jira/browse/SENTRY-2374) | Add Lombok for easier development |  Minor | Core | Brian Towles | Brian Towles |
 
 
 ### OTHER:

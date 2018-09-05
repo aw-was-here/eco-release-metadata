@@ -88,9 +88,9 @@
 | [HDFS-13719](https://issues.apache.org/jira/browse/HDFS-13719) | Docs around dfs.image.transfer.timeout are misleading |  Major | . | Kitti Nanasi | Kitti Nanasi |
 | [HADOOP-15598](https://issues.apache.org/jira/browse/HADOOP-15598) | DataChecksum calculate checksum is contented on hashtable synchronization |  Major | common | Prasanth Jayachandran | Prasanth Jayachandran |
 | [YARN-8501](https://issues.apache.org/jira/browse/YARN-8501) | Reduce complexity of RMWebServices' getApps method |  Major | restapi | Szilard Nemeth | Szilard Nemeth |
-| [HADOOP-15547](https://issues.apache.org/jira/browse/HADOOP-15547) | WASB: improve listStatus performance |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
 | [YARN-8155](https://issues.apache.org/jira/browse/YARN-8155) | Improve ATSv2 client logging in RM and NM publisher |  Major | . | Rohith Sharma K S | Abhishek Modi |
 | [HADOOP-15476](https://issues.apache.org/jira/browse/HADOOP-15476) | fix logging for split-dns multihome |  Major | . | Ajay Kumar | Ajay Kumar |
+| [HADOOP-15547](https://issues.apache.org/jira/browse/HADOOP-15547) | WASB: improve listStatus performance |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
 
 
 ### BUG FIXES:
@@ -333,6 +333,7 @@
 | [YARN-8608](https://issues.apache.org/jira/browse/YARN-8608) | [UI2] No information available per application appAttempt about 'Total Outstanding Resource Requests' |  Major | yarn-ui-v2 | Sumana Sathish | Akhil PB |
 | [YARN-8399](https://issues.apache.org/jira/browse/YARN-8399) | NodeManager is giving 403 GSS exception post upgrade to 3.1 in secure mode |  Major | timelineservice | Sunil Govindan | Sunil Govindan |
 | [HDFS-13746](https://issues.apache.org/jira/browse/HDFS-13746) | Still occasional "Should be different group" failure in TestRefreshUserMappings#testGroupMappingRefresh |  Major | . | Siyao Meng | Siyao Meng |
+| [HADOOP-14314](https://issues.apache.org/jira/browse/HADOOP-14314) | The OpenSolaris taxonomy link is dead in InterfaceClassification.md |  Major | documentation | Daniel Templeton | Rui Gao |
 
 
 ### TESTS:

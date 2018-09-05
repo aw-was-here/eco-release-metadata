@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 3.0.0 - Unreleased (as of 2018-08-23)
+## Release 3.0.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -35,6 +35,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24717](https://issues.apache.org/jira/browse/SPARK-24717) | Split out min retain version of state for memory in HDFSBackedStateStoreProvider |  Major | Structured Streaming | Jungtaek Lim | Jungtaek Lim |
 | [SPARK-24699](https://issues.apache.org/jira/browse/SPARK-24699) | Watermark / Append mode should work with Trigger.Once |  Major | Structured Streaming | Chris Horn | Tathagata Das |
+| [SPARK-25204](https://issues.apache.org/jira/browse/SPARK-25204) | rate source test is flaky |  Minor | Structured Streaming | Jose Torres | Jose Torres |
 
 
 ### TESTS:

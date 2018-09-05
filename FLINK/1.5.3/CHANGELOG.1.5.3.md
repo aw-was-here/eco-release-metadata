@@ -72,6 +72,7 @@
 | [FLINK-9693](https://issues.apache.org/jira/browse/FLINK-9693) | Possible memory leak in jobmanager retaining archived checkpoints |  Major | JobManager, State Backends, Checkpointing | Steven Zhen Wu | Till Rohrmann |
 | [FLINK-9546](https://issues.apache.org/jira/browse/FLINK-9546) | The heartbeatTimeoutIntervalMs of HeartbeatMonitor should be larger than 0 |  Minor | Core | Sihua Zhou | Sihua Zhou |
 | [FLINK-9289](https://issues.apache.org/jira/browse/FLINK-9289) | Parallelism of generated operators should have max parallism of input |  Major | DataSet API | Fabian Hueske | Xingcan Cui |
+| [FLINK-10278](https://issues.apache.org/jira/browse/FLINK-10278) | Flink in YARN cluster uses wrong path when looking for Kerberos Keytab |  Major | . | Ben La Monica |  |
 
 
 ### SUB-TASKS:

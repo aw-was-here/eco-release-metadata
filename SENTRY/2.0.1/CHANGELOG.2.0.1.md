@@ -52,3 +52,10 @@
 | [SENTRY-2362](https://issues.apache.org/jira/browse/SENTRY-2362) | Update the website |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 
 
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [SENTRY-2336](https://issues.apache.org/jira/browse/SENTRY-2336) | Sentry 2.0.1 release |  Major | Sentry | Sergio Peña | kalyan kumar kalvagadda |
+
+

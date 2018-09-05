@@ -18,7 +18,7 @@
 -->
 # Apache Ranger Changelog
 
-## Release 0.7.2 - Unreleased (as of 2018-08-23)
+## Release 0.7.2 - Unreleased (as of 2018-09-05)
 
 
 
@@ -110,6 +110,7 @@
 | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066) | Hbase column family access is authorized by a tagged column in the column family |  Major | Ranger | Anuja Leekha | Abhay Kulkarni |
 | [RANGER-2090](https://issues.apache.org/jira/browse/RANGER-2090) | Empty start and end time Strings should be interpreted same as NULL in Ranger |  Major | Ranger | Anuja Leekha | Abhay Kulkarni |
 | [RANGER-2104](https://issues.apache.org/jira/browse/RANGER-2104) | Ranger tagsync should ignore ENTITY\_UPDATE events if the updated entity does not have associated traits |  Major | tagsync | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-1886](https://issues.apache.org/jira/browse/RANGER-1886) | TagSync updates for the changes in Atlas API |  Major | tagsync | Madhan Neethiraj | Madhan Neethiraj |
 
 
 ### SUB-TASKS:

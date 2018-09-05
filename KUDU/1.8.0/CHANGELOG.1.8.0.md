@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-08-23)
+## Release 1.8.0 - Unreleased (as of 2018-09-05)
 
 
 
@@ -57,6 +57,8 @@
 | [KUDU-2441](https://issues.apache.org/jira/browse/KUDU-2441) | Unlike C++, Kudu Python API missing "set mutation buffer space" |  Major | api, client, python | Amarnath Ramamoorthi | Jordan Birdsell |
 | [KUDU-2420](https://issues.apache.org/jira/browse/KUDU-2420) | Support parallel java tests |  Major | . | Grant Henke | Grant Henke |
 | [KUDU-2510](https://issues.apache.org/jira/browse/KUDU-2510) | On-disk and provided master list error message is misleading |  Minor | master, supportability | Attila Bukor | Attila Bukor |
+| [KUDU-2469](https://issues.apache.org/jira/browse/KUDU-2469) | Handle CFile checksum failures |  Major | cfile, tablet | Andrew Wong | Andrew Wong |
+| [KUDU-2529](https://issues.apache.org/jira/browse/KUDU-2529) | kudu CLI command supports list the tablets under a table and list the replicas of a tablet |  Major | CLI | HeLifu | HeLifu |
 
 
 ### BUG FIXES:
@@ -115,6 +117,9 @@
 | [KUDU-2151](https://issues.apache.org/jira/browse/KUDU-2151) | ConsensusMetadata IO does not retry on EINTR |  Major | consensus | Mike Percy | Adar Dembo |
 | [KUDU-2528](https://issues.apache.org/jira/browse/KUDU-2528) | thirdparty downloads aren't always retried |  Major | build | Adar Dembo | Adar Dembo |
 | [KUDU-2540](https://issues.apache.org/jira/browse/KUDU-2540) | Authorization failures on exactly-once RPCs cause FATAL |  Major | rpc, security | Todd Lipcon | Dan Burkert |
+| [KUDU-2555](https://issues.apache.org/jira/browse/KUDU-2555) | Memory leak in negotiation-test |  Major | . | Andrew Wong | Alexey Serbin |
+| [KUDU-1951](https://issues.apache.org/jira/browse/KUDU-1951) | broken links in site/docs |  Major | documentation, website | Todd Lipcon | Attila Bukor |
+| [KUDU-2560](https://issues.apache.org/jira/browse/KUDU-2560) | client\_examples-test can't find libunwind |  Major | . | Andrew Wong | Adar Dembo |
 
 
 ### TESTS:

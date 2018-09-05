@@ -63,4 +63,15 @@ blacklistedExecsOnNode += exec{code}
 where first \*exec\* should be \*host\*.
 
 
+---
+
+* [SPARK-25275](https://issues.apache.org/jira/browse/SPARK-25275) | *Major* | **require memberhip in wheel to run 'su' (in dockerfiles)**
+
+For improved security, configure that users must be in wheel group in order to run su.
+
+see example:
+
+[https://github.com/ope]nshift-evangelists/terminal-base-image/blob/master/image/Dockerfile#L53
+
+
 

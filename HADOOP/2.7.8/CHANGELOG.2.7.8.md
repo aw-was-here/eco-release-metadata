@@ -18,8 +18,15 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.8 - Unreleased (as of 2018-08-23)
+## Release 2.7.8 - Unreleased (as of 2018-09-05)
 
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HDFS-13812](https://issues.apache.org/jira/browse/HDFS-13812) | Fix the inconsistent default refresh interval on Caching documentation |  Trivial | documentation | BELUGA BEHR | Hrishikesh Gadre |
 
 
 ### BUG FIXES:
