@@ -40,3 +40,48 @@
 * Apache Zookeeper v3.5.0
     * [Changelog](3.5.0/CHANGELOG.3.5.0.html)
     * [Release Notes](3.5.0/RELEASENOTES.3.5.0.html)
+* Apache Zookeeper v3.4.14
+    * [Changelog](3.4.14/CHANGELOG.3.4.14.html)
+    * [Release Notes](3.4.14/RELEASENOTES.3.4.14.html)
+* Apache Zookeeper v3.4.13
+    * [Changelog](3.4.13/CHANGELOG.3.4.13.html)
+    * [Release Notes](3.4.13/RELEASENOTES.3.4.13.html)
+* Apache Zookeeper v3.4.12
+    * [Changelog](3.4.12/CHANGELOG.3.4.12.html)
+    * [Release Notes](3.4.12/RELEASENOTES.3.4.12.html)
+* Apache Zookeeper v3.4.11
+    * [Changelog](3.4.11/CHANGELOG.3.4.11.html)
+    * [Release Notes](3.4.11/RELEASENOTES.3.4.11.html)
+* Apache Zookeeper v3.4.10
+    * [Changelog](3.4.10/CHANGELOG.3.4.10.html)
+    * [Release Notes](3.4.10/RELEASENOTES.3.4.10.html)
+* Apache Zookeeper v3.4.9
+    * [Changelog](3.4.9/CHANGELOG.3.4.9.html)
+    * [Release Notes](3.4.9/RELEASENOTES.3.4.9.html)
+* Apache Zookeeper v3.4.8
+    * [Changelog](3.4.8/CHANGELOG.3.4.8.html)
+    * [Release Notes](3.4.8/RELEASENOTES.3.4.8.html)
+* Apache Zookeeper v3.4.7
+    * [Changelog](3.4.7/CHANGELOG.3.4.7.html)
+    * [Release Notes](3.4.7/RELEASENOTES.3.4.7.html)
+* Apache Zookeeper v3.4.6
+    * [Changelog](3.4.6/CHANGELOG.3.4.6.html)
+    * [Release Notes](3.4.6/RELEASENOTES.3.4.6.html)
+* Apache Zookeeper v3.4.5
+    * [Changelog](3.4.5/CHANGELOG.3.4.5.html)
+    * [Release Notes](3.4.5/RELEASENOTES.3.4.5.html)
+* Apache Zookeeper v3.4.4
+    * [Changelog](3.4.4/CHANGELOG.3.4.4.html)
+    * [Release Notes](3.4.4/RELEASENOTES.3.4.4.html)
+* Apache Zookeeper v3.4.3
+    * [Changelog](3.4.3/CHANGELOG.3.4.3.html)
+    * [Release Notes](3.4.3/RELEASENOTES.3.4.3.html)
+* Apache Zookeeper v3.4.2
+    * [Changelog](3.4.2/CHANGELOG.3.4.2.html)
+    * [Release Notes](3.4.2/RELEASENOTES.3.4.2.html)
+* Apache Zookeeper v3.4.1
+    * [Changelog](3.4.1/CHANGELOG.3.4.1.html)
+    * [Release Notes](3.4.1/RELEASENOTES.3.4.1.html)
+* Apache Zookeeper v3.4.0
+    * [Changelog](3.4.0/CHANGELOG.3.4.0.html)
+    * [Release Notes](3.4.0/RELEASENOTES.3.4.0.html)

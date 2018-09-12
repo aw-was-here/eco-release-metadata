@@ -51,6 +51,7 @@
 | [ZOOKEEPER-2682](https://issues.apache.org/jira/browse/ZOOKEEPER-2682) | Make it optional to fail build on test failure |  Minor | build, tests | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2672](https://issues.apache.org/jira/browse/ZOOKEEPER-2672) | Remove CHANGE.txt |  Major | build | Michael Han | Michael Han |
 | [ZOOKEEPER-2724](https://issues.apache.org/jira/browse/ZOOKEEPER-2724) | Skip cert files for releaseaudit target. |  Blocker | build | Michael Han | Michael Han |
+| [ZOOKEEPER-761](https://issues.apache.org/jira/browse/ZOOKEEPER-761) | Remove \*synchronous\* calls from the \*single-threaded\* C clieant API, since they are documented not to work |  Blocker | c client | Jozef Hatala | Benjamin Reed |
 
 
 ### BUG FIXES:
@@ -101,7 +102,7 @@
 | [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726) | Patch for ZOOKEEPER-2693 introduces potential race condition |  Major | . | Kyle Nusbaum | Kyle Nusbaum |
 | [ZOOKEEPER-2635](https://issues.apache.org/jira/browse/ZOOKEEPER-2635) | Regenerate documentation |  Blocker | documentation | Flavio Junqueira | Michael Han |
 | [ZOOKEEPER-2737](https://issues.apache.org/jira/browse/ZOOKEEPER-2737) | NettyServerCnxFactory leaks connection if exception happens while writing to a channel. |  Critical | server | Michael Han | Michael Han |
-| [ZOOKEEPER-2885](https://issues.apache.org/jira/browse/ZOOKEEPER-2885) | zookeeper-3.5.3-beta.tar.gz file in mirror site is corrupted |  Critical | . | Gabriel |  |
+| [ZOOKEEPER-2885](https://issues.apache.org/jira/browse/ZOOKEEPER-2885) | zookeeper-3.5.3-beta.tar.gz file in mirror site is corrupted |  Critical | . | Gabriel | Michael Han |
 
 
 ### TESTS:

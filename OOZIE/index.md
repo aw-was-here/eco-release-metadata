@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Oozie v5.1.0
+    * [Changelog](5.1.0/CHANGELOG.5.1.0.html)
+    * [Release Notes](5.1.0/RELEASENOTES.5.1.0.html)
+* Apache Oozie v5.0.0b1
+    * [Changelog](5.0.0b1/CHANGELOG.5.0.0b1.html)
+    * [Release Notes](5.0.0b1/RELEASENOTES.5.0.0b1.html)
 * Apache Oozie v5.0.0
     * [Changelog](5.0.0/CHANGELOG.5.0.0.html)
     * [Release Notes](5.0.0/RELEASENOTES.5.0.0.html)

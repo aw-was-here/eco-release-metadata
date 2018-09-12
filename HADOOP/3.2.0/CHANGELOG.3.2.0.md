@@ -601,6 +601,7 @@
 | [MAPREDUCE-7135](https://issues.apache.org/jira/browse/MAPREDUCE-7135) | TestTaskAttemptContainerRequest should reset UserGroupInformation |  Minor | test | Oleksandr Shevchenko | Oleksandr Shevchenko |
 | [MAPREDUCE-7136](https://issues.apache.org/jira/browse/MAPREDUCE-7136) | TestMRAppMetrics should shutdown DefaultMetricsSystem after completion |  Minor | test | Oleksandr Shevchenko | Oleksandr Shevchenko |
 | [HDFS-13846](https://issues.apache.org/jira/browse/HDFS-13846) | Safe blocks counter is not decremented correctly if the block is striped |  Major | hdfs | Kitti Nanasi | Kitti Nanasi |
+| [YARN-8768](https://issues.apache.org/jira/browse/YARN-8768) | Javadoc error in node attributes |  Major | . | Sunil Govindan | Sunil Govindan |
 
 
 ### TESTS:

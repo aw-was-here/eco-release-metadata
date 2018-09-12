@@ -42,4 +42,11 @@ There is a possibility of file descriptor leakage issue under high workload. Ple
 Thank you all. It's a POSIX tar file, not gzip. My mistake.
 
 
+---
+
+* [ZOOKEEPER-761](https://issues.apache.org/jira/browse/ZOOKEEPER-761) | *Blocker* | **Remove \*synchronous\* calls from the \*single-threaded\* C clieant API, since they are documented not to work**
+
+Removed synchronous calls from the single-threaded API as they are not implemented and documented as such.
+
+
 

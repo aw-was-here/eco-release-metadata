@@ -16,6 +16,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kafka v2.1.0
+    * [Changelog](2.1.0/CHANGELOG.2.1.0.md)
+    * [Release Notes](2.1.0/RELEASENOTES.2.1.0.md)
+* Apache Kafka v2.0.1
+    * [Changelog](2.0.1/CHANGELOG.2.0.1.md)
+    * [Release Notes](2.0.1/RELEASENOTES.2.0.1.md)
+* Apache Kafka v2.0.0
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.md)
+    * [Release Notes](2.0.0/RELEASENOTES.2.0.0.md)
+* Apache Kafka v1.1.2
+    * [Changelog](1.1.2/CHANGELOG.1.1.2.md)
+    * [Release Notes](1.1.2/RELEASENOTES.1.1.2.md)
+* Apache Kafka v1.1.1
+    * [Changelog](1.1.1/CHANGELOG.1.1.1.md)
+    * [Release Notes](1.1.1/RELEASENOTES.1.1.1.md)
 * Apache Kafka v1.1.0
     * [Changelog](1.1.0/CHANGELOG.1.1.0.md)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)

@@ -16,6 +16,42 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache HBase v3.0.0
+    * [Changelog](3.0.0/CHANGELOG.3.0.0.html)
+    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
+* Apache HBase v2.2.0
+    * [Changelog](2.2.0/CHANGELOG.2.2.0.html)
+    * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
+* Apache HBase v2.1.1
+    * [Changelog](2.1.1/CHANGELOG.2.1.1.html)
+    * [Release Notes](2.1.1/RELEASENOTES.2.1.1.html)
+* Apache HBase v2.1.0
+    * [Changelog](2.1.0/CHANGELOG.2.1.0.html)
+    * [Release Notes](2.1.0/RELEASENOTES.2.1.0.html)
+* Apache HBase v2.0.3
+    * [Changelog](2.0.3/CHANGELOG.2.0.3.html)
+    * [Release Notes](2.0.3/RELEASENOTES.2.0.3.html)
+* Apache HBase v2.0.2
+    * [Changelog](2.0.2/CHANGELOG.2.0.2.html)
+    * [Release Notes](2.0.2/RELEASENOTES.2.0.2.html)
+* Apache HBase v2.0.1
+    * [Changelog](2.0.1/CHANGELOG.2.0.1.html)
+    * [Release Notes](2.0.1/RELEASENOTES.2.0.1.html)
+* Apache HBase v2.0.0-beta-2
+    * [Changelog](2.0.0-beta-2/CHANGELOG.2.0.0-beta-2.html)
+    * [Release Notes](2.0.0-beta-2/RELEASENOTES.2.0.0-beta-2.html)
+* Apache HBase v2.0.0-beta-1
+    * [Changelog](2.0.0-beta-1/CHANGELOG.2.0.0-beta-1.html)
+    * [Release Notes](2.0.0-beta-1/RELEASENOTES.2.0.0-beta-1.html)
+* Apache HBase v2.0.0-alpha-4
+    * [Changelog](2.0.0-alpha-4/CHANGELOG.2.0.0-alpha-4.html)
+    * [Release Notes](2.0.0-alpha-4/RELEASENOTES.2.0.0-alpha-4.html)
+* Apache HBase v2.0.0-alpha-3
+    * [Changelog](2.0.0-alpha-3/CHANGELOG.2.0.0-alpha-3.html)
+    * [Release Notes](2.0.0-alpha-3/RELEASENOTES.2.0.0-alpha-3.html)
+* Apache HBase v2.0.0-alpha-2
+    * [Changelog](2.0.0-alpha-2/CHANGELOG.2.0.0-alpha-2.html)
+    * [Release Notes](2.0.0-alpha-2/RELEASENOTES.2.0.0-alpha-2.html)
 * Apache HBase v2.0.0
     * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)

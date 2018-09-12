@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Ranger v1.1.0
+    * [Changelog](1.1.0/CHANGELOG.1.1.0.md)
+    * [Release Notes](1.1.0/RELEASENOTES.1.1.0.md)
+* Apache Ranger v1.0.1
+    * [Changelog](1.0.1/CHANGELOG.1.0.1.md)
+    * [Release Notes](1.0.1/RELEASENOTES.1.0.1.md)
 * Apache Ranger v1.0.0
     * [Changelog](1.0.0/CHANGELOG.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)

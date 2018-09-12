@@ -23,10 +23,23 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers**
+* [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
 
-trunk: http://svn.apache.org/viewvc?view=revision&revision=1679444
-branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
+Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
+
+
+---
+
+* [ZOOKEEPER-2079](https://issues.apache.org/jira/browse/ZOOKEEPER-2079) | *Minor* | **Stop daemon with "kill" rather than "kill -9"**
+
+Kill java process with \`SIGTERM\` rather than \`SIGKILL\`
+
+
+---
+
+* [ZOOKEEPER-1784](https://issues.apache.org/jira/browse/ZOOKEEPER-1784) | *Major* | **Logic to process INFORMANDACTIVATE packets in syncWithLeader seems bogus**
+
+Committed to trunk. Thanks Raul, and sorry that it took so long to commit.
 
 
 ---
@@ -38,23 +51,17 @@ Expose jute-generated allocate\_XXX functions in libzookeeper.
 
 ---
 
-* [ZOOKEEPER-2079](https://issues.apache.org/jira/browse/ZOOKEEPER-2079) | *Minor* | **Stop daemon with "kill" rather than "kill -9"**
+* [ZOOKEEPER-2190](https://issues.apache.org/jira/browse/ZOOKEEPER-2190) | *Major* | **In StandaloneDisabledTest, testReconfig() shouldn't take leaving servers as joining servers**
 
-Kill java process with `SIGTERM` rather than `SIGKILL`
-
-
----
-
-* [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
-
-Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
+trunk: http://svn.apache.org/viewvc?view=revision&revision=1679444
+branch-3.5: http://svn.apache.org/viewvc?view=revision&revision=1679446
 
 
 ---
 
-* [ZOOKEEPER-1784](https://issues.apache.org/jira/browse/ZOOKEEPER-1784) | *Major* | **Logic to process INFORMANDACTIVATE packets in syncWithLeader seems bogus**
+* [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | *Major* | **Multi-thread NIOServerCnxn**
 
-Committed to trunk. Thanks Raul, and sorry that it took so long to commit.
+There is a possibility of file descriptor leakage issue under high workload. Please upgrade to the latest version of JVM or the version that has a fix for this bug (http://bugs.sun.com/bugdatabase/view\_bug.do?bug\_id=7118373)
 
 
 
