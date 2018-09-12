@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.6.1 - Unreleased (as of 2018-09-05)
+## Release 1.6.1 - Unreleased (as of 2018-09-12)
 
 
 
@@ -47,6 +47,9 @@
 | [FLINK-10164](https://issues.apache.org/jira/browse/FLINK-10164) | Add support for resuming from savepoints to StandaloneJobClusterEntrypoint |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 | [FLINK-10137](https://issues.apache.org/jira/browse/FLINK-10137) | YARN: Log completed Containers |  Major | Distributed Coordination, ResourceManager, YARN | Gary Yao | Gary Yao |
 | [FLINK-9962](https://issues.apache.org/jira/browse/FLINK-9962) | allow users to specify TimeZone in DateTimeBucketer |  Major | Streaming Connectors | Bowen Li | Bowen Li |
+| [FLINK-10131](https://issues.apache.org/jira/browse/FLINK-10131) | Improve logging around ResultSubpartition |  Major | Logging, Network | Nico Kruber | Nico Kruber |
+| [FLINK-10170](https://issues.apache.org/jira/browse/FLINK-10170) | Support string representation for map and array types in descriptor-based Table API |  Major | Table API & SQL | Jun Zhang | Jun Zhang |
+| [FLINK-10185](https://issues.apache.org/jira/browse/FLINK-10185) | Make ZooKeeperStateHandleStore#releaseAndTryRemove synchronous |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 
 
 ### BUG FIXES:
@@ -71,6 +74,12 @@
 | [FLINK-10141](https://issues.apache.org/jira/browse/FLINK-10141) | Reduce lock contention introduced with 1.5 |  Major | Network | Nico Kruber | Nico Kruber |
 | [FLINK-10115](https://issues.apache.org/jira/browse/FLINK-10115) | Content-length limit is also applied to FileUploads |  Major | REST, Webfrontend | Yazdan Shirvany | Chesnay Schepler |
 | [FLINK-10150](https://issues.apache.org/jira/browse/FLINK-10150) | Chained batch operators interfere with each other other |  Blocker | Metrics, Webfrontend | Helmut Zechmann | Chesnay Schepler |
+| [FLINK-10283](https://issues.apache.org/jira/browse/FLINK-10283) | FileCache logs unnecessary warnings |  Major | Local Runtime | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10261](https://issues.apache.org/jira/browse/FLINK-10261) | INSERT INTO does not work with ORDER BY clause |  Major | Table API & SQL | Timo Walther | xueyu |
+| [FLINK-10193](https://issues.apache.org/jira/browse/FLINK-10193) | Default RPC timeout is used when triggering savepoint via JobMasterGateway |  Critical | Distributed Coordination | Gary Yao | Gary Yao |
+| [FLINK-10293](https://issues.apache.org/jira/browse/FLINK-10293) | RemoteStreamEnvironment does not forward port to RestClusterClient |  Major | Client, Streaming | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10267](https://issues.apache.org/jira/browse/FLINK-10267) | [State] Fix arbitrary iterator access on RocksDBMapIterator |  Major | State Backends, Checkpointing | Yun Tang | Yun Tang |
+| [FLINK-10011](https://issues.apache.org/jira/browse/FLINK-10011) | Old job resurrected during HA failover |  Blocker | JobManager | Elias Levy | Till Rohrmann |
 
 
 ### TESTS:

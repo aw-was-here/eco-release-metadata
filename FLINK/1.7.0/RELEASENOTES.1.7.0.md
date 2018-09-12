@@ -28,4 +28,18 @@ These release notes cover new developer and user-facing incompatibilities, impor
 **WARNING: No release note provided for this change.**
 
 
+---
+
+* [FLINK-10243](https://issues.apache.org/jira/browse/FLINK-10243) | *Major* | **Add option to reduce latency metrics granularity**
+
+The default granularity for latency metrics was modified. To restore the previous behavior users have to explicitly set the granularity to SUBTASK.
+
+
+---
+
+* [FLINK-10242](https://issues.apache.org/jira/browse/FLINK-10242) | *Major* | **Disable latency metrics by default**
+
+Latency metrics are now disabled by default, which all affect all jobs that do not explicitly set the latencyTrackingInterval via the ExecutionConfig. To restore the previous default behavior users have to configure the metrics.latency.interval in flink-conf.yaml.
+
+
 

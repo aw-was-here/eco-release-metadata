@@ -18,7 +18,7 @@
 -->
 # Apache Spark Changelog
 
-## Release 2.3.2 - Unreleased (as of 2018-09-05)
+## Release 2.3.2 - Unreleased (as of 2018-09-12)
 
 
 
@@ -82,11 +82,19 @@
 | [SPARK-25028](https://issues.apache.org/jira/browse/SPARK-25028) | AnalyzePartitionCommand failed with NPE if value is null |  Major | Spark Core | Izek Greenfield | Marco Gaido |
 | [SPARK-25051](https://issues.apache.org/jira/browse/SPARK-25051) | where clause on dataset gives AnalysisException |  Blocker | SQL | MIK | Marco Gaido |
 | [SPARK-25144](https://issues.apache.org/jira/browse/SPARK-25144) | distinct on Dataset leads to exception due to Managed memory leak detected |  Major | SQL | Ayoub Benali | Dongjoon Hyun |
-| [SPARK-25114](https://issues.apache.org/jira/browse/SPARK-25114) | RecordBinaryComparator may return wrong result when subtraction between two words is divisible by Integer.MAX\_VALUE |  Blocker | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-25114](https://issues.apache.org/jira/browse/SPARK-25114) | RecordBinaryComparator may return wrong result when subtraction between two words is divisible by Integer.MAX\_VALUE |  Blocker | Spark Core | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-25164](https://issues.apache.org/jira/browse/SPARK-25164) | Parquet reader builds entire list of columns once for each column |  Minor | SQL | Bruce Robbins | Bruce Robbins |
 | [SPARK-25205](https://issues.apache.org/jira/browse/SPARK-25205) | typo in spark.network.crypto.keyFactoryIteration |  Trivial | Spark Core | Imran Rashid | Imran Rashid |
 | [SPARK-25124](https://issues.apache.org/jira/browse/SPARK-25124) | VectorSizeHint.size is buggy, breaking streaming pipeline |  Major | ML | Timothy Hunter | Huaxin Gao |
 | [SPARK-24909](https://issues.apache.org/jira/browse/SPARK-24909) | Spark scheduler can hang when fetch failures, executor lost, task running on lost executor, and multiple stage attempts |  Critical | Scheduler | Thomas Graves | Thomas Graves |
+| [SPARK-24415](https://issues.apache.org/jira/browse/SPARK-24415) | Stage page aggregated executor metrics wrong when failures |  Critical | Web UI | Thomas Graves | Ankur Gupta |
+| [SPARK-25231](https://issues.apache.org/jira/browse/SPARK-25231) | Running a Large Job with Speculation On Causes Executor Heartbeats to Time Out on Driver |  Major | Scheduler, Spark Core | Parth Gandhi | Parth Gandhi |
+| [SPARK-23243](https://issues.apache.org/jira/browse/SPARK-23243) | Shuffle+Repartition on an RDD could lead to incorrect answers |  Blocker | Spark Core | Xingbo Jiang | Wenchen Fan |
+| [SPARK-25313](https://issues.apache.org/jira/browse/SPARK-25313) | Fix regression in FileFormatWriter output schema |  Major | SQL | Gengliang Wang | Gengliang Wang |
+| [SPARK-25330](https://issues.apache.org/jira/browse/SPARK-25330) | Permission issue after upgrade hadoop version to 2.7.7 |  Major | Build | Yuming Wang | Yuming Wang |
+| [SPARK-25368](https://issues.apache.org/jira/browse/SPARK-25368) | Incorrect constraint inference returns wrong result |  Blocker | Optimizer, SQL | Lev Katzav | Yuming Wang |
+| [SPARK-24889](https://issues.apache.org/jira/browse/SPARK-24889) | dataset.unpersist() doesn't update storage memory stats |  Major | Spark Core | Yuri Bogomolov | Liang-Chi Hsieh |
+| [SPARK-25371](https://issues.apache.org/jira/browse/SPARK-25371) | Vector Assembler with no input columns leads to opaque error |  Trivial | ML, MLlib | Victor Alor | Marco Gaido |
 
 
 ### TESTS:
@@ -95,7 +103,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-24502](https://issues.apache.org/jira/browse/SPARK-24502) | flaky test: UnsafeRowSerializerSuite |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-24521](https://issues.apache.org/jira/browse/SPARK-24521) | Fix ineffective test in CachedTableSuite |  Minor | SQL | Li Jin | Li Jin |
-| [SPARK-24564](https://issues.apache.org/jira/browse/SPARK-24564) | Add test suite for RecordBinaryComparator |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-24564](https://issues.apache.org/jira/browse/SPARK-24564) | Add test suite for RecordBinaryComparator |  Minor | SQL | Xingbo Jiang | Xingbo Jiang |
 
 
 ### SUB-TASKS:
@@ -112,6 +120,5 @@
 | [SPARK-24507](https://issues.apache.org/jira/browse/SPARK-24507) | Description in "Level of Parallelism in Data Receiving" section of Spark Streaming Programming Guide in is not relevan for the recent Kafka direct apprach |  Minor | Documentation, DStreams | Lev Greenberg | Rekha Joshi |
 | [SPARK-25234](https://issues.apache.org/jira/browse/SPARK-25234) | SparkR:::parallelize doesn't handle integer overflow properly |  Major | SparkR | Xiangrui Meng | Xiangrui Meng |
 | [SPARK-25273](https://issues.apache.org/jira/browse/SPARK-25273) | How to install testthat v1.0.2 |  Major | Documentation | Maxim Gekk | Maxim Gekk |
-| [SPARK-25015](https://issues.apache.org/jira/browse/SPARK-25015) | Update Hadoop 2.7 to 2.7.7 |  Minor | Build | Sean Owen | Sean Owen |
 
 

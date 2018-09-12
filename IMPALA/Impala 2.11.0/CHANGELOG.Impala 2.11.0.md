@@ -231,6 +231,7 @@
 | [IMPALA-6274](https://issues.apache.org/jira/browse/IMPALA-6274) | Impala daemon crashing in Coordinator::Wait() or some of its callees |  Blocker | Backend | Zoram Thanga |  |
 | [IMPALA-6936](https://issues.apache.org/jira/browse/IMPALA-6936) |  LLVM generates toxic x86 assembly for StringFunctions::Trim() |  Critical | Backend | Zoram Thanga | Zoram Thanga |
 | [IMPALA-3267](https://issues.apache.org/jira/browse/IMPALA-3267) | Docs about nan/inf are incorrect |  Trivial | Docs | Todd Lipcon | Alex Rodoni |
+| [IMPALA-6764](https://issues.apache.org/jira/browse/IMPALA-6764) | Codegend UnionNode::MaterializeBatch() causes memory corruption crash of Impalad |  Critical | Backend | Zoram Thanga | Zoram Thanga |
 
 
 ### TESTS:

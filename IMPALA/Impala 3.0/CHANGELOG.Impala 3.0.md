@@ -131,7 +131,7 @@
 | [IMPALA-6719](https://issues.apache.org/jira/browse/IMPALA-6719) | refresh function case sensitivity |  Major | Frontend | Vuk Ercegovac | Fredy Wijaya |
 | [IMPALA-6724](https://issues.apache.org/jira/browse/IMPALA-6724) | Allow creating/dropping functions with the same name as built-ins |  Major | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6571](https://issues.apache.org/jira/browse/IMPALA-6571) | NullPointerException in SHOW CREATE TABLE for HBase tables |  Major | Frontend | Fredy Wijaya | Fredy Wijaya |
-| [IMPALA-6785](https://issues.apache.org/jira/browse/IMPALA-6785) | Staring an Impalad on an already running cluster may result in inconsistent cluster subscription |  Critical | Distributed Exec | Mostafa Mokhtar | Tim Armstrong |
+| [IMPALA-6785](https://issues.apache.org/jira/browse/IMPALA-6785) | Starting an Impalad on an already running cluster may result in inconsistent cluster subscription |  Critical | Distributed Exec | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-3464](https://issues.apache.org/jira/browse/IMPALA-3464) | Show Create Table with Unusual Delimiters Incorrect |  Minor | Frontend | Alan Jackoway | Adam Holley |
 | [IMPALA-6824](https://issues.apache.org/jira/browse/IMPALA-6824) | Crash in RuntimeProfile::EventSequence::AddNewerEvents() when events\_ is empty |  Blocker | Backend | Lars Volker | Lars Volker |
 | [IMPALA-6825](https://issues.apache.org/jira/browse/IMPALA-6825) | /share/hadoop/tools/lib/ missing from HADOOP\_CLASSPATH when using Hadoop 3, breaking S3 dev support |  Blocker | Infrastructure | Lars Volker | Lars Volker |

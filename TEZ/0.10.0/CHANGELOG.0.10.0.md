@@ -18,7 +18,7 @@
 -->
 # Apache Tez Changelog
 
-## Release 0.10.0 - Unreleased (as of 2018-09-05)
+## Release 0.10.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -69,6 +69,7 @@
 | [TEZ-3974](https://issues.apache.org/jira/browse/TEZ-3974) | Tez: Correctness regression of TEZ-955 in TEZ-2937 |  Critical | . | Gopal V | Jaume M |
 | [TEZ-3978](https://issues.apache.org/jira/browse/TEZ-3978) | DAGClientServer Socket exception when localhost name lookup failures |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [TEZ-3980](https://issues.apache.org/jira/browse/TEZ-3980) | ShuffleRunner: the wake loop needs to check for shutdown |  Major | . | Gopal V | Gopal V |
+| [TEZ-3973](https://issues.apache.org/jira/browse/TEZ-3973) | Add Kuhu Shukla's (kshukla) public key to KEYS |  Minor | . | Kuhu Shukla | Kuhu Shukla |
 
 
 ### SUB-TASKS:

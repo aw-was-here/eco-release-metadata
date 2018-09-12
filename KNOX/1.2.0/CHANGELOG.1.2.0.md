@@ -18,7 +18,7 @@
 -->
 # Apache Knox Changelog
 
-## Release 1.2.0 - Unreleased (as of 2018-09-05)
+## Release 1.2.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -39,7 +39,6 @@
 | [KNOX-1412](https://issues.apache.org/jira/browse/KNOX-1412) | Failure while executing a \`curl\` command using Content-Type: text/xml" "Content-Encoding: gzip" |  Major | Server | Ernani Pereira de Mattos Junior | Sandeep More |
 | [KNOX-1420](https://issues.apache.org/jira/browse/KNOX-1420) | Add app.css path for Zeppelin's style sheet |  Major | Server | Prabhjyot Singh | Prabhjyot Singh |
 | [KNOX-1422](https://issues.apache.org/jira/browse/KNOX-1422) | Whitelisting not working as expected for knoxauth redirects |  Major | Server | Sandeep More | Sandeep More |
-| [KNOX-1339](https://issues.apache.org/jira/browse/KNOX-1339) | Support for cloud federation |  Major | Server | Sandeep More | Sandeep More |
 | [KNOX-1424](https://issues.apache.org/jira/browse/KNOX-1424) | knox renaming "app" to "/gateway/ui\_ns1/zeppelin/app" |  Major | Server | Sameer Shaikh |  |
 | [KNOX-1417](https://issues.apache.org/jira/browse/KNOX-1417) | Upgrade Bouncy Castle Dependency from Pac4J |  Major | Server | Larry McCay | Larry McCay |
 | [KNOX-1416](https://issues.apache.org/jira/browse/KNOX-1416) | Upgrade Spring Framework to 4.3.17 |  Major | Server | Larry McCay | Larry McCay |

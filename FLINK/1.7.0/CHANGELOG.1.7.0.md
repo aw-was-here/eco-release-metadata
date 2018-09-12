@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 1.7.0 - Unreleased (as of 2018-09-05)
+## Release 1.7.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -82,6 +82,10 @@
 | [FLINK-10270](https://issues.apache.org/jira/browse/FLINK-10270) | Delete LegacyRestHandlerAdapter |  Major | REST | Gary Yao | Gary Yao |
 | [FLINK-7551](https://issues.apache.org/jira/browse/FLINK-7551) | Add VERSION to the REST urls. |  Critical | REST | Kostas Kloudas | Chesnay Schepler |
 | [FLINK-10186](https://issues.apache.org/jira/browse/FLINK-10186) | Use ThreadLocalRandom in BufferSpiller constructor |  Major | Streaming | Hiroaki Yoshida | Hiroaki Yoshida |
+| [FLINK-10254](https://issues.apache.org/jira/browse/FLINK-10254) | Fix inappropriate checkNotNull in stateBackend |  Major | State Backends, Checkpointing | aitozi | aitozi |
+| [FLINK-10131](https://issues.apache.org/jira/browse/FLINK-10131) | Improve logging around ResultSubpartition |  Major | Logging, Network | Nico Kruber | Nico Kruber |
+| [FLINK-10170](https://issues.apache.org/jira/browse/FLINK-10170) | Support string representation for map and array types in descriptor-based Table API |  Major | Table API & SQL | Jun Zhang | Jun Zhang |
+| [FLINK-10185](https://issues.apache.org/jira/browse/FLINK-10185) | Make ZooKeeperStateHandleStore#releaseAndTryRemove synchronous |  Major | Distributed Coordination | Till Rohrmann | Till Rohrmann |
 
 
 ### BUG FIXES:
@@ -118,6 +122,13 @@
 | [FLINK-10141](https://issues.apache.org/jira/browse/FLINK-10141) | Reduce lock contention introduced with 1.5 |  Major | Network | Nico Kruber | Nico Kruber |
 | [FLINK-10115](https://issues.apache.org/jira/browse/FLINK-10115) | Content-length limit is also applied to FileUploads |  Major | REST, Webfrontend | Yazdan Shirvany | Chesnay Schepler |
 | [FLINK-10150](https://issues.apache.org/jira/browse/FLINK-10150) | Chained batch operators interfere with each other other |  Blocker | Metrics, Webfrontend | Helmut Zechmann | Chesnay Schepler |
+| [FLINK-10283](https://issues.apache.org/jira/browse/FLINK-10283) | FileCache logs unnecessary warnings |  Major | Local Runtime | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10261](https://issues.apache.org/jira/browse/FLINK-10261) | INSERT INTO does not work with ORDER BY clause |  Major | Table API & SQL | Timo Walther | xueyu |
+| [FLINK-10193](https://issues.apache.org/jira/browse/FLINK-10193) | Default RPC timeout is used when triggering savepoint via JobMasterGateway |  Critical | Distributed Coordination | Gary Yao | Gary Yao |
+| [FLINK-10174](https://issues.apache.org/jira/browse/FLINK-10174) | getbytes with no charsets test error for hex and toBase64 |  Major | Table API & SQL | xueyu | xueyu |
+| [FLINK-10293](https://issues.apache.org/jira/browse/FLINK-10293) | RemoteStreamEnvironment does not forward port to RestClusterClient |  Major | Client, Streaming | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10281](https://issues.apache.org/jira/browse/FLINK-10281) | Fix string literal escaping throughout Table & SQL API |  Major | Table API & SQL | vinoyang | Timo Walther |
+| [FLINK-10011](https://issues.apache.org/jira/browse/FLINK-10011) | Old job resurrected during HA failover |  Blocker | JobManager | Elias Levy | Till Rohrmann |
 
 
 ### TESTS:
@@ -154,5 +165,7 @@
 | [FLINK-10060](https://issues.apache.org/jira/browse/FLINK-10060) | Add RTRIM supported in Table API and SQL |  Minor | . | vinoyang | vinoyang |
 | [FLINK-9781](https://issues.apache.org/jira/browse/FLINK-9781) | scala-maven-plugin fails on java 9 |  Major | Build System, Scala API | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-10207](https://issues.apache.org/jira/browse/FLINK-10207) | Bump checkstyle-plugin to 8.9 |  Major | Build System | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10243](https://issues.apache.org/jira/browse/FLINK-10243) | Add option to reduce latency metrics granularity |  Major | Configuration, Metrics | Chesnay Schepler | Chesnay Schepler |
+| [FLINK-10242](https://issues.apache.org/jira/browse/FLINK-10242) | Disable latency metrics by default |  Major | Configuration, Metrics | Chesnay Schepler | Chesnay Schepler |
 
 

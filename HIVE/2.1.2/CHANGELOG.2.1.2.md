@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.1.2 - Unreleased (as of 2018-09-05)
+## Release 2.1.2 - Unreleased (as of 2018-09-12)
 
 
 
@@ -41,5 +41,6 @@
 | [HIVE-16239](https://issues.apache.org/jira/browse/HIVE-16239) | remove useless hiveserver |  Major | CLI | Fei Hui | Fei Hui |
 | [HIVE-17664](https://issues.apache.org/jira/browse/HIVE-17664) | Refactor and add new tests |  Major | . | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 | [HIVE-17831](https://issues.apache.org/jira/browse/HIVE-17831) | HiveSemanticAnalyzerHookContext does not update the HiveOperation after sem.analyze() is called |  Major | Hive | Sergio Peña | Aihua Xu |
+| [HIVE-16480](https://issues.apache.org/jira/browse/HIVE-16480) | ORC file with empty array\<double\> and array\<float\> fails to read |  Major | . | David Capwell | Owen O'Malley |
 
 

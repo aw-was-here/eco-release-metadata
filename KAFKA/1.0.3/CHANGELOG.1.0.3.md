@@ -18,7 +18,7 @@
 -->
 # Apache Kafka Changelog
 
-## Release 1.0.3 - Unreleased (as of 2018-09-05)
+## Release 1.0.3 - Unreleased (as of 2018-09-12)
 
 
 
@@ -39,5 +39,6 @@
 | [KAFKA-7284](https://issues.apache.org/jira/browse/KAFKA-7284) | Producer getting fenced may cause Streams to shut down |  Critical | streams | John Roesler | John Roesler |
 | [KAFKA-7119](https://issues.apache.org/jira/browse/KAFKA-7119) | Intermittent test failure with GSSAPI authentication failure |  Major | security | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-5891](https://issues.apache.org/jira/browse/KAFKA-5891) | Cast transformation fails if record schema contains timestamp field |  Major | KafkaConnect | Artem Plotnikov |  |
+| [KAFKA-7353](https://issues.apache.org/jira/browse/KAFKA-7353) | Connect logs 'this' for anonymous inner classes |  Minor | KafkaConnect | Kevin Lafferty |  |
 
 

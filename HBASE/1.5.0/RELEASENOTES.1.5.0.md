@@ -315,4 +315,18 @@ Exposing 2 new metrics in HBase to provide ReadRequestRate and WriteRequestRate 
 Allows configuration of the length of RPC messages printed to the log at TRACE level via "hbase.ipc.trace.param.size" in RpcServer.
 
 
+---
+
+* [HBASE-20446](https://issues.apache.org/jira/browse/HBASE-20446) | *Minor* | **Allow building HBase 1.x against Hadoop 3.1.x**
+
+Finally committed this.
+
+
+---
+
+* [HBASE-21021](https://issues.apache.org/jira/browse/HBASE-21021) | *Major* | **Result returned by Append operation should be ordered**
+
+This change ensures Append operations are assembled into the expected order.
+
+
 

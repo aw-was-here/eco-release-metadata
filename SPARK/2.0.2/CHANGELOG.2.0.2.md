@@ -33,7 +33,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-16343](https://issues.apache.org/jira/browse/SPARK-16343) | Improve the PushDownPredicate rule to pushdown predicates currectly in non-deterministic condition |  Critical | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-16343](https://issues.apache.org/jira/browse/SPARK-16343) | Improve the PushDownPredicate rule to pushdown predicates currectly in non-deterministic condition |  Critical | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-17780](https://issues.apache.org/jira/browse/SPARK-17780) | Report NoClassDefFoundError in StreamExecution |  Major | SQL | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-17751](https://issues.apache.org/jira/browse/SPARK-17751) | Remove spark.sql.eagerAnalysis |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-17999](https://issues.apache.org/jira/browse/SPARK-17999) | Add getPreferredLocations for KafkaSourceRDD |  Minor | Structured Streaming | Saisai Shao | Saisai Shao |
@@ -64,7 +64,7 @@
 | [SPARK-17805](https://issues.apache.org/jira/browse/SPARK-17805) | sqlContext.read.text() does not work with a list of paths |  Minor | PySpark | Laurent Legrand | Bryan Cutler |
 | [SPARK-17707](https://issues.apache.org/jira/browse/SPARK-17707) | Web UI prevents spark-submit application to be finished |  Major | . | Nick Orka | Sean Owen |
 | [SPARK-17806](https://issues.apache.org/jira/browse/SPARK-17806) | Incorrect result when work with data from parquet |  Blocker | SQL | Vitaly Gerasimov | Davies Liu |
-| [SPARK-17832](https://issues.apache.org/jira/browse/SPARK-17832) | TableIdentifier.quotedString creates un-parseable names when name contains a backtick |  Minor | SQL | Herman van Hovell | Jiang Xingbo |
+| [SPARK-17832](https://issues.apache.org/jira/browse/SPARK-17832) | TableIdentifier.quotedString creates un-parseable names when name contains a backtick |  Minor | SQL | Herman van Hovell | Xingbo Jiang |
 | [SPARK-17417](https://issues.apache.org/jira/browse/SPARK-17417) | Fix sorting of part files while reconstructing RDD/partition from checkpointed files. |  Major | Spark Core | Dhruve Ashar | Dhruve Ashar |
 | [SPARK-17816](https://issues.apache.org/jira/browse/SPARK-17816) | Json serialzation of accumulators are failing with ConcurrentModificationException |  Major | Spark Core | Ergin Seyfe | Ergin Seyfe |
 | [SPARK-17808](https://issues.apache.org/jira/browse/SPARK-17808) | BinaryType fails in Python 3 due to outdated Pyrolite |  Major | PySpark | Pete Fein | Bryan Cutler |
@@ -92,15 +92,15 @@
 | [SPARK-18070](https://issues.apache.org/jira/browse/SPARK-18070) | binary operator should not consider nullability when comparing input types |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-16988](https://issues.apache.org/jira/browse/SPARK-16988) | spark history server log needs to be fixed to show https url when ssl is enabled |  Minor | Web UI | Yesha Vora | chie hayashida |
 | [SPARK-18022](https://issues.apache.org/jira/browse/SPARK-18022) | java.lang.NullPointerException instead of real exception when saving DF to MySQL |  Minor | SQL | Maciej Bryński | Sean Owen |
-| [SPARK-17733](https://issues.apache.org/jira/browse/SPARK-17733) | InferFiltersFromConstraints rule never terminates for query |  Critical | SQL | Josh Rosen | Jiang Xingbo |
+| [SPARK-17733](https://issues.apache.org/jira/browse/SPARK-17733) | InferFiltersFromConstraints rule never terminates for query |  Critical | SQL | Josh Rosen | Xingbo Jiang |
 | [SPARK-18093](https://issues.apache.org/jira/browse/SPARK-18093) | Fix default value test in SQLConfSuite to work regardless of warehouse dir's existence |  Minor | SQL | Mark Grover | Mark Grover |
-| [SPARK-18063](https://issues.apache.org/jira/browse/SPARK-18063) | Failed to infer constraints over multiple aliases |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-18063](https://issues.apache.org/jira/browse/SPARK-18063) | Failed to infer constraints over multiple aliases |  Minor | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-18009](https://issues.apache.org/jira/browse/SPARK-18009) | Spark 2.0.1 SQL Thrift Error |  Critical | SQL | Jerryjung | Dilip Biswal |
 | [SPARK-18132](https://issues.apache.org/jira/browse/SPARK-18132) | spark 2.0 branch's spark-release-publish failed because style check failed. |  Blocker | Build | Yin Huai | Yin Huai |
 | [SPARK-18030](https://issues.apache.org/jira/browse/SPARK-18030) | Flaky test: org.apache.spark.sql.streaming.FileStreamSourceSuite |  Major | Structured Streaming | Davies Liu | Shixiong Zhu |
 | [SPARK-18114](https://issues.apache.org/jira/browse/SPARK-18114) | MesosClusterScheduler generate bad command options |  Major | Mesos | Leighton Wong | Leighton Wong |
 | [SPARK-18189](https://issues.apache.org/jira/browse/SPARK-18189) | task not serializable with groupByKey() + mapGroups() + map |  Major | SQL | Yang Yang | Ergin Seyfe |
-| [SPARK-18148](https://issues.apache.org/jira/browse/SPARK-18148) | Misleading Error Message for Aggregation Without Window/GroupBy |  Major | SQL | Pat McDonough | Jiang Xingbo |
+| [SPARK-18148](https://issues.apache.org/jira/browse/SPARK-18148) | Misleading Error Message for Aggregation Without Window/GroupBy |  Major | SQL | Pat McDonough | Xingbo Jiang |
 | [SPARK-17337](https://issues.apache.org/jira/browse/SPARK-17337) | Incomplete algorithm for name resolution in Catalyst paser may lead to incorrect result |  Major | SQL | Nattavut Sutyanyong | Herman van Hovell |
 | [SPARK-18342](https://issues.apache.org/jira/browse/SPARK-18342) | HDFSBackedStateStore can fail to rename files causing snapshotting and recovery to fail |  Critical | Structured Streaming | Burak Yavuz | Burak Yavuz |
 | [SPARK-15685](https://issues.apache.org/jira/browse/SPARK-15685) | StackOverflowError (VirtualMachineError) or NoClassDefFoundError (LinkageError) should not System.exit() in local mode |  Major | Spark Core | Brett Randall |  |

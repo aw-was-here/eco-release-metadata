@@ -18,7 +18,7 @@
 -->
 # Apache Kudu Changelog
 
-## Release 1.8.0 - Unreleased (as of 2018-09-05)
+## Release 1.8.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -59,6 +59,7 @@
 | [KUDU-2510](https://issues.apache.org/jira/browse/KUDU-2510) | On-disk and provided master list error message is misleading |  Minor | master, supportability | Attila Bukor | Attila Bukor |
 | [KUDU-2469](https://issues.apache.org/jira/browse/KUDU-2469) | Handle CFile checksum failures |  Major | cfile, tablet | Andrew Wong | Andrew Wong |
 | [KUDU-2529](https://issues.apache.org/jira/browse/KUDU-2529) | kudu CLI command supports list the tablets under a table and list the replicas of a tablet |  Major | CLI | HeLifu | HeLifu |
+| [KUDU-2489](https://issues.apache.org/jira/browse/KUDU-2489) | [java] TestSecurity is a long running test |  Major | . | Grant Henke | Brian McDevitt |
 
 
 ### BUG FIXES:
@@ -120,6 +121,7 @@
 | [KUDU-2555](https://issues.apache.org/jira/browse/KUDU-2555) | Memory leak in negotiation-test |  Major | . | Andrew Wong | Alexey Serbin |
 | [KUDU-1951](https://issues.apache.org/jira/browse/KUDU-1951) | broken links in site/docs |  Major | documentation, website | Todd Lipcon | Attila Bukor |
 | [KUDU-2560](https://issues.apache.org/jira/browse/KUDU-2560) | client\_examples-test can't find libunwind |  Major | . | Andrew Wong | Adar Dembo |
+| [KUDU-2531](https://issues.apache.org/jira/browse/KUDU-2531) | Backup file left by pbc edit tool will prevent the server from starting |  Major | . | Grant Henke | Grant Henke |
 
 
 ### TESTS:

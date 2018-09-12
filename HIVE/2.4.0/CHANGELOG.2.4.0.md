@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.4.0 - Unreleased (as of 2018-09-05)
+## Release 2.4.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-17466](https://issues.apache.org/jira/browse/HIVE-17466) | Metastore API to list unique partition-key-value combinations |  Major | Metastore | Mithun Radhakrishnan | Thiruvel Thirumoolan |
+| [HIVE-20225](https://issues.apache.org/jira/browse/HIVE-20225) | SerDe to support Teradata Binary Format |  Major | Serializers/Deserializers | Lu Li | Lu Li |
 
 
 ### IMPROVEMENTS:
@@ -165,6 +166,7 @@
 | [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251) | ObjectStore.getNextNotification with LIMIT should use less memory |  Major | repl, Standalone Metastore | Daniel Dai | Daniel Dai |
 | [HIVE-18624](https://issues.apache.org/jira/browse/HIVE-18624) | Parsing time is extremely high (~10 min) for queries with complex select expressions |  Major | Hive, Parser | Amruth S | Zoltan Haindrich |
 | [HIVE-20453](https://issues.apache.org/jira/browse/HIVE-20453) | backport HIVE-16233 (LLAP cache defragmentation) to branch-2 |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
+| [HIVE-20080](https://issues.apache.org/jira/browse/HIVE-20080) | TxnHandler checkLock direct sql fail with ORA-01795 , if the table has more than 1000 partitions |  Major | Transactions | Rajkumar Singh | Rajkumar Singh |
 
 
 ### TESTS:

@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.11.0 - Unreleased (as of 2018-09-05)
+## Release 1.11.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -50,6 +50,7 @@
 | [PARQUET-1344](https://issues.apache.org/jira/browse/PARQUET-1344) | Type builders don't honor new logical types |  Major | parquet-mr | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1351](https://issues.apache.org/jira/browse/PARQUET-1351) | Travis builds fail for parquet-format |  Major | parquet-format | Nandor Kollar | Nandor Kollar |
 | [PARQUET-1341](https://issues.apache.org/jira/browse/PARQUET-1341) | Null count is suppressed when columns have no min or max and use unsigned sort order |  Major | parquet-mr | Ryan Blue | Ryan Blue |
+| [PARQUET-1371](https://issues.apache.org/jira/browse/PARQUET-1371) | Time/Timestamp UTC normalization parameter doesn't work |  Major | . | Nandor Kollar | Nandor Kollar |
 
 
 ### SUB-TASKS:

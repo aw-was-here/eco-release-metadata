@@ -16,17 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Impala Changelog
+# Apache Hadoop  2.8.6 Release Notes
 
-## Release Impala 2.2.5 - Unreleased (as of 2018-09-12)
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
-
-
-### BUG FIXES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2048](https://issues.apache.org/jira/browse/IMPALA-2048) | Class not found: com.cloudera.impala.hive.serde.ParquetInputFormat error |  Blocker | . | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
-| [IMPALA-2018](https://issues.apache.org/jira/browse/IMPALA-2018) | Where clause does not propagate to joins inside nested views |  Blocker | . | Alan Jackoway | Dimitris Tsirogiannis |
 
 

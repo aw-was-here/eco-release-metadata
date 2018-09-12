@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-09-05)
+## Release 2.1.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -50,6 +50,8 @@
 | [SENTRY-2335](https://issues.apache.org/jira/browse/SENTRY-2335) | Allow multiple callbacks to be run when a Signal is received. |  Minor | Core | Brian Towles | Brian Towles |
 | [SENTRY-2366](https://issues.apache.org/jira/browse/SENTRY-2366) | Exclude jackson transitive dependencies |  Minor | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2376](https://issues.apache.org/jira/browse/SENTRY-2376) | Bump Jackson libraries versions to 1.9.13 and 2.9.6 |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2392](https://issues.apache.org/jira/browse/SENTRY-2392) | Add metrics statistics to list\_user\_privileges and list\_role\_privileges API |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2311](https://issues.apache.org/jira/browse/SENTRY-2311) | Intellij is broken by shaded jars |  Major | Sentry | Steve Moist | Steve Moist |
 
 
 ### BUG FIXES:
@@ -101,6 +103,10 @@
 | [SENTRY-2352](https://issues.apache.org/jira/browse/SENTRY-2352) | User roles with ALTER on a table can not show or describe the table on which they have ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2308](https://issues.apache.org/jira/browse/SENTRY-2308) | Create privilege on table has no use case |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2359](https://issues.apache.org/jira/browse/SENTRY-2359) | Object owner is unable to grant privileges: SentryAccessDeniedException |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2315](https://issues.apache.org/jira/browse/SENTRY-2315) | The grant all operation is not dropping the create/alter/drop/index/lock privileges. |  Major | Sentry | Sergio Peña | Sergio Peña |
+| [SENTRY-2375](https://issues.apache.org/jira/browse/SENTRY-2375) | Fix API typos on SentryPolicyServiceClient |  Major | Sentry | Sergio Peña | Morio Ramdenbourg |
+| [SENTRY-2394](https://issues.apache.org/jira/browse/SENTRY-2394) | Typo in sentry-site.xml.service.template |  Minor | Sentry | Morio Ramdenbourg | Morio Ramdenbourg |
+| [SENTRY-2395](https://issues.apache.org/jira/browse/SENTRY-2395) | ALTER VIEW AS SELECT is asking for CREATE privileges instead of ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### TESTS:
@@ -157,6 +163,7 @@
 | [SENTRY-2307](https://issues.apache.org/jira/browse/SENTRY-2307) | Avoid HMS event synchronization while sentry is fetching full snapshot. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2233](https://issues.apache.org/jira/browse/SENTRY-2233) | Add e2e tests for testing HDFS sync for owner privileges. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2374](https://issues.apache.org/jira/browse/SENTRY-2374) | Add Lombok for easier development |  Minor | Core | Brian Towles | Brian Towles |
+| [SENTRY-2367](https://issues.apache.org/jira/browse/SENTRY-2367) | Implement subsystem to allow for pluggable attribute providers and transports |  Major | Core | Brian Towles | Brian Towles |
 
 
 ### OTHER:

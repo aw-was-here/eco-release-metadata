@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.6.0 - Unreleased (as of 2018-09-05)
+## Release 3.6.0 - Unreleased (as of 2018-09-12)
 
 ### INCOMPATIBLE CHANGES:
 
@@ -385,6 +385,11 @@
 | [ZOOKEEPER-2926](https://issues.apache.org/jira/browse/ZOOKEEPER-2926) | Data inconsistency issue due to the flaw in the session management |  Critical | server | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-3117](https://issues.apache.org/jira/browse/ZOOKEEPER-3117) |  Correct the LeaderBean.followerInfo to only return the followers list |  Minor | quorum | Fangmin Lv | Fangmin Lv |
 | [ZOOKEEPER-2913](https://issues.apache.org/jira/browse/ZOOKEEPER-2913) | testEphemeralNodeDeletion is flaky |  Major | tests | Patrick Hunt | maoling |
+| [ZOOKEEPER-3127](https://issues.apache.org/jira/browse/ZOOKEEPER-3127) | Fixing potential data inconsistency due to update last processed zxid with partial multi-op txn |  Critical | server | Fangmin Lv | Fangmin Lv |
+| [ZOOKEEPER-3131](https://issues.apache.org/jira/browse/ZOOKEEPER-3131) | org.apache.zookeeper.server.WatchManager resource leak |  Major | server | ChaoWang |  |
+| [ZOOKEEPER-1990](https://issues.apache.org/jira/browse/ZOOKEEPER-1990) | suspicious instantiation of java Random instances |  Critical | . | Patrick Hunt | Norbert Kalmar |
+| [ZOOKEEPER-2261](https://issues.apache.org/jira/browse/ZOOKEEPER-2261) | When only secureClientPort is configured connections, configuration, connection\_stat\_reset, and stats admin commands throw NullPointerException |  Major | . | Mohammad Arshad | Andor Molnar |
+| [ZOOKEEPER-1823](https://issues.apache.org/jira/browse/ZOOKEEPER-1823) | zkTxnLogToolkit -dump should support printing transaction data as a string |  Trivial | server | Raul Gutierrez Segales | maoling |
 
 
 ### TESTS:
@@ -442,6 +447,7 @@
 | [ZOOKEEPER-3033](https://issues.apache.org/jira/browse/ZOOKEEPER-3033) | Step 1.2 - Create zk-recipes maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-3031](https://issues.apache.org/jira/browse/ZOOKEEPER-3031) | Step 1.4 - Create zk-client maven structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
 | [ZOOKEEPER-3080](https://issues.apache.org/jira/browse/ZOOKEEPER-3080) | Step 1.5 - Separate jute structure |  Major | build, scripts | Norbert Kalmar | Norbert Kalmar |
+| [ZOOKEEPER-3123](https://issues.apache.org/jira/browse/ZOOKEEPER-3123) | MetricsProvider Lifecycle in ZooKeeper Server |  Major | metric system | Enrico Olivelli | Enrico Olivelli |
 
 
 ### OTHER:
@@ -460,5 +466,6 @@
 | [ZOOKEEPER-3061](https://issues.apache.org/jira/browse/ZOOKEEPER-3061) | add more details to 'Unhandled scenario for peer' log.warn message |  Minor | . | Christine Poerschke |  |
 | [ZOOKEEPER-3062](https://issues.apache.org/jira/browse/ZOOKEEPER-3062) | introduce fsync.warningthresholdms constant for FileTxnLog LOG.warn message |  Minor | . | Christine Poerschke | Christine Poerschke |
 | [ZOOKEEPER-3120](https://issues.apache.org/jira/browse/ZOOKEEPER-3120) | add NetBeans nbproject directory to .gitignore |  Minor | . | Enrico Olivelli | Enrico Olivelli |
+| [ZOOKEEPER-3136](https://issues.apache.org/jira/browse/ZOOKEEPER-3136) | Reduce log in ClientBase in case of ConnectException |  Minor | tests | Enrico Olivelli | Enrico Olivelli |
 
 

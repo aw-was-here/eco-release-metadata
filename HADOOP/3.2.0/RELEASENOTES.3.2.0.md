@@ -134,4 +134,18 @@ FUSE lib now recognize the change of the Kerberos ticket cache path if it was ch
 Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in Hadoop 2.x.
 
 
+---
+
+* [HDFS-13806](https://issues.apache.org/jira/browse/HDFS-13806) | *Minor* | **EC: No error message for unsetting EC policy of the directory inherits the erasure coding policy from an ancestor directory**
+
+After this change, attempt to unsetErasureCodingPolicy() on a directory without EC policy explicitly set on it, will get NoECPolicySetException.
+
+
+---
+
+* [YARN-3409](https://issues.apache.org/jira/browse/YARN-3409) | *Major* | **Support Node Attribute functionality**
+
+Node Attribute Feature has been added as part of this jira.
+
+
 

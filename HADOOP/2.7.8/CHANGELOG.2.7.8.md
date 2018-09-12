@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.7.8 - Unreleased (as of 2018-09-05)
+## Release 2.7.8 - Unreleased (as of 2018-09-12)
 
 
 
@@ -36,5 +36,6 @@
 | [HADOOP-14891](https://issues.apache.org/jira/browse/HADOOP-14891) | Remove references to Guava Objects.toStringHelper |  Major | . | Jonathan Eagles | Jonathan Eagles |
 | [HADOOP-15674](https://issues.apache.org/jira/browse/HADOOP-15674) | Test failure TestSSLHttpServer.testExcludedCiphers with TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 cipher suite |  Major | common | Gabor Bota | Szilard Nemeth |
 | [YARN-8640](https://issues.apache.org/jira/browse/YARN-8640) | Restore previous state in container-executor after failure |  Major | . | Jim Brennan | Jim Brennan |
+| [MAPREDUCE-7131](https://issues.apache.org/jira/browse/MAPREDUCE-7131) | Job History Server has race condition where it moves files from intermediate to finished but thinks file is in intermediate |  Major | . | Anthony Hsu | Anthony Hsu |
 
 

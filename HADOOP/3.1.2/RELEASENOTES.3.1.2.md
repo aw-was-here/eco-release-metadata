@@ -28,4 +28,11 @@ These release notes cover new developer and user-facing incompatibilities, impor
 Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in Hadoop 2.x.
 
 
+---
+
+* [HADOOP-15677](https://issues.apache.org/jira/browse/HADOOP-15677) | *Major* | **WASB: Add support for StreamCapabilities**
+
+WASB: Support for StreamCapabilities.
+
+
 

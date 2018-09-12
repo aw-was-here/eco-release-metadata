@@ -16,17 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Impala Changelog
+# Apache Hadoop  3.3.0 Release Notes
 
-## Release Impala 2.2.5 - Unreleased (as of 2018-09-12)
+These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
 
-### BUG FIXES:
+* [HADOOP-14833](https://issues.apache.org/jira/browse/HADOOP-14833) | *Major* | **Remove s3a user:secret authentication**
 
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2048](https://issues.apache.org/jira/browse/IMPALA-2048) | Class not found: com.cloudera.impala.hive.serde.ParquetInputFormat error |  Blocker | . | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
-| [IMPALA-2018](https://issues.apache.org/jira/browse/IMPALA-2018) | Where clause does not propagate to joins inside nested views |  Blocker | . | Alan Jackoway | Dimitris Tsirogiannis |
+After this patch, the S3A connector no longer supports username and secrets in URLs of the form \`s3a://key:secret@bucket/\`. It is near-impossible to stop those secrets being logged —which is why a warning has been printed since Hadoop 2.8 whenever such a URL was used.
+
+Fix: use a more secure mechanism to pass down the secrets.
+
 
 

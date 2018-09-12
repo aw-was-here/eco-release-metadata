@@ -87,13 +87,14 @@
 | [SPARK-12139](https://issues.apache.org/jira/browse/SPARK-12139) | REGEX Column Specification for Hive Queries |  Minor | SQL | Derek Sabry | jane |
 | [SPARK-15689](https://issues.apache.org/jira/browse/SPARK-15689) | Data source API v2 |  Major | SQL | Reynold Xin | Wenchen Fan |
 | [SPARK-17025](https://issues.apache.org/jira/browse/SPARK-17025) | Cannot persist PySpark ML Pipeline model that includes custom Transformer |  Minor | ML, PySpark | Nicholas Chammas | Ajay Saini |
+| [SPARK-19489](https://issues.apache.org/jira/browse/SPARK-19489) | Stable serialization format for external & native code integration |  Major | Spark Core, SQL | Reynold Xin |  |
 
 
 ### IMPROVEMENTS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SPARK-20350](https://issues.apache.org/jira/browse/SPARK-20350) | Apply Complementation Laws during boolean expression simplification |  Major | Optimizer | Michael Styles | Michael Styles |
+| [SPARK-20350](https://issues.apache.org/jira/browse/SPARK-20350) | Apply Complementation Laws during boolean expression simplification |  Major | SQL | Michael Styles | Michael Styles |
 | [SPARK-20375](https://issues.apache.org/jira/browse/SPARK-20375) | R wrappers for array and map |  Minor | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-20371](https://issues.apache.org/jira/browse/SPARK-20371) | R wrappers for collect\_list and collect\_set |  Minor | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |
 | [SPARK-20438](https://issues.apache.org/jira/browse/SPARK-20438) | R wrappers for split and repeat |  Major | SparkR | Maciej Szymkiewicz | Maciej Szymkiewicz |
@@ -150,7 +151,6 @@
 | [SPARK-20972](https://issues.apache.org/jira/browse/SPARK-20972) | rename HintInfo.isBroadcastable to broadcast |  Minor | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-20966](https://issues.apache.org/jira/browse/SPARK-20966) | Table data is not sorted by startTime time desc, time is not formatted and redundant code in JDBC/ODBC Server page. |  Minor | Web UI | guoxiaolongzte | guoxiaolongzte |
 | [SPARK-20995](https://issues.apache.org/jira/browse/SPARK-20995) | 'Spark-env.sh.template' should add 'YARN\_CONF\_DIR' configuration instructions. |  Trivial | Spark Core | guoxiaolongzte | guoxiaolongzte |
-| [SPARK-20918](https://issues.apache.org/jira/browse/SPARK-20918) | Use FunctionIdentifier as function identifiers in FunctionRegistry |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-18891](https://issues.apache.org/jira/browse/SPARK-18891) | Support for specific collection types |  Critical | SQL | Michael Armbrust | Michal Šenkýř |
 | [SPARK-20715](https://issues.apache.org/jira/browse/SPARK-20715) | MapStatuses shouldn't be redundantly stored in both ShuffleMapStage and MapOutputTracker |  Major | Scheduler, Shuffle | Josh Rosen | Josh Rosen |
 | [SPARK-21039](https://issues.apache.org/jira/browse/SPARK-21039) | Use treeAggregate instead of aggregate in DataFrame.stat.bloomFilter |  Minor | Spark Core | Lovasoa | Lovasoa |
@@ -182,7 +182,7 @@
 | [SPARK-17924](https://issues.apache.org/jira/browse/SPARK-17924) | Consolidate streaming and batch write path |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-21273](https://issues.apache.org/jira/browse/SPARK-21273) | Decouple stats propagation from logical plan |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-21275](https://issues.apache.org/jira/browse/SPARK-21275) | Update GLM test to use supportedFamilyNames |  Minor | ML | Wayne Zhang | Wayne Zhang |
-| [SPARK-21260](https://issues.apache.org/jira/browse/SPARK-21260) | Remove the unused OutputFakerExec |  Trivial | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-21260](https://issues.apache.org/jira/browse/SPARK-21260) | Remove the unused OutputFakerExec |  Trivial | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-19852](https://issues.apache.org/jira/browse/SPARK-19852) | StringIndexer.setHandleInvalid should have another option 'new': Python API and docs |  Minor | ML, PySpark | Joseph K. Bradley | Vincent |
 | [SPARK-21250](https://issues.apache.org/jira/browse/SPARK-21250) | Add a url in the table of 'Running Executors'  in worker page to visit job page |  Minor | Web UI | guoxiaolongzte | guoxiaolongzte |
 | [SPARK-21137](https://issues.apache.org/jira/browse/SPARK-21137) | Spark reads many small files slowly off local filesystem |  Minor | Spark Core | sam | Sean Owen |
@@ -265,8 +265,8 @@
 | [SPARK-21544](https://issues.apache.org/jira/browse/SPARK-21544) | Test jar of some module should not install or deploy twice |  Minor | Deploy | zhoukang | zhoukang |
 | [SPARK-20894](https://issues.apache.org/jira/browse/SPARK-20894) | Error while checkpointing to HDFS |  Major | Structured Streaming | kant kodali | Shixiong Zhu |
 | [SPARK-20433](https://issues.apache.org/jira/browse/SPARK-20433) | Update jackson-databind to 2.6.7.1 |  Minor | Spark Core | Andrew Ash | Sean Owen |
-| [SPARK-21608](https://issues.apache.org/jira/browse/SPARK-21608) | Window rangeBetween() API should allow literal boundary |  Major | SQL | Jiang Xingbo | Jiang Xingbo |
-| [SPARK-9221](https://issues.apache.org/jira/browse/SPARK-9221) | Support IntervalType in Range Frame |  Major | SQL | Herman van Hovell | Jiang Xingbo |
+| [SPARK-21608](https://issues.apache.org/jira/browse/SPARK-21608) | Window rangeBetween() API should allow literal boundary |  Major | SQL | Xingbo Jiang | Xingbo Jiang |
+| [SPARK-9221](https://issues.apache.org/jira/browse/SPARK-9221) | Support IntervalType in Range Frame |  Major | SQL | Herman van Hovell | Xingbo Jiang |
 | [SPARK-21665](https://issues.apache.org/jira/browse/SPARK-21665) | Need to close resources  after use |  Trivial | Spark Core, YARN | Vinod KC | Vinod KC |
 | [SPARK-21276](https://issues.apache.org/jira/browse/SPARK-21276) | Update  lz4-java to remove custom LZ4BlockInputStream |  Trivial | Spark Core | Takeshi Yamamuro | Takeshi Yamamuro |
 | [SPARK-21504](https://issues.apache.org/jira/browse/SPARK-21504) | Add spark version info in table metadata |  Major | SQL | Xiao Li | Xiao Li |
@@ -353,7 +353,7 @@
 | [SPARK-21871](https://issues.apache.org/jira/browse/SPARK-21871) | Check actual bytecode size when compiling generated code |  Critical | SQL | Takeshi Yamamuro | Takeshi Yamamuro |
 | [SPARK-22203](https://issues.apache.org/jira/browse/SPARK-22203) | Add job description for file listing Spark jobs |  Major | SQL | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-22142](https://issues.apache.org/jira/browse/SPARK-22142) | Move Flume support behind a profile |  Minor | Build | Sean Owen | Sean Owen |
-| [SPARK-22214](https://issues.apache.org/jira/browse/SPARK-22214) | Refactor the list hive partitions code |  Major | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-22214](https://issues.apache.org/jira/browse/SPARK-22214) | Refactor the list hive partitions code |  Major | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-22156](https://issues.apache.org/jira/browse/SPARK-22156) | Word2Vec: incorrect learning rate update equation when numIterations \> 1 |  Minor | MLlib | kento nozawa | kento nozawa |
 | [SPARK-22147](https://issues.apache.org/jira/browse/SPARK-22147) | BlockId.hashCode allocates a StringBuilder/String on each call |  Minor | Block Manager | Sergei Lebedev | Sergei Lebedev |
 | [SPARK-20679](https://issues.apache.org/jira/browse/SPARK-20679) | Let ML ALS recommend for a subset of users/items |  Major | ML | Nick Pentreath | Nick Pentreath |
@@ -584,6 +584,7 @@
 | [SPARK-20976](https://issues.apache.org/jira/browse/SPARK-20976) | Unify Error Messages for FAILFAST mode. |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-14408](https://issues.apache.org/jira/browse/SPARK-14408) | Update RDD.treeAggregate not to use reduce |  Minor | ML, MLlib, Spark Core | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-20997](https://issues.apache.org/jira/browse/SPARK-20997) | spark-submit's --driver-cores marked as "YARN-only" but listed under "Spark standalone with cluster deploy mode only" |  Trivial | Documentation, Spark Submit | Jacek Laskowski | guoxiaolongzte |
+| [SPARK-20918](https://issues.apache.org/jira/browse/SPARK-20918) | Use FunctionIdentifier as function identifiers in FunctionRegistry |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-20935](https://issues.apache.org/jira/browse/SPARK-20935) | A daemon thread, "BatchedWriteAheadLog Writer", left behind after terminating StreamingContext. |  Major | DStreams | Terence Yim | Hyukjin Kwon |
 | [SPARK-13933](https://issues.apache.org/jira/browse/SPARK-13933) | hadoop-2.7 profile's curator version should be 2.7.1 |  Minor | Build | Steve Loughran | Yuming Wang |
 | [SPARK-21041](https://issues.apache.org/jira/browse/SPARK-21041) | With whole-stage codegen, SparkSession.range()'s behavior is inconsistent with SparkContext.range() |  Major | SQL | Kris Mok | Dongjoon Hyun |
@@ -599,18 +600,18 @@
 | [SPARK-21112](https://issues.apache.org/jira/browse/SPARK-21112) | ALTER TABLE SET TBLPROPERTIES should not overwrite COMMENT |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-21119](https://issues.apache.org/jira/browse/SPARK-21119) | unset table properties should keep the table comment |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-20338](https://issues.apache.org/jira/browse/SPARK-20338) | Spaces in spark.eventLog.dir are not correctly handled |  Major | Spark Core | zuotingbing | zuotingbing |
-| [SPARK-19824](https://issues.apache.org/jira/browse/SPARK-19824) | Standalone master JSON not showing cores for running applications |  Minor | Deploy | Dan | Jiang Xingbo |
+| [SPARK-19824](https://issues.apache.org/jira/browse/SPARK-19824) | Standalone master JSON not showing cores for running applications |  Minor | Deploy | Dan | Xingbo Jiang |
 | [SPARK-19688](https://issues.apache.org/jira/browse/SPARK-19688) | Spark on Yarn Credentials File set to different application directory |  Minor | DStreams, YARN | Devaraj Jonnadula | Xing Shi |
 | [SPARK-21124](https://issues.apache.org/jira/browse/SPARK-21124) | Wrong user shown in UI when using kerberos |  Minor | Web UI | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-21138](https://issues.apache.org/jira/browse/SPARK-21138) | Cannot delete staging dir when the clusters of "spark.yarn.stagingDir" and "spark.hadoop.fs.defaultFS" are different |  Major | YARN | sharkd tu | sharkd tu |
-| [SPARK-20989](https://issues.apache.org/jira/browse/SPARK-20989) | Fail to start multiple workers on one host if external shuffle service is enabled in standalone mode |  Minor | Deploy, Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-20989](https://issues.apache.org/jira/browse/SPARK-20989) | Fail to start multiple workers on one host if external shuffle service is enabled in standalone mode |  Minor | Deploy, Spark Core | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-20640](https://issues.apache.org/jira/browse/SPARK-20640) | Make rpc timeout and retry for shuffle registration configurable |  Major | Shuffle | Sital Kedia | Li Yichao |
-| [SPARK-17851](https://issues.apache.org/jira/browse/SPARK-17851) | Make sure all test sqls in catalyst pass checkAnalysis |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-17851](https://issues.apache.org/jira/browse/SPARK-17851) | Make sure all test sqls in catalyst pass checkAnalysis |  Minor | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-21147](https://issues.apache.org/jira/browse/SPARK-21147) | the schema of socket/rate source can not be set. |  Major | Structured Streaming | Fei Shao | Hyukjin Kwon |
 | [SPARK-20906](https://issues.apache.org/jira/browse/SPARK-20906) | Constrained Logistic Regression for SparkR |  Major | SparkR | Miao Wang | Miao Wang |
 | [SPARK-21167](https://issues.apache.org/jira/browse/SPARK-21167) | Path is not decoded correctly when reading output of FileSink |  Major | Structured Streaming | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-21163](https://issues.apache.org/jira/browse/SPARK-21163) | DataFrame.toPandas should respect the data type |  Major | PySpark, SQL | Wenchen Fan | Wenchen Fan |
-| [SPARK-20832](https://issues.apache.org/jira/browse/SPARK-20832) | Standalone master should explicitly inform drivers of worker deaths and invalidate external shuffle service outputs |  Major | Deploy, Scheduler | Josh Rosen | Jiang Xingbo |
+| [SPARK-20832](https://issues.apache.org/jira/browse/SPARK-20832) | Standalone master should explicitly inform drivers of worker deaths and invalidate external shuffle service outputs |  Major | Deploy, Scheduler | Josh Rosen | Xingbo Jiang |
 | [SPARK-20923](https://issues.apache.org/jira/browse/SPARK-20923) | TaskMetrics.\_updatedBlockStatuses uses a lot of memory |  Major | Spark Core | Thomas Graves | Thomas Graves |
 | [SPARK-21145](https://issues.apache.org/jira/browse/SPARK-21145) | Restarted queries reuse same StateStoreProvider, causing multiple concurrent tasks to update same StateStore |  Major | Structured Streaming | Tathagata Das | Tathagata Das |
 | [SPARK-21165](https://issues.apache.org/jira/browse/SPARK-21165) | Fail to write into partitioned hive table due to attribute reference not working with cast on partition column |  Blocker | SQL | Imran Rashid | Xiao Li |
@@ -692,7 +693,7 @@
 | [SPARK-21508](https://issues.apache.org/jira/browse/SPARK-21508) | Documentation on 'Spark Streaming Custom Receivers' has error in example code |  Minor | Documentation | Remis Haroon | Remis Haroon |
 | [SPARK-21357](https://issues.apache.org/jira/browse/SPARK-21357) | FileInputDStream not remove out of date RDD |  Major | DStreams | dadazheng | dadazheng |
 | [SPARK-21555](https://issues.apache.org/jira/browse/SPARK-21555) | GROUP BY don't work with expressions with NVL and nested objects |  Major | SQL | Vitaly Gerasimov | Liang-Chi Hsieh |
-| [SPARK-19451](https://issues.apache.org/jira/browse/SPARK-19451) | rangeBetween method should accept Long value as boundary |  Major | SQL | Julien Champ | Jiang Xingbo |
+| [SPARK-19451](https://issues.apache.org/jira/browse/SPARK-19451) | rangeBetween method should accept Long value as boundary |  Major | SQL | Julien Champ | Xingbo Jiang |
 | [SPARK-18950](https://issues.apache.org/jira/browse/SPARK-18950) | Report conflicting fields when merging two StructTypes. |  Minor | SQL | Cheng Lian | Bravo Zhang |
 | [SPARK-21585](https://issues.apache.org/jira/browse/SPARK-21585) | Application Master marking application status as Failed for Client Mode |  Minor | YARN | Parth Gandhi | Parth Gandhi |
 | [SPARK-21522](https://issues.apache.org/jira/browse/SPARK-21522) | Flaky test: LauncherServerSuite.testStreamFiltering |  Minor | Tests | Marcelo Vanzin | Marcelo Vanzin |
@@ -1082,7 +1083,7 @@
 | [SPARK-23198](https://issues.apache.org/jira/browse/SPARK-23198) | Fix KafkaContinuousSourceStressForDontFailOnDataLossSuite to test ContinuousExecution |  Minor | Structured Streaming | Dongjoon Hyun | Dongjoon Hyun |
 | [SPARK-23208](https://issues.apache.org/jira/browse/SPARK-23208) | GenArrayData produces illegal code |  Blocker | SQL | Herman van Hovell | Herman van Hovell |
 | [SPARK-23205](https://issues.apache.org/jira/browse/SPARK-23205) | ImageSchema.readImages incorrectly sets alpha channel to 255 for four-channel images |  Critical | ML, MLlib | Siddharth Murching | Siddharth Murching |
-| [SPARK-23207](https://issues.apache.org/jira/browse/SPARK-23207) | Shuffle+Repartition on an DataFrame could lead to incorrect answers |  Blocker | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-23207](https://issues.apache.org/jira/browse/SPARK-23207) | Shuffle+Repartition on an DataFrame could lead to incorrect answers |  Blocker | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-23242](https://issues.apache.org/jira/browse/SPARK-23242) | Don't run tests in KafkaSourceSuiteBase twice |  Major | Structured Streaming, Tests | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-23214](https://issues.apache.org/jira/browse/SPARK-23214) | cached data should not carry extra hint info |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23245](https://issues.apache.org/jira/browse/SPARK-23245) | KafkaContinuousSourceSuite may hang forever |  Major | Structured Streaming, Tests | Shixiong Zhu | Jose Torres |
@@ -1101,7 +1102,7 @@
 | [SPARK-23301](https://issues.apache.org/jira/browse/SPARK-23301) | data source v2 column pruning with arbitrary expressions is broken |  Critical | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23293](https://issues.apache.org/jira/browse/SPARK-23293) | data source v2 self join fails |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23307](https://issues.apache.org/jira/browse/SPARK-23307) | Spark UI should sort jobs/stages with the completed timestamp before cleaning up them |  Blocker | Web UI | Shixiong Zhu | Shixiong Zhu |
-| [SPARK-23330](https://issues.apache.org/jira/browse/SPARK-23330) | Spark UI SQL executions page throws NPE |  Blocker | Web UI | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-23330](https://issues.apache.org/jira/browse/SPARK-23330) | Spark UI SQL executions page throws NPE |  Blocker | Web UI | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-23326](https://issues.apache.org/jira/browse/SPARK-23326) | "Scheduler Delay" of a task is confusing |  Major | Web UI | Shixiong Zhu | Shixiong Zhu |
 | [SPARK-23290](https://issues.apache.org/jira/browse/SPARK-23290) | inadvertent change in handling of DateType when converting to pandas dataframe |  Blocker | PySpark | Andre Menck | Takuya Ueshin |
 | [SPARK-23315](https://issues.apache.org/jira/browse/SPARK-23315) | failed to get output from canonicalized data source v2 related plans |  Major | SQL | Wenchen Fan | Wenchen Fan |
@@ -1205,7 +1206,7 @@
 | [SPARK-20417](https://issues.apache.org/jira/browse/SPARK-20417) | Move error reporting for subquery from Analyzer to CheckAnalysis |  Major | SQL | Dilip Biswal | Dilip Biswal |
 | [SPARK-21237](https://issues.apache.org/jira/browse/SPARK-21237) | Invalidate stats once table data is changed |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
 | [SPARK-21052](https://issues.apache.org/jira/browse/SPARK-21052) | Add hash map metrics to join |  Major | SQL | Liang-Chi Hsieh | Liang-Chi Hsieh |
-| [SPARK-18294](https://issues.apache.org/jira/browse/SPARK-18294) | Implement commit protocol to support \`mapred\` package's committer |  Major | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-18294](https://issues.apache.org/jira/browse/SPARK-18294) | Implement commit protocol to support \`mapred\` package's committer |  Major | Spark Core | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-21127](https://issues.apache.org/jira/browse/SPARK-21127) | Update statistics after data changing commands |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
 | [SPARK-21324](https://issues.apache.org/jira/browse/SPARK-21324) | Improve statistics test suites |  Major | SQL, Tests | Zhenhua Wang | Zhenhua Wang |
 | [SPARK-21083](https://issues.apache.org/jira/browse/SPARK-21083) | Store zero size and row count after analyzing empty table |  Major | SQL | Zhenhua Wang | Zhenhua Wang |
@@ -1323,7 +1324,7 @@
 | [SPARK-22821](https://issues.apache.org/jira/browse/SPARK-22821) | Basic tests for WidenSetOperationTypes, BooleanEquality, StackCoercion and Division |  Major | SQL | Yuming Wang | Yuming Wang |
 | [SPARK-22829](https://issues.apache.org/jira/browse/SPARK-22829) | Add new built-in function date\_trunc() |  Major | SQL | Youngbin Kim | Youngbin Kim |
 | [SPARK-22845](https://issues.apache.org/jira/browse/SPARK-22845) | Modify spark.kubernetes.allocation.batch.delay to take time instead of int |  Minor | Kubernetes | Anirudh Ramanathan | Anirudh Ramanathan |
-| [SPARK-22387](https://issues.apache.org/jira/browse/SPARK-22387) | propagate session configs to data source read/write options |  Major | SQL | Wenchen Fan | Jiang Xingbo |
+| [SPARK-22387](https://issues.apache.org/jira/browse/SPARK-22387) | propagate session configs to data source read/write options |  Major | SQL | Wenchen Fan | Xingbo Jiang |
 | [SPARK-22848](https://issues.apache.org/jira/browse/SPARK-22848) | Avoid the generation of useless mutable states by Stack function |  Major | SQL | Kazuaki Ishizaki | Kazuaki Ishizaki |
 | [SPARK-22324](https://issues.apache.org/jira/browse/SPARK-22324) | Upgrade Arrow to version 0.8.0 and upgrade Netty to 4.1.17 |  Major | PySpark, SQL | Bryan Cutler | Bryan Cutler |
 | [SPARK-22822](https://issues.apache.org/jira/browse/SPARK-22822) | Basic tests for WindowFrameCoercion and DecimalPrecision |  Major | SQL | Yuming Wang | Yuming Wang |
@@ -1339,7 +1340,7 @@
 | [SPARK-11035](https://issues.apache.org/jira/browse/SPARK-11035) | Launcher: allow apps to be launched in-process |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-22892](https://issues.apache.org/jira/browse/SPARK-22892) | Simplify some estimation logic by using double instead of decimal |  Minor | SQL | Zhenhua Wang | Zhenhua Wang |
 | [SPARK-20654](https://issues.apache.org/jira/browse/SPARK-20654) | Add controls for how much disk the SHS can use |  Major | Spark Core | Marcelo Vanzin | Marcelo Vanzin |
-| [SPARK-22363](https://issues.apache.org/jira/browse/SPARK-22363) | Add unit test for Window spilling |  Major | SQL | Jiang Xingbo | Gabor Somogyi |
+| [SPARK-22363](https://issues.apache.org/jira/browse/SPARK-22363) | Add unit test for Window spilling |  Major | SQL | Xingbo Jiang | Gabor Somogyi |
 | [SPARK-22530](https://issues.apache.org/jira/browse/SPARK-22530) | Add ArrayType Support for working with Pandas and Arrow |  Major | PySpark, SQL | Bryan Cutler | Bryan Cutler |
 | [SPARK-22930](https://issues.apache.org/jira/browse/SPARK-22930) | Improve the description of Vectorized UDFs for non-deterministic cases |  Major | PySpark, SQL | Xiao Li | Li Jin |
 | [SPARK-22912](https://issues.apache.org/jira/browse/SPARK-22912) | Support v2 streaming sources and sinks in MicroBatchExecution |  Major | Structured Streaming | Jose Torres |  |
@@ -1349,7 +1350,7 @@
 | [SPARK-22978](https://issues.apache.org/jira/browse/SPARK-22978) | Register Vectorized UDFs for SQL Statement |  Major | PySpark | Xiao Li | Xiao Li |
 | [SPARK-22392](https://issues.apache.org/jira/browse/SPARK-22392) | columnar reader interface |  Major | SQL | Wenchen Fan | Wenchen Fan |
 | [SPARK-23045](https://issues.apache.org/jira/browse/SPARK-23045) | Have RFormula use OneHotEncoderEstimator |  Major | ML | Bago Amirbekian | Bago Amirbekian |
-| [SPARK-22361](https://issues.apache.org/jira/browse/SPARK-22361) | Add unit test for Window Frames |  Major | SQL | Jiang Xingbo | Gabor Somogyi |
+| [SPARK-22361](https://issues.apache.org/jira/browse/SPARK-22361) | Add unit test for Window Frames |  Major | SQL | Xingbo Jiang | Gabor Somogyi |
 | [SPARK-22908](https://issues.apache.org/jira/browse/SPARK-22908) | add basic continuous kafka source |  Major | Structured Streaming | Jose Torres | Jose Torres |
 | [SPARK-23033](https://issues.apache.org/jira/browse/SPARK-23033) | disable task-level retry for continuous execution |  Major | Structured Streaming | Jose Torres | Jose Torres |
 | [SPARK-23093](https://issues.apache.org/jira/browse/SPARK-23093) | don't modify run id |  Major | Structured Streaming | Jose Torres | Jose Torres |
@@ -1435,7 +1436,7 @@
 | [SPARK-23154](https://issues.apache.org/jira/browse/SPARK-23154) | Document backwards compatibility guarantees for ML persistence |  Major | Documentation, ML | Joseph K. Bradley | Joseph K. Bradley |
 | [SPARK-21926](https://issues.apache.org/jira/browse/SPARK-21926) | Compatibility between ML Transformers and Structured Streaming |  Major | ML, Structured Streaming | Bago Amirbekian |  |
 | [SPARK-20434](https://issues.apache.org/jira/browse/SPARK-20434) | Move Hadoop delegation token code from yarn to core |  Major | Mesos, Spark Core, YARN | Michael Gummelt | Michael Gummelt |
-| [SPARK-21366](https://issues.apache.org/jira/browse/SPARK-21366) | Add sql test for window functions |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-21366](https://issues.apache.org/jira/browse/SPARK-21366) | Add sql test for window functions |  Minor | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-19810](https://issues.apache.org/jira/browse/SPARK-19810) | Remove support for Scala 2.10 |  Critical | ML, Spark Core, SQL | Sean Owen | Sean Owen |
 | [SPARK-21699](https://issues.apache.org/jira/browse/SPARK-21699) | Remove unused getTableOption in ExternalCatalog |  Major | SQL | Reynold Xin | Reynold Xin |
 | [SPARK-21731](https://issues.apache.org/jira/browse/SPARK-21731) | Upgrade scalastyle to 0.9 |  Trivial | Build | Marcelo Vanzin | Marcelo Vanzin |

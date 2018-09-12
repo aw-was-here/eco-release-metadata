@@ -16,26 +16,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Knox Changelog
+# Apache Hadoop Changelog
 
-## Release 0.14.1 - Unreleased (as of 2018-09-12)
+## Release 3.3.0 - Unreleased (as of 2018-09-12)
 
-
-
-### BUG FIXES:
+### INCOMPATIBLE CHANGES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KNOX-1151](https://issues.apache.org/jira/browse/KNOX-1151) | Need Explicit curator-recipes dependency in pom |  Major | Build | Phil Zampino | Phil Zampino |
-| [KNOX-1141](https://issues.apache.org/jira/browse/KNOX-1141) | Coverity Issues Reported For AmbariConfigurationMonitor |  Major | Server | Phil Zampino | Phil Zampino |
-| [KNOX-1137](https://issues.apache.org/jira/browse/KNOX-1137) | KnoxCLI For Listing Provider Configurations and Descriptors in a Remote Configuration Registry |  Major | KnoxCLI | Phil Zampino | Phil Zampino |
-| [KNOX-1144](https://issues.apache.org/jira/browse/KNOX-1144) | Provider Configuration Reference Relationships Aren't Established For Existing Descriptors at Gateway Startup |  Major | Server | Phil Zampino | Phil Zampino |
+| [HADOOP-14833](https://issues.apache.org/jira/browse/HADOOP-14833) | Remove s3a user:secret authentication |  Major | fs/s3, security | Steve Loughran | Steve Loughran |
+
+
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-15657](https://issues.apache.org/jira/browse/HADOOP-15657) | Registering MutableQuantiles via Metric annotation |  Major | metrics | Sushil Ks | Sushil Ks |
 
 
 ### SUB-TASKS:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [KNOX-1043](https://issues.apache.org/jira/browse/KNOX-1043) | Ambari Service Discovery Support for HA-Enabled Services |  Major | Server | Phil Zampino | Phil Zampino |
+| [HADOOP-15635](https://issues.apache.org/jira/browse/HADOOP-15635) | s3guard set-capacity command to fail fast if bucket is unguarded |  Minor | fs/s3 | Steve Loughran | Gabor Bota |
+| [HADOOP-15750](https://issues.apache.org/jira/browse/HADOOP-15750) | remove obsolete S3A test ITestS3ACredentialsInURL |  Major | fs/s3 | Steve Loughran | Steve Loughran |
 
 

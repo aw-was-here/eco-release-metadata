@@ -4613,7 +4613,7 @@ StoreFile is now changed to an interface. This is an incompatible change. The co
 
 ---
 
-* [HBASE-9393](https://issues.apache.org/jira/browse/HBASE-9393) | *Critical* | **Hbase does not closing a closed socket resulting in many CLOSE\_WAIT**
+* [HBASE-9393](https://issues.apache.org/jira/browse/HBASE-9393) | *Critical* | **Region Server fails to properly close socket resulting in many CLOSE\_WAIT to Data Nodes**
 
 To handle this issue client need to have Hadoop client 2.6.4 or 2.7.0+ Hadoop version as CanUnBuffer interface which was added as part of HDFS-7694 is available in only those versions.
 

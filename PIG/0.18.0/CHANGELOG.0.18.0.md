@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.18.0 - Unreleased (as of 2018-09-05)
+## Release 0.18.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -41,6 +41,7 @@
 | [PIG-5344](https://issues.apache.org/jira/browse/PIG-5344) | Update Apache HTTPD LogParser to latest version |  Major | . | Niels Basjes | Niels Basjes |
 | [PIG-5349](https://issues.apache.org/jira/browse/PIG-5349) | Log stderr output when shell command fail |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5191](https://issues.apache.org/jira/browse/PIG-5191) | Pig HBase 2.0.0 support |  Major | . | Nandor Kollar | Nandor Kollar |
+| [PIG-5343](https://issues.apache.org/jira/browse/PIG-5343) | Upgrade developer build environment |  Major | build | Niels Basjes | Niels Basjes |
 
 
 ### BUG FIXES:

@@ -50,7 +50,7 @@
 | [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214) | Using standby replicas with an in memory state store causes Streams to crash |  Major | streams | Matt Farmer | Damian Guy |
 | [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827) | Kafka connect: error with special characters in connector name |  Minor | KafkaConnect | Aymeric Bouvet | Arjun Satish |
 | [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261) | Request logging throws exception if acks=0 |  Major | . | Ismael Juma | Ismael Juma |
-| [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260) | AbstractCoordinator not clearly handles NULL Exception |  Major | . | Seweryn Habdank-Wojewodzki | Jason Gustafson |
+| [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260) | AbstractCoordinator not clearly handles NULL Exception |  Major | consumer | Seweryn Habdank-Wojewodzki | Jason Gustafson |
 | [KAFKA-6174](https://issues.apache.org/jira/browse/KAFKA-6174) | Add methods in Options classes to keep binary compatibility with 0.11 |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-6289](https://issues.apache.org/jira/browse/KAFKA-6289) | NetworkClient should not return internal failed api version responses from poll |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-6319](https://issues.apache.org/jira/browse/KAFKA-6319) | kafka-acls regression for comma characters (and maybe other characters as well) |  Major | admin | Jordan Mcmillan | Rajini Sivaram |

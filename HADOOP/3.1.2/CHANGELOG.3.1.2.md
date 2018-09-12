@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 3.1.2 - Unreleased (as of 2018-09-05)
+## Release 3.1.2 - Unreleased (as of 2018-09-12)
 
 
 
@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HDFS-13448](https://issues.apache.org/jira/browse/HDFS-13448) | HDFS Block Placement - Ignore Locality for First Block Replica |  Minor | block placement, hdfs-client | BELUGA BEHR | BELUGA BEHR |
+| [HADOOP-15677](https://issues.apache.org/jira/browse/HADOOP-15677) | WASB: Add support for StreamCapabilities |  Major | fs/azure | Thomas Marquardt | Thomas Marquardt |
 
 
 ### IMPROVEMENTS:
@@ -136,6 +137,15 @@
 | [HDFS-13774](https://issues.apache.org/jira/browse/HDFS-13774) | EC: "hdfs ec -getPolicy" is not retrieving policy details when the special REPLICATION policy set on the directory |  Minor | erasure-coding | Souryakanta Dwivedy | Ayush Saxena |
 | [HADOOP-10219](https://issues.apache.org/jira/browse/HADOOP-10219) | ipc.Client.setupIOstreams() needs to check for ClientCache.stopClient requested shutdowns |  Major | ipc | Steve Loughran | Kihwal Lee |
 | [HDFS-13815](https://issues.apache.org/jira/browse/HDFS-13815) | RBF: Add check to order command |  Major | federation | Soumyapn | Ranith Sardar |
+| [HADOOP-15696](https://issues.apache.org/jira/browse/HADOOP-15696) | KMS performance regression due to too many open file descriptors after Jetty migration |  Blocker | kms | Wei-Chiu Chuang | Wei-Chiu Chuang |
+| [MAPREDUCE-7131](https://issues.apache.org/jira/browse/MAPREDUCE-7131) | Job History Server has race condition where it moves files from intermediate to finished but thinks file is in intermediate |  Major | . | Anthony Hsu | Anthony Hsu |
+| [HDFS-13836](https://issues.apache.org/jira/browse/HDFS-13836) | RBF: Handle mount table znode with null value |  Major | federation, hdfs | yanghuafeng | yanghuafeng |
+| [YARN-8751](https://issues.apache.org/jira/browse/YARN-8751) | Container-executor permission check errors cause the NM to be marked unhealthy |  Critical | . | Shane Kumpf | Craig Condit |
+| [HDFS-13862](https://issues.apache.org/jira/browse/HDFS-13862) | RBF: Router logs are not capturing few of the dfsrouteradmin commands |  Major | . | Soumyapn | Ayush Saxena |
+| [HDFS-12716](https://issues.apache.org/jira/browse/HDFS-12716) |  'dfs.datanode.failed.volumes.tolerated' to support minimum number of volumes to be available |  Major | datanode | usharani | Ranith Sardar |
+| [HDFS-13895](https://issues.apache.org/jira/browse/HDFS-13895) | EC: Fix Intermittent Failure in TestDFSStripedOutputStreamWithFailureWithRandomECPolicy |  Major | erasure-coding | Ayush Saxena | Ayush Saxena |
+| [YARN-8709](https://issues.apache.org/jira/browse/YARN-8709) | CS preemption monitor always fails since one under-served queue was deleted |  Major | capacityscheduler, scheduler preemption | Tao Yang | Tao Yang |
+| [HDFS-13051](https://issues.apache.org/jira/browse/HDFS-13051) | Fix dead lock during async editlog rolling if edit queue is full |  Major | namenode | zhangwei | Daryn Sharp |
 
 
 ### SUB-TASKS:
@@ -156,6 +166,8 @@
 | [HDFS-13634](https://issues.apache.org/jira/browse/HDFS-13634) | RBF: Configurable value in xml for async connection request queue size. |  Major | federation | CR Hota | CR Hota |
 | [YARN-8642](https://issues.apache.org/jira/browse/YARN-8642) | Add support for tmpfs mounts with the Docker runtime |  Major | . | Shane Kumpf | Craig Condit |
 | [HADOOP-15107](https://issues.apache.org/jira/browse/HADOOP-15107) | Stabilize/tune S3A committers; review correctness & docs |  Blocker | fs/s3 | Steve Loughran | Steve Loughran |
+| [HADOOP-15731](https://issues.apache.org/jira/browse/HADOOP-15731) | TestDistributedShell fails on Windows |  Major | . | Botong Huang | Botong Huang |
+| [HDFS-13237](https://issues.apache.org/jira/browse/HDFS-13237) | [Documentation] RBF: Mount points across multiple subclusters |  Minor | . | Íñigo Goiri | Íñigo Goiri |
 
 
 ### OTHER:

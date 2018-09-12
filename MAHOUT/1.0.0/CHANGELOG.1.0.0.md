@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 1.0.0 - Unreleased (as of 2018-09-05)
+## Release 1.0.0 - Unreleased (as of 2018-09-12)
 
 
 

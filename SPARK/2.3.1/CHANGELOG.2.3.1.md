@@ -84,7 +84,7 @@
 | [SPARK-23570](https://issues.apache.org/jira/browse/SPARK-23570) | Add Spark-2.3 in HiveExternalCatalogVersionsSuite |  Major | SQL | Xiao Li | Xiao Li |
 | [SPARK-23569](https://issues.apache.org/jira/browse/SPARK-23569) | pandas\_udf does not work with type-annotated python functions |  Major | PySpark | Stu (Michael Stewart) | Stu (Michael Stewart) |
 | [SPARK-23291](https://issues.apache.org/jira/browse/SPARK-23291) | SparkR : substr : In SparkR dataframe , starting and ending position arguments in "substr" is giving wrong result  when the position is greater than 1 |  Major | SparkR | Narendra | Liang-Chi Hsieh |
-| [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525) | ALTER TABLE CHANGE COLUMN doesn't work for external hive table |  Major | SQL | Pavlo Skliar | Jiang Xingbo |
+| [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525) | ALTER TABLE CHANGE COLUMN doesn't work for external hive table |  Major | SQL | Pavlo Skliar | Xingbo Jiang |
 | [SPARK-23524](https://issues.apache.org/jira/browse/SPARK-23524) | Big local shuffle blocks should not be checked for corruption. |  Major | Spark Core | jin xing | jin xing |
 | [SPARK-23630](https://issues.apache.org/jira/browse/SPARK-23630) | Spark-on-YARN missing user customizations of hadoop config |  Major | YARN | Marcelo Vanzin | Marcelo Vanzin |
 | [SPARK-23173](https://issues.apache.org/jira/browse/SPARK-23173) | from\_json can produce nulls for fields which are marked as non-nullable |  Major | SQL | Herman van Hovell | Michał Świtakowski |
@@ -173,7 +173,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SPARK-22882](https://issues.apache.org/jira/browse/SPARK-22882) | ML test for StructuredStreaming: spark.ml.classification |  Major | ML, Tests | Joseph K. Bradley | Weichen Xu |
 | [SPARK-22915](https://issues.apache.org/jira/browse/SPARK-22915) | ML test for StructuredStreaming: spark.ml.feature, N-Z |  Major | ML, Tests | Joseph K. Bradley | Attila Zsolt Piros |
-| [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881) | Flaky test: JobCancellationSuite."interruptible iterator of shuffle reader" |  Major | Spark Core | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881) | Flaky test: JobCancellationSuite."interruptible iterator of shuffle reader" |  Major | Spark Core | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-22883](https://issues.apache.org/jira/browse/SPARK-22883) | ML test for StructuredStreaming: spark.ml.feature, A-M |  Major | ML, Tests | Joseph K. Bradley | Joseph K. Bradley |
 
 

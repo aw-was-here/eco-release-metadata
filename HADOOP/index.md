@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Hadoop v3.3.0
+    * [Changelog](3.3.0/CHANGELOG.3.3.0.html)
+    * [Release Notes](3.3.0/RELEASENOTES.3.3.0.html)
 * Apache Hadoop v3.2.0
     * [Changelog](3.2.0/CHANGELOG.3.2.0.html)
     * [Release Notes](3.2.0/RELEASENOTES.3.2.0.html)
@@ -70,6 +73,9 @@
 * Apache Hadoop v2.9.0
     * [Changelog](2.9.0/CHANGELOG.2.9.0.html)
     * [Release Notes](2.9.0/RELEASENOTES.2.9.0.html)
+* Apache Hadoop v2.8.6
+    * [Changelog](2.8.6/CHANGELOG.2.8.6.html)
+    * [Release Notes](2.8.6/RELEASENOTES.2.8.6.html)
 * Apache Hadoop v2.8.5
     * [Changelog](2.8.5/CHANGELOG.2.8.5.html)
     * [Release Notes](2.8.5/RELEASENOTES.2.8.5.html)

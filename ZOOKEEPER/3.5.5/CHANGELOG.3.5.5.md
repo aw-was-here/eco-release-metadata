@@ -18,7 +18,7 @@
 -->
 # Apache Zookeeper Changelog
 
-## Release 3.5.5 - Unreleased (as of 2018-09-05)
+## Release 3.5.5 - Unreleased (as of 2018-09-12)
 
 
 
@@ -63,6 +63,9 @@
 | [ZOOKEEPER-3093](https://issues.apache.org/jira/browse/ZOOKEEPER-3093) | sync zerror(int rc) with newest error definitions |  Trivial | c client | Kent R. Spillner | Kent R. Spillner |
 | [ZOOKEEPER-2251](https://issues.apache.org/jira/browse/ZOOKEEPER-2251) | Add Client side packet response timeout to avoid infinite wait. |  Critical | java client | nijel | Mohammad Arshad |
 | [ZOOKEEPER-2913](https://issues.apache.org/jira/browse/ZOOKEEPER-2913) | testEphemeralNodeDeletion is flaky |  Major | tests | Patrick Hunt | maoling |
+| [ZOOKEEPER-1990](https://issues.apache.org/jira/browse/ZOOKEEPER-1990) | suspicious instantiation of java Random instances |  Critical | . | Patrick Hunt | Norbert Kalmar |
+| [ZOOKEEPER-2261](https://issues.apache.org/jira/browse/ZOOKEEPER-2261) | When only secureClientPort is configured connections, configuration, connection\_stat\_reset, and stats admin commands throw NullPointerException |  Major | . | Mohammad Arshad | Andor Molnar |
+| [ZOOKEEPER-1823](https://issues.apache.org/jira/browse/ZOOKEEPER-1823) | zkTxnLogToolkit -dump should support printing transaction data as a string |  Trivial | server | Raul Gutierrez Segales | maoling |
 
 
 ### TESTS:

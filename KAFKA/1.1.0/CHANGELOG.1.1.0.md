@@ -121,7 +121,7 @@
 | [KAFKA-6259](https://issues.apache.org/jira/browse/KAFKA-6259) | Make KafkaStreams.cleanup() clean global state directory |  Major | streams | Damian Guy | Matthias J. Sax |
 | [KAFKA-5936](https://issues.apache.org/jira/browse/KAFKA-5936) | KafkaProducer should not wrap InterruptedException in close() with KafkaException |  Major | clients | Matthias J. Sax | Matthias J. Sax |
 | [KAFKA-6284](https://issues.apache.org/jira/browse/KAFKA-6284) | System Test failed: ConnectRestApiTest |  Major | KafkaConnect | Mikkin Patel | Mikkin Patel |
-| [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260) | AbstractCoordinator not clearly handles NULL Exception |  Major | . | Seweryn Habdank-Wojewodzki | Jason Gustafson |
+| [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260) | AbstractCoordinator not clearly handles NULL Exception |  Major | consumer | Seweryn Habdank-Wojewodzki | Jason Gustafson |
 | [KAFKA-6296](https://issues.apache.org/jira/browse/KAFKA-6296) | Transient failure in NetworkClientTest.testConnectionDelayDisconnected |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-6174](https://issues.apache.org/jira/browse/KAFKA-6174) | Add methods in Options classes to keep binary compatibility with 0.11 |  Major | . | Dong Lin | Dong Lin |
 | [KAFKA-6313](https://issues.apache.org/jira/browse/KAFKA-6313) | Kafka Core should have explicit SLF4J API dependency |  Major | core | Randall Hauch | Randall Hauch |

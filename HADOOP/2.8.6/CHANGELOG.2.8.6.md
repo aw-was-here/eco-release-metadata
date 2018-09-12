@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache Impala Changelog
+# Apache Hadoop Changelog
 
-## Release Impala 2.2.5 - Unreleased (as of 2018-09-12)
+## Release 2.8.6 - Unreleased (as of 2018-09-12)
 
 
 
@@ -26,7 +26,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2048](https://issues.apache.org/jira/browse/IMPALA-2048) | Class not found: com.cloudera.impala.hive.serde.ParquetInputFormat error |  Blocker | . | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
-| [IMPALA-2018](https://issues.apache.org/jira/browse/IMPALA-2018) | Where clause does not propagate to joins inside nested views |  Blocker | . | Alan Jackoway | Dimitris Tsirogiannis |
+| [HADOOP-15644](https://issues.apache.org/jira/browse/HADOOP-15644) | Hadoop Docker Image Pip Install Fails on branch-2 |  Critical | build | Haibo Chen | Haibo Chen |
+| [HDFS-13051](https://issues.apache.org/jira/browse/HDFS-13051) | Fix dead lock during async editlog rolling if edit queue is full |  Major | namenode | zhangwei | Daryn Sharp |
+| [YARN-8664](https://issues.apache.org/jira/browse/YARN-8664) | ApplicationMasterProtocolPBServiceImpl#allocate throws NPE when NM is lost |  Major | resourcemanager | Jiandan Yang | Jiandan Yang |
 
 

@@ -18,7 +18,7 @@
 -->
 # Apache BigTop Changelog
 
-## Release 1.3.0 - Unreleased (as of 2018-09-05)
+## Release 1.3.0 - Unreleased (as of 2018-09-12)
 
 
 
@@ -181,6 +181,9 @@
 | [BIGTOP-2503](https://issues.apache.org/jira/browse/BIGTOP-2503) | Solr packaging is broken on both DEB and RPM |  Major | . | Roman Shaposhnik | Roman Shaposhnik |
 | [BIGTOP-3044](https://issues.apache.org/jira/browse/BIGTOP-3044) | Fix docker build command for simple sh |  Major | docker | Olaf Flebbe | Olaf Flebbe |
 | [BIGTOP-2944](https://issues.apache.org/jira/browse/BIGTOP-2944) | Update hbase and fix compilation issue |  Major | hbase | Olaf Flebbe | Olaf Flebbe |
+| [BIGTOP-2101](https://issues.apache.org/jira/browse/BIGTOP-2101) | ignite-hadoop contains an arch-dependent shared lib |  Major | ppc64le | Olaf Flebbe | Jun He |
+| [BIGTOP-3078](https://issues.apache.org/jira/browse/BIGTOP-3078) | ignite-shmem failed to build on ppc64le |  Major | . | Jun He | Jun He |
+| [BIGTOP-3076](https://issues.apache.org/jira/browse/BIGTOP-3076) | QFS build failed on ppc64le |  Major | qfs | Jun He | Jun He |
 
 
 ### TESTS:

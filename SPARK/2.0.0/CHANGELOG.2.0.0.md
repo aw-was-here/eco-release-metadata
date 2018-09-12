@@ -904,6 +904,7 @@
 | [SPARK-15745](https://issues.apache.org/jira/browse/SPARK-15745) | Use classloader's getResource() for reading resource files in HiveTests |  Trivial | SQL | Sameer Agarwal | Sameer Agarwal |
 | [SPARK-15023](https://issues.apache.org/jira/browse/SPARK-15023) | Add support for testing against the \`ProcessingTime(intervalMS \> 0)\` trigger and \`ManualClock\` |  Major | SQL | Liwei Lin(Inactive) | Liwei Lin |
 | [SPARK-13637](https://issues.apache.org/jira/browse/SPARK-13637) | use more information to simplify the code in Expand builder |  Minor | SQL | Wenchen Fan | Wenchen Fan |
+| [SPARK-12417](https://issues.apache.org/jira/browse/SPARK-12417) | Orc bloom filter options are not propagated during file write in spark |  Minor | SQL | Rajesh Balamohan | Apache Spark |
 
 
 ### BUG FIXES:

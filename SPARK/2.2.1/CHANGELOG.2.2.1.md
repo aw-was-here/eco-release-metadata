@@ -254,7 +254,7 @@
 | [SPARK-21976](https://issues.apache.org/jira/browse/SPARK-21976) | Fix wrong doc about Mean Absolute Error |  Minor | Documentation, MLlib | Favio Vázquez | Favio Vázquez |
 | [SPARK-22490](https://issues.apache.org/jira/browse/SPARK-22490) | PySpark doc has misleading string for SparkSession.builder |  Minor | PySpark | Xiao Li | Dongjoon Hyun |
 | [SPARK-22627](https://issues.apache.org/jira/browse/SPARK-22627) | Fix formatting of headers in configuration.html page |  Minor | Documentation | Andreas Maier | Felix Cheung |
-| [SPARK-21366](https://issues.apache.org/jira/browse/SPARK-21366) | Add sql test for window functions |  Minor | SQL | Jiang Xingbo | Jiang Xingbo |
+| [SPARK-21366](https://issues.apache.org/jira/browse/SPARK-21366) | Add sql test for window functions |  Minor | SQL | Xingbo Jiang | Xingbo Jiang |
 | [SPARK-21699](https://issues.apache.org/jira/browse/SPARK-21699) | Remove unused getTableOption in ExternalCatalog |  Major | SQL | Reynold Xin | Reynold Xin |
 
 

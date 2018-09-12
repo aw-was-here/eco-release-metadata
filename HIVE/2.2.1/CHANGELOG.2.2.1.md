@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.1 - Unreleased (as of 2018-09-05)
+## Release 2.2.1 - Unreleased (as of 2018-09-12)
 
 
 
@@ -56,6 +56,7 @@
 | [HIVE-18198](https://issues.apache.org/jira/browse/HIVE-18198) | TablePropertyEnrichmentOptimizer.java is missing the Apache license header |  Major | . | Deepesh Khandelwal | Deepesh Khandelwal |
 | [HIVE-17853](https://issues.apache.org/jira/browse/HIVE-17853) | RetryingMetaStoreClient loses UGI impersonation-context when reconnecting after timeout |  Critical | Metastore | Mithun Radhakrishnan | Chris Drome |
 | [HIVE-14792](https://issues.apache.org/jira/browse/HIVE-14792) | AvroSerde reads the remote schema-file at least once per mapper, per table reference. |  Major | . | Mithun Radhakrishnan | Aihua Xu |
+| [HIVE-16480](https://issues.apache.org/jira/browse/HIVE-16480) | ORC file with empty array\<double\> and array\<float\> fails to read |  Major | . | David Capwell | Owen O'Malley |
 
 
 ### SUB-TASKS:

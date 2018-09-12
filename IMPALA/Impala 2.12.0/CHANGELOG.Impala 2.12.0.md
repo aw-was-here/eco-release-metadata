@@ -197,7 +197,7 @@
 | [IMPALA-4323](https://issues.apache.org/jira/browse/IMPALA-4323) | It is not possible to set row format through alter table |  Major | Frontend | Taras Bobrovytsky | Adam Holley |
 | [IMPALA-6571](https://issues.apache.org/jira/browse/IMPALA-6571) | NullPointerException in SHOW CREATE TABLE for HBase tables |  Major | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6792](https://issues.apache.org/jira/browse/IMPALA-6792) | Appears to be a memory leak in orphaned fragments |  Critical | Backend | Mostafa Mokhtar | Sailesh Mukil |
-| [IMPALA-6785](https://issues.apache.org/jira/browse/IMPALA-6785) | Staring an Impalad on an already running cluster may result in inconsistent cluster subscription |  Critical | Distributed Exec | Mostafa Mokhtar | Tim Armstrong |
+| [IMPALA-6785](https://issues.apache.org/jira/browse/IMPALA-6785) | Starting an Impalad on an already running cluster may result in inconsistent cluster subscription |  Critical | Distributed Exec | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-6806](https://issues.apache.org/jira/browse/IMPALA-6806) | TLS certificate with Intermediate CA in server cert file fails with KRPC |  Blocker | Security | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-6824](https://issues.apache.org/jira/browse/IMPALA-6824) | Crash in RuntimeProfile::EventSequence::AddNewerEvents() when events\_ is empty |  Blocker | Backend | Lars Volker | Lars Volker |
 | [IMPALA-6215](https://issues.apache.org/jira/browse/IMPALA-6215) | Race between lib\_cache and java udf class loading |  Major | Backend, Frontend | Vuk Ercegovac | Vuk Ercegovac |
@@ -216,6 +216,7 @@
 | [IMPALA-7305](https://issues.apache.org/jira/browse/IMPALA-7305) | membership entry for failed impalad gets stuck in statestore due to race between failure detection and update processing |  Critical | Distributed Exec | Tim Armstrong | Tim Armstrong |
 | [IMPALA-7173](https://issues.apache.org/jira/browse/IMPALA-7173) | [DOCS] load balancer config should add "check" in more places |  Minor | Docs | Laurel Hale | Alex Rodoni |
 | [IMPALA-7513](https://issues.apache.org/jira/browse/IMPALA-7513) | Fix Sentry compilation error in Impala 2.x branch |  Major | Infrastructure | Fredy Wijaya | Fredy Wijaya |
+| [IMPALA-6764](https://issues.apache.org/jira/browse/IMPALA-6764) | Codegend UnionNode::MaterializeBatch() causes memory corruption crash of Impalad |  Critical | Backend | Zoram Thanga | Zoram Thanga |
 
 
 ### SUB-TASKS:

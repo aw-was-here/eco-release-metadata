@@ -90,7 +90,6 @@
 | [FLINK-9684](https://issues.apache.org/jira/browse/FLINK-9684) | HistoryServerArchiveFetcher not working properly with secure hdfs cluster |  Major | History Server | Ethan Li | Ethan Li |
 | [FLINK-9580](https://issues.apache.org/jira/browse/FLINK-9580) | Potentially unclosed ByteBufInputStream in RestClient#readRawResponse |  Minor | REST | Ted Yu | vinoyang |
 | [FLINK-9677](https://issues.apache.org/jira/browse/FLINK-9677) | RestClient fails for large uploads |  Major | REST | Chesnay Schepler | Chesnay Schepler |
-| [FLINK-9567](https://issues.apache.org/jira/browse/FLINK-9567) | Flink does not release resource in Yarn Cluster mode |  Critical | Cluster Management, YARN | Shimin Yang | Shimin Yang |
 | [FLINK-9665](https://issues.apache.org/jira/browse/FLINK-9665) | PrometheusReporter does not properly unregister metrics |  Major | Metrics | Chesnay Schepler | Jelmer Kuperus |
 | [FLINK-8785](https://issues.apache.org/jira/browse/FLINK-8785) | JobSubmitHandler does not handle JobSubmissionExceptions |  Blocker | Job-Submission, JobManager, REST | Chesnay Schepler | Chesnay Schepler |
 | [FLINK-9708](https://issues.apache.org/jira/browse/FLINK-9708) | Network buffer leaks when buffer request fails during buffer redistribution |  Major | Network | Nico Kruber | Nico Kruber |
