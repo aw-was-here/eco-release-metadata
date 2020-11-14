@@ -1,8 +1,6 @@
-#!/usr/bin/env bash4
+#!/usr/bin/env bash
 
-export PYTHON=/usr/local/bin/python2
-
-export RDM=${HOME}/shared-vmware/yetus/release-doc-maker/releasedocmaker.py
+export RDM=../buretoolbox/releasedocmaker/src/main/python/releasedocmaker.py
 
 
 function print_and_run
