@@ -51,54 +51,54 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [TEZ-1491](https://issues.apache.org/jira/browse/TEZ-1491) | Tez reducer-side merge's counter update is slow |  Major | . | Gopal V | Gopal V |
+| [TEZ-1491](https://issues.apache.org/jira/browse/TEZ-1491) | Tez reducer-side merge's counter update is slow |  Major | . | Gopal Vijayaraghavan | Gopal Vijayaraghavan |
 | [TEZ-3032](https://issues.apache.org/jira/browse/TEZ-3032) | DAG start time getting logged using system time instead of recorded time in startTime field |  Minor | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3037](https://issues.apache.org/jira/browse/TEZ-3037) | History URL should be set regardless of which history logging service is enabled |  Major | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-2937](https://issues.apache.org/jira/browse/TEZ-2937) | Can Processor.close() be called after closing inputs and outputs? |  Major | . | Rohini Palaniswamy | Jonathan Eagles |
+| [TEZ-2937](https://issues.apache.org/jira/browse/TEZ-2937) | Can Processor.close() be called after closing inputs and outputs? |  Major | . | Rohini Palaniswamy | Jonathan Turner Eagles |
 | [TEZ-2898](https://issues.apache.org/jira/browse/TEZ-2898) | tez tools : swimlanes.py is broken in master |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-3053](https://issues.apache.org/jira/browse/TEZ-3053) | Containers timeout if they do not receive a task within the container timeout interval |  Major | . | Siddharth Seth | Siddharth Seth |
-| [TEZ-3052](https://issues.apache.org/jira/browse/TEZ-3052) | Task internal error due to Invalid event: T\_ATTEMPT\_FAILED at FAILED |  Major | . | Jason Lowe | Jason Lowe |
-| [TEZ-3036](https://issues.apache.org/jira/browse/TEZ-3036) | Tez AM can hang on startup with no indication of error |  Critical | . | Jason Lowe | Jason Lowe |
-| [TEZ-3066](https://issues.apache.org/jira/browse/TEZ-3066) | TaskAttemptFinishedEvent ConcurrentModificationException in recovery or history logging services |  Major | . | Jason Lowe | Jeff Zhang |
+| [TEZ-3052](https://issues.apache.org/jira/browse/TEZ-3052) | Task internal error due to Invalid event: T\_ATTEMPT\_FAILED at FAILED |  Major | . | Jason Darrell Lowe | Jason Darrell Lowe |
+| [TEZ-3036](https://issues.apache.org/jira/browse/TEZ-3036) | Tez AM can hang on startup with no indication of error |  Critical | . | Jason Darrell Lowe | Jason Darrell Lowe |
+| [TEZ-3066](https://issues.apache.org/jira/browse/TEZ-3066) | TaskAttemptFinishedEvent ConcurrentModificationException in recovery or history logging services |  Major | . | Jason Darrell Lowe | Jeff Zhang |
 | [TEZ-3081](https://issues.apache.org/jira/browse/TEZ-3081) | Update tez website for trademarks feedback |  Major | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-3076](https://issues.apache.org/jira/browse/TEZ-3076) | Reduce merge memory overhead to support large number of in-memory mapoutputs |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3076](https://issues.apache.org/jira/browse/TEZ-3076) | Reduce merge memory overhead to support large number of in-memory mapoutputs |  Major | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-2307](https://issues.apache.org/jira/browse/TEZ-2307) | Possible wrong error message when submitting new dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-3089](https://issues.apache.org/jira/browse/TEZ-3089) | TaskConcurrencyAnalyzer can return negative task count with very large jobs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
-| [TEZ-3103](https://issues.apache.org/jira/browse/TEZ-3103) | Shuffle can hang when memory to memory merging enabled |  Critical | . | Jason Lowe | Jason Lowe |
+| [TEZ-3103](https://issues.apache.org/jira/browse/TEZ-3103) | Shuffle can hang when memory to memory merging enabled |  Critical | . | Jason Darrell Lowe | Jason Darrell Lowe |
 | [TEZ-3101](https://issues.apache.org/jira/browse/TEZ-3101) | Tez UI: Task attempt log link doesn't have the correct protocol |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3117](https://issues.apache.org/jira/browse/TEZ-3117) | Deadlock in Edge and Vertex code |  Major | . | Yesha Vora | Bikas Saha |
-| [TEZ-3104](https://issues.apache.org/jira/browse/TEZ-3104) | Tez fails on Bzip2 intermediate output format on hadoop 2.7.1 and earlier |  Critical | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3104](https://issues.apache.org/jira/browse/TEZ-3104) | Tez fails on Bzip2 intermediate output format on hadoop 2.7.1 and earlier |  Critical | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-3123](https://issues.apache.org/jira/browse/TEZ-3123) | Containers can get re-used even with conflicting local resources |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3067](https://issues.apache.org/jira/browse/TEZ-3067) | Links to tez configs documentation should be bubbled up to top-level release page |  Major | . | Hitesh Shah | Tsuyoshi Ozawa |
 | [TEZ-3131](https://issues.apache.org/jira/browse/TEZ-3131) | Support a way to override test\_root\_dir for FaultToleranceTestRunner |  Minor | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-3126](https://issues.apache.org/jira/browse/TEZ-3126) | Log reason for not reducing parallelism |  Minor | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3126](https://issues.apache.org/jira/browse/TEZ-3126) | Log reason for not reducing parallelism |  Minor | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-3134](https://issues.apache.org/jira/browse/TEZ-3134) | tez-dag should depend on commons-collections4 |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3135](https://issues.apache.org/jira/browse/TEZ-3135) | tez-ext-service-tests, tez-plugins/tez-yarn-timeline-history and tez-tools/tez-javadoc-tools missing dependencies |  Major | . | Vijay Kumar | Vijay Kumar |
 | [TEZ-3124](https://issues.apache.org/jira/browse/TEZ-3124) | Running task hangs due to missing event to initialize input in recovery |  Major | . | Jeff Zhang | Jeff Zhang |
-| [TEZ-3102](https://issues.apache.org/jira/browse/TEZ-3102) | Fetch failure of a speculated task causes job hang |  Critical | . | Jason Lowe | Jason Lowe |
+| [TEZ-3102](https://issues.apache.org/jira/browse/TEZ-3102) | Fetch failure of a speculated task causes job hang |  Critical | . | Jason Darrell Lowe | Jason Darrell Lowe |
 | [TEZ-1911](https://issues.apache.org/jira/browse/TEZ-1911) | MergeManager's unconditionalReserve() should check for memory limits before allocating memory to IntermediateMemoryToMemoryMerger |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
-| [TEZ-3114](https://issues.apache.org/jira/browse/TEZ-3114) | Shuffle OOM due to EventMetaData flood |  Major | . | Jason Lowe | Jason Lowe |
-| [TEZ-3129](https://issues.apache.org/jira/browse/TEZ-3129) | Tez task and task attempt UI needs application fails with NotFoundException |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3114](https://issues.apache.org/jira/browse/TEZ-3114) | Shuffle OOM due to EventMetaData flood |  Major | . | Jason Darrell Lowe | Jason Darrell Lowe |
+| [TEZ-3129](https://issues.apache.org/jira/browse/TEZ-3129) | Tez task and task attempt UI needs application fails with NotFoundException |  Major | UI | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-3128](https://issues.apache.org/jira/browse/TEZ-3128) | Avoid stopping containers on the AM shutdown thread |  Major | . | Siddharth Seth | Tsuyoshi Ozawa |
-| [TEZ-3141](https://issues.apache.org/jira/browse/TEZ-3141) | mapreduce.task.timeout is not translated to container heartbeat timeout |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3141](https://issues.apache.org/jira/browse/TEZ-3141) | mapreduce.task.timeout is not translated to container heartbeat timeout |  Major | . | Jason Darrell Lowe | Jason Darrell Lowe |
 | [TEZ-3147](https://issues.apache.org/jira/browse/TEZ-3147) | Intermediate mem-to-mem: Fix early exit when only one segment can fit into memory |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2988](https://issues.apache.org/jira/browse/TEZ-2988) | DAGAppMaster::shutdownTezAM should return with a no-op if it has been invoked earlier |  Major | . | Hitesh Shah | Tsuyoshi Ozawa |
 | [TEZ-3151](https://issues.apache.org/jira/browse/TEZ-3151) | expose DAG credentials to plugins |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
-| [TEZ-3115](https://issues.apache.org/jira/browse/TEZ-3115) | Shuffle string handling adds significant memory overhead |  Major | . | Jason Lowe | Jonathan Eagles |
+| [TEZ-3115](https://issues.apache.org/jira/browse/TEZ-3115) | Shuffle string handling adds significant memory overhead |  Major | . | Jason Darrell Lowe | Jonathan Turner Eagles |
 | [TEZ-3156](https://issues.apache.org/jira/browse/TEZ-3156) | Tez client keeps trying to talk to RM even if RM does not know about the application |  Major | . | Yesha Vora | Hitesh Shah |
-| [TEZ-2863](https://issues.apache.org/jira/browse/TEZ-2863) | Container, node, and logs not available in UI for tasks that fail to launch |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2863](https://issues.apache.org/jira/browse/TEZ-2863) | Container, node, and logs not available in UI for tasks that fail to launch |  Major | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-3155](https://issues.apache.org/jira/browse/TEZ-3155) | Support a way to submit DAGs to a session where the DAG plan exceeds hadoop ipc limits |  Major | . | Hitesh Shah | Zhiyuan Yang |
 | [TEZ-3105](https://issues.apache.org/jira/browse/TEZ-3105) | TezMxBeanResourceCalculator does not work on IBM JDK 7 or 8 causing Tez failures |  Major | . | Greg Senia | Greg Senia |
 | [TEZ-3148](https://issues.apache.org/jira/browse/TEZ-3148) | Invalid event TA\_TEZ\_EVENT\_UPDATE on TaskAttempt |  Major | . | Rajesh Balamohan | Tsuyoshi Ozawa |
 | [TEZ-2936](https://issues.apache.org/jira/browse/TEZ-2936) | Create ATS implementation that enables support for YARN-4265 |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3166](https://issues.apache.org/jira/browse/TEZ-3166) | Counters aren't fully updated and sent for failed tasks |  Major | . | Zhiyuan Yang | Zhiyuan Yang |
-| [TEZ-3175](https://issues.apache.org/jira/browse/TEZ-3175) | Add tez client submit host |  Major | . | Jonathan Eagles | Jonathan Eagles |
-| [TEZ-2967](https://issues.apache.org/jira/browse/TEZ-2967) | Vertex start time should be that of first task start time in UI |  Major | UI | Rohini Palaniswamy | Jonathan Eagles |
+| [TEZ-3175](https://issues.apache.org/jira/browse/TEZ-3175) | Add tez client submit host |  Major | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
+| [TEZ-2967](https://issues.apache.org/jira/browse/TEZ-2967) | Vertex start time should be that of first task start time in UI |  Major | UI | Rohini Palaniswamy | Jonathan Turner Eagles |
 | [TEZ-3189](https://issues.apache.org/jira/browse/TEZ-3189) | Pre-warm dags should not be counted in submitted dags count by DAGAppMaster |  Trivial | . | Zhiyuan Yang | Zhiyuan Yang |
-| [TEZ-3192](https://issues.apache.org/jira/browse/TEZ-3192) | IFile#checkState creating unnecessary objects though auto-boxing |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-3192](https://issues.apache.org/jira/browse/TEZ-3192) | IFile#checkState creating unnecessary objects though auto-boxing |  Major | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-3177](https://issues.apache.org/jira/browse/TEZ-3177) | Non-DAG events should use the session domain or no domain if the data does not need protection |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-3201](https://issues.apache.org/jira/browse/TEZ-3201) | Tez-UI build broken |  Blocker | . | Siddharth Seth | Sreenath Somarajapuram |
-| [TEZ-3196](https://issues.apache.org/jira/browse/TEZ-3196) | java.lang.InternalError from decompression codec is fatal to a task during shuffle |  Major | . | Jason Lowe | Jason Lowe |
+| [TEZ-3196](https://issues.apache.org/jira/browse/TEZ-3196) | java.lang.InternalError from decompression codec is fatal to a task during shuffle |  Major | . | Jason Darrell Lowe | Jason Darrell Lowe |
 | [TEZ-3180](https://issues.apache.org/jira/browse/TEZ-3180) | Update master docs to declare hadoop-2.6.x as a minimum requirement |  Major | . | Hitesh Shah | Hitesh Shah |
 
 
@@ -151,7 +151,7 @@
 | [TEZ-3136](https://issues.apache.org/jira/browse/TEZ-3136) | Tez UI 2: Pre-merge: Update CHANGES.txt and remove from excluded list |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3143](https://issues.apache.org/jira/browse/TEZ-3143) | Tez UI 2: Make the build faster |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3160](https://issues.apache.org/jira/browse/TEZ-3160) | Tez UI 2: Swimlane - Create swimlane page & component |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
-| [TEZ-2958](https://issues.apache.org/jira/browse/TEZ-2958) | Recovered TA, whose commit cannot be recovered, should move to killed state |  Major | . | Bikas Saha | Jason Lowe |
+| [TEZ-2958](https://issues.apache.org/jira/browse/TEZ-2958) | Recovered TA, whose commit cannot be recovered, should move to killed state |  Major | . | Bikas Saha | Jason Darrell Lowe |
 | [TEZ-3170](https://issues.apache.org/jira/browse/TEZ-3170) | Tez UI 2: Swimlane - Display computed events, event bars & dependencies |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3152](https://issues.apache.org/jira/browse/TEZ-3152) | Tez UI 2: Build fails when run by multiple users or when node\_modules is old |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-3171](https://issues.apache.org/jira/browse/TEZ-3171) | Tez UI 2: Swimlane - Tooltip, zoom & redirection |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

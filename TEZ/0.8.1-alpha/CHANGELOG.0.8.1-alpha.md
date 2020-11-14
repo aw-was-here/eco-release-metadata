@@ -45,19 +45,19 @@
 | [TEZ-2757](https://issues.apache.org/jira/browse/TEZ-2757) | Fix download links for Tez releases |  Trivial | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2750](https://issues.apache.org/jira/browse/TEZ-2750) | Shuffle may not shutdown in case of a fetch failure, causing it to hang |  Major | . | André Kelpe | Siddharth Seth |
 | [TEZ-2765](https://issues.apache.org/jira/browse/TEZ-2765) | Change Xmlwriter to use defaultValue instead of value tag |  Major | . | Hitesh Shah | Hitesh Shah |
-| [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | Fix findbugs warning in TezClient |  Major | . | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2755](https://issues.apache.org/jira/browse/TEZ-2755) | Fix findbugs warning in TezClient |  Major | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-2745](https://issues.apache.org/jira/browse/TEZ-2745) | ClassNotFoundException of user code should fail dag |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2788](https://issues.apache.org/jira/browse/TEZ-2788) | Allow TezAnalyzerBase to parse SimpleHistory logs |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2783](https://issues.apache.org/jira/browse/TEZ-2783) | Refactor analyzers to extend TezAnalyzerBase |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2799](https://issues.apache.org/jira/browse/TEZ-2799) | SimpleHistoryParser NPE |  Major | . | Bikas Saha | Rajesh Balamohan |
 | [TEZ-2808](https://issues.apache.org/jira/browse/TEZ-2808) | Race condition between preemption and container assignment |  Major | . | Bikas Saha | Bikas Saha |
-| [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Eagles | Jonathan Eagles |
-| [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks |  Major | . | Jason Lowe | Jonathan Eagles |
+| [TEZ-2809](https://issues.apache.org/jira/browse/TEZ-2809) | Minimal distribution compiled on 2.6 fails to run on 2.7 |  Blocker | . | Jonathan Turner Eagles | Jonathan Turner Eagles |
+| [TEZ-2787](https://issues.apache.org/jira/browse/TEZ-2787) | Tez AM should have java.io.tmpdir=./tmp to be consistent with tasks |  Major | . | Jason Darrell Lowe | Jonathan Turner Eagles |
 | [TEZ-2660](https://issues.apache.org/jira/browse/TEZ-2660) | Tez UI: need to show application page even if system metrics publish is disabled. |  Major | UI | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2825](https://issues.apache.org/jira/browse/TEZ-2825) | Report progress in terms of completed tasks to reduce load on AM for Tez UI |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2827](https://issues.apache.org/jira/browse/TEZ-2827) | Increase timeout for TestFetcher testInputAttemptIdentifierMap |  Minor | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2816](https://issues.apache.org/jira/browse/TEZ-2816) | Preemption sometimes does not respect heartbeats between preemptions |  Major | . | Jeff Zhang | Bikas Saha |
-| [TEZ-2097](https://issues.apache.org/jira/browse/TEZ-2097) | TEZ-UI Add dag logs backend support |  Critical | UI | Jeff Zhang | Jonathan Eagles |
+| [TEZ-2097](https://issues.apache.org/jira/browse/TEZ-2097) | TEZ-UI Add dag logs backend support |  Critical | UI | Jeff Zhang | Jonathan Turner Eagles |
 | [TEZ-2834](https://issues.apache.org/jira/browse/TEZ-2834) | Make Tez preemption resilient to incorrect free resource reported by YARN |  Major | . | Rajesh Balamohan | Bikas Saha |
 | [TEZ-2833](https://issues.apache.org/jira/browse/TEZ-2833) | Dont create extra directory during ATS file download |  Major | . | Bikas Saha | Rajesh Balamohan |
 | [TEZ-2847](https://issues.apache.org/jira/browse/TEZ-2847) | Tez UI: Task details doesn't gets updated on manual refresh after job complete |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |

@@ -215,13 +215,6 @@ Ups the overall test timeout from 10 minutes to 13minutes. 15minutes is the sure
 
 ---
 
-* [HBASE-19954](https://issues.apache.org/jira/browse/HBASE-19954) | *Major* | **Separate TestBlockReorder into individual tests to avoid ShutdownHook suppression error against hadoop3**
-
-hadoop3 minidfscluster removes all shutdown handlers when the cluster goes down which made this test that does FS-stuff fail (Fix was to break up the test so each test method ran with an unadulterated FS).
-
-
----
-
 * [HBASE-20032](https://issues.apache.org/jira/browse/HBASE-20032) | *Minor* | **Receving multiple warnings for missing reporting.plugins.plugin.version**
 
 Add (latest) version elements missing from reporting plugins in top-level pom.
@@ -255,6 +248,13 @@ Revert the serial replication feature from all branches. Plan to reimplement it 
 Added ACL check to following Admin functions:
 enableCatalogJanitor, runCatalogJanitor, cleanerChoreSwitch, runCleanerChore, execProcedure, execProcedureWithReturn, normalize, normalizerSwitch, coprocessorService.
 When ACL is enabled, only those with ADMIN rights will be able to invoke these operations successfully.
+
+
+---
+
+* [HBASE-19954](https://issues.apache.org/jira/browse/HBASE-19954) | *Major* | **Separate TestBlockReorder into individual tests to avoid ShutdownHook suppression error against hadoop3**
+
+hadoop3 minidfscluster removes all shutdown handlers when the cluster goes down which made this test that does FS-stuff fail (Fix was to break up the test so each test method ran with an unadulterated FS).
 
 
 

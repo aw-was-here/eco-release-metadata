@@ -20,13 +20,6 @@
 
 ## Release 0.8.0-alpha - 2015-09-01
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [TEZ-2468](https://issues.apache.org/jira/browse/TEZ-2468) | Change master to build against Java 7 |  Major | . | Siddharth Seth | Siddharth Seth |
-| [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | Remove VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Bikas Saha |
-| [TEZ-2565](https://issues.apache.org/jira/browse/TEZ-2565) | Consider scanning unfinished tasks in VertexImpl::constructStatistics to reduce merge overhead |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 
 
 ### IMPROVEMENTS:
@@ -39,6 +32,7 @@
 | [TEZ-2076](https://issues.apache.org/jira/browse/TEZ-2076) | Tez framework to extract/analyze data stored in ATS for specific dag |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2463](https://issues.apache.org/jira/browse/TEZ-2463) | Update site for 0.7.0 release |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2454](https://issues.apache.org/jira/browse/TEZ-2454) | Change FetcherOrderedGroup to work as Callables instead of blocking threads |  Major | . | Siddharth Seth | Siddharth Seth |
+| [TEZ-2468](https://issues.apache.org/jira/browse/TEZ-2468) | Change master to build against Java 7 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2450](https://issues.apache.org/jira/browse/TEZ-2450) | support async http clients in ordered & unordered inputs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2198](https://issues.apache.org/jira/browse/TEZ-2198) | Fix sorter spill counts |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2478](https://issues.apache.org/jira/browse/TEZ-2478) | Move OneToOne routing to store events in Tasks |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -54,8 +48,9 @@
 | [TEZ-2645](https://issues.apache.org/jira/browse/TEZ-2645) | Provide standard analyzers for job analysis |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2613](https://issues.apache.org/jira/browse/TEZ-2613) | Fetcher(unordered) using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Saikat | Saikat |
 | [TEZ-2172](https://issues.apache.org/jira/browse/TEZ-2172) | FetcherOrderedGrouped using List to store InputAttemptIdentifier can lead to some inefficiency during remove() operation |  Major | . | Rajesh Balamohan | Saikat |
-| [TEZ-2211](https://issues.apache.org/jira/browse/TEZ-2211) | Tez UI: Allow users to configure timezone |  Major | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2211](https://issues.apache.org/jira/browse/TEZ-2211) | Tez UI: Allow users to configure timezone |  Major | UI | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-2719](https://issues.apache.org/jira/browse/TEZ-2719) | Consider reducing logs in unordered fetcher with shared-fetch option |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
+| [TEZ-2565](https://issues.apache.org/jira/browse/TEZ-2565) | Consider scanning unfinished tasks in VertexImpl::constructStatistics to reduce merge overhead |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2003](https://issues.apache.org/jira/browse/TEZ-2003) | [Umbrella] Allow Tez to co-ordinate execution to external services |  Major | . | Siddharth Seth |  |
 
 
@@ -85,12 +80,12 @@
 | [TEZ-2376](https://issues.apache.org/jira/browse/TEZ-2376) | Remove TaskAttemptEventType.TA\_DIAGNOSTICS\_UPDATE |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2391](https://issues.apache.org/jira/browse/TEZ-2391) | TestVertexImpl timing out at times on jenkins builds |  Blocker | . | Hitesh Shah | Mit Desai |
 | [TEZ-2489](https://issues.apache.org/jira/browse/TEZ-2489) | Disable warn log for Timeline ACL error when tez.allow.disabled.timeline-domains set to true |  Major | . | Hitesh Shah | Chang Li |
-| [TEZ-2537](https://issues.apache.org/jira/browse/TEZ-2537) | mapreduce.map.env and mapreduce.reduce.env need to fall back to mapred.child.env for compatibility |  Major | . | Jonathan Eagles | Rohini Palaniswamy |
+| [TEZ-2537](https://issues.apache.org/jira/browse/TEZ-2537) | mapreduce.map.env and mapreduce.reduce.env need to fall back to mapred.child.env for compatibility |  Major | . | Jonathan Turner Eagles | Rohini Palaniswamy |
 | [TEZ-2533](https://issues.apache.org/jira/browse/TEZ-2533) | AM deadlock when shutdown |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2541](https://issues.apache.org/jira/browse/TEZ-2541) | DAGClientImpl enable TimelineClient check is wrong. |  Major | . | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2473](https://issues.apache.org/jira/browse/TEZ-2473) | Consider using RawLocalFileSystem in MapOutput.createDiskMapOutput |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2534](https://issues.apache.org/jira/browse/TEZ-2534) | Error handling summary event when shutting down AM |  Major | . | Jeff Zhang | Jeff Zhang |
-| [TEZ-2547](https://issues.apache.org/jira/browse/TEZ-2547) | Tez UI: Download Data fails on secure, cross-origin clusters |  Critical | UI | Jonathan Eagles | Jonathan Eagles |
+| [TEZ-2547](https://issues.apache.org/jira/browse/TEZ-2547) | Tez UI: Download Data fails on secure, cross-origin clusters |  Critical | UI | Jonathan Turner Eagles | Jonathan Turner Eagles |
 | [TEZ-2548](https://issues.apache.org/jira/browse/TEZ-2548) | TezClient submitDAG can hang if the AM is in the process of shutting down |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2554](https://issues.apache.org/jira/browse/TEZ-2554) | Tez UI: View log link does not correctly propagate login crendential to read log from yarn web. |  Major | . | Sreenath Somarajapuram | Sreenath Somarajapuram |
 | [TEZ-2475](https://issues.apache.org/jira/browse/TEZ-2475) | Tez local mode hanging in big testsuite |  Major | . | André Kelpe | Siddharth Seth |
@@ -105,29 +100,30 @@
 | [TEZ-2568](https://issues.apache.org/jira/browse/TEZ-2568) | V\_INPUT\_DATA\_INFORMATION may happen after vertex is initialized |  Blocker | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2378](https://issues.apache.org/jira/browse/TEZ-2378) | In case Fetcher (unordered) fails to do local fetch, log in debug mode to reduce log size |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2570](https://issues.apache.org/jira/browse/TEZ-2570) | Fix license header issue for eps image files |  Trivial | . | Hitesh Shah | Hitesh Shah |
+| [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | Remove VertexManagerPluginContext.getTaskContainer() |  Blocker | . | Bikas Saha | Bikas Saha |
 | [TEZ-2579](https://issues.apache.org/jira/browse/TEZ-2579) | Incorrect comparison of TaskAttemptId |  Major | . | Jeff Zhang | Jeff Zhang |
 | [TEZ-2542](https://issues.apache.org/jira/browse/TEZ-2542) | TezDAGID fromString array length check |  Minor | . | Vasanth kumar RJ | Vasanth kumar RJ |
 | [TEZ-2616](https://issues.apache.org/jira/browse/TEZ-2616) | Fix build warning by undefined version of maven-findbugs-plugin |  Major | . | Tsuyoshi Ozawa | Tsuyoshi Ozawa |
 | [TEZ-2600](https://issues.apache.org/jira/browse/TEZ-2600) | When used with HDFS federation(viewfs) ,tez will throw a error |  Major | . | Xiaowei Wang | Xiaowei Wang |
-| [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | Swimlane for DAGs that use containers from previous DAGs |  Major | UI | Yi Zhang | Gopal V |
-| [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion |  Major | . | Gopal V | Gopal V |
+| [TEZ-2610](https://issues.apache.org/jira/browse/TEZ-2610) | Swimlane for DAGs that use containers from previous DAGs |  Major | UI | Yi Zhang | Gopal Vijayaraghavan |
+| [TEZ-2632](https://issues.apache.org/jira/browse/TEZ-2632) | A -Paws and -Pazure build profiles for hadoop-{aws,azure} inclusion |  Major | . | Gopal Vijayaraghavan | Gopal Vijayaraghavan |
 | [TEZ-2602](https://issues.apache.org/jira/browse/TEZ-2602) | Throwing EOFException when launching MR job |  Major | . | Tsuyoshi Ozawa | Rajesh Balamohan |
 | [TEZ-2560](https://issues.apache.org/jira/browse/TEZ-2560) | fix tex-ui build for maven 3.3+ |  Major | . | Prakash Ramachandran | Prakash Ramachandran |
 | [TEZ-2239](https://issues.apache.org/jira/browse/TEZ-2239) | Update Tez UI docs to explain how to configure history url for YARN |  Critical | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2623](https://issues.apache.org/jira/browse/TEZ-2623) | Fix module dependencies related to hadoop-auth |  Major | . | Rajat Jain | Rajat Jain |
 | [TEZ-2636](https://issues.apache.org/jira/browse/TEZ-2636) | MRInput and MultiMRInput should work for cases when there are 0 physical inputs |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2635](https://issues.apache.org/jira/browse/TEZ-2635) | Limit number of attempts being downloaded in unordered fetch |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
-| [TEZ-2311](https://issues.apache.org/jira/browse/TEZ-2311) | AM can hang if kill received while recovering from previous attempt |  Major | . | Jason Lowe | Jeff Zhang |
+| [TEZ-2311](https://issues.apache.org/jira/browse/TEZ-2311) | AM can hang if kill received while recovering from previous attempt |  Major | . | Jason Darrell Lowe | Jeff Zhang |
 | [TEZ-2684](https://issues.apache.org/jira/browse/TEZ-2684) | ShuffleVertexManager.parsePartitionStats throws IllegalStateException: Stats should be initialized |  Major | . | Wei Zheng | Rajesh Balamohan |
 | [TEZ-2630](https://issues.apache.org/jira/browse/TEZ-2630) | TezChild receives IP address instead of FQDN |  Critical | . | Rajat Jain | Hitesh Shah |
 | [TEZ-2552](https://issues.apache.org/jira/browse/TEZ-2552) | CRC errors can cause job to run for very long time in large jobs |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
-| [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM |  Major | . | Gopal V | Hitesh Shah |
+| [TEZ-2663](https://issues.apache.org/jira/browse/TEZ-2663) | SessionNotRunning exceptions are wrapped in a ServiceException from a dying AM |  Major | . | Gopal Vijayaraghavan | Hitesh Shah |
 | [TEZ-2699](https://issues.apache.org/jira/browse/TEZ-2699) | Internalize strings in ATF parser |  Major | . | Bikas Saha | Bikas Saha |
 | [TEZ-2692](https://issues.apache.org/jira/browse/TEZ-2692) | bugfixes & enhancements related to job parser and analyzer |  Major | . | Rajesh Balamohan | Rajesh Balamohan |
 | [TEZ-2683](https://issues.apache.org/jira/browse/TEZ-2683) | TestHttpConnection::testAsyncHttpConnectionInterrupt fails in certain environments |  Major | . | Hitesh Shah | Rajesh Balamohan |
 | [TEZ-2730](https://issues.apache.org/jira/browse/TEZ-2730) | tez-api missing dependency on org.codehaus.jettison for json |  Major | . | Hitesh Shah | Hitesh Shah |
 | [TEZ-2629](https://issues.apache.org/jira/browse/TEZ-2629) | LimitExceededException in Tez client when DAG has exceeds the default max counters |  Major | . | Jason Dere | Siddharth Seth |
-| [TEZ-2687](https://issues.apache.org/jira/browse/TEZ-2687) | ATS History shutdown happens before the min-held containers are released |  Major | . | Gopal V | Jeff Zhang |
+| [TEZ-2687](https://issues.apache.org/jira/browse/TEZ-2687) | ATS History shutdown happens before the min-held containers are released |  Major | . | Gopal Vijayaraghavan | Jeff Zhang |
 | [TEZ-2740](https://issues.apache.org/jira/browse/TEZ-2740) | Create a reconfigureVertex alias for deprecated setVertexParallelism API |  Blocker | . | Bikas Saha | Bikas Saha |
 | [TEZ-2743](https://issues.apache.org/jira/browse/TEZ-2743) | TezContainerLauncher logging tokens |  Major | . | Siddharth Seth | Siddharth Seth |
 
@@ -170,7 +166,7 @@
 | [TEZ-2508](https://issues.apache.org/jira/browse/TEZ-2508) | rebase 06/01 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2526](https://issues.apache.org/jira/browse/TEZ-2526) | TEZ-2003 build is broken |  Major | . | Sergey Shelukhin | Sergey Shelukhin |
 | [TEZ-2511](https://issues.apache.org/jira/browse/TEZ-2511) | Add exitCode to diagnostics when container fails |  Major | . | Jeff Zhang | Jeff Zhang |
-| [TEZ-2549](https://issues.apache.org/jira/browse/TEZ-2549) | Reduce Counter Load on the Timeline Server |  Major | . | Jonathan Eagles | Jason Lowe |
+| [TEZ-2549](https://issues.apache.org/jira/browse/TEZ-2549) | Reduce Counter Load on the Timeline Server |  Major | . | Jonathan Turner Eagles | Jason Darrell Lowe |
 | [TEZ-2621](https://issues.apache.org/jira/browse/TEZ-2621) | rebase 07/14 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2124](https://issues.apache.org/jira/browse/TEZ-2124) | Change Node tracking to work per external container source |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2004](https://issues.apache.org/jira/browse/TEZ-2004) | Define basic interface for pluggable ContainerLaunchers |  Major | . | Siddharth Seth | Siddharth Seth |
@@ -200,7 +196,7 @@
 | [TEZ-2735](https://issues.apache.org/jira/browse/TEZ-2735) | rebase 08/21 |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2736](https://issues.apache.org/jira/browse/TEZ-2736) | Pre-merge: Update CHANGES.txt and version in branch |  Major | . | Siddharth Seth | Siddharth Seth |
 | [TEZ-2690](https://issues.apache.org/jira/browse/TEZ-2690) | Add critical path analyser |  Major | . | Bikas Saha | Bikas Saha |
-| [TEZ-2731](https://issues.apache.org/jira/browse/TEZ-2731) | Fix Tez GenericCounter performance bottleneck |  Major | . | Gopal V | Gopal V |
+| [TEZ-2731](https://issues.apache.org/jira/browse/TEZ-2731) | Fix Tez GenericCounter performance bottleneck |  Major | . | Gopal Vijayaraghavan | Gopal Vijayaraghavan |
 | [TEZ-2708](https://issues.apache.org/jira/browse/TEZ-2708) | renames for tez-2003 changes |  Major | . | Siddharth Seth | Siddharth Seth |
 
 

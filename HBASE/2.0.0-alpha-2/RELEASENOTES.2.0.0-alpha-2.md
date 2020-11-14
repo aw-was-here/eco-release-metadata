@@ -183,13 +183,6 @@ There are two configuration name changes as the event loop configs will not only
 
 ---
 
-* [HBASE-18267](https://issues.apache.org/jira/browse/HBASE-18267) | *Major* | **The result from the postAppend is ignored**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-18339](https://issues.apache.org/jira/browse/HBASE-18339) | *Major* | **Update test-patch to use hadoop 3.0.0-alpha4**
 
 HBase now defaults to Apache Hadoop 3.0.0-alpha4 when the Hadoop 3 profile is active.

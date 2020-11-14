@@ -60,48 +60,49 @@ bin=$(cd -P -- "$(dirname -- "${this}")" >/dev/null && pwd -P)
 # This is a good test for Yetus...
 #
 
-common_rdm yetus 0.9.0 1.0.0
+common_rdm yetus 0.12.0 1.0.0
 
-common_rdm bigtop 1.3.0 2.0.0 BigTop
+common_rdm bigtop 1.5.0 2.0.0 BigTop
 
-common_rdm flink 1.6.0 2.0.0
+common_rdm flink 1.11.0 2.0.0
 
-common_rdm kudu 1.7.0 2.0.0
+common_rdm kudu 1.12.0 2.0.0
 
 common_rdm impala "Impala 2.0.0" "Impala 4.0.0"
 
-common_rdm knox 1.1 2 1.5.0
+common_rdm knox 1.5.0 2.0.0
 
 common_rdm mahout 0.13.0 2.0.0
 
-common_rdm oozie 5 6
+common_rdm oozie 5.0.0 6.0.0
 
-common_rdm orc 1.5.2 2.0.0
+common_rdm orc 1.5.10 2.0.0
 
-common_rdm parquet 1.10 3.0.0
+common_rdm parquet 1.12.0 3.0.0
 
 common_rdm pig 0.17.0 1.0.0
 
-common_rdm ranger 1 3
+common_rdm ranger 2.0.0 3
 
-common_rdm sentry 2 3
+common_rdm sentry 2.0.1 3
 
-common_rdm zookeeper 3.4 4.0.0
+common_rdm zookeeper 3.6.0 4.0.0
 
 # Here are the problematic ones:
 
 #common_rdm hbase 1.1.11 1.1.99 HBase
-common_rdm hbase 1.2.8 1.2.99 HBase
-common_rdm hbase 1.3.3 1.3.99 HBase
-common_rdm hbase 1.4.2 2.0.0 HBase
-common_rdm hbase 2.0.0 3.0.0 HBase
+#common_rdm hbase 1.2.8 1.2.99 HBase
+#common_rdm hbase 1.3.3 1.3.99 HBase
+common_rdm hbase 1.4.14 2.0.0 HBase
+common_rdm hbase 2.3.3 3.0.0 HBase
+
 
 #common_rdm hive 1.1.2 1.4.0
-common_rdm hive 2.1.2 3.0.0
+common_rdm hive 2.3.0 3.0.0
 
-common_rdm kafka 1.1.0 3.0.0
+common_rdm kafka 2.6.0 3.0.0
 
-common_rdm spark 2.3.0 4.0.0
+common_rdm spark 2.4.0 4.0.0
 
 common_rdm tez 0.7.2 1.0.0
 

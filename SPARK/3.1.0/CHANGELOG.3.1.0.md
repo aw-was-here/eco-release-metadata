@@ -461,6 +461,7 @@
 | [SPARK-32512](https://issues.apache.org/jira/browse/SPARK-32512) | Add basic partition command for datasourcev2 |  Major | SQL | Jackey Lee | Jackey Lee |
 | [SPARK-33421](https://issues.apache.org/jira/browse/SPARK-33421) | Support Greatest and Least in Expression Canonicalize |  Minor | SQL | ulysses you | ulysses you |
 | [SPARK-33433](https://issues.apache.org/jira/browse/SPARK-33433) | Change Aggregate max rows to 1 if grouping is empty |  Minor | SQL | ulysses you | ulysses you |
+| [SPARK-33396](https://issues.apache.org/jira/browse/SPARK-33396) | Spark SQL CLI not print application id in processing file mode |  Minor | SQL | Lichuanliang | Lichuanliang |
 
 
 ### BUG FIXES:

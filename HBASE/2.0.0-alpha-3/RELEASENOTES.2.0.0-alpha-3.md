@@ -220,13 +220,6 @@ Replaces hbase-shaded-server-\<version\>.jar with hbase-shaded-mapreduce-\<versi
 
 ---
 
-* [HBASE-18704](https://issues.apache.org/jira/browse/HBASE-18704) | *Major* | **Upgrade hbase to commons-collections 4**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-17972](https://issues.apache.org/jira/browse/HBASE-17972) | *Minor* | **Remove mergePool from CompactSplitThread**
 
 After this jira, mergePool will be permanently removed from CompactSplitThread.
@@ -239,13 +232,6 @@ After this jira, mergePool will be permanently removed from CompactSplitThread.
 Deprecate checkAnd\* APIs that take the filter CompareOp. Added new overrides that take a generic CompareOperator instead. CompareOperator will be used by checkAnd\* in Table API and by filters going forward.
 
 Other nice improvements suggested by this issue have been moved out to HBASE-18774.
-
-
----
-
-* [HBASE-18780](https://issues.apache.org/jira/browse/HBASE-18780) | *Minor* | **Remove HLogPrettyPrinter and hlog command**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -265,13 +251,6 @@ Admin.listProcedures and Admin.listLocks were renamed to getProcedures and getLo
     - Procedures internal states are available on client side
     - Procedures are displayed on web UI and in shell in the following jruby format:
       { ID =\> '1', PARENT\_ID = '-1', PARAMETERS =\> [ ..extra state information.. ] }
-
-
----
-
-* [HBASE-18783](https://issues.apache.org/jira/browse/HBASE-18783) | *Minor* | **Declare the builder of ClusterStatus as IA.Private, and remove the Writables from ClusterStatus**
-
-**WARNING: No release note provided for this change.**
 
 
 ---

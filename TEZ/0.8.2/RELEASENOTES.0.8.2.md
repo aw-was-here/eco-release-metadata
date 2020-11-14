@@ -40,23 +40,9 @@ Committed to both master and branch-0.7.
 
 ---
 
-* [TEZ-2948](https://issues.apache.org/jira/browse/TEZ-2948) | *Major* | **Stop using dagName in the dagComplete notification to TaskCommunicators**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [TEZ-2949](https://issues.apache.org/jira/browse/TEZ-2949) | *Major* | **Allow duplicate dag names within session for Tez**
 
 In earlier versions of Tez, DAG submissions to a Tez AM were rejected if the dagName was not unique for that Tez session/application. After this change, the uniqueness constraint for the dagName is no longer enforced.
-
-
----
-
-* [TEZ-2972](https://issues.apache.org/jira/browse/TEZ-2972) | *Major* | **Avoid task rescheduling when a node turns unhealthy**
-
-**WARNING: No release note provided for this change.**
 
 
 ---

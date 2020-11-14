@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Spark v3.02
+    * [Changelog](3.02/CHANGELOG.3.02.html)
+    * [Release Notes](3.02/RELEASENOTES.3.02.html)
 * Apache Spark v3.1.0
     * [Changelog](3.1.0/CHANGELOG.3.1.0.html)
     * [Release Notes](3.1.0/RELEASENOTES.3.1.0.html)

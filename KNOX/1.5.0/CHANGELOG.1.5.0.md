@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
-# Apache 1.5.0 Changelog
+# Apache Knox Changelog
 
 ## Release 1.5.0 - Unreleased (as of 2020-11-14)
 

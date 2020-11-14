@@ -21,25 +21,4 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
----
-
-* [TEZ-2468](https://issues.apache.org/jira/browse/TEZ-2468) | *Major* | **Change master to build against Java 7**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [TEZ-2048](https://issues.apache.org/jira/browse/TEZ-2048) | *Blocker* | **Remove VertexManagerPluginContext.getTaskContainer()**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [TEZ-2565](https://issues.apache.org/jira/browse/TEZ-2565) | *Major* | **Consider scanning unfinished tasks in VertexImpl::constructStatistics to reduce merge overhead**
-
-**WARNING: No release note provided for this change.**
-
-
 

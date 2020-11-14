@@ -16,18 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Tez v0.10.1
+    * [Changelog](0.10.1/CHANGELOG.0.10.1.html)
+    * [Release Notes](0.10.1/RELEASENOTES.0.10.1.html)
 * Apache Tez v0.10.0
     * [Changelog](0.10.0/CHANGELOG.0.10.0.html)
     * [Release Notes](0.10.0/RELEASENOTES.0.10.0.html)
-* Apache Tez v0.9.next
-    * [Changelog](0.9.next/CHANGELOG.0.9.next.html)
-    * [Release Notes](0.9.next/RELEASENOTES.0.9.next.html)
+* Apache Tez v0.9.3
+    * [Changelog](0.9.3/CHANGELOG.0.9.3.html)
+    * [Release Notes](0.9.3/RELEASENOTES.0.9.3.html)
 * Apache Tez v0.9.2
     * [Changelog](0.9.2/CHANGELOG.0.9.2.html)
     * [Release Notes](0.9.2/RELEASENOTES.0.9.2.html)
 * Apache Tez v0.9.1
     * [Changelog](0.9.1/CHANGELOG.0.9.1.html)
     * [Release Notes](0.9.1/RELEASENOTES.0.9.1.html)
+* Apache Tez v0.9.next
+    * [Changelog](0.9.next/CHANGELOG.0.9.next.html)
+    * [Release Notes](0.9.next/RELEASENOTES.0.9.next.html)
 * Apache Tez v0.9.0
     * [Changelog](0.9.0/CHANGELOG.0.9.0.html)
     * [Release Notes](0.9.0/RELEASENOTES.0.9.0.html)
@@ -46,18 +52,18 @@
 * Apache Tez v0.8.2
     * [Changelog](0.8.2/CHANGELOG.0.8.2.html)
     * [Release Notes](0.8.2/RELEASENOTES.0.8.2.html)
-* Apache Tez v0.8.1-alpha
-    * [Changelog](0.8.1-alpha/CHANGELOG.0.8.1-alpha.html)
-    * [Release Notes](0.8.1-alpha/RELEASENOTES.0.8.1-alpha.html)
 * Apache Tez v0.8.1
     * [Changelog](0.8.1/CHANGELOG.0.8.1.html)
     * [Release Notes](0.8.1/RELEASENOTES.0.8.1.html)
-* Apache Tez v0.8.0-alpha
-    * [Changelog](0.8.0-alpha/CHANGELOG.0.8.0-alpha.html)
-    * [Release Notes](0.8.0-alpha/RELEASENOTES.0.8.0-alpha.html)
+* Apache Tez v0.8.1-alpha
+    * [Changelog](0.8.1-alpha/CHANGELOG.0.8.1-alpha.html)
+    * [Release Notes](0.8.1-alpha/RELEASENOTES.0.8.1-alpha.html)
 * Apache Tez v0.8.0
     * [Changelog](0.8.0/CHANGELOG.0.8.0.html)
     * [Release Notes](0.8.0/RELEASENOTES.0.8.0.html)
+* Apache Tez v0.8.0-alpha
+    * [Changelog](0.8.0-alpha/CHANGELOG.0.8.0-alpha.html)
+    * [Release Notes](0.8.0-alpha/RELEASENOTES.0.8.0-alpha.html)
 * Apache Tez v0.7.2
     * [Changelog](0.7.2/CHANGELOG.0.7.2.html)
     * [Release Notes](0.7.2/RELEASENOTES.0.7.2.html)

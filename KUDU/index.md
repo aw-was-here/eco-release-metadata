@@ -55,6 +55,9 @@
 * Apache Kudu v1.7.1
     * [Changelog](1.7.1/CHANGELOG.1.7.1.html)
     * [Release Notes](1.7.1/RELEASENOTES.1.7.1.html)
+* Apache Kudu v1.7.x
+    * [Changelog](1.7.x/CHANGELOG.1.7.x.html)
+    * [Release Notes](1.7.x/RELEASENOTES.1.7.x.html)
 * Apache Kudu v1.7.0
     * [Changelog](1.7.0/CHANGELOG.1.7.0.html)
     * [Release Notes](1.7.0/RELEASENOTES.1.7.0.html)
@@ -100,6 +103,3 @@
 * Apache Kudu v1.0.0
     * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
-* Apache Kudu v1.7.x
-    * [Changelog](1.7.x/CHANGELOG.1.7.x.html)
-    * [Release Notes](1.7.x/RELEASENOTES.1.7.x.html)

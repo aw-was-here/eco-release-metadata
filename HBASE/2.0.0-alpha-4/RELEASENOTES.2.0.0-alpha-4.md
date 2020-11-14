@@ -245,13 +245,6 @@ Backward Compatibility
 
 ---
 
-* [HBASE-18826](https://issues.apache.org/jira/browse/HBASE-18826) | *Major* | **Use HStore instead of Store in our own code base and remove unnecessary methods in Store interface**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-18839](https://issues.apache.org/jira/browse/HBASE-18839) | *Major* | **Apply RegionInfo to code base**
 
 The incompatible changes of IA.Public/LimitedPrivate classes are shown below.
@@ -341,13 +334,6 @@ RawAsyncTable.CoprocessorCallback class
 Curator version has been updated from 2.x to 4.0 (running in ZK 3.4 compatibility mode).
 
 Users who experience classpath issues due to version conflicts are recommended to use either the hbase-shaded-client or hbase-shaded-mapreduce artifacts.
-
-
----
-
-* [HBASE-18878](https://issues.apache.org/jira/browse/HBASE-18878) | *Major* | **Use Optional\<T\> return types when T can be null**
-
-**WARNING: No release note provided for this change.**
 
 
 ---

@@ -26,7 +26,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [OOZIE-3056](https://issues.apache.org/jira/browse/OOZIE-3056) | Implement new mechanism to specify ShareLibs for workflow actions |  Critical | core | Attila Sasvari | Peter Cseh |
+| [OOZIE-2691](https://issues.apache.org/jira/browse/OOZIE-2691) | Show workflow action retry information in UI |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-3056](https://issues.apache.org/jira/browse/OOZIE-3056) | Implement new mechanism to specify ShareLibs for workflow actions |  Critical | core | Attila Sasvári | Gézapeti |
 
 
 ### IMPROVEMENTS:
@@ -34,7 +35,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2618](https://issues.apache.org/jira/browse/OOZIE-2618) | Include hive-common in hive-beeline as compile component for hive-server2 (hive2 action) |  Major | action | Taklon Stephen Wu | Taklon Stephen Wu |
-| [OOZIE-3148](https://issues.apache.org/jira/browse/OOZIE-3148) | Rerun Failing Tests through Maven surefire |  Minor | tests | Attila Sasvari | Attila Sasvari |
+| [OOZIE-3148](https://issues.apache.org/jira/browse/OOZIE-3148) | Rerun Failing Tests through Maven surefire |  Minor | tests | Attila Sasvári | Attila Sasvári |
 | [OOZIE-3147](https://issues.apache.org/jira/browse/OOZIE-3147) | Misleading documentation of oozie.service.PurgeService.purge.limit configuration property |  Trivial | docs | Oleksandr Kalinin | Oleksandr Kalinin |
 | [OOZIE-3121](https://issues.apache.org/jira/browse/OOZIE-3121) | bump all maven plugins to latest versions |  Major | . | Artem Ervits | Artem Ervits |
 | [OOZIE-3172](https://issues.apache.org/jira/browse/OOZIE-3172) | Upgrade non-transitive Jackson dependencies from org.codehaus.jackson to com.fasterxml.jackson |  Major | core | Andras Piros | Andras Piros |
@@ -48,21 +49,28 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [OOZIE-3143](https://issues.apache.org/jira/browse/OOZIE-3143) | AG\_Install.twiki needs some refinement |  Minor | docs | Julia Kinga Marton | Julia Kinga Marton |
+| [OOZIE-2770](https://issues.apache.org/jira/browse/OOZIE-2770) | Show missing dependencies for coord actions |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2781](https://issues.apache.org/jira/browse/OOZIE-2781) | HCat partition available  notification is not sent to coordinator actions if coordinator job is using a different hostname (cname, IP address, etc. ) for HCat URL. |  Major | . | Purshotam Shah | Purshotam Shah |
+| [OOZIE-2777](https://issues.apache.org/jira/browse/OOZIE-2777) | Config-default.xml longer than 64k results in  java.io.UTFDataFormatException |  Major | . | Gézapeti | Gézapeti |
+| [OOZIE-3143](https://issues.apache.org/jira/browse/OOZIE-3143) | AG\_Install.twiki needs some refinement |  Minor | docs | Kinga Marton | Kinga Marton |
 | [OOZIE-3142](https://issues.apache.org/jira/browse/OOZIE-3142) | Integer Overflows in Purge retentionTime |  Major | core | Prabhu Joseph | Prabhu Joseph |
+| [OOZIE-3149](https://issues.apache.org/jira/browse/OOZIE-3149) | Delete work.log |  Trivial | . | Robert Kanter | Attila Sasvári |
 | [OOZIE-2150](https://issues.apache.org/jira/browse/OOZIE-2150) | Shell launcher should print shell script |  Minor | . | Purshotam Shah | Jacob Tolar |
-| [OOZIE-3083](https://issues.apache.org/jira/browse/OOZIE-3083) | Make improved version Info backward compatible |  Major | . | Peter Cseh | Peter Cseh |
-| [OOZIE-3085](https://issues.apache.org/jira/browse/OOZIE-3085) | Improve logging in ActionExecutors: add log entry for start(), end() and kill() |  Major | core | Peter Cseh | Julia Kinga Marton |
-| [OOZIE-3145](https://issues.apache.org/jira/browse/OOZIE-3145) | \>git status\< should be clean after \>mvn test\< was called |  Major | tests | Attila Sasvari | Julia Kinga Marton |
-| [OOZIE-2775](https://issues.apache.org/jira/browse/OOZIE-2775) | Oozie server does not stop if there is an exception during service initalization at startup |  Major | . | Attila Sasvari | Attila Sasvari |
-| [OOZIE-3166](https://issues.apache.org/jira/browse/OOZIE-3166) | Remove tomcat alias from AG\_Install.twiki: To use a Self-Signed Certificate part |  Minor | docs | Julia Kinga Marton | Julia Kinga Marton |
-| [OOZIE-3157](https://issues.apache.org/jira/browse/OOZIE-3157) | Setup truststore so that it also works in HTTP only mode |  Blocker | . | Attila Sasvari | Julia Kinga Marton |
-| [OOZIE-2847](https://issues.apache.org/jira/browse/OOZIE-2847) | Oozie Ha timing issue |  Minor | HA | Péter Gergő Barna | Denes Bodo |
+| [OOZIE-3083](https://issues.apache.org/jira/browse/OOZIE-3083) | Make improved version Info backward compatible |  Major | . | Gézapeti | Gézapeti |
+| [OOZIE-3085](https://issues.apache.org/jira/browse/OOZIE-3085) | Improve logging in ActionExecutors: add log entry for start(), end() and kill() |  Major | core | Gézapeti | Kinga Marton |
+| [OOZIE-3162](https://issues.apache.org/jira/browse/OOZIE-3162) | Precommit build fails to add comment to JIRA |  Major | build | Attila Sasvári | Attila Sasvári |
+| [OOZIE-3145](https://issues.apache.org/jira/browse/OOZIE-3145) | \>git status\< should be clean after \>mvn test\< was called |  Major | tests | Attila Sasvári | Kinga Marton |
+| [OOZIE-2775](https://issues.apache.org/jira/browse/OOZIE-2775) | Oozie server does not stop if there is an exception during service initalization at startup |  Major | . | Attila Sasvári | Attila Sasvári |
+| [OOZIE-3166](https://issues.apache.org/jira/browse/OOZIE-3166) | Remove tomcat alias from AG\_Install.twiki: To use a Self-Signed Certificate part |  Minor | docs | Kinga Marton | Kinga Marton |
+| [OOZIE-3157](https://issues.apache.org/jira/browse/OOZIE-3157) | Setup truststore so that it also works in HTTP only mode |  Blocker | . | Attila Sasvári | Kinga Marton |
+| [OOZIE-3168](https://issues.apache.org/jira/browse/OOZIE-3168) | Remove -secure option from DG\_QuickStart.twiki and from oozie-setup.sh |  Major | docs, scripts | Kinga Marton | Kinga Marton |
+| [OOZIE-1717](https://issues.apache.org/jira/browse/OOZIE-1717) | Add indexes to speed up db queries |  Minor | . | Purshotam Shah | Attila Sasvári |
+| [OOZIE-2847](https://issues.apache.org/jira/browse/OOZIE-2847) | Oozie Ha timing issue |  Minor | HA | Péter Gergő Barna | Dénes Bodó |
 | [OOZIE-3173](https://issues.apache.org/jira/browse/OOZIE-3173) | Coordinator job with frequency using cron syntax creates only one action in catchup mode |  Major | coordinator | Andras Piros | Andras Piros |
 | [OOZIE-3182](https://issues.apache.org/jira/browse/OOZIE-3182) | Oozie components fail with checkstyle errors |  Major | client, examples | Alisha Prabhu | Alisha Prabhu |
 | [OOZIE-2957](https://issues.apache.org/jira/browse/OOZIE-2957) | Documentation states that starting a coordinator is possible |  Major | coordinator, docs | Jan Hentschel | Jan Hentschel |
-| [OOZIE-3195](https://issues.apache.org/jira/browse/OOZIE-3195) | Typo in WebServicesAPI.twiki: Proxy Hive Job Submission |  Minor | docs | Julia Kinga Marton | Julia Kinga Marton |
-| [OOZIE-3150](https://issues.apache.org/jira/browse/OOZIE-3150) | Remove references to not present dependencies within NOTICE.txt |  Blocker | . | Robert Kanter | Peter Cseh |
+| [OOZIE-3195](https://issues.apache.org/jira/browse/OOZIE-3195) | Typo in WebServicesAPI.twiki: Proxy Hive Job Submission |  Minor | docs | Kinga Marton | Kinga Marton |
+| [OOZIE-3150](https://issues.apache.org/jira/browse/OOZIE-3150) | Remove references to not present dependencies within NOTICE.txt |  Blocker | . | Robert Kanter | Gézapeti |
 | [OOZIE-3176](https://issues.apache.org/jira/browse/OOZIE-3176) | Oozie-core fails with checkstyle errors |  Blocker | core | Alisha Prabhu | Alisha Prabhu |
 
 
@@ -72,15 +80,15 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [OOZIE-2996](https://issues.apache.org/jira/browse/OOZIE-2996) | Add options for GC overhead limit error to maven.test.java.opts |  Major | build | Artem Ervits | Artem Ervits |
 | [OOZIE-2585](https://issues.apache.org/jira/browse/OOZIE-2585) | Remove test case TestPartitionDependencyManagerEhcache.testMemoryUsageAndSpeedOverflowToDisk and testMemoryUsageAndSpeed |  Minor | . | Peter Bacsko | Peter Bacsko |
-| [OOZIE-2814](https://issues.apache.org/jira/browse/OOZIE-2814) | OYA: Update example workflows to newest schemas |  Blocker | . | Robert Kanter | Attila Sasvari |
+| [OOZIE-2814](https://issues.apache.org/jira/browse/OOZIE-2814) | OYA: Update example workflows to newest schemas |  Blocker | . | Robert Kanter | Attila Sasvári |
 | [OOZIE-2600](https://issues.apache.org/jira/browse/OOZIE-2600) | OYA: Update Documentation |  Blocker | . | Robert Kanter | Andras Piros |
-| [OOZIE-2726](https://issues.apache.org/jira/browse/OOZIE-2726) | Flaky test due to daylight saving changes |  Blocker | . | Satish Subhashrao Saley | Andras Piros |
+| [OOZIE-2726](https://issues.apache.org/jira/browse/OOZIE-2726) | Flaky test due to daylight saving changes |  Blocker | . | Satish Saley | Andras Piros |
 
 
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [OOZIE-3163](https://issues.apache.org/jira/browse/OOZIE-3163) | Improve documentation rendering: use fluido skin and better config |  Major | docs | Hervé Boutemy | Hervé Boutemy |
+| [OOZIE-3163](https://issues.apache.org/jira/browse/OOZIE-3163) | Improve documentation rendering: use fluido skin and better config |  Major | docs | Herve Boutemy | Herve Boutemy |
 
 

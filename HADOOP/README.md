@@ -343,6 +343,9 @@
 * Apache Hadoop v0.20.0
     * [Changelog](0.20.0/CHANGELOG.0.20.0.md)
     * [Release Notes](0.20.0/RELEASENOTES.0.20.0.md)
+* Apache Hadoop v0.20-append
+    * [Changelog](0.20-append/CHANGELOG.0.20-append.md)
+    * [Release Notes](0.20-append/RELEASENOTES.0.20-append.md)
 * Apache Hadoop v0.19.2
     * [Changelog](0.19.2/CHANGELOG.0.19.2.md)
     * [Release Notes](0.19.2/RELEASENOTES.0.19.2.md)
@@ -511,6 +514,3 @@
 * Apache Hadoop v0.1.0
     * [Changelog](0.1.0/CHANGELOG.0.1.0.md)
     * [Release Notes](0.1.0/RELEASENOTES.0.1.0.md)
-* Apache Hadoop v0.20-append
-    * [Changelog](0.20-append/CHANGELOG.0.20-append.md)
-    * [Release Notes](0.20-append/RELEASENOTES.0.20-append.md)
