@@ -19,6 +19,9 @@
 * Apache Yetus v0.99.99
     * [Changelog](0.99.99/CHANGELOG.0.99.99.md)
     * [Release Notes](0.99.99/RELEASENOTES.0.99.99.md)
+* Apache Yetus v0.9.0
+    * [Changelog](0.9.0/CHANGELOG.0.9.0.md)
+    * [Release Notes](0.9.0/RELEASENOTES.0.9.0.md)
 * Apache Yetus v0.8.0
     * [Changelog](0.8.0/CHANGELOG.0.8.0.md)
     * [Release Notes](0.8.0/RELEASENOTES.0.8.0.md)

@@ -16,6 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache BigTop v1.6.0
+    * [Changelog](1.6.0/CHANGELOG.1.6.0.html)
+    * [Release Notes](1.6.0/RELEASENOTES.1.6.0.html)
+* Apache BigTop v1.5.0
+    * [Changelog](1.5.0/CHANGELOG.1.5.0.html)
+    * [Release Notes](1.5.0/RELEASENOTES.1.5.0.html)
+* Apache BigTop v1.4.1
+    * [Changelog](1.4.1/CHANGELOG.1.4.1.html)
+    * [Release Notes](1.4.1/RELEASENOTES.1.4.1.html)
+* Apache BigTop v1.4.0
+    * [Changelog](1.4.0/CHANGELOG.1.4.0.html)
+    * [Release Notes](1.4.0/RELEASENOTES.1.4.0.html)
 * Apache BigTop v1.3.0
     * [Changelog](1.3.0/CHANGELOG.1.3.0.html)
     * [Release Notes](1.3.0/RELEASENOTES.1.3.0.html)
