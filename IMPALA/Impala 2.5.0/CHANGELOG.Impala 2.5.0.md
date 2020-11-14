@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.5.0 - Unreleased (as of 2018-09-12)
+## Release Impala 2.5.0 - Unreleased (as of 2020-11-14)
 
 
 
@@ -29,9 +29,9 @@
 | [IMPALA-2004](https://issues.apache.org/jira/browse/IMPALA-2004) | Implement "SHOW CREATE" for functions |  Major | . | Mala Chikka Kempanna | Michael Ho |
 | [IMPALA-783](https://issues.apache.org/jira/browse/IMPALA-783) | Suggestion: SHOW CREATE VIEW to complement SHOW CREATE TABLE |  Minor | Frontend | John Russell | Tim Armstrong |
 | [IMPALA-2499](https://issues.apache.org/jira/browse/IMPALA-2499) | Min/max values on partition columns |  Critical | Frontend | Justin Erickson | Michael Ho |
-| [IMPALA-1477](https://issues.apache.org/jira/browse/IMPALA-1477) | Add UUID function |  Major | Backend | Jeremy Beard | Youwei Wang |
-| [IMPALA-2843](https://issues.apache.org/jira/browse/IMPALA-2843) | Impala should read java udfs created from Hive |  Major | Catalog | bharath v | bharath v |
-| [IMPALA-1748](https://issues.apache.org/jira/browse/IMPALA-1748) | Provide support for registering permanent udfs |  Critical | Catalog | bharath v | bharath v |
+| [IMPALA-1477](https://issues.apache.org/jira/browse/IMPALA-1477) | Add UUID function |  Major | Backend | Jacob Evan Beard | Youwei Wang |
+| [IMPALA-2843](https://issues.apache.org/jira/browse/IMPALA-2843) | Impala should read java udfs created from Hive |  Major | Catalog | Bharath Vissapragada | Bharath Vissapragada |
+| [IMPALA-1748](https://issues.apache.org/jira/browse/IMPALA-1748) | Provide support for registering permanent udfs |  Critical | Catalog | Bharath Vissapragada | Bharath Vissapragada |
 | [IMPALA-3415](https://issues.apache.org/jira/browse/IMPALA-3415) | updated llvm-3.8.0  cause   impalad compiling   error  clang fatal error  #include \<string\> |  Major | Backend | fishing |  |
 
 
@@ -39,15 +39,15 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2555](https://issues.apache.org/jira/browse/IMPALA-2555) | Allow download of thrift profile via Impala WebUI |  Critical | . | Peter Ebert | bharath v |
+| [IMPALA-2555](https://issues.apache.org/jira/browse/IMPALA-2555) | Allow download of thrift profile via Impala WebUI |  Critical | . | Peter Ebert | Bharath Vissapragada |
 | [IMPALA-2631](https://issues.apache.org/jira/browse/IMPALA-2631) | Add total number of queries to /sessionz |  Minor | . | Henry Robinson | Henry Robinson |
 | [IMPALA-2632](https://issues.apache.org/jira/browse/IMPALA-2632) | Link LLVM bytecode into impalad binary |  Major | . | Tim Armstrong | Tim Armstrong |
-| [IMPALA-2664](https://issues.apache.org/jira/browse/IMPALA-2664) | prevent INCREMENTAL STATS to run when total size would exceed a threshold |  Major | . | Silvius Rus | bharath v |
+| [IMPALA-2664](https://issues.apache.org/jira/browse/IMPALA-2664) | prevent INCREMENTAL STATS to run when total size would exceed a threshold |  Major | . | Silvius Rus | Bharath Vissapragada |
 | [IMPALA-2070](https://issues.apache.org/jira/browse/IMPALA-2070) | Include the database comment when showing databases |  Minor | . | Joe Slagel | Tim Armstrong |
 | [IMPALA-1656](https://issues.apache.org/jira/browse/IMPALA-1656) | Remove block\_mgr\_client\_ != NULL checks |  Major | . | Ippokratis Pandis | Tim Armstrong |
 | [IMPALA-2759](https://issues.apache.org/jira/browse/IMPALA-2759) | Use delete\_on\_read mode of BufferedTupleStream where appropriate |  Major | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2793](https://issues.apache.org/jira/browse/IMPALA-2793) | Use EXPLAIN\_LEVEL=2 for the plan printed in query profiles. |  Major | . | Alexander Behm | Alexander Behm |
-| [IMPALA-1687](https://issues.apache.org/jira/browse/IMPALA-1687) | Expand CTAS to allow partition clauses |  Major | Frontend | Jeremy Beard | Lars Volker |
+| [IMPALA-1687](https://issues.apache.org/jira/browse/IMPALA-1687) | Expand CTAS to allow partition clauses |  Major | Frontend | Jacob Evan Beard | Lars Volker |
 | [IMPALA-1934](https://issues.apache.org/jira/browse/IMPALA-1934) | impala-shell to support reading password from command line when LDAP authentication is used |  Major | Security | Yibing Shi | Henry Robinson |
 | [IMPALA-2790](https://issues.apache.org/jira/browse/IMPALA-2790) | Explain plan should exclude non-materialized aggregate expressions. |  Trivial | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-2547](https://issues.apache.org/jira/browse/IMPALA-2547) | Sort performance improvement : Code-gen TupleRowComparator::Compare |  Critical | Backend | Mostafa Mokhtar | Skye Wanderman-Milne |
@@ -72,7 +72,7 @@
 | [IMPALA-3103](https://issues.apache.org/jira/browse/IMPALA-3103) | Improve efficiency of BloomFilter Thrift serialisation |  Critical | Distributed Exec | Henry Robinson | Henry Robinson |
 | [IMPALA-3102](https://issues.apache.org/jira/browse/IMPALA-3102) | Admission control supportability: update profile before scheduling/queuing |  Critical | Backend | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-2641](https://issues.apache.org/jira/browse/IMPALA-2641) | Add IF EXISTS clause to TRUNCATE TABLE statement |  Major | Frontend | John Russell | Marcell Szabo |
-| [IMPALA-2087](https://issues.apache.org/jira/browse/IMPALA-2087) | Take advantage of existing data partition of the input plan fragment to an aggregation |  Major | Frontend | Marcel Kornacker | Tim Armstrong |
+| [IMPALA-2087](https://issues.apache.org/jira/browse/IMPALA-2087) | Take advantage of existing data partition of the input plan fragment to an aggregation |  Major | Frontend | Marcel Kinard | Tim Armstrong |
 | [IMPALA-1625](https://issues.apache.org/jira/browse/IMPALA-1625) | Eliminate output noise from frontend tests |  Minor | Infrastructure | Dimitris Tsirogiannis | Tim Armstrong |
 | [IMPALA-2548](https://issues.apache.org/jira/browse/IMPALA-2548) | Sort performance improvement : Code-gen Tuple::MaterializeExprs |  Critical | Backend | Mostafa Mokhtar | Skye Wanderman-Milne |
 | [IMPALA-3593](https://issues.apache.org/jira/browse/IMPALA-3593) | updated   impala  from impala2.3 to impala 2.5 -v4709   sorternode becoming  slower |  Major | Backend | fishing |  |
@@ -87,18 +87,18 @@
 | [IMPALA-2204](https://issues.apache.org/jira/browse/IMPALA-2204) | Underscore in where does not work for multi-line text |  Major | . | Alan Jackoway | Michael Ho |
 | [IMPALA-2535](https://issues.apache.org/jira/browse/IMPALA-2535) | PAGG fails to acquire buffers despite sufficient memory limit |  Blocker | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2113](https://issues.apache.org/jira/browse/IMPALA-2113) | Uninformative error message when combining SELECT DISTINCT with aggregate function in HAVING clause |  Major | . | Charlie Flowers | Chris Channing |
-| [IMPALA-2225](https://issues.apache.org/jira/browse/IMPALA-2225) | Poor error message when group by missing on select t.\* |  Major | . | Philip Zeyliger | Chris Channing |
-| [IMPALA-2103](https://issues.apache.org/jira/browse/IMPALA-2103) | test\_authorization.py test\_impersonation effective\_user testcase failure |  Critical | . | Dan Hecht | Henry Robinson |
+| [IMPALA-2225](https://issues.apache.org/jira/browse/IMPALA-2225) | Poor error message when group by missing on select t.\* |  Major | . | Philip Martin | Chris Channing |
+| [IMPALA-2103](https://issues.apache.org/jira/browse/IMPALA-2103) | test\_authorization.py test\_impersonation effective\_user testcase failure |  Critical | . | Daniel Hecht | Henry Robinson |
 | [IMPALA-2132](https://issues.apache.org/jira/browse/IMPALA-2132) | Handle Llama expansions that are allocated after time out |  Critical | . | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-1852](https://issues.apache.org/jira/browse/IMPALA-1852) | Impala with RM/Llama acquires excessive thread tokens. |  Major | . | Alexander Behm | Matthew Jacobs |
 | [IMPALA-2404](https://issues.apache.org/jira/browse/IMPALA-2404) | Netezza compatibility functions: regexp\_match\_count |  Major | . | Justin Erickson | Michael Ho |
 | [IMPALA-2226](https://issues.apache.org/jira/browse/IMPALA-2226) | Impala should throw AnalysisError if table properties are too large |  Major | . | Martin Grund | Jim Apple |
-| [IMPALA-2273](https://issues.apache.org/jira/browse/IMPALA-2273) | Make parquet scanner MAX\_PAGE\_HEADER\_SIZE configurable |  Major | . | Juan Yu | bharath v |
+| [IMPALA-2273](https://issues.apache.org/jira/browse/IMPALA-2273) | Make parquet scanner MAX\_PAGE\_HEADER\_SIZE configurable |  Major | . | Juan Yu | Bharath Vissapragada |
 | [IMPALA-2591](https://issues.apache.org/jira/browse/IMPALA-2591) | DataStreamSender::Send() does not return an error status if SendBatch() failed |  Major | . | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-1714](https://issues.apache.org/jira/browse/IMPALA-1714) | Trying to cache a table which has its data in s3 results in an IllegalArgumentException |  Major | . | Ishaan Joshi | Michael Ho |
-| [IMPALA-2559](https://issues.apache.org/jira/browse/IMPALA-2559) | sorter.cc:1079] Check failed: sorted\_runs\_.back()-\>is\_pinned\_ |  Critical | . | casey | Dan Hecht |
-| [IMPALA-2614](https://issues.apache.org/jira/browse/IMPALA-2614) | ExchangeNode::Open() ignores DataStreamRecvr::CreateMerger() return status |  Major | . | Dan Hecht | Dan Hecht |
-| [IMPALA-2646](https://issues.apache.org/jira/browse/IMPALA-2646) | Check failed: lineage.ended \> lineage.started |  Blocker | . | Tim Armstrong | bharath v |
+| [IMPALA-2559](https://issues.apache.org/jira/browse/IMPALA-2559) | sorter.cc:1079] Check failed: sorted\_runs\_.back()-\>is\_pinned\_ |  Critical | . | casey | Daniel Hecht |
+| [IMPALA-2614](https://issues.apache.org/jira/browse/IMPALA-2614) | ExchangeNode::Open() ignores DataStreamRecvr::CreateMerger() return status |  Major | . | Daniel Hecht | Daniel Hecht |
+| [IMPALA-2646](https://issues.apache.org/jira/browse/IMPALA-2646) | Check failed: lineage.ended \> lineage.started |  Blocker | . | Tim Armstrong | Bharath Vissapragada |
 | [IMPALA-2558](https://issues.apache.org/jira/browse/IMPALA-2558) | Hit DCHECK in parquet scanner after block read error |  Critical | . | Tim Armstrong | Skye Wanderman-Milne |
 | [IMPALA-2560](https://issues.apache.org/jira/browse/IMPALA-2560) | Large memory consumption on coordinator node when handling a large number of partitions due to redundancy in TDescriptorTable |  Critical | . | Mostafa Mokhtar | Mostafa Mokhtar |
 | [IMPALA-2473](https://issues.apache.org/jira/browse/IMPALA-2473) | Excessive memory usage by scan nodes |  Major | . | Tim Armstrong | Tim Armstrong |
@@ -109,7 +109,7 @@
 | [IMPALA-2731](https://issues.apache.org/jira/browse/IMPALA-2731) | Hbase scan node uses 2-4x memory after upgrade to impala 2.2.8 |  Major | . | Juan Yu | Martin Grund |
 | [IMPALA-2707](https://issues.apache.org/jira/browse/IMPALA-2707) | Add FindOrInsert method to hash table to avoid unnecessary probe in aggregation |  Major | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2754](https://issues.apache.org/jira/browse/IMPALA-2754) | hash-table-test fails in ASAN build |  Blocker | . | Tim Armstrong | Tim Armstrong |
-| [IMPALA-2354](https://issues.apache.org/jira/browse/IMPALA-2354) | PartitionedAggregationNode::ProcessBatch() should not continue on MEM\_LIMIT\_EXCEEDED |  Critical | . | Dan Hecht | Tim Armstrong |
+| [IMPALA-2354](https://issues.apache.org/jira/browse/IMPALA-2354) | PartitionedAggregationNode::ProcessBatch() should not continue on MEM\_LIMIT\_EXCEEDED |  Critical | . | Daniel Hecht | Tim Armstrong |
 | [IMPALA-2593](https://issues.apache.org/jira/browse/IMPALA-2593) | Remove 'kinit -R' workaround |  Critical | . | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-2667](https://issues.apache.org/jira/browse/IMPALA-2667) | Errors in scanner prepare are not handled |  Critical | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2683](https://issues.apache.org/jira/browse/IMPALA-2683) | Stress test hit assert in LLVM: external function could not be resolved |  Blocker | . | Tim Armstrong | Skye Wanderman-Milne |
@@ -118,13 +118,13 @@
 | [IMPALA-2236](https://issues.apache.org/jira/browse/IMPALA-2236) | Cannot run full data load on EC2 machines because of missing testdata/impala-data contents. |  Critical | . | Alexander Behm | Tim Armstrong |
 | [IMPALA-2778](https://issues.apache.org/jira/browse/IMPALA-2778) | ASAN build calls llvm-symbolizer with invalid arguments on build machines. |  Major | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2773](https://issues.apache.org/jira/browse/IMPALA-2773) | Build failures due to problems building readline for python virtualenv |  Blocker | . | casey |  |
-| [IMPALA-2719](https://issues.apache.org/jira/browse/IMPALA-2719) | test\_parquet\_max\_page\_header.py fails with assert ['NULL'] == ['10485760'] |  Major | . | Michael Ho | bharath v |
+| [IMPALA-2719](https://issues.apache.org/jira/browse/IMPALA-2719) | test\_parquet\_max\_page\_header.py fails with assert ['NULL'] == ['10485760'] |  Major | . | Michael Ho | Bharath Vissapragada |
 | [IMPALA-2144](https://issues.apache.org/jira/browse/IMPALA-2144) | Wrong assignment of having clause predicate across outer join |  Critical | . | Dimitris Tsirogiannis | Alexander Behm |
 | [IMPALA-2786](https://issues.apache.org/jira/browse/IMPALA-2786) | buffered-tuple-stream set\_delete\_on\_read DCHECK failure |  Critical | . | Matthew Jacobs | Tim Armstrong |
 | [IMPALA-1325](https://issues.apache.org/jira/browse/IMPALA-1325) | Impala shell shows no error when an error message includes "Cancelled" |  Critical | Clients | casey | Tim Armstrong |
-| [IMPALA-2620](https://issues.apache.org/jira/browse/IMPALA-2620) | FunctionContext::Allocate() doesn't check against mem\_limit |  Major | . | Dan Hecht | Michael Ho |
-| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | bharath v |
-| [IMPALA-2695](https://issues.apache.org/jira/browse/IMPALA-2695) | Catalog stores URI in lowercase and cause sentry authorization fail |  Critical | . | Juan Yu | bharath v |
+| [IMPALA-2620](https://issues.apache.org/jira/browse/IMPALA-2620) | FunctionContext::Allocate() doesn't check against mem\_limit |  Major | . | Daniel Hecht | Michael Ho |
+| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | Bharath Vissapragada |
+| [IMPALA-2695](https://issues.apache.org/jira/browse/IMPALA-2695) | Catalog stores URI in lowercase and cause sentry authorization fail |  Critical | . | Juan Yu | Bharath Vissapragada |
 | [IMPALA-2776](https://issues.apache.org/jira/browse/IMPALA-2776) | Integration build broken: hive.serde2.SerDeException \\r and \\n cannot be used as escaping characters or separators |  Blocker | . | casey | Alexander Behm |
 | [IMPALA-1170](https://issues.apache.org/jira/browse/IMPALA-1170) | parse\_url("http://oascentral.stripes.com/adstream\_mjx.ads@Top2,Right1","HOST")  returns Top2,Right1 |  Critical | Backend | Kushal Mangtani | Lars Volker |
 | [IMPALA-2812](https://issues.apache.org/jira/browse/IMPALA-2812) | CatalogTest.TestTableWithBadEscapeChar failing after removal of escapecharstesttable |  Blocker | . | Tim Armstrong | Alexander Behm |
@@ -141,22 +141,22 @@
 | [IMPALA-2750](https://issues.apache.org/jira/browse/IMPALA-2750) | Wrong query results for COUNT(\*) from an external delimited table |  Blocker | Backend | Uri Laserson | Martin Grund |
 | [IMPALA-2643](https://issues.apache.org/jira/browse/IMPALA-2643) | Nested inline view produces incorrect result when referencing the same column implicitly |  Blocker | Frontend | Huaisi Xu | Huaisi Xu |
 | [IMPALA-2598](https://issues.apache.org/jira/browse/IMPALA-2598) | Server\<-\>Server SSL and Kerberos do not work together |  Critical | Security | Henry Robinson | Sailesh Mukil |
-| [IMPALA-2853](https://issues.apache.org/jira/browse/IMPALA-2853) | full data load failure: garbage in load-functional-\*.sql file |  Major | Infrastructure | Dan Hecht | Tim Armstrong |
-| [IMPALA-1986](https://issues.apache.org/jira/browse/IMPALA-1986) | Status should not have non-trivial copy constructor or destructor |  Major | Backend | Dan Hecht | Michael Ho |
+| [IMPALA-2853](https://issues.apache.org/jira/browse/IMPALA-2853) | full data load failure: garbage in load-functional-\*.sql file |  Major | Infrastructure | Daniel Hecht | Tim Armstrong |
+| [IMPALA-1986](https://issues.apache.org/jira/browse/IMPALA-1986) | Status should not have non-trivial copy constructor or destructor |  Major | Backend | Daniel Hecht | Michael Ho |
 | [IMPALA-2503](https://issues.apache.org/jira/browse/IMPALA-2503) | Exception thrown when trying to throw an AnalysisException |  Critical | Frontend | Uri Laserson | Alexander Behm |
 | [IMPALA-2865](https://issues.apache.org/jira/browse/IMPALA-2865) | show-create-table.test has an implicit INSERT which breaks S3 build |  Blocker | Infrastructure | Henry Robinson | Lars Volker |
 | [IMPALA-2781](https://issues.apache.org/jira/browse/IMPALA-2781) | New shell error reporting produces bad errors if script changes directory |  Minor | Infrastructure | Tim Armstrong | casey |
-| [IMPALA-2854](https://issues.apache.org/jira/browse/IMPALA-2854) | impala-CDH5-nightly-data-load fail: TestUdfs.test\_ir\_functions: ArrayIndexOutOfBoundsException: -1 |  Blocker | Catalog | Dan Hecht | bharath v |
+| [IMPALA-2854](https://issues.apache.org/jira/browse/IMPALA-2854) | impala-CDH5-nightly-data-load fail: TestUdfs.test\_ir\_functions: ArrayIndexOutOfBoundsException: -1 |  Blocker | Catalog | Daniel Hecht | Bharath Vissapragada |
 | [IMPALA-2819](https://issues.apache.org/jira/browse/IMPALA-2819) | Custom cluster tests fail to kill all Impalads |  Blocker | Infrastructure | Tim Armstrong | Tim Armstrong |
-| [IMPALA-2846](https://issues.apache.org/jira/browse/IMPALA-2846) | impala-cdh5-integration: impalad failed to start: terminate called after throwing an instance of 'boost::filesystem::filesystem\_error' |  Critical | Backend | Dan Hecht | Michael Ho |
+| [IMPALA-2846](https://issues.apache.org/jira/browse/IMPALA-2846) | impala-cdh5-integration: impalad failed to start: terminate called after throwing an instance of 'boost::filesystem::filesystem\_error' |  Critical | Backend | Daniel Hecht | Michael Ho |
 | [IMPALA-2867](https://issues.apache.org/jira/browse/IMPALA-2867) | Load data inpath chokes on impala staging directories |  Major | Frontend | Flume QA | Flume QA |
 | [IMPALA-2539](https://issues.apache.org/jira/browse/IMPALA-2539) | tuple.h:140] Check failed: offset != -1 |  Critical | Frontend | casey | Alexander Behm |
 | [IMPALA-2711](https://issues.apache.org/jira/browse/IMPALA-2711) | INSERT using RAND(): Memory leaked via FunctionContext::Allocate() |  Blocker | Backend | casey | Michael Ho |
 | [IMPALA-2749](https://issues.apache.org/jira/browse/IMPALA-2749) | Impala returns NULL when decimal and double values are multiplied in a specific order |  Critical | Frontend | Yibing Shi | Lars Volker |
 | [IMPALA-2838](https://issues.apache.org/jira/browse/IMPALA-2838) | Impala incorrectly reports an AuthorizationException when it is actually not ready yet to accept requests. |  Critical | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-2894](https://issues.apache.org/jira/browse/IMPALA-2894) | TestQueries.test\_empty fails with legacy partitioned/joins aggs. |  Blocker | Infrastructure | Alexander Behm | Alexander Behm |
-| [IMPALA-2818](https://issues.apache.org/jira/browse/IMPALA-2818) | Query cancellation DCHECK while clearing object pool: expr-context.cc:41] Check failed: !prepared\_ \|\| closed\_ |  Blocker | Backend | Tim Armstrong | Dan Hecht |
-| [IMPALA-1651](https://issues.apache.org/jira/browse/IMPALA-1651) | CREATE TABLE LIKE should not copy caching directives of the source table. |  Major | Catalog | Alexander Behm | bharath v |
+| [IMPALA-2818](https://issues.apache.org/jira/browse/IMPALA-2818) | Query cancellation DCHECK while clearing object pool: expr-context.cc:41] Check failed: !prepared\_ \|\| closed\_ |  Blocker | Backend | Tim Armstrong | Daniel Hecht |
+| [IMPALA-1651](https://issues.apache.org/jira/browse/IMPALA-1651) | CREATE TABLE LIKE should not copy caching directives of the source table. |  Major | Catalog | Alexander Behm | Bharath Vissapragada |
 | [IMPALA-2833](https://issues.apache.org/jira/browse/IMPALA-2833) | Memory limit exceeded is reported as an IO error in some rare cases |  Major | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2221](https://issues.apache.org/jira/browse/IMPALA-2221) | Flaky test: test\_shell\_commandline.TestImpalaShell.test\_queries\_closed failures |  Critical | Infrastructure | Henry Robinson | Alexander Behm |
 | [IMPALA-1800](https://issues.apache.org/jira/browse/IMPALA-1800) | PrettyPrinter::Print(double, TUnit::TIME\_NS) is buggy |  Critical | Backend | Henry Robinson | Huaisi Xu |
@@ -166,32 +166,32 @@
 | [IMPALA-2696](https://issues.apache.org/jira/browse/IMPALA-2696) | Simple scheduler always uses the same replica which can create hot spots |  Major | Backend | Mostafa Mokhtar | Lars Volker |
 | [IMPALA-1599](https://issues.apache.org/jira/browse/IMPALA-1599) | Improve query start-up time with many fragment instances |  Major | Distributed Exec | Henry Robinson | Henry Robinson |
 | [IMPALA-2684](https://issues.apache.org/jira/browse/IMPALA-2684) | Fragment start latencies reported in wrong unit |  Minor | Distributed Exec | Flume QA | Henry Robinson |
-| [IMPALA-2606](https://issues.apache.org/jira/browse/IMPALA-2606) | exec-node.cc:190] Check failed: mem\_tracker()-\>consumption() == 0 (16777216 vs. 0) Leaked memory. |  Major | Backend | casey | Dan Hecht |
+| [IMPALA-2606](https://issues.apache.org/jira/browse/IMPALA-2606) | exec-node.cc:190] Check failed: mem\_tracker()-\>consumption() == 0 (16777216 vs. 0) Leaked memory. |  Major | Backend | casey | Daniel Hecht |
 | [IMPALA-2734](https://issues.apache.org/jira/browse/IMPALA-2734) | Bad result for subquery with having |  Blocker | Frontend | Peter Brejcak | Dimitris Tsirogiannis |
 | [IMPALA-2927](https://issues.apache.org/jira/browse/IMPALA-2927) | Crash: impala::BufferedBlockMgr::WriteComplete |  Blocker | Backend | casey | Tim Armstrong |
 | [IMPALA-2897](https://issues.apache.org/jira/browse/IMPALA-2897) | Impalad stuck building hash table in right outer join |  Blocker | Backend | Tim Armstrong | Jim Apple |
-| [IMPALA-1867](https://issues.apache.org/jira/browse/IMPALA-1867) | Crash: DCHECK: mem\_tracker()-\>consumption() == 0 (8388608 vs. 0) Leaked memory. |  Major | Backend | Taras Bobrovytsky | Dan Hecht |
+| [IMPALA-1867](https://issues.apache.org/jira/browse/IMPALA-1867) | Crash: DCHECK: mem\_tracker()-\>consumption() == 0 (8388608 vs. 0) Leaked memory. |  Major | Backend | Taras Bobrovytsky | Daniel Hecht |
 | [IMPALA-2940](https://issues.apache.org/jira/browse/IMPALA-2940) | Parquet DictDecoders accumulate throughout query |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2726](https://issues.apache.org/jira/browse/IMPALA-2726) | Templatize RawValue::GetHashValue to avoid per row PrimitiveType check for 6% Perf improvement |  Critical | Backend | Mostafa Mokhtar | Mostafa Mokhtar |
 | [IMPALA-2906](https://issues.apache.org/jira/browse/IMPALA-2906) | Crash: impala::RowDescriptor::GetTupleIdx |  Blocker | Frontend | Taras Bobrovytsky | Alexander Behm |
 | [IMPALA-2926](https://issues.apache.org/jira/browse/IMPALA-2926) | Incorrect results - a predicate causes the number of rows to increase |  Blocker | Backend | Taras Bobrovytsky | Alexander Behm |
 | [IMPALA-2538](https://issues.apache.org/jira/browse/IMPALA-2538) | Per-pool default query memory limits |  Critical | Backend | Matthew Jacobs | Matthew Jacobs |
-| [IMPALA-2954](https://issues.apache.org/jira/browse/IMPALA-2954) | Crash in PlanFragmentExecutor::Cancel() dereferencing runtime\_state\_ |  Blocker | Backend | Dan Hecht | Henry Robinson |
+| [IMPALA-2954](https://issues.apache.org/jira/browse/IMPALA-2954) | Crash in PlanFragmentExecutor::Cancel() dereferencing runtime\_state\_ |  Blocker | Backend | Daniel Hecht | Henry Robinson |
 | [IMPALA-2215](https://issues.apache.org/jira/browse/IMPALA-2215) | HAVING clause without aggregation not applied properly |  Blocker | Frontend | Alan Choi | Alexander Behm |
 | [IMPALA-852](https://issues.apache.org/jira/browse/IMPALA-852) | Aggregate and predicate ignored on very simple query without group by clause or aggergate expressions in select clause |  Minor | Frontend | casey | Alexander Behm |
 | [IMPALA-2093](https://issues.apache.org/jira/browse/IMPALA-2093) | Wrong plan of NOT IN aggregate subquery when a constant is used in subquery predicate |  Blocker | Frontend | Taras Bobrovytsky | Dimitris Tsirogiannis |
 | [IMPALA-976](https://issues.apache.org/jira/browse/IMPALA-976) | Planner cardinality estimates from joins can be improved. |  Critical | Frontend | Nong Li | Alexander Behm |
 | [IMPALA-2948](https://issues.apache.org/jira/browse/IMPALA-2948) | Crash: impala::UnionNode::Prepare (when optimize\_partition\_key\_scans set to true) |  Blocker | Frontend | Taras Bobrovytsky | Michael Ho |
 | [IMPALA-2959](https://issues.apache.org/jira/browse/IMPALA-2959) | Failure in S3 build: test\_multiple\_filesystems.py |  Blocker | Infrastructure | Alexander Behm | Lars Volker |
-| [IMPALA-2365](https://issues.apache.org/jira/browse/IMPALA-2365) | Impalad is crashing if udf jar is not available in hdfs location for first time |  Blocker | Backend | Manikandan R | bharath v |
+| [IMPALA-2365](https://issues.apache.org/jira/browse/IMPALA-2365) | Impalad is crashing if udf jar is not available in hdfs location for first time |  Blocker | Backend | Manikandan R | Bharath Vissapragada |
 | [IMPALA-2788](https://issues.apache.org/jira/browse/IMPALA-2788) | Impala returns wrong result for function 'conv(bigint, from\_base, to\_base)' |  Blocker | Backend | Yibing Shi | Mala Chikka Kempanna |
 | [IMPALA-2816](https://issues.apache.org/jira/browse/IMPALA-2816) | BufferedTupleStream::AddRow() doesn't include null indicators when computing required page size |  Blocker | Backend | Tim Armstrong | Michael Ho |
 | [IMPALA-2487](https://issues.apache.org/jira/browse/IMPALA-2487) | Impala report memory usage stats appear to get out of sync |  Critical | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2950](https://issues.apache.org/jira/browse/IMPALA-2950) | Incorrect results with deeply nested outer joined inline view. |  Blocker | Frontend | Taras Bobrovytsky | Alexander Behm |
 | [IMPALA-2971](https://issues.apache.org/jira/browse/IMPALA-2971) | Groovy script keeps hitting null pointer exception |  Blocker | Infrastructure | Michael Ho | Alexander Behm |
-| [IMPALA-2961](https://issues.apache.org/jira/browse/IMPALA-2961) | Overflow in parsing negative numbers |  Major | Backend | Jim Apple | Dan Hecht |
+| [IMPALA-2961](https://issues.apache.org/jira/browse/IMPALA-2961) | Overflow in parsing negative numbers |  Major | Backend | Jim Apple | Daniel Hecht |
 | [IMPALA-2688](https://issues.apache.org/jira/browse/IMPALA-2688) | Group by on Decimal data type doesn't get CodeGened |  Critical | Backend | Mostafa Mokhtar | Skye Wanderman-Milne |
-| [IMPALA-2970](https://issues.apache.org/jira/browse/IMPALA-2970) | redactor.detail.h:59:44: warning: all paths through this function will call itself [-Winfinite-recursion] |  Critical | Backend | Dan Hecht | casey |
+| [IMPALA-2970](https://issues.apache.org/jira/browse/IMPALA-2970) | redactor.detail.h:59:44: warning: all paths through this function will call itself [-Winfinite-recursion] |  Critical | Backend | Daniel Hecht | casey |
 | [IMPALA-2960](https://issues.apache.org/jira/browse/IMPALA-2960) | ASAN fails to compile. |  Blocker | Backend | Alexander Behm | Jim Apple |
 | [IMPALA-2425](https://issues.apache.org/jira/browse/IMPALA-2425) | Broadcast join hint not enforced when low memory limit is set. |  Major | Frontend | Mostafa Mokhtar | Anuj Phadke |
 | [IMPALA-2931](https://issues.apache.org/jira/browse/IMPALA-2931) | Crash trying to impala::MemTracker::UnregisterFromParent |  Blocker | Backend | casey | Henry Robinson |
@@ -201,9 +201,9 @@
 | [IMPALA-2997](https://issues.apache.org/jira/browse/IMPALA-2997) | DCHECK with legacy joins/aggs when running test\_compute\_stats.py. |  Blocker | Backend | Alexander Behm | Alexander Behm |
 | [IMPALA-2996](https://issues.apache.org/jira/browse/IMPALA-2996) | Failure in test\_analytic\_fns because memory limit was not exceeded. |  Blocker | Backend | Alexander Behm | Matthew Jacobs |
 | [IMPALA-2992](https://issues.apache.org/jira/browse/IMPALA-2992) | Scan range filtering can lead to leaked memory in memtracker |  Blocker | Distributed Exec | Henry Robinson | Michael Ho |
-| [IMPALA-2969](https://issues.apache.org/jira/browse/IMPALA-2969) | test\_udfs.py fails on S3 |  Blocker | Infrastructure | Alexander Behm | bharath v |
+| [IMPALA-2969](https://issues.apache.org/jira/browse/IMPALA-2969) | test\_udfs.py fails on S3 |  Blocker | Infrastructure | Alexander Behm | Bharath Vissapragada |
 | [IMPALA-2993](https://issues.apache.org/jira/browse/IMPALA-2993) | Memory limit exceeded in test\_nested\_types.py |  Blocker | Backend | Alexander Behm | Skye Wanderman-Milne |
-| [IMPALA-2986](https://issues.apache.org/jira/browse/IMPALA-2986) | Aggregation spill loop gives up too early leading to mem limit exceeded errors |  Blocker | Backend | Dan Hecht | Dan Hecht |
+| [IMPALA-2986](https://issues.apache.org/jira/browse/IMPALA-2986) | Aggregation spill loop gives up too early leading to mem limit exceeded errors |  Blocker | Backend | Daniel Hecht | Daniel Hecht |
 | [IMPALA-2989](https://issues.apache.org/jira/browse/IMPALA-2989) | Admission control crashed on unexpected topic deletion |  Critical | Backend | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-2981](https://issues.apache.org/jira/browse/IMPALA-2981) | Queries hung, stuck in reconnection loop? |  Blocker | Distributed Exec | casey | Henry Robinson |
 | [IMPALA-2382](https://issues.apache.org/jira/browse/IMPALA-2382) | Impala unable to read Java based UDFs that return a standard  datatype like Float or String(This works in hive) |  Major | Frontend | Mala Chikka Kempanna | Dimitris Tsirogiannis |
@@ -244,12 +244,12 @@
 | [IMPALA-2974](https://issues.apache.org/jira/browse/IMPALA-2974) | ALTER TABLE CHANGE COLUMN fails to update column with a complex type. |  Critical | Catalog | Alexander Behm | Alexander Behm |
 | [IMPALA-3078](https://issues.apache.org/jira/browse/IMPALA-3078) | Very simple query uses full RUNTIME\_FILTER\_WAIT\_TIME\_MS |  Major | Backend | casey | Henry Robinson |
 | [IMPALA-3074](https://issues.apache.org/jira/browse/IMPALA-3074) | Analysis error: IllegalArgumentException: targetType=SMALLINT type=INT |  Blocker | Frontend | casey | Dimitris Tsirogiannis |
-| [IMPALA-3070](https://issues.apache.org/jira/browse/IMPALA-3070) | test\_udfs.py fails in local filesystem mode |  Blocker | Infrastructure | Alexander Behm | bharath v |
+| [IMPALA-3070](https://issues.apache.org/jira/browse/IMPALA-3070) | test\_udfs.py fails in local filesystem mode |  Blocker | Infrastructure | Alexander Behm | Bharath Vissapragada |
 | [IMPALA-3089](https://issues.apache.org/jira/browse/IMPALA-3089) | Handle between predicate in disjunctions during static partition pruning in the FE |  Major | Frontend | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
 | [IMPALA-3087](https://issues.apache.org/jira/browse/IMPALA-3087) | Explain plan regression due to codegen of disjunct predicates |  Critical | Frontend | Mostafa Mokhtar | Michael Ho |
 | [IMPALA-2975](https://issues.apache.org/jira/browse/IMPALA-2975) | Return error for unsupported values of REPLICA\_PREFERENCE |  Major | Backend | Lars Volker | Lars Volker |
 | [IMPALA-3085](https://issues.apache.org/jira/browse/IMPALA-3085) | DataSinks' MemTrackers need to unregister themselves from parent |  Blocker | Backend | Michael Ho | Michael Ho |
-| [IMPALA-2154](https://issues.apache.org/jira/browse/IMPALA-2154) | Fix decompressor to allow parsing gzips with multiple streams |  Critical | Backend | bharath v | Juan Yu |
+| [IMPALA-2154](https://issues.apache.org/jira/browse/IMPALA-2154) | Fix decompressor to allow parsing gzips with multiple streams |  Critical | Backend | Bharath Vissapragada | Juan Yu |
 | [IMPALA-3093](https://issues.apache.org/jira/browse/IMPALA-3093) | ReopenClient() could NULL out 'client\_key' causing a crash |  Blocker | Distributed Exec | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-3095](https://issues.apache.org/jira/browse/IMPALA-3095) | Allow additional Kerberos users to be authorized to access internal APIs |  Blocker | Security | Henry Robinson | Henry Robinson |
 | [IMPALA-3071](https://issues.apache.org/jira/browse/IMPALA-3071) | Incorrect assignment of inner join on-clause predicate that references an outer-joined table. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
@@ -265,7 +265,7 @@
 | [IMPALA-3146](https://issues.apache.org/jira/browse/IMPALA-3146) | Runtime filters sometimes not attached to coordinator fragment |  Major | Distributed Exec | Henry Robinson | Henry Robinson |
 | [IMPALA-2599](https://issues.apache.org/jira/browse/IMPALA-2599) | Pseudo-random sleep before acquiring kerberos ticket possibly not really pseudo-random. |  Major | Security | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-3107](https://issues.apache.org/jira/browse/IMPALA-3107) | Occasional very long pause in kernel |  Critical | Backend | Henry Robinson | Matthew Jacobs |
-| [IMPALA-1939](https://issues.apache.org/jira/browse/IMPALA-1939) | Impalad should not require a co-located DataNode |  Major | Frontend | Dan Hecht | Anuj Phadke |
+| [IMPALA-1939](https://issues.apache.org/jira/browse/IMPALA-1939) | Impalad should not require a co-located DataNode |  Major | Frontend | Daniel Hecht | Anuj Phadke |
 | [IMPALA-2973](https://issues.apache.org/jira/browse/IMPALA-2973) | test\_hash\_join\_timer: AssertionError: Hash join timing too high |  Blocker | Infrastructure | Michael Brown | Jim Apple |
 | [IMPALA-3284](https://issues.apache.org/jira/browse/IMPALA-3284) | impala-cdh5-2.3.0\_5.5.x-core-integration job fails because of wrong hive artifacts |  Major | Infrastructure | Dimitris Tsirogiannis | Jim Apple |
 | [IMPALA-2764](https://issues.apache.org/jira/browse/IMPALA-2764) | Impala should not statically link Cyrus SASL |  Major | Infrastructure | Martin Grund | Martin Grund |

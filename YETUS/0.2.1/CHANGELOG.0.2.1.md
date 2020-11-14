@@ -33,8 +33,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [YETUS-345](https://issues.apache.org/jira/browse/YETUS-345) | mvn dependency dupe fix broke hadoop |  Blocker | Test Patch | Allen Wittenauer | Allen Wittenauer |
-| [YETUS-334](https://issues.apache.org/jira/browse/YETUS-334) | mvn dependency ordering generates duplicates |  Critical | Test Patch | Phil Yang | Allen Wittenauer |
+| [YETUS-345](https://issues.apache.org/jira/browse/YETUS-345) | mvn dependency dupe fix broke hadoop |  Blocker | Precommit | Allen Wittenauer | Allen Wittenauer |
+| [YETUS-334](https://issues.apache.org/jira/browse/YETUS-334) | mvn dependency ordering generates duplicates |  Critical | Precommit | Phil Yang | Allen Wittenauer |
 
 
 ### OTHER:

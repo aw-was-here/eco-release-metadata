@@ -19,6 +19,24 @@
 * Apache Yetus v0.99.99
     * [Changelog](0.99.99/CHANGELOG.0.99.99.md)
     * [Release Notes](0.99.99/RELEASENOTES.0.99.99.md)
+* Apache Yetus v0.14.0
+    * [Changelog](0.14.0/CHANGELOG.0.14.0.md)
+    * [Release Notes](0.14.0/RELEASENOTES.0.14.0.md)
+* Apache Yetus v0.13.0
+    * [Changelog](0.13.0/CHANGELOG.0.13.0.md)
+    * [Release Notes](0.13.0/RELEASENOTES.0.13.0.md)
+* Apache Yetus v0.12.0
+    * [Changelog](0.12.0/CHANGELOG.0.12.0.md)
+    * [Release Notes](0.12.0/RELEASENOTES.0.12.0.md)
+* Apache Yetus v0.11.1
+    * [Changelog](0.11.1/CHANGELOG.0.11.1.md)
+    * [Release Notes](0.11.1/RELEASENOTES.0.11.1.md)
+* Apache Yetus v0.11.0
+    * [Changelog](0.11.0/CHANGELOG.0.11.0.md)
+    * [Release Notes](0.11.0/RELEASENOTES.0.11.0.md)
+* Apache Yetus v0.10.0
+    * [Changelog](0.10.0/CHANGELOG.0.10.0.md)
+    * [Release Notes](0.10.0/RELEASENOTES.0.10.0.md)
 * Apache Yetus v0.9.0
     * [Changelog](0.9.0/CHANGELOG.0.9.0.md)
     * [Release Notes](0.9.0/RELEASENOTES.0.9.0.md)

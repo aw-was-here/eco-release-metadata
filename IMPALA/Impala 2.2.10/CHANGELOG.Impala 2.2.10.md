@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.2.10 - Unreleased (as of 2018-09-12)
+## Release Impala 2.2.10 - Unreleased (as of 2020-11-14)
 
 
 
@@ -28,7 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-2264](https://issues.apache.org/jira/browse/IMPALA-2264) | Implicit casts to integers from decimals with higher precision sometimes allowed |  Blocker | . | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2473](https://issues.apache.org/jira/browse/IMPALA-2473) | Excessive memory usage by scan nodes |  Major | . | Tim Armstrong | Tim Armstrong |
-| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | bharath v |
+| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | Bharath Vissapragada |
 | [IMPALA-2798](https://issues.apache.org/jira/browse/IMPALA-2798) | After adding a column to avro table, Impala returns weird result if codegen is enabled. |  Major | Backend | Juan Yu | Juan Yu |
 | [IMPALA-2643](https://issues.apache.org/jira/browse/IMPALA-2643) | Nested inline view produces incorrect result when referencing the same column implicitly |  Blocker | Frontend | Huaisi Xu | Huaisi Xu |
 | [IMPALA-3034](https://issues.apache.org/jira/browse/IMPALA-3034) | MemTracker leak on PHJ failure to spill |  Blocker | Backend | Matthew Jacobs | Michael Ho |

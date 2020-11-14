@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.2.8 - Unreleased (as of 2018-09-12)
+## Release Impala 2.2.8 - Unreleased (as of 2020-11-14)
 
 
 
@@ -26,7 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-1136](https://issues.apache.org/jira/browse/IMPALA-1136) | Impala is unable to read hive tables created with the "STORED AS AVRO" clause |  Blocker | . | Tom White | Martin Grund |
+| [IMPALA-1136](https://issues.apache.org/jira/browse/IMPALA-1136) | Impala is unable to read hive tables created with the "STORED AS AVRO" clause |  Blocker | . | Thomas White | Martin Grund |
 | [IMPALA-2249](https://issues.apache.org/jira/browse/IMPALA-2249) | Avoid allocating stringbuffer larger than 1GB in HdfsTextScanner::FillByteBufferCompressedFile() |  Major | . | Juan Yu | Juan Yu |
 
 

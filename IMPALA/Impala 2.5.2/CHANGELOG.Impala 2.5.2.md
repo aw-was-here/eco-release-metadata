@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.5.2 - Unreleased (as of 2018-09-12)
+## Release Impala 2.5.2 - Unreleased (as of 2020-11-14)
 
 
 
@@ -26,8 +26,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2660](https://issues.apache.org/jira/browse/IMPALA-2660) | Respect auth\_to\_local rules from hdfs configs (core-site.xml) |  Critical | Security | Eric Lin | bharath v |
-| [IMPALA-3369](https://issues.apache.org/jira/browse/IMPALA-3369) | Add a variant of alter table to manually add column stats |  Major | Catalog, Frontend | bharath v | Alexander Behm |
+| [IMPALA-2660](https://issues.apache.org/jira/browse/IMPALA-2660) | Respect auth\_to\_local rules from hdfs configs (core-site.xml) |  Critical | Security | Eric Lin | Bharath Vissapragada |
+| [IMPALA-3369](https://issues.apache.org/jira/browse/IMPALA-3369) | Add a variant of alter table to manually add column stats |  Major | Catalog, Frontend | Bharath Vissapragada | Alexander Behm |
 
 
 ### BUG FIXES:

@@ -82,7 +82,7 @@
 | [IMPALA-1623](https://issues.apache.org/jira/browse/IMPALA-1623) | unix\_timestamp() does not return correct time |  Blocker | . | Sujit Chaubal | casey |
 | [IMPALA-1467](https://issues.apache.org/jira/browse/IMPALA-1467) | Query option parsing should support "gb" in addition to "g" |  Major | . | Nong Li | casey |
 | [IMPALA-1722](https://issues.apache.org/jira/browse/IMPALA-1722) | Clients that don't Fetch can cause Impala to busy spin in ScannerThreads |  Major | . | Nong Li | Ippokratis Pandis |
-| [IMPALA-1630](https://issues.apache.org/jira/browse/IMPALA-1630) | query can fail but returns status ok due to race with scanner thread |  Major | . | Dan Hecht | Dan Hecht |
+| [IMPALA-1630](https://issues.apache.org/jira/browse/IMPALA-1630) | query can fail but returns status ok due to race with scanner thread |  Major | . | Daniel Hecht | Daniel Hecht |
 | [IMPALA-1614](https://issues.apache.org/jira/browse/IMPALA-1614) | COMPUTE STATS should quote all identifiers, including table names |  Major | . | Ruowen | Juan Yu |
 | [IMPALA-1645](https://issues.apache.org/jira/browse/IMPALA-1645) | Impala should check if cache directive ID is still valid on table load |  Major | . | Martin Grund | Martin Grund |
 | [IMPALA-1632](https://issues.apache.org/jira/browse/IMPALA-1632) | Warning when inserting into a cached table |  Critical | . | Alan Choi | Martin Grund |
@@ -103,9 +103,9 @@
 | [IMPALA-1435](https://issues.apache.org/jira/browse/IMPALA-1435) | unix\_timestamp() default timezone different from Hive or MySQL |  Major | . | Julien Lehuen | casey |
 | [IMPALA-1805](https://issues.apache.org/jira/browse/IMPALA-1805) | Impala's ACLs check do not consider all group ACLs, only checked first one. |  Critical | . | Juan Yu | Juan Yu |
 | [IMPALA-1815](https://issues.apache.org/jira/browse/IMPALA-1815) | Crash in BufferedBlockMgr during CI run. |  Blocker | . | Alexander Behm | Ippokratis Pandis |
-| [IMPALA-1646](https://issues.apache.org/jira/browse/IMPALA-1646) | Impala Will Not Run on Certain Intel CPUs |  Critical | . | Tom Wheeler | Dan Hecht |
-| [IMPALA-1399](https://issues.apache.org/jira/browse/IMPALA-1399) | Impala crashing on startup on AMD based Servers |  Major | Infrastructure | Bruce Nelson | Dan Hecht |
-| [IMPALA-1174](https://issues.apache.org/jira/browse/IMPALA-1174) | compiler options/pragmas to allow SSE 4.2 intrinsics without allowing compiler to auto generate sse instructions |  Minor | . | Dan Hecht | Dan Hecht |
+| [IMPALA-1646](https://issues.apache.org/jira/browse/IMPALA-1646) | Impala Will Not Run on Certain Intel CPUs |  Critical | . | Tom Wheeler | Daniel Hecht |
+| [IMPALA-1399](https://issues.apache.org/jira/browse/IMPALA-1399) | Impala crashing on startup on AMD based Servers |  Major | Infrastructure | Bruce Nelson | Daniel Hecht |
+| [IMPALA-1174](https://issues.apache.org/jira/browse/IMPALA-1174) | compiler options/pragmas to allow SSE 4.2 intrinsics without allowing compiler to auto generate sse instructions |  Minor | . | Daniel Hecht | Daniel Hecht |
 | [IMPALA-1562](https://issues.apache.org/jira/browse/IMPALA-1562) | AnalyticEvalNode not properly handling nullable tuples |  Major | . | Taras Bobrovytsky | Matthew Jacobs |
 | [IMPALA-1820](https://issues.apache.org/jira/browse/IMPALA-1820) | TPCH-Q20 memory requirement drastically increased after the partition patch |  Blocker | . | Taras Bobrovytsky | Ippokratis Pandis |
 | [IMPALA-1690](https://issues.apache.org/jira/browse/IMPALA-1690) | When memory estimates are very high Impalad crashes without useful error messages |  Critical | . | Dileep Kumar | Martin Grund |
@@ -141,13 +141,13 @@
 | [IMPALA-1888](https://issues.apache.org/jira/browse/IMPALA-1888) | FIRST\_VALUE produces incorrect results with some strange windows |  Blocker | . | Taras Bobrovytsky | Matthew Jacobs |
 | [IMPALA-1864](https://issues.apache.org/jira/browse/IMPALA-1864) | DCHECK: Could not find list for ptr. Allocation could have already been freed. |  Blocker | . | Taras Bobrovytsky | Ippokratis Pandis |
 | [IMPALA-1476](https://issues.apache.org/jira/browse/IMPALA-1476) | Impala incorrectly handles text data missing a newline on the last line |  Blocker | . | Paul Wilkinson | Juan Yu |
-| [IMPALA-1894](https://issues.apache.org/jira/browse/IMPALA-1894) | Old (non-partitioned) hash join and aggregation do not work |  Blocker | . | Dan Hecht | Matthew Jacobs |
-| [IMPALA-1915](https://issues.apache.org/jira/browse/IMPALA-1915) | query hung in buffered block mgr and cannot be cancelled |  Blocker | . | Dan Hecht | Dan Hecht |
-| [IMPALA-1863](https://issues.apache.org/jira/browse/IMPALA-1863) | q21 hangs when run with mem\_limit=780MB |  Blocker | . | Dan Hecht | Dan Hecht |
+| [IMPALA-1894](https://issues.apache.org/jira/browse/IMPALA-1894) | Old (non-partitioned) hash join and aggregation do not work |  Blocker | . | Daniel Hecht | Matthew Jacobs |
+| [IMPALA-1915](https://issues.apache.org/jira/browse/IMPALA-1915) | query hung in buffered block mgr and cannot be cancelled |  Blocker | . | Daniel Hecht | Daniel Hecht |
+| [IMPALA-1863](https://issues.apache.org/jira/browse/IMPALA-1863) | q21 hangs when run with mem\_limit=780MB |  Blocker | . | Daniel Hecht | Daniel Hecht |
 | [IMPALA-1680](https://issues.apache.org/jira/browse/IMPALA-1680) | COMPUTE STATS query itself throws missing stats warning |  Critical | . | Mala Chikka Kempanna | Juan Yu |
 | [IMPALA-1385](https://issues.apache.org/jira/browse/IMPALA-1385) | Memory Limit Exceeded Error when running with multiple clients |  Major | . | Taras Bobrovytsky |  |
 | [IMPALA-1488](https://issues.apache.org/jira/browse/IMPALA-1488) | Spilling hash table loses the matched flag info in case of right joins |  Critical | . | Ippokratis Pandis | Ippokratis Pandis |
-| [IMPALA-1910](https://issues.apache.org/jira/browse/IMPALA-1910) | Significant memory leak in HashJoin Node |  Major | . | Alan Choi | Dan Hecht |
+| [IMPALA-1910](https://issues.apache.org/jira/browse/IMPALA-1910) | Significant memory leak in HashJoin Node |  Major | . | Alan Choi | Daniel Hecht |
 | [IMPALA-1738](https://issues.apache.org/jira/browse/IMPALA-1738) | Remove usage of lexical\_cast in exprs (and elsewhere?) |  Major | . | Skye Wanderman-Milne | Skye Wanderman-Milne |
 | [IMPALA-625](https://issues.apache.org/jira/browse/IMPALA-625) | Fail to start impala state store when debug is disable |  Major | Backend | Antoine Amend | Henry Robinson |
 | [IMPALA-2911](https://issues.apache.org/jira/browse/IMPALA-2911) | rand() is not a constant expr |  Critical | Backend | Juan Yu |  |
@@ -160,7 +160,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-1376](https://issues.apache.org/jira/browse/IMPALA-1376) | Break up Planner.java |  Major | . | Marcel Kornacker | Alexander Behm |
+| [IMPALA-1376](https://issues.apache.org/jira/browse/IMPALA-1376) | Break up Planner.java |  Major | . | Marcel Kinard | Alexander Behm |
 | [IMPALA-1658](https://issues.apache.org/jira/browse/IMPALA-1658) | Add a compatibility option for reading parquet timestamps written by Hive |  Blocker | . | casey | casey |
 | [IMPALA-1264](https://issues.apache.org/jira/browse/IMPALA-1264) | Fix and reenable test\_fetch\_first |  Blocker | . | Ishaan Joshi | Henry Robinson |
 

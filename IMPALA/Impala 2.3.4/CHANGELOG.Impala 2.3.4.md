@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.3.4 - Unreleased (as of 2018-09-12)
+## Release Impala 2.3.4 - Unreleased (as of 2020-11-14)
 
 
 
@@ -33,7 +33,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | bharath v |
+| [IMPALA-2765](https://issues.apache.org/jira/browse/IMPALA-2765) | AnalysisException: operands of type BOOLEAN and TIMESTAMP are not comparable when OUTER JOIN with CASE statement |  Major | Frontend | Eric Lin | Bharath Vissapragada |
 | [IMPALA-1170](https://issues.apache.org/jira/browse/IMPALA-1170) | parse\_url("http://oascentral.stripes.com/adstream\_mjx.ads@Top2,Right1","HOST")  returns Top2,Right1 |  Critical | Backend | Kushal Mangtani | Lars Volker |
 | [IMPALA-2798](https://issues.apache.org/jira/browse/IMPALA-2798) | After adding a column to avro table, Impala returns weird result if codegen is enabled. |  Major | Backend | Juan Yu | Juan Yu |
 | [IMPALA-2732](https://issues.apache.org/jira/browse/IMPALA-2732) | Can't parse custom date formats with non-zero-padded values |  Critical | Backend | Egmont Koblinger | Lars Volker |
@@ -41,7 +41,7 @@
 | [IMPALA-2539](https://issues.apache.org/jira/browse/IMPALA-2539) | tuple.h:140] Check failed: offset != -1 |  Critical | Frontend | casey | Alexander Behm |
 | [IMPALA-2711](https://issues.apache.org/jira/browse/IMPALA-2711) | INSERT using RAND(): Memory leaked via FunctionContext::Allocate() |  Blocker | Backend | casey | Michael Ho |
 | [IMPALA-2749](https://issues.apache.org/jira/browse/IMPALA-2749) | Impala returns NULL when decimal and double values are multiplied in a specific order |  Critical | Frontend | Yibing Shi | Lars Volker |
-| [IMPALA-2818](https://issues.apache.org/jira/browse/IMPALA-2818) | Query cancellation DCHECK while clearing object pool: expr-context.cc:41] Check failed: !prepared\_ \|\| closed\_ |  Blocker | Backend | Tim Armstrong | Dan Hecht |
+| [IMPALA-2818](https://issues.apache.org/jira/browse/IMPALA-2818) | Query cancellation DCHECK while clearing object pool: expr-context.cc:41] Check failed: !prepared\_ \|\| closed\_ |  Blocker | Backend | Tim Armstrong | Daniel Hecht |
 | [IMPALA-2734](https://issues.apache.org/jira/browse/IMPALA-2734) | Bad result for subquery with having |  Blocker | Frontend | Peter Brejcak | Dimitris Tsirogiannis |
 | [IMPALA-2940](https://issues.apache.org/jira/browse/IMPALA-2940) | Parquet DictDecoders accumulate throughout query |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-2906](https://issues.apache.org/jira/browse/IMPALA-2906) | Crash: impala::RowDescriptor::GetTupleIdx |  Blocker | Frontend | Taras Bobrovytsky | Alexander Behm |
@@ -66,8 +66,8 @@
 | [IMPALA-3071](https://issues.apache.org/jira/browse/IMPALA-3071) | Incorrect assignment of inner join on-clause predicate that references an outer-joined table. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-2599](https://issues.apache.org/jira/browse/IMPALA-2599) | Pseudo-random sleep before acquiring kerberos ticket possibly not really pseudo-random. |  Major | Security | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-3151](https://issues.apache.org/jira/browse/IMPALA-3151) | Impala crash for avro table when casting to char data type |  Blocker | Backend | Eric Lin | Anuj Phadke |
-| [IMPALA-3194](https://issues.apache.org/jira/browse/IMPALA-3194) | Unblock queries on scalar columns in RC files with complex types |  Blocker | Frontend | bharath v | bharath v |
-| [IMPALA-3277](https://issues.apache.org/jira/browse/IMPALA-3277) | impala-cdh5-2.3.0\_5.5.x-core-non-partitioned-hash-and-aggs is broken by IMPALA-2820 backport |  Blocker | Infrastructure | Dimitris Tsirogiannis | bharath v |
+| [IMPALA-3194](https://issues.apache.org/jira/browse/IMPALA-3194) | Unblock queries on scalar columns in RC files with complex types |  Blocker | Frontend | Bharath Vissapragada | Bharath Vissapragada |
+| [IMPALA-3277](https://issues.apache.org/jira/browse/IMPALA-3277) | impala-cdh5-2.3.0\_5.5.x-core-non-partitioned-hash-and-aggs is broken by IMPALA-2820 backport |  Blocker | Infrastructure | Dimitris Tsirogiannis | Bharath Vissapragada |
 
 
 ### SUB-TASKS:

@@ -28,7 +28,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-1400](https://issues.apache.org/jira/browse/IMPALA-1400) | Window function insert issue (LAG() + OVER) |  Critical | . | Steven | Dimitris Tsirogiannis |
 | [IMPALA-1401](https://issues.apache.org/jira/browse/IMPALA-1401) | Many read errors with parquet files |  Blocker | . | Colin Marc | Skye Wanderman-Milne |
-| [IMPALA-1410](https://issues.apache.org/jira/browse/IMPALA-1410) | regex functions no longer accept shorthand character classes |  Major | . | Skye Wanderman-Milne | Dan Hecht |
+| [IMPALA-1410](https://issues.apache.org/jira/browse/IMPALA-1410) | regex functions no longer accept shorthand character classes |  Major | . | Skye Wanderman-Milne | Daniel Hecht |
 | [IMPALA-1397](https://issues.apache.org/jira/browse/IMPALA-1397) | Memory leak with string functions |  Major | . | S Y Zhang | Skye Wanderman-Milne |
 | [IMPALA-1360](https://issues.apache.org/jira/browse/IMPALA-1360) | TPC-DS Query (16,94,95) - FE Exception ( BETWEEN Expression) |  Major | . | Martin Grund | Dimitris Tsirogiannis |
 | [IMPALA-1361](https://issues.apache.org/jira/browse/IMPALA-1361) | TPC-DS Query 51 - FE Exception (With Clause) |  Major | . | Martin Grund | Dimitris Tsirogiannis |

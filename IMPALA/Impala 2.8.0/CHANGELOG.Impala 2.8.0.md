@@ -46,9 +46,9 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-4054](https://issues.apache.org/jira/browse/IMPALA-4054) | Remove serial test workarounds for IMPALA-2479. |  Major | Infrastructure | Alexander Behm | Alexander Behm |
 | [IMPALA-3481](https://issues.apache.org/jira/browse/IMPALA-3481) | Kudu Connector: use new Scan Token API |  Minor | Backend, Frontend | Dan Burkert | Matthew Jacobs |
-| [IMPALA-4099](https://issues.apache.org/jira/browse/IMPALA-4099) | Improve error message while loading UDFs with a missing jar |  Minor | Catalog | bharath v | bharath v |
-| [IMPALA-3949](https://issues.apache.org/jira/browse/IMPALA-3949) | CatalogServiceCatalog.extractFunctions should log the underlying exception when failing to load a function |  Minor | Catalog | Balazs Jeszenszky | bharath v |
-| [IMPALA-3988](https://issues.apache.org/jira/browse/IMPALA-3988) | Only use first 96 bits of query ID |  Major | Backend | Henry Robinson | Marcel Kornacker |
+| [IMPALA-4099](https://issues.apache.org/jira/browse/IMPALA-4099) | Improve error message while loading UDFs with a missing jar |  Minor | Catalog | Bharath Vissapragada | Bharath Vissapragada |
+| [IMPALA-3949](https://issues.apache.org/jira/browse/IMPALA-3949) | CatalogServiceCatalog.extractFunctions should log the underlying exception when failing to load a function |  Minor | Catalog | Balazs Jeszenszky | Bharath Vissapragada |
+| [IMPALA-3988](https://issues.apache.org/jira/browse/IMPALA-3988) | Only use first 96 bits of query ID |  Major | Backend | Henry Robinson | Marcel Kinard |
 | [IMPALA-4160](https://issues.apache.org/jira/browse/IMPALA-4160) | Remove Llama code from Impala |  Major | Backend | Henry Robinson | Henry Robinson |
 | [IMPALA-4011](https://issues.apache.org/jira/browse/IMPALA-4011) | "Missed topic update deadline consider increasing statestore\_update\_frequency\_ms" log is misleading |  Major | Catalog | Juan Yu | Henry Robinson |
 | [IMPALA-4187](https://issues.apache.org/jira/browse/IMPALA-4187) | Switch RPC latency metrics to histograms |  Major | Backend | Henry Robinson | Henry Robinson |
@@ -66,7 +66,7 @@
 | [IMPALA-3211](https://issues.apache.org/jira/browse/IMPALA-3211) | Toolchain binary publishing improvements |  Minor | Infrastructure | Matthew Jacobs | Tim Armstrong |
 | [IMPALA-3823](https://issues.apache.org/jira/browse/IMPALA-3823) | Add timer to measure Parquet footer reads |  Minor | Backend | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-4309](https://issues.apache.org/jira/browse/IMPALA-4309) | Introduce expr rewrite phase. |  Major | Frontend | Alexander Behm | Alexander Behm |
-| [IMPALA-3983](https://issues.apache.org/jira/browse/IMPALA-3983) | Clean up UDF jars after reloading functions |  Major | Catalog | Balazs Jeszenszky | bharath v |
+| [IMPALA-3983](https://issues.apache.org/jira/browse/IMPALA-3983) | Clean up UDF jars after reloading functions |  Major | Catalog | Balazs Jeszenszky | Bharath Vissapragada |
 | [IMPALA-4048](https://issues.apache.org/jira/browse/IMPALA-4048) | Impala daemon web UI counts EXPIRED sessions in ACTIVE sessions |  Minor | Backend | Sudarshan | Henry Robinson |
 | [IMPALA-1169](https://issues.apache.org/jira/browse/IMPALA-1169) | Impala debug webpage should identify query in Admission Control queue |  Minor | Backend | Alan Choi | Thomas Tauber-Marshall |
 | [IMPALA-2379](https://issues.apache.org/jira/browse/IMPALA-2379) | Constant argument for UDAF is not accessible in Init function. |  Minor | Frontend | Tim Armstrong | Chris Channing |
@@ -95,7 +95,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-4006](https://issues.apache.org/jira/browse/IMPALA-4006) | bin/impala-config.sh contains dangerous rm -rf statements, which can delete everything it has access to |  Critical | Infrastructure | Zoltan Ivanfi | Zoltan Ivanfi |
 | [IMPALA-4056](https://issues.apache.org/jira/browse/IMPALA-4056) | toSql() of DistributeParam doesn't work as expected |  Major | Frontend | Yuanhao Luo | Yuanhao Luo |
-| [IMPALA-4020](https://issues.apache.org/jira/browse/IMPALA-4020) | Catalog update can fail due to database creation/deletion in Hive. |  Major | Catalog | Anuj Phadke | bharath v |
+| [IMPALA-4020](https://issues.apache.org/jira/browse/IMPALA-4020) | Catalog update can fail due to database creation/deletion in Hive. |  Major | Catalog | Anuj Phadke | Bharath Vissapragada |
 | [IMPALA-4016](https://issues.apache.org/jira/browse/IMPALA-4016) | Avoid materializing slots only referenced by Kudu conjuncts |  Major | Frontend | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-3874](https://issues.apache.org/jira/browse/IMPALA-3874) | Predicates are not always pushed to Kudu |  Blocker | Frontend | Dimitris Tsirogiannis | Matthew Jacobs |
 | [IMPALA-3815](https://issues.apache.org/jira/browse/IMPALA-3815) | Clean up TopN node codegen'd code |  Minor | Backend | Tim Armstrong | Tim Armstrong |
@@ -108,7 +108,7 @@
 | [IMPALA-4111](https://issues.apache.org/jira/browse/IMPALA-4111) | Backend death tests should not produce minidumps |  Major | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4170](https://issues.apache.org/jira/browse/IMPALA-4170) | Incorrect double quoting of identifier in SQL generated by COMPUTE INCREMENTAL STATS. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-4138](https://issues.apache.org/jira/browse/IMPALA-4138) | RowBatch::AcquireState() cannot be used if the initial capacity of a RowBatch is not known |  Major | Backend | Henry Robinson | Henry Robinson |
-| [IMPALA-4028](https://issues.apache.org/jira/browse/IMPALA-4028) | When the path to sentry-site.xml contains spaces, impalad and catalogd start up failed |  Major | Frontend | Donghui Xu | Donghui Xu |
+| [IMPALA-4028](https://issues.apache.org/jira/browse/IMPALA-4028) | When the path to sentry-site.xml contains spaces, impalad and catalogd start up failed |  Major | Frontend | Davy Xu | Davy Xu |
 | [IMPALA-4037](https://issues.apache.org/jira/browse/IMPALA-4037) | ChildQuery::Cancel() appears to violate lock ordering |  Critical | Distributed Exec | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4038](https://issues.apache.org/jira/browse/IMPALA-4038) | RPC delays for single query can lead to ImpalaServer not making progress on any queries |  Critical | Distributed Exec | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4117](https://issues.apache.org/jira/browse/IMPALA-4117) | Factor out test utility classes from simple-scheduler-test.cc |  Major | Backend | Lars Volker | Lars Volker |
@@ -122,7 +122,7 @@
 | [IMPALA-4207](https://issues.apache.org/jira/browse/IMPALA-4207) | data load failure: load\_nested.py: AttributeError: 'Namespace' object has no attribute 'use\_hive' |  Blocker | Infrastructure | Michael Brown | Michael Brown |
 | [IMPALA-4180](https://issues.apache.org/jira/browse/IMPALA-4180) | Crash: impala::DiskIoRequestContext::Cancel |  Blocker | Backend | Taras Bobrovytsky | Michael Ho |
 | [IMPALA-4026](https://issues.apache.org/jira/browse/IMPALA-4026) | Investigate regression introduced by "IMPALA-3629: Codegen TransferScratchTuples" |  Critical | Backend | Mostafa Mokhtar | Michael Ho |
-| [IMPALA-4196](https://issues.apache.org/jira/browse/IMPALA-4196) | Certain builtin functions throw symbol does not exist error when used inside aggregate function |  Major | Backend | Mala Chikka Kempanna | bharath v |
+| [IMPALA-4196](https://issues.apache.org/jira/browse/IMPALA-4196) | Certain builtin functions throw symbol does not exist error when used inside aggregate function |  Major | Backend | Mala Chikka Kempanna | Bharath Vissapragada |
 | [IMPALA-4234](https://issues.apache.org/jira/browse/IMPALA-4234) | Remove astylerc in be/ |  Minor | Backend | Lars Volker | Lars Volker |
 | [IMPALA-4042](https://issues.apache.org/jira/browse/IMPALA-4042) | count(distinct NULL) fails on a view |  Major | Frontend | Matthew Jacobs | Yonghyun Hwang |
 | [IMPALA-4239](https://issues.apache.org/jira/browse/IMPALA-4239) | BufferPoolTest.PinWithoutReservation and BufferPoolTest.CapacityExhausted fail on release build |  Blocker | Backend | Harrison Sheinblatt | Tim Armstrong |
@@ -158,7 +158,7 @@
 | [IMPALA-4339](https://issues.apache.org/jira/browse/IMPALA-4339) | Coredumps don't end up in IMPALA\_HOME if buildall.sh run from a different directory |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4322](https://issues.apache.org/jira/browse/IMPALA-4322) | test\_scanners\_fuzz.py hits a DCHECK |  Blocker | Backend | Taras Bobrovytsky | Sailesh Mukil |
 | [IMPALA-4310](https://issues.apache.org/jira/browse/IMPALA-4310) | push\_to\_asf.py doesn't respect --apache\_remote |  Minor | Infrastructure | Henry Robinson | Henry Robinson |
-| [IMPALA-4350](https://issues.apache.org/jira/browse/IMPALA-4350) | Crash in PartitionedHashJoinNode::NodeDebugString() at log level 2 |  Major | Backend | Marcel Kornacker | Tim Armstrong |
+| [IMPALA-4350](https://issues.apache.org/jira/browse/IMPALA-4350) | Crash in PartitionedHashJoinNode::NodeDebugString() at log level 2 |  Major | Backend | Marcel Kinard | Tim Armstrong |
 | [IMPALA-4362](https://issues.apache.org/jira/browse/IMPALA-4362) | PFE ExecTime counter is always 0 |  Minor | Backend | Henry Robinson | Henry Robinson |
 | [IMPALA-1702](https://issues.apache.org/jira/browse/IMPALA-1702) | "invalidate metadata" can cause duplicate TableIds |  Critical | Catalog | Skye Wanderman-Milne | Huaisi Xu |
 | [IMPALA-4369](https://issues.apache.org/jira/browse/IMPALA-4369) | DCHECK in Parquet scanner with MT\_DOP \> 1 when reading file with bad metadata. |  Major | Backend | Alexander Behm | Alexander Behm |
@@ -180,7 +180,7 @@
 | [IMPALA-4411](https://issues.apache.org/jira/browse/IMPALA-4411) | Kudu inserts violate lock ordering and could deadlock |  Blocker | Distributed Exec | Tim Armstrong | Matthew Jacobs |
 | [IMPALA-4384](https://issues.apache.org/jira/browse/IMPALA-4384) | NPE in creating external Kudu table |  Major | Frontend | Mostafa Mokhtar | Matthew Jacobs |
 | [IMPALA-4412](https://issues.apache.org/jira/browse/IMPALA-4412) | Per operator timing in profile summary is incorrect when mt\_dop \> 0 |  Major | Backend | Mostafa Mokhtar | Sailesh Mukil |
-| [IMPALA-3974](https://issues.apache.org/jira/browse/IMPALA-3974) | IMPALA-2843 should consider using local\_library\_dir instead of java.io.tmpdir |  Major | Catalog | Huaisi Xu | bharath v |
+| [IMPALA-3974](https://issues.apache.org/jira/browse/IMPALA-3974) | IMPALA-2843 should consider using local\_library\_dir instead of java.io.tmpdir |  Major | Catalog | Huaisi Xu | Bharath Vissapragada |
 | [IMPALA-4423](https://issues.apache.org/jira/browse/IMPALA-4423) | Wrong results with several conjunctive EXISTS subqueries that can be evaluated at query-compile time. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-4153](https://issues.apache.org/jira/browse/IMPALA-4153) | count(\*) is not working properly on all blank('') columns in RCFile stored tables |  Major | Backend | Matyas Orhidi | Laszlo Gaal |
 | [IMPALA-4421](https://issues.apache.org/jira/browse/IMPALA-4421) | Rogue variable expansion creates "${RESULTS\_DIR" directory inside tests/, which confuses run\_tests.py |  Major | Infrastructure | David Knupp | David Knupp |
@@ -188,28 +188,28 @@
 | [IMPALA-4379](https://issues.apache.org/jira/browse/IMPALA-4379) | Fix Kudu table type checking |  Critical | Frontend | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-3662](https://issues.apache.org/jira/browse/IMPALA-3662) | Reduce parquet scanner memory usage |  Critical | Backend | Mostafa Mokhtar | Michael Ho |
 | [IMPALA-2967](https://issues.apache.org/jira/browse/IMPALA-2967) | "Last Accessed Time" in Impalad's debug page is inconsistent with "Start Time" |  Minor | Clients | Michael Ho | Henry Robinson |
-| [IMPALA-4332](https://issues.apache.org/jira/browse/IMPALA-4332) | DCHECK in scheduler when querying Kudu or HBase table with MT\_DOP \> 0. |  Blocker | Backend | Alexander Behm | Marcel Kornacker |
+| [IMPALA-4332](https://issues.apache.org/jira/browse/IMPALA-4332) | DCHECK in scheduler when querying Kudu or HBase table with MT\_DOP \> 0. |  Blocker | Backend | Alexander Behm | Marcel Kinard |
 | [IMPALA-4260](https://issues.apache.org/jira/browse/IMPALA-4260) | Alter table add column drops all the column stats |  Critical | Catalog | Mostafa Mokhtar | Thomas Tauber-Marshall |
 | [IMPALA-4441](https://issues.apache.org/jira/browse/IMPALA-4441) | Divide-by-zero in RuntimeProfile::SummaryStatsCounter::SetStats |  Blocker | Backend | Henry Robinson | Sailesh Mukil |
 | [IMPALA-4442](https://issues.apache.org/jira/browse/IMPALA-4442) | FE ParserTests may report UnsatisfiedLinkError |  Critical | Infrastructure | Matthew Jacobs | Matthew Jacobs |
-| [IMPALA-4266](https://issues.apache.org/jira/browse/IMPALA-4266) | Java udf expression returning string in group by can give incorrect results. |  Blocker | Backend | bharath v | Tim Armstrong |
+| [IMPALA-4266](https://issues.apache.org/jira/browse/IMPALA-4266) | Java udf expression returning string in group by can give incorrect results. |  Blocker | Backend | Bharath Vissapragada | Tim Armstrong |
 | [IMPALA-4302](https://issues.apache.org/jira/browse/IMPALA-4302) | In-predicate filters do not scale as expected with # of elements constant IN-list |  Major | Backend | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-4437](https://issues.apache.org/jira/browse/IMPALA-4437) | Occasional crash in buffered-block-mgr-test |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3872](https://issues.apache.org/jira/browse/IMPALA-3872) | Add support for caching PyPi packages |  Minor | Infrastructure | Tim Armstrong | Tim Armstrong |
-| [IMPALA-4368](https://issues.apache.org/jira/browse/IMPALA-4368) | SELECT NULL fails with MT\_DOP \> 0 |  Major | Backend | Alexander Behm | Marcel Kornacker |
+| [IMPALA-4368](https://issues.apache.org/jira/browse/IMPALA-4368) | SELECT NULL fails with MT\_DOP \> 0 |  Major | Backend | Alexander Behm | Marcel Kinard |
 | [IMPALA-4446](https://issues.apache.org/jira/browse/IMPALA-4446) | expr-test fails under ASAN |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4455](https://issues.apache.org/jira/browse/IMPALA-4455) | MemPoolTest.TryAllocateAligned failed |  Blocker | Backend | Henry Robinson | Jim Apple |
 | [IMPALA-4342](https://issues.apache.org/jira/browse/IMPALA-4342) | "Cannot drop non-empty database: udf\_test\_errors" when using local filesystem |  Minor | Infrastructure | Jim Apple | Michael Ho |
 | [IMPALA-4454](https://issues.apache.org/jira/browse/IMPALA-4454) | test\_kudu.TestShowCreateTable fails on S3 |  Blocker | Backend | Henry Robinson | Thomas Tauber-Marshall |
 | [IMPALA-3710](https://issues.apache.org/jira/browse/IMPALA-3710) | INSERT, UPDATE, DELETE should ignore conflicts by default |  Blocker | Frontend | Dimitris Tsirogiannis | Matthew Jacobs |
 | [IMPALA-4452](https://issues.apache.org/jira/browse/IMPALA-4452) | DCHECK in AggFnEvaluator::Init() |  Blocker | Backend | Henry Robinson | Michael Ho |
-| [IMPALA-3552](https://issues.apache.org/jira/browse/IMPALA-3552) | Make incremental stats max serialized size configurable or dramatically increase limit. |  Blocker | Catalog | Alexander Behm | bharath v |
+| [IMPALA-3552](https://issues.apache.org/jira/browse/IMPALA-3552) | Make incremental stats max serialized size configurable or dramatically increase limit. |  Blocker | Catalog | Alexander Behm | Bharath Vissapragada |
 | [IMPALA-4479](https://issues.apache.org/jira/browse/IMPALA-4479) | Evaluation of a constant boolean expr results in a NULL instead of FALSE. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-4372](https://issues.apache.org/jira/browse/IMPALA-4372) | 'Describe formatted' returns types in upper case |  Major | Frontend | Thomas Tauber-Marshall | Thomas Tauber-Marshall |
-| [IMPALA-4436](https://issues.apache.org/jira/browse/IMPALA-4436) | StringValue::StringCompare bug for non-ascii string |  Critical | Backend | Fu Lili | Dan Hecht |
+| [IMPALA-4436](https://issues.apache.org/jira/browse/IMPALA-4436) | StringValue::StringCompare bug for non-ascii string |  Critical | Backend | Fu Lili | Daniel Hecht |
 | [IMPALA-4108](https://issues.apache.org/jira/browse/IMPALA-4108) | Move cached set\_is\_null/is\_null/etc functions from SlotDescriptor to LlvmCodeGen |  Minor | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4470](https://issues.apache.org/jira/browse/IMPALA-4470) | Predicate hits NumberFormatException due to constant folding. |  Major | Frontend | Alexander Behm | Alexander Behm |
-| [IMPALA-4493](https://issues.apache.org/jira/browse/IMPALA-4493) | StringCompareTest fails under ASAN |  Blocker | Backend | Tim Armstrong | Dan Hecht |
+| [IMPALA-4493](https://issues.apache.org/jira/browse/IMPALA-4493) | StringCompareTest fails under ASAN |  Blocker | Backend | Tim Armstrong | Daniel Hecht |
 | [IMPALA-4444](https://issues.apache.org/jira/browse/IMPALA-4444) | Use-after-free in memory returned from parquet scanner. |  Blocker | Backend | Tim Armstrong | Michael Ho |
 | [IMPALA-4392](https://issues.apache.org/jira/browse/IMPALA-4392) | Add HdfsTableSink memory consumption to the query profile |  Major | Backend | Mostafa Mokhtar | Tim Armstrong |
 | [IMPALA-3713](https://issues.apache.org/jira/browse/IMPALA-3713) | CRUD operations against Kudu tables should report the number of modified rows |  Critical | Backend | Dimitris Tsirogiannis | Matthew Jacobs |
@@ -219,8 +219,8 @@
 | [IMPALA-3726](https://issues.apache.org/jira/browse/IMPALA-3726) | Handle nullability and column encodings and compression for columns |  Blocker | Frontend | Dimitris Tsirogiannis | Dimitris Tsirogiannis |
 | [IMPALA-4509](https://issues.apache.org/jira/browse/IMPALA-4509) | Impala should provide SASL a mutex |  Critical | Security | Matthew Jacobs | Henry Robinson |
 | [IMPALA-4497](https://issues.apache.org/jira/browse/IMPALA-4497) | Kudu client usage on secure clusters results in crash |  Blocker | Backend | Matthew Jacobs | Matthew Jacobs |
-| [IMPALA-4440](https://issues.apache.org/jira/browse/IMPALA-4440) | dcheck failure: lineage-util.h:91] Check failed: lineage.ended \>= lineage.started |  Blocker | Backend | Michael Brown | Dan Hecht |
-| [IMPALA-4514](https://issues.apache.org/jira/browse/IMPALA-4514) | test\_null\_data failures in exhaustive runs |  Blocker | Backend | bharath v | Dimitris Tsirogiannis |
+| [IMPALA-4440](https://issues.apache.org/jira/browse/IMPALA-4440) | dcheck failure: lineage-util.h:91] Check failed: lineage.ended \>= lineage.started |  Blocker | Backend | Michael Brown | Daniel Hecht |
+| [IMPALA-4514](https://issues.apache.org/jira/browse/IMPALA-4514) | test\_null\_data failures in exhaustive runs |  Blocker | Backend | Bharath Vissapragada | Dimitris Tsirogiannis |
 | [IMPALA-4502](https://issues.apache.org/jira/browse/IMPALA-4502) | test\_partition\_ddl\_predicates breaks on non-HDFS filesystems |  Blocker | Infrastructure | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-4432](https://issues.apache.org/jira/browse/IMPALA-4432) | Cannot execute IR UDF when single node execution is enabled |  Major | Backend | Tim Armstrong | Michael Ho |
 | [IMPALA-4397](https://issues.apache.org/jira/browse/IMPALA-4397) | Codegen for compute stats query on 1K column table takes 4 minutes |  Critical | Backend | Mostafa Mokhtar | Tim Armstrong |
@@ -243,7 +243,7 @@
 | [IMPALA-4458](https://issues.apache.org/jira/browse/IMPALA-4458) | DCHECK when running test\_cancellation.py with MT\_DOP \> 0 |  Blocker | Backend | Alexander Behm | Alexander Behm |
 | [IMPALA-4557](https://issues.apache.org/jira/browse/IMPALA-4557) | test\_alloc\_fail.py is flaky |  Blocker | Backend | Michael Ho | Michael Ho |
 | [IMPALA-4562](https://issues.apache.org/jira/browse/IMPALA-4562) | impala crashes starting up on kerberized clusters where kudu is not supported |  Blocker | Backend | Matthew Jacobs | Matthew Jacobs |
-| [IMPALA-4504](https://issues.apache.org/jira/browse/IMPALA-4504) | fragment-exec-state.cc:70] Check failed: status.ok() \|\| done |  Blocker | Backend | Michael Brown | Dan Hecht |
+| [IMPALA-4504](https://issues.apache.org/jira/browse/IMPALA-4504) | fragment-exec-state.cc:70] Check failed: status.ok() \|\| done |  Blocker | Backend | Michael Brown | Daniel Hecht |
 | [IMPALA-4527](https://issues.apache.org/jira/browse/IMPALA-4527) | Columns in Kudu tables created from Impala default to "NOT NULL" |  Critical | Frontend | Mostafa Mokhtar | Dimitris Tsirogiannis |
 | [IMPALA-4567](https://issues.apache.org/jira/browse/IMPALA-4567) | TestKuduOperations.test\_kudu\_alter\_table fails |  Blocker | Backend | Michael Ho | Matthew Jacobs |
 | [IMPALA-4564](https://issues.apache.org/jira/browse/IMPALA-4564) | TestMtDopParquet.test\_parquet should be skipped in legacy AGG/JOIN builds |  Blocker | Backend | Michael Ho | Tim Armstrong |
@@ -265,7 +265,7 @@
 | [IMPALA-2864](https://issues.apache.org/jira/browse/IMPALA-2864) | Ensure that client connections are closed after a failed RPC and a failed Open() |  Minor | Distributed Exec | Henry Robinson | Sailesh Mukil |
 | [IMPALA-4592](https://issues.apache.org/jira/browse/IMPALA-4592) | IllegalStateException when using nondeterministic functions in partition filter |  Critical | Frontend | Tim Armstrong | Alexander Behm |
 | [IMPALA-4613](https://issues.apache.org/jira/browse/IMPALA-4613) | Fragment total time regressed after IMPALA-4504 |  Blocker | Backend | Henry Robinson | Henry Robinson |
-| [IMPALA-3314](https://issues.apache.org/jira/browse/IMPALA-3314) | Altering table partition's storage format is not working and crashing the daemon |  Major | Frontend | Anuj Phadke | bharath v |
+| [IMPALA-3314](https://issues.apache.org/jira/browse/IMPALA-3314) | Altering table partition's storage format is not working and crashing the daemon |  Major | Frontend | Anuj Phadke | Bharath Vissapragada |
 | [IMPALA-4589](https://issues.apache.org/jira/browse/IMPALA-4589) | Kudu now requires replication factor must be odd; tests broken |  Blocker | Frontend | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-4590](https://issues.apache.org/jira/browse/IMPALA-4590) | Kudu test failure; several error messages changed |  Blocker | Infrastructure | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-4595](https://issues.apache.org/jira/browse/IMPALA-4595) | Linking IR UDF module to main module crashes Impala |  Blocker | Backend | Michael Ho | Michael Ho |
@@ -289,14 +289,14 @@
 | [IMPALA-3349](https://issues.apache.org/jira/browse/IMPALA-3349) | Kudu scanner : KuduScanBatch::RowPtr::Get\* has very expensive checks in the hot path |  Minor | Backend | Mostafa Mokhtar | Matthew Jacobs |
 | [IMPALA-4570](https://issues.apache.org/jira/browse/IMPALA-4570) | Impala shell tarball is not usable on systems with setuptools versions where '0.7' is a substring of the full version string |  Critical | Clients | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4630](https://issues.apache.org/jira/browse/IMPALA-4630) | Remove suspicious (but harmless) base64-encoded javascript in common-footer.tmpl |  Major | Distributed Exec | Tim Armstrong | Tim Armstrong |
-| [IMPALA-4739](https://issues.apache.org/jira/browse/IMPALA-4739) | ExprRewriter fails on HAVING clauses |  Critical | Frontend | Henry Robinson | Marcel Kornacker |
+| [IMPALA-4739](https://issues.apache.org/jira/browse/IMPALA-4739) | ExprRewriter fails on HAVING clauses |  Critical | Frontend | Henry Robinson | Marcel Kinard |
 | [IMPALA-4579](https://issues.apache.org/jira/browse/IMPALA-4579) | SHOW CREATE VIEW fails for view containing WHERE clause on an unsecure cluster |  Major | Frontend | Mala Chikka Kempanna | Dimitris Tsirogiannis |
-| [IMPALA-4172](https://issues.apache.org/jira/browse/IMPALA-4172) | Switch from using getFileBlockLocations to BlockLocation methods (Potential 50% speedup in metadata loading) |  Critical | Catalog | Mostafa Mokhtar | bharath v |
+| [IMPALA-4172](https://issues.apache.org/jira/browse/IMPALA-4172) | Switch from using getFileBlockLocations to BlockLocation methods (Potential 50% speedup in metadata loading) |  Critical | Catalog | Mostafa Mokhtar | Bharath Vissapragada |
 | [IMPALA-4517](https://issues.apache.org/jira/browse/IMPALA-4517) | Stress test crash: impala::LlvmCodeGen::FinalizeModule |  Blocker | Backend | Taras Bobrovytsky | Michael Ho |
 | [IMPALA-4929](https://issues.apache.org/jira/browse/IMPALA-4929) | Unsafe concurrent access to LlvmCodeGen::fn\_refs\_map\_ can lead to unresolved symbols in LLVM |  Blocker | Backend | fishing | Michael Ho |
 | [IMPALA-4778](https://issues.apache.org/jira/browse/IMPALA-4778) | Document web page non-responsivness while planning |  Major | Docs | Jim Apple | John Russell |
 | [IMPALA-4390](https://issues.apache.org/jira/browse/IMPALA-4390) | Syntax for ALTER TABLE ADD PARTITION is not complete |  Major | Docs | Dimitris Tsirogiannis | John Russell |
-| [IMPALA-5325](https://issues.apache.org/jira/browse/IMPALA-5325) | Inconsistent updates to HdfsTable#totalHdfsBytes\_ and HdfsTable#numHdfsFiles\_ on Catalog server |  Major | Catalog | bharath v | bharath v |
+| [IMPALA-5325](https://issues.apache.org/jira/browse/IMPALA-5325) | Inconsistent updates to HdfsTable#totalHdfsBytes\_ and HdfsTable#numHdfsFiles\_ on Catalog server |  Major | Catalog | Bharath Vissapragada | Bharath Vissapragada |
 | [IMPALA-4587](https://issues.apache.org/jira/browse/IMPALA-4587) | RowsProduced showing always 0 for Coordinator in profile |  Major | Backend | Andre Araujo |  |
 | [IMPALA-2634](https://issues.apache.org/jira/browse/IMPALA-2634) | show create table does not include partitioning info for kudu tables |  Major | Frontend | Mike Percy |  |
 | [IMPALA-5334](https://issues.apache.org/jira/browse/IMPALA-5334) | Kudu docs should note DML stmts currently ignore errors |  Major | Docs | Matthew Jacobs | John Russell |
@@ -331,7 +331,7 @@
 | [IMPALA-4572](https://issues.apache.org/jira/browse/IMPALA-4572) | COMPUTE STATS on Parquet tables uses MT\_DOP=4 by default |  Critical | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-3583](https://issues.apache.org/jira/browse/IMPALA-3583) | Optimize HdfsTable::perPartitionFileDescMap\_ to reduce memory usage |  Minor | Catalog | Juan Yu |  |
 | [IMPALA-3229](https://issues.apache.org/jira/browse/IMPALA-3229) | Allow all contributors (or at least committers?) to run GVM |  Minor | Infrastructure | Henry Robinson | Taras Bobrovytsky |
-| [IMPALA-3653](https://issues.apache.org/jira/browse/IMPALA-3653) | Consider using listLocatedStatus() API to get filestatus and blocklocations in one RPC call |  Minor | Catalog | Juan Yu | bharath v |
+| [IMPALA-3653](https://issues.apache.org/jira/browse/IMPALA-3653) | Consider using listLocatedStatus() API to get filestatus and blocklocations in one RPC call |  Minor | Catalog | Juan Yu | Bharath Vissapragada |
 | [IMPALA-4931](https://issues.apache.org/jira/browse/IMPALA-4931) | Update squeasel to include patch to disable SSL init |  Major | Infrastructure | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-4933](https://issues.apache.org/jira/browse/IMPALA-4933) | Force thrift to initialize SSL on process startup |  Critical | Security | Matthew Jacobs | Matthew Jacobs |
 | [IMPALA-4934](https://issues.apache.org/jira/browse/IMPALA-4934) | Disable Kudu and Squeasel OpenSSL initialization |  Critical | Security | Matthew Jacobs | Matthew Jacobs |

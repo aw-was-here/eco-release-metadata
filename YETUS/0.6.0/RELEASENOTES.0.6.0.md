@@ -68,7 +68,7 @@ See the cli help via `test-patch --plugin=junit --help` for more information, de
 
 Personalities for Apache Yetus Test Patch can now accept cli options by defining a `personality_parse_args` function.
 
-The exemplar personality for Apache Hadoop now has options to define an installation prefix for the isal, openssl, and snappy libaries used in its building of native artifacts.
+The exemplar personality for Apache Hadoop now has options to define an installation prefix for the isal, openssl, and snappy libraries used in its building of native artifacts.
 
 
 

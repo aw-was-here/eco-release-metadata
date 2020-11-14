@@ -49,11 +49,12 @@
 | [IMPALA-6629](https://issues.apache.org/jira/browse/IMPALA-6629) | Clearer and more concise logging during catalog topic updates |  Critical | Catalog | Alexander Behm | Tianyi Wang |
 | [IMPALA-6675](https://issues.apache.org/jira/browse/IMPALA-6675) | Change default configuration to --compact\_catalog\_topic=true |  Major | Backend | Alexander Behm | Alexander Behm |
 | [IMPALA-2782](https://issues.apache.org/jira/browse/IMPALA-2782) | Allow Impala Shell to connect directly to impalad when config with proxy load balancer and kerberos |  Minor | Clients | Alan Choi | Vincent Tran |
+| [IMPALA-6324](https://issues.apache.org/jira/browse/IMPALA-6324) | Support reading RLE-encoded boolean values in Parquet scanner |  Major | Backend | Tim Armstrong | Csaba Ringhofer |
 | [IMPALA-6682](https://issues.apache.org/jira/browse/IMPALA-6682) | Support hash function other than md5 in pypi download script |  Major | Infrastructure | Tianyi Wang | Tianyi Wang |
 | [IMPALA-6641](https://issues.apache.org/jira/browse/IMPALA-6641) | Support more separators between date and time in default timestamp format |  Major | Backend | Tim Armstrong | Vincent Tran |
 | [IMPALA-4277](https://issues.apache.org/jira/browse/IMPALA-4277) | Impala should build against latest Hadoop components |  Major | Infrastructure | Tim Armstrong | Thomas Tauber-Marshall |
 | [IMPALA-5721](https://issues.apache.org/jira/browse/IMPALA-5721) | stress test: save profiles during binary search |  Major | Infrastructure | Michael Brown | Michael Brown |
-| [IMPALA-6779](https://issues.apache.org/jira/browse/IMPALA-6779) | Impala Doc: Improve REPLICA\_PREFERENCE doc |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6779](https://issues.apache.org/jira/browse/IMPALA-6779) | Impala Doc: Improve REPLICA\_PREFERENCE doc |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6479](https://issues.apache.org/jira/browse/IMPALA-6479) | Update DESCRIBE statement to respect column level privileges |  Major | Frontend | Adam Holley | Adam Holley |
 | [IMPALA-6791](https://issues.apache.org/jira/browse/IMPALA-6791) | Create scripts to automate distcc server setup and toolchain updates |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
 | [IMPALA-6820](https://issues.apache.org/jira/browse/IMPALA-6820) | Remove builtins db from catalogd |  Minor | Catalog | Tianyi Wang | Tianyi Wang |
@@ -78,8 +79,8 @@
 | [IMPALA-6429](https://issues.apache.org/jira/browse/IMPALA-6429) | Decimal division returns an incorrect result |  Blocker | Backend | Taras Bobrovytsky | Taras Bobrovytsky |
 | [IMPALA-6472](https://issues.apache.org/jira/browse/IMPALA-6472) | Builds broken because test\_exprs uses a reserved word |  Blocker | Infrastructure | Tim Armstrong | Tianyi Wang |
 | [IMPALA-5293](https://issues.apache.org/jira/browse/IMPALA-5293) | Turn insert clustering on by default |  Major | Frontend | Lars Volker | Lars Volker |
-| [IMPALA-4924](https://issues.apache.org/jira/browse/IMPALA-4924) | Remove DECIMAL V1 code at next compatibility breaking version |  Major | Frontend | Dan Hecht | Taras Bobrovytsky |
-| [IMPALA-6471](https://issues.apache.org/jira/browse/IMPALA-6471) | Incorrect Impala ALTER TABLE statement documentation |  Minor | Docs | Jeremy Beard | Alex Rodoni |
+| [IMPALA-4924](https://issues.apache.org/jira/browse/IMPALA-4924) | Make DECIMAL\_V2 the default mode |  Major | Frontend | Daniel Hecht | Taras Bobrovytsky |
+| [IMPALA-6471](https://issues.apache.org/jira/browse/IMPALA-6471) | Incorrect Impala ALTER TABLE statement documentation |  Minor | Docs | Jacob Evan Beard | Alexandra Rodoni |
 | [IMPALA-6473](https://issues.apache.org/jira/browse/IMPALA-6473) | Error in analytic sort with same expr in 'partition by' and 'order by' |  Critical | Frontend | Thomas Tauber-Marshall | Thomas Tauber-Marshall |
 | [IMPALA-6495](https://issues.apache.org/jira/browse/IMPALA-6495) | targeted-perf tests broken by column alias change |  Major | Infrastructure | Tim Armstrong | Tim Armstrong |
 | [IMPALA-6454](https://issues.apache.org/jira/browse/IMPALA-6454) | CTAS into Kudu fails with mixed-case partition and/pr primary key column names |  Critical | Frontend | Alexander Behm | Pranay Singh |
@@ -139,13 +140,13 @@
 | [IMPALA-6215](https://issues.apache.org/jira/browse/IMPALA-6215) | Race between lib\_cache and java udf class loading |  Major | Backend, Frontend | Vuk Ercegovac | Vuk Ercegovac |
 | [IMPALA-6092](https://issues.apache.org/jira/browse/IMPALA-6092) | Flaky test: query\_test/test\_udfs.py still happening |  Blocker | Infrastructure | Tim Armstrong | Vuk Ercegovac |
 | [IMPALA-6451](https://issues.apache.org/jira/browse/IMPALA-6451) | Creating a Kudu table with CTAS fails with AuthorizationException: User 'username' does not have privileges to access: server1 |  Critical | Frontend, Security | Tomas Farkas | Fredy Wijaya |
-| [IMPALA-6774](https://issues.apache.org/jira/browse/IMPALA-6774) | SyntaxError: invalid syntax diagnostics/collect\_diagnostics.py |  Blocker | Infrastructure | Michael Ho | bharath v |
+| [IMPALA-6774](https://issues.apache.org/jira/browse/IMPALA-6774) | SyntaxError: invalid syntax diagnostics/collect\_diagnostics.py |  Blocker | Infrastructure | Michael Ho | Bharath Vissapragada |
 | [IMPALA-6372](https://issues.apache.org/jira/browse/IMPALA-6372) | Dataload should execute Hive loads in parallel |  Major | Infrastructure | Joe McDonnell | Joe McDonnell |
 | [IMPALA-6862](https://issues.apache.org/jira/browse/IMPALA-6862) | Privilege.java needs to support Sentry 1.5.1 and Sentry 2.0.0 API |  Major | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6793](https://issues.apache.org/jira/browse/IMPALA-6793) | Metadata doesn't recover after restarting statestore |  Blocker | Catalog | Tianyi Wang | Tianyi Wang |
 | [IMPALA-6887](https://issues.apache.org/jira/browse/IMPALA-6887) | Typo in authz-policy.ini.template |  Minor | Infrastructure | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6790](https://issues.apache.org/jira/browse/IMPALA-6790) | sqlparse needs to be upgraded in the Python environment |  Major | Infrastructure | Joe McDonnell | Joe McDonnell |
-| [IMPALA-5930](https://issues.apache.org/jira/browse/IMPALA-5930) | Document that SCAN\_NODE\_CODEGEN\_THRESHOLD has had no effect since 2.7 |  Minor | Docs | Tim Armstrong | Alex Rodoni |
+| [IMPALA-5930](https://issues.apache.org/jira/browse/IMPALA-5930) | Document that SCAN\_NODE\_CODEGEN\_THRESHOLD has had no effect since 2.7 |  Minor | Docs | Tim Armstrong | Alexandra Rodoni |
 | [IMPALA-6896](https://issues.apache.org/jira/browse/IMPALA-6896) | NullPointerException in DESCRIBE FORMATTED on views |  Blocker | Frontend | Fredy Wijaya | Fredy Wijaya |
 | [IMPALA-6884](https://issues.apache.org/jira/browse/IMPALA-6884) | test\_misaligned\_orc\_stripes fails for local fs tests |  Blocker | Backend | Vuk Ercegovac | Joe McDonnell |
 | [IMPALA-6898](https://issues.apache.org/jira/browse/IMPALA-6898) | Dataload from scratch loads Kudu tables twice |  Major | Infrastructure | Joe McDonnell | Joe McDonnell |
@@ -155,10 +156,15 @@
 | [IMPALA-6340](https://issues.apache.org/jira/browse/IMPALA-6340) | There is no error when inserting an invalid value into a decimal column under decimal\_v2 |  Blocker | Backend | Taras Bobrovytsky | Taras Bobrovytsky |
 | [IMPALA-6518](https://issues.apache.org/jira/browse/IMPALA-6518) | Fix the output type of a decimal union for decimal\_v2 |  Major | Frontend | Taras Bobrovytsky | Taras Bobrovytsky |
 | [IMPALA-6934](https://issues.apache.org/jira/browse/IMPALA-6934) | Wrong results with EXISTS subquery containing ORDER BY, LIMIT, and OFFSET |  Blocker | Frontend | Alexander Behm | Zoltán Borók-Nagy |
-| [IMPALA-7005](https://issues.apache.org/jira/browse/IMPALA-7005) | The 3.0 changelog page should mention the previous version |  Major | Docs | Lars Volker | Alex Rodoni |
+| [IMPALA-7005](https://issues.apache.org/jira/browse/IMPALA-7005) | The 3.0 changelog page should mention the previous version |  Major | Docs | Lars Volker | Alexandra Rodoni |
 | [IMPALA-5747](https://issues.apache.org/jira/browse/IMPALA-5747) | Crash with --asm\_module\_dir set |  Minor | Backend | Tim Armstrong | Manaswini |
 | [IMPALA-7044](https://issues.apache.org/jira/browse/IMPALA-7044) | int32 overflow in HdfsTableSink::CreateNewTmpFile() |  Critical | Backend | Lars Volker | Lars Volker |
 | [IMPALA-484](https://issues.apache.org/jira/browse/IMPALA-484) | Some functions always return same data type while, according to MSDN, they should return same data type as input data |  Minor | Backend | James Deng | Taras Bobrovytsky |
+| [IMPALA-6062](https://issues.apache.org/jira/browse/IMPALA-6062) | Frontend tests need to handle hadoop 3 error messages |  Critical | Frontend | Joe McDonnell |  |
+| [IMPALA-3170](https://issues.apache.org/jira/browse/IMPALA-3170) | Large literal exponents cause many seconds of delay |  Minor | Frontend | Jim Apple |  |
+| [IMPALA-6397](https://issues.apache.org/jira/browse/IMPALA-6397) | IllegalStateException in planning of aggregation with float and decimal literal child expressions |  Major | Frontend | Alexander Behm |  |
+| [IMPALA-5933](https://issues.apache.org/jira/browse/IMPALA-5933) | Compute incremental stats should always return a result set |  Major | Backend, Frontend | Alexander Behm | Zoltán Borók-Nagy |
+| [IMPALA-6160](https://issues.apache.org/jira/browse/IMPALA-6160) | tpcds-q22a.test breaks run-workload.py |  Major | Infrastructure | Jim Apple |  |
 
 
 ### SUB-TASKS:
@@ -179,34 +185,34 @@
 | [IMPALA-6512](https://issues.apache.org/jira/browse/IMPALA-6512) | test\_exchange\_delays does not work with KRPC enabled |  Major | Infrastructure | Lars Volker | Michael Ho |
 | [IMPALA-6554](https://issues.apache.org/jira/browse/IMPALA-6554) | Check failed: consumption\_-\>current\_value() == 0 (126 vs. 0) KrpcDataStreamRecvr |  Blocker | Distributed Exec | Michael Ho | Michael Ho |
 | [IMPALA-6565](https://issues.apache.org/jira/browse/IMPALA-6565) | Stress test with KRPC enabled shows inconsistent results for some queries |  Blocker | Distributed Exec | Michael Ho | Michael Ho |
-| [IMPALA-6470](https://issues.apache.org/jira/browse/IMPALA-6470) | Impala 3 Doc: Remove all user-facing Llama configuration options |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6470](https://issues.apache.org/jira/browse/IMPALA-6470) | Impala 3 Doc: Remove all user-facing Llama configuration options |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6542](https://issues.apache.org/jira/browse/IMPALA-6542) | Fix inconsistent write path of Parquet min/max statistics |  Major | . | Zoltán Borók-Nagy | Zoltán Borók-Nagy |
 | [IMPALA-6592](https://issues.apache.org/jira/browse/IMPALA-6592) | Fix test gap - no test of handling for invalid/unsupported Parquet codec |  Major | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-6609](https://issues.apache.org/jira/browse/IMPALA-6609) | Some COUNTER\_ADD() in KrpcDataStreamRecvr may lead to use-after-free |  Blocker | Distributed Exec | Michael Ho | Michael Ho |
 | [IMPALA-6576](https://issues.apache.org/jira/browse/IMPALA-6576) | Add metric for Data Stream Service Queue memory consumption |  Major | Backend | Lars Volker | Lars Volker |
 | [IMPALA-6624](https://issues.apache.org/jira/browse/IMPALA-6624) | Network error: failed to write to TLS socket: error:1409F07F:SSL routines:SSL3\_WRITE\_PENDING:bad write retry:s3\_pkt.c |  Blocker | Distributed Exec | Michael Ho | Michael Ho |
 | [IMPALA-6669](https://issues.apache.org/jira/browse/IMPALA-6669) | Remove NeedsSeedingForBatchedReading() |  Major | Backend | Tim Armstrong | Tim Armstrong |
-| [IMPALA-6462](https://issues.apache.org/jira/browse/IMPALA-6462) | Impala 3 Doc: Update for reserved keywords |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6510](https://issues.apache.org/jira/browse/IMPALA-6510) | Impala 2.12 Doc: Remove the refresh\_after\_connect option from INVALIDATE METADATA statemement |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6462](https://issues.apache.org/jira/browse/IMPALA-6462) | Impala 3 Doc: Update for reserved keywords |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6510](https://issues.apache.org/jira/browse/IMPALA-6510) | Impala 2.12 Doc: Remove the refresh\_after\_connect option from INVALIDATE METADATA statemement |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6728](https://issues.apache.org/jira/browse/IMPALA-6728) | The combination use\_kudu\_kinit=false and use\_krpc=true crashes Impalad |  Blocker | Security | Michael Ho | Michael Ho |
 | [IMPALA-6685](https://issues.apache.org/jira/browse/IMPALA-6685) | Improve profile in KrpcDataStreamRecvr and KrpcDataStreamSender |  Major | Distributed Exec | Michael Ho | Michael Ho |
-| [IMPALA-6546](https://issues.apache.org/jira/browse/IMPALA-6546) | Impala 2.12 & 3.0 Docs: Document the new ODBC scalar functions |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6688](https://issues.apache.org/jira/browse/IMPALA-6688) | Impala 2.12 & 3.0 Docs: Change default configuration to --compact\_catalog\_topic=true |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6480](https://issues.apache.org/jira/browse/IMPALA-6480) | Impala 3.0 Doc: Update DESCRIBE statement to respect column level privileges |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6546](https://issues.apache.org/jira/browse/IMPALA-6546) | Impala 2.12 & 3.0 Docs: Document the new ODBC scalar functions |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6688](https://issues.apache.org/jira/browse/IMPALA-6688) | Impala 2.12 & 3.0 Docs: Change default configuration to --compact\_catalog\_topic=true |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6480](https://issues.apache.org/jira/browse/IMPALA-6480) | Impala 3.0 Doc: Update DESCRIBE statement to respect column level privileges |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6842](https://issues.apache.org/jira/browse/IMPALA-6842) | Impala 3 Doc: Remove  'disable\_admission\_control' as a startup flag |  Major | . | Bikramjeet Vig | Bikramjeet Vig |
-| [IMPALA-6483](https://issues.apache.org/jira/browse/IMPALA-6483) | Impala 3.0 & 2.12 Docs: Describe the query option for query time limit |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6514](https://issues.apache.org/jira/browse/IMPALA-6514) | Impala 2.12 & 3.0 Docs: Allow Impala Shell to connect directly to impalad when config with proxy load balancer and kerberos |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6723](https://issues.apache.org/jira/browse/IMPALA-6723) | Impala 2.12 & 3.0 Docs: Support insert plan hints for CREATE TABLE AS SELECT |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6464](https://issues.apache.org/jira/browse/IMPALA-6464) | Impala 2.12 & 3.0 Docs: Extend "compute stats" syntax to support a list of columnss |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6463](https://issues.apache.org/jira/browse/IMPALA-6463) | Impala 3 Doc: Remove the unused query options from docs |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6748](https://issues.apache.org/jira/browse/IMPALA-6748) | Impala 2.12 & 3.0 Docs: Support more separators between date and time in default timestamp format |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6483](https://issues.apache.org/jira/browse/IMPALA-6483) | Impala 3.0 & 2.12 Docs: Describe the query option for query time limit |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6514](https://issues.apache.org/jira/browse/IMPALA-6514) | Impala 2.12 & 3.0 Docs: Allow Impala Shell to connect directly to impalad when config with proxy load balancer and kerberos |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6723](https://issues.apache.org/jira/browse/IMPALA-6723) | Impala 2.12 & 3.0 Docs: Support insert plan hints for CREATE TABLE AS SELECT |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6464](https://issues.apache.org/jira/browse/IMPALA-6464) | Impala 2.12 & 3.0 Docs: Extend "compute stats" syntax to support a list of columnss |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6463](https://issues.apache.org/jira/browse/IMPALA-6463) | Impala 3 Doc: Remove the unused query options from docs |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6748](https://issues.apache.org/jira/browse/IMPALA-6748) | Impala 2.12 & 3.0 Docs: Support more separators between date and time in default timestamp format |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6459](https://issues.apache.org/jira/browse/IMPALA-6459) | Doc: TABLESAMPLE for COMPUTE STATS |  Critical | Docs | John Russell | Alexander Behm |
-| [IMPALA-6867](https://issues.apache.org/jira/browse/IMPALA-6867) | Impala 2.12 & 3.0 Docs: Provide a query option to not shuffle on distinct exprs |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6651](https://issues.apache.org/jira/browse/IMPALA-6651) | Impala 2.13 & 3.0 Docs: Fine-grained privileges |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6868](https://issues.apache.org/jira/browse/IMPALA-6868) | Impala 3.0 Doc: Remove old kinit code for Impala 3 |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6529](https://issues.apache.org/jira/browse/IMPALA-6529) | Impala 3 Doc: ROUND function output type change |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6867](https://issues.apache.org/jira/browse/IMPALA-6867) | Impala 2.12 & 3.0 Docs: Provide a query option to not shuffle on distinct exprs |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6651](https://issues.apache.org/jira/browse/IMPALA-6651) | Impala 2.13 & 3.0 Docs: Fine-grained privileges |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6868](https://issues.apache.org/jira/browse/IMPALA-6868) | Impala 3.0 Doc: Remove old kinit code for Impala 3 |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6529](https://issues.apache.org/jira/browse/IMPALA-6529) | Impala 3 Doc: ROUND function output type change |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-6314](https://issues.apache.org/jira/browse/IMPALA-6314) | Add run time scalar subquery check for uncorrelated subqueries |  Major | Backend, Frontend | Tim Armstrong | Zoltán Borók-Nagy |
-| [IMPALA-6961](https://issues.apache.org/jira/browse/IMPALA-6961) | Impala Doc: Doc --enable\_minidumps flag |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6961](https://issues.apache.org/jira/browse/IMPALA-6961) | Impala Doc: Doc --enable\_minidumps flag |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 
 
 ### OTHER:
@@ -214,17 +220,17 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [IMPALA-6415](https://issues.apache.org/jira/browse/IMPALA-6415) | Impala 3 Doc: Document breaking change of alias and ordinal substitution |  Blocker | Docs | Zoltán Borók-Nagy | Zoltán Borók-Nagy |
-| [IMPALA-6176](https://issues.apache.org/jira/browse/IMPALA-6176) | Document that SCAN\_NODE\_CODEGEN\_THRESHOLD has no effect |  Major | Docs | Tim Armstrong | Alex Rodoni |
+| [IMPALA-6176](https://issues.apache.org/jira/browse/IMPALA-6176) | Document that SCAN\_NODE\_CODEGEN\_THRESHOLD has no effect |  Major | Docs | Tim Armstrong | Alexandra Rodoni |
 | [IMPALA-6648](https://issues.apache.org/jira/browse/IMPALA-6648) | Add fine-grained privileges to role for Impala |  Major | Frontend | Fredy Wijaya |  |
 | [IMPALA-3916](https://issues.apache.org/jira/browse/IMPALA-3916) | Reserve SQL:2016 keywords |  Minor | Frontend | Justin Erickson | Tianyi Wang |
 | [IMPALA-3271](https://issues.apache.org/jira/browse/IMPALA-3271) | Remove deprecated command-line options (including Llama) |  Minor | Backend | Matthew Jacobs | Tim Armstrong |
 | [IMPALA-6736](https://issues.apache.org/jira/browse/IMPALA-6736) | stress test --filter-query-mem-ratio doesn't work |  Major | Infrastructure | Michael Brown | Michael Brown |
-| [IMPALA-6780](https://issues.apache.org/jira/browse/IMPALA-6780) | test\_recover\_paritions.py have always-true asserts |  Major | . | Philip Zeyliger | Alexander Behm |
-| [IMPALA-6886](https://issues.apache.org/jira/browse/IMPALA-6886) | Impala Doc: Remove Impala Cluster Sizing doc |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6860](https://issues.apache.org/jira/browse/IMPALA-6860) | Impala 3.0 Doc: Upgrade Considerations |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6780](https://issues.apache.org/jira/browse/IMPALA-6780) | test\_recover\_paritions.py have always-true asserts |  Major | . | Philip Martin | Alexander Behm |
+| [IMPALA-6886](https://issues.apache.org/jira/browse/IMPALA-6886) | Impala Doc: Remove Impala Cluster Sizing doc |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6860](https://issues.apache.org/jira/browse/IMPALA-6860) | Impala 3.0 Doc: Upgrade Considerations |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 | [IMPALA-5893](https://issues.apache.org/jira/browse/IMPALA-5893) | Remove old kinit code for Impala 3 |  Major | . | Sailesh Mukil | Sailesh Mukil |
-| [IMPALA-6733](https://issues.apache.org/jira/browse/IMPALA-6733) | Impala 3.0 Doc: Release Nots |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6872](https://issues.apache.org/jira/browse/IMPALA-6872) | Impala 3.0 Doc: Update Known Issues |  Major | Docs | Alex Rodoni | Alex Rodoni |
-| [IMPALA-6959](https://issues.apache.org/jira/browse/IMPALA-6959) | Update HAProxy configuration sample for Impala |  Major | Docs | Alex Rodoni | Alex Rodoni |
+| [IMPALA-6733](https://issues.apache.org/jira/browse/IMPALA-6733) | Impala 3.0 Doc: Release Nots |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6872](https://issues.apache.org/jira/browse/IMPALA-6872) | Impala 3.0 Doc: Update Known Issues |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
+| [IMPALA-6959](https://issues.apache.org/jira/browse/IMPALA-6959) | Update HAProxy configuration sample for Impala |  Major | Docs | Alexandra Rodoni | Alexandra Rodoni |
 
 

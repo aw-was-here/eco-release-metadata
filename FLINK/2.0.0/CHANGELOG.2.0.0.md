@@ -18,7 +18,7 @@
 -->
 # Apache Flink Changelog
 
-## Release 2.0.0 - Unreleased (as of 2018-07-13)
+## Release 2.0.0 - Unreleased (as of 2020-11-14)
 
 
 
@@ -26,6 +26,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [FLINK-7369](https://issues.apache.org/jira/browse/FLINK-7369) | Add more information for \`Key group index out of range of key group range\` exception |  Major | Local Runtime | Benedict Jin | Benedict Jin |
+| [FLINK-16895](https://issues.apache.org/jira/browse/FLINK-16895) | Remove outdated and defunct build\_docs.bat |  Minor | Documentation, Stateful Functions | Stephan Ewen | Stephan Ewen |
 
 

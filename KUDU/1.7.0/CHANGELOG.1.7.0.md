@@ -45,9 +45,11 @@
 | [KUDU-2291](https://issues.apache.org/jira/browse/KUDU-2291) | Implement a /stacks web page |  Major | supportability | Todd Lipcon | Todd Lipcon |
 | [KUDU-2264](https://issues.apache.org/jira/browse/KUDU-2264) | Java client should re-login from ticket cache when ticket is expiring |  Critical | client, java, security | Todd Lipcon | Todd Lipcon |
 | [KUDU-2129](https://issues.apache.org/jira/browse/KUDU-2129) | Improve ksck 'under-replicated' message |  Major | . | Hao Hao | Andrew Wong |
-| [KUDU-2331](https://issues.apache.org/jira/browse/KUDU-2331) | Use tablet\_id filter for 'move\_replica' while running ksck-based pre-flight consistency check |  Major | ksck, supportability | Alexey Serbin | Will Berkeley |
+| [KUDU-2331](https://issues.apache.org/jira/browse/KUDU-2331) | Use tablet\_id filter for 'move\_replica' while running ksck-based pre-flight consistency check |  Major | ksck, supportability | Alexey Serbin | William Berkeley |
 | [KUDU-2297](https://issues.apache.org/jira/browse/KUDU-2297) | Expand metrics logging into a general purpose diagnostics log |  Major | ops-tooling, supportability | Todd Lipcon | Todd Lipcon |
 | [KUDU-1737](https://issues.apache.org/jira/browse/KUDU-1737) | Allow KuduContext to create table with column encodings |  Minor | api | Jeffrey Shmain | Saketa Chalamchala |
+| [KUDU-2061](https://issues.apache.org/jira/browse/KUDU-2061) | Java Client Not Honoring setIgnoreAllDuplicateRows When Inserting Duplicate Values |  Major | client | Scott Black | William Berkeley |
+| [KUDU-2268](https://issues.apache.org/jira/browse/KUDU-2268) | Sync client exceptions don't show appropriate call stack |  Major | client, java | Todd Lipcon | Todd Lipcon |
 
 
 ### BUG FIXES:
@@ -58,7 +60,7 @@
 | [KUDU-2231](https://issues.apache.org/jira/browse/KUDU-2231) | "materializing\_iterator\_do\_pushdown=true" cause simple query slow |  Major | master, tserver | DawnZhang | Dan Burkert |
 | [KUDU-2237](https://issues.apache.org/jira/browse/KUDU-2237) | Allows idle server connection detection to be disabled |  Minor | rpc | Michael Ho | Michael Ho |
 | [KUDU-2229](https://issues.apache.org/jira/browse/KUDU-2229) | log spam: Not starting pre-election -- already a leader |  Major | consensus | Mike Percy | Mike Percy |
-| [KUDU-2115](https://issues.apache.org/jira/browse/KUDU-2115) | Fix rowset compaction selection race |  Major | tablet | Will Berkeley | Andrew Wong |
+| [KUDU-2115](https://issues.apache.org/jira/browse/KUDU-2115) | Fix rowset compaction selection race |  Major | tablet | William Berkeley | Andrew Wong |
 | [KUDU-2251](https://issues.apache.org/jira/browse/KUDU-2251) | rowset size can overflow int in RowSetInfo |  Critical | tablet | Dan Burkert | Dan Burkert |
 | [KUDU-2208](https://issues.apache.org/jira/browse/KUDU-2208) | Subprocess::Wait should handle EINTR |  Trivial | test, util | Todd Lipcon | Jeffrey F. Lukman |
 | [KUDU-2148](https://issues.apache.org/jira/browse/KUDU-2148) | 'kudu [master\|tserver] status' may crash starting Kudu server |  Critical | tserver | Alexey Serbin | Adar Dembo |
@@ -72,7 +74,7 @@
 | [KUDU-1613](https://issues.apache.org/jira/browse/KUDU-1613) | Under certain circumstances, tablet leader does not evict failed replica |  Major | consensus, tablet | Adar Dembo | Andrew Wong |
 | [KUDU-2274](https://issues.apache.org/jira/browse/KUDU-2274) | Race when tombstoned replica gets copied and becomes leader |  Major | consensus | Mike Percy | Mike Percy |
 | [KUDU-2296](https://issues.apache.org/jira/browse/KUDU-2296) | Kudu RPC cannot deserialize messages larger than 64MB |  Major | rpc | Joe McDonnell | Joe McDonnell |
-| [KUDU-2275](https://issues.apache.org/jira/browse/KUDU-2275) | SIGSEGV due to bug in libunwind |  Major | . | Will Berkeley | Todd Lipcon |
+| [KUDU-2275](https://issues.apache.org/jira/browse/KUDU-2275) | SIGSEGV due to bug in libunwind |  Major | . | William Berkeley | Todd Lipcon |
 | [KUDU-2325](https://issues.apache.org/jira/browse/KUDU-2325) | tserver crashes in kudu::StackTraceCollector::RevokeSigData |  Blocker | tserver, util | Alexey Serbin | Todd Lipcon |
 | [KUDU-2328](https://issues.apache.org/jira/browse/KUDU-2328) | Crash at startup with OpenSSL FIPS mode |  Blocker | util | Todd Lipcon | Todd Lipcon |
 | [KUDU-2319](https://issues.apache.org/jira/browse/KUDU-2319) | Follower masters cannot accept authn tokens for verification |  Major | master, security | Alexey Serbin | Alexey Serbin |
@@ -82,15 +84,15 @@
 | [KUDU-2334](https://issues.apache.org/jira/browse/KUDU-2334) | OutboundTransfer::TransferStarted() isn't stateful enough with TLS socket |  Major | rpc | Michael Ho | Michael Ho |
 | [KUDU-2295](https://issues.apache.org/jira/browse/KUDU-2295) | nullptr dereference while scanning on already shutdown tablet replica |  Major | tserver | Alexey Serbin | Alexey Serbin |
 | [KUDU-2330](https://issues.apache.org/jira/browse/KUDU-2330) | Exceptions thrown by Java client have inappropriate stack traces |  Major | client, java | Todd Lipcon |  |
-| [KUDU-2322](https://issues.apache.org/jira/browse/KUDU-2322) | Leader spews logs when follower falls behind log GC |  Critical | consensus | Todd Lipcon | Alexey Serbin |
 | [KUDU-2338](https://issues.apache.org/jira/browse/KUDU-2338) | Java decimal predicates are not coerced to match the column scale |  Critical | . | Grant Henke | Grant Henke |
 | [KUDU-2153](https://issues.apache.org/jira/browse/KUDU-2153) | Servers delete tmp files before obtaining directory lock |  Critical | fs | Todd Lipcon | Todd Lipcon |
-| [KUDU-2342](https://issues.apache.org/jira/browse/KUDU-2342) | Non-voter replicas can be promoted and get stuck |  Blocker | tablet | Mostafa Mokhtar | Alexey Serbin |
 | [KUDU-2343](https://issues.apache.org/jira/browse/KUDU-2343) | Java client doesn't properly reconnect to leader master when old leader is online |  Critical | client, java | Todd Lipcon | Todd Lipcon |
-| [KUDU-2259](https://issues.apache.org/jira/browse/KUDU-2259) | kudu-spark imports authentication token into client multiple times |  Blocker | spark | Will Berkeley | Dan Burkert |
-| [KUDU-2309](https://issues.apache.org/jira/browse/KUDU-2309) | /masters can show the wrong list of masters |  Major | ops-tooling | Will Berkeley | Will Berkeley |
+| [KUDU-2259](https://issues.apache.org/jira/browse/KUDU-2259) | kudu-spark imports authentication token into client multiple times |  Blocker | spark | William Berkeley | Dan Burkert |
+| [KUDU-2309](https://issues.apache.org/jira/browse/KUDU-2309) | /masters can show the wrong list of masters |  Major | ops-tooling | William Berkeley | William Berkeley |
 | [KUDU-2157](https://issues.apache.org/jira/browse/KUDU-2157) | 1.5 -\> 1.4 -\> 1.5 downgrade/re-upgrade can result in non-startable tservers |  Major | fs, tserver | Todd Lipcon |  |
 | [KUDU-2312](https://issues.apache.org/jira/browse/KUDU-2312) | Scan predicate application ordering is possibly buggy |  Major | tserver | Dan Burkert | Dan Burkert |
+| [KUDU-2233](https://issues.apache.org/jira/browse/KUDU-2233) | Check failure during compactions: pv\_delete\_redo != nullptr |  Major | tablet, tserver | Andrew Wong | Andrew Wong |
+| [KUDU-2166](https://issues.apache.org/jira/browse/KUDU-2166) | Kudu Python package needs refresh from 1.2.0 |  Major | client | Mladen Kovacevic | Grant Henke |
 
 
 ### SUB-TASKS:

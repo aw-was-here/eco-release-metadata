@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.6.2 - Unreleased (as of 2018-09-12)
+## Release Impala 2.6.2 - Unreleased (as of 2020-11-14)
 
 
 
@@ -34,19 +34,19 @@
 | [IMPALA-3732](https://issues.apache.org/jira/browse/IMPALA-3732) | Avro scanner can break on strings \>= 2GB |  Critical | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3745](https://issues.apache.org/jira/browse/IMPALA-3745) | Corrupt encoded values in parquet files can cause crashes |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3754](https://issues.apache.org/jira/browse/IMPALA-3754) | TestParquet.test\_corrupt\_rle\_counts fails |  Blocker | Backend | casey | Tim Armstrong |
-| [IMPALA-3680](https://issues.apache.org/jira/browse/IMPALA-3680) | Reset the file offset after failed cache reads |  Major | Backend | bharath v | bharath v |
+| [IMPALA-3680](https://issues.apache.org/jira/browse/IMPALA-3680) | Reset the file offset after failed cache reads |  Major | Backend | Bharath Vissapragada | Bharath Vissapragada |
 | [IMPALA-3628](https://issues.apache.org/jira/browse/IMPALA-3628) | Cancellation via shell may hang over SSL |  Critical | Clients | Matthew Jacobs | Henry Robinson |
 | [IMPALA-3678](https://issues.apache.org/jira/browse/IMPALA-3678) | Preconditions check in SortNode when planning query that has union operands with order by + limit |  Blocker | Frontend | fishing | Alexander Behm |
 | [IMPALA-3159](https://issues.apache.org/jira/browse/IMPALA-3159) | impala-shell does not accept wildcard or SAN certificates |  Critical | Security | Henry Robinson | Sailesh Mukil |
 | [IMPALA-3861](https://issues.apache.org/jira/browse/IMPALA-3861) | Cannot resolve correlated column reference inside a BETWEEN predicate. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
 | [IMPALA-3965](https://issues.apache.org/jira/browse/IMPALA-3965) | TSSLSocketWithWildcardSAN.py not exported as part of impala-shell build lib |  Blocker | Clients | Sailesh Mukil | Sailesh Mukil |
 | [IMPALA-3940](https://issues.apache.org/jira/browse/IMPALA-3940) | Different query plans produced when accessing base tables or identical views. |  Blocker | Frontend | Alexander Behm | Alexander Behm |
-| [IMPALA-3820](https://issues.apache.org/jira/browse/IMPALA-3820) | Handle linkage errors gracefully while loading java udfs from Hive |  Critical | Catalog | bharath v | bharath v |
+| [IMPALA-3820](https://issues.apache.org/jira/browse/IMPALA-3820) | Handle linkage errors gracefully while loading java udfs from Hive |  Critical | Catalog | Bharath Vissapragada | Bharath Vissapragada |
 | [IMPALA-3776](https://issues.apache.org/jira/browse/IMPALA-3776) | 'describe formatted' broken for avro tables with mismatching column information in hive metastore |  Critical | Frontend | Lars Volker | Lars Volker |
 | [IMPALA-3930](https://issues.apache.org/jira/browse/IMPALA-3930) | Impala throws IllegalStateException when [SHUFFLE] inserting data into a partition while select subquery group by partition columns |  Critical | Frontend | Huaisi Xu | Alexander Behm |
 | [IMPALA-2570](https://issues.apache.org/jira/browse/IMPALA-2570) | Insert into/overwrite [SHUFFLE] hint is not applied unless the partition is not specified |  Critical | Frontend | Peter Ebert | Alexander Behm |
 | [IMPALA-4049](https://issues.apache.org/jira/browse/IMPALA-4049) | Incorrect results from non-grouping aggregation on nested collection when on the build side of a nested-loop join. |  Blocker | Backend | Alexander Behm | Tim Armstrong |
-| [IMPALA-4020](https://issues.apache.org/jira/browse/IMPALA-4020) | Catalog update can fail due to database creation/deletion in Hive. |  Major | Catalog | Anuj Phadke | bharath v |
+| [IMPALA-4020](https://issues.apache.org/jira/browse/IMPALA-4020) | Catalog update can fail due to database creation/deletion in Hive. |  Major | Catalog | Anuj Phadke | Bharath Vissapragada |
 
 
 ### SUB-TASKS:

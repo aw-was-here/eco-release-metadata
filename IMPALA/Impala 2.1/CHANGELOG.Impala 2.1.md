@@ -65,7 +65,7 @@
 | [IMPALA-1134](https://issues.apache.org/jira/browse/IMPALA-1134) | Wrong copying of bytes from Text with java udf |  Major | . | Dzianis Balyka | casey |
 | [IMPALA-1456](https://issues.apache.org/jira/browse/IMPALA-1456) | Hive udfs cause impalad to crash if they use String type arguments |  Major | . | casey | casey |
 | [IMPALA-1390](https://issues.apache.org/jira/browse/IMPALA-1390) | Partitioned agg node returns incorrect results with ASAN build. |  Major | . | Alexander Behm | Ippokratis Pandis |
-| [IMPALA-1254](https://issues.apache.org/jira/browse/IMPALA-1254) | parquet writer will incorrectly add a value twice when max dictionary size is reached |  Major | . | Dan Hecht | Dan Hecht |
+| [IMPALA-1254](https://issues.apache.org/jira/browse/IMPALA-1254) | parquet writer will incorrectly add a value twice when max dictionary size is reached |  Major | . | Daniel Hecht | Daniel Hecht |
 | [IMPALA-1403](https://issues.apache.org/jira/browse/IMPALA-1403) | Doc for specifying --scratch\_dirs should mention multiple dirs can be specified |  Major | Docs | Matthew Jacobs | John Russell |
 | [IMPALA-1392](https://issues.apache.org/jira/browse/IMPALA-1392) | Exceptions from HiveUDF crashes Impala Daemon |  Major | . | Tim Robertson | Nong Li |
 | [IMPALA-1141](https://issues.apache.org/jira/browse/IMPALA-1141) | Planning phase takes too long when querying HBase tables |  Major | . | Dimitris Tsirogiannis | Martin Grund |
@@ -91,7 +91,7 @@
 | [IMPALA-1553](https://issues.apache.org/jira/browse/IMPALA-1553) | Crash: impala::UnionNode::EvalAndMaterializeExprs |  Blocker | . | Taras Bobrovytsky | Alexander Behm |
 | [IMPALA-1556](https://issues.apache.org/jira/browse/IMPALA-1556) | Kerberos fetches 3x slower |  Critical | . | Henry Robinson | Matthew Jacobs |
 | [IMPALA-1508](https://issues.apache.org/jira/browse/IMPALA-1508) | Timestamp related crash |  Major | . | Taras Bobrovytsky | Skye Wanderman-Milne |
-| [IMPALA-1572](https://issues.apache.org/jira/browse/IMPALA-1572) | HS2 Test Failing |  Major | . | Alex Leblang | Dan Hecht |
+| [IMPALA-1572](https://issues.apache.org/jira/browse/IMPALA-1572) | HS2 Test Failing |  Major | . | Alex Leblang | Daniel Hecht |
 | [IMPALA-1611](https://issues.apache.org/jira/browse/IMPALA-1611) | Cannot read hbase metadata with NullPointerException: null |  Blocker | . | Ippokratis Pandis | Alexander Behm |
 | [IMPALA-1507](https://issues.apache.org/jira/browse/IMPALA-1507) | Impala hits DCHECK with low but reasonable query mem\_limit. |  Major | . | Alexander Behm | Ippokratis Pandis |
 | [IMPALA-1454](https://issues.apache.org/jira/browse/IMPALA-1454) | TPC-DS query 25 crashes |  Major | . | Dileep Kumar | Ippokratis Pandis |

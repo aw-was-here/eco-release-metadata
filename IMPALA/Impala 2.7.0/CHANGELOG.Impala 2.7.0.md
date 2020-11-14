@@ -18,7 +18,7 @@
 -->
 # Apache Impala Changelog
 
-## Release Impala 2.7.0 - Unreleased (as of 2018-09-12)
+## Release Impala 2.7.0 - Unreleased (as of 2020-11-14)
 
 
 
@@ -56,19 +56,21 @@
 | [IMPALA-3829](https://issues.apache.org/jira/browse/IMPALA-3829) | ImpalaServer::OpenSession() logs errors on valid configuration keys |  Minor | Backend | Henry Robinson | Attila Jeges |
 | [IMPALA-3992](https://issues.apache.org/jira/browse/IMPALA-3992) | Bad error message when running non-existent file from impala-shell |  Minor | Clients | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3090](https://issues.apache.org/jira/browse/IMPALA-3090) | Report which memory limit was exceeded |  Major | Backend | Tim Armstrong | Tim Armstrong |
-| [IMPALA-1657](https://issues.apache.org/jira/browse/IMPALA-1657) | Improve logging incase of query failures with negative cardinalities |  Critical | Frontend | bharath v | Alexander Behm |
+| [IMPALA-1657](https://issues.apache.org/jira/browse/IMPALA-1657) | Improve logging incase of query failures with negative cardinalities |  Critical | Frontend | Bharath Vissapragada | Alexander Behm |
 | [IMPALA-3538](https://issues.apache.org/jira/browse/IMPALA-3538) | Add Way to Trigger Minidump Creation |  Minor | Backend | Lars Volker | Lars Volker |
 | [IMPALA-1616](https://issues.apache.org/jira/browse/IMPALA-1616) | Improve the Memory Limit Exceeded error report |  Minor | Backend | Ippokratis Pandis | Attila Jeges |
 | [IMPALA-2013](https://issues.apache.org/jira/browse/IMPALA-2013) | Data loading fails when inserting into HBase table. Is HBase down? Did it start up properly? |  Major | Infrastructure | Alexander Behm | David Knupp |
 | [IMPALA-3028](https://issues.apache.org/jira/browse/IMPALA-3028) | Use linker from toolchain |  Minor | Infrastructure | Tim Armstrong | Jim Apple |
 | [IMPALA-3530](https://issues.apache.org/jira/browse/IMPALA-3530) | Clean and split up test\_ddl.py and related .test files |  Critical | Infrastructure | Alexander Behm | Alexander Behm |
 | [IMPALA-2670](https://issues.apache.org/jira/browse/IMPALA-2670) | Add a LICENSE.txt top-level file. |  Minor | Backend | Henry Robinson | Henry Robinson |
+| [IMPALA-2885](https://issues.apache.org/jira/browse/IMPALA-2885) | Scanners store per-split objects in per-query object pool |  Minor | Backend | Tim Armstrong | Michael Ho |
 
 
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [IMPALA-3292](https://issues.apache.org/jira/browse/IMPALA-3292) | Kudu scanner should not fail if KeepAlive request fails |  Minor | Backend | Todd Lipcon | Todd Lipcon |
 | [IMPALA-3501](https://issues.apache.org/jira/browse/IMPALA-3501) | code coverage: test\_failure\_detected, test\_topic\_persistence don't fire within 40s |  Blocker | Infrastructure | Michael Brown | Michael Brown |
 | [IMPALA-3633](https://issues.apache.org/jira/browse/IMPALA-3633) | ImpalaServer::ReportExecStatus   return\_val   forget  \_\_isset.status |  Critical | Backend | fishing | Tim Armstrong |
 | [IMPALA-1633](https://issues.apache.org/jira/browse/IMPALA-1633) | Impala server GetOperationStatus() should return detail sql error code and message when query fails |  Minor | Backend | Juan Yu | Thomas Tauber-Marshall |
@@ -80,7 +82,7 @@
 | [IMPALA-3673](https://issues.apache.org/jira/browse/IMPALA-3673) | Build failed due to memory limit exceeded |  Blocker | Infrastructure | Taras Bobrovytsky | Tim Armstrong |
 | [IMPALA-3614](https://issues.apache.org/jira/browse/IMPALA-3614) | most custom cluster tests not running for release builds, S3 fs |  Major | Infrastructure | Michael Brown | Michael Brown |
 | [IMPALA-3646](https://issues.apache.org/jira/browse/IMPALA-3646) | stress: rle-encoding.h:260] Check failed: literal\_count\_ \> 0 (0 vs. 0) |  Critical | Backend | Michael Brown | Alexander Behm |
-| [IMPALA-3507](https://issues.apache.org/jira/browse/IMPALA-3507) | Very slow linking with toolchain linker on centos and ubuntu |  Major | Infrastructure | bharath v | Tim Armstrong |
+| [IMPALA-3507](https://issues.apache.org/jira/browse/IMPALA-3507) | Very slow linking with toolchain linker on centos and ubuntu |  Major | Infrastructure | Bharath Vissapragada | Tim Armstrong |
 | [IMPALA-3441](https://issues.apache.org/jira/browse/IMPALA-3441) | Impala should not crash for invalid avro serialized data |  Critical | Backend | Anuj Phadke | Tim Armstrong |
 | [IMPALA-3659](https://issues.apache.org/jira/browse/IMPALA-3659) | ReadWriteUtil::ReadZLong() doesn't handle invalid data |  Major | Backend | Skye Wanderman-Milne | Tim Armstrong |
 | [IMPALA-3732](https://issues.apache.org/jira/browse/IMPALA-3732) | Avro scanner can break on strings \>= 2GB |  Critical | Backend | Tim Armstrong | Tim Armstrong |
@@ -92,7 +94,7 @@
 | [IMPALA-3656](https://issues.apache.org/jira/browse/IMPALA-3656) | Hitting DCHECK/CHECK does not write minidumps |  Major | Backend | Lars Volker | Lars Volker |
 | [IMPALA-3798](https://issues.apache.org/jira/browse/IMPALA-3798) | Race condition may cause scanners to spin with runtime filters on Avro or Sequence files |  Blocker | Backend | Henry Robinson | Henry Robinson |
 | [IMPALA-3810](https://issues.apache.org/jira/browse/IMPALA-3810) | Impala packaging fails on SLES11 |  Blocker | Infrastructure | Michael Brown | Michael Ho |
-| [IMPALA-3680](https://issues.apache.org/jira/browse/IMPALA-3680) | Reset the file offset after failed cache reads |  Major | Backend | bharath v | bharath v |
+| [IMPALA-3680](https://issues.apache.org/jira/browse/IMPALA-3680) | Reset the file offset after failed cache reads |  Major | Backend | Bharath Vissapragada | Bharath Vissapragada |
 | [IMPALA-3664](https://issues.apache.org/jira/browse/IMPALA-3664) | S3A test\_keys\_do\_not\_work fails |  Blocker | Backend | Michael Brown | Sailesh Mukil |
 | [IMPALA-3811](https://issues.apache.org/jira/browse/IMPALA-3811) | test\_sequence\_file\_filtering\_race running and failing against release builds |  Blocker | Infrastructure | Michael Brown | Michael Brown |
 | [IMPALA-3628](https://issues.apache.org/jira/browse/IMPALA-3628) | Cancellation via shell may hang over SSL |  Critical | Clients | Matthew Jacobs | Henry Robinson |
@@ -139,7 +141,7 @@
 | [IMPALA-3611](https://issues.apache.org/jira/browse/IMPALA-3611) | Impala should report unused DiskIOMgr buffer memory consumption |  Minor | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3936](https://issues.apache.org/jira/browse/IMPALA-3936) | Crash in BufferedBlockMgr::WriteComplete due to null buffer\_desc\_ during large spilling query |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-3953](https://issues.apache.org/jira/browse/IMPALA-3953) | kudu-scan-node-test crashed under ASAN: "boost: mutex lock failed in pthread\_mutex\_lock: Invalid argument" |  Blocker | Backend | Tim Armstrong | Matthew Jacobs |
-| [IMPALA-2347](https://issues.apache.org/jira/browse/IMPALA-2347) | Fix the MetaStoreClientPool to properly reuse HMS connections |  Minor | Catalog | Dimitris Tsirogiannis | bharath v |
+| [IMPALA-2347](https://issues.apache.org/jira/browse/IMPALA-2347) | Fix the MetaStoreClientPool to properly reuse HMS connections |  Minor | Catalog | Dimitris Tsirogiannis | Bharath Vissapragada |
 | [IMPALA-3952](https://issues.apache.org/jira/browse/IMPALA-3952) | Crash in HdfsParquetScanner::Close() |  Blocker | Backend | Tim Armstrong | Alexander Behm |
 | [IMPALA-3964](https://issues.apache.org/jira/browse/IMPALA-3964) | DCHECK hit for query involving count over nested collection |  Blocker | Backend | Chris Channing | Chris Channing |
 | [IMPALA-3470](https://issues.apache.org/jira/browse/IMPALA-3470) | DecompressorTest.BZip2 failed |  Critical | Backend | Tim Armstrong | Juan Yu |
@@ -181,7 +183,7 @@
 | [IMPALA-3943](https://issues.apache.org/jira/browse/IMPALA-3943) | Queries started failing with "This file  has no row groups" against small/invalid parquet files |  Major | Backend | Mostafa Mokhtar | Alexander Behm |
 | [IMPALA-3920](https://issues.apache.org/jira/browse/IMPALA-3920) | TotalStorageWaitTime counter not populated for fragments with Kudu scan node |  Major | Backend | Mostafa Mokhtar | Anuj Phadke |
 | [IMPALA-3790](https://issues.apache.org/jira/browse/IMPALA-3790) | Code coverage builds TestAdmissionControllerStress.test\_admission\_controller\_with\_flags and test\_admission\_controller\_with\_configs fail with timeouts |  Blocker | Backend | Harrison Sheinblatt | Matthew Jacobs |
-| [IMPALA-3121](https://issues.apache.org/jira/browse/IMPALA-3121) | stress test should differentiate client \<-\> server and server \<-\> server connection errors |  Critical | Infrastructure | Dan Hecht |  |
+| [IMPALA-3121](https://issues.apache.org/jira/browse/IMPALA-3121) | stress test should differentiate client \<-\> server and server \<-\> server connection errors |  Critical | Infrastructure | Daniel Hecht |  |
 | [IMPALA-3610](https://issues.apache.org/jira/browse/IMPALA-3610) | Track non-RPC memory from global runtime filters on the coordinator |  Critical | Backend | Mostafa Mokhtar | Sailesh Mukil |
 
 
@@ -197,7 +199,7 @@
 | [IMPALA-3917](https://issues.apache.org/jira/browse/IMPALA-3917) | Fix invalid data handling in Parquet files |  Blocker | Backend | Tim Armstrong | Tim Armstrong |
 | [IMPALA-4001](https://issues.apache.org/jira/browse/IMPALA-4001) | qgen: add proof of concept infra to build Query() objects for testing |  Major | Infrastructure | Michael Brown | Michael Brown |
 | [IMPALA-3853](https://issues.apache.org/jira/browse/IMPALA-3853) | Copyright audit |  Major | Infrastructure | Jim Apple | Henry Robinson |
-| [IMPALA-3918](https://issues.apache.org/jira/browse/IMPALA-3918) | Remove Cloudera copyrights and add ASF license header |  Minor | Infrastructure | Dan Hecht | Dan Hecht |
+| [IMPALA-3918](https://issues.apache.org/jira/browse/IMPALA-3918) | Remove Cloudera copyrights and add ASF license header |  Minor | Infrastructure | Daniel Hecht | Daniel Hecht |
 
 
 ### OTHER:

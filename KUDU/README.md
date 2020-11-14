@@ -16,12 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Kudu v1.9.1
+    * [Changelog](1.9.1/CHANGELOG.1.9.1.md)
+    * [Release Notes](1.9.1/RELEASENOTES.1.9.1.md)
+* Apache Kudu v1.9.0
+    * [Changelog](1.9.0/CHANGELOG.1.9.0.md)
+    * [Release Notes](1.9.0/RELEASENOTES.1.9.0.md)
+* Apache Kudu v1.8.1
+    * [Changelog](1.8.1/CHANGELOG.1.8.1.md)
+    * [Release Notes](1.8.1/RELEASENOTES.1.8.1.md)
 * Apache Kudu v1.8.0
     * [Changelog](1.8.0/CHANGELOG.1.8.0.md)
     * [Release Notes](1.8.0/RELEASENOTES.1.8.0.md)
-* Apache Kudu v1.7.x
-    * [Changelog](1.7.x/CHANGELOG.1.7.x.md)
-    * [Release Notes](1.7.x/RELEASENOTES.1.7.x.md)
 * Apache Kudu v1.7.2
     * [Changelog](1.7.2/CHANGELOG.1.7.2.md)
     * [Release Notes](1.7.2/RELEASENOTES.1.7.2.md)
@@ -73,3 +79,6 @@
 * Apache Kudu v1.0.0
     * [Changelog](1.0.0/CHANGELOG.1.0.0.md)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.md)
+* Apache Kudu v1.7.x
+    * [Changelog](1.7.x/CHANGELOG.1.7.x.md)
+    * [Release Notes](1.7.x/RELEASENOTES.1.7.x.md)

@@ -65,7 +65,7 @@ See the docs for more information.
 
 <!-- markdown -->
 
-Users of release doc maker can now specify which lint checks they would like used via the `--lint` command line arguement. Available options are:
+Users of release doc maker can now specify which lint checks they would like used via the `--lint` command line argument. Available options are:
 
 * "incompatible" - issues flagged incompatible should have release notes
 * "important" - issues marked important should have release notes
