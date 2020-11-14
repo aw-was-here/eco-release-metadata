@@ -16,12 +16,48 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Spark v3.1.0
+    * [Changelog](3.1.0/CHANGELOG.3.1.0.md)
+    * [Release Notes](3.1.0/RELEASENOTES.3.1.0.md)
+* Apache Spark v3.0.2
+    * [Changelog](3.0.2/CHANGELOG.3.0.2.md)
+    * [Release Notes](3.0.2/RELEASENOTES.3.0.2.md)
+* Apache Spark v3.0.1
+    * [Changelog](3.0.1/CHANGELOG.3.0.1.md)
+    * [Release Notes](3.0.1/RELEASENOTES.3.0.1.md)
 * Apache Spark v3.0.0
     * [Changelog](3.0.0/CHANGELOG.3.0.0.md)
     * [Release Notes](3.0.0/RELEASENOTES.3.0.0.md)
+* Apache Spark v2.4.8
+    * [Changelog](2.4.8/CHANGELOG.2.4.8.md)
+    * [Release Notes](2.4.8/RELEASENOTES.2.4.8.md)
+* Apache Spark v2.4.7
+    * [Changelog](2.4.7/CHANGELOG.2.4.7.md)
+    * [Release Notes](2.4.7/RELEASENOTES.2.4.7.md)
+* Apache Spark v2.4.6
+    * [Changelog](2.4.6/CHANGELOG.2.4.6.md)
+    * [Release Notes](2.4.6/RELEASENOTES.2.4.6.md)
+* Apache Spark v2.4.5
+    * [Changelog](2.4.5/CHANGELOG.2.4.5.md)
+    * [Release Notes](2.4.5/RELEASENOTES.2.4.5.md)
+* Apache Spark v2.4.4
+    * [Changelog](2.4.4/CHANGELOG.2.4.4.md)
+    * [Release Notes](2.4.4/RELEASENOTES.2.4.4.md)
+* Apache Spark v2.4.3
+    * [Changelog](2.4.3/CHANGELOG.2.4.3.md)
+    * [Release Notes](2.4.3/RELEASENOTES.2.4.3.md)
+* Apache Spark v2.4.2
+    * [Changelog](2.4.2/CHANGELOG.2.4.2.md)
+    * [Release Notes](2.4.2/RELEASENOTES.2.4.2.md)
+* Apache Spark v2.4.1
+    * [Changelog](2.4.1/CHANGELOG.2.4.1.md)
+    * [Release Notes](2.4.1/RELEASENOTES.2.4.1.md)
 * Apache Spark v2.4.0
     * [Changelog](2.4.0/CHANGELOG.2.4.0.md)
     * [Release Notes](2.4.0/RELEASENOTES.2.4.0.md)
+* Apache Spark v2.3.4
+    * [Changelog](2.3.4/CHANGELOG.2.3.4.md)
+    * [Release Notes](2.3.4/RELEASENOTES.2.3.4.md)
 * Apache Spark v2.3.3
     * [Changelog](2.3.3/CHANGELOG.2.3.3.md)
     * [Release Notes](2.3.3/RELEASENOTES.2.3.3.md)

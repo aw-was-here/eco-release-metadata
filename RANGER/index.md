@@ -16,6 +16,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Ranger v3.0.0
+    * [Changelog](3.0.0/CHANGELOG.3.0.0.html)
+    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
+* Apache Ranger v2.2.0
+    * [Changelog](2.2.0/CHANGELOG.2.2.0.html)
+    * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
+* Apache Ranger v2.1.1
+    * [Changelog](2.1.1/CHANGELOG.2.1.1.html)
+    * [Release Notes](2.1.1/RELEASENOTES.2.1.1.html)
+* Apache Ranger v2.1.0
+    * [Changelog](2.1.0/CHANGELOG.2.1.0.html)
+    * [Release Notes](2.1.0/RELEASENOTES.2.1.0.html)
+* Apache Ranger v2.0.1
+    * [Changelog](2.0.1/CHANGELOG.2.0.1.html)
+    * [Release Notes](2.0.1/RELEASENOTES.2.0.1.html)
+* Apache Ranger v2.0.0
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
+    * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
+* Apache Ranger v1.2.1
+    * [Changelog](1.2.1/CHANGELOG.1.2.1.html)
+    * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
+* Apache Ranger v1.2.0
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
+* Apache Ranger v1.1.1
+    * [Changelog](1.1.1/CHANGELOG.1.1.1.html)
+    * [Release Notes](1.1.1/RELEASENOTES.1.1.1.html)
 * Apache Ranger v1.1.0
     * [Changelog](1.1.0/CHANGELOG.1.1.0.html)
     * [Release Notes](1.1.0/RELEASENOTES.1.1.0.html)

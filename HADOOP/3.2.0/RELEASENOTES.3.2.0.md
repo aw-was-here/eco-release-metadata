@@ -42,16 +42,35 @@ It is very important that solutions for any patches remain at the VS 2010-level.
 
 ---
 
-* [YARN-6257](https://issues.apache.org/jira/browse/YARN-6257) | *Minor* | **CapacityScheduler REST API produces incorrect JSON - JSON object operationsInfo contains deplicate key**
+* [YARN-6257](https://issues.apache.org/jira/browse/YARN-6257) | *Minor* | **CapacityScheduler REST API produces incorrect JSON - JSON object operationsInfo contains duplicate keys**
 
-**WARNING: No release note provided for this change.**
+The response format of resource manager's REST API endpoint "ws/v1/cluster/scheduler" is optimized, where the "operationInfos" field is converted from a map to list. This change makes the content to be more JSON parser friendly.
 
 
 ---
 
 * [HADOOP-15146](https://issues.apache.org/jira/browse/HADOOP-15146) | *Minor* | **Remove DataOutputByteBuffer**
 
-**WARNING: No release note provided for this change.**
+This jira helped to remove the private and unused class DataOutputByteBuffer.
+
+
+---
+
+* [HDFS-13056](https://issues.apache.org/jira/browse/HDFS-13056) | *Major* | **Expose file-level composite CRCs in HDFS which are comparable across different instances/layouts**
+
+<!-- markdown --> 
+
+This feature adds a new `COMPOSITE_CRC` FileChecksum type which uses CRC composition to remain completely chunk/block agnostic, and allows comparison between striped vs replicated files, between different HDFS instances, and even between HDFS and other external storage systems or local files.
+
+Without this option, HDFS FileChecksums are historically computed as "MD5 of MD5 of CRC" across chunks and blocks, so that the checksums are dependent on the configured chunk and block sizes, rather than only reflecting the logical file contents. The feature works by changing the way individual chunk and block checksums are combined at invocation time, so doesn't depend on or affect any persistent metadata; it can be used in-place in existing HDFS deployments without any recomputation of block metadata.
+
+This option can be enabled or disabled at the granularity of individual client calls by setting the new configuration option `dfs.checksum.combine.mode` to `COMPOSITE_CRC`:
+
+    hdfs dfs -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum hdfs:///tmp/foo.txt
+
+By default, this configuration option is set to `MD5MD5CRC`, which preserves the fully backwards-compatible existing behavior of HDFS.
+
+Note that this "combine mode" is orthogonal to the existing `dfs.checksum.type` configuration option, which configures the checksum algorithm at the level of individual chunk crcs that are stored in block metadata, where `CRC32` specifies the legacy "gzip" CRC polynomial, and `CRC32C` specifies the "Castagnoli" polynomial. The composite CRC mode will adhere to the checksum type stored in the block metadata; if an HDFS instance stores a mixture of files with `CRC32` and `CRC32C` types, the list of FileChecksums with `COMPOSITE_CRC` will likewise produce the corresponding mixture of `COMPOSITE-CRC32` and `COMPOSITE-CRC32C` types.
 
 
 ---
@@ -87,7 +106,7 @@ hdfs dfsadmin [-upgrade [query \| finalize]
 
 * [YARN-8191](https://issues.apache.org/jira/browse/YARN-8191) | *Major* | **Fair scheduler: queue deletion without RM restart**
 
-**WARNING: No release note provided for this change.**
+To support Queue deletion with RM restart feature, AllocationFileLoaderService constructor signature was changed. YARN-8390 corrected this and made as a compatible change.
 
 
 ---
@@ -136,6 +155,20 @@ Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in
 
 ---
 
+* [HADOOP-15669](https://issues.apache.org/jira/browse/HADOOP-15669) | *Major* | **ABFS: Improve HTTPS Performance**
+
+ABFS: Improved HTTPS performance
+
+
+---
+
+* [HADOOP-15660](https://issues.apache.org/jira/browse/HADOOP-15660) | *Major* | **ABFS: Add support for OAuth**
+
+ABFS: Support for OAuth
+
+
+---
+
 * [HDFS-13806](https://issues.apache.org/jira/browse/HDFS-13806) | *Minor* | **EC: No error message for unsetting EC policy of the directory inherits the erasure coding policy from an ancestor directory**
 
 After this change, attempt to unsetErasureCodingPolicy() on a directory without EC policy explicitly set on it, will get NoECPolicySetException.
@@ -143,9 +176,61 @@ After this change, attempt to unsetErasureCodingPolicy() on a directory without 
 
 ---
 
+* [HADOOP-14833](https://issues.apache.org/jira/browse/HADOOP-14833) | *Major* | **Remove s3a user:secret authentication**
+
+The S3A connector no longer supports username and secrets in URLs of the form \`s3a://key:secret@bucket/\`. It is near-impossible to stop those secrets being logged —which is why a warning has been printed since Hadoop 2.8 whenever such a URL was used.
+
+Fix: use a more secure mechanism to pass down the secrets.
+
+
+---
+
 * [YARN-3409](https://issues.apache.org/jira/browse/YARN-3409) | *Major* | **Support Node Attribute functionality**
 
-Node Attribute Feature has been added as part of this jira.
+With this feature task, Node Attributes is supported in YARN which will help user's to effectively use resources and assign to applications based on characteristics of each node's in the cluster.
+
+
+---
+
+* [HADOOP-15684](https://issues.apache.org/jira/browse/HADOOP-15684) | *Critical* | **triggerActiveLogRoll stuck on dead name node, when ConnectTimeoutException happens.**
+
+When a namenode A sends request RollEditLog to a remote NN, either the remote NN is standby or IO Exception happens, A should continue to try next NN, instead of getting stuck on the problematic one.  This Patch is based on trunk.
+
+
+---
+
+* [HDFS-10285](https://issues.apache.org/jira/browse/HDFS-10285) | *Major* | **Storage Policy Satisfier in HDFS**
+
+StoragePolicySatisfier(SPS) allows users to track and satisfy the storage policy requirement of a given file/directory in HDFS. User can specify a file/directory path by invoking “hdfs storagepolicies -satisfyStoragePolicy -path \<path\>” command or via HdfsAdmin#satisfyStoragePolicy(path) API. For the blocks which has storage policy mismatches, it moves the replicas to a different storage type in order to fulfill the storage policy requirement. Since API calls goes to NN for tracking the invoked satisfier path(iNodes), administrator need to enable dfs.storage.policy.satisfier.mode’ config at NN to allow these operations. It can be enabled by setting ‘dfs.storage.policy.satisfier.mode’ to ‘external’ in hdfs-site.xml. The configs can be disabled dynamically without restarting Namenode. SPS should be started outside Namenode using "hdfs --daemon start sps". If administrator is looking to run Mover tool explicitly, then he/she should make sure to disable SPS first and then run Mover. See the "Storage Policy Satisfier (SPS)" section in the Archival Storage guide for detailed usage.
+
+
+---
+
+* [HADOOP-15407](https://issues.apache.org/jira/browse/HADOOP-15407) | *Blocker* | **Support Windows Azure Storage - Blob file system in Hadoop**
+
+The abfs connector in the hadoop-azure module supports Microsoft Azure Datalake (Gen 2), which at the time of writing (September 2018) was in preview, soon to go GA. As with all cloud connectors, corner-cases will inevitably surface. If you encounter one, please file a bug report.
+
+
+---
+
+* [HADOOP-14445](https://issues.apache.org/jira/browse/HADOOP-14445) | *Major* | **Use DelegationTokenIssuer to create KMS delegation tokens that can authenticate to all KMS instances**
+
+<!-- markdown -->
+
+This patch improves the KMS delegation token issuing and authentication logic, to enable tokens to authenticate with a set of KMS servers. The change is backport compatible, in that it keeps the existing authentication logic as a fall back.
+
+Historically, KMS delegation tokens have ip:port as service, making KMS clients only able to use the token to authenticate with the KMS server specified as ip:port, even though the token is shared among all KMS servers at server-side. After this patch, newly created tokens will have the KMS URL as service.
+
+A `DelegationTokenIssuer` interface is introduced for token creation.
+
+
+---
+
+* [HADOOP-15996](https://issues.apache.org/jira/browse/HADOOP-15996) | *Major* | **Plugin interface to support more complex usernames in Hadoop**
+
+This patch enables "Hadoop" and "MIT" as options for "hadoop.security.auth\_to\_local.mechanism" and defaults to 'hadoop'. This should be backward compatible with pre-HADOOP-12751.
+
+This is basically HADOOP-12751 plus configurable + extended tests.
 
 
 

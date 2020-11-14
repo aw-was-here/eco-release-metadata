@@ -18,7 +18,7 @@
 -->
 # Apache Pig Changelog
 
-## Release 0.17.1 - Unreleased (as of 2018-09-12)
+## Release 0.17.1 - Unreleased (as of 2020-11-14)
 
 
 
@@ -26,10 +26,12 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-5262](https://issues.apache.org/jira/browse/PIG-5262) | Fix jdiff related issues: fail build upon error, correct xml character escaping |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5262](https://issues.apache.org/jira/browse/PIG-5262) | Fix jdiff related issues: fail build upon error, correct xml character escaping |  Major | . | Ádám Szita | Ádám Szita |
 | [PIG-4548](https://issues.apache.org/jira/browse/PIG-4548) | Records Lost With Specific Combination of Commands and Streaming Function |  Major | . | Steve T | Koji Noguchi |
 | [PIG-5254](https://issues.apache.org/jira/browse/PIG-5254) | Hit Ctrl-D to quit grunt shell fail |  Major | impl | Daniel Dai | Weijun Qian |
 | [PIG-5299](https://issues.apache.org/jira/browse/PIG-5299) | PartitionFilterOptimizer failing at compile time |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5341](https://issues.apache.org/jira/browse/PIG-5341) | PigStorage with -tagFile/-tagPath produces incorrect results with column pruning |  Critical | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5355](https://issues.apache.org/jira/browse/PIG-5355) | Negative progress report by HBaseTableRecordReader |  Major | . | Satish Saley | Satish Saley |
+| [PIG-5372](https://issues.apache.org/jira/browse/PIG-5372) | SAMPLE/RANDOM(udf) before skewed join failing with NPE |  Major | . | Koji Noguchi | Koji Noguchi |
 
 

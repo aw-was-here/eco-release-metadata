@@ -21,4 +21,11 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [HADOOP-15446](https://issues.apache.org/jira/browse/HADOOP-15446) | *Major* | **WASB: PageBlobInputStream.skip breaks HBASE replication**
+
+WASB: Bug fix to support non-sequential page blob reads.  Required for HBASE replication.
+
+
 

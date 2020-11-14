@@ -37,6 +37,12 @@
 * Apache HBase v2.0.1
     * [Changelog](2.0.1/CHANGELOG.2.0.1.html)
     * [Release Notes](2.0.1/RELEASENOTES.2.0.1.html)
+* Apache HBase v2.0.0
+    * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
+    * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
+* Apache HBase v2.0
+    * [Changelog](2.0/CHANGELOG.2.0.html)
+    * [Release Notes](2.0/RELEASENOTES.2.0.html)
 * Apache HBase v2.0.0-beta-2
     * [Changelog](2.0.0-beta-2/CHANGELOG.2.0.0-beta-2.html)
     * [Release Notes](2.0.0-beta-2/RELEASENOTES.2.0.0-beta-2.html)
@@ -52,15 +58,6 @@
 * Apache HBase v2.0.0-alpha-2
     * [Changelog](2.0.0-alpha-2/CHANGELOG.2.0.0-alpha-2.html)
     * [Release Notes](2.0.0-alpha-2/RELEASENOTES.2.0.0-alpha-2.html)
-* Apache HBase v2.0.0
-    * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
-    * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
-* Apache HBase v2.0
-    * [Changelog](2.0/CHANGELOG.2.0.html)
-    * [Release Notes](2.0/RELEASENOTES.2.0.html)
-* Apache HBase v2.0..
-    * [Changelog](2.0../CHANGELOG.2.0...html)
-    * [Release Notes](2.0../RELEASENOTES.2.0...html)
 * Apache HBase v1.31
     * [Changelog](1.31/CHANGELOG.1.31.html)
     * [Release Notes](1.31/RELEASENOTES.1.31.html)
@@ -94,6 +91,18 @@
 * Apache HBase v1.4.0
     * [Changelog](1.4.0/CHANGELOG.1.4.0.html)
     * [Release Notes](1.4.0/RELEASENOTES.1.4.0.html)
+* Apache HBase v1.3.7
+    * [Changelog](1.3.7/CHANGELOG.1.3.7.html)
+    * [Release Notes](1.3.7/RELEASENOTES.1.3.7.html)
+* Apache HBase v1.3.6
+    * [Changelog](1.3.6/CHANGELOG.1.3.6.html)
+    * [Release Notes](1.3.6/RELEASENOTES.1.3.6.html)
+* Apache HBase v1.3.5
+    * [Changelog](1.3.5/CHANGELOG.1.3.5.html)
+    * [Release Notes](1.3.5/RELEASENOTES.1.3.5.html)
+* Apache HBase v1.3.4
+    * [Changelog](1.3.4/CHANGELOG.1.3.4.html)
+    * [Release Notes](1.3.4/RELEASENOTES.1.3.4.html)
 * Apache HBase v1.3.3
     * [Changelog](1.3.3/CHANGELOG.1.3.3.html)
     * [Release Notes](1.3.3/RELEASENOTES.1.3.3.html)
@@ -109,6 +118,18 @@
 * Apache HBase v1.3
     * [Changelog](1.3/CHANGELOG.1.3.html)
     * [Release Notes](1.3/RELEASENOTES.1.3.html)
+* Apache HBase v1.2.12
+    * [Changelog](1.2.12/CHANGELOG.1.2.12.html)
+    * [Release Notes](1.2.12/RELEASENOTES.1.2.12.html)
+* Apache HBase v1.2.11
+    * [Changelog](1.2.11/CHANGELOG.1.2.11.html)
+    * [Release Notes](1.2.11/RELEASENOTES.1.2.11.html)
+* Apache HBase v1.2.10
+    * [Changelog](1.2.10/CHANGELOG.1.2.10.html)
+    * [Release Notes](1.2.10/RELEASENOTES.1.2.10.html)
+* Apache HBase v1.2.9
+    * [Changelog](1.2.9/CHANGELOG.1.2.9.html)
+    * [Release Notes](1.2.9/RELEASENOTES.1.2.9.html)
 * Apache HBase v1.2.8
     * [Changelog](1.2.8/CHANGELOG.1.2.8.html)
     * [Release Notes](1.2.8/RELEASENOTES.1.2.8.html)
@@ -133,12 +154,12 @@
 * Apache HBase v1.2.1
     * [Changelog](1.2.1/CHANGELOG.1.2.1.html)
     * [Release Notes](1.2.1/RELEASENOTES.1.2.1.html)
-* Apache HBase v1.2.0
-    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
-    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache HBase v1.2
     * [Changelog](1.2/CHANGELOG.1.2.html)
     * [Release Notes](1.2/RELEASENOTES.1.2.html)
+* Apache HBase v1.2.0
+    * [Changelog](1.2.0/CHANGELOG.1.2.0.html)
+    * [Release Notes](1.2.0/RELEASENOTES.1.2.0.html)
 * Apache HBase v1.1.13
     * [Changelog](1.1.13/CHANGELOG.1.1.13.html)
     * [Release Notes](1.1.13/RELEASENOTES.1.1.13.html)
@@ -448,9 +469,6 @@
 * Apache HBase v0.90.0
     * [Changelog](0.90.0/CHANGELOG.0.90.0.html)
     * [Release Notes](0.90.0/RELEASENOTES.0.90.0.html)
-* Apache HBase v0.89-fb
-    * [Changelog](0.89-fb/CHANGELOG.0.89-fb.html)
-    * [Release Notes](0.89-fb/RELEASENOTES.0.89-fb.html)
 * Apache HBase v0.89.20100924
     * [Changelog](0.89.20100924/CHANGELOG.0.89.20100924.html)
     * [Release Notes](0.89.20100924/RELEASENOTES.0.89.20100924.html)
@@ -523,3 +541,9 @@
 * Apache HBase v0.1.0
     * [Changelog](0.1.0/CHANGELOG.0.1.0.html)
     * [Release Notes](0.1.0/RELEASENOTES.0.1.0.html)
+* Apache HBase v2.0..
+    * [Changelog](2.0../CHANGELOG.2.0...html)
+    * [Release Notes](2.0../RELEASENOTES.2.0...html)
+* Apache HBase v0.89-fb
+    * [Changelog](0.89-fb/CHANGELOG.0.89-fb.html)
+    * [Release Notes](0.89-fb/RELEASENOTES.0.89-fb.html)

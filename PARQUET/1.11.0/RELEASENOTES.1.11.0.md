@@ -21,4 +21,17 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [PARQUET-1485](https://issues.apache.org/jira/browse/PARQUET-1485) | *Major* | **Snappy Decompressor/Compressor may cause direct memory leak**
+
+In out production environment, we encountered a direct memory oom issues caused by the direct buffer not released in time.
+
+After carefully checked the code, it seems that the some methods of SnappyDecompressor/SnappyCompressor would not release the direct buffer manually. If too much direct memory allocated and no GC happens, this bug may result in direct memory oom.
+
+Moreover, if the \`-XX:+DisableImplicitGC\` jvm option is specified, the direct memory oom would happen easily for large datasets.
+
+Seems that the problem still exist in the latest code.
+
+
 

@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.13.0 - Unreleased (as of 2018-09-12)
+## Release 0.13.0 - Unreleased (as of 2020-11-14)
 
 
 
@@ -73,6 +73,7 @@
 | [MAHOUT-1960](https://issues.apache.org/jira/browse/MAHOUT-1960) | Flipped sign in the SparseSparseDrmTimer.mscala causes Desnse Matrix multiplication |  Blocker | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1963](https://issues.apache.org/jira/browse/MAHOUT-1963) | Signs are Flipped in the ViennaCL Sparse %\*% Sparse tests |  Critical | . | Andrew Palumbo | Andrew Palumbo |
 | [MAHOUT-1951](https://issues.apache.org/jira/browse/MAHOUT-1951) | Drivers don't run with remote Spark |  Blocker | Classification, CLI, Collaborative Filtering | Pat Ferrel | Pat Ferrel |
+| [MAHOUT-1956](https://issues.apache.org/jira/browse/MAHOUT-1956) | Update Readme Page |  Critical | . | Andrew Palumbo | Andrew Musselman |
 
 
 ### TESTS:

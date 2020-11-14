@@ -67,7 +67,7 @@
 | [ZOOKEEPER-2691](https://issues.apache.org/jira/browse/ZOOKEEPER-2691) | recreateSocketAddresses may recreate the unreachable IP address |  Minor | . | Jiafu Jiang | Jiafu Jiang |
 | [ZOOKEEPER-2798](https://issues.apache.org/jira/browse/ZOOKEEPER-2798) | Fix flaky test: org.apache.zookeeper.test.ReadOnlyModeTest.testConnectionEvents |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2775](https://issues.apache.org/jira/browse/ZOOKEEPER-2775) | ZK Client not able to connect with Xid out of order error |  Critical | java client | Bhupendra Kumar Jain | Mohammad Arshad |
-| [ZOOKEEPER-2728](https://issues.apache.org/jira/browse/ZOOKEEPER-2728) | Clean up findbug warnings in branch-3.4 |  Major | . | Rakesh R | Rakesh R |
+| [ZOOKEEPER-2728](https://issues.apache.org/jira/browse/ZOOKEEPER-2728) | Clean up findbug warnings in branch-3.4 |  Major | . | Rakesh Radhakrishnan | Rakesh Radhakrishnan |
 | [ZOOKEEPER-2818](https://issues.apache.org/jira/browse/ZOOKEEPER-2818) | Improve the ZooKeeper#setACL  java doc |  Major | . | Brahma Reddy Battula | Brahma Reddy Battula |
 | [ZOOKEEPER-2811](https://issues.apache.org/jira/browse/ZOOKEEPER-2811) | PurgeTxnLog#validateAndGetFile: return tag has no arguments. |  Minor | documentation | Michael Han | Michael Han |
 | [ZOOKEEPER-2740](https://issues.apache.org/jira/browse/ZOOKEEPER-2740) | Port ZOOKEEPER-2737 to branch-3.4 |  Critical | server | Michael Han | Michael Han |
@@ -83,8 +83,8 @@
 | [ZOOKEEPER-2809](https://issues.apache.org/jira/browse/ZOOKEEPER-2809) | Unnecessary stack-trace in server when the client disconnect unexpectedly |  Minor | server | Paul Millar | Mark Fenes |
 | [ZOOKEEPER-2905](https://issues.apache.org/jira/browse/ZOOKEEPER-2905) | Don't include \`config.h\` in \`zookeeper.h\` |  Major | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
 | [ZOOKEEPER-2906](https://issues.apache.org/jira/browse/ZOOKEEPER-2906) | The OWASP dependency check jar should not be included in the default classpath |  Major | . | Abraham Fine | Abraham Fine |
-| [ZOOKEEPER-2908](https://issues.apache.org/jira/browse/ZOOKEEPER-2908) | quorum.auth.MiniKdcTest.testKerberosLogin failing with NPE on java 9 |  Blocker | security, tests | Patrick Hunt | Mark Fenes |
-| [ZOOKEEPER-2914](https://issues.apache.org/jira/browse/ZOOKEEPER-2914) | compiler warning using java 9 |  Minor | build | Patrick Hunt | Andor Molnar |
+| [ZOOKEEPER-2908](https://issues.apache.org/jira/browse/ZOOKEEPER-2908) | quorum.auth.MiniKdcTest.testKerberosLogin failing with NPE on java 9 |  Blocker | security, tests | Patrick D. Hunt | Mark Fenes |
+| [ZOOKEEPER-2914](https://issues.apache.org/jira/browse/ZOOKEEPER-2914) | compiler warning using java 9 |  Minor | build | Patrick D. Hunt | Andor Molnar |
 | [ZOOKEEPER-2909](https://issues.apache.org/jira/browse/ZOOKEEPER-2909) | Create ant task to generate ivy dependency reports |  Major | . | Abraham Fine | Abraham Fine |
 
 
@@ -99,14 +99,14 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ZOOKEEPER-2729](https://issues.apache.org/jira/browse/ZOOKEEPER-2729) | Cleanup findbug warnings in branch-3.4: Correctness Warnings |  Major | . | Rakesh R | Abraham Fine |
+| [ZOOKEEPER-2729](https://issues.apache.org/jira/browse/ZOOKEEPER-2729) | Cleanup findbug warnings in branch-3.4: Correctness Warnings |  Major | . | Rakesh Radhakrishnan | Abraham Fine |
 | [ZOOKEEPER-2749](https://issues.apache.org/jira/browse/ZOOKEEPER-2749) | Cleanup findbug warnings in branch-3.4: Experimental Warnings |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2707](https://issues.apache.org/jira/browse/ZOOKEEPER-2707) | Fix "Unexpected bean exists!" issue in WatcherTests |  Major | tests | Abraham Fine | Michael Han |
 | [ZOOKEEPER-2754](https://issues.apache.org/jira/browse/ZOOKEEPER-2754) | Set up Apache Jenkins job that runs the flaky test analyzer script. |  Major | tests | Michael Han | Michael Han |
-| [ZOOKEEPER-2732](https://issues.apache.org/jira/browse/ZOOKEEPER-2732) | Cleanup findbug warnings in branch-3.4: Performance Warnings |  Major | . | Rakesh R | Abraham Fine |
-| [ZOOKEEPER-2733](https://issues.apache.org/jira/browse/ZOOKEEPER-2733) | Cleanup findbug warnings in branch-3.4: Dodgy code Warnings |  Major | . | Rakesh R | Abraham Fine |
-| [ZOOKEEPER-2731](https://issues.apache.org/jira/browse/ZOOKEEPER-2731) | Cleanup findbug warnings in branch-3.4: Malicious code vulnerability Warnings |  Major | . | Rakesh R | Abraham Fine |
+| [ZOOKEEPER-2732](https://issues.apache.org/jira/browse/ZOOKEEPER-2732) | Cleanup findbug warnings in branch-3.4: Performance Warnings |  Major | . | Rakesh Radhakrishnan | Abraham Fine |
+| [ZOOKEEPER-2733](https://issues.apache.org/jira/browse/ZOOKEEPER-2733) | Cleanup findbug warnings in branch-3.4: Dodgy code Warnings |  Major | . | Rakesh Radhakrishnan | Abraham Fine |
+| [ZOOKEEPER-2731](https://issues.apache.org/jira/browse/ZOOKEEPER-2731) | Cleanup findbug warnings in branch-3.4: Malicious code vulnerability Warnings |  Major | . | Rakesh Radhakrishnan | Abraham Fine |
 | [ZOOKEEPER-2762](https://issues.apache.org/jira/browse/ZOOKEEPER-2762) | Multithreaded correctness Warnings |  Major | . | Abraham Fine | Abraham Fine |
-| [ZOOKEEPER-2730](https://issues.apache.org/jira/browse/ZOOKEEPER-2730) | Cleanup findbug warnings in branch-3.4: Disable Internationalization Warnings |  Major | . | Rakesh R | Janek P |
+| [ZOOKEEPER-2730](https://issues.apache.org/jira/browse/ZOOKEEPER-2730) | Cleanup findbug warnings in branch-3.4: Disable Internationalization Warnings |  Major | . | Rakesh Radhakrishnan | Janek P |
 
 

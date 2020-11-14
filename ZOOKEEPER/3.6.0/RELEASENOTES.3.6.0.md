@@ -23,13 +23,6 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-27](https://issues.apache.org/jira/browse/ZOOKEEPER-27) | *Major* | **Unique DB identifiers for servers and clients**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [ZOOKEEPER-1948](https://issues.apache.org/jira/browse/ZOOKEEPER-1948) | *Major* | **Enable JMX remote monitoring**
 
 Changes in zkServer.sh to support JMX remote monitoring of Zookeeper processes. The change doesn't impact current installations and new installations requiring JMX remote monitoring need to set the jmx port to enable it.
@@ -168,6 +161,83 @@ zk\_zxid\_epoch - the upper 32 bits, AKA the epoch
 * [ZOOKEEPER-761](https://issues.apache.org/jira/browse/ZOOKEEPER-761) | *Blocker* | **Remove \*synchronous\* calls from the \*single-threaded\* C clieant API, since they are documented not to work**
 
 Removed synchronous calls from the single-threaded API as they are not implemented and documented as such.
+
+
+---
+
+* [ZOOKEEPER-1177](https://issues.apache.org/jira/browse/ZOOKEEPER-1177) | *Major* | **Enabling a large number of watches for a large number of clients**
+
+Changes to the watch manager to support very large (200 million) watches. This change also improves the synchronization in the WatchManager to reduce the contention on various watch manager operations (mainly addWatch() which is a fairly common operation after trigger watch).
+
+
+---
+
+* [ZOOKEEPER-3153](https://issues.apache.org/jira/browse/ZOOKEEPER-3153) | *Major* | **Create MarkDown files and build process for them**
+
+Migrate documentation to MarkDown.
+
+
+---
+
+* [ZOOKEEPER-1818](https://issues.apache.org/jira/browse/ZOOKEEPER-1818) | *Blocker* | **Correctly handle potential inconsistent zxid/electionEpoch and peerEpoch during leader election**
+
+This is very much a copy of the patch for 3.4.7 with small adaptations.
+
+
+---
+
+* [ZOOKEEPER-3224](https://issues.apache.org/jira/browse/ZOOKEEPER-3224) | *Blocker* | **CI integration with maven**
+
+Let's close it.
+We have Travis + Pull Requests + Nightly build.
+We will have to convert the remaining jobs when we drop ant (hopefully very soon, before 3.6.0 release)
+
+
+---
+
+* [ZOOKEEPER-3351](https://issues.apache.org/jira/browse/ZOOKEEPER-3351) | *Major* | **Migrate qa-test-pullrequest ant task to maven**
+
+ant precommit is not used anymore on master branch.
+It is active on branch-3.5 and branch-3.4
+
+
+---
+
+* [ZOOKEEPER-2894](https://issues.apache.org/jira/browse/ZOOKEEPER-2894) | *Critical* | **Memory and completions leak on zookeeper\_close**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [ZOOKEEPER-3457](https://issues.apache.org/jira/browse/ZOOKEEPER-3457) | *Trivial* | **Code optimization in QuorumCnxManager**
+
+https://github.com/apache/zookeeper/pull/1021
+
+
+---
+
+* [ZOOKEEPER-2891](https://issues.apache.org/jira/browse/ZOOKEEPER-2891) | *Critical* | **Invalid processing of zookeeper\_close for mutli-request**
+
+**WARNING: No release note provided for this change.**
+
+
+---
+
+* [ZOOKEEPER-1467](https://issues.apache.org/jira/browse/ZOOKEEPER-1467) | *Major* | **Make server principal configurable at client side.**
+
+Allow system property "zookeeper.clusterName", if defined, to be used as the instance portion of zookeeper server's Kerberos principal name. Otherwise, server's hostname will be used.
+
+
+---
+
+* [ZOOKEEPER-3651](https://issues.apache.org/jira/browse/ZOOKEEPER-3651) | *Major* | **NettyServerCnxnFactoryTest is flaky**
+
+committed to master branch as 20daae7d5fa934629e7825ed72e66ad76a94d6aa
+
+committed also to branch-3.6
+
+But I cannot merge it to branch-3.5 as the patch does not apply cleanly
 
 
 

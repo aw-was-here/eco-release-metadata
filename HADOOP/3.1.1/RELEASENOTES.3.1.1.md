@@ -42,6 +42,25 @@ It is very important that solutions for any patches remain at the VS 2010-level.
 
 ---
 
+* [HDFS-13056](https://issues.apache.org/jira/browse/HDFS-13056) | *Major* | **Expose file-level composite CRCs in HDFS which are comparable across different instances/layouts**
+
+<!-- markdown --> 
+
+This feature adds a new `COMPOSITE_CRC` FileChecksum type which uses CRC composition to remain completely chunk/block agnostic, and allows comparison between striped vs replicated files, between different HDFS instances, and even between HDFS and other external storage systems or local files.
+
+Without this option, HDFS FileChecksums are historically computed as "MD5 of MD5 of CRC" across chunks and blocks, so that the checksums are dependent on the configured chunk and block sizes, rather than only reflecting the logical file contents. The feature works by changing the way individual chunk and block checksums are combined at invocation time, so doesn't depend on or affect any persistent metadata; it can be used in-place in existing HDFS deployments without any recomputation of block metadata.
+
+This option can be enabled or disabled at the granularity of individual client calls by setting the new configuration option `dfs.checksum.combine.mode` to `COMPOSITE_CRC`:
+
+    hdfs dfs -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum hdfs:///tmp/foo.txt
+
+By default, this configuration option is set to `MD5MD5CRC`, which preserves the fully backwards-compatible existing behavior of HDFS.
+
+Note that this "combine mode" is orthogonal to the existing `dfs.checksum.type` configuration option, which configures the checksum algorithm at the level of individual chunk crcs that are stored in block metadata, where `CRC32` specifies the legacy "gzip" CRC polynomial, and `CRC32C` specifies the "Castagnoli" polynomial. The composite CRC mode will adhere to the checksum type stored in the block metadata; if an HDFS instance stores a mixture of files with `CRC32` and `CRC32C` types, the list of FileChecksums with `COMPOSITE_CRC` will likewise produce the corresponding mixture of `COMPOSITE-CRC32` and `COMPOSITE-CRC32C` types.
+
+
+---
+
 * [HADOOP-15446](https://issues.apache.org/jira/browse/HADOOP-15446) | *Major* | **WASB: PageBlobInputStream.skip breaks HBASE replication**
 
 WASB: Bug fix to support non-sequential page blob reads.  Required for HBASE replication.

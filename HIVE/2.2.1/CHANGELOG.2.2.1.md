@@ -18,7 +18,7 @@
 -->
 # Apache Hive Changelog
 
-## Release 2.2.1 - Unreleased (as of 2018-09-12)
+## Release 2.2.1 - Unreleased (as of 2020-11-14)
 
 
 
@@ -27,10 +27,11 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-17048](https://issues.apache.org/jira/browse/HIVE-17048) | Pass HiveOperation info to HiveSemanticAnalyzerHook through HiveSemanticAnalyzerHookContext |  Major | Hooks | Aihua Xu | Aihua Xu |
-| [HIVE-8472](https://issues.apache.org/jira/browse/HIVE-8472) | Add ALTER DATABASE SET LOCATION |  Major | Database/Schema | Jeremy Beard | Mithun Radhakrishnan |
+| [HIVE-8472](https://issues.apache.org/jira/browse/HIVE-8472) | Add ALTER DATABASE SET LOCATION |  Major | Database/Schema | Jacob Evan Beard | Mithun Radhakrishnan |
 | [HIVE-17609](https://issues.apache.org/jira/browse/HIVE-17609) | Tool to manipulate delegation tokens |  Major | Metastore, Security | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-17669](https://issues.apache.org/jira/browse/HIVE-17669) | Cache to optimize SearchArgument deserialization |  Major | ORC, Query Processor | Mithun Radhakrishnan | Mithun Radhakrishnan |
 | [HIVE-17600](https://issues.apache.org/jira/browse/HIVE-17600) | Make OrcFile's "enforceBufferSize" user-settable. |  Major | ORC | Mithun Radhakrishnan | Mithun Radhakrishnan |
+| [HIVE-21174](https://issues.apache.org/jira/browse/HIVE-21174) | hive.stats.ndv.error parameter documentation issue |  Major | Documentation | Pablo Junge | Pablo Junge |
 
 
 ### BUG FIXES:
@@ -57,6 +58,7 @@
 | [HIVE-17853](https://issues.apache.org/jira/browse/HIVE-17853) | RetryingMetaStoreClient loses UGI impersonation-context when reconnecting after timeout |  Critical | Metastore | Mithun Radhakrishnan | Chris Drome |
 | [HIVE-14792](https://issues.apache.org/jira/browse/HIVE-14792) | AvroSerde reads the remote schema-file at least once per mapper, per table reference. |  Major | . | Mithun Radhakrishnan | Aihua Xu |
 | [HIVE-16480](https://issues.apache.org/jira/browse/HIVE-16480) | ORC file with empty array\<double\> and array\<float\> fails to read |  Major | . | David Capwell | Owen O'Malley |
+| [HIVE-22480](https://issues.apache.org/jira/browse/HIVE-22480) | IndexOutOfBounds exception while reading ORC files written with empty positions list in first row index entry |  Major | ORC | Jesus Camacho Rodriguez | Jesus Camacho Rodriguez |
 
 
 ### SUB-TASKS:

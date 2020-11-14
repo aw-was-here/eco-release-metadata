@@ -20,11 +20,6 @@
 
 ## Release 3.5.2 - 2016-07-21
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | Multi-thread NIOServerCnxn |  Major | server | Jay Shrauner | Thawan Kooburat |
 
 
 ### IMPROVEMENTS:
@@ -38,8 +33,8 @@
 | [ZOOKEEPER-2326](https://issues.apache.org/jira/browse/ZOOKEEPER-2326) | Include connected server address:port in log |  Minor | java client | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2306](https://issues.apache.org/jira/browse/ZOOKEEPER-2306) | Remove file delete duplicate  code from test code |  Major | tests | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2300](https://issues.apache.org/jira/browse/ZOOKEEPER-2300) | Expose SecureClientPort and SecureClientAddress JMX properties |  Major | jmx | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2378](https://issues.apache.org/jira/browse/ZOOKEEPER-2378) | upgrade ivy to recent version |  Critical | build | Patrick Hunt | Patrick Hunt |
-| [ZOOKEEPER-2373](https://issues.apache.org/jira/browse/ZOOKEEPER-2373) | Licenses section missing from pom file |  Blocker | . | Flavio Junqueira | Patrick Hunt |
+| [ZOOKEEPER-2378](https://issues.apache.org/jira/browse/ZOOKEEPER-2378) | upgrade ivy to recent version |  Critical | build | Patrick D. Hunt | Patrick D. Hunt |
+| [ZOOKEEPER-2373](https://issues.apache.org/jira/browse/ZOOKEEPER-2373) | Licenses section missing from pom file |  Blocker | . | Flavio Paiva Junqueira | Patrick D. Hunt |
 | [ZOOKEEPER-2087](https://issues.apache.org/jira/browse/ZOOKEEPER-2087) | Few UX improvements in ZooInspector |  Minor | contrib | Adam Dudczak | Adam Dudczak |
 | [ZOOKEEPER-2392](https://issues.apache.org/jira/browse/ZOOKEEPER-2392) | Update netty to 3.7.1.Final |  Minor | build | Hendy Irawan | Hendy Irawan |
 | [ZOOKEEPER-2240](https://issues.apache.org/jira/browse/ZOOKEEPER-2240) | Make the three-node minimum more explicit in documentation and on website |  Trivial | documentation | Shawn Heisey | Mohammad Arshad |
@@ -47,6 +42,7 @@
 | [ZOOKEEPER-2402](https://issues.apache.org/jira/browse/ZOOKEEPER-2402) | Document client side properties |  Major | documentation | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2410](https://issues.apache.org/jira/browse/ZOOKEEPER-2410) | add time unit to 'ELECTION TOOK' log.info message |  Trivial | leaderElection, quorum, server | Christine Poerschke | Christine Poerschke |
 | [ZOOKEEPER-2433](https://issues.apache.org/jira/browse/ZOOKEEPER-2433) | ZooKeeperSaslServer: allow user principals in subject |  Major | security | Andy B | Andy B |
+| [ZOOKEEPER-1504](https://issues.apache.org/jira/browse/ZOOKEEPER-1504) | Multi-thread NIOServerCnxn |  Major | server | Jay Shrauner | Thawan Kooburat |
 
 
 ### BUG FIXES:
@@ -57,7 +53,7 @@
 | [ZOOKEEPER-1077](https://issues.apache.org/jira/browse/ZOOKEEPER-1077) | C client lib doesn't build on Solaris |  Critical | build, c client | Tadeusz Andrzej Kadłubowski | Chris Nauroth |
 | [ZOOKEEPER-2156](https://issues.apache.org/jira/browse/ZOOKEEPER-2156) | If JAVA\_HOME is not set zk startup and fetching status command execution result misleads user. |  Major | scripts | J.Andreina | J.Andreina |
 | [ZOOKEEPER-2201](https://issues.apache.org/jira/browse/ZOOKEEPER-2201) | Network issues can cause cluster to hang due to near-deadlock |  Critical | . | Donny Nadolny | Donny Nadolny |
-| [ZOOKEEPER-706](https://issues.apache.org/jira/browse/ZOOKEEPER-706) | large numbers of watches can cause session re-establishment to fail |  Critical | c client, java client | Patrick Hunt | Chris Thunes |
+| [ZOOKEEPER-706](https://issues.apache.org/jira/browse/ZOOKEEPER-706) | large numbers of watches can cause session re-establishment to fail |  Critical | c client, java client | Patrick D. Hunt | Chris Thunes |
 | [ZOOKEEPER-2256](https://issues.apache.org/jira/browse/ZOOKEEPER-2256) | Zookeeper is not using specified JMX port in zkEnv.sh |  Minor | scripts | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2264](https://issues.apache.org/jira/browse/ZOOKEEPER-2264) | Wrong error message when secureClientPortAddress is configured but secureClientPort is not configured |  Minor | server | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2269](https://issues.apache.org/jira/browse/ZOOKEEPER-2269) | NullPointerException  in RemotePeerBean |  Major | jmx | Mohammad Arshad | Mohammad Arshad |
@@ -72,7 +68,7 @@
 | [ZOOKEEPER-1853](https://issues.apache.org/jira/browse/ZOOKEEPER-1853) | zkCli.sh can't issue a CREATE command containing spaces in the data |  Minor | java client | sekine coulibaly | Ryan Lamore |
 | [ZOOKEEPER-2227](https://issues.apache.org/jira/browse/ZOOKEEPER-2227) | stmk four-letter word fails execution at server while reading trace mask argument. |  Major | server | Chris Nauroth | Chris Nauroth |
 | [ZOOKEEPER-1929](https://issues.apache.org/jira/browse/ZOOKEEPER-1929) | std::length\_error on update children |  Major | contrib-zkfuse | Eduard White | Charles Strahan |
-| [ZOOKEEPER-1371](https://issues.apache.org/jira/browse/ZOOKEEPER-1371) | Remove dependency on log4j in the source code. |  Major | . | Mahadev konar | Mohammad Arshad |
+| [ZOOKEEPER-1371](https://issues.apache.org/jira/browse/ZOOKEEPER-1371) | Remove dependency on log4j in the source code. |  Major | . | Mahadev Konar | Mohammad Arshad |
 | [ZOOKEEPER-2329](https://issues.apache.org/jira/browse/ZOOKEEPER-2329) | Clear javac and javadoc warning from zookeeper |  Minor | . | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2211](https://issues.apache.org/jira/browse/ZOOKEEPER-2211) | PurgeTxnLog does not correctly purge when snapshots and logs are at different locations |  Major | scripts | Wesley Chow | Mohammad Arshad |
 | [ZOOKEEPER-2335](https://issues.apache.org/jira/browse/ZOOKEEPER-2335) | Java Compilation Error in ClientCnxn.java |  Major | java client, server | Mohammad Arshad | Mohammad Arshad |
@@ -84,34 +80,34 @@
 | [ZOOKEEPER-2281](https://issues.apache.org/jira/browse/ZOOKEEPER-2281) | ZK Server startup fails if there are spaces in the JAVA\_HOME path |  Minor | scripts | Neha Bathra | Neha Bathra |
 | [ZOOKEEPER-2340](https://issues.apache.org/jira/browse/ZOOKEEPER-2340) | JMX is disabled even if JMXDISABLE is false |  Minor | . | Neha Bathra | Mohammad Arshad |
 | [ZOOKEEPER-2229](https://issues.apache.org/jira/browse/ZOOKEEPER-2229) | Several four-letter words are undocumented. |  Major | documentation | Chris Nauroth | Chris Nauroth |
-| [ZOOKEEPER-2252](https://issues.apache.org/jira/browse/ZOOKEEPER-2252) | Random test case failure in org.apache.zookeeper.test.StaticHostProviderTest |  Minor | . | Mohammad Arshad | Timothy Ward |
-| [ZOOKEEPER-1029](https://issues.apache.org/jira/browse/ZOOKEEPER-1029) | C client bug in zookeeper\_init (if bad hostname is given) |  Blocker | c client | Dheeraj Agrawal | Flavio Junqueira |
+| [ZOOKEEPER-2252](https://issues.apache.org/jira/browse/ZOOKEEPER-2252) | Random test case failure in org.apache.zookeeper.test.StaticHostProviderTest |  Minor | . | Mohammad Arshad | Timothy James Ward |
+| [ZOOKEEPER-1029](https://issues.apache.org/jira/browse/ZOOKEEPER-1029) | C client bug in zookeeper\_init (if bad hostname is given) |  Blocker | c client | Dheeraj Agrawal | Flavio Paiva Junqueira |
 | [ZOOKEEPER-412](https://issues.apache.org/jira/browse/ZOOKEEPER-412) | checkstyle target fails trunk build |  Major | . | Giridharan Kesavan | Akihiro Suda |
-| [ZOOKEEPER-2360](https://issues.apache.org/jira/browse/ZOOKEEPER-2360) | Update commons collections version used by tests/releaseaudit |  Blocker | build | Patrick Hunt | Patrick Hunt |
+| [ZOOKEEPER-2360](https://issues.apache.org/jira/browse/ZOOKEEPER-2360) | Update commons collections version used by tests/releaseaudit |  Blocker | build | Patrick D. Hunt | Patrick D. Hunt |
 | [ZOOKEEPER-2243](https://issues.apache.org/jira/browse/ZOOKEEPER-2243) | Supported platforms is completely out of date |  Major | . | Ivan Kelly | Chris Nauroth |
 | [ZOOKEEPER-2375](https://issues.apache.org/jira/browse/ZOOKEEPER-2375) | Prevent multiple initialization of login object in each ZooKeeperSaslClient instance |  Blocker | java client | yuemeng | yuemeng |
 | [ZOOKEEPER-1991](https://issues.apache.org/jira/browse/ZOOKEEPER-1991) | zkServer.sh returns with a zero exit status when a ZooKeeper process is already running |  Minor | scripts | Reed Wanderman-Milne | Biju Nair |
 | [ZOOKEEPER-2294](https://issues.apache.org/jira/browse/ZOOKEEPER-2294) | Ant target generate-clover-reports is broken |  Major | build | Charlie Helin | Charlie Helin |
-| [ZOOKEEPER-2379](https://issues.apache.org/jira/browse/ZOOKEEPER-2379) | recent commit broke findbugs qabot check |  Blocker | build | Patrick Hunt | Rakesh R |
+| [ZOOKEEPER-2379](https://issues.apache.org/jira/browse/ZOOKEEPER-2379) | recent commit broke findbugs qabot check |  Blocker | build | Patrick D. Hunt | Rakesh Radhakrishnan |
 | [ZOOKEEPER-2133](https://issues.apache.org/jira/browse/ZOOKEEPER-2133) | zkperl: Segmentation fault if getting a node with null value |  Major | contrib-bindings | Botond Hejj | Botond Hejj |
 | [ZOOKEEPER-2283](https://issues.apache.org/jira/browse/ZOOKEEPER-2283) | traceFile property is not used in the ZooKeeper,  it should be removed from documentation |  Major | documentation | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2385](https://issues.apache.org/jira/browse/ZOOKEEPER-2385) | Zookeeper trunk build is failing on windows |  Blocker | build | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2388](https://issues.apache.org/jira/browse/ZOOKEEPER-2388) | Unit tests failing on Solaris |  Blocker | tests | Patrick Hunt | Mohammad Arshad |
+| [ZOOKEEPER-2388](https://issues.apache.org/jira/browse/ZOOKEEPER-2388) | Unit tests failing on Solaris |  Blocker | tests | Patrick D. Hunt | Mohammad Arshad |
 | [ZOOKEEPER-2393](https://issues.apache.org/jira/browse/ZOOKEEPER-2393) | Revert run-time dependency on log4j and slf4j-log4j12 |  Blocker | server | Mohammad Arshad | Mohammad Arshad |
 | [ZOOKEEPER-2195](https://issues.apache.org/jira/browse/ZOOKEEPER-2195) | fsync.warningthresholdms in zoo.cfg not working |  Trivial | quorum | David Fan | Biju Nair |
-| [ZOOKEEPER-2364](https://issues.apache.org/jira/browse/ZOOKEEPER-2364) | "ant docs" fails on branch-3.5 due to missing releasenotes.xml. |  Blocker | build, documentation | Chris Nauroth | Patrick Hunt |
+| [ZOOKEEPER-2364](https://issues.apache.org/jira/browse/ZOOKEEPER-2364) | "ant docs" fails on branch-3.5 due to missing releasenotes.xml. |  Blocker | build, documentation | Chris Nauroth | Patrick D. Hunt |
 | [ZOOKEEPER-2141](https://issues.apache.org/jira/browse/ZOOKEEPER-2141) | ACL cache in DataTree never removes entries |  Blocker | . | Karol Dudzinski | Adam Milne-Smith |
 | [ZOOKEEPER-2413](https://issues.apache.org/jira/browse/ZOOKEEPER-2413) | ContainerManager doesn't close the Timer it creates when stop() is called |  Major | server | Jordan Zimmerman | Jordan Zimmerman |
-| [ZOOKEEPER-2235](https://issues.apache.org/jira/browse/ZOOKEEPER-2235) | License update |  Blocker | . | Flavio Junqueira | Flavio Junqueira |
+| [ZOOKEEPER-2235](https://issues.apache.org/jira/browse/ZOOKEEPER-2235) | License update |  Blocker | . | Flavio Paiva Junqueira | Flavio Paiva Junqueira |
 | [ZOOKEEPER-2330](https://issues.apache.org/jira/browse/ZOOKEEPER-2330) | ZooKeeper close API does not close Login thread. |  Major | java client | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2405](https://issues.apache.org/jira/browse/ZOOKEEPER-2405) | getTGT() in Login.java mishandles confidential information |  Blocker | kerberos, security, server | Patrick Hunt | Michael Han |
+| [ZOOKEEPER-2405](https://issues.apache.org/jira/browse/ZOOKEEPER-2405) | getTGT() in Login.java mishandles confidential information |  Blocker | kerberos, security, server | Patrick D. Hunt | Michael Han |
 | [ZOOKEEPER-2450](https://issues.apache.org/jira/browse/ZOOKEEPER-2450) | Upgrade Netty version due to security vulnerability (CVE-2014-3488) |  Critical | security, server | Michael Han | Michael Han |
 | [ZOOKEEPER-2297](https://issues.apache.org/jira/browse/ZOOKEEPER-2297) | NPE is thrown while creating "key manager" and "trust manager" |  Blocker | server | Anushri | Mohammad Arshad |
 | [ZOOKEEPER-1460](https://issues.apache.org/jira/browse/ZOOKEEPER-1460) | IPv6 literal address not supported for quorum members |  Major | quorum | Chris Dolan | Joseph Walton |
 | [ZOOKEEPER-2380](https://issues.apache.org/jira/browse/ZOOKEEPER-2380) | Deadlock between leader shutdown and forwarding ACK to the leader |  Blocker | server | Mohammad Arshad | Mohammad Arshad |
-| [ZOOKEEPER-2366](https://issues.apache.org/jira/browse/ZOOKEEPER-2366) | Reconfiguration of client port causes a socket leak |  Blocker | quorum | Timothy Ward | Flavio Junqueira |
-| [ZOOKEEPER-2458](https://issues.apache.org/jira/browse/ZOOKEEPER-2458) | Remove license file for servlet-api dependency |  Major | . | Flavio Junqueira | Flavio Junqueira |
-| [ZOOKEEPER-2459](https://issues.apache.org/jira/browse/ZOOKEEPER-2459) | Update NOTICE file with Netty notice |  Blocker | . | Flavio Junqueira | Flavio Junqueira |
+| [ZOOKEEPER-2366](https://issues.apache.org/jira/browse/ZOOKEEPER-2366) | Reconfiguration of client port causes a socket leak |  Blocker | quorum | Timothy James Ward | Flavio Paiva Junqueira |
+| [ZOOKEEPER-2458](https://issues.apache.org/jira/browse/ZOOKEEPER-2458) | Remove license file for servlet-api dependency |  Major | . | Flavio Paiva Junqueira | Flavio Paiva Junqueira |
+| [ZOOKEEPER-2459](https://issues.apache.org/jira/browse/ZOOKEEPER-2459) | Update NOTICE file with Netty notice |  Blocker | . | Flavio Paiva Junqueira | Flavio Paiva Junqueira |
 | [ZOOKEEPER-2323](https://issues.apache.org/jira/browse/ZOOKEEPER-2323) | ZooKeeper client enters into infinite AuthFailedException cycle if its unable to recreate Kerberos ticket |  Major | java client | Mohammad Arshad | Mohammad Arshad |
 
 
@@ -119,8 +115,8 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ZOOKEEPER-1872](https://issues.apache.org/jira/browse/ZOOKEEPER-1872) | QuorumPeer is not shutdown in few cases |  Major | . | Rakesh R | Rakesh R |
-| [ZOOKEEPER-2396](https://issues.apache.org/jira/browse/ZOOKEEPER-2396) | Login object in ZooKeeperSaslClient is static |  Major | documentation | Flavio Junqueira | Flavio Junqueira |
+| [ZOOKEEPER-1872](https://issues.apache.org/jira/browse/ZOOKEEPER-1872) | QuorumPeer is not shutdown in few cases |  Major | . | Rakesh Radhakrishnan | Rakesh Radhakrishnan |
+| [ZOOKEEPER-2396](https://issues.apache.org/jira/browse/ZOOKEEPER-2396) | Login object in ZooKeeperSaslClient is static |  Major | documentation | Flavio Paiva Junqueira | Flavio Paiva Junqueira |
 | [ZOOKEEPER-2137](https://issues.apache.org/jira/browse/ZOOKEEPER-2137) | Make testPortChange() less flaky |  Major | tests | Hongchao Deng | Michael Han |
 
 
@@ -128,6 +124,6 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ZOOKEEPER-1604](https://issues.apache.org/jira/browse/ZOOKEEPER-1604) | remove rpm/deb/... packaging |  Major | build | Patrick Hunt | Chris Nauroth |
+| [ZOOKEEPER-1604](https://issues.apache.org/jira/browse/ZOOKEEPER-1604) | remove rpm/deb/... packaging |  Major | build | Patrick D. Hunt | Chris Nauroth |
 
 

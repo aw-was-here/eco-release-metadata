@@ -19,9 +19,33 @@
 * Apache Zookeeper v4.0.0
     * [Changelog](4.0.0/CHANGELOG.4.0.0.html)
     * [Release Notes](4.0.0/RELEASENOTES.4.0.0.html)
+* Apache Zookeeper v3.7.0
+    * [Changelog](3.7.0/CHANGELOG.3.7.0.html)
+    * [Release Notes](3.7.0/RELEASENOTES.3.7.0.html)
+* Apache Zookeeper v3.6.3
+    * [Changelog](3.6.3/CHANGELOG.3.6.3.html)
+    * [Release Notes](3.6.3/RELEASENOTES.3.6.3.html)
+* Apache Zookeeper v3.6.2
+    * [Changelog](3.6.2/CHANGELOG.3.6.2.html)
+    * [Release Notes](3.6.2/RELEASENOTES.3.6.2.html)
+* Apache Zookeeper v3.6.1
+    * [Changelog](3.6.1/CHANGELOG.3.6.1.html)
+    * [Release Notes](3.6.1/RELEASENOTES.3.6.1.html)
 * Apache Zookeeper v3.6.0
     * [Changelog](3.6.0/CHANGELOG.3.6.0.html)
     * [Release Notes](3.6.0/RELEASENOTES.3.6.0.html)
+* Apache Zookeeper v3.5.9
+    * [Changelog](3.5.9/CHANGELOG.3.5.9.html)
+    * [Release Notes](3.5.9/RELEASENOTES.3.5.9.html)
+* Apache Zookeeper v3.5.8
+    * [Changelog](3.5.8/CHANGELOG.3.5.8.html)
+    * [Release Notes](3.5.8/RELEASENOTES.3.5.8.html)
+* Apache Zookeeper v3.5.7
+    * [Changelog](3.5.7/CHANGELOG.3.5.7.html)
+    * [Release Notes](3.5.7/RELEASENOTES.3.5.7.html)
+* Apache Zookeeper v3.5.6
+    * [Changelog](3.5.6/CHANGELOG.3.5.6.html)
+    * [Release Notes](3.5.6/RELEASENOTES.3.5.6.html)
 * Apache Zookeeper v3.5.5
     * [Changelog](3.5.5/CHANGELOG.3.5.5.html)
     * [Release Notes](3.5.5/RELEASENOTES.3.5.5.html)
@@ -40,6 +64,9 @@
 * Apache Zookeeper v3.5.0
     * [Changelog](3.5.0/CHANGELOG.3.5.0.html)
     * [Release Notes](3.5.0/RELEASENOTES.3.5.0.html)
+* Apache Zookeeper v3.4.15
+    * [Changelog](3.4.15/CHANGELOG.3.4.15.html)
+    * [Release Notes](3.4.15/RELEASENOTES.3.4.15.html)
 * Apache Zookeeper v3.4.14
     * [Changelog](3.4.14/CHANGELOG.3.4.14.html)
     * [Release Notes](3.4.14/RELEASENOTES.3.4.14.html)

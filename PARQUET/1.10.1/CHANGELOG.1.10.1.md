@@ -18,7 +18,7 @@
 -->
 # Apache Parquet Changelog
 
-## Release 1.10.1 - Unreleased (as of 2018-09-12)
+## Release 1.10.1 - 2019-02-01
 
 
 
@@ -26,7 +26,13 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PARQUET-1309](https://issues.apache.org/jira/browse/PARQUET-1309) | Parquet Java uses incorrect stats and dictionary filter properties |  Major | parquet-mr | Ryan Blue | Gabor Szadovszky |
-| [PARQUET-1341](https://issues.apache.org/jira/browse/PARQUET-1341) | Null count is suppressed when columns have no min or max and use unsigned sort order |  Major | parquet-mr | Ryan Blue | Ryan Blue |
+| [PARQUET-1510](https://issues.apache.org/jira/browse/PARQUET-1510) | Dictionary filter skips null values when evaluating not-equals. |  Blocker | parquet-mr | Ryan Blue | Ryan Blue |
+
+
+### OTHER:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [PARQUET-1512](https://issues.apache.org/jira/browse/PARQUET-1512) | Release Parquet Java 1.10.1 |  Major | parquet-mr | Ryan Blue | Ryan Blue |
 
 

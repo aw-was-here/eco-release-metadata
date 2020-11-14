@@ -22,6 +22,13 @@
 
 
 
+### BUG FIXES:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HADOOP-16087](https://issues.apache.org/jira/browse/HADOOP-16087) | Backport HADOOP-15549 to branch-3.0 |  Major | metrics | Yuming Wang | Todd Lipcon |
+
+
 ### OTHER:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |

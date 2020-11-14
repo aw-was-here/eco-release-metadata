@@ -44,30 +44,9 @@ Added UDF to allow interrogation of uniontype values.
 
 ---
 
-* [HIVE-15173](https://issues.apache.org/jira/browse/HIVE-15173) | *Major* | **Allow dec as an alias for decimal**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HIVE-16049](https://issues.apache.org/jira/browse/HIVE-16049) | *Major* | **upgrade to jetty 9**
 
 Embedded web services now rely on Jetty 9; downstream users who rely on Hive's classpath for their Jetty jars will need to update their use for the change.
-
-
----
-
-* [HIVE-16392](https://issues.apache.org/jira/browse/HIVE-16392) | *Major* | **Remove hive.warehouse.subdir.inherit.perms and all permissions inheritance logic**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-16383](https://issues.apache.org/jira/browse/HIVE-16383) | *Major* | **Switch to HikariCP as default connection pooling**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -125,34 +104,6 @@ Document the new configuration.
 
 ---
 
-* [HIVE-17050](https://issues.apache.org/jira/browse/HIVE-17050) | *Major* | **Multiline queries that have comment in middle fail when executed via "beeline -e"**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17234](https://issues.apache.org/jira/browse/HIVE-17234) | *Major* | **Remove HBase metastore from master**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17241](https://issues.apache.org/jira/browse/HIVE-17241) | *Major* | **Change metastore classes to not use the shims**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17307](https://issues.apache.org/jira/browse/HIVE-17307) | *Major* | **Change the metastore to not use the metrics code in hive/common**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HIVE-17429](https://issues.apache.org/jira/browse/HIVE-17429) | *Major* | **Hive JDBC doesn't return rows when querying Impala**
 
 Check for resultSet returned by TExecuteRequest in Hive JDBC.  This preserves compatibility when fetching data from Impala.
@@ -185,44 +136,9 @@ This will prevent use of WebHCat UI in frames. A new configuration 'templeton.fr
 
 ---
 
-* [HIVE-17519](https://issues.apache.org/jira/browse/HIVE-17519) | *Major* | **Transpose column stats display**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17540](https://issues.apache.org/jira/browse/HIVE-17540) | *Major* | **remove feature: describe pretty**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17652](https://issues.apache.org/jira/browse/HIVE-17652) | *Major* | **retire ANALYZE TABLE ... PARTIALSCAN**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-17812](https://issues.apache.org/jira/browse/HIVE-17812) | *Major* | **Move remaining classes that HiveMetaStore depends on**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HIVE-15016](https://issues.apache.org/jira/browse/HIVE-15016) | *Major* | **Run tests with Hadoop 3.0.0-beta1**
 
 With this change, Hive is pointing to Hadoop 3.0.0-beta1 and HBase 2.0.0-alpha3.
-
-
----
-
-* [HIVE-6590](https://issues.apache.org/jira/browse/HIVE-6590) | *Major* | **Hive does not work properly with boolean partition columns (wrong results and inserts to incorrect HDFS path)**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -325,6 +241,13 @@ n/a
 * [HIVE-18380](https://issues.apache.org/jira/browse/HIVE-18380) | *Minor* | **ALTER TABLE CONCATENATE is not supported on Micro-managed table**
 
 n/a
+
+
+---
+
+* [HIVE-12451](https://issues.apache.org/jira/browse/HIVE-12451) | *Major* | **Orc fast file merging/concatenation should be disabled for ACID tables**
+
+Concatenate is now supported on Acid tables
 
 
 

@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Sentry v2.3.0
+    * [Changelog](2.3.0/CHANGELOG.2.3.0.html)
+    * [Release Notes](2.3.0/RELEASENOTES.2.3.0.html)
+* Apache Sentry v2.2.0
+    * [Changelog](2.2.0/CHANGELOG.2.2.0.html)
+    * [Release Notes](2.2.0/RELEASENOTES.2.2.0.html)
 * Apache Sentry v2.1.0
     * [Changelog](2.1.0/CHANGELOG.2.1.0.html)
     * [Release Notes](2.1.0/RELEASENOTES.2.1.0.html)

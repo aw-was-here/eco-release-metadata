@@ -22,6 +22,18 @@
 * Apache Hive v2.4.0
     * [Changelog](2.4.0/CHANGELOG.2.4.0.md)
     * [Release Notes](2.4.0/RELEASENOTES.2.4.0.md)
+* Apache Hive v2.3.7
+    * [Changelog](2.3.7/CHANGELOG.2.3.7.md)
+    * [Release Notes](2.3.7/RELEASENOTES.2.3.7.md)
+* Apache Hive v2.3.6
+    * [Changelog](2.3.6/CHANGELOG.2.3.6.md)
+    * [Release Notes](2.3.6/RELEASENOTES.2.3.6.md)
+* Apache Hive v2.3.5
+    * [Changelog](2.3.5/CHANGELOG.2.3.5.md)
+    * [Release Notes](2.3.5/RELEASENOTES.2.3.5.md)
+* Apache Hive v2.3.4
+    * [Changelog](2.3.4/CHANGELOG.2.3.4.md)
+    * [Release Notes](2.3.4/RELEASENOTES.2.3.4.md)
 * Apache Hive v2.3.3
     * [Changelog](2.3.3/CHANGELOG.2.3.3.md)
     * [Release Notes](2.3.3/RELEASENOTES.2.3.3.md)

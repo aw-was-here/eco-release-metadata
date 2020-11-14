@@ -94,13 +94,6 @@ The fix for this issue solves the memory leak spotted in the absence of errors. 
 
 ---
 
-* [ZOOKEEPER-1459](https://issues.apache.org/jira/browse/ZOOKEEPER-1459) | *Major* | **Standalone ZooKeeperServer is not closing the transaction log files on shutdown**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [ZOOKEEPER-1811](https://issues.apache.org/jira/browse/ZOOKEEPER-1811) | *Major* | **The ZooKeeperSaslClient service name principal is hardcoded to "zookeeper"**
 
 Adds a new system property "zookeeper.sasl.client.username" that can be used to configure the ZK Kerberos (SASL) client user principal name to something other than "zookeeper" (default) for any environments that use non-standard naming for its principals.

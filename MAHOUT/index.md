@@ -19,6 +19,9 @@
 * Apache Mahout v1.0.0
     * [Changelog](1.0.0/CHANGELOG.1.0.0.html)
     * [Release Notes](1.0.0/RELEASENOTES.1.0.0.html)
+* Apache Mahout v0.14.1
+    * [Changelog](0.14.1/CHANGELOG.0.14.1.html)
+    * [Release Notes](0.14.1/RELEASENOTES.0.14.1.html)
 * Apache Mahout v0.14.0
     * [Changelog](0.14.0/CHANGELOG.0.14.0.html)
     * [Release Notes](0.14.0/RELEASENOTES.0.14.0.html)

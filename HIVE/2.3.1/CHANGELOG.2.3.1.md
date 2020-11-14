@@ -27,6 +27,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [HIVE-17048](https://issues.apache.org/jira/browse/HIVE-17048) | Pass HiveOperation info to HiveSemanticAnalyzerHook through HiveSemanticAnalyzerHookContext |  Major | Hooks | Aihua Xu | Aihua Xu |
+| [HIVE-21174](https://issues.apache.org/jira/browse/HIVE-21174) | hive.stats.ndv.error parameter documentation issue |  Major | Documentation | Pablo Junge | Pablo Junge |
 
 
 ### BUG FIXES:

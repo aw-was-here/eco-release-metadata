@@ -59,15 +59,15 @@
 | [RANGER-2029](https://issues.apache.org/jira/browse/RANGER-2029) | Ranger Kafka default policy creation improvement. |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-2056](https://issues.apache.org/jira/browse/RANGER-2056) | Good coding practices for KMS and unixauth |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-2058](https://issues.apache.org/jira/browse/RANGER-2058) | Add SSL enabled Postgres support in Ranger Admin |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
-| [RANGER-2059](https://issues.apache.org/jira/browse/RANGER-2059) | Write unit tests for export/import functionality |  Major | Ranger | bhavik patel | bhavik patel |
-| [RANGER-2043](https://issues.apache.org/jira/browse/RANGER-2043) | Ranger KMS KeyProvider and HSM KeyProvider should have more debug logs |  Major | Ranger | Pradeep Agrawal | bhavik patel |
+| [RANGER-2059](https://issues.apache.org/jira/browse/RANGER-2059) | Write unit tests for export/import functionality |  Major | Ranger | Bhavik Patel | Bhavik Patel |
+| [RANGER-2043](https://issues.apache.org/jira/browse/RANGER-2043) | Ranger KMS KeyProvider and HSM KeyProvider should have more debug logs |  Major | Ranger | Pradeep Agrawal | Bhavik Patel |
 | [RANGER-2064](https://issues.apache.org/jira/browse/RANGER-2064) | Ranger Usersync should use cookie based authentication for subsequent requests to Ranger admin |  Major | Ranger, usersync | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-2072](https://issues.apache.org/jira/browse/RANGER-2072) | Update HBase to 1.3.2 |  Major | plugins | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [RANGER-1889](https://issues.apache.org/jira/browse/RANGER-1889) | List Users belonging to Group in Group tab |  Major | admin | Hari Sekhon | Nitin Galave |
 | [RANGER-2115](https://issues.apache.org/jira/browse/RANGER-2115) | Atlas service def creation failing during Ranger installation |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
-| [RANGER-2095](https://issues.apache.org/jira/browse/RANGER-2095) | Add unit tests for new read only admin-auditor/kms-auditor roles functionality |  Critical | Ranger | bhavik patel | bhavik patel |
+| [RANGER-2095](https://issues.apache.org/jira/browse/RANGER-2095) | Add unit tests for new read only admin-auditor/kms-auditor roles functionality |  Critical | Ranger | Bhavik Patel | Bhavik Patel |
 | [RANGER-2143](https://issues.apache.org/jira/browse/RANGER-2143) | Update Ranger authorizer for Atlas for new method added in authorization interface (ATLAS-2765) |  Major | plugins | Madhan Neethiraj | Madhan Neethiraj |
-| [RANGER-2132](https://issues.apache.org/jira/browse/RANGER-2132) | Add unit tests for org.apache.ranger.common package |  Critical | Ranger | bhavik patel | bhavik patel |
+| [RANGER-2132](https://issues.apache.org/jira/browse/RANGER-2132) | Add unit tests for org.apache.ranger.common package |  Critical | Ranger | Bhavik Patel | Bhavik Patel |
 
 
 ### BUG FIXES:
@@ -150,17 +150,18 @@
 | [RANGER-2124](https://issues.apache.org/jira/browse/RANGER-2124) | Incorrect value in usersync audit logs for total number of groups synced |  Major | Ranger, usersync | suja s | Sailaja Polavarapu |
 | [RANGER-2133](https://issues.apache.org/jira/browse/RANGER-2133) | Good coding practices for REST classes and unit tests |  Major | Ranger | Nikhil Purbhe | Nikhil Purbhe |
 | [RANGER-2131](https://issues.apache.org/jira/browse/RANGER-2131) | Ranger UserSync port (ie 5151) supports TLSv1.0 |  Major | usersync | t oo | Nikhil Purbhe |
-| [RANGER-2137](https://issues.apache.org/jira/browse/RANGER-2137) | Service Creation Failure, if user is not present in ranger database |  Major | Ranger | bhavik patel | bhavik patel |
+| [RANGER-2137](https://issues.apache.org/jira/browse/RANGER-2137) | Service Creation Failure, if user is not present in ranger database |  Major | Ranger | Bhavik Patel | Bhavik Patel |
 | [RANGER-2134](https://issues.apache.org/jira/browse/RANGER-2134) | Ranger Storm Plugin fails to download policies with Storm autocreds in classpath |  Major | Ranger | Ramesh Mani | Ramesh Mani |
 | [RANGER-2145](https://issues.apache.org/jira/browse/RANGER-2145) | Update service-def for Atlas to remove access-type entity-read-classification |  Major | plugins | Madhan Neethiraj | Madhan Neethiraj |
 | [RANGER-2146](https://issues.apache.org/jira/browse/RANGER-2146) | Tag attribute type needs to be initialized to a non-empty string |  Major | tagsync | Abhay Kulkarni | Abhay Kulkarni |
-| [RANGER-2141](https://issues.apache.org/jira/browse/RANGER-2141) | Add PatchForKafkaServiceDefUpdate\_J10015.java in consolidated DB schema |  Major | Ranger | Mehul Parikh | bhavik patel |
+| [RANGER-2141](https://issues.apache.org/jira/browse/RANGER-2141) | Add PatchForKafkaServiceDefUpdate\_J10015.java in consolidated DB schema |  Major | Ranger | Mehul Parikh | Bhavik Patel |
 | [RANGER-2100](https://issues.apache.org/jira/browse/RANGER-2100) | REST API to get count of total services, policies, users, groups and various mapping |  Major | Ranger | Pradeep Agrawal | Fatima Amjad Khan |
 | [RANGER-2123](https://issues.apache.org/jira/browse/RANGER-2123) | Different error msg on backend/frontend login validation |  Trivial | admin | Daniel Voros |  |
 | [RANGER-2138](https://issues.apache.org/jira/browse/RANGER-2138) | Add unit tests for org.apache.ranger.service package |  Major | Ranger | Fatima Amjad Khan | Fatima Amjad Khan |
-| [RANGER-2121](https://issues.apache.org/jira/browse/RANGER-2121) | Ranger build using Docker is broken |  Major | build-infra | Don Bosco Durai | Don Bosco Durai |
-| [RANGER-2017](https://issues.apache.org/jira/browse/RANGER-2017) | Ranger KMS encryption good practices |  Critical | Ranger | Selvamohan Neethiraj | bhavik patel |
-| [RANGER-2197](https://issues.apache.org/jira/browse/RANGER-2197) | Delegate Admin is not able to create policy |  Major | Ranger | Abhay Kulkarni | Abhay Kulkarni |
+| [RANGER-2121](https://issues.apache.org/jira/browse/RANGER-2121) | Ranger build using Docker is broken |  Major | build-infra | Bosco | Bosco |
+| [RANGER-2017](https://issues.apache.org/jira/browse/RANGER-2017) | Ranger KMS encryption good practices |  Critical | Ranger | Selvamohan Neethiraj | Bhavik Patel |
+| [RANGER-2217](https://issues.apache.org/jira/browse/RANGER-2217) | Ranger upgrade from 0.7.1 to 1.1.0 |  Blocker | admin | Sushruth Bharath HG |  |
+| [RANGER-2270](https://issues.apache.org/jira/browse/RANGER-2270) | Restrict tag module access to unprivileged users |  Major | Ranger | Pradeep Agrawal | Pradeep Agrawal |
 
 
 ### TESTS:

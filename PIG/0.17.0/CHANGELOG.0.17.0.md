@@ -20,15 +20,6 @@
 
 ## Release 0.17.0 - 2017-06-21
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-5067](https://issues.apache.org/jira/browse/PIG-5067) | Revisit union on numeric type and chararray to bytearray |  Major | . | Koji Noguchi | Koji Noguchi |
-| [PIG-4923](https://issues.apache.org/jira/browse/PIG-4923) | Drop Hadoop 1.x support in Pig 0.17 |  Major | . | Daniel Dai | Adam Szita |
-| [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | Scope of param substitution for run/exec commands |  Major | . | Koji Noguchi | Koji Noguchi |
-| [PIG-4728](https://issues.apache.org/jira/browse/PIG-4728) | Compilation against hbase 1.x fails with hbase-hadoop1-compat not found |  Major | . | Ted Yu | Adam Szita |
-| [PIG-5085](https://issues.apache.org/jira/browse/PIG-5085) | Support FLATTEN of maps |  Major | . | Rohini Palaniswamy | Adam Szita |
 
 
 ### NEW FEATURES:
@@ -37,7 +28,8 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [PIG-4925](https://issues.apache.org/jira/browse/PIG-4925) | Support for passing the bloom filter to the Bloom UDF |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-4963](https://issues.apache.org/jira/browse/PIG-4963) | Add a Bloom join |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-5110](https://issues.apache.org/jira/browse/PIG-5110) | Removing schema alias and :: coming from parent relation |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5085](https://issues.apache.org/jira/browse/PIG-5085) | Support FLATTEN of maps |  Major | . | Rohini Palaniswamy | Ádám Szita |
+| [PIG-5110](https://issues.apache.org/jira/browse/PIG-5110) | Removing schema alias and :: coming from parent relation |  Major | . | Ádám Szita | Ádám Szita |
 | [PIG-5214](https://issues.apache.org/jira/browse/PIG-5214) | search any substring in the input string |  Major | internal-udfs | Yuxiang Wang | Yuxiang Wang |
 | [PIG-4059](https://issues.apache.org/jira/browse/PIG-4059) | Pig on Spark |  Major | spark | Rohini Palaniswamy | Praveen Rachabattuni |
 
@@ -51,20 +43,22 @@
 | [PIG-2768](https://issues.apache.org/jira/browse/PIG-2768) | Fix org.apache.hadoop.conf.Configuration deprecation warnings for Hadoop 23 |  Major | . | Fabian Alenius | Rohini Palaniswamy |
 | [PIG-4906](https://issues.apache.org/jira/browse/PIG-4906) | Add Bigdecimal functions in Over function |  Minor | piggybank | Cristian Galán | Cristian Galán |
 | [PIG-4911](https://issues.apache.org/jira/browse/PIG-4911) | Provide option to disable DAG recovery |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-4852](https://issues.apache.org/jira/browse/PIG-4852) | Add accumulator implementation for MaxTupleBy1stField |  Minor | . | Eyal Allweil | Adam Szita |
+| [PIG-4852](https://issues.apache.org/jira/browse/PIG-4852) | Add accumulator implementation for MaxTupleBy1stField |  Minor | . | Eyal Allweil | Ádám Szita |
 | [PIG-4931](https://issues.apache.org/jira/browse/PIG-4931) | Document IN operator |  Major | . | Rohini Palaniswamy | Artem Ervits |
 | [PIG-5023](https://issues.apache.org/jira/browse/PIG-5023) | Documentation for BagToTuple |  Major | documentation | Ian Cook | Ian Cook |
 | [PIG-5027](https://issues.apache.org/jira/browse/PIG-5027) | Improve SAMPLE Scalar Expression Example |  Minor | documentation | Ian Cook | Ian Cook |
 | [PIG-5020](https://issues.apache.org/jira/browse/PIG-5020) | Give file location for loadcaster related warning and errors |  Minor | . | Koji Noguchi | Koji Noguchi |
-| [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Adam Szita |
-| [PIG-5026](https://issues.apache.org/jira/browse/PIG-5026) | Remove src/META-INF/services/org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider |  Minor | . | Nandor Kollar | Nandor Kollar |
+| [PIG-4951](https://issues.apache.org/jira/browse/PIG-4951) | Rename PIG\_ATS\_ENABLED constant |  Major | . | Daniel Dai | Ádám Szita |
+| [PIG-5026](https://issues.apache.org/jira/browse/PIG-5026) | Remove src/META-INF/services/org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider |  Minor | . | Nándor Kollár | Nándor Kollár |
 | [PIG-5037](https://issues.apache.org/jira/browse/PIG-5037) | Add api getDisplayString to PigStats |  Major | . | Jeff Zhang | Jeff Zhang |
-| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can't change HDFS user home in e2e tests using Ant |  Minor | . | Nandor Kollar | Nandor Kollar |
+| [PIG-5053](https://issues.apache.org/jira/browse/PIG-5053) | Can't change HDFS user home in e2e tests using Ant |  Minor | . | Nándor Kollár | Nándor Kollár |
 | [PIG-5036](https://issues.apache.org/jira/browse/PIG-5036) | Remove biggish from e2e input dataset |  Major | e2e harness | Daniel Dai | Daniel Dai |
-| [PIG-5034](https://issues.apache.org/jira/browse/PIG-5034) | Remove org.apache.hadoop.hive.serde2.objectinspector.primitive package |  Minor | . | Nandor Kollar | Nandor Kollar |
-| [PIG-4939](https://issues.apache.org/jira/browse/PIG-4939) | QueryParserUtils.setHdfsServers(QueryParserUtils.java:104) should not be called for non-dfs methods |  Minor | impl | Siddhi Mehta | Adam Szita |
-| [PIG-5025](https://issues.apache.org/jira/browse/PIG-5025) | Fix flaky test failures in TestLoad.java |  Minor | . | Adam Szita | Adam Szita |
-| [PIG-4901](https://issues.apache.org/jira/browse/PIG-4901) | To use Multistorage for each Group |  Minor | piggybank | Divya | Adam Szita |
+| [PIG-5034](https://issues.apache.org/jira/browse/PIG-5034) | Remove org.apache.hadoop.hive.serde2.objectinspector.primitive package |  Minor | . | Nándor Kollár | Nándor Kollár |
+| [PIG-4939](https://issues.apache.org/jira/browse/PIG-4939) | QueryParserUtils.setHdfsServers(QueryParserUtils.java:104) should not be called for non-dfs methods |  Minor | impl | Siddhi Mehta | Ádám Szita |
+| [PIG-5025](https://issues.apache.org/jira/browse/PIG-5025) | Fix flaky test failures in TestLoad.java |  Minor | . | Ádám Szita | Ádám Szita |
+| [PIG-4901](https://issues.apache.org/jira/browse/PIG-4901) | To use Multistorage for each Group |  Minor | piggybank | Divya | Ádám Szita |
+| [PIG-4923](https://issues.apache.org/jira/browse/PIG-4923) | Drop Hadoop 1.x support in Pig 0.17 |  Major | . | Daniel Dai | Ádám Szita |
+| [PIG-4728](https://issues.apache.org/jira/browse/PIG-4728) | Compilation against hbase 1.x fails with hbase-hadoop1-compat not found |  Major | . | Ted Yu | Ádám Szita |
 | [PIG-3938](https://issues.apache.org/jira/browse/PIG-3938) | Add LoadCaster to EvalFunc(UDF) |  Major | internal-udfs | Hongchang Li | Koji Noguchi |
 | [PIG-3851](https://issues.apache.org/jira/browse/PIG-3851) | Upgrade jline to 2.11 |  Major | . | Jun Wang | Daniel Dai |
 | [PIG-5120](https://issues.apache.org/jira/browse/PIG-5120) | Let tez\_local mode run without a jar file |  Trivial | . | Koji Noguchi | Koji Noguchi |
@@ -77,7 +71,7 @@
 | [PIG-5224](https://issues.apache.org/jira/browse/PIG-5224) | Extra foreach from ColumnPrune preventing Accumulator usage |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4924](https://issues.apache.org/jira/browse/PIG-4924) | Translate failures.maxpercent MR setting to Tez |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5184](https://issues.apache.org/jira/browse/PIG-5184) | set command to view value of a variable |  Major | parser | Daniel Dai | Daniel Dai |
-| [PIG-5248](https://issues.apache.org/jira/browse/PIG-5248) | Fix TestCombiner#testGroupByLimit after PigOnSpark merge |  Major | . | Adam Szita | Rohini Palaniswamy |
+| [PIG-5248](https://issues.apache.org/jira/browse/PIG-5248) | Fix TestCombiner#testGroupByLimit after PigOnSpark merge |  Major | . | Ádám Szita | Rohini Palaniswamy |
 
 
 ### BUG FIXES:
@@ -93,7 +87,7 @@
 | [PIG-2315](https://issues.apache.org/jira/browse/PIG-2315) | Make as clause work in generate |  Major | . | Olga Natkovich | Daniel Dai |
 | [PIG-4896](https://issues.apache.org/jira/browse/PIG-4896) | Param substitution ignored when redefined |  Minor | parser | Koji Noguchi | Koji Noguchi |
 | [PIG-4949](https://issues.apache.org/jira/browse/PIG-4949) | Fix registering jar in S3 which was broken by PIG-4417 in Pig 0.16 |  Major | parser | Yishan Yang | Yishan Yang |
-| [PIG-4938](https://issues.apache.org/jira/browse/PIG-4938) | [PiggyBank] XPath returns empty values when using aggregation method |  Minor | piggybank | Ivo Lenting | Nandor Kollar |
+| [PIG-4938](https://issues.apache.org/jira/browse/PIG-4938) | [PiggyBank] XPath returns empty values when using aggregation method |  Minor | piggybank | Ivo Lenting | Nándor Kollár |
 | [PIG-4945](https://issues.apache.org/jira/browse/PIG-4945) | Update document for conflicting macro params |  Trivial | documentation | Koji Noguchi | Koji Noguchi |
 | [PIG-4950](https://issues.apache.org/jira/browse/PIG-4950) | Fix minor issues with running scripts in non-local FileSystems |  Minor | . | Peter Slawski | Peter Slawski |
 | [PIG-4940](https://issues.apache.org/jira/browse/PIG-4940) | Predicate push-down filtering unary expressions can be pushed. |  Major | . | Ryan Blue | Ryan Blue |
@@ -107,7 +101,7 @@
 | [PIG-4965](https://issues.apache.org/jira/browse/PIG-4965) | Refactor test/perf/pigmix/bin/runpigmix.pl to delete the output of single test case if we enable cleanup\_after\_test |  Major | . | liyunzhang | liyunzhang |
 | [PIG-4933](https://issues.apache.org/jira/browse/PIG-4933) | TestDataBagAccess.testBagConstantFlatten1/TestLogicalPlanBuilder.testQuery90  broken after PIG-2315 |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-4972](https://issues.apache.org/jira/browse/PIG-4972) | StreamingIO\_1 fail on perl 5.22 |  Major | e2e harness | Daniel Dai | Daniel Dai |
-| [PIG-4973](https://issues.apache.org/jira/browse/PIG-4973) | Bigdecimal divison fails |  Major | impl | Adam Szita | Adam Szita |
+| [PIG-4973](https://issues.apache.org/jira/browse/PIG-4973) | Bigdecimal divison fails |  Major | impl | Ádám Szita | Ádám Szita |
 | [PIG-4975](https://issues.apache.org/jira/browse/PIG-4975) | Map schema shows "Type: null Uid: null" in explain |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5022](https://issues.apache.org/jira/browse/PIG-5022) | Error in TOKENIZE Example |  Major | documentation | Ian Cook | Ian Cook |
 | [PIG-5019](https://issues.apache.org/jira/browse/PIG-5019) | Pig generates tons of warnings for udf with enabled warnings aggregation |  Major | internal-udfs | Murshid Chalaev | Murshid Chalaev |
@@ -115,23 +109,25 @@
 | [PIG-5032](https://issues.apache.org/jira/browse/PIG-5032) | Output record stats in Tez is wrong when there is split followed by union |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5035](https://issues.apache.org/jira/browse/PIG-5035) | killJob API does not work in Tez |  Major | . | Jeff Zhang | Jeff Zhang |
 | [PIG-4976](https://issues.apache.org/jira/browse/PIG-4976) | streaming job with store clause stuck if the script fail |  Major | impl | Daniel Dai | Daniel Dai |
-| [PIG-3087](https://issues.apache.org/jira/browse/PIG-3087) | Refactor TestLogicalPlanBuilder to be meaningful |  Major | . | Jonathan Coveney | Adam Szita |
-| [PIG-5039](https://issues.apache.org/jira/browse/PIG-5039) | TestTypeCheckingValidatorNewLP.TestTypeCheckingValidatorNewLP is failing |  Minor | . | Nandor Kollar | Nandor Kollar |
+| [PIG-3087](https://issues.apache.org/jira/browse/PIG-3087) | Refactor TestLogicalPlanBuilder to be meaningful |  Major | . | Jonathan Coveney | Ádám Szita |
+| [PIG-5039](https://issues.apache.org/jira/browse/PIG-5039) | TestTypeCheckingValidatorNewLP.TestTypeCheckingValidatorNewLP is failing |  Minor | . | Nándor Kollár | Nándor Kollár |
 | [PIG-5038](https://issues.apache.org/jira/browse/PIG-5038) | Pig Limit\_2 e2e test failed with sort check |  Major | . | Konstantin Harasov | Konstantin Harasov |
 | [PIG-5040](https://issues.apache.org/jira/browse/PIG-5040) | Order by and CROSS partitioning is not deterministic due to usage of Random |  Critical | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5041](https://issues.apache.org/jira/browse/PIG-5041) | RoundRobinPartitioner is not deterministic when order of input records change |  Critical | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-5045](https://issues.apache.org/jira/browse/PIG-5045) | CSVExcelStorage Load: A Quoted Field with a Single Escaped Quote """" Becomes "" This should become " instead. |  Minor | piggybank | Shawn Weeks | Adam Szita |
-| [PIG-4798](https://issues.apache.org/jira/browse/PIG-4798) | big integer and big decimal literals fail to parse |  Major | . | Savvas Savvides | Adam Szita |
-| [PIG-4934](https://issues.apache.org/jira/browse/PIG-4934) | SET command does not work well with deprecated settings |  Major | . | Rohini Palaniswamy | Adam Szita |
+| [PIG-5045](https://issues.apache.org/jira/browse/PIG-5045) | CSVExcelStorage Load: A Quoted Field with a Single Escaped Quote """" Becomes "" This should become " instead. |  Minor | piggybank | Shawn Weeks | Ádám Szita |
+| [PIG-4798](https://issues.apache.org/jira/browse/PIG-4798) | big integer and big decimal literals fail to parse |  Major | . | Savvas Savvides | Ádám Szita |
+| [PIG-4934](https://issues.apache.org/jira/browse/PIG-4934) | SET command does not work well with deprecated settings |  Major | . | Rohini Palaniswamy | Ádám Szita |
 | [PIG-5033](https://issues.apache.org/jira/browse/PIG-5033) | MultiQueryOptimizerTez creates bad plan with union, split and FRJoin |  Major | tez | Travis Woodruff | Rohini Palaniswamy |
 | [PIG-5049](https://issues.apache.org/jira/browse/PIG-5049) | Cleanup e2e tests turing\_jython.conf |  Major | e2e harness | Daniel Dai | Daniel Dai |
-| [PIG-5048](https://issues.apache.org/jira/browse/PIG-5048) | HiveUDTF fail if it is the first expression in projection |  Major | impl | Daniel Dai | Nandor Kollar |
+| [PIG-5048](https://issues.apache.org/jira/browse/PIG-5048) | HiveUDTF fail if it is the first expression in projection |  Major | impl | Daniel Dai | Nándor Kollár |
 | [PIG-5055](https://issues.apache.org/jira/browse/PIG-5055) | Infinite loop with join by fixed index |  Major | . | Koji Noguchi | Koji Noguchi |
-| [PIG-5056](https://issues.apache.org/jira/browse/PIG-5056) | Fix AvroStorage writing enums |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5056](https://issues.apache.org/jira/browse/PIG-5056) | Fix AvroStorage writing enums |  Major | . | Ádám Szita | Ádám Szita |
 | [PIG-5064](https://issues.apache.org/jira/browse/PIG-5064) | NPE in TestScriptUDF#testPythonBuiltinModuleImport1 when JAVA\_HOME is not set |  Minor | . | Xiang Li | Xiang Li |
-| [PIG-5074](https://issues.apache.org/jira/browse/PIG-5074) | Build broken when hadoopversion=20 in branch 0.16 |  Major | build | Adam Szita | Adam Szita |
-| [PIG-3417](https://issues.apache.org/jira/browse/PIG-3417) | Job fails when skewed join is done on tuple key |  Critical | impl | Nick White | Nandor Kollar |
-| [PIG-4930](https://issues.apache.org/jira/browse/PIG-4930) | Skewed Join Breaks On Empty Sampled Input When Key is From Map |  Major | . | William Butler | Nandor Kollar |
+| [PIG-5067](https://issues.apache.org/jira/browse/PIG-5067) | Revisit union on numeric type and chararray to bytearray |  Major | . | Koji Noguchi | Koji Noguchi |
+| [PIG-5074](https://issues.apache.org/jira/browse/PIG-5074) | Build broken when hadoopversion=20 in branch 0.16 |  Major | build | Ádám Szita | Ádám Szita |
+| [PIG-3417](https://issues.apache.org/jira/browse/PIG-3417) | Job fails when skewed join is done on tuple key |  Critical | impl | Nick White | Nándor Kollár |
+| [PIG-4930](https://issues.apache.org/jira/browse/PIG-4930) | Skewed Join Breaks On Empty Sampled Input When Key is From Map |  Major | . | William Butler | Nándor Kollár |
+| [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | Scope of param substitution for run/exec commands |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5043](https://issues.apache.org/jira/browse/PIG-5043) | Slowstart not applied in Tez with PARALLEL clause |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5088](https://issues.apache.org/jira/browse/PIG-5088) | HashValuePartitioner has skew when there is only map fields |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5082](https://issues.apache.org/jira/browse/PIG-5082) | Tez UnionOptimizer creates vertex group with one member |  Minor | tez | Travis Woodruff | Rohini Palaniswamy |
@@ -147,7 +143,7 @@
 | [PIG-5119](https://issues.apache.org/jira/browse/PIG-5119) | SkewedJoin\_15 is unstable |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-5127](https://issues.apache.org/jira/browse/PIG-5127) | Test fail when running test-core-mrtez |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-4953](https://issues.apache.org/jira/browse/PIG-4953) | Predicate push-down will not run filters for single unary expressions |  Major | impl | Ryan Blue | Ryan Blue |
-| [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159) | Fix Pig not saving grunt history |  Major | . | Adam Szita | Adam Szita |
+| [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159) | Fix Pig not saving grunt history |  Major | . | Ádám Szita | Ádám Szita |
 | [PIG-5173](https://issues.apache.org/jira/browse/PIG-5173) | Script with multiple splits fails with Invalid dag containing 0 vertices |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
 | [PIG-5156](https://issues.apache.org/jira/browse/PIG-5156) | Duplicate jars in CLASSPATH when running test |  Major | . | Daniel Dai | Daniel Dai |
 | [PIG-5182](https://issues.apache.org/jira/browse/PIG-5182) | ant docs target is broken by PIG-5110 |  Major | documentation | Daniel Dai | Daniel Dai |
@@ -158,18 +154,18 @@
 | [PIG-5209](https://issues.apache.org/jira/browse/PIG-5209) | Cross product on flatten(map) fails with ClassCastException |  Minor | impl | Koji Noguchi | Koji Noguchi |
 | [PIG-5223](https://issues.apache.org/jira/browse/PIG-5223) | TestLimitVariable.testNestedLimitVariable1 and TestSecondarySortMR.testNestedLimitedSort  failing |  Major | . | Koji Noguchi | Jin Sun |
 | [PIG-5226](https://issues.apache.org/jira/browse/PIG-5226) | PreprocessorContext.java can deadlock forever with large stderr |  Minor | . | Jacob Tolar | Jacob Tolar |
-| [PIG-4748](https://issues.apache.org/jira/browse/PIG-4748) | DateTimeWritable forgets Chronology |  Major | impl | Martin Junghanns | Adam Szita |
+| [PIG-4748](https://issues.apache.org/jira/browse/PIG-4748) | DateTimeWritable forgets Chronology |  Major | impl | Martin Junghanns | Ádám Szita |
 | [PIG-5185](https://issues.apache.org/jira/browse/PIG-5185) | Job name show "DefaultJobName" when running a Python script |  Major | impl | Daniel Dai | Daniel Dai |
 | [PIG-3021](https://issues.apache.org/jira/browse/PIG-3021) | Split results missing records when there is null values in the column comparison |  Major | . | Chang Luo | Nian Ji |
-| [PIG-3103](https://issues.apache.org/jira/browse/PIG-3103) | make mockito a test dependency (instead of compile) |  Major | . | Julien Le Dem | Nandor Kollar |
-| [PIG-5238](https://issues.apache.org/jira/browse/PIG-5238) | Fix datetime related test issues after PIG-4748 |  Minor | . | Adam Szita | Adam Szita |
+| [PIG-3103](https://issues.apache.org/jira/browse/PIG-3103) | make mockito a test dependency (instead of compile) |  Major | . | Julien Le Dem | Nándor Kollár |
+| [PIG-5238](https://issues.apache.org/jira/browse/PIG-5238) | Fix datetime related test issues after PIG-4748 |  Minor | . | Ádám Szita | Ádám Szita |
 | [PIG-5235](https://issues.apache.org/jira/browse/PIG-5235) | Typecast with as-clause fails for tuple/bag with an empty schema |  Major | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5231](https://issues.apache.org/jira/browse/PIG-5231) | PigStorage with -schema may produce inconsistent outputs with more fields |  Minor | . | Koji Noguchi | Koji Noguchi |
-| [PIG-5236](https://issues.apache.org/jira/browse/PIG-5236) | json simple jar not included automatically with piggybank AvroStorage |  Minor | . | Satish Subhashrao Saley | Satish Subhashrao Saley |
-| [PIG-5188](https://issues.apache.org/jira/browse/PIG-5188) | Review pig-index.xml |  Major | documentation | Daniel Dai | Adam Szita |
-| [PIG-5244](https://issues.apache.org/jira/browse/PIG-5244) | Several unit tests are failing in Tez mode after merging spark branch |  Major | tez | Nandor Kollar | Nandor Kollar |
+| [PIG-5236](https://issues.apache.org/jira/browse/PIG-5236) | json simple jar not included automatically with piggybank AvroStorage |  Minor | . | Satish Saley | Satish Saley |
+| [PIG-5188](https://issues.apache.org/jira/browse/PIG-5188) | Review pig-index.xml |  Major | documentation | Daniel Dai | Ádám Szita |
+| [PIG-5244](https://issues.apache.org/jira/browse/PIG-5244) | Several unit tests are failing in Tez mode after merging spark branch |  Major | tez | Nándor Kollár | Nándor Kollár |
 | [PIG-5245](https://issues.apache.org/jira/browse/PIG-5245) | TestGrunt.testStopOnFailure is flaky |  Major | . | Rohini Palaniswamy | Rohini Palaniswamy |
-| [PIG-5162](https://issues.apache.org/jira/browse/PIG-5162) | Fix failing e2e tests with spark exec type |  Major | spark | Nandor Kollar |  |
+| [PIG-5162](https://issues.apache.org/jira/browse/PIG-5162) | Fix failing e2e tests with spark exec type |  Major | spark | Nándor Kollár |  |
 
 
 ### TESTS:
@@ -186,7 +182,7 @@
 | [PIG-5073](https://issues.apache.org/jira/browse/PIG-5073) | Skip e2e Limit\_5 test for Tez |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5087](https://issues.apache.org/jira/browse/PIG-5087) | e2e Native3 failing after PIG-4923 (dropping hadoop 1.x) |  Trivial | . | Koji Noguchi | Koji Noguchi |
 | [PIG-5105](https://issues.apache.org/jira/browse/PIG-5105) | Tez unit tests failing with "Argument list too long" |  Major | . | Koji Noguchi | Rohini Palaniswamy |
-| [PIG-5153](https://issues.apache.org/jira/browse/PIG-5153) | Change of behavior in FLATTEN(map) |  Minor | . | Koji Noguchi | Adam Szita |
+| [PIG-5153](https://issues.apache.org/jira/browse/PIG-5153) | Change of behavior in FLATTEN(map) |  Minor | . | Koji Noguchi | Ádám Szita |
 | [PIG-5229](https://issues.apache.org/jira/browse/PIG-5229) | TestPigTest.testSpecificOrderOutput and testSpecificOrderOutputForAlias failing |  Trivial | . | Koji Noguchi | Koji Noguchi |
 
 
@@ -194,7 +190,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [PIG-5109](https://issues.apache.org/jira/browse/PIG-5109) | Remove HadoopJobHistoryLoader |  Major | piggybank | Adam Szita | Adam Szita |
-| [PIG-5194](https://issues.apache.org/jira/browse/PIG-5194) | HiveUDF fails with Spark exec type |  Major | spark | Adam Szita | Adam Szita |
+| [PIG-5109](https://issues.apache.org/jira/browse/PIG-5109) | Remove HadoopJobHistoryLoader |  Major | piggybank | Ádám Szita | Ádám Szita |
+| [PIG-5194](https://issues.apache.org/jira/browse/PIG-5194) | HiveUDF fails with Spark exec type |  Major | spark | Ádám Szita | Ádám Szita |
 
 

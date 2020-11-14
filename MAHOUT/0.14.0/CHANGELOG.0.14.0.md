@@ -18,7 +18,7 @@
 -->
 # Apache Mahout Changelog
 
-## Release 0.14.0 - Unreleased (as of 2018-09-12)
+## Release 0.14.0 - Unreleased (as of 2020-11-14)
 
 
 
@@ -45,6 +45,7 @@
 | [MAHOUT-2042](https://issues.apache.org/jira/browse/MAHOUT-2042) | Delete directories no longer in use |  Major | . | Trevor Grant | Trevor Grant |
 | [MAHOUT-2045](https://issues.apache.org/jira/browse/MAHOUT-2045) | delete refactor-readme.md |  Major | . | Trevor Grant | Trevor Grant |
 | [MAHOUT-2033](https://issues.apache.org/jira/browse/MAHOUT-2033) | MR can't find OpenIntHash and other things like that |  Major | . | Trevor Grant | Trevor Grant |
+| [MAHOUT-2068](https://issues.apache.org/jira/browse/MAHOUT-2068) | Release not rolled back, download link broken |  Major | build | Andrew Musselman | Andrew Musselman |
 
 
 ### OTHER:

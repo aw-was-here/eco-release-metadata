@@ -46,6 +46,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [KAFKA-6499](https://issues.apache.org/jira/browse/KAFKA-6499) | Avoid creating dummy checkpoint files with no state stores |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-6515](https://issues.apache.org/jira/browse/KAFKA-6515) | Add toString() method to kafka connect Field class |  Minor | KafkaConnect | Bartłomiej Tartanus |  |
 | [KAFKA-5987](https://issues.apache.org/jira/browse/KAFKA-5987) | Kafka metrics templates used in document generation should maintain order of tags |  Blocker | clients | Randall Hauch | Randall Hauch |
 | [KAFKA-6184](https://issues.apache.org/jira/browse/KAFKA-6184) | report a metric of the lag between the consumer offset and the start offset of the log |  Major | . | Jun Rao | huxihx |
@@ -66,11 +67,13 @@
 | [KAFKA-6611](https://issues.apache.org/jira/browse/KAFKA-6611) | Re-write simple benchmark in system tests with JMXTool |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-6473](https://issues.apache.org/jira/browse/KAFKA-6473) | Add MockProcessorContext to public test-utils |  Major | streams | Matthias J. Sax | John Roesler |
 | [KAFKA-4914](https://issues.apache.org/jira/browse/KAFKA-4914) | Partition re-assignment tool should check types before persisting state in ZooKeeper |  Major | admin | Nick Travers | Nick Travers |
-| [KAFKA-5674](https://issues.apache.org/jira/browse/KAFKA-5674) | max.connections.per.ip minimum value to be zero to allow IP address blocking |  Major | . | Tristan Stevens | Viktor Somogyi |
+| [KAFKA-5674](https://issues.apache.org/jira/browse/KAFKA-5674) | max.connections.per.ip minimum value to be zero to allow IP address blocking |  Major | . | Tristan Stevens | Viktor Somogyi-Vass |
+| [KAFKA-6707](https://issues.apache.org/jira/browse/KAFKA-6707) | The default value for config of Type.LONG should be \*L |  Major | streams | JieFang.He | JieFang.He |
+| [KAFKA-6702](https://issues.apache.org/jira/browse/KAFKA-6702) | Wrong className in LoggerFactory.getLogger method |  Major | clients, streams | JieFang.He | JieFang.He |
 | [KAFKA-6630](https://issues.apache.org/jira/browse/KAFKA-6630) | Speed up the processing of TopicDeletionStopReplicaResponseReceived events on the controller |  Minor | core | Lucas Wang | Lucas Wang |
 | [KAFKA-4292](https://issues.apache.org/jira/browse/KAFKA-4292) | KIP-86: Configurable SASL callback handlers |  Major | security | Rajini Sivaram | Rajini Sivaram |
-| [KAFKA-6688](https://issues.apache.org/jira/browse/KAFKA-6688) | The Trogdor coordinator should track task statuses |  Major | system tests | Colin P. McCabe | Colin P. McCabe |
-| [KAFKA-6058](https://issues.apache.org/jira/browse/KAFKA-6058) | KIP-222: Add "describe consumer groups" and "list consumer groups" to KafkaAdminClient |  Major | clients | Matthias J. Sax | Jorge Quilcate |
+| [KAFKA-6688](https://issues.apache.org/jira/browse/KAFKA-6688) | The Trogdor coordinator should track task statuses |  Major | system tests | Colin McCabe | Colin McCabe |
+| [KAFKA-6058](https://issues.apache.org/jira/browse/KAFKA-6058) | KIP-222: Add "describe consumer groups" and "list consumer groups" to KafkaAdminClient |  Major | clients | Matthias J. Sax | Jorge Esteban Quilcate Otoya |
 | [KAFKA-6727](https://issues.apache.org/jira/browse/KAFKA-6727) | org.apache.kafka.clients.admin.Config has broken equals and hashCode method. |  Minor | clients, tools | Andy Coates | Andy Coates |
 | [KAFKA-6514](https://issues.apache.org/jira/browse/KAFKA-6514) | Add API version as a tag for the RequestsPerSec metric |  Major | core | Allen Wang |  |
 | [KAFKA-6772](https://issues.apache.org/jira/browse/KAFKA-6772) | Broker should load credentials from ZK before requests are allowed |  Major | . | Ismael Juma | Rajini Sivaram |
@@ -88,10 +91,10 @@
 | [KAFKA-5907](https://issues.apache.org/jira/browse/KAFKA-5907) | Support aggregatedJavadoc in Java 9 |  Major | . | Ismael Juma |  |
 | [KAFKA-3473](https://issues.apache.org/jira/browse/KAFKA-3473) | KIP-237: More Controller Health Metrics |  Major | controller | Jiangjie Qin | Dong Lin |
 | [KAFKA-6896](https://issues.apache.org/jira/browse/KAFKA-6896) | add producer metrics exporting in KafkaStreams.java |  Major | streams | Boyang Chen | Boyang Chen |
-| [KAFKA-6905](https://issues.apache.org/jira/browse/KAFKA-6905) | Document that Processor objects can be reused |  Major | documentation, streams | David Glasser | David Glasser |
+| [KAFKA-6905](https://issues.apache.org/jira/browse/KAFKA-6905) | Document that Processor objects can be reused |  Major | documentation, streams | David Samuel Glasser | David Samuel Glasser |
 | [KAFKA-6849](https://issues.apache.org/jira/browse/KAFKA-6849) |  Add transformValues() method to KTable |  Major | streams | Andy Coates | Andy Coates |
 | [KAFKA-6685](https://issues.apache.org/jira/browse/KAFKA-6685) | Connect deserialization log message should distinguish key from value |  Minor | KafkaConnect | Yeva Byzek | Jagadesh Adireddi |
-| [KAFKA-6850](https://issues.apache.org/jira/browse/KAFKA-6850) | KIP-244: Add Record Header support to Kafka Streams Processor API |  Major | streams | Jorge Quilcate | Jorge Quilcate |
+| [KAFKA-6850](https://issues.apache.org/jira/browse/KAFKA-6850) | KIP-244: Add Record Header support to Kafka Streams Processor API |  Major | streams | Jorge Esteban Quilcate Otoya | Jorge Esteban Quilcate Otoya |
 | [KAFKA-2061](https://issues.apache.org/jira/browse/KAFKA-2061) | Offer a --version flag to print the kafka version |  Minor | . | Andrew Pennebaker |  |
 | [KAFKA-6930](https://issues.apache.org/jira/browse/KAFKA-6930) | Update KafkaZkClient debug log |  Trivial | core, zkclient | darion yaphet |  |
 | [KAFKA-6562](https://issues.apache.org/jira/browse/KAFKA-6562) | KIP-255: OAuth Authentication via SASL/OAUTHBEARER |  Major | clients | Ron Dagostino | Ron Dagostino |
@@ -107,7 +110,7 @@
 | [KAFKA-6760](https://issues.apache.org/jira/browse/KAFKA-6760) | responses not logged properly in controller |  Major | core | Jun Rao | Mickael Maison |
 | [KAFKA-6955](https://issues.apache.org/jira/browse/KAFKA-6955) | Use Java AdminClient in DeleteRecordsCommand |  Major | . | Ismael Juma | Vahid Hashemian |
 | [KAFKA-5058](https://issues.apache.org/jira/browse/KAFKA-5058) | Add a sensor to KafkaStreams to track records that have been dropped due to having a null key |  Minor | streams | Damian Guy | John Roesler |
-| [KAFKA-6938](https://issues.apache.org/jira/browse/KAFKA-6938) | Add documentation for accessing Headers on Kafka Streams Processor API |  Major | documentation, streams | Jorge Quilcate | Jorge Quilcate |
+| [KAFKA-6938](https://issues.apache.org/jira/browse/KAFKA-6938) | Add documentation for accessing Headers on Kafka Streams Processor API |  Major | documentation, streams | Jorge Esteban Quilcate Otoya | Jorge Esteban Quilcate Otoya |
 | [KAFKA-5523](https://issues.apache.org/jira/browse/KAFKA-5523) | ReplayLogProducer not using the new Kafka consumer |  Minor | tools | Paolo Patierno | Manikumar |
 | [KAFKA-6750](https://issues.apache.org/jira/browse/KAFKA-6750) | Add listener name to AuthenticationContext |  Major | security | Mickael Maison | Mickael Maison |
 | [KAFKA-6730](https://issues.apache.org/jira/browse/KAFKA-6730) | Simplify state store recovery |  Major | streams | Matthias J. Sax | Richard Yu |
@@ -124,7 +127,7 @@
 | [KAFKA-6546](https://issues.apache.org/jira/browse/KAFKA-6546) | Add ENDPOINT\_NOT\_FOUND\_ON\_LEADER error code for missing listener |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-7091](https://issues.apache.org/jira/browse/KAFKA-7091) | AdminClient should handle FindCoordinatorResponse errors |  Major | . | Manikumar | Manikumar |
 | [KAFKA-7111](https://issues.apache.org/jira/browse/KAFKA-7111) | Review the NetworkClient log level used |  Trivial | clients | Luan Cestari | Stanislav Kozlovski |
-| [KAFKA-7126](https://issues.apache.org/jira/browse/KAFKA-7126) | Reduce number of rebalance for large consumer groups after a topic is created |  Major | . | Dong Lin | Jon Lee |
+| [KAFKA-4219](https://issues.apache.org/jira/browse/KAFKA-4219) | Permit setting of event time in stream processor |  Major | streams | Elias Levy |  |
 
 
 ### BUG FIXES:
@@ -136,14 +139,15 @@
 | [KAFKA-6253](https://issues.apache.org/jira/browse/KAFKA-6253) | Improve sink connector topic regex validation |  Major | KafkaConnect | Ewen Cheslack-Postava | Jeff Klukas |
 | [KAFKA-6513](https://issues.apache.org/jira/browse/KAFKA-6513) | New Connect header support doesn't define \`converter.type\` property correctly |  Blocker | KafkaConnect | Randall Hauch | Randall Hauch |
 | [KAFKA-6552](https://issues.apache.org/jira/browse/KAFKA-6552) | “entity\_type” not exactly  in description of kafka-configs.sh |  Trivial | admin | Xin | Xin |
+| [KAFKA-6472](https://issues.apache.org/jira/browse/KAFKA-6472) | WordCount example code error |  Trivial | documentation, streams | JONYhao | Joel Hamill |
 | [KAFKA-6503](https://issues.apache.org/jira/browse/KAFKA-6503) | Connect: Plugin scan is very slow |  Critical | KafkaConnect | Per Steffensen | Robert Yokota |
 | [KAFKA-5624](https://issues.apache.org/jira/browse/KAFKA-5624) | Unsafe use of expired sensors |  Major | . | Jason Gustafson | Manikumar |
-| [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238) | Issues with protocol version when applying a rolling upgrade to 1.0.0 |  Major | documentation | Diego Louzán | Jason Gustafson |
+| [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238) | Issues with protocol version when applying a rolling upgrade to 1.0.0 |  Major | documentation | Diego Louzan Martinez | Jason Gustafson |
 | [KAFKA-6577](https://issues.apache.org/jira/browse/KAFKA-6577) | Connect standalone SASL file source and sink test fails without explanation |  Blocker | KafkaConnect, system tests | Randall Hauch | Randall Hauch |
 | [KAFKA-6534](https://issues.apache.org/jira/browse/KAFKA-6534) | Consumer.poll may not trigger rebalance in time when there is a task migration |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-4831](https://issues.apache.org/jira/browse/KAFKA-4831) | Extract WindowedSerde to public APIs |  Major | streams | Guozhang Wang | Guozhang Wang |
 | [KAFKA-6656](https://issues.apache.org/jira/browse/KAFKA-6656) | Use non-zero status code when kafka-configs.sh fails |  Major | . | Jason Gustafson | Jason Gustafson |
-| [KAFKA-6658](https://issues.apache.org/jira/browse/KAFKA-6658) | Fix RoundTripWorkload and make k/v generation configurable |  Major | system tests, unit tests | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-6658](https://issues.apache.org/jira/browse/KAFKA-6658) | Fix RoundTripWorkload and make k/v generation configurable |  Major | system tests, unit tests | Colin McCabe | Colin McCabe |
 | [KAFKA-6672](https://issues.apache.org/jira/browse/KAFKA-6672) | ConfigCommand failing to alter configs |  Major | . | Jason Gustafson | Jason Gustafson |
 | [KAFKA-6530](https://issues.apache.org/jira/browse/KAFKA-6530) | Use actual first offset of messages when rolling log segment for magic v2 |  Major | . | Jason Gustafson | Dhruvil Shah |
 | [KAFKA-6637](https://issues.apache.org/jira/browse/KAFKA-6637) | if set topic config segment.ms=0 Kafka broker won't be able to start |  Major | . | Chong Wang | huxihx |
@@ -151,13 +155,13 @@
 | [KAFKA-6052](https://issues.apache.org/jira/browse/KAFKA-6052) | Windows: Consumers not polling when isolation.level=read\_committed |  Major | consumer, producer | Ansel Zandegran | Vahid Hashemian |
 | [KAFKA-6446](https://issues.apache.org/jira/browse/KAFKA-6446) | KafkaProducer with transactionId endless waits when bootstrap server is down |  Critical | clients, producer | Eduardo Sciullo | huxihx |
 | [KAFKA-6386](https://issues.apache.org/jira/browse/KAFKA-6386) | Deprecate KafkaStreams constructor taking StreamsConfig parameter |  Minor | streams | Matthias J. Sax | Boyang Chen |
-| [KAFKA-6724](https://issues.apache.org/jira/browse/KAFKA-6724) | ConsumerPerformance resets offsets on every startup |  Minor | core, tools | Alex Dunayevsky |  |
+| [KAFKA-6724](https://issues.apache.org/jira/browse/KAFKA-6724) | ConsumerPerformance resets offsets on every startup |  Minor | core, tools | Alex Dunayevsky | Alex Dunayevsky |
 | [KAFKA-6731](https://issues.apache.org/jira/browse/KAFKA-6731) | waitOnState waits for the wrong state instead of the target one |  Major | streams | huxihx | huxihx |
 | [KAFKA-6728](https://issues.apache.org/jira/browse/KAFKA-6728) | Kafka Connect Header Null Pointer Exception |  Critical | KafkaConnect | Philippe Hong | Randall Hauch |
 | [KAFKA-6739](https://issues.apache.org/jira/browse/KAFKA-6739) | Down-conversion fails for records with headers |  Critical | core | Koelli Mungee | Dhruvil Shah |
 | [KAFKA-6741](https://issues.apache.org/jira/browse/KAFKA-6741) | Transient test failure: SslTransportLayerTest.testNetworkThreadTimeRecorded |  Minor | . | Manikumar | Manikumar |
 | [KAFKA-6748](https://issues.apache.org/jira/browse/KAFKA-6748) | Scheduler cannot be cancelled from Punctuator |  Major | streams | Frederic Arno | Frederic Arno |
-| [KAFKA-6747](https://issues.apache.org/jira/browse/KAFKA-6747) | kafka-streams Invalid transition attempted from state READY to state ABORTING\_TRANSACTION |  Major | streams | Frederic Arno | Ted Yu |
+| [KAFKA-6747](https://issues.apache.org/jira/browse/KAFKA-6747) | kafka-streams Invalid transition attempted from state READY to state ABORTING\_TRANSACTION |  Major | streams | Frederic Arno | Zhihong Yu |
 | [KAFKA-4883](https://issues.apache.org/jira/browse/KAFKA-4883) | invalid client sasl.jaas.config triggers NullPointerException |  Minor | . | Xavier Léauté | Manikumar |
 | [KAFKA-6752](https://issues.apache.org/jira/browse/KAFKA-6752) | Unclean leader election metric no longer working |  Major | controller | Jason Gustafson | Manikumar |
 | [KAFKA-6650](https://issues.apache.org/jira/browse/KAFKA-6650) | The controller should be able to handle a partially deleted topic |  Minor | . | Lucas Wang | Lucas Wang |
@@ -173,11 +177,11 @@
 | [KAFKA-6853](https://issues.apache.org/jira/browse/KAFKA-6853) | ResponseMetadata calculates latency incorrectly (and therefore ZooKeeperRequestLatencyMs is incorrect) |  Minor | core | Fuud |  |
 | [KAFKA-6857](https://issues.apache.org/jira/browse/KAFKA-6857) | LeaderEpochFileCache.endOffsetFor() should check for UNDEFINED\_EPOCH explicitly |  Major | core | Jun Rao | Anna Povzner |
 | [KAFKA-6844](https://issues.apache.org/jira/browse/KAFKA-6844) | Race condition between StreamThread and GlobalStreamThread stopping |  Major | streams | Bill Bejeck | Bill Bejeck |
-| [KAFKA-6871](https://issues.apache.org/jira/browse/KAFKA-6871) | KStreams Scala API: incorrect Javadocs and misleading parameter name |  Minor | . | Michael Noll | Michael Noll |
+| [KAFKA-6871](https://issues.apache.org/jira/browse/KAFKA-6871) | KStreams Scala API: incorrect Javadocs and misleading parameter name |  Minor | . | Michael G. Noll | Michael G. Noll |
 | [KAFKA-6390](https://issues.apache.org/jira/browse/KAFKA-6390) | Update ZooKeeper to 3.4.12, Gradle and other minor updates |  Major | . | Ismael Juma | Ismael Juma |
 | [KAFKA-6879](https://issues.apache.org/jira/browse/KAFKA-6879) | Controller deadlock following session expiration |  Critical | controller | Jason Gustafson | Jason Gustafson |
 | [KAFKA-6834](https://issues.apache.org/jira/browse/KAFKA-6834) | log cleaner should handle the case when the size of a message set is larger than the max message size |  Major | . | Jun Rao | Rajini Sivaram |
-| [KAFKA-6299](https://issues.apache.org/jira/browse/KAFKA-6299) | Fix AdminClient error handling when metadata changes |  Major | . | Colin P. McCabe | Colin P. McCabe |
+| [KAFKA-6299](https://issues.apache.org/jira/browse/KAFKA-6299) | Fix AdminClient error handling when metadata changes |  Major | . | Colin McCabe | Colin McCabe |
 | [KAFKA-6878](https://issues.apache.org/jira/browse/KAFKA-6878) | NPE when querying global state store not in READY state |  Major | streams | Salazar |  |
 | [KAFKA-6361](https://issues.apache.org/jira/browse/KAFKA-6361) | Fast leader fail over can lead to log divergence between leader and follower |  Major | . | Jason Gustafson | Anna Povzner |
 | [KAFKA-6870](https://issues.apache.org/jira/browse/KAFKA-6870) | Concurrency conflicts in SampledStat |  Major | . | Chia-Ping Tsai | Chia-Ping Tsai |
@@ -199,7 +203,7 @@
 | [KAFKA-6581](https://issues.apache.org/jira/browse/KAFKA-6581) | ConsumerGroupCommand hangs if even one of the partition is unavailable |  Minor | admin, core, tools | Sahil Aggarwal |  |
 | [KAFKA-3177](https://issues.apache.org/jira/browse/KAFKA-3177) | Kafka consumer can hang when position() is called on a non-existing partition. |  Critical | clients | Jiangjie Qin | Jason Gustafson |
 | [KAFKA-3899](https://issues.apache.org/jira/browse/KAFKA-3899) | Consumer.poll() stuck in loop if wrong credentials are supplied |  Major | clients | Edoardo Comar |  |
-| [KAFKA-6743](https://issues.apache.org/jira/browse/KAFKA-6743) | ConsumerPerformance fails to consume all messages on topics with large number of partitions |  Minor | core, tools | Alex Dunayevsky |  |
+| [KAFKA-6743](https://issues.apache.org/jira/browse/KAFKA-6743) | ConsumerPerformance fails to consume all messages on topics with large number of partitions |  Minor | core, tools | Alex Dunayevsky | Alex Dunayevsky |
 | [KAFKA-6709](https://issues.apache.org/jira/browse/KAFKA-6709) | broker failed to handle request due to OOM |  Critical | core | Zou Tao | Dhruvil Shah |
 | [KAFKA-5974](https://issues.apache.org/jira/browse/KAFKA-5974) | Removed unused parameter ProcessorContext |  Major | streams | Matthias J. Sax | siva santhalingam |
 | [KAFKA-3665](https://issues.apache.org/jira/browse/KAFKA-3665) | Default ssl.endpoint.identification.algorithm should be https |  Major | security | Ismael Juma | Rajini Sivaram |
@@ -209,7 +213,7 @@
 | [KAFKA-5919](https://issues.apache.org/jira/browse/KAFKA-5919) | Adding checks on "version" field for tools using it |  Minor | tools | Paolo Patierno | Paolo Patierno |
 | [KAFKA-6919](https://issues.apache.org/jira/browse/KAFKA-6919) | Trogdor documentation points to wrong location for trogdor.sh |  Minor | . | Koen De Groote |  |
 | [KAFKA-6877](https://issues.apache.org/jira/browse/KAFKA-6877) | Remove completedFetch upon a failed parse if it contains no records. |  Major | clients, consumer | Adem Efe Gencer | Adem Efe Gencer |
-| [KAFKA-6993](https://issues.apache.org/jira/browse/KAFKA-6993) | Fix defective documentations for KStream/KTable methods |  Minor | documentation, streams | Lee Dongjin | Lee Dongjin |
+| [KAFKA-6993](https://issues.apache.org/jira/browse/KAFKA-6993) | Fix defective documentations for KStream/KTable methods |  Minor | documentation, streams | Dongjin Lee | Dongjin Lee |
 | [KAFKA-6967](https://issues.apache.org/jira/browse/KAFKA-6967) | TopologyTestDriver does not allow pre-populating state stores that have change logging |  Major | streams | James Cheng | Matthias J. Sax |
 | [KAFKA-6991](https://issues.apache.org/jira/browse/KAFKA-6991) | Connect Rest Extension Plugin issue with Class Loader |  Major | KafkaConnect | Magesh kumar Nandakumar | Magesh kumar Nandakumar |
 | [KAFKA-6264](https://issues.apache.org/jira/browse/KAFKA-6264) | Log cleaner thread may die on legacy segment containing messages whose offsets are too large |  Critical | core | Jiangjie Qin | Dhruvil Shah |
@@ -254,6 +258,9 @@
 | [KAFKA-6897](https://issues.apache.org/jira/browse/KAFKA-6897) | Mirrormaker waits to shut down forever on produce failure with abort.on.send.failure=true |  Major | . | Koelli Mungee | Dhruvil Shah |
 | [KAFKA-7193](https://issues.apache.org/jira/browse/KAFKA-7193) | ZooKeeper client times out with localhost due to random choice of ipv4/ipv6 |  Major | zkclient | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-7194](https://issues.apache.org/jira/browse/KAFKA-7194) | Error deserializing assignment after rebalance |  Major | . | Konstantine Karantasis | Jason Gustafson |
+| [KAFKA-6490](https://issues.apache.org/jira/browse/KAFKA-6490) | JSON SerializationException Stops Connect |  Major | KafkaConnect | Bill Speirs | Prasanna Subburaj |
+| [KAFKA-8209](https://issues.apache.org/jira/browse/KAFKA-8209) | Wrong link for KStreams DSL in Core Concepts doc |  Minor | documentation | Michael Drogalis | Bill Bejeck |
+| [KAFKA-8198](https://issues.apache.org/jira/browse/KAFKA-8198) | KStreams testing docs use non-existent method "pipe" |  Minor | documentation, streams | Michael Drogalis | Slim Ouertani |
 
 
 ### TESTS:
@@ -262,7 +269,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [KAFKA-5944](https://issues.apache.org/jira/browse/KAFKA-5944) | Add unit tests for handling of authentication failures in clients |  Major | clients | Rajini Sivaram | Vahid Hashemian |
 | [KAFKA-6716](https://issues.apache.org/jira/browse/KAFKA-6716) | discardChannel should be released in MockSelector#completeSend |  Minor | . | Ted Yu | huxihx |
-| [KAFKA-2951](https://issues.apache.org/jira/browse/KAFKA-2951) | Additional authorization test cases |  Major | . | Flavio Junqueira | Flavio Junqueira |
+| [KAFKA-2951](https://issues.apache.org/jira/browse/KAFKA-2951) | Additional authorization test cases |  Major | . | Flavio Paiva Junqueira | Flavio Paiva Junqueira |
 | [KAFKA-5739](https://issues.apache.org/jira/browse/KAFKA-5739) | Rewrite KStreamPeekTest at processor level avoiding driver usage |  Minor | streams | Paolo Patierno | Paolo Patierno |
 | [KAFKA-7195](https://issues.apache.org/jira/browse/KAFKA-7195) | StreamStreamJoinIntegrationTest fails in 2.0 Jenkins |  Major | . | Ted Yu | Manikumar |
 
@@ -282,7 +289,7 @@
 | [KAFKA-7005](https://issues.apache.org/jira/browse/KAFKA-7005) | Remove duplicate Java Resource class. |  Major | core, security | Andy Coates | Andy Coates |
 | [KAFKA-7007](https://issues.apache.org/jira/browse/KAFKA-7007) | Use JSON for /kafka-acl-extended-changes path |  Major | core, security | Andy Coates | Andy Coates |
 | [KAFKA-7030](https://issues.apache.org/jira/browse/KAFKA-7030) | Add configuration to disable message down-conversion |  Major | . | Dhruvil Shah | Dhruvil Shah |
-| [KAFKA-2837](https://issues.apache.org/jira/browse/KAFKA-2837) | FAILING TEST: kafka.api.ProducerBounceTest \> testBrokerFailure |  Major | . | Gwen Shapira | jin xing |
+| [KAFKA-2837](https://issues.apache.org/jira/browse/KAFKA-2837) | FAILING TEST: kafka.api.ProducerBounceTest \> testBrokerFailure |  Major | . | Gwen Shapira | Jin Xing |
 | [KAFKA-7010](https://issues.apache.org/jira/browse/KAFKA-7010) | Rename ResourceNameType.ANY to MATCH |  Major | core, security | Andy Coates | Andy Coates |
 
 

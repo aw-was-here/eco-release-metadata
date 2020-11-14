@@ -18,7 +18,7 @@
 -->
 # Apache Hadoop Changelog
 
-## Release 2.8.5 - Unreleased (as of 2018-09-12)
+## Release 2.8.5 - 2018-09-15
 
 
 
@@ -26,6 +26,7 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
+| [YARN-7274](https://issues.apache.org/jira/browse/YARN-7274) | Ability to disable elasticity at leaf queue level |  Major | capacityscheduler | Scott Brokaw | Zian Chen |
 | [HADOOP-13738](https://issues.apache.org/jira/browse/HADOOP-13738) | DiskChecker should perform some disk IO |  Major | . | Arpit Agarwal | Arpit Agarwal |
 | [HADOOP-15394](https://issues.apache.org/jira/browse/HADOOP-15394) | Backport PowerShell NodeFencer HADOOP-14309 to branch-2 |  Minor | . | Íñigo Goiri | Íñigo Goiri |
 | [HADOOP-15441](https://issues.apache.org/jira/browse/HADOOP-15441) | Log kms url and token service at debug level. |  Minor | . | Wei-Chiu Chuang | Gabor Bota |
@@ -34,7 +35,7 @@
 | [HDFS-13602](https://issues.apache.org/jira/browse/HDFS-13602) | Add checkOperation(WRITE) checks in FSNamesystem |  Major | ha, namenode | Erik Krogen | Chao Sun |
 | [HADOOP-15689](https://issues.apache.org/jira/browse/HADOOP-15689) | Add "\*.patch" into .gitignore file of branch-2 |  Major | . | Rui Gao | Rui Gao |
 | [YARN-8051](https://issues.apache.org/jira/browse/YARN-8051) | TestRMEmbeddedElector#testCallbackSynchronization is flakey |  Major | test | Robert Kanter | Robert Kanter |
-| [HDFS-13812](https://issues.apache.org/jira/browse/HDFS-13812) | Fix the inconsistent default refresh interval on Caching documentation |  Trivial | documentation | BELUGA BEHR | Hrishikesh Gadre |
+| [HDFS-13812](https://issues.apache.org/jira/browse/HDFS-13812) | Fix the inconsistent default refresh interval on Caching documentation |  Trivial | documentation | David Mollitor | Hrishikesh Gadre |
 
 
 ### BUG FIXES:
@@ -51,8 +52,8 @@
 | [HADOOP-15473](https://issues.apache.org/jira/browse/HADOOP-15473) | Configure serialFilter in KeyProvider to avoid UnrecoverableKeyException caused by JDK-8189997 |  Critical | kms | Gabor Bota | Gabor Bota |
 | [YARN-8444](https://issues.apache.org/jira/browse/YARN-8444) | NodeResourceMonitor crashes on bad swapFree value |  Major | . | Jim Brennan | Jim Brennan |
 | [HADOOP-15548](https://issues.apache.org/jira/browse/HADOOP-15548) | Randomize local dirs |  Minor | . | Jim Brennan | Jim Brennan |
-| [YARN-8383](https://issues.apache.org/jira/browse/YARN-8383) | TimelineServer 1.5 start fails with NoClassDefFoundError |  Blocker | . | Rohith Sharma K S | Jason Lowe |
-| [YARN-8473](https://issues.apache.org/jira/browse/YARN-8473) | Containers being launched as app tears down can leave containers in NEW state |  Major | nodemanager | Jason Lowe | Jason Lowe |
+| [YARN-8383](https://issues.apache.org/jira/browse/YARN-8383) | TimelineServer 1.5 start fails with NoClassDefFoundError |  Blocker | . | Rohith Sharma K S | Jason Darrell Lowe |
+| [YARN-8473](https://issues.apache.org/jira/browse/YARN-8473) | Containers being launched as app tears down can leave containers in NEW state |  Major | nodemanager | Jason Darrell Lowe | Jason Darrell Lowe |
 | [YARN-8515](https://issues.apache.org/jira/browse/YARN-8515) | container-executor can crash with SIGPIPE after nodemanager restart |  Major | . | Jim Brennan | Jim Brennan |
 | [YARN-8421](https://issues.apache.org/jira/browse/YARN-8421) | when moving app, activeUsers is increased, even though app does not have outstanding request |  Major | . | kyungwan nam |  |
 | [HADOOP-15614](https://issues.apache.org/jira/browse/HADOOP-15614) | TestGroupsCaching.testExceptionOnBackgroundRefreshHandled reliably fails |  Major | . | Kihwal Lee | Weiwei Yang |
@@ -61,8 +62,9 @@
 | [YARN-8640](https://issues.apache.org/jira/browse/YARN-8640) | Restore previous state in container-executor after failure |  Major | . | Jim Brennan | Jim Brennan |
 | [HADOOP-14314](https://issues.apache.org/jira/browse/HADOOP-14314) | The OpenSolaris taxonomy link is dead in InterfaceClassification.md |  Major | documentation | Daniel Templeton | Rui Gao |
 | [YARN-8649](https://issues.apache.org/jira/browse/YARN-8649) | NPE in localizer hearbeat processing if a container is killed while localizing |  Major | . | lujie | lujie |
-| [YARN-8730](https://issues.apache.org/jira/browse/YARN-8730) | TestRMWebServiceAppsNodelabel#testAppsRunning fails |  Major | resourcemanager | Jason Lowe | Eric Payne |
+| [YARN-8730](https://issues.apache.org/jira/browse/YARN-8730) | TestRMWebServiceAppsNodelabel#testAppsRunning fails |  Major | resourcemanager | Jason Darrell Lowe | Eric Payne |
 | [MAPREDUCE-7131](https://issues.apache.org/jira/browse/MAPREDUCE-7131) | Job History Server has race condition where it moves files from intermediate to finished but thinks file is in intermediate |  Major | . | Anthony Hsu | Anthony Hsu |
+| [YARN-7502](https://issues.apache.org/jira/browse/YARN-7502) | Nodemanager restart docs should describe nodemanager supervised property |  Major | documentation | Jason Darrell Lowe | Suma Shivaprasad |
 
 
 ### SUB-TASKS:
@@ -70,6 +72,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [YARN-4781](https://issues.apache.org/jira/browse/YARN-4781) | Support intra-queue preemption for fairness ordering policy. |  Major | scheduler | Wangda Tan | Eric Payne |
-| [HDFS-13281](https://issues.apache.org/jira/browse/HDFS-13281) | Namenode#createFile should be /.reserved/raw/ aware. |  Critical | encryption | Rushabh S Shah | Rushabh S Shah |
+| [HDFS-13281](https://issues.apache.org/jira/browse/HDFS-13281) | Namenode#createFile should be /.reserved/raw/ aware. |  Critical | encryption | Rushabh Shah | Rushabh Shah |
 
 

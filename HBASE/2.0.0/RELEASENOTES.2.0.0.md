@@ -499,23 +499,9 @@ hbase.zookeeper.quorum configuration now allows servers together with client por
 
 ---
 
-* [HBASE-13171](https://issues.apache.org/jira/browse/HBASE-13171) | *Minor* | **Change AccessControlClient methods to accept connection object to reduce setup time.**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-12586](https://issues.apache.org/jira/browse/HBASE-12586) | *Major* | **Task 6 & 7 from HBASE-9117,  delete all public HTable constructors and delete ConnectionManager#{delete,get}Connection**
 
 HTable class has been marked as private API before, and now it's no longer directly instantiable from client code (all public constructors have been removed). All clients should use Connection#getTable() and Connection#getRegionLocator() when appropriate to obtain Table and RegionLocator implementations to work with.
-
-
----
-
-* [HBASE-13198](https://issues.apache.org/jira/browse/HBASE-13198) | *Major* | **Remove HConnectionManager**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -537,13 +523,6 @@ The Result.EMPTY\_RESULT object is now immutable. In previous releases, the obje
 * [HBASE-13331](https://issues.apache.org/jira/browse/HBASE-13331) | *Blocker* | **Exceptions from DFS client can cause CatalogJanitor to delete referenced files**
 
 Fixes an issue where files from a split region that were still referenced were erroneously deleted leading to data loss.
-
-
----
-
-* [HBASE-13248](https://issues.apache.org/jira/browse/HBASE-13248) | *Major* | **Make HConnectionImplementation top-level class.**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -1021,13 +1000,6 @@ Use the master's timestamp when sending hbase:meta edits on region merge to ensu
 * [HBASE-13869](https://issues.apache.org/jira/browse/HBASE-13869) | *Trivial* | **Fix typo in HBase book**
 
 Fix typo in HBase book
-
-
----
-
-* [HBASE-13214](https://issues.apache.org/jira/browse/HBASE-13214) | *Major* | **Remove deprecated and unused methods from HTable class**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -1769,13 +1741,6 @@ All clients before 1.2.0 will not get this multi request chunking based upon blo
 
 ---
 
-* [HBASE-14205](https://issues.apache.org/jira/browse/HBASE-14205) | *Critical* | **RegionCoprocessorHost System.nanoTime() performance bottleneck**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-14822](https://issues.apache.org/jira/browse/HBASE-14822) | *Major* | **Renewing leases of scanners doesn't work**
 
 And 1.1, 1.0, and 0.98.
@@ -2300,13 +2265,6 @@ LOG.info("Instantiating WALProvider of type " + clazz);
 
 ---
 
-* [HBASE-11393](https://issues.apache.org/jira/browse/HBASE-11393) | *Major* | **Replication TableCfs should be a PB object rather than a string**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-15538](https://issues.apache.org/jira/browse/HBASE-15538) | *Major* | **Implement secure async protobuf wal writer**
 
 Add the following config in hbase-site.xml if you want to use secure protobuf wal writer together with AsyncFSWAL
@@ -2317,20 +2275,6 @@ Add the following config in hbase-site.xml if you want to use secure protobuf wa
 \</property\>
 \<property\>
 {code}
-
-
----
-
-* [HBASE-15521](https://issues.apache.org/jira/browse/HBASE-15521) | *Major* | **Procedure V2 - RestoreSnapshot and CloneSnapshot**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HBASE-15568](https://issues.apache.org/jira/browse/HBASE-15568) | *Major* | **Procedure V2 - Remove CreateTableHandler in HBase Apache 2.0 release**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -2575,13 +2519,6 @@ Adds a section to the debug dump page listing current row locks held.
 
 ---
 
-* [HBASE-15575](https://issues.apache.org/jira/browse/HBASE-15575) | *Minor* | **Rename table DDL \*Handler methods in MasterObserver to more meaningful names**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-15767](https://issues.apache.org/jira/browse/HBASE-15767) | *Major* | **Upgrade httpclient dependency**
 
 HBase now relies on version 4.3.6 of the Apache Commons HTTPClient library. Downstream users who are exposed to it via the HBase classpath will have to similarly update their dependency.
@@ -2734,20 +2671,6 @@ See http://mail-archives.apache.org/mod\_mbox/hbase-dev/201605.mbox/%3CCAMUu0w-Z
 * [HBASE-15890](https://issues.apache.org/jira/browse/HBASE-15890) | *Major* | **Allow thrift to set/unset "cacheBlocks" for Scans**
 
 Adds cacheBlocks to Scan
-
-
----
-
-* [HBASE-15610](https://issues.apache.org/jira/browse/HBASE-15610) | *Blocker* | **Remove deprecated HConnection for 2.0 thus removing all PB references for 2.0**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HBASE-15875](https://issues.apache.org/jira/browse/HBASE-15875) | *Major* | **Remove HTable references and HTableInterface**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -3120,7 +3043,11 @@ Adds below change to our compat guarantees:
 
 * [HBASE-16450](https://issues.apache.org/jira/browse/HBASE-16450) | *Major* | **Shell tool to dump replication queues**
 
-New tool to dump existing replication peers, configurations and queues when using HBase Replication. The tool provides two flags:
+New tool to dump existing replication peers, configurations and queues when using HBase Replication.
+
+hbase org.apache.hadoop.hbase.replication.regionserver.DumpReplicationQueues 
+
+The tool provides two flags:
 
  --distributed  This flag will poll each RS for information about the replication queues being processed on this RS.
 By default this is not enabled and the information about the replication queues and configuration will be obtained from ZooKeeper.
@@ -3498,13 +3425,6 @@ In HBase 2.0 this is going to be the default. In previous versions it can be con
 * [HBASE-17014](https://issues.apache.org/jira/browse/HBASE-17014) | *Minor* | **Add clearly marked starting and shutdown log messages for all services.**
 
 Delimit START, STOP, and ABORT messages with '\*\*\*\*\*' so denote.
-
-
----
-
-* [HBASE-16972](https://issues.apache.org/jira/browse/HBASE-16972) | *Major* | **Log more details for Scan#next request when responseTooSlow**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -4086,13 +4006,6 @@ The table information page in the Master UI now includes a schema section that d
 
 ---
 
-* [HBASE-17647](https://issues.apache.org/jira/browse/HBASE-17647) | *Major* | **OffheapKeyValue#heapSize() implementation is wrong**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-17312](https://issues.apache.org/jira/browse/HBASE-17312) | *Major* | **[JDK8] Use default method for Observer Coprocessors**
 
 Deletes BaseMasterAndRegionObserver, BaseMasterObserver, BaseRegionObserver, BaseRegionServerObserver and BaseWALObserver.
@@ -4262,6 +4175,13 @@ After HBASE-17215 we change to use two threads for (archived) hfile cleaning. Th
 * [HBASE-17857](https://issues.apache.org/jira/browse/HBASE-17857) | *Major* | **Remove IS annotations from IA.Public classes**
 
 Now we do not have InterfaceStability annotations for IA,Public API. The stability of these classes will follow the rule of 'Semantic Versioning'.
+
+
+---
+
+* [HBASE-15179](https://issues.apache.org/jira/browse/HBASE-15179) | *Major* | **Cell/DBB end-to-end on the write-path**
+
+See http://hbase.apache.org/book.html#regionserver.offheap.writepath
 
 
 ---
@@ -4934,13 +4854,6 @@ There are two configuration name changes as the event loop configs will not only
 
 ---
 
-* [HBASE-18267](https://issues.apache.org/jira/browse/HBASE-18267) | *Major* | **The result from the postAppend is ignored**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-18339](https://issues.apache.org/jira/browse/HBASE-18339) | *Major* | **Update test-patch to use hadoop 3.0.0-alpha4**
 
 HBase now defaults to Apache Hadoop 3.0.0-alpha4 when the Hadoop 3 profile is active.
@@ -5195,13 +5108,6 @@ For devs, going forward, do not reference io.netty. Reference org.apache.hadoop.
 +import org.apache.hadoop.hbase.shaded.io.netty.channel.Channel;
 +import org.apache.hadoop.hbase.shaded.io.netty.channel.EventLoop;
 {code}
-
-
----
-
-* [HBASE-18528](https://issues.apache.org/jira/browse/HBASE-18528) | *Critical* | **DON'T allow user to modify the passed table/column descriptor**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -5516,13 +5422,6 @@ Replaces hbase-shaded-server-\<version\>.jar with hbase-shaded-mapreduce-\<versi
 
 ---
 
-* [HBASE-18704](https://issues.apache.org/jira/browse/HBASE-18704) | *Major* | **Upgrade hbase to commons-collections 4**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-17972](https://issues.apache.org/jira/browse/HBASE-17972) | *Minor* | **Remove mergePool from CompactSplitThread**
 
 After this jira, mergePool will be permanently removed from CompactSplitThread.
@@ -5535,13 +5434,6 @@ After this jira, mergePool will be permanently removed from CompactSplitThread.
 Deprecate checkAnd\* APIs that take the filter CompareOp. Added new overrides that take a generic CompareOperator instead. CompareOperator will be used by checkAnd\* in Table API and by filters going forward.
 
 Other nice improvements suggested by this issue have been moved out to HBASE-18774.
-
-
----
-
-* [HBASE-18780](https://issues.apache.org/jira/browse/HBASE-18780) | *Minor* | **Remove HLogPrettyPrinter and hlog command**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -5569,13 +5461,6 @@ Admin.listProcedures and Admin.listLocks were renamed to getProcedures and getLo
     - Procedures internal states are available on client side
     - Procedures are displayed on web UI and in shell in the following jruby format:
       { ID =\> '1', PARENT\_ID = '-1', PARAMETERS =\> [ ..extra state information.. ] }
-
-
----
-
-* [HBASE-18783](https://issues.apache.org/jira/browse/HBASE-18783) | *Minor* | **Declare the builder of ClusterStatus as IA.Private, and remove the Writables from ClusterStatus**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -5955,13 +5840,6 @@ Backward Compatibility
 
 ---
 
-* [HBASE-18826](https://issues.apache.org/jira/browse/HBASE-18826) | *Major* | **Use HStore instead of Store in our own code base and remove unnecessary methods in Store interface**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HBASE-18839](https://issues.apache.org/jira/browse/HBASE-18839) | *Major* | **Apply RegionInfo to code base**
 
 The incompatible changes of IA.Public/LimitedPrivate classes are shown below.
@@ -6132,13 +6010,6 @@ Import#CellReducer
 Import#CellSortImporter
 Import#CellImporter
 WALPlayer#WALCellMapper
-
-
----
-
-* [HBASE-18878](https://issues.apache.org/jira/browse/HBASE-18878) | *Major* | **Use Optional\<T\> return types when T can be null**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -7975,13 +7846,6 @@ Ups the overall test timeout from 10 minutes to 13minutes. 15minutes is the sure
 
 ---
 
-* [HBASE-19954](https://issues.apache.org/jira/browse/HBASE-19954) | *Major* | **Separate TestBlockReorder into individual tests to avoid ShutdownHook suppression error against hadoop3**
-
-hadoop3 minidfscluster removes all shutdown handlers when the cluster goes down which made this test that does FS-stuff fail (Fix was to break up the test so each test method ran with an unadulterated FS).
-
-
----
-
 * [HBASE-20032](https://issues.apache.org/jira/browse/HBASE-20032) | *Minor* | **Receving multiple warnings for missing reporting.plugins.plugin.version**
 
 Add (latest) version elements missing from reporting plugins in top-level pom.
@@ -8364,6 +8228,20 @@ Always force random port assignment if user has not explicitly defined an altern
       conf.setInt(HConstants.REGIONSERVER\_PORT, -1);
     }
 {code}
+
+
+---
+
+* [HBASE-19954](https://issues.apache.org/jira/browse/HBASE-19954) | *Major* | **Separate TestBlockReorder into individual tests to avoid ShutdownHook suppression error against hadoop3**
+
+hadoop3 minidfscluster removes all shutdown handlers when the cluster goes down which made this test that does FS-stuff fail (Fix was to break up the test so each test method ran with an unadulterated FS).
+
+
+---
+
+* [HBASE-21617](https://issues.apache.org/jira/browse/HBASE-21617) | *Major* | **HBase Bytes.putBigDecimal error**
+
+The patch affects only the Bytes.putBigDecimal() method.
 
 
 

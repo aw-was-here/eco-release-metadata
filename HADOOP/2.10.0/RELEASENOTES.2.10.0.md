@@ -122,4 +122,109 @@ In a federated environment, a folder can be spread across multiple subclusters. 
 WASB: listStatus 10x performance improvement for listing 700,000 files
 
 
+---
+
+* [HADOOP-16055](https://issues.apache.org/jira/browse/HADOOP-16055) | *Blocker* | **Upgrade AWS SDK to 1.11.271 in branch-2**
+
+This change was required to address license compatibility issues with the JSON parser in the older AWS SDKs.
+
+A consequence of this, where needed, the applied patch contains HADOOP-12705 Upgrade Jackson 2.2.3 to 2.7.8.
+
+
+---
+
+* [HADOOP-16053](https://issues.apache.org/jira/browse/HADOOP-16053) | *Major* | **Backport HADOOP-14816 to branch-2**
+
+This patch changed the default build and test environment from Ubuntu "Trusty" 14.04 to Ubuntu "Xenial" 16.04.
+
+
+---
+
+* [HDFS-14403](https://issues.apache.org/jira/browse/HDFS-14403) | *Major* | **Cost-Based RPC FairCallQueue**
+
+This adds an extension to the IPC FairCallQueue which allows for the consideration of the \*cost\* of a user's operations when deciding how they should be prioritized, as opposed to the number of operations. This can be helpful for protecting the NameNode from clients which submit very expensive operations (e.g. large listStatus operations or recursive getContentSummary operations).
+
+This can be enabled by setting the \`ipc.\<port\>.costprovder.impl\` configuration to \`org.apache.hadoop.ipc.WeightedTimeCostProvider\`.
+
+
+---
+
+* [HDFS-13101](https://issues.apache.org/jira/browse/HDFS-13101) | *Critical* | **Yet another fsimage corruption related to snapshot**
+
+Fix a corner case in deleting HDFS snapshots. A regression was later found and fixed by HDFS-15012.
+
+
+---
+
+* [HDFS-14617](https://issues.apache.org/jira/browse/HDFS-14617) | *Major* | **Improve fsimage load time by writing sub-sections to the fsimage index**
+
+This change allows the inode and inode directory sections of the fsimage to be loaded in parallel. Tests on large images have shown this change to reduce the image load time to about 50% of the pre-change run time.
+
+It works by writing sub-section entries to the image index, effectively splitting each image section into many sub-sections which can be processed in parallel. By default 12 sub-sections per image section are created when the image is saved, and 4 threads are used to load the image at startup.
+
+This is disabled by default for any image with more than 1M inodes (dfs.image.parallel.inode.threshold) and can be enabled by setting dfs.image.parallel.load to true. When the feature is enabled, the next HDFS checkpoint will write the image sub-sections and subsequent namenode restarts can load the image in parallel.
+
+A image with the parallel sections can be read even if the feature is disabled, but HDFS versions without this Jira cannot load an image with parallel sections. OIV can process a parallel enabled image without issues.
+
+Key configuration parameters are:
+
+dfs.image.parallel.load=false - enable or disable the feature
+
+dfs.image.parallel.target.sections = 12 - The target number of subsections. Aim for 2 to 3 times the number of dfs.image.parallel.threads.
+
+dfs.image.parallel.inode.threshold = 1000000 - Only save and load in parallel if the image has more than this number of inodes.
+
+dfs.image.parallel.threads = 4 - The number of threads used to load the image. Testing has shown 4 to be optimal, but this may depends on the environment
+
+
+---
+
+* [YARN-8200](https://issues.apache.org/jira/browse/YARN-8200) | *Major* | **Backport resource types/GPU features to branch-3.0/branch-2**
+
+The generic resource types feature allows admins to configure custom resource types outside of memory and CPU. Users can request these resource types which YARN will take into account for resource scheduling.
+
+This also adds GPU as a native resource type, built on top of the generic resource types feature. It adds support for GPU resource discovery, GPU scheduling and GPU isolation.
+
+
+---
+
+* [HDFS-14771](https://issues.apache.org/jira/browse/HDFS-14771) | *Major* | **Backport HDFS-14617 to branch-2 (Improve fsimage load time by writing sub-sections to the fsimage index)**
+
+This change allows the inode and inode directory sections of the fsimage to be loaded in parallel. Tests on large images have shown this change to reduce the image load time to about 50% of the pre-change run time.
+
+It works by writing sub-section entries to the image index, effectively splitting each image section into many sub-sections which can be processed in parallel. By default 12 sub-sections per image section are created when the image is saved, and 4 threads are used to load the image at startup.
+
+This is disabled by default for any image with more than 1M inodes (dfs.image.parallel.inode.threshold) and can be enabled by setting dfs.image.parallel.load to true. When the feature is enabled, the next HDFS checkpoint will write the image sub-sections and subsequent namenode restarts can load the image in parallel.
+
+A image with the parallel sections can be read even if the feature is disabled, but HDFS versions without this Jira cannot load an image with parallel sections. OIV can process a parallel enabled image without issues.
+
+Key configuration parameters are:
+
+dfs.image.parallel.load=false - enable or disable the feature
+
+dfs.image.parallel.target.sections = 12 - The target number of subsections. Aim for 2 to 3 times the number of dfs.image.parallel.threads.
+
+dfs.image.parallel.inode.threshold = 1000000 - Only save and load in parallel if the image has more than this number of inodes.
+
+dfs.image.parallel.threads = 4 - The number of threads used to load the image. Testing has shown 4 to be optimal, but this may depends on the environment.
+
+UPGRADE WARN: 
+1. It can upgrade smoothly from 2.10 to 3.\* if not enable this feature ever.
+2. Only path to do upgrade from 2.10 to 3.3 currently when enable fsimage parallel loading feature.
+3. If someone want to upgrade 2.10 to 3.\*(3.1.\*/3.2.\*) prior release, please make sure that save at least one fsimage file after disable this feature. It relies on change configuration parameter(dfs.image.parallel.load=false) first and restart namenode before upgrade operation.
+
+
+---
+
+* [HDFS-12943](https://issues.apache.org/jira/browse/HDFS-12943) | *Major* | **Consistent Reads from Standby Node**
+
+Observer is a new type of a NameNode in addition to Active and Standby Nodes in HA settings. An Observer Node maintains a replica of the namespace same as a Standby Node. It additionally allows execution of clients read requests.
+
+To ensure read-after-write consistency within a single client, a state ID is introduced in RPC headers. The Observer responds to the client request only after its own state has caught up with the client’s state ID, which it previously received from the Active NameNode.
+
+Clients can explicitly invoke a new client protocol call msync(), which ensures that subsequent reads by this client from an Observer are consistent.
+
+A new client-side ObserverReadProxyProvider is introduced to provide automatic switching between Active and Observer NameNodes for submitting respectively write and read requests.
+
+
 

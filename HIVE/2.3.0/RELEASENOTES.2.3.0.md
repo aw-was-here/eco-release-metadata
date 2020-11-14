@@ -76,20 +76,6 @@ Refactored the public metrics API. Calls capturing metrics should log warnings i
 
 ---
 
-* [HIVE-14872](https://issues.apache.org/jira/browse/HIVE-14872) | *Major* | **Remove the configuration HIVE\_SUPPORT\_SQL11\_RESERVED\_KEYWORDS**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
-* [HIVE-14950](https://issues.apache.org/jira/browse/HIVE-14950) | *Minor* | **Support integer data type**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [HIVE-15025](https://issues.apache.org/jira/browse/HIVE-15025) | *Major* | **Secure-Socket-Layer (SSL) support for HMS**
 
 The patch adds the following properties to hive configuration. 

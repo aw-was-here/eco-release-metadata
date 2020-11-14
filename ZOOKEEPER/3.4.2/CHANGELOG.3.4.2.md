@@ -27,6 +27,6 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-1323](https://issues.apache.org/jira/browse/ZOOKEEPER-1323) | c client doesn't compile on freebsd |  Major | c client | Michi Mutsuzaki | Michi Mutsuzaki |
-| [ZOOKEEPER-1333](https://issues.apache.org/jira/browse/ZOOKEEPER-1333) | NPE in FileTxnSnapLog when restarting a cluster |  Blocker | server | Andrew McNair | Patrick Hunt |
+| [ZOOKEEPER-1333](https://issues.apache.org/jira/browse/ZOOKEEPER-1333) | NPE in FileTxnSnapLog when restarting a cluster |  Blocker | server | Andrew McNair | Patrick D. Hunt |
 
 

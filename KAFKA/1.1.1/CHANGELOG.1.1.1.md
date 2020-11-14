@@ -48,7 +48,7 @@
 | [KAFKA-6728](https://issues.apache.org/jira/browse/KAFKA-6728) | Kafka Connect Header Null Pointer Exception |  Critical | KafkaConnect | Philippe Hong | Randall Hauch |
 | [KAFKA-6739](https://issues.apache.org/jira/browse/KAFKA-6739) | Down-conversion fails for records with headers |  Critical | core | Koelli Mungee | Dhruvil Shah |
 | [KAFKA-6748](https://issues.apache.org/jira/browse/KAFKA-6748) | Scheduler cannot be cancelled from Punctuator |  Major | streams | Frederic Arno | Frederic Arno |
-| [KAFKA-6747](https://issues.apache.org/jira/browse/KAFKA-6747) | kafka-streams Invalid transition attempted from state READY to state ABORTING\_TRANSACTION |  Major | streams | Frederic Arno | Ted Yu |
+| [KAFKA-6747](https://issues.apache.org/jira/browse/KAFKA-6747) | kafka-streams Invalid transition attempted from state READY to state ABORTING\_TRANSACTION |  Major | streams | Frederic Arno | Zhihong Yu |
 | [KAFKA-6752](https://issues.apache.org/jira/browse/KAFKA-6752) | Unclean leader election metric no longer working |  Major | controller | Jason Gustafson | Manikumar |
 | [KAFKA-6765](https://issues.apache.org/jira/browse/KAFKA-6765) | Intermittent test failure in CustomQuotaCallbackTest |  Major | core | Rajini Sivaram | Rajini Sivaram |
 | [KAFKA-6742](https://issues.apache.org/jira/browse/KAFKA-6742) | TopologyTestDriver error when dealing with stores from GlobalKTable |  Minor | streams | Valentino Proietti | Valentino Proietti |

@@ -19,9 +19,18 @@
 * Apache Parquet v2.0.0
     * [Changelog](2.0.0/CHANGELOG.2.0.0.html)
     * [Release Notes](2.0.0/RELEASENOTES.2.0.0.html)
+* Apache Parquet v1.12.0
+    * [Changelog](1.12.0/CHANGELOG.1.12.0.html)
+    * [Release Notes](1.12.0/RELEASENOTES.1.12.0.html)
+* Apache Parquet v1.11.1
+    * [Changelog](1.11.1/CHANGELOG.1.11.1.html)
+    * [Release Notes](1.11.1/RELEASENOTES.1.11.1.html)
 * Apache Parquet v1.11.0
     * [Changelog](1.11.0/CHANGELOG.1.11.0.html)
     * [Release Notes](1.11.0/RELEASENOTES.1.11.0.html)
+* Apache Parquet v1.10.2
+    * [Changelog](1.10.2/CHANGELOG.1.10.2.html)
+    * [Release Notes](1.10.2/RELEASENOTES.1.10.2.html)
 * Apache Parquet v1.10.1
     * [Changelog](1.10.1/CHANGELOG.1.10.1.html)
     * [Release Notes](1.10.1/RELEASENOTES.1.10.1.html)

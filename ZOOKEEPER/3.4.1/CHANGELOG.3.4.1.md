@@ -31,7 +31,7 @@
 | [ZOOKEEPER-1316](https://issues.apache.org/jira/browse/ZOOKEEPER-1316) | zookeeper\_init leaks memory if chroot is just '/' |  Minor | c client | Akira Kitada | Akira Kitada |
 | [ZOOKEEPER-1315](https://issues.apache.org/jira/browse/ZOOKEEPER-1315) | zookeeper\_init always reports sessionPasswd=\<hidden\> |  Minor | c client | Akira Kitada | Akira Kitada |
 | [ZOOKEEPER-1317](https://issues.apache.org/jira/browse/ZOOKEEPER-1317) | Possible segfault in zookeeper\_init |  Minor | c client | Akira Kitada | Akira Kitada |
-| [ZOOKEEPER-1319](https://issues.apache.org/jira/browse/ZOOKEEPER-1319) | Missing data after restarting+expanding a cluster |  Blocker | . | Jeremy Stribling | Patrick Hunt |
+| [ZOOKEEPER-1319](https://issues.apache.org/jira/browse/ZOOKEEPER-1319) | Missing data after restarting+expanding a cluster |  Blocker | . | Jeremy Stribling | Patrick D. Hunt |
 | [ZOOKEEPER-1269](https://issues.apache.org/jira/browse/ZOOKEEPER-1269) | Multi deserialization issues |  Major | server | Camille Fournier | Camille Fournier |
 
 

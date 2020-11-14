@@ -21,4 +21,27 @@
 These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.
 
 
+---
+
+* [ZOOKEEPER-3153](https://issues.apache.org/jira/browse/ZOOKEEPER-3153) | *Major* | **Create MarkDown files and build process for them**
+
+Migrate documentation to MarkDown.
+
+
+---
+
+* [ZOOKEEPER-1818](https://issues.apache.org/jira/browse/ZOOKEEPER-1818) | *Blocker* | **Correctly handle potential inconsistent zxid/electionEpoch and peerEpoch during leader election**
+
+This is very much a copy of the patch for 3.4.7 with small adaptations.
+
+
+---
+
+* [ZOOKEEPER-3224](https://issues.apache.org/jira/browse/ZOOKEEPER-3224) | *Blocker* | **CI integration with maven**
+
+Let's close it.
+We have Travis + Pull Requests + Nightly build.
+We will have to convert the remaining jobs when we drop ant (hopefully very soon, before 3.6.0 release)
+
+
 

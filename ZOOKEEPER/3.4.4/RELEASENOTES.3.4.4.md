@@ -32,13 +32,6 @@ Most users won't even see this given the number of writes on a typical installat
 
 ---
 
-* [ZOOKEEPER-1344](https://issues.apache.org/jira/browse/ZOOKEEPER-1344) | *Critical* | **ZooKeeper client multi-update command is not considering the Chroot request**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [ZOOKEEPER-1210](https://issues.apache.org/jira/browse/ZOOKEEPER-1210) | *Minor* | **Can't build ZooKeeper RPM with RPM \>= 4.6.0 (i.e. on RHEL 6 and Fedora \>= 10)**
 
 Fix buildroot misplacement on systems with RPM\>=4.6. Earlier RPM versions support --buildroot commandline flag, so this doesn't break anything on older systems.

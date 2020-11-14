@@ -50,4 +50,40 @@ The internal constant can be configured with the dfs.balancer.max-iteration-time
 Restore the KMS accept queue size to 500 in Hadoop 3.x, making it the same as in Hadoop 2.x.
 
 
+---
+
+* [HADOOP-15684](https://issues.apache.org/jira/browse/HADOOP-15684) | *Critical* | **triggerActiveLogRoll stuck on dead name node, when ConnectTimeoutException happens.**
+
+When a namenode A sends request RollEditLog to a remote NN, either the remote NN is standby or IO Exception happens, A should continue to try next NN, instead of getting stuck on the problematic one.  This Patch is based on trunk.
+
+
+---
+
+* [HADOOP-14445](https://issues.apache.org/jira/browse/HADOOP-14445) | *Major* | **Use DelegationTokenIssuer to create KMS delegation tokens that can authenticate to all KMS instances**
+
+<!-- markdown -->
+
+This patch improves the KMS delegation token issuing and authentication logic, to enable tokens to authenticate with a set of KMS servers. The change is backport compatible, in that it keeps the existing authentication logic as a fall back.
+
+Historically, KMS delegation tokens have ip:port as service, making KMS clients only able to use the token to authenticate with the KMS server specified as ip:port, even though the token is shared among all KMS servers at server-side. After this patch, newly created tokens will have the KMS URL as service.
+
+A `DelegationTokenIssuer` interface is introduced for token creation.
+
+
+---
+
+* [HDFS-14403](https://issues.apache.org/jira/browse/HDFS-14403) | *Major* | **Cost-Based RPC FairCallQueue**
+
+This adds an extension to the IPC FairCallQueue which allows for the consideration of the \*cost\* of a user's operations when deciding how they should be prioritized, as opposed to the number of operations. This can be helpful for protecting the NameNode from clients which submit very expensive operations (e.g. large listStatus operations or recursive getContentSummary operations).
+
+This can be enabled by setting the \`ipc.\<port\>.costprovder.impl\` configuration to \`org.apache.hadoop.ipc.WeightedTimeCostProvider\`.
+
+
+---
+
+* [HDFS-13101](https://issues.apache.org/jira/browse/HDFS-13101) | *Critical* | **Yet another fsimage corruption related to snapshot**
+
+Fix a corner case in deleting HDFS snapshots. A regression was later found and fixed by HDFS-15012.
+
+
 

@@ -20,11 +20,6 @@
 
 ## Release 1.4.4 - 2018-04-30
 
-### INCOMPATIBLE CHANGES:
-
-| JIRA | Summary | Priority | Component | Reporter | Contributor |
-|:---- |:---- | :--- |:---- |:---- |:---- |
-| [HBASE-20276](https://issues.apache.org/jira/browse/HBASE-20276) | [shell] Revert shell REPL change and document |  Blocker | documentation, shell | Sean Busbey | Sean Busbey |
 
 
 ### IMPROVEMENTS:
@@ -34,7 +29,7 @@
 | [HBASE-15466](https://issues.apache.org/jira/browse/HBASE-15466) | precommit should not run all java goals when given a docs-only patch |  Major | build | Sean Busbey | Sean Busbey |
 | [HBASE-20352](https://issues.apache.org/jira/browse/HBASE-20352) | [Chore] Backport HBASE-18309 to branch-1 |  Major | . | Reid Chan | Reid Chan |
 | [HBASE-20379](https://issues.apache.org/jira/browse/HBASE-20379) | shadedjars yetus plugin should add a footer link |  Major | test | Sean Busbey | Sean Busbey |
-| [HBASE-20459](https://issues.apache.org/jira/browse/HBASE-20459) | Majority of scan CPU time in HBase-1 spent in size estimation |  Critical | Performance, scan | Lars Hofhansl | Lars Hofhansl |
+| [HBASE-20459](https://issues.apache.org/jira/browse/HBASE-20459) | Majority of scan CPU time in HBase-1 spent in size estimation |  Critical | Performance, Scanners | Lars Hofhansl | Lars Hofhansl |
 
 
 ### BUG FIXES:
@@ -53,9 +48,16 @@
 | [HBASE-20280](https://issues.apache.org/jira/browse/HBASE-20280) | Fix possibility of deadlocking in refreshFileConnections when prefetch is enabled |  Major | BucketCache | Zach York | Zach York |
 | [HBASE-20335](https://issues.apache.org/jira/browse/HBASE-20335) | nightly jobs no longer contain machine information |  Critical | test | Sean Busbey | Sean Busbey |
 | [HBASE-20364](https://issues.apache.org/jira/browse/HBASE-20364) | nightly job gives old results or no results for stages that timeout on SCM |  Critical | test | Sean Busbey | Sean Busbey |
-| [HBASE-20404](https://issues.apache.org/jira/browse/HBASE-20404) | Ugly cleanerchore complaint that dir is not empty |  Major | master | stack | Sean Busbey |
-| [HBASE-20463](https://issues.apache.org/jira/browse/HBASE-20463) | Fix breakage introduced on branch-1 by HBASE-20276 "[shell] Revert shell REPL change and document" |  Blocker | shell | stack | Sean Busbey |
+| [HBASE-20404](https://issues.apache.org/jira/browse/HBASE-20404) | Ugly cleanerchore complaint that dir is not empty |  Major | master | Michael Stack | Sean Busbey |
+| [HBASE-20463](https://issues.apache.org/jira/browse/HBASE-20463) | Fix breakage introduced on branch-1 by HBASE-20276 "[shell] Revert shell REPL change and document" |  Blocker | shell | Michael Stack | Sean Busbey |
 | [HBASE-20293](https://issues.apache.org/jira/browse/HBASE-20293) | get\_splits returns duplicate split points when region replication is on |  Minor | shell | Toshihiro Suzuki | Toshihiro Suzuki |
+
+
+### SUB-TASKS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HBASE-20276](https://issues.apache.org/jira/browse/HBASE-20276) | [shell] Revert shell REPL change and document |  Blocker | documentation, shell | Sean Busbey | Sean Busbey |
 
 
 ### OTHER:

@@ -33,7 +33,7 @@
 | [ZOOKEEPER-2281](https://issues.apache.org/jira/browse/ZOOKEEPER-2281) | ZK Server startup fails if there are spaces in the JAVA\_HOME path |  Minor | scripts | Neha Bathra | Neha Bathra |
 | [ZOOKEEPER-2340](https://issues.apache.org/jira/browse/ZOOKEEPER-2340) | JMX is disabled even if JMXDISABLE is false |  Minor | . | Neha Bathra | Mohammad Arshad |
 | [ZOOKEEPER-2229](https://issues.apache.org/jira/browse/ZOOKEEPER-2229) | Several four-letter words are undocumented. |  Major | documentation | Chris Nauroth | Chris Nauroth |
-| [ZOOKEEPER-2347](https://issues.apache.org/jira/browse/ZOOKEEPER-2347) | Deadlock shutting down zookeeper |  Blocker | . | Ted Yu | Rakesh R |
-| [ZOOKEEPER-2360](https://issues.apache.org/jira/browse/ZOOKEEPER-2360) | Update commons collections version used by tests/releaseaudit |  Blocker | build | Patrick Hunt | Patrick Hunt |
+| [ZOOKEEPER-2347](https://issues.apache.org/jira/browse/ZOOKEEPER-2347) | Deadlock shutting down zookeeper |  Blocker | . | Ted Yu | Rakesh Radhakrishnan |
+| [ZOOKEEPER-2360](https://issues.apache.org/jira/browse/ZOOKEEPER-2360) | Update commons collections version used by tests/releaseaudit |  Blocker | build | Patrick D. Hunt | Patrick D. Hunt |
 
 

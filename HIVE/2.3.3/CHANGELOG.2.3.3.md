@@ -22,14 +22,21 @@
 
 
 
+### IMPROVEMENTS:
+
+| JIRA | Summary | Priority | Component | Reporter | Contributor |
+|:---- |:---- | :--- |:---- |:---- |:---- |
+| [HIVE-21174](https://issues.apache.org/jira/browse/HIVE-21174) | hive.stats.ndv.error parameter documentation issue |  Major | Documentation | Pablo Junge | Pablo Junge |
+
+
 ### BUG FIXES:
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [HIVE-16939](https://issues.apache.org/jira/browse/HIVE-16939) | metastore error: 'export: -Dproc\_metastore : not a valid identifier' |  Major | Metastore | Fei Hui | Fei Hui |
+| [HIVE-16939](https://issues.apache.org/jira/browse/HIVE-16939) | metastore error: 'export: -Dproc\_metastore : not a valid identifier' |  Major | Metastore | Hui Fei | Hui Fei |
 | [HIVE-18788](https://issues.apache.org/jira/browse/HIVE-18788) | Clean up inputs in JDBC PreparedStatement |  Major | . | Daniel Dai | Daniel Dai |
 | [HIVE-18815](https://issues.apache.org/jira/browse/HIVE-18815) | Remove unused feature in HPL/SQL |  Major | hpl/sql | Daniel Dai | Daniel Dai |
 | [HIVE-18879](https://issues.apache.org/jira/browse/HIVE-18879) | Disallow embedded element in UDFXPathUtil needs to work if xercesImpl.jar in classpath |  Major | . | Daniel Dai | Daniel Dai |
-| [HIVE-18885](https://issues.apache.org/jira/browse/HIVE-18885) | DbNotificationListener has a deadlock between Java and DB locks (2.x line) |  Major | Hive, Metastore | Alexander Kolbasov | Vihang Karajgaonkar |
+| [HIVE-18885](https://issues.apache.org/jira/browse/HIVE-18885) | DbNotificationListener has a deadlock between Java and DB locks (2.x line) |  Major | Hive, Metastore | Alex Kolbasov | Vihang Karajgaonkar |
 
 

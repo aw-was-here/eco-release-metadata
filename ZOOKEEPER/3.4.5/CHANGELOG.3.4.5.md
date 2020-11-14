@@ -26,9 +26,9 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [ZOOKEEPER-1376](https://issues.apache.org/jira/browse/ZOOKEEPER-1376) | zkServer.sh does not correctly check for $SERVER\_JVMFLAGS |  Minor | scripts | Patrick Hunt | Skye Wanderman-Milne |
-| [ZOOKEEPER-1550](https://issues.apache.org/jira/browse/ZOOKEEPER-1550) | ZooKeeperSaslClient does not finish anonymous login on OpenJDK |  Blocker | java client | Robert Macomber | Eugene Koontz |
+| [ZOOKEEPER-1376](https://issues.apache.org/jira/browse/ZOOKEEPER-1376) | zkServer.sh does not correctly check for $SERVER\_JVMFLAGS |  Minor | scripts | Patrick D. Hunt | Skye Wanderman-Milne |
+| [ZOOKEEPER-1550](https://issues.apache.org/jira/browse/ZOOKEEPER-1550) | ZooKeeperSaslClient does not finish anonymous login on OpenJDK |  Blocker | java client | Robert Macomber | Eugene Joseph Koontz |
 | [ZOOKEEPER-1560](https://issues.apache.org/jira/browse/ZOOKEEPER-1560) | Zookeeper client hangs on creation of large nodes |  Major | java client | Igor Motov | Skye Wanderman-Milne |
-| [ZOOKEEPER-1686](https://issues.apache.org/jira/browse/ZOOKEEPER-1686) | Publish ZK 3.4.5 test jar |  Major | build, tests | Todd Lipcon | Patrick Hunt |
+| [ZOOKEEPER-1686](https://issues.apache.org/jira/browse/ZOOKEEPER-1686) | Publish ZK 3.4.5 test jar |  Major | build, tests | Todd Lipcon | Patrick D. Hunt |
 
 

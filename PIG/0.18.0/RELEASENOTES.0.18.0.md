@@ -35,4 +35,20 @@ Removed Incorrect Schema Definition from BagToTuple
 the division operator checks for a zero denominator to prevent a divide-by-zero exception. Unlike other numeric types, BigDecimal has multiple representations of zero with different scales ... 0, 0.0, 0.00, etc. Previous versions of pig were were not properly detecting zero values with non-zero scales when performing denominator check prior to division.
 
 
+---
+
+* [PIG-5352](https://issues.apache.org/jira/browse/PIG-5352) | *Major* | **Please add OWASP Dependency Check to the build (ivy.xml)**
+
+Now 
+% ant owasp
+would create a report for known vulnerabilities for the jars Pig depend on at ./build/owasp.
+
+
+---
+
+* [PIG-5404](https://issues.apache.org/jira/browse/PIG-5404) | *Blocker* | **FLATTEN infers wrong datatype**
+
+**WARNING: No release note provided for this change.**
+
+
 

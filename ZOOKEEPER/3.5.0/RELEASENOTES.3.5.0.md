@@ -23,13 +23,6 @@ These release notes cover new developer and user-facing incompatibilities, impor
 
 ---
 
-* [ZOOKEEPER-1189](https://issues.apache.org/jira/browse/ZOOKEEPER-1189) | *Major* | **For an invalid snapshot file(less than 10bytes size) RandomAccessFile stream is leaking.**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [ZOOKEEPER-1185](https://issues.apache.org/jira/browse/ZOOKEEPER-1185) | *Major* | **Send AuthFailed event to client if SASL authentication fails**
 
 This patch fixes SaslAuthFailTest.testBadSaslAuthNotifiesWatch() to test for the AuthFailed event : previously, the test was incorrectly not testing for this event.
@@ -105,23 +98,9 @@ return ZBADARGUMENTS when passed NULL zhandle instead of dereferencing null poin
 
 ---
 
-* [ZOOKEEPER-1100](https://issues.apache.org/jira/browse/ZOOKEEPER-1100) | *Major* | **Killed (or missing) SendThread will cause hanging threads**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [ZOOKEEPER-1262](https://issues.apache.org/jira/browse/ZOOKEEPER-1262) | *Major* | **Documentation for Lock recipe has major flaw**
 
 Updated recipes to document how to use a GUID to manage a recoverable create() error.
-
-
----
-
-* [ZOOKEEPER-1294](https://issues.apache.org/jira/browse/ZOOKEEPER-1294) | *Major* | **One of the zookeeper server is not accepting any requests**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -166,13 +145,6 @@ Unwanted ERROR messages in the logs.
 Workaround: there is a simple workaround for this issue. Force a leader re-election before the lower 32bits reach 0xffffffff
 
 Most users won't even see this given the number of writes on a typical installation - say you are doing 500 writes/second, you'd see this after ~3 months if the quorum is stable, any changes (such as upgrading the server software) would cause the xid to be reset, thereby staving off this issue for another period.
-
-
----
-
-* [ZOOKEEPER-1344](https://issues.apache.org/jira/browse/ZOOKEEPER-1344) | *Critical* | **ZooKeeper client multi-update command is not considering the Chroot request**
-
-**WARNING: No release note provided for this change.**
 
 
 ---
@@ -255,13 +227,6 @@ Try to avoid reverse name service look up when the connection string consists of
 * [ZOOKEEPER-1632](https://issues.apache.org/jira/browse/ZOOKEEPER-1632) | *Minor* | **fix memory leaks in cli\_st**
 
 The fix for this issue solves the memory leak spotted in the absence of errors. In the case the completion function is not registered because of an error (e.g., see zoo\_async), the line duplicate won't be freed.
-
-
----
-
-* [ZOOKEEPER-1459](https://issues.apache.org/jira/browse/ZOOKEEPER-1459) | *Major* | **Standalone ZooKeeperServer is not closing the transaction log files on shutdown**
-
-**WARNING: No release note provided for this change.**
 
 
 ---

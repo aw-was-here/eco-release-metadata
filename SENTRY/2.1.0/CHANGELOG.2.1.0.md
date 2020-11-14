@@ -18,7 +18,7 @@
 -->
 # Apache Sentry Changelog
 
-## Release 2.1.0 - Unreleased (as of 2018-09-12)
+## Release 2.1.0 - 2018-09-28
 
 
 
@@ -35,8 +35,8 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [SENTRY-2076](https://issues.apache.org/jira/browse/SENTRY-2076) | Some test artifacts are not defined at test scope |  Minor | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
-| [SENTRY-1951](https://issues.apache.org/jira/browse/SENTRY-1951) | Old SentryStore.retrieveFullPathsImage() should be removed |  Major | Sentry | Alexander Kolbasov | Arjun Mishra |
-| [SENTRY-1572](https://issues.apache.org/jira/browse/SENTRY-1572) | SentryMain() shouldn't dynamically load tool class |  Major | Sentry | Alexander Kolbasov | Xinran Tinney |
+| [SENTRY-1951](https://issues.apache.org/jira/browse/SENTRY-1951) | Old SentryStore.retrieveFullPathsImage() should be removed |  Major | Sentry | Alex Kolbasov | Arjun Mishra |
+| [SENTRY-1572](https://issues.apache.org/jira/browse/SENTRY-1572) | SentryMain() shouldn't dynamically load tool class |  Major | Sentry | Alex Kolbasov | Xinran Tinney |
 | [SENTRY-853](https://issues.apache.org/jira/browse/SENTRY-853) | Handle show grant on \<auth\> failure correctly |  Major | . | Sravya Tirukkovalur | Steve Moist |
 | [SENTRY-2147](https://issues.apache.org/jira/browse/SENTRY-2147) | Fix Javadoc for SentryHiveAuthorizerFactory |  Trivial | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
 | [SENTRY-2150](https://issues.apache.org/jira/browse/SENTRY-2150) | Update Apache parent pom version |  Trivial | . | Colm O hEigeartaigh | Colm O hEigeartaigh |
@@ -52,6 +52,7 @@
 | [SENTRY-2376](https://issues.apache.org/jira/browse/SENTRY-2376) | Bump Jackson libraries versions to 1.9.13 and 2.9.6 |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2392](https://issues.apache.org/jira/browse/SENTRY-2392) | Add metrics statistics to list\_user\_privileges and list\_role\_privileges API |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2311](https://issues.apache.org/jira/browse/SENTRY-2311) | Intellij is broken by shaded jars |  Major | Sentry | Steve Moist | Steve Moist |
+| [SENTRY-2398](https://issues.apache.org/jira/browse/SENTRY-2398) | Support multiple target versions on single source versions during schema upgrades |  Major | Sentry | Sergio Peña | Sergio Peña |
 
 
 ### BUG FIXES:
@@ -62,26 +63,26 @@
 | [SENTRY-379](https://issues.apache.org/jira/browse/SENTRY-379) | Db entities are not captured when firing failurehook for SentryAccessDeniedException |  Minor | . | Sravya Tirukkovalur |  |
 | [SENTRY-2079](https://issues.apache.org/jira/browse/SENTRY-2079) | Sentry HA leader monitor does not work due to a mix of curator versions in the classpath |  Blocker | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2082](https://issues.apache.org/jira/browse/SENTRY-2082) | Exclude javax.servlet-3.0.0.v201112011016.jar from Sentry dist |  Blocker | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2084](https://issues.apache.org/jira/browse/SENTRY-2084) | Exclude javax.jms:jms from sentry distribution |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2084](https://issues.apache.org/jira/browse/SENTRY-2084) | Exclude javax.jms:jms from sentry distribution |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2092](https://issues.apache.org/jira/browse/SENTRY-2092) | Drop Role log message shows "Creating role" |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2040](https://issues.apache.org/jira/browse/SENTRY-2040) | When getting Snapshots from HMS we need more logging around cases when a snapshot is not being received |  Major | Sentry | Arjun Mishra | Arjun Mishra |
 | [SENTRY-2078](https://issues.apache.org/jira/browse/SENTRY-2078) | Have sentry server print an obvious INFO level log message when it becomes the writer |  Minor | Sentry | Arjun Mishra | Arjun Mishra |
-| [SENTRY-1662](https://issues.apache.org/jira/browse/SENTRY-1662) | Constants java uses mutable collection |  Minor | Sentry | Alexander Kolbasov | Steve Moist |
+| [SENTRY-1662](https://issues.apache.org/jira/browse/SENTRY-1662) | Constants java uses mutable collection |  Minor | Sentry | Alex Kolbasov | Steve Moist |
 | [SENTRY-2085](https://issues.apache.org/jira/browse/SENTRY-2085) | Sentry error handling exposes SentryGroupNotFoundException externally |  Major | . | Zach Amsden | Zach Amsden |
 | [SENTRY-2120](https://issues.apache.org/jira/browse/SENTRY-2120) | Escape input string for error response message in LogLevelServlet |  Major | Sentry | Na Li | Na Li |
-| [SENTRY-2034](https://issues.apache.org/jira/browse/SENTRY-2034) | Add e2e tests for testing HMS notification processing. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-1819](https://issues.apache.org/jira/browse/SENTRY-1819) | HMSFollower and friends do not belong in sentry.service.thrift |  Minor | Sentry | Alexander Kolbasov | Xinran Tinney |
+| [SENTRY-2034](https://issues.apache.org/jira/browse/SENTRY-2034) | Add e2e tests for testing HMS notification processing. |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-1819](https://issues.apache.org/jira/browse/SENTRY-1819) | HMSFollower and friends do not belong in sentry.service.thrift |  Minor | Sentry | Alex Kolbasov | Xinran Tinney |
 | [SENTRY-2123](https://issues.apache.org/jira/browse/SENTRY-2123) | Specify code path of auth-generated thrift files for Javadoc and exclude them from Javadoc generation |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2127](https://issues.apache.org/jira/browse/SENTRY-2127) | Fix unstable unit test TestColumnEndToEnd.testCrossDbTableOperations |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2124](https://issues.apache.org/jira/browse/SENTRY-2124) | LeaderStatusMonitor.toString() throws IllegalFormatConversionException with AtomicLong |  Minor | Sentry | Sergio Peña | Xinran Tinney |
 | [SENTRY-2136](https://issues.apache.org/jira/browse/SENTRY-2136) | Bump metrics dependency to new namespace and version used by the rest of Hadoop |  Minor | Sentry | Liam Sargent | Liam Sargent |
-| [SENTRY-2115](https://issues.apache.org/jira/browse/SENTRY-2115) |  Incorrect behavior of HMsFollower when HDFSSync feature is disabled. |  Critical | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2164](https://issues.apache.org/jira/browse/SENTRY-2164) | Convert uses of TransactionBlock to lambdas |  Major | Sentry | Alexander Kolbasov | Alexander Kolbasov |
+| [SENTRY-2115](https://issues.apache.org/jira/browse/SENTRY-2115) |  Incorrect behavior of HMsFollower when HDFSSync feature is disabled. |  Critical | . | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2164](https://issues.apache.org/jira/browse/SENTRY-2164) | Convert uses of TransactionBlock to lambdas |  Major | Sentry | Alex Kolbasov | Alex Kolbasov |
 | [SENTRY-2178](https://issues.apache.org/jira/browse/SENTRY-2178) | Sentry permissions for Solr are deleted as part of migration process |  Critical | Solr Plugin | Hrishikesh Gadre | Hrishikesh Gadre |
 | [SENTRY-2184](https://issues.apache.org/jira/browse/SENTRY-2184) | Performance Issue: MPath is queried for each MAuthzPathsMapping in full snapshot |  Critical | Sentry | Na Li | Na Li |
-| [SENTRY-2193](https://issues.apache.org/jira/browse/SENTRY-2193) | Synchronize thrift definition with the generated sources |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2192](https://issues.apache.org/jira/browse/SENTRY-2192) | supress date value in @Generated annotation generated by thrift |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2167](https://issues.apache.org/jira/browse/SENTRY-2167) | Change ignored logging messages to debug level in NotificationProcessor |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2193](https://issues.apache.org/jira/browse/SENTRY-2193) | Synchronize thrift definition with the generated sources |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2192](https://issues.apache.org/jira/browse/SENTRY-2192) | supress date value in @Generated annotation generated by thrift |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2167](https://issues.apache.org/jira/browse/SENTRY-2167) | Change ignored logging messages to debug level in NotificationProcessor |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2200](https://issues.apache.org/jira/browse/SENTRY-2200) | Migrate 3.x Datanucleus unsupported configurations to 4.1 Datanucleus |  Major | Sentry | Na Li | Xinran Tinney |
 | [SENTRY-2212](https://issues.apache.org/jira/browse/SENTRY-2212) | smart-apply-patch.sh isn't so smart, won't apply changes when files have been moved or renamed |  Major | Build | Steve Moist | Steve Moist |
 | [SENTRY-2214](https://issues.apache.org/jira/browse/SENTRY-2214) | Sentry should not allow URI grants to EMPTY or NULL locations |  Major | . | Arjun Mishra | Arjun Mishra |
@@ -89,20 +90,20 @@
 | [SENTRY-2262](https://issues.apache.org/jira/browse/SENTRY-2262) | Sentry client is not compatible when connecting to Sentry 2.0 |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2267](https://issues.apache.org/jira/browse/SENTRY-2267) | Listing user privileges fails because roleName field is required on Thrift |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2270](https://issues.apache.org/jira/browse/SENTRY-2270) | Illegal privileges on columns can be granted on Hive |  Major | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2271](https://issues.apache.org/jira/browse/SENTRY-2271) | Wrong log messages/method names in SentrySchema related classes. |  Major | Sentry | kalyan kumar kalvagadda | Arjun Mishra |
+| [SENTRY-2271](https://issues.apache.org/jira/browse/SENTRY-2271) | Wrong log messages/method names in SentrySchema related classes. |  Major | Sentry | Krishna Kalyan | Arjun Mishra |
 | [SENTRY-2209](https://issues.apache.org/jira/browse/SENTRY-2209) | Incorrect class in SentryHdfsMetricsUtil.java |  Minor | Hdfs Plugin | Adam Holley | Arjun Mishra |
 | [SENTRY-2231](https://issues.apache.org/jira/browse/SENTRY-2231) | Fix URI check on List Privileges by Provider in SentryStore |  Major | Sentry | Arjun Mishra | Arjun Mishra |
-| [SENTRY-2257](https://issues.apache.org/jira/browse/SENTRY-2257) | Implement Sentry store API's to update owner privilege on a authorizable |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2257](https://issues.apache.org/jira/browse/SENTRY-2257) | Implement Sentry store API's to update owner privilege on a authorizable |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2238](https://issues.apache.org/jira/browse/SENTRY-2238) | Explicitly set Database on SentryHivePrivilegeObjectDesc |  Major | . | Arjun Mishra | Arjun Mishra |
 | [SENTRY-2282](https://issues.apache.org/jira/browse/SENTRY-2282) | Remove hive-authzv2 binding and tests modules completely |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2283](https://issues.apache.org/jira/browse/SENTRY-2283) | Multiple versions of metrics on the classpath causes Sentry to not startup |  Major | Sentry | Steve Moist | Steve Moist |
-| [SENTRY-2310](https://issues.apache.org/jira/browse/SENTRY-2310) | Sentry is not be able to fetch full update subsequently,  when there is HMS restart in the snapshot process. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2190](https://issues.apache.org/jira/browse/SENTRY-2190) | Have verbose debug logs in CounterWait class |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2337](https://issues.apache.org/jira/browse/SENTRY-2337) | [REVERT] SENTRY-2295: Owner privileges should not be granted to sentry admin users |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2310](https://issues.apache.org/jira/browse/SENTRY-2310) | Sentry is not be able to fetch full update subsequently,  when there is HMS restart in the snapshot process. |  Major | . | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2190](https://issues.apache.org/jira/browse/SENTRY-2190) | Have verbose debug logs in CounterWait class |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2337](https://issues.apache.org/jira/browse/SENTRY-2337) | [REVERT] SENTRY-2295: Owner privileges should not be granted to sentry admin users |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2330](https://issues.apache.org/jira/browse/SENTRY-2330) | Change sentry-service-server to use ${project.version} |  Minor | Sentry | Steve Moist | Steve Moist |
 | [SENTRY-2352](https://issues.apache.org/jira/browse/SENTRY-2352) | User roles with ALTER on a table can not show or describe the table on which they have ALTER |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2308](https://issues.apache.org/jira/browse/SENTRY-2308) | Create privilege on table has no use case |  Major | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2359](https://issues.apache.org/jira/browse/SENTRY-2359) | Object owner is unable to grant privileges: SentryAccessDeniedException |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2359](https://issues.apache.org/jira/browse/SENTRY-2359) | Object owner is unable to grant privileges: SentryAccessDeniedException |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2315](https://issues.apache.org/jira/browse/SENTRY-2315) | The grant all operation is not dropping the create/alter/drop/index/lock privileges. |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2375](https://issues.apache.org/jira/browse/SENTRY-2375) | Fix API typos on SentryPolicyServiceClient |  Major | Sentry | Sergio Peña | Morio Ramdenbourg |
 | [SENTRY-2394](https://issues.apache.org/jira/browse/SENTRY-2394) | Typo in sentry-site.xml.service.template |  Minor | Sentry | Morio Ramdenbourg | Morio Ramdenbourg |
@@ -120,50 +121,53 @@
 
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
-| [SENTRY-2055](https://issues.apache.org/jira/browse/SENTRY-2055) | Update the pom file on master with the 2.1.0-SNAPSHOT. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2055](https://issues.apache.org/jira/browse/SENTRY-2055) | Update the pom file on master with the 2.1.0-SNAPSHOT. |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-641](https://issues.apache.org/jira/browse/SENTRY-641) | Add binding for lily hbase indexer |  Major | . | Gregory Chanan | Mano Kovacs |
 | [SENTRY-2023](https://issues.apache.org/jira/browse/SENTRY-2023) | Add sentry-shell support for hbase-indexer permissions |  Major | . | Mano Kovacs | Mano Kovacs |
 | [SENTRY-2207](https://issues.apache.org/jira/browse/SENTRY-2207) | Refactor out Sentry CLI from sentry-provider-db into own module |  Major | Sentry | Steve Moist | Steve Moist |
 | [SENTRY-2154](https://issues.apache.org/jira/browse/SENTRY-2154) | Update schema to grant privileges to user |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2155](https://issues.apache.org/jira/browse/SENTRY-2155) | Update JDO to grant privileges to user |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2206](https://issues.apache.org/jira/browse/SENTRY-2206) | Refactor out sentry api from sentry-provider-db to own module |  Major | Sentry | Steve Moist | Steve Moist |
-| [SENTRY-2174](https://issues.apache.org/jira/browse/SENTRY-2174) | Sentry authorization provider should now generate ACL for users |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2174](https://issues.apache.org/jira/browse/SENTRY-2174) | Sentry authorization provider should now generate ACL for users |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2208](https://issues.apache.org/jira/browse/SENTRY-2208) | Refactor out Sentry service into own module from sentry-provider-db |  Major | Sentry | Steve Moist | Anthony Young-Garner |
 | [SENTRY-2156](https://issues.apache.org/jira/browse/SENTRY-2156) | Update provider-db backend code to grant privileges to user |  Major | Sentry | Na Li | Na Li |
-| [SENTRY-2246](https://issues.apache.org/jira/browse/SENTRY-2246) | Construct owner privilege (TSentryPrivilege) |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2246](https://issues.apache.org/jira/browse/SENTRY-2246) | Construct owner privilege (TSentryPrivilege) |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2256](https://issues.apache.org/jira/browse/SENTRY-2256) | Make thrift API changes to get user privileges from Sentry |  Major | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2162](https://issues.apache.org/jira/browse/SENTRY-2162) | Retrieve and list user privileges for authorization |  Major | Sentry | Na Li | Sergio Peña |
-| [SENTRY-2252](https://issues.apache.org/jira/browse/SENTRY-2252) | Normalize the Sentry store API's to handle both user/role privileges |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2260](https://issues.apache.org/jira/browse/SENTRY-2260) | Update HDFS ACL's based on owner privileges. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2265](https://issues.apache.org/jira/browse/SENTRY-2265) | Translate owner privilege in sentry binding for authorization |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
+| [SENTRY-2252](https://issues.apache.org/jira/browse/SENTRY-2252) | Normalize the Sentry store API's to handle both user/role privileges |  Major | . | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2260](https://issues.apache.org/jira/browse/SENTRY-2260) | Update HDFS ACL's based on owner privileges. |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2265](https://issues.apache.org/jira/browse/SENTRY-2265) | Translate owner privilege in sentry binding for authorization |  Major | Sentry | Krishna Kalyan | Sergio Peña |
 | [SENTRY-2224](https://issues.apache.org/jira/browse/SENTRY-2224) | Support SHOW GRANT on HIVE\_OBJECT |  Major | . | Arjun Mishra | Arjun Mishra |
-| [SENTRY-2275](https://issues.apache.org/jira/browse/SENTRY-2275) | Grant and revoke owner privileges based on HMS updates(client-side) |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2251](https://issues.apache.org/jira/browse/SENTRY-2251) | Update user privileges based on changes to authorizables |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2241](https://issues.apache.org/jira/browse/SENTRY-2241) | Extend the Sync Listener to pass owner information to sentry server. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2275](https://issues.apache.org/jira/browse/SENTRY-2275) | Grant and revoke owner privileges based on HMS updates(client-side) |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2251](https://issues.apache.org/jira/browse/SENTRY-2251) | Update user privileges based on changes to authorizables |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2241](https://issues.apache.org/jira/browse/SENTRY-2241) | Extend the Sync Listener to pass owner information to sentry server. |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2264](https://issues.apache.org/jira/browse/SENTRY-2264) | It is possible to elevate privileges from DROP using alter table rename |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2281](https://issues.apache.org/jira/browse/SENTRY-2281) | list\_privileges\_by\_user() fails with a JDODetachedFieldAccessException |  Major | Sentry | Sergio Peña | Arjun Mishra |
-| [SENTRY-2272](https://issues.apache.org/jira/browse/SENTRY-2272) | Fix the sentry store logic for listing user privileges |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
+| [SENTRY-2272](https://issues.apache.org/jira/browse/SENTRY-2272) | Fix the sentry store logic for listing user privileges |  Major | Sentry | Krishna Kalyan | Sergio Peña |
 | [SENTRY-2273](https://issues.apache.org/jira/browse/SENTRY-2273) | Create the SHOW GRANT USER task for Hive |  Major | Sentry | Sergio Peña | Arjun Mishra |
 | [SENTRY-2280](https://issues.apache.org/jira/browse/SENTRY-2280) | The request received in SentryPolicyStoreProcessor.sentry\_notify\_hms\_event is null |  Critical | Sentry | Na Li | Na Li |
 | [SENTRY-2294](https://issues.apache.org/jira/browse/SENTRY-2294) | Add requestorUsername to client.notifyHmsEvent() method |  Major | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2295](https://issues.apache.org/jira/browse/SENTRY-2295) | Owner privileges should not be granted to sentry admin users |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2274](https://issues.apache.org/jira/browse/SENTRY-2274) | Grant and revoke owner privileges based on HMS updates(server-side) |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2247](https://issues.apache.org/jira/browse/SENTRY-2247) | Add e2e tests to verify owner privileges |  Major | Sentry | kalyan kumar kalvagadda | Na Li |
+| [SENTRY-2295](https://issues.apache.org/jira/browse/SENTRY-2295) | Owner privileges should not be granted to sentry admin users |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2274](https://issues.apache.org/jira/browse/SENTRY-2274) | Grant and revoke owner privileges based on HMS updates(server-side) |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2247](https://issues.apache.org/jira/browse/SENTRY-2247) | Add e2e tests to verify owner privileges |  Major | Sentry | Krishna Kalyan | Na Li |
 | [SENTRY-2159](https://issues.apache.org/jira/browse/SENTRY-2159) | Add e2e tests for granting owner privileges |  Major | Sentry | Na Li | Na Li |
-| [SENTRY-2290](https://issues.apache.org/jira/browse/SENTRY-2290) | Avoid storing the path information for partitions in default location |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
 | [SENTRY-2157](https://issues.apache.org/jira/browse/SENTRY-2157) | Update audit log to grant/revoke owner privileges |  Major | Sentry | Na Li | Sergio Peña |
-| [SENTRY-2169](https://issues.apache.org/jira/browse/SENTRY-2169) | Make sure that the implicit privileges for a role are synced with HDFS |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2312](https://issues.apache.org/jira/browse/SENTRY-2312) | Update owner privileges for table when owner is changed. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2296](https://issues.apache.org/jira/browse/SENTRY-2296) | Add PermissionsUpdate for adding owner privilege on owner transfer |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2339](https://issues.apache.org/jira/browse/SENTRY-2339) | Support transfer of ownership for database/table to roles |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2358](https://issues.apache.org/jira/browse/SENTRY-2358) | Close JIRA version for 2.0.1 |  Major | Sentry | kalyan kumar kalvagadda | Sergio Peña |
+| [SENTRY-2169](https://issues.apache.org/jira/browse/SENTRY-2169) | Make sure that the implicit privileges for a role are synced with HDFS |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2312](https://issues.apache.org/jira/browse/SENTRY-2312) | Update owner privileges for table when owner is changed. |  Major | . | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2296](https://issues.apache.org/jira/browse/SENTRY-2296) | Add PermissionsUpdate for adding owner privilege on owner transfer |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2339](https://issues.apache.org/jira/browse/SENTRY-2339) | Support transfer of ownership for database/table to roles |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2358](https://issues.apache.org/jira/browse/SENTRY-2358) | Close JIRA version for 2.0.1 |  Major | Sentry | Krishna Kalyan | Sergio Peña |
 | [SENTRY-2355](https://issues.apache.org/jira/browse/SENTRY-2355) | Merge the DB owner privileges configurations into one enum configuration |  Major | Sentry | Sergio Peña | Sergio Peña |
-| [SENTRY-2363](https://issues.apache.org/jira/browse/SENTRY-2363) | Update the wiki "How to release sentry" |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2364](https://issues.apache.org/jira/browse/SENTRY-2364) | Make an announcement for 2.0.1 release |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2307](https://issues.apache.org/jira/browse/SENTRY-2307) | Avoid HMS event synchronization while sentry is fetching full snapshot. |  Major | Sentry | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
-| [SENTRY-2233](https://issues.apache.org/jira/browse/SENTRY-2233) | Add e2e tests for testing HDFS sync for owner privileges. |  Major | . | kalyan kumar kalvagadda | kalyan kumar kalvagadda |
+| [SENTRY-2363](https://issues.apache.org/jira/browse/SENTRY-2363) | Update the wiki "How to release sentry" |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2364](https://issues.apache.org/jira/browse/SENTRY-2364) | Make an announcement for 2.0.1 release |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2307](https://issues.apache.org/jira/browse/SENTRY-2307) | Avoid HMS event synchronization while sentry is fetching full snapshot. |  Major | Sentry | Krishna Kalyan | Krishna Kalyan |
+| [SENTRY-2233](https://issues.apache.org/jira/browse/SENTRY-2233) | Add e2e tests for testing HDFS sync for owner privileges. |  Major | . | Krishna Kalyan | Krishna Kalyan |
 | [SENTRY-2374](https://issues.apache.org/jira/browse/SENTRY-2374) | Add Lombok for easier development |  Minor | Core | Brian Towles | Brian Towles |
 | [SENTRY-2367](https://issues.apache.org/jira/browse/SENTRY-2367) | Implement subsystem to allow for pluggable attribute providers and transports |  Major | Core | Brian Towles | Brian Towles |
+| [SENTRY-2379](https://issues.apache.org/jira/browse/SENTRY-2379) | update the version in pom file to 2.1.0 |  Major | Sentry | Na Li | Na Li |
+| [SENTRY-2378](https://issues.apache.org/jira/browse/SENTRY-2378) | create a jira release version 2.1.0 |  Major | Sentry | Na Li | Na Li |
+| [SENTRY-2380](https://issues.apache.org/jira/browse/SENTRY-2380) | Update CHANGELOG on 2.1.0 to reflect the changes |  Major | Sentry | Na Li | Na Li |
+| [SENTRY-2381](https://issues.apache.org/jira/browse/SENTRY-2381) | create a branch for 2.1.0 |  Major | Sentry | Na Li | Na Li |
 
 
 ### OTHER:
@@ -174,7 +178,7 @@
 | [SENTRY-2118](https://issues.apache.org/jira/browse/SENTRY-2118) | Document Configuration required to make Column authentication work |  Major | Sentry | Na Li | Na Li |
 | [SENTRY-2215](https://issues.apache.org/jira/browse/SENTRY-2215) | Remove unused SentryGrantRevokeTask class |  Minor | Sentry | Sergio Peña | Sergio Peña |
 | [SENTRY-2199](https://issues.apache.org/jira/browse/SENTRY-2199) | Bump Hive version from 2.3.2 to 2.3.3 |  Major | Sentry | Sergio Peña | Arjun Mishra |
-| [SENTRY-2056](https://issues.apache.org/jira/browse/SENTRY-2056) | Display test-patch.py output on the standard console to see progress on Jenkins |  Major | Sentry | Sergio Peña | kalyan kumar kalvagadda |
+| [SENTRY-2056](https://issues.apache.org/jira/browse/SENTRY-2056) | Display test-patch.py output on the standard console to see progress on Jenkins |  Major | Sentry | Sergio Peña | Krishna Kalyan |
 | [SENTRY-2277](https://issues.apache.org/jira/browse/SENTRY-2277) | Add to SentryStore testURI test case testing with multiple URI privileges |  Major | Sentry | Arjun Mishra | Arjun Mishra |
 
 

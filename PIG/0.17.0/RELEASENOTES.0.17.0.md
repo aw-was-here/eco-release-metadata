@@ -45,13 +45,6 @@ This change now disallows union-onschema of incompatible types,  (for example, n
 
 ---
 
-* [PIG-4923](https://issues.apache.org/jira/browse/PIG-4923) | *Major* | **Drop Hadoop 1.x support in Pig 0.17**
-
-**WARNING: No release note provided for this change.**
-
-
----
-
 * [PIG-4897](https://issues.apache.org/jira/browse/PIG-4897) | *Major* | **Scope of param substitution for run/exec commands**
 
 With run/exec command, parameters are now scoped and caller would not see the parameters declared within the callee's scripts.
@@ -69,13 +62,6 @@ HBase 1.x and above will be supported with Pig 0.17. Compiling with 0.98 or belo
 * [PIG-3938](https://issues.apache.org/jira/browse/PIG-3938) | *Major* | **Add LoadCaster to EvalFunc(UDF)**
 
 UDF now supports LoadCaster.  Default behavior is to check if all parameters belong to same loadcaster and use it when true.
-
-
----
-
-* [PIG-5085](https://issues.apache.org/jira/browse/PIG-5085) | *Major* | **Support FLATTEN of maps**
-
-**WARNING: No release note provided for this change.**
 
 
 

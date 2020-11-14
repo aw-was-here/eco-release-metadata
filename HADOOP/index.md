@@ -16,12 +16,39 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -->
+* Apache Hadoop v3.4.1
+    * [Changelog](3.4.1/CHANGELOG.3.4.1.html)
+    * [Release Notes](3.4.1/RELEASENOTES.3.4.1.html)
+* Apache Hadoop v3.4.0
+    * [Changelog](3.4.0/CHANGELOG.3.4.0.html)
+    * [Release Notes](3.4.0/RELEASENOTES.3.4.0.html)
+* Apache Hadoop v3.3.1
+    * [Changelog](3.3.1/CHANGELOG.3.3.1.html)
+    * [Release Notes](3.3.1/RELEASENOTES.3.3.1.html)
 * Apache Hadoop v3.3.0
     * [Changelog](3.3.0/CHANGELOG.3.3.0.html)
     * [Release Notes](3.3.0/RELEASENOTES.3.3.0.html)
+* Apache Hadoop v3.2.3
+    * [Changelog](3.2.3/CHANGELOG.3.2.3.html)
+    * [Release Notes](3.2.3/RELEASENOTES.3.2.3.html)
+* Apache Hadoop v3.2.2
+    * [Changelog](3.2.2/CHANGELOG.3.2.2.html)
+    * [Release Notes](3.2.2/RELEASENOTES.3.2.2.html)
+* Apache Hadoop v3.2.1
+    * [Changelog](3.2.1/CHANGELOG.3.2.1.html)
+    * [Release Notes](3.2.1/RELEASENOTES.3.2.1.html)
 * Apache Hadoop v3.2.0
     * [Changelog](3.2.0/CHANGELOG.3.2.0.html)
     * [Release Notes](3.2.0/RELEASENOTES.3.2.0.html)
+* Apache Hadoop v3.1.5
+    * [Changelog](3.1.5/CHANGELOG.3.1.5.html)
+    * [Release Notes](3.1.5/RELEASENOTES.3.1.5.html)
+* Apache Hadoop v3.1.4
+    * [Changelog](3.1.4/CHANGELOG.3.1.4.html)
+    * [Release Notes](3.1.4/RELEASENOTES.3.1.4.html)
+* Apache Hadoop v3.1.3
+    * [Changelog](3.1.3/CHANGELOG.3.1.3.html)
+    * [Release Notes](3.1.3/RELEASENOTES.3.1.3.html)
 * Apache Hadoop v3.1.2
     * [Changelog](3.1.2/CHANGELOG.3.1.2.html)
     * [Release Notes](3.1.2/RELEASENOTES.3.1.2.html)
@@ -43,6 +70,9 @@
 * Apache Hadoop v3.0.1
     * [Changelog](3.0.1/CHANGELOG.3.0.1.html)
     * [Release Notes](3.0.1/RELEASENOTES.3.0.1.html)
+* Apache Hadoop v3.0.0
+    * [Changelog](3.0.0/CHANGELOG.3.0.0.html)
+    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
 * Apache Hadoop v3.0.0-beta1
     * [Changelog](3.0.0-beta1/CHANGELOG.3.0.0-beta1.html)
     * [Release Notes](3.0.0-beta1/RELEASENOTES.3.0.0-beta1.html)
@@ -58,12 +88,18 @@
 * Apache Hadoop v3.0.0-alpha1
     * [Changelog](3.0.0-alpha1/CHANGELOG.3.0.0-alpha1.html)
     * [Release Notes](3.0.0-alpha1/RELEASENOTES.3.0.0-alpha1.html)
-* Apache Hadoop v3.0.0
-    * [Changelog](3.0.0/CHANGELOG.3.0.0.html)
-    * [Release Notes](3.0.0/RELEASENOTES.3.0.0.html)
+* Apache Hadoop v2.10.2
+    * [Changelog](2.10.2/CHANGELOG.2.10.2.html)
+    * [Release Notes](2.10.2/RELEASENOTES.2.10.2.html)
+* Apache Hadoop v2.10.1
+    * [Changelog](2.10.1/CHANGELOG.2.10.1.html)
+    * [Release Notes](2.10.1/RELEASENOTES.2.10.1.html)
 * Apache Hadoop v2.10.0
     * [Changelog](2.10.0/CHANGELOG.2.10.0.html)
     * [Release Notes](2.10.0/RELEASENOTES.2.10.0.html)
+* Apache Hadoop v2.9.3
+    * [Changelog](2.9.3/CHANGELOG.2.9.3.html)
+    * [Release Notes](2.9.3/RELEASENOTES.2.9.3.html)
 * Apache Hadoop v2.9.2
     * [Changelog](2.9.2/CHANGELOG.2.9.2.html)
     * [Release Notes](2.9.2/RELEASENOTES.2.9.2.html)
@@ -283,9 +319,6 @@
 * Apache Hadoop v0.21.0
     * [Changelog](0.21.0/CHANGELOG.0.21.0.html)
     * [Release Notes](0.21.0/RELEASENOTES.0.21.0.html)
-* Apache Hadoop v0.20-append
-    * [Changelog](0.20-append/CHANGELOG.0.20-append.html)
-    * [Release Notes](0.20-append/RELEASENOTES.0.20-append.html)
 * Apache Hadoop v0.20.205.0
     * [Changelog](0.20.205.0/CHANGELOG.0.20.205.0.html)
     * [Release Notes](0.20.205.0/RELEASENOTES.0.20.205.0.html)
@@ -478,3 +511,6 @@
 * Apache Hadoop v0.1.0
     * [Changelog](0.1.0/CHANGELOG.0.1.0.html)
     * [Release Notes](0.1.0/RELEASENOTES.0.1.0.html)
+* Apache Hadoop v0.20-append
+    * [Changelog](0.20-append/CHANGELOG.0.20-append.html)
+    * [Release Notes](0.20-append/RELEASENOTES.0.20-append.html)

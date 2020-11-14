@@ -46,7 +46,7 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2744](https://issues.apache.org/jira/browse/ZOOKEEPER-2744) | Typos in the comments of ZooKeeper class |  Trivial | . | Ethan Li | Abraham Fine |
 | [ZOOKEEPER-2638](https://issues.apache.org/jira/browse/ZOOKEEPER-2638) | ZooKeeper should log which serverCnxnFactory is used during startup |  Major | . | Abraham Fine | Abraham Fine |
-| [ZOOKEEPER-2662](https://issues.apache.org/jira/browse/ZOOKEEPER-2662) | Export a metric for txn log sync times |  Major | . | Andrew Purtell | Edward Ribeiro |
+| [ZOOKEEPER-2662](https://issues.apache.org/jira/browse/ZOOKEEPER-2662) | Export a metric for txn log sync times |  Major | . | Andrew Kyle Purtell | Edward Ribeiro |
 | [ZOOKEEPER-2697](https://issues.apache.org/jira/browse/ZOOKEEPER-2697) | Handle graceful stop of ZookKeeper client |  Critical | java client | Enrico Olivelli | Enrico Olivelli |
 | [ZOOKEEPER-2767](https://issues.apache.org/jira/browse/ZOOKEEPER-2767) | Correct the exception messages in X509Util if truststore location or password is not configured |  Trivial | java client, server | Abhishek Kumar | Abhishek Kumar |
 | [ZOOKEEPER-2788](https://issues.apache.org/jira/browse/ZOOKEEPER-2788) | The define of MAX\_CONNECTION\_ATTEMPTS in QuorumCnxManager.java seems useless, should it be removed? |  Minor | leaderElection, quorum | Jiafu Jiang | Abraham Fine |
@@ -68,7 +68,7 @@
 | [ZOOKEEPER-2824](https://issues.apache.org/jira/browse/ZOOKEEPER-2824) | \`FileChannel#size\` info should be added to \`FileTxnLog#commit\` to solve the confuse that reason is too large log or too busy disk I/O |  Minor | server | Benedict Jin | Benedict Jin |
 | [ZOOKEEPER-2999](https://issues.apache.org/jira/browse/ZOOKEEPER-2999) | CMake build should use target-level commands |  Minor | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
 | [ZOOKEEPER-3012](https://issues.apache.org/jira/browse/ZOOKEEPER-3012) | Fix unit test: testDataDirAndDataLogDir should not use hardcode test folders |  Major | server, tests | Andor Molnar | Andor Molnar |
-| [ZOOKEEPER-2971](https://issues.apache.org/jira/browse/ZOOKEEPER-2971) | Create release notes for 3.5.4 |  Blocker | documentation | Jordan Zimmerman | Patrick Hunt |
+| [ZOOKEEPER-2971](https://issues.apache.org/jira/browse/ZOOKEEPER-2971) | Create release notes for 3.5.4 |  Blocker | documentation | Jordan Zimmerman | Patrick D. Hunt |
 
 
 ### BUG FIXES:
@@ -82,7 +82,7 @@
 | [ZOOKEEPER-2758](https://issues.apache.org/jira/browse/ZOOKEEPER-2758) | Typo: transasction --\> transaction |  Trivial | . | Jeff Widman | Jeff Widman |
 | [ZOOKEEPER-2316](https://issues.apache.org/jira/browse/ZOOKEEPER-2316) | comment does not match code logic |  Trivial | server | sunhaitao | Umesh Panchaksharaiah |
 | [ZOOKEEPER-2785](https://issues.apache.org/jira/browse/ZOOKEEPER-2785) | Server inappropriately throttles connections under load before SASL completes |  Critical | server | Abhishek Singh Chouhan | Abhishek Singh Chouhan |
-| [ZOOKEEPER-2757](https://issues.apache.org/jira/browse/ZOOKEEPER-2757) | Incorrect path crashes zkCli |  Minor | . | Flavio Junqueira | Abraham Fine |
+| [ZOOKEEPER-2757](https://issues.apache.org/jira/browse/ZOOKEEPER-2757) | Incorrect path crashes zkCli |  Minor | . | Flavio Paiva Junqueira | Abraham Fine |
 | [ZOOKEEPER-2797](https://issues.apache.org/jira/browse/ZOOKEEPER-2797) | Invalid TTL from misbehaving client nukes zookeeper |  Major | security, server | Patrick White | Patrick White |
 | [ZOOKEEPER-2798](https://issues.apache.org/jira/browse/ZOOKEEPER-2798) | Fix flaky test: org.apache.zookeeper.test.ReadOnlyModeTest.testConnectionEvents |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2775](https://issues.apache.org/jira/browse/ZOOKEEPER-2775) | ZK Client not able to connect with Xid out of order error |  Critical | java client | Bhupendra Kumar Jain | Mohammad Arshad |
@@ -104,8 +104,8 @@
 | [ZOOKEEPER-2777](https://issues.apache.org/jira/browse/ZOOKEEPER-2777) | There is a typo in zk.py which prevents from using/compiling it. |  Major | contrib | Frederic Leger | Nikhil Bhide |
 | [ZOOKEEPER-2905](https://issues.apache.org/jira/browse/ZOOKEEPER-2905) | Don't include \`config.h\` in \`zookeeper.h\` |  Major | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
 | [ZOOKEEPER-2906](https://issues.apache.org/jira/browse/ZOOKEEPER-2906) | The OWASP dependency check jar should not be included in the default classpath |  Major | . | Abraham Fine | Abraham Fine |
-| [ZOOKEEPER-2908](https://issues.apache.org/jira/browse/ZOOKEEPER-2908) | quorum.auth.MiniKdcTest.testKerberosLogin failing with NPE on java 9 |  Blocker | security, tests | Patrick Hunt | Mark Fenes |
-| [ZOOKEEPER-2914](https://issues.apache.org/jira/browse/ZOOKEEPER-2914) | compiler warning using java 9 |  Minor | build | Patrick Hunt | Andor Molnar |
+| [ZOOKEEPER-2908](https://issues.apache.org/jira/browse/ZOOKEEPER-2908) | quorum.auth.MiniKdcTest.testKerberosLogin failing with NPE on java 9 |  Blocker | security, tests | Patrick D. Hunt | Mark Fenes |
+| [ZOOKEEPER-2914](https://issues.apache.org/jira/browse/ZOOKEEPER-2914) | compiler warning using java 9 |  Minor | build | Patrick D. Hunt | Andor Molnar |
 | [ZOOKEEPER-2909](https://issues.apache.org/jira/browse/ZOOKEEPER-2909) | Create ant task to generate ivy dependency reports |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2690](https://issues.apache.org/jira/browse/ZOOKEEPER-2690) | Update documentation source for ZOOKEEPER-2574 |  Minor | documentation | Michael Han | Mark Fenes |
 | [ZOOKEEPER-2923](https://issues.apache.org/jira/browse/ZOOKEEPER-2923) | The comment of the variable matchSyncs in class CommitProcessor has a mistake. |  Minor | quorum | Jiafu Jiang | Jiafu Jiang |
@@ -121,27 +121,28 @@
 | [ZOOKEEPER-2249](https://issues.apache.org/jira/browse/ZOOKEEPER-2249) | CRC check failed when preAllocSize smaller than node data |  Major | . | Benjamin Jaton | Abraham Fine |
 | [ZOOKEEPER-2961](https://issues.apache.org/jira/browse/ZOOKEEPER-2961) | Fix testElectionFraud Flakyness |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-2964](https://issues.apache.org/jira/browse/ZOOKEEPER-2964) | "Conf" command returns dataDir and dataLogDir opposingly |  Minor | server | Qihong Xu |  |
-| [ZOOKEEPER-1580](https://issues.apache.org/jira/browse/ZOOKEEPER-1580) | QuorumPeer.setRunning is not used |  Minor | . | Flavio Junqueira | maoling |
+| [ZOOKEEPER-1580](https://issues.apache.org/jira/browse/ZOOKEEPER-1580) | QuorumPeer.setRunning is not used |  Minor | . | Flavio Paiva Junqueira | maoling |
 | [ZOOKEEPER-2949](https://issues.apache.org/jira/browse/ZOOKEEPER-2949) | SSL ServerName not set when using hostname, some proxies may failed to proxy the request. |  Major | java client | Feng Shaobao |  |
 | [ZOOKEEPER-2978](https://issues.apache.org/jira/browse/ZOOKEEPER-2978) | fix potential null pointer exception when deleting node |  Trivial | java client | achimbab |  |
 | [ZOOKEEPER-2845](https://issues.apache.org/jira/browse/ZOOKEEPER-2845) | Data inconsistency issue due to retain database in leader election |  Critical | quorum | Fangmin Lv | Robert Joseph Evans |
 | [ZOOKEEPER-2936](https://issues.apache.org/jira/browse/ZOOKEEPER-2936) | Duplicate Keys in log4j.properties config files |  Trivial | contrib, other | Hari Sekhon |  |
 | [ZOOKEEPER-2992](https://issues.apache.org/jira/browse/ZOOKEEPER-2992) | The eclipse build target fails due to protocol redirection: http-\>https |  Major | build | Shawn Heisey | Shawn Heisey |
-| [ZOOKEEPER-3001](https://issues.apache.org/jira/browse/ZOOKEEPER-3001) | Incorrect log message when try to delete container node |  Trivial | server | Sel-fish Finch | Sel-fish Finch |
+| [ZOOKEEPER-3001](https://issues.apache.org/jira/browse/ZOOKEEPER-3001) | Incorrect log message when try to delete container node |  Trivial | server | selfish finch | selfish finch |
 | [ZOOKEEPER-2997](https://issues.apache.org/jira/browse/ZOOKEEPER-2997) | CMake should not force static CRT linking |  Major | . | Andrew Schwartzmeyer | Andrew Schwartzmeyer |
 | [ZOOKEEPER-2806](https://issues.apache.org/jira/browse/ZOOKEEPER-2806) | Flaky test: org.apache.zookeeper.server.quorum.FLEBackwardElectionRoundTest.testBackwardElectionRound |  Major | . | Abraham Fine | Abraham Fine |
 | [ZOOKEEPER-3006](https://issues.apache.org/jira/browse/ZOOKEEPER-3006) | Potential NPE in ZKDatabase#calculateTxnLogSizeLimit |  Major | . | lujie | Edward Ribeiro |
-| [ZOOKEEPER-3025](https://issues.apache.org/jira/browse/ZOOKEEPER-3025) | cmake windows build is broken on jenkins |  Blocker | build | Patrick Hunt | Andrew Schwartzmeyer |
+| [ZOOKEEPER-3025](https://issues.apache.org/jira/browse/ZOOKEEPER-3025) | cmake windows build is broken on jenkins |  Blocker | build | Patrick D. Hunt | Andrew Schwartzmeyer |
 | [ZOOKEEPER-3007](https://issues.apache.org/jira/browse/ZOOKEEPER-3007) | Potential NPE in ReferenceCountedACLCache#deserialize |  Major | . | lujie | lujie |
 | [ZOOKEEPER-3027](https://issues.apache.org/jira/browse/ZOOKEEPER-3027) | Accidently removed public API of FileTxnLog.setPreallocSize() |  Major | server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-2988](https://issues.apache.org/jira/browse/ZOOKEEPER-2988) | NPE triggered if server receives a vote for a server id not in their voting view |  Minor | leaderElection | Brian Nixon | Brian Nixon |
-| [ZOOKEEPER-2982](https://issues.apache.org/jira/browse/ZOOKEEPER-2982) | Re-try DNS hostname -\> IP resolution |  Blocker | server | Eron Wright | Flavio Junqueira |
+| [ZOOKEEPER-2982](https://issues.apache.org/jira/browse/ZOOKEEPER-2982) | Re-try DNS hostname -\> IP resolution |  Blocker | server | Eron Wright | Flavio Paiva Junqueira |
 | [ZOOKEEPER-2901](https://issues.apache.org/jira/browse/ZOOKEEPER-2901) | Session ID that is negative causes mis-calculation of Ephemeral Type |  Blocker | server | Mark Johnson | Jordan Zimmerman |
 | [ZOOKEEPER-2959](https://issues.apache.org/jira/browse/ZOOKEEPER-2959) | ignore accepted epoch and LEADERINFO ack from observers when a newly elected leader computes new epoch |  Blocker | . | xiangyq000 | Bogdan Kanivets |
 | [ZOOKEEPER-3038](https://issues.apache.org/jira/browse/ZOOKEEPER-3038) | Cleanup some nitpicks in TTL implementation |  Major | server | Andor Molnar | Andor Molnar |
-| [ZOOKEEPER-1807](https://issues.apache.org/jira/browse/ZOOKEEPER-1807) | Observers spam each other creating connections to the election addr |  Blocker | . | Raul Gutierrez Segales | Alexander Shraer |
+| [ZOOKEEPER-1807](https://issues.apache.org/jira/browse/ZOOKEEPER-1807) | Observers spam each other creating connections to the election addr |  Blocker | . | Raúl Gutiérrez Segalés | Alexander Shraer |
 | [ZOOKEEPER-3039](https://issues.apache.org/jira/browse/ZOOKEEPER-3039) | TxnLogToolkit uses Scanner badly |  Major | . | Andor Molnar | Andor Molnar |
-| [ZOOKEEPER-3072](https://issues.apache.org/jira/browse/ZOOKEEPER-3072) | Race condition in throttling |  Major | server | Botond Hejj |  |
+| [ZOOKEEPER-3072](https://issues.apache.org/jira/browse/ZOOKEEPER-3072) | Race condition in throttling |  Major | server | Botond Hejj | Botond Hejj |
+| [ZOOKEEPER-2325](https://issues.apache.org/jira/browse/ZOOKEEPER-2325) | Data inconsistency if all snapshots empty or missing |  Critical | server | Andrew Grasso | Andrew Grasso |
 
 
 ### TESTS:
@@ -152,7 +153,7 @@
 | [ZOOKEEPER-2742](https://issues.apache.org/jira/browse/ZOOKEEPER-2742) | Few test cases of org.apache.zookeeper.ZooKeeperTest fails in Windows |  Trivial | tests | Abhishek Kumar | Abhishek Kumar |
 | [ZOOKEEPER-2796](https://issues.apache.org/jira/browse/ZOOKEEPER-2796) | Test org.apache.zookeeper.ZooKeeperTest.testCreateNodeWithoutData is broken by ZOOKEEPER-2757 |  Minor | tests | Michael Han | Michael Han |
 | [ZOOKEEPER-2577](https://issues.apache.org/jira/browse/ZOOKEEPER-2577) | Flaky Test: org.apache.zookeeper.server.quorum.ReconfigDuringLeaderSyncTest.testDuringLeaderSync |  Major | tests | Michael Han | Michael Han |
-| [ZOOKEEPER-2415](https://issues.apache.org/jira/browse/ZOOKEEPER-2415) | SessionTest is using Thread deprecated API. |  Major | tests | Flavio Junqueira | Andor Molnar |
+| [ZOOKEEPER-2415](https://issues.apache.org/jira/browse/ZOOKEEPER-2415) | SessionTest is using Thread deprecated API. |  Major | tests | Flavio Paiva Junqueira | Andor Molnar |
 
 
 ### SUB-TASKS:
@@ -160,7 +161,7 @@
 | JIRA | Summary | Priority | Component | Reporter | Contributor |
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2754](https://issues.apache.org/jira/browse/ZOOKEEPER-2754) | Set up Apache Jenkins job that runs the flaky test analyzer script. |  Major | tests | Michael Han | Michael Han |
-| [ZOOKEEPER-2792](https://issues.apache.org/jira/browse/ZOOKEEPER-2792) | [QP MutualAuth]: Port ZOOKEEPER-1045 implementation from branch-3.4 to branch-3.5 |  Major | quorum, security | Rakesh R | Michael Han |
+| [ZOOKEEPER-2792](https://issues.apache.org/jira/browse/ZOOKEEPER-2792) | [QP MutualAuth]: Port ZOOKEEPER-1045 implementation from branch-3.4 to branch-3.5 |  Major | quorum, security | Rakesh Radhakrishnan | Michael Han |
 | [ZOOKEEPER-2939](https://issues.apache.org/jira/browse/ZOOKEEPER-2939) | Deal with maxbuffer as it relates to proposals |  Major | jute, server | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-2981](https://issues.apache.org/jira/browse/ZOOKEEPER-2981) | Fix build on branch-3.5 for ZOOKEEPER-2939 |  Major | build | Andor Molnar | Andor Molnar |
 | [ZOOKEEPER-2903](https://issues.apache.org/jira/browse/ZOOKEEPER-2903) | Port ZOOKEEPER-2901 to 3.5.4 |  Blocker | server | Jordan Zimmerman | Jordan Zimmerman |
@@ -172,6 +173,6 @@
 |:---- |:---- | :--- |:---- |:---- |:---- |
 | [ZOOKEEPER-2795](https://issues.apache.org/jira/browse/ZOOKEEPER-2795) | Change log level for "ZKShutdownHandler is not registered" error message |  Trivial | . | Andy Chambers | Abraham Fine |
 | [ZOOKEEPER-3017](https://issues.apache.org/jira/browse/ZOOKEEPER-3017) | Link libm in CMake on FreeBSD |  Minor | . | David Forsythe | David Forsythe |
-| [ZOOKEEPER-3002](https://issues.apache.org/jira/browse/ZOOKEEPER-3002) | Upgrade branches 3.5 and trunk to Java 1.8 |  Major | java client, server | Andor Molnar | Norbert Kalmar |
+| [ZOOKEEPER-3002](https://issues.apache.org/jira/browse/ZOOKEEPER-3002) | Upgrade branches 3.5 and trunk to Java 1.8 |  Major | java client, server | Andor Molnar | Norbert Kalmár |
 
 
